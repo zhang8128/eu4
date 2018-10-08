@@ -1,0 +1,252 @@
+#Country Name: Please see filename.
+
+graphical_culture = muslimgfx
+
+color = { 50  105  70 }
+
+historical_idea_groups = {
+ offensive_ideas
+ intimidatory_ideas
+ religious_ideas
+ quality_ideas
+ mercantilist_ideas
+ expansion_ideas
+ standing_army_ideas
+ delegative_ideas
+}
+
+historical_units = { 
+	muslim_artillery_10_1
+	muslim_artillery_16_1
+	muslim_artillery_23_1
+	muslim_artillery_29_1
+	muslim_artillery_35_1
+	muslim_artillery_40_1
+	muslim_artillery_44_1
+	muslim_artillery_48_1
+	muslim_artillery_52_1
+	muslim_artillery_55_1
+	muslim_artillery_55_2
+	muslim_cavalry_0_1
+	muslim_cavalry_0_2
+	muslim_cavalry_21_1
+	muslim_cavalry_21_2
+	muslim_cavalry_27_1
+	muslim_cavalry_31_1
+	muslim_cavalry_36_1
+	muslim_cavalry_40_1
+	muslim_cavalry_44_1
+	muslim_cavalry_48_1
+	muslim_cavalry_48_2
+	muslim_cavalry_51_1
+	muslim_cavalry_51_2
+	muslim_cavalry_55_1
+	muslim_cavalry_55_2
+	muslim_cavalry_58_1
+	muslim_cavalry_58_2
+	muslim_cavalry_16_1
+	muslim_cavalry_16_2
+	muslim_infantry_0_1
+	muslim_infantry_0_2
+	muslim_infantry_17_1
+	muslim_infantry_17_2
+	muslim_infantry_21_1
+	muslim_infantry_21_2
+	muslim_infantry_25_1
+	muslim_infantry_25_2
+	muslim_infantry_28_1
+	muslim_infantry_28_2
+	muslim_infantry_31_1
+	muslim_infantry_31_2
+	muslim_infantry_34_1
+	muslim_infantry_34_2
+	muslim_infantry_39_1
+	muslim_infantry_39_2
+	muslim_infantry_42_1
+	muslim_infantry_42_2
+	muslim_infantry_45_1
+	muslim_infantry_45_2
+	muslim_infantry_48_1
+	muslim_infantry_48_2
+	muslim_infantry_50_1
+	muslim_infantry_50_2
+	muslim_infantry_53_1
+	muslim_infantry_53_2
+	muslim_infantry_55_1
+	muslim_infantry_55_2
+	muslim_infantry_6_1
+	muslim_infantry_6_2
+	muslim_infantry_57_1
+	muslim_infantry_57_2
+	muslim_infantry_59_1
+	muslim_infantry_59_2
+	muslim_infantry_63_1
+	muslim_infantry_63_2
+	muslim_infantry_14_1
+	muslim_infantry_14_2
+}
+
+monarch_names = {
+    "Ahmad #0" = 40
+    "Muhammad #1" = 40
+    "Qânsawh #0" = 40
+    "Tûmân Bay #0" = 40
+    "Barakât #0" = 30
+    "Mas'ud #0" = 30
+    "'Abd al-'Aziz #0" = 20
+    "'Abd al-Ilah #0" = 20
+    "'Abdullah #0" = 20
+    "al-Musta'in #0" = 20
+    "al-Nasr Faraj #0" = 20
+    "Barsbay #0" = 20
+    "Inâl #0" = 20
+    "Jânbulât #0" = 20
+    "Jaqmaq #0" = 20
+    "Khusqadam #1" = 20
+    "Qâyit Bay #0" = 20
+    "Sa'id #0" = 20
+    "Shaik al-Mahmudi #0" = 20
+    "Timurbughâ #0" = 20
+    "'Uthman #0" = 20
+    "Yalbay #0" = 20
+    "Yûsuf #0" = 20
+    "Barqûq #1" = 15
+    "Abd al Aziz #0" = 10
+    "'Abd Allah #0" = 10
+    "Abd Al-Rahman #0" = 10
+    "'Abd al-Wahhâb #0" = 10
+    "Abdallah #0" = 10
+    "'Abdallah #0" = 10
+    "'Abdul-Karim #0" = 10
+    "Abdullah #0" = 10
+    "Abu Aun Idris #0" = 10
+    "Abû Bakr #1" = 10
+    "Abu Talib #0" = 10
+    "'Abul Muhsin #0" = 10
+    "al-'Abbâs #0" = 10
+    "al-Hasan #1" = 10
+    "al-Husayn #0" = 10
+    "'Alî #0" = 10
+    "'Ali #2" = 10
+    "al-Mutahhar #3" = 10
+    "al-Qâsim #0" = 10
+    "Baybars #2" = 10
+    "Djafar #0" = 10
+    "Fahd #0" = 10
+    "Faisal #0" = 10
+    "Hâjjî #2" = 10
+    "Hassan #1" = 10
+    "Hazza #0" = 10
+    "Humaida #1" = 10
+    "Ibrahim #0" = 10
+    "Idris #0" = 10
+    "Isma'il #0" = 10
+    "Isma'îl #1" = 10
+    "Khalid #0" = 10
+    "Kûjûk #1" = 10
+    "Mani #0" = 10
+    "Markhan #0" = 10
+    "Masa'id #0" = 10
+    "Mubarak #0" = 10
+    "Muhammad #0" = 10
+    "Musa #0" = 10
+    "Mushin #0" = 10
+    "Nami #0" = 10
+    "Nasir #0" = 10
+    "Qa'it #0" = 10
+    "Rabi'a #0" = 10
+    "Sa'ad #0" = 10
+    "Saladin Ahmad #0" = 10
+    "Salâh ad-Din 'Amir #0" = 10
+    "Sâlih #1" = 10
+    "Sa'ud #0" = 10
+    "Sha'bân #2" = 10
+    "Takaba #0" = 10
+    "Turki #0" = 10
+    "'Umar #0" = 10
+    "Watban #0" = 10
+    "Yahya #0" = 10
+    "Yusuf #1" = 10
+    "Zaid #0" = 10
+    "Zayid #0" = 10
+    "'Abd al-Malik #0" = 0
+    "Basir #0" = 0
+    "Fadl #0" = 0
+    "Ghayth #0" = 0
+    "Hatim #0" = 0
+    "Ilyas #0" = 0
+    "Jabir #0" = 0
+    "Nadim #0" = 0
+    "Nizar #0" = 0
+    "Qasim #0" = 0
+    "Sa'di #0" = 0
+    "Sayyid #0" = 0
+    "Yunus #0" = 0
+    "Asma #0" = -1
+    "Hiba #0" = -1
+    "Nadiyya #0" = -1
+    "Rajya #0" = -1
+    "Shahira #0" = -1
+    "Yusra #0" = -1
+}
+
+leader_names = {
+    Al Sabah
+    Al Farran
+    Al Nubi
+    Akil
+    Surur
+    Atef
+    Madani
+    Al Jaber
+    Billah
+    Kanasani
+    Bazzi
+    Abbas
+    Moustafa
+    Moussa
+    Jomaa
+    Issa
+    Nasser
+    Sakr
+    Mourad
+    Khoury
+    Youssef
+    Taleb
+    Ibrahim
+    Khalil
+    Saleh
+    Farhat
+    Chammas
+    Mansour
+    Hammoud
+}
+
+ship_names = {
+	"Zaher Barqooq" "Farag Ben Barqooq"
+	"Ben Barqooq" "Muyaid Sheikh" "Ahmen Muyaid"
+	"Zaher Tatar" "Nasser Muhamed" "Ashraf Barsbay"
+	"Aziz Gamal" "Nahr an-Nil" "Al-Farafirah"
+	"Ad-Däkhilah" "Al-Kharijah" "Al-Ali" "Al-Bahriyah"
+	Rahman Rahim Malik Quddus Salam Mu'min Muhaymin
+	Aziz Jabbar Mutakabbir Khaliq Bari Musawwir
+	Ghaffar Qahhar Wahhab Razzaq Fattah Alim Qabid
+	Basit Khafid Rafi Mu'izz Mudhill Sami Basir Hakam Adl
+	Masqat Matrah "Al-Hajar" "Ash-Sharqi" Sür
+	"Ra's Al-Hadd" Masirah "Al-Akhdar" "Al-Jabal"
+	"Al-Batinah" Nizwä "Al-Gharbi" "Wadi Aswad"
+	"Wadi Andam" "Wadi al-Bahta" "Ra's Abu Daud"
+	"Jabal ash-Shäm" "Ramlat al Wahibah" "Al-Hadd"
+	Tiwi Fins Ibrä Quraqqät "As-Sib" Sarür Maskin
+	Shinas Suhar "Al-Khaburah" Tan'am Dank
+	"Umm As-Samim" "Tur at Masirah" "Al-Huqf"
+	"Al-Armah" "Ad-Dahna" "Jabal Tuwayo"
+	"Nafüd Qunayfidahah" "Nafüd Shuqayyiqah"
+	"Al-Bayad" "Nafüd Ad-Dahy" "Nafüd As-Sirrah"
+	"Ar-Riyad" "Ad-Dilam" Shaqra
+	Hijaz Jeddah Mecca Medina "Jabal Baydan"
+	"Jabal Sawda" "Jabal Abu Hasan" "Jabal al-Jurayrah"
+	"Harrat Al-Kishb" "Harrat Rahat" "Harrat Nawasif"
+	"Harrat Hadan" "Harrat Al-Buqum" "Harrat Khaybar"
+	"Harrat Kurama" "Harrat al-Unayyir"
+}

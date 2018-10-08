@@ -1,0 +1,12 @@
+government = monarchy add_government_reform = iqta
+government_rank = 4
+primary_culture = andalucian
+religion = sunni
+add_accepted_culture = zenata
+add_accepted_culture = tuareg
+add_accepted_culture = sanhaja
+technology_group = muslim
+unit_type = western
+capital = 92 # Cordoba
+
+# Formable nation only

@@ -1,0 +1,4 @@
+# Eastern Arabian Sea
+#Province IDs changed
+discovered_by = indopersian
+1488.1.1 = { discovered_by = POR }

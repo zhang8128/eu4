@@ -1,0 +1,27 @@
+# Minangkabau
+
+capital = "Minangkabau"
+owner = PSA
+controller = PSA
+add_core = PSA
+culture = sumatran
+religion = hinduism
+trade_goods = ebony
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = MKS
+discovered_by = MLC
+discovered_by = ATJ
+discovered_by = MAJ
+discovered_by = BEI
+discovered_by = KUT
+discovered_by = BLI
+discovered_by = SUN
+discovered_by = SVJ
+
+1405.1.1	= { discovered_by = MNG }
+1509.1.1	= { discovered_by = POR }
+1521.1.1	= { owner = ATJ controller = ATJ add_core = ATJ remove_core = PSA }

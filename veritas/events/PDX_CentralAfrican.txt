@@ -1,0 +1,368 @@
+########################################
+# Events for Central African nations
+#
+# written by Rufus Tronde and Petter Vilberg
+########################################
+
+namespace = central_african
+normal_or_historical_nations = yes
+
+### Malagasy Events
+
+# Rise of the Maroserana
+# central_african.1 removed
+
+# Transcribe the Ibonia
+# central_african.2 in natives submod
+
+# Soldiers Breaks Fady
+# central_african.3 in natives submod
+
+# Visitor Breaks Fady
+# central_african.4 in natives submod
+
+### Luba Events
+
+# Lukasa (Memory boards)
+# central_african.5 in natives submod
+
+# Expand the Mbudye
+# central_african.6 in natives submod
+
+# Mbudye Clashes with Chief
+# central_african.7 in natives submod
+
+# Mbudye Generational Conflict
+# central_african.8 in natives submod
+
+
+#Antionio Fernandes
+country_event = {
+	id = central_african.9
+	title = central_african.9.t
+	desc = central_african.9.d
+	picture = VEF_PEASANTS_BARTERING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		religion = bantu
+		has_dlc = "Mare Nostrum"
+		east_africa_region = {
+			owned_by = POR
+		}
+		capital_scope = {
+			OR = {
+				area = zimbabwe_area
+				area = maravi_area
+			}
+		}
+	}
+
+
+	option = {
+		name = central_african.9.a
+		reverse_add_opinion = {
+			who = POR
+			modifier = opinion_welcomed_fernandes
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					OR = {
+						trade_goods = gold
+						trade_goods = silver
+					}
+				}
+			}
+			random = {
+				chance = 30
+				random_owned_province = {
+					limit = {
+						NOT = {
+							is_capital = yes
+							OR = {
+								trade_goods = gold
+								trade_goods = silver
+							}
+						}
+					}
+					add_claim = POR
+				}
+			}
+		}
+	}
+
+	option = {
+		name = central_african.9.b
+		reverse_add_opinion = {
+			who = POR
+			modifier = opinion_killed_fernandes
+		}
+	}
+}
+
+#Increased Trade With India
+country_event = {
+	id = central_african.10
+	title = central_african.10.t
+	desc = central_african.10.d
+	picture = VEF_ISLAM_REFORM_eventPicture
+
+	trigger = {
+		capital_scope = {
+			region = east_africa_region
+		}
+		has_dlc = "Mare Nostrum"
+		any_neighbor_country = {
+			capital_scope = {
+				continent = europe
+			}
+			any_owned_province = {
+				region = east_africa_region
+				has_port = yes
+			}
+			west_india_region = {
+				range = PREV
+			}
+		}
+		NOT = {
+			has_country_modifier = increased_african_indian_trade
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			factor = 0.7
+			has_idea_group = free_trade_ideas
+		}
+	}
+
+	option = {
+		name = central_african.10.a
+		add_country_modifier = {
+			name = increased_african_indian_trade
+			duration = 10950
+		}
+	}
+	option = {
+		name = central_african.10.b
+		add_years_of_income = 0.5
+	}
+}
+
+#Descended from the same breast
+country_event = {
+	id = central_african.11
+	title = central_african.11.t
+	desc = central_african.11.d
+	picture = VEF_AFRICAN_KING_MEDIATING_eventPicture
+
+	trigger = {
+		primary_culture = chewa
+		has_dlc = "Mare Nostrum"
+		NOT = {
+			stability = 2
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 800
+	}
+
+	option = {
+		name = central_african.11.a
+		add_stability_or_adm_power = yes
+	}
+}
+
+
+#MARAVI
+#The Land of Flames
+country_event = {
+	id = central_african.12
+	title = central_african.12.t
+	desc = central_african.12.d
+	picture = VEF_ANSHANTI_FIREARMS_eventPicture
+
+	trigger = {
+		tag = MRV
+		has_dlc = "Mare Nostrum"
+		is_at_war = yes
+		NOT = {
+			has_country_modifier = maravi_land_of_flames
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = central_african.12.a
+		add_mil_power = 50
+		add_country_modifier = {
+			name = maravi_land_of_flames
+			duration = 365
+		}
+	}
+}
+
+#The Chewa
+country_event = {
+	id = central_african.13
+	title = central_african.13.t
+	desc = central_african.13.d
+	picture = VEF_ANIMIST_RELIGIOUS_CEREMONY_eventPicture
+
+	trigger = {
+		primary_culture = chewa
+		has_dlc = "Mare Nostrum"
+		NOT = {
+			has_country_modifier = the_chewa
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 800
+	}
+
+	option = {
+		name = central_african.13.a
+		add_country_modifier = {
+			name = the_chewa
+			duration = 7300
+		}
+	}
+}
+
+#Nyau Secret Societies
+country_event = {
+	id = central_african.14
+	title = central_african.14.t
+	desc = central_african.14.d
+	picture = VEF_ANIMIST_RELIGIOUS_CEREMONY_eventPicture
+
+	trigger = {
+		primary_culture = chewa
+		has_dlc = "Mare Nostrum"
+		religion = bantu
+		NOT = {
+			has_country_modifier = secret_society_timer
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 800
+		modifier = {
+			factor = 0.8
+			has_country_modifier = the_chewa
+		}
+	}
+
+	option = {
+		name = central_african.14.a
+		ai_chance = {
+			factor = 100
+		}
+		add_adm_power = 35
+		every_owned_province = {
+			limit = {
+				religion = bantu
+				culture = chewa
+			} 
+			add_province_modifier = {
+				name = nyau_secret_society
+				duration = 3650
+			}
+		}
+		hidden_effect = {
+			add_country_modifier = {
+				name = secret_society_timer
+				duration = 3650
+				hidden = yes
+			}
+		}
+	}
+
+	option = {
+		name = central_african.14.b
+		ai_chance = {
+			factor = 0
+		}
+		add_stability = -1
+	}
+}
+
+
+#Memory of the King
+country_event = {
+	id = central_african.15
+	title = central_african.15.t
+	desc = central_african.15.d
+	picture = VEF_ANIMIST_RELIGIOUS_CEREMONY_eventPicture
+
+	trigger = {
+		primary_culture = chewa
+		has_dlc = "Mare Nostrum"
+		religion = bantu
+		NOT = {
+			has_ruler_modifier = chose_rememberance
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 400
+	}
+	
+	immediate = {
+		hidden_effect = {
+			add_ruler_modifier = {
+				name = chose_rememberance
+				hidden = yes
+			}
+		}
+	}
+
+	option = {
+		#Njobvu, the elephant
+		name = central_african.15.a
+		add_prestige = 15
+		add_legitimacy = 10
+	}
+	option = {
+		#Ndondo, the snake
+		name = central_african.15.b
+		add_dip_power = 50
+	}
+	option = {
+		#Kasiyamaliro, the Antelope
+		name = central_african.15.c
+		add_national_stability_or_adm_power = yes
+	}
+	option = {
+		#Mkango, The Lion
+		name = central_african.15.e
+		add_mil_power = 25
+	}
+}
+
+
+#Cambarantama
+# central_african.16 in natives submod
+
+#The Batembuzi of Kitara
+# central_african.17 in natives submod
+
+#Exceptional Katikkiri
+# central_african.18 in natives submod
+
+#Kateregga Seizes the Throne
+# central_african.19 in natives submod
+
+#Kateregga's Children
+# central_african.20 in natives submod
+
+#Kateregga dies
+# central_african.21 in natives submod

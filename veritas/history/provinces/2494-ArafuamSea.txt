@@ -1,0 +1,5 @@
+# Arafuam Sea
+#Province IDs changed
+discovered_by = chinese
+discovered_by = pacific_islander
+1511.1.1 = { discovered_by = POR }

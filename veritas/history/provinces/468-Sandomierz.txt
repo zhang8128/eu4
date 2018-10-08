@@ -1,0 +1,44 @@
+# Sandomierz
+
+capital = "Sandomierz"
+owner = POL
+controller = POL
+add_core = POL
+culture = polish
+religion = catholic
+trade_goods = iron
+base_tax = 5
+base_production = 5
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1347.1.1   = { base_manpower = 4 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1500.1.1   = { citysize = 7188 }
+1550.1.1   = { citysize = 8457 religion = reformed }
+1569.7.1   = {	owner = PLC controller = PLC remove_core = POL add_core = PLC } # Union of Lublin
+1588.1.1   = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Civil war
+1589.1.1   = { revolt = {} controller = PLC } # Coronation of Sigismund III
+1600.1.1   = { citysize = 9396 }
+1606.1.1   = { revolt = { type = revolutionary_rebels size = 2 } controller = REB } # Civil war
+1608.1.1   = { revolt = {} controller = PLC } # Minor victory of Sigismund
+1650.1.1   = { citysize = 11054 }
+1655.1.1   = { controller = SWE } # The Deluge
+1660.1.1   = { controller = PLC }
+1700.1.1   = { citysize = 13005 }
+# The war of Polish succession
+1733.1.1   = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } 
+1735.1.1   = { revolt = {} controller = PLC }
+1750.1.1   = { citysize = 15300 }
+1795.10.24 = { owner = HAB controller = HAB add_core = HAB }
+1800.1.1   = { citysize = 18000 }
+# The Duchy of Warsaw is established after the treaty of Tilsit, ruled by Frederick Augustus I of Saxony
+1807.7.9   = {	owner = POL controller = POL remove_core = HAB } 
+1812.12.12 = { controller = RUS }
+1814.4.11  = {	owner = RUS add_core = RUS } # Congress Poland, under Russian control

@@ -1,0 +1,10 @@
+#Ming Junk
+#model = caravel
+#tech_level = 12
+type = transport
+unit_type = chinese
+
+hull_size = 10
+base_cannons = 10
+sail_speed = 10
+sailors = 150

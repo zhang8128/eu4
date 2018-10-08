@@ -1,0 +1,202 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+technology_group = western
+religion = catholic
+primary_culture = picard
+capital = 197	# Mons
+
+
+1304.1.1 = {
+	monarch = {
+		name = "Guillaume I"
+		dynasty = "d'Avesnes"
+		birth_date = 1286.1.1
+		adm = 4
+		dip = 5
+		mil = 3
+	}
+}
+
+1305.5.19 = {
+	queen = {
+		country_of_origin = FRA
+		name = "Jeanne"
+		dynasty = "de Valois"
+		birth_date = 1294.1.1
+		death_date = 1342.3.7
+		female = yes
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+}
+
+1307.1.1 = {
+	heir = {
+		name = "Guillaume"
+		monarch_name = "Guillaume II"
+		dynasty = "d'Avesnes"
+		birth_date = 1307.1.1
+		death_date = 1345.9.26
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1337.6.7 = {
+	monarch = {
+		name = "Guillaume II"
+		dynasty = "d'Avesnes"
+		birth_date = 1307.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+	queen = {
+		country_of_origin = BRB
+		name = "Jeanne"
+		dynasty = "de Reginar"
+		birth_date = 1322.6.24
+		death_date = 1406.11.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Margaret"
+		monarch_name = "Margaret II"
+		dynasty = "d'Avesnes"
+		birth_date = 1311.1.1
+		death_date = 1356.6.23
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1345.9.26 = {
+	monarch = {
+		name = "Margaret II"
+		dynasty = "d'Avesnes"
+		birth_date = 1311.1.1
+		female = yes
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1356.6.23 = {
+	monarch = {
+		name = "Guillaume III"
+		dynasty = "von Wittelsbach"
+		birth_date = 1330.5.12
+		adm = 3
+		dip = 2
+		mil = 4
+	}
+}
+
+# Although William is nominally Count, Albert administers the territories from 1358 due
+# to William's instability.  Formally inherits from William in 1388.
+1358.1.1 = {
+	monarch = {
+		name = "Albert"
+		dynasty = "von Wittelsbach"
+		birth_date = 1336.7.25
+		adm = 4
+		dip = 3
+		mil = 1
+	}
+	queen = {
+		country_of_origin = SIL
+		name = "Margaret"
+		dynasty = "Piast"
+		birth_date = 1342.1.1
+		death_date = 1386.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1365.4.5 = {
+	heir = {
+		name = "Guillaume"
+		monarch_name = "Guillaume VI"
+		dynasty = "von Wittelsbach"
+		birth_date = 1365.4.5
+		death_date = 1417.5.31
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1394.1.1 = {
+	queen = {
+		country_of_origin = KLE
+		name = "Margaret"
+		dynasty = "von der Mark"
+		birth_date = 1375.1.1
+		death_date = 1411.5.14
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1404.1.1 = {
+	monarch = {
+		name = "Guillaume VI"
+		dynasty = "von Wittelsbach"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = BUR
+		name = "Margaret"
+		dynasty = "de Bourgogne"
+		birth_date = 1374.10.1
+		death_date = 1441.3.8
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Jacqueline"
+		monarch_name = "Jacqueline"
+		dynasty = "von Wittelsbach"
+		birth_date = 1401.8.16
+		death_date = 1436.10.8
+		female = yes
+		claim = 95
+		adm = 2
+		dip = 1
+		mil = 1
+	}
+}
+
+1417.1.1 = {
+	monarch = {
+		name = "Jacqueline"
+		dynasty = "von Wittelsbach"
+		birth_date = 1401.8.16
+		female = yes
+		adm = 2
+		dip = 1
+		mil = 1
+	}
+}
+
+#1428.7.3 Reconciliation of Delft sees Jacqueline turn over effective control to Burgundy
+#She formally abandons her titles at Easter 1433.

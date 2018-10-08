@@ -1,0 +1,12 @@
+# Bulgarian reconquest of Burgas
+
+name = "First Bulgarian-Byzantine War"
+
+war_goal = {
+	type = take_core
+	casus_belli = cb_core	
+	province = 562 # Burgas	
+}
+
+1303.1.1 = {	add_attacker = BUL	add_defender = BYZ	}
+1307.1.1 = {	rem_attacker = BUL	rem_defender = BYZ	} # Bulgaria Annex Burgas

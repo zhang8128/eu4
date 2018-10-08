@@ -1,0 +1,105 @@
+#Country Name: Please see filename.
+
+graphical_culture = muslimgfx
+
+color = { 144  181  106 }
+
+historical_idea_groups = {
+	quantity_ideas
+	intimidatory_ideas
+	religious_ideas
+	offensive_ideas
+	land_trade_ideas
+	expansion_ideas
+	drafted_army_ideas
+	land_ideas
+}
+
+historical_units = {
+	nomad_artillery_0_1
+	nomad_artillery_20_1
+	nomad_artillery_32_1
+	nomad_artillery_44_1
+	nomad_cavalry_0_1
+	nomad_cavalry_10_1
+	nomad_cavalry_15_1
+	nomad_cavalry_20_1
+	nomad_cavalry_25_1
+	nomad_cavalry_30_1
+	nomad_cavalry_35_1
+	nomad_cavalry_40_1
+	nomad_cavalry_5_1
+	nomad_infantry_0_1
+	nomad_infantry_10_1
+	nomad_infantry_20_1
+	nomad_infantry_28_1
+	nomad_infantry_36_1
+	nomad_infantry_42_1
+}
+
+monarch_names = {
+	"Abbas #0" = 10
+	"Agish #0" = 10
+	"Alchagir #0" = 10
+	"Arslanay #0" = 10
+	"Baki #0" = 10
+	"Baltichak #0" = 10
+	"Batir #1" = 10
+	"Din Ahmad #0" = 10
+	"Din Muhammad #0" = 10
+	"Din Sufi #0" = 10
+	"Dinbay #0" = 10
+	"Divey #0" = 10
+	"Edigu #1" = 10
+	"Ghazi #1" = 10
+	"Haji Ahmad #0" = 10
+	"Haji Muhammad #0" = 10
+	"Hasan #0" = 10
+	"Ishterek #0" = 10
+	"Isiney #0" = 10
+	"Ismail #0" = 10
+	"Jan Qubad #0" = 10
+	"Kanay #0" = 10
+	"Khorezmi #0" = 10
+	"Kuchuk #0" = 10
+	"Mansur #1" = 10
+	"Muhammad #0" = 10
+	"Musa #0" = 10
+	"Qasim #0" = 10
+	"Sayid Ahmad #0" = 10
+	"Shay Tarak #0" = 10
+	"Sheykh Mamay #0" = 10
+	"Timur #0" = 10
+	"Uraz Muhammad #0" = 10
+	"Urus #0" = 10
+	"Vakkas #0" = 10
+	"Yamghurchi #0" = 10
+	"Yash Tarak #0" = 10
+	"Yusuf #0" = 10
+
+	"Aaliyah #0" = -1	
+	"Ikram #0" = -1	
+	"Söyembikä #0" = -10
+	"Aylin #0" = -1
+	"Beyza #0" = -1
+	"Dilara #0" = -1
+	"Ece #0" = -3
+	"Feriha #0" = -1
+	"Kelebek #0" = -1
+	"Kiraz #0" = -1
+	"Mehtap #0" = -1
+	"Nermin #0" = -1
+}
+
+leader_names = { 
+	"Ulagan Temur" "Bora Chinua" "Suren Unegen" "Qara Erdene" 
+	"Delger Cheren" Chaganchar Qorchigene Burilgidai Qadantai 
+	Temurcher Tegus-chi Berkegene Yekechar Batu-tu
+}
+
+ship_names = {
+	"Kara Nojaj" Edigü Saraycik Yayik
+	"Chinggis Khan" "Batu Khan" "Tartar Khan"
+	"Möngke Timur" "Waqqas Bej" Chaka Buri
+	"Qara Quchuq" Mangyt
+}

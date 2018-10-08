@@ -1,0 +1,42 @@
+# Zagreb
+
+capital = "Zagreb"
+owner = CRO
+controller = CRO
+add_core = CRO
+add_core = HUN
+culture = croatian
+religion = catholic
+trade_goods = cloth
+base_tax = 4
+base_production = 4
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1347.1.1   = { base_manpower = 3 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1500.1.1   = { citysize = 4383 }
+1526.8.30  = {	owner = TUR controller = TUR add_core = TUR }
+1550.1.1   = { citysize = 4171 }
+1573.1.20  = { revolt = { type = anti_tax_rebels size = 1 } controller = REB }
+1573.2.9   = { revolt = {} controller = TUR } # Decisively defeated
+1600.1.1   = { citysize = 4933 }
+1650.1.1   = { citysize = 5342 }
+1671.1.1   = { unrest = 5 } # Conspiracy against Habsburg rule uncovered
+1671.5.1   = { unrest = 0 courthouse = yes } # Estimated, the conspirators are executed
+1699.1.1   = {	owner = HAB controller = HAB add_core = HAB remove_core = TUR }
+1700.1.1   = { citysize = 5137 }
+1750.1.1   = { citysize = 6238 }
+1784.1.1   = { unrest = 7 } # Reforms to introduce German as the official language
+1789.1.1   = { unrest = 0 } # Most of the unpopular reforms were cancelled
+1800.1.1   = { citysize = 6500 }
+1805.12.26 = {	owner = RFR controller = RFR add_core = RFR remove_core = HAB } # Treaty of Pressburg
+1813.9.20 = { controller = HAB } # Occupied by Austrian forces
+1814.4.6  = {	owner = HAB add_core = HAB remove_core = RFR } # Napoleon abdicates

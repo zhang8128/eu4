@@ -1,0 +1,32 @@
+# Battambang
+
+capital = "Battambang"
+owner = KHM
+controller = KHM
+add_core = KHM
+culture = khmer
+religion = buddhism
+trade_goods = opium
+base_tax = 3
+base_production = 3
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1434.1.1 = {
+	owner = AYU
+	controller = AYU
+	add_core = AYU
+}
+1535.1.1 = { discovered_by = POR }
+1767.1.1 = {
+	owner = KHM
+	controller = KHM
+}
+1795.1.1 = {
+	owner = AYU
+	controller = AYU
+}
+1811.1.1 = { unrest = 5 } # The Siamese-Cambodian Rebellion
+1812.1.1 = { unrest = 0 }

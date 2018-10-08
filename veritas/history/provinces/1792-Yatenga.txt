@@ -1,0 +1,16 @@
+# Yatenga
+
+capital = "Yatenga"
+owner = MSK
+controller = MSK
+add_core = MSK
+culture = mossi
+religion = akan
+trade_goods = millet
+base_tax = 1
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = sudanese_tech
+discovered_by = sub_saharan

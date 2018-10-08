@@ -1,0 +1,15 @@
+# Igbo-Ukwu
+
+capital = "Ukwu"
+owner = NRI
+controller = NRI
+add_core = NRI
+culture = edo_igbo
+religion = odinani
+trade_goods = palm
+base_tax = 2
+base_production = 2
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = sub_saharan

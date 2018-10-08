@@ -1,0 +1,243 @@
+########################################
+# Events for Milano
+#
+# VeF
+########################################
+
+namespace = flavor_mlo
+normal_or_historical_nations = yes
+
+# The Ambrosian Republic
+country_event = {
+	id = flavor_mlo.1
+	title = flavor_mlo.1.t
+	desc = flavor_mlo.1.d
+	picture = VEF_DEBATE_REPUBLICAN_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		tag = MLO
+		government = monarchy
+		OR = {
+			has_regency_trigger = yes
+			NOT = { legitimacy = 75 }
+		}
+		is_lesser_in_union = no
+		NOT = { is_year = 1450 }
+		is_year = 1430
+	}
+	
+	option = {
+		name = flavor_mlo.1.a
+		ai_chance = { factor = 90 }
+		change_government = republic
+		add_government_reform = ambrosian_republic
+		add_republican_tradition = 5
+		every_country = {
+			limit = {
+				NOT = {
+					tag = MLO
+				}
+				OR = {
+					government = monarchy
+					tag = VEN
+					tag = PAP
+				}
+				OR = {
+					culture_group = germanic
+					culture_group = latin
+					culture_group = french
+					is_neighbor_of = ROOT
+				}
+				religion = catholic
+				num_of_cities = 5
+			}
+			
+			add_opinion = {
+				who = ROOT
+				modifier = mlo_against_ambrosian
+			}
+			if = {
+				limit = {
+					government = monarchy
+					NOT = { government = elective_monarchy }
+					NOT = { government = archduchy }
+				}
+				
+				add_casus_belli = {	
+					target = MLO
+					type = cb_change_government
+					months = 120
+				}		
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_regency_trigger = yes
+				}
+				clr_country_flag = vef_regency
+				country_event = { id = 700 }
+			}
+		}
+	}
+	
+	option = {
+		name = flavor_mlo.1.b
+		add_country_modifier = { name = "unstable_nation" duration = 3650 }
+		change_variable = { which = national_stability value = -200 }
+		#add_reform_desire = 0.01
+		add_legitimacy = 25
+	}
+}
+
+# Sforza Takeover
+country_event = {
+	id = flavor_mlo.10000
+	title = flavor_mlo.10000.t
+	desc = flavor_mlo.10000.d
+	picture = VEF_COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MLO
+		is_year = 1450
+		is_lesser_in_union = no
+	}
+	
+	option = {
+		name = "flavor_mlo.10000.opta"
+		if = {
+			limit = { NOT = { government = monarchy }}
+			change_government = monarchy
+			set_legacy_government = hereditary_monarchy
+		}
+		define_ruler = {
+			name = "Francesco I"
+			dynasty = "Sforza"
+			mil = 4
+		}
+		define_heir = { dynasty = "Sforza" }
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = "flavor_mlo.10000.optb"
+		add_national_stability_or_adm_power = yes
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Low tradition, Guelphs vs Ghibellines
+country_event = {
+	id = flavor_mlo.2
+	title = flavor_mlo.2.t
+	desc = flavor_mlo.2.d
+	picture = VEF_DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+		tag = MLO
+		government = ambrosian_republic
+		NOT = { republican_tradition = 50 }
+	}
+
+	mean_time_to_happen = { months = 64 }
+
+	option = {
+		name = flavor_mlo.2.a
+		add_republican_tradition = -20
+		add_national_stability_or_adm_power = yes
+	}
+	option = {
+		name = flavor_mlo.2.b
+		add_republican_tradition = 20
+		add_country_modifier = { name = "unstable_nation" duration = 1865 }
+		change_variable = { which = national_stability value = -200 }
+	}
+}
+
+# Ospedale Maggiore
+country_event = {
+	id = flavor_mlo.3
+	title = flavor_mlo.3.t
+	desc = flavor_mlo.3.d
+	picture = VEF_UNIVERSITY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MLO
+		is_year = 1456
+		owns = 104
+		is_at_war = no
+		NOT = { is_year = 1470 }
+	}	
+	
+	mean_time_to_happen = { months = 12 }
+
+	option = {
+		name = flavor_mlo.3.a
+		add_legitimacy = 10
+		add_republican_tradition = 10
+		add_national_stability_or_adm_power = yes
+		263 = { add_base_tax = 1 add_base_manpower = 1 }
+	}	
+}
+
+# The centre of fashion
+country_event = {
+	id = flavor_mlo.10
+	title = flavor_mlo.10.t
+	desc = flavor_mlo.10.d
+	picture = VEF_COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MLO
+		is_year = 1500
+		owns = 104
+		NOT = { is_year = 1600 }
+	}
+	
+	mean_time_to_happen = { months = 120 }
+	
+	option = {
+		name = flavor_mlo.10.a
+		add_adm_power = 50
+		263 = { add_base_tax = 1 }
+	}
+}
+
+# Milano and Swiss Mercenaries
+country_event = {
+	id = flavor_mlo.11
+	title = flavor_mlo.11.t
+	desc = flavor_mlo.11.d
+	picture = VEF_BATTLE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MLO
+		is_year = 1490
+		war_with = FRA
+		owns = 263
+		any_owned_province = { controlled_by = FRA }
+		NOT = { is_year = 1600 }
+		FRA = { num_of_cities = ROOT }		#france must be a bit bigger.
+	}	
+	
+	mean_time_to_happen = { months = 1 }
+	
+	option = {
+		name = flavor_mlo.11.a
+		add_country_modifier = {
+			name = mlo_cheap_mercs
+			duration = 185
+		}
+	}
+}

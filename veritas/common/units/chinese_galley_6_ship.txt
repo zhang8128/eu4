@@ -1,0 +1,10 @@
+#Gaeseon Panokseon
+#model = archipelago_frigate
+#tech_level = 44
+type = galley
+unit_type = chinese
+
+hull_size = 26
+base_cannons = 40
+sail_speed = 6
+sailors = 400

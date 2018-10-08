@@ -1,0 +1,110 @@
+# Majorca
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+primary_culture = catalan
+add_accepted_culture = sicilian
+religion = catholic
+technology_group = western
+historical_friend = FRA
+capital = 108 # Baleares
+
+
+1276.7.27 = {
+	monarch = {
+		name = "Jaume II"
+		dynasty = "d'Barcelona"
+		birth_date = 1243.5.31
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+	queen = {
+		country_of_origin = FOI
+		name = "Esclaramunda"
+		dynasty = "de Foix"
+		birth_date = 1255.1.1
+		death_date = 1315.1.1
+		female = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+	heir = {
+		name = "Sancho"
+		monarch_name = "Sancho I"
+		dynasty = "d'Barcelona"
+		birth_date = 1274.1.1
+		death_date = 1324.9.4
+		claim = 95
+		adm = 3
+		dip = 2
+		mil = 1
+	}
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 10.0 }
+}
+
+1311.5.29 = {
+	monarch = {
+		name = "Sancho I"
+		dynasty = "d'Barcelona"
+		birth_date = 1274.1.1
+		adm = 3
+		dip = 2
+		mil = 1
+	}
+	queen = {
+		country_of_origin = NAP
+		name = "Maria"
+		dynasty = "de Anjou"
+		birth_date = 1290.1.1
+		death_date = 1346.1.1
+		female = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+# Wills the succession to his nephew to prevent it's return to Aragon
+1322.1.1 = {
+	heir = {
+		name = "Jaume"
+		monarch_name = "Jaume III"
+		dynasty = "d'Barcelona"
+		birth_date = 1315.1.1
+		death_date = 1349.10.25
+		claim = 85
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1324.9.4 = {
+	monarch = {
+		name = "Jaume III"
+		dynasty = "d'Barcelona"
+		birth_date = 1315.1.1
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+	set_ruler_flag = ambitious_vassal
+	set_variable = { which = vassal_progress value = 40.0 }
+}
+
+1336.9.24 = {
+	queen = {
+		country_of_origin = ARA
+		name = "Constance"
+		dynasty = "d'AragÛ"
+		birth_date = 1318.1.1
+		death_date = 1346.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}

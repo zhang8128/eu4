@@ -1,0 +1,10 @@
+#Large Sailboat
+#model = barque
+#tech_level = 16
+type = transport
+unit_type = mesoamerican
+
+hull_size = 6
+base_cannons = 2
+sail_speed = 6
+sailors = 75

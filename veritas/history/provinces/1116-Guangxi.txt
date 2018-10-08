@@ -1,0 +1,28 @@
+# Guangxi
+#Province IDs changed
+
+owner = YUN
+controller = YUN
+culture = cantonese
+religion = confucianism
+capital = "Nanning"
+trade_goods = chinaware
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 1
+add_core = YUN
+is_city = yes
+discovered_by = chinese
+
+1355.1.1 = { owner = CXI controller = CXI add_core = CXI remove_core = YUN } #Red Turban Rebellion
+1371.1.1 = { owner = MNG controller = MNG add_core = MNG } # Destruction of Xia
+1652.1.1 = {	controller = QNG }
+1661.6.1 = {	owner = CZH
+		controller = CZH
+		 remove_core = MNG
+	   } # The Three Feudatories
+1681.10.1 = {	owner = QNG
+		controller = QNG
+		add_core = QNG
+}

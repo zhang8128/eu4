@@ -1,0 +1,158 @@
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 2
+primary_culture = turkish
+religion = sunni
+technology_group = ottoman
+capital = 623 # Kastamanu
+historical_rival = BYZ
+
+1309.1.1 = {
+	monarch = {
+		name = "Süleymân I"
+		dynasty = "Candaroglu"
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1309.5.1 = {
+	monarch = {
+		name = "(Interregnum)"
+		regent = yes
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+} #Suleyman's sons Ibrahim and Ali fight for the throne
+
+1339.1.1 = {
+	monarch = {
+		name = "Ibrâhim I"
+		dynasty = "Candaroglu"
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+} #Ibrahim succeeds
+
+1339.1.1 = {
+	monarch = {
+		name = "Âdil"
+		dynasty = "Candaroglu"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1361.1.1 = {
+	monarch = {
+		name = "Celâddin I"
+		dynasty = "Candaroglu"
+		adm = 3
+		dip = 2
+		mil = 1
+	}
+}
+
+1383.1.1 = {
+	monarch = {
+		name = "Süleymân II"
+		dynasty = "Candaroglu"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+
+1385.1.1 = {
+	monarch = {
+		name = "Isfendiyar"
+		dynasty = "Candaroglu"
+		birth_date = 1365.1.1
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+}
+
+1398.1.1 = { capital = 624 } # Sinope
+
+1419.1.1 = {
+	heir = {
+		name = "Ibrâhim"
+		monarch_name = "Ibrâhim II"
+		dynasty = "Candaroglu"
+		birth_date = 1419.1.1
+		death_date = 1443.1.1
+		claim = 95
+		adm = 1
+		dip = 3
+		mil = 3
+	}
+}
+
+1440.1.29 = {
+	monarch = {
+		name = "Ibrâhim II"
+		dynasty = Candaroglu
+		birth_date = 1419.1.1
+		adm = 1
+		dip = 3
+		mil = 3
+	}
+}
+
+1440.1.29 = {
+	heir = {
+		name = "Ismâil"
+		monarch_name = "Ismâil"
+		dynasty = "Candaroglu"
+		birth_date = 1423.1.1
+		death_date = 1460.1.1
+		claim = 95
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1443.1.1 = {
+	monarch = {
+		name = "Ismâil"
+		dynasty = Candaroglu
+		birth_date = 1423.1.1
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1443.1.1 = {
+	heir = {
+		name = "Ahmed"
+		monarch_name = "Ahmed"
+		dynasty = "Candaroglu"
+		birth_date = 1425.1.1
+		death_date = 1493.1.1
+		claim = 95
+		adm = 3
+		dip = 1
+		mil = 0
+	}
+}
+
+1461.1.1 = {
+	monarch = {
+		name = "Ahmed"
+		dynasty = Candaroglu
+		birth_date = 1425.1.1
+		adm = 3
+		dip = 1
+		mil = 0
+	}
+}
+
+# Annexed by the Ottoman Empire at the end 1461

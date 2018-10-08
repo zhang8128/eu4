@@ -1,0 +1,7 @@
+2229 = "Tyotaheshtahkwake"
+2239 = "Kayahsutoke"
+2241 = "Tyotéoke"
+2244 = "Tkanotayekowa"
+2248 = "Serachtague"
+2251 = "Wastoke"
+2262 = "Honguedo"

@@ -1,0 +1,28 @@
+# Nanchang
+#Province IDs changed
+owner = YUN
+controller = YUN
+culture = chihan
+religion = confucianism
+capital = "Nanchang"
+trade_goods = naval_supplies
+hre = no
+base_tax = 6
+base_production = 6
+base_manpower = 3
+add_core = YUN
+is_city = yes
+discovered_by = chinese
+
+1357.1.1 = { owner = CSH controller = CSH add_core = CSH remove_core = YUN add_core = MNG }
+1365.4.1 = { owner = MNG controller = MNG }
+1513.1.1 = { unrest = 5 } # Peasant rebellion, Jiangxi
+1514.1.1 = { unrest = 0 }
+1646.1.1 = { controller = QNG }
+1661.6.1 = {	owner = QNG
+		controller = QNG
+		add_core = QNG
+		remove_core = MNG
+	   } # The Qing Dynasty
+1675.1.1 = { controller = MNG }
+1680.1.1 = { controller = QNG }

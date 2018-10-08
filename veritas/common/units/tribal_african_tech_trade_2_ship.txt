@@ -1,0 +1,11 @@
+#Large African Raft
+#model = cog
+#tech_level = 6
+type = light_ship
+unit_type = tribal_african_tech
+
+hull_size = 4
+base_cannons = 2
+sail_speed = 4
+trade_power = 0.6
+sailors = 25

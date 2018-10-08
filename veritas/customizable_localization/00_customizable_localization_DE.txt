@@ -1,0 +1,4 @@
+###################################################################
+# THESE HAVE BEEN REMOVED AS WE DO NOT SUPPORT ANY OTHER LANGUAGE #
+#                COMPLAINS ABOUT STUFF IN ERROR LOG               #
+###################################################################

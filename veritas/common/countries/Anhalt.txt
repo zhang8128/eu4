@@ -1,0 +1,128 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 203  93  124 }
+
+historical_idea_groups = {
+	intimidatory_ideas
+	quantity_ideas
+	economic_ideas
+	mercantilist_ideas
+	offensive_ideas
+	expansion_ideas
+	land_ideas
+	standing_army_ideas
+}
+
+historical_units = {
+	western_artillery_8_1
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_cavalry_0_1
+	western_cavalry_16_2
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_48_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_58_2
+	western_infantry_0_1
+	western_infantry_6_1
+	western_infantry_14_1
+	western_infantry_17_1
+	western_infantry_21_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_39_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_48_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_55_1
+	western_infantry_57_2
+	western_infantry_59_2
+	western_infantry_63_2
+}
+
+monarch_names = {
+	"Johann Georg #0" = 40
+	"Leopold #0" = 40
+	"Georg #0" = 20
+	"Jakob Ernst #0" = 20
+	"Joachim Ernst #0" = 20
+	"Johann Kasimir #0" = 20
+	"Leopold #0 Friedrich" = 20
+	"Leopold #0 Maximilian" = 20
+	"Ernst #0" = 20
+	"Sigismund #0" = 20
+	"Bernhard #2" = 15
+	"Waldemar #0" = 15
+	"Johann #1" = 15
+	"Rudolf #1" = 15
+	"Friedrich #0" = 15
+	"Friedrich Kasimir #0" = 15
+	"Georg Aribert #0" = 15
+	"Karl #0" = 15
+	"Moritz #0" = 15
+	"Thomas #0" = 15
+	"Wilhelm Gustav #0" = 15
+	"Albrecht #1" = 20
+	"Heinrich #4" = 10
+	"Albrecht Friedrich #0" = 10
+	"August #0" = 10
+	"Christian #0" = 10
+	"Dietrich #0" = 10
+	"Friedrich Heinrich #0" = 10
+	"Friedrich Moritz #0" = 10
+	"Heinrich Waldemar #0" = 10
+	"Joachim #0" = 10
+	"Joachim Christoph #0" = 10
+	"Johann Ernst #0" = 10
+	"Lorenz #0" = 10
+	"Ludwig #0" = 10
+	"Paul #0" = 10
+	"Wilhelm #0" = 10
+	"Andreas #0" = 0
+	"Günther #0" = 0
+	"Michael #0" = 0
+	"Ulrich #0" = 0
+	
+	"Helmine #0" = -1
+	"Johanna #0" = -1
+	"Leonore #0" = -1
+}
+
+leader_names = {
+	Hoppe Herzburg Ackermann Alberti 
+	Albrecht Alvensleben Amman Annecke Anthe
+	Bauer Bause Ehrenberg Erxleben Feuerstack 
+	Flachsbart Genthe Gerstung Held Isaack
+	Janeck Jantke Kersten Kleinau März Nehmiz 
+	Rumpf Scharfe Schauseil Schieck "von Zerbst"
+}
+
+ship_names = {
+	"Albrecht der Bär" Aschersleben "Hermann Orlamünde"
+	"Bischof Siegfried" "Dietrich Werben" "Albrecht Ballenstedt"
+	"Bernhard Wittenberg" "Heinrich I" Zerbst Coswig Dessau Köthen
+	Bernburg Brocken Hartz Plötzkau Ramberg Rosslau
+}
+
+army_names = {
+	"Armee von $PROVINCE$" 
+}

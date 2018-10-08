@@ -1,0 +1,33 @@
+# Mahra
+
+capital = "Mahra"
+owner = ADE
+controller = ADE
+add_core = ADE
+culture = yemeni_culture
+religion = ibadi
+trade_goods = fish
+base_tax = 3
+base_production = 3
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = muslim
+discovered_by = ZAN
+discovered_by = indopersian
+discovered_by = ILK
+discovered_by = AJU
+discovered_by = ADA
+discovered_by = byzantine
+
+set_local_autonomy = 40
+
+1480.1.1 = { discovered_by = TUR }
+1488.1.1 = { discovered_by = POR } # Pêro da Covilhã
+1538.1.1 = { owner = TUR controller = TUR add_core = TUR } # Part of the Ottoman empire
+1567.1.1 = { unrest = 4 } # Revolt against the Ottomans
+1570.1.1 = { unrest = 0 }
+1597.9.1 = { unrest = 5 } # Revolt against the Ottomans
+1602.1.1 = { unrest = 0 }
+1636.1.1 = { owner = ADE controller = ADE remove_core = TUR }
+1850.1.1 = { capital = "Sayhut" }

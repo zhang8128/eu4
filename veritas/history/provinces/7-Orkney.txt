@@ -1,0 +1,26 @@
+# Orkney
+
+capital = "Kirkvoe"
+owner = NOR
+controller = NOR
+add_core = NOR
+culture = norn
+religion = catholic
+base_tax = 1
+base_production = 1
+trade_goods = fish
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+
+1469.1.1	= { owner = SCO culture = scottish controller = SCO capital = "Kirkwall" } # Dowry of Margaret, Daughter of Christian I of Denmark and Norway and Wife of James III of Scotland
+1472.1.1	= { add_core = SCO remove_core = NOR } #Dowry never paid so the islands remain Scottish
+1609.1.1	= { religion = presbyterian } # First Protestant Minister Arrives in the Orkneys
+1650.3.1	= { controller = REB } # Landing of Montrose
+1650.4.27	= { controller = SCO } # Battle of Carbisdale
+1651.10.28	= { owner = ENG controller = ENG unrest = 5 } # Tender of Union
+1660.5.1	= { owner = SCO controller = SCO unrest = 0 } #Restoration of Charles II
+1707.5.1	= { owner = GBR controller = GBR add_core = GBR } #Acts of Union

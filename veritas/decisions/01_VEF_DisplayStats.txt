@@ -1,0 +1,1444 @@
+# Display Routines
+country_decisions = {
+
+	display_national_stats = {
+		major = yes
+
+		potential = { 
+			ai = no 
+		}
+
+		allow = {
+			custom_trigger_tooltip = {
+				#always = no			
+				tooltip = national_statistics_display_description
+			}
+		}
+
+		effect = {
+			custom_tooltip = national_statistics_display_effect
+			hidden_effect = { country_event = { id = vef_encyclopedia.300 }}
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+	
+	display_government_stats = {
+		major = yes
+
+		potential = { 
+			ai = no
+			OR = {
+				is_nomad = no
+				has_country_flag = nomads_reforming
+			}
+		}
+
+		allow = {
+			custom_trigger_tooltip = {
+				#always = no
+				tooltip = government_stats_info
+			}
+		}
+
+		effect = {
+			custom_tooltip = national_statistics_display_effect
+			custom_tooltip = rule_law_display
+			custom_tooltip = privilege_display
+			if = {
+				limit = { NOT = { government = republic }}
+				custom_tooltip = freedom_display
+			}
+			custom_tooltip = merit_display
+			custom_tooltip = management_display
+			custom_tooltip = governance_display
+			custom_tooltip = provcount_display
+			custom_tooltip = noblehold_display
+			custom_tooltip = churchhold_display
+			custom_tooltip = citizenhold_display
+			if = {
+				limit = { has_country_flag = hansa_leader }
+				custom_tooltip = hansa_kontor_display
+			}
+			if = {
+				limit = { government = english_monarchy }
+				custom_tooltip = parliament_display
+			}
+			if = {
+				limit = { has_country_flag = janissary_corps_active }
+				custom_tooltip = janissary_display
+				if = {
+					limit = {
+						has_country_flag = devsirme_event
+						NOT = { has_country_flag = devsirme_over }
+					}
+					custom_tooltip = TURKISH_JANISSARIES
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						tag = MAM
+						tag = EGM
+					}
+					normal_or_historical_nations = yes
+					NOT = { has_country_flag = mamluk_reforms_over }
+					NOT = { has_country_flag = mamluk_reforms_na }
+				}
+				custom_tooltip = MAMLUK_DISPLAY
+			}
+			hidden_effect = { country_event = { id = vef_encyclopedia.200 } }
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+	
+	display_trade_wars = {
+		major = yes
+		
+		potential = {
+			ai = no
+			OR = {
+				tag = VEN
+				tag = GEN
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				NOT = { has_global_flag = black_trade_wars_over }
+				NOT = { has_global_flag = med_trade_wars_over }
+			}
+		}
+		
+		allow = {
+			custom_trigger_tooltip = {		
+				tooltip = tradewars_display_description
+			}
+		}
+		
+		effect = {
+			if = {
+				limit = { VEN = { check_variable = { which = black_trade_power value = 5 }}}
+				custom_tooltip = ven_black_adv
+			}
+			if = {
+				limit = { GEN = { check_variable = { which = black_trade_power value = 5 }}}
+				custom_tooltip = gen_black_adv
+			}
+			if = {
+				limit = { VEN = { check_variable = { which = med_trade_power value = 5 }}}
+				custom_tooltip = ven_med_adv
+			}
+			if = {
+				limit = { GEN = { check_variable = { which = med_trade_power value = 5 }}}
+				custom_tooltip = gen_med_adv
+			}
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_global_flag = black_trade_wars_over }}
+					country_event = { id = vef_tradewars.90002 }
+					else = { country_event = { id = vef_tradewars.90003 }}
+				}
+			}
+		}
+		
+		ai_will_do = { factor = 0 }
+	}
+
+	display_vassal_integration_progress = {
+		major = yes
+
+		potential = {
+			ai = no
+			any_country = { is_subject_of = ROOT is_lesser_in_union = no }
+		}
+
+		allow = {
+			custom_trigger_tooltip = {
+				#always = no
+				tooltip = display_vassal_integration_effects
+			}
+		}
+
+		effect = {
+			custom_tooltip = vassal_expansion_tooltip
+			if = {
+				limit = {
+					is_emperor = yes
+					hre_reform_level = 7
+				}
+				custom_tooltip = display_hre_vassal_privilegia
+			}
+			if = {
+				limit = { french_vassal = 1 }
+				custom_tooltip = display_fealty
+			}
+			if = {
+				limit = { persian_satrap = 1 }
+				custom_tooltip = display_satrapy
+			}
+			if = {
+				limit = { romagna_state = 1 }
+				custom_tooltip = display_romagna
+			}
+			if = {
+				limit = { swiss_confederate = 1 }
+				custom_tooltip = display_swiss
+			}
+			every_subject_country = {
+				limit = {
+					is_lesser_in_union = no
+					NOT = { has_country_flag = long_term_vassal }
+					NOT = { has_country_flag = allowed_to_annex	 }
+					NOT = { is_subject_of_type = colony }
+					NOT = { is_subject_of_type = daimyo_vassal }
+					NOT = { is_subject_of_type = french_vassal }
+					NOT = { is_subject_of_type = persian_satrap }
+					NOT = { is_subject_of_type = romagna_state }
+					NOT = { is_subject_of_type = tributary_state }
+					NOT = { is_subject_of_type = taifa_subject }
+					NOT = { is_subject_of_type = russian_tribute }
+					NOT = { is_subject_of_type = russian_enforcer }
+					NOT = { is_subject_of_type = swiss_confederate }
+					is_nomad = no
+					NOT = {
+						AND = {
+							tag = AVI
+							government = papal_government
+						}
+					}
+					OR = {
+						ROOT = { is_emperor = no }
+						NOT = { hre_reform_level = 7 }
+						NOT = { is_part_of_hre = yes }
+					}
+				}
+				if = {
+					limit = { NOT = { has_country_flag = vassal_flag }}
+					custom_tooltip = war_vassal_hold_start
+					else = {
+						if = {
+							limit = { check_variable = { which = vassal_progress value = 100 } any_known_country = { war_with = PREV }}
+							trigger_switch = {
+								on_trigger = is_subject_of_type
+								suzerainty = { custom_tooltip = war_vassal_hold_suz }
+								dependency = { custom_tooltip = war_vassal_hold_dep }
+								dominion = { custom_tooltip = war_vassal_hold_dom }
+								vassal = { custom_tooltip = war_vassal_hold_vas }
+							}
+							else = {
+								trigger_switch = {
+									on_trigger = is_subject_of_type
+									suzerainty = { custom_tooltip = display_vassal_progress_suz }
+									dependency = { custom_tooltip = display_vassal_progress_dep }
+									dominion = { custom_tooltip = display_vassal_progress_dom }
+									vassal = { custom_tooltip = display_vassal_progress_vas }
+									vassal_hedjaz = { custom_tooltip = display_vassal_progress_hedjaz }
+									taifa_subject = { custom_tooltip = display_taifa_subject }
+								}
+							}
+						}
+					}
+				}
+			}
+			every_subject_country = {
+				limit = { has_country_flag = long_term_vassal }
+				custom_tooltip = display_long_term_vassal
+				if = {
+					limit = {
+						overlord = {
+							OR = {
+								AND = {
+									has_idea = learned_men
+									NOT = { has_idea = deleg_mod_2 }
+									NOT = { has_idea = integrated_financing }
+								}
+								AND = {
+									has_idea = deleg_mod_2
+									NOT = { has_idea = learned_men }
+									NOT = { has_idea = integrated_financing }
+								}
+								AND = {
+									has_idea = integrated_financing
+									NOT = { has_idea = learned_men }
+									NOT = { has_idea = deleg_mod_2 }
+								}
+							}
+						}
+					}
+					custom_tooltip = display_long_term_vassal_dip1
+				}
+				if = {
+					limit = {
+						overlord = {
+							OR = {
+								AND = {
+									has_idea = learned_men
+									has_idea = deleg_mod_2
+									NOT = { has_idea = integrated_financing }
+								}
+								AND = {
+									has_idea = learned_men
+									has_idea = integrated_financing
+									NOT = { has_idea = deleg_mod_2 }
+								}
+								AND = {
+									has_idea = deleg_mod_2
+									has_idea = integrated_financing
+									NOT = { has_idea = learned_men }
+								}
+							}
+						}
+					}
+					custom_tooltip = display_long_term_vassal_dip2
+				}
+				if = {
+					limit = {
+						overlord = {
+							has_idea = learned_men
+							has_idea = deleg_mod_2
+							has_idea = integrated_financing
+						}
+					}
+					custom_tooltip = display_long_term_vassal_dip3
+				}
+			}
+			every_subject_country = {
+				limit = {
+					tag = AVI
+					is_lesser_in_union = no
+					government = papal_government
+					OR = {
+						ROOT = { is_emperor = no }
+						NOT = { hre_reform_level = 7 }
+						NOT = { is_part_of_hre = yes }
+					}
+				}
+				custom_tooltip = display_AVI_vassal
+			}
+			every_subject_country = {
+				limit = { is_nomad = yes }
+				custom_tooltip = display_nomad_vassal
+			}
+			hidden_effect = { country_event = { id = vef_encyclopedia.400 } }
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+	display_own_integration_progress = {
+		major = yes
+
+		potential = {
+			ai = no
+			is_subject = yes
+			NOT = { is_subject_of_type = russian_tribute }
+			NOT = { is_subject_of_type = russian_enforcer }
+		}
+
+		allow = {
+			custom_trigger_tooltip = {
+				#always = no
+				tooltip = display_vassal_integration_effects
+			}
+		}
+		
+		effect = {
+			trigger_switch = {
+				on_trigger = is_subject_of_type
+				suzerainty = { custom_tooltip = tooltip_own_suz }
+				dependency = { custom_tooltip = tooltip_own_dep }
+				dominion = { custom_tooltip = tooltip_own_dom }
+				vassal = { custom_tooltip = tooltip_own_vas }
+				vassal_hedjaz = { custom_tooltip = tooltip_own_hedjaz }
+				french_vassal = { custom_tooltip = tooltip_own_fealty }
+				persian_satrap = { custom_tooltip = tooltip_own_satrapy }
+				romagna_state = { custom_tooltip = tooltip_own_romagna }
+				taifa_subject = { custom_tooltip = tooltip_own_taifa }
+			}
+		}
+	}
+	display_heirs = {
+		major = yes
+
+		potential = {
+			ai = no
+			government = monarchy
+			is_lesser_in_union = no
+			NOT = { government = ottoman_government }
+			NOT = { government = janissary_government }
+		}
+
+		allow = {
+			#always = no
+		}
+		
+		effect = {
+			if = {
+				limit = { any_country = { ROOT = { has_country_flag = cadet_branch_@PREV }}}
+				every_country = {
+					limit = { ROOT = { has_country_flag = cadet_branch_@PREV }}
+					custom_tooltip = tt_parent_branch
+					if = {
+						limit = {
+							OR ={
+								NOT = { check_variable = { which = monarch_stats value = 4 }}
+								NOT = { legitimacy = 60 }
+								AND = {
+									is_female = yes
+									NOT = { check_variable = { which = monarch_stats value = 8 }}
+									NOT = { legitimacy = 90 }
+								}
+							}
+						}
+						custom_tooltip = tt_cadet_claim_throne
+					}
+				}
+			}
+			if = {
+				limit = { any_country = { has_country_flag = cadet_branch_@ROOT }}
+				every_country = {
+					limit = { has_country_flag = cadet_branch_@ROOT }
+					custom_tooltip = tt_cadet_branch
+				}
+			}
+			if = {
+				limit = { has_heir = "Heir Apparent" }
+				every_country = {
+					limit = { has_country_flag = heir_apparent_@ROOT }
+					custom_tooltip = tt_heir_apparent
+				}
+			}
+			if = {
+				limit = { is_female = no }
+				custom_tooltip = display_military_prowess_ruler
+			}
+			if = {
+				limit = { has_heir = yes has_female_heir = no }
+				custom_tooltip = display_military_prowess_heir
+			}
+			if = { 
+				limit = {
+					NOT = { has_dlc = "Rights of Man" }
+					has_country_flag = vef_queen
+				}
+				custom_tooltip = queen_display
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = male_gen0_1_age value = 1080 }}}
+				custom_tooltip = male_sib1_display
+				if = { limit = { has_country_flag = male_gen0_1_heir } custom_tooltip = this_is_heir }
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = male_gen0_2_age value = 1080 }}}
+				custom_tooltip = male_sib2_display
+				if = { limit = { has_country_flag = male_gen0_2_heir } custom_tooltip = this_is_heir }
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = male_gen0_3_age value = 1080 }}}
+				custom_tooltip = male_sib3_display
+				if = { limit = { has_country_flag = male_gen0_3_heir } custom_tooltip = this_is_heir }
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = male_gen0_4_age value = 1080 }}}
+				custom_tooltip = male_sib4_display
+				if = { limit = { has_country_flag = male_gen0_4_heir } custom_tooltip = this_is_heir }
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = female_gen0_1_age value = 1080 }}}
+				custom_tooltip = female_sib1_display
+				if = { limit = { has_country_flag = female_gen0_1_heir } custom_tooltip = this_is_heir }
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = female_gen0_2_age value = 1080 }}}
+				custom_tooltip = female_sib2_display
+				if = { limit = { has_country_flag = female_gen0_2_heir } custom_tooltip = this_is_heir }
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = female_gen0_3_age value = 1080 }}}
+				custom_tooltip = female_sib3_display
+				if = { limit = { has_country_flag = female_gen0_3_heir } custom_tooltip = this_is_heir }
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = female_gen0_4_age value = 1080 }}}
+				custom_tooltip = female_sib4_display
+				if = { limit = { has_country_flag = female_gen0_4_heir } custom_tooltip = this_is_heir }
+			}
+			if = {
+				limit = { has_country_flag = male_gen1_1_heir }
+				custom_tooltip = tt_heir_children
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1m1_age value = 1080 }}}
+					custom_tooltip = male_gen2_1m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1m2_age value = 1080 }}}
+					custom_tooltip = male_gen2_1m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1m3_age value = 1080 }}}
+					custom_tooltip = male_gen2_1m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1m4_age value = 1080 }}}
+					custom_tooltip = male_gen2_1m4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1m1_age value = 1080 }}}
+					custom_tooltip = female_gen2_1m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1m2_age value = 1080 }}}
+					custom_tooltip = female_gen2_1m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1m3_age value = 1080 }}}
+					custom_tooltip = female_gen2_1m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1m4_age value = 1080 }}}
+					custom_tooltip = female_gen2_1m4_display
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { check_variable = { which = male_gen1_1_age value = 1080 }}
+					NOT = { has_country_flag = male_gen1_1_heir }
+				}
+				custom_tooltip = male_heir1_display
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1m1_age value = 1080 }}}
+					custom_tooltip = male_gen2_1m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1m2_age value = 1080 }}}
+					custom_tooltip = male_gen2_1m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1m3_age value = 1080 }}}
+					custom_tooltip = male_gen2_1m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1m4_age value = 1080 }}}
+					custom_tooltip = male_gen2_1m4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1m1_age value = 1080 }}}
+					custom_tooltip = female_gen2_1m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1m2_age value = 1080 }}}
+					custom_tooltip = female_gen2_1m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1m3_age value = 1080 }}}
+					custom_tooltip = female_gen2_1m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1m4_age value = 1080 }}}
+					custom_tooltip = female_gen2_1m4_display
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						NOT = { check_variable = { which = male_gen2_1m1_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_1m2_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_1m3_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_1m4_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_1m1_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_1m2_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_1m3_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_1m4_age value = 1080 }}
+					}
+				}
+				custom_tooltip = son_died
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1m1_age value = 1080 }}}
+					custom_tooltip = male_gen2_1m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1m2_age value = 1080 }}}
+					custom_tooltip = male_gen2_1m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1m3_age value = 1080 }}}
+					custom_tooltip = male_gen2_1m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1m4_age value = 1080 }}}
+					custom_tooltip = male_gen2_1m4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1m1_age value = 1080 }}}
+					custom_tooltip = female_gen2_1m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1m2_age value = 1080 }}}
+					custom_tooltip = female_gen2_1m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1m3_age value = 1080 }}}
+					custom_tooltip = female_gen2_1m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1m4_age value = 1080 }}}
+					custom_tooltip = female_gen2_1m4_display
+				}
+			}
+			if = {
+				limit = { has_country_flag = male_gen1_2_heir }
+				custom_tooltip = tt_heir_children
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2m1_age value = 1080 }}}
+					custom_tooltip = male_gen2_2m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2m2_age value = 1080 }}}
+					custom_tooltip = male_gen2_2m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2m3_age value = 1080 }}}
+					custom_tooltip = male_gen2_2m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2m4_age value = 1080 }}}
+					custom_tooltip = male_gen2_2m4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2m1_age value = 1080 }}}
+					custom_tooltip = female_gen2_2m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2m2_age value = 1080 }}}
+					custom_tooltip = female_gen2_2m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2m3_age value = 1080 }}}
+					custom_tooltip = female_gen2_2m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2m4_age value = 1080 }}}
+					custom_tooltip = female_gen2_2m4_display
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { check_variable = { which = male_gen1_2_age value = 1080 }}
+					NOT = { has_country_flag = male_gen1_2_heir }
+				}
+				custom_tooltip = male_heir2_display
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2m1_age value = 1080 }}}
+					custom_tooltip = male_gen2_2m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2m2_age value = 1080 }}}
+					custom_tooltip = male_gen2_2m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2m3_age value = 1080 }}}
+					custom_tooltip = male_gen2_2m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2m4_age value = 1080 }}}
+					custom_tooltip = male_gen2_2m4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2m1_age value = 1080 }}}
+					custom_tooltip = female_gen2_2m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2m2_age value = 1080 }}}
+					custom_tooltip = female_gen2_2m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2m3_age value = 1080 }}}
+					custom_tooltip = female_gen2_2m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2m4_age value = 1080 }}}
+					custom_tooltip = female_gen2_2m4_display
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						NOT = { check_variable = { which = male_gen2_2m1_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_2m2_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_2m3_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_2m4_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_2m1_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_2m2_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_2m3_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_2m4_age value = 1080 }}
+					}
+				}
+				custom_tooltip = son_died
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2m1_age value = 1080 }}}
+					custom_tooltip = male_gen2_2m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2m2_age value = 1080 }}}
+					custom_tooltip = male_gen2_2m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2m3_age value = 1080 }}}
+					custom_tooltip = male_gen2_2m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2m4_age value = 1080 }}}
+					custom_tooltip = male_gen2_2m4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2m1_age value = 1080 }}}
+					custom_tooltip = female_gen2_2m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2m2_age value = 1080 }}}
+					custom_tooltip = female_gen2_2m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2m3_age value = 1080 }}}
+					custom_tooltip = female_gen2_2m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2m4_age value = 1080 }}}
+					custom_tooltip = female_gen2_2m4_display
+				}
+			}
+			if = {
+				limit = { has_country_flag = male_gen1_3_heir }
+				custom_tooltip = tt_heir_children
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3m1_age value = 1080 }}}
+					custom_tooltip = male_gen2_3m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3m2_age value = 1080 }}}
+					custom_tooltip = male_gen2_3m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3m3_age value = 1080 }}}
+					custom_tooltip = male_gen2_3m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3m4_age value = 1080 }}}
+					custom_tooltip = male_gen2_3m4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3m1_age value = 1080 }}}
+					custom_tooltip = female_gen2_3m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3m2_age value = 1080 }}}
+					custom_tooltip = female_gen2_3m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3m3_age value = 1080 }}}
+					custom_tooltip = female_gen2_3m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3m4_age value = 1080 }}}
+					custom_tooltip = female_gen2_3m4_display
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { check_variable = { which = male_gen1_3_age value = 1080 }}
+					NOT = { has_country_flag = male_gen1_3_heir }
+				}
+				custom_tooltip = male_heir3_display
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3m1_age value = 1080 }}}
+					custom_tooltip = male_gen2_3m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3m2_age value = 1080 }}}
+					custom_tooltip = male_gen2_3m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3m3_age value = 1080 }}}
+					custom_tooltip = male_gen2_3m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3m4_age value = 1080 }}}
+					custom_tooltip = male_gen2_3m4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3m1_age value = 1080 }}}
+					custom_tooltip = female_gen2_3m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3m2_age value = 1080 }}}
+					custom_tooltip = female_gen2_3m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3m3_age value = 1080 }}}
+					custom_tooltip = female_gen2_3m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3m4_age value = 1080 }}}
+					custom_tooltip = female_gen2_3m4_display
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						NOT = { check_variable = { which = male_gen2_3m1_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_3m2_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_3m3_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_3m4_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_3m1_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_3m2_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_3m3_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_3m4_age value = 1080 }}
+					}
+				}
+				custom_tooltip = son_died
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3m1_age value = 1080 }}}
+					custom_tooltip = male_gen2_3m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3m2_age value = 1080 }}}
+					custom_tooltip = male_gen2_3m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3m3_age value = 1080 }}}
+					custom_tooltip = male_gen2_3m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3m4_age value = 1080 }}}
+					custom_tooltip = male_gen2_3m4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3m1_age value = 1080 }}}
+					custom_tooltip = female_gen2_3m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3m2_age value = 1080 }}}
+					custom_tooltip = female_gen2_3m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3m3_age value = 1080 }}}
+					custom_tooltip = female_gen2_3m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3m4_age value = 1080 }}}
+					custom_tooltip = female_gen2_3m4_display
+				}
+			}
+			if = {
+				limit = { has_country_flag = male_gen1_4_heir }
+				custom_tooltip = tt_heir_children
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4m1_age value = 1080 }}}
+					custom_tooltip = male_gen2_4m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4m2_age value = 1080 }}}
+					custom_tooltip = male_gen2_4m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4m3_age value = 1080 }}}
+					custom_tooltip = male_gen2_4m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4m4_age value = 1080 }}}
+					custom_tooltip = male_gen2_4m4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4m1_age value = 1080 }}}
+					custom_tooltip = female_gen2_4m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4m2_age value = 1080 }}}
+					custom_tooltip = female_gen2_4m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4m3_age value = 1080 }}}
+					custom_tooltip = female_gen2_4m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4m4_age value = 1080 }}}
+					custom_tooltip = female_gen2_4m4_display
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { check_variable = { which = male_gen1_4_age value = 1080 }}
+					NOT = { has_country_flag = male_gen1_4_heir }
+				}
+				custom_tooltip = male_heir4_display
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4m1_age value = 1080 }}}
+					custom_tooltip = male_gen2_4m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4m2_age value = 1080 }}}
+					custom_tooltip = male_gen2_4m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4m3_age value = 1080 }}}
+					custom_tooltip = male_gen2_4m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4m4_age value = 1080 }}}
+					custom_tooltip = male_gen2_4m4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4m1_age value = 1080 }}}
+					custom_tooltip = female_gen2_4m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4m2_age value = 1080 }}}
+					custom_tooltip = female_gen2_4m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4m3_age value = 1080 }}}
+					custom_tooltip = female_gen2_4m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4m4_age value = 1080 }}}
+					custom_tooltip = female_gen2_4m4_display
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						NOT = { check_variable = { which = male_gen2_4m1_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_4m2_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_4m3_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_4m4_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_4m1_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_4m2_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_4m3_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_4m4_age value = 1080 }}
+					}
+				}
+				custom_tooltip = son_died
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4m1_age value = 1080 }}}
+					custom_tooltip = male_gen2_4m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4m2_age value = 1080 }}}
+					custom_tooltip = male_gen2_4m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4m3_age value = 1080 }}}
+					custom_tooltip = male_gen2_4m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4m4_age value = 1080 }}}
+					custom_tooltip = male_gen2_4m4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4m1_age value = 1080 }}}
+					custom_tooltip = female_gen2_4m1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4m2_age value = 1080 }}}
+					custom_tooltip = female_gen2_4m2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4m3_age value = 1080 }}}
+					custom_tooltip = female_gen2_4m3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4m4_age value = 1080 }}}
+					custom_tooltip = female_gen2_4m4_display
+				}
+			}
+			if = {
+				limit = { has_country_flag = female_gen1_1_heir }
+				custom_tooltip = tt_heir_children
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1f1_age value = 1080 }}}
+					custom_tooltip = male_gen2_1f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1f2_age value = 1080 }}}
+					custom_tooltip = male_gen2_1f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1f3_age value = 1080 }}}
+					custom_tooltip = male_gen2_1f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1f4_age value = 1080 }}}
+					custom_tooltip = male_gen2_1f4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1f1_age value = 1080 }}}
+					custom_tooltip = female_gen2_1f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1f2_age value = 1080 }}}
+					custom_tooltip = female_gen2_1f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1f3_age value = 1080 }}}
+					custom_tooltip = female_gen2_1f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1f4_age value = 1080 }}}
+					custom_tooltip = female_gen2_1f4_display
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { check_variable = { which = female_gen1_1_age value = 1080 }}
+					NOT = { has_country_flag = female_gen1_1_heir }
+				}
+				custom_tooltip = female_heir1_display
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1f1_age value = 1080 }}}
+					custom_tooltip = male_gen2_1f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1f2_age value = 1080 }}}
+					custom_tooltip = male_gen2_1f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1f3_age value = 1080 }}}
+					custom_tooltip = male_gen2_1f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1f4_age value = 1080 }}}
+					custom_tooltip = male_gen2_1f4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1f1_age value = 1080 }}}
+					custom_tooltip = female_gen2_1f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1f2_age value = 1080 }}}
+					custom_tooltip = female_gen2_1f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1f3_age value = 1080 }}}
+					custom_tooltip = female_gen2_1f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1f4_age value = 1080 }}}
+					custom_tooltip = female_gen2_1f4_display
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						NOT = { check_variable = { which = male_gen2_1f1_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_1f2_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_1f3_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_1f4_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_1f1_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_1f2_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_1f3_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_1f4_age value = 1080 }}
+					}
+				}
+				custom_tooltip = daughter_died
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1f1_age value = 1080 }}}
+					custom_tooltip = male_gen2_1f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1f2_age value = 1080 }}}
+					custom_tooltip = male_gen2_1f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1f3_age value = 1080 }}}
+					custom_tooltip = male_gen2_1f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_1f4_age value = 1080 }}}
+					custom_tooltip = male_gen2_1f4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1f1_age value = 1080 }}}
+					custom_tooltip = female_gen2_1f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1f2_age value = 1080 }}}
+					custom_tooltip = female_gen2_1f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1f3_age value = 1080 }}}
+					custom_tooltip = female_gen2_1f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_1f4_age value = 1080 }}}
+					custom_tooltip = female_gen2_1f4_display
+				}
+			}
+			if = {
+				limit = { has_country_flag = female_gen1_2_heir }
+				custom_tooltip = tt_heir_children
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2f1_age value = 1080 }}}
+					custom_tooltip = male_gen2_2f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2f2_age value = 1080 }}}
+					custom_tooltip = male_gen2_2f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2f3_age value = 1080 }}}
+					custom_tooltip = male_gen2_2f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2f4_age value = 1080 }}}
+					custom_tooltip = male_gen2_2f4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2f1_age value = 1080 }}}
+					custom_tooltip = female_gen2_2f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2f2_age value = 1080 }}}
+					custom_tooltip = female_gen2_2f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2f3_age value = 1080 }}}
+					custom_tooltip = female_gen2_2f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2f4_age value = 1080 }}}
+					custom_tooltip = female_gen2_2f4_display
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { check_variable = { which = female_gen1_2_age value = 1080 }}
+					NOT = { has_country_flag = female_gen1_2_heir }
+				}
+				custom_tooltip = female_heir2_display
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2f1_age value = 1080 }}}
+					custom_tooltip = male_gen2_2f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2f2_age value = 1080 }}}
+					custom_tooltip = male_gen2_2f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2f3_age value = 1080 }}}
+					custom_tooltip = male_gen2_2f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2f4_age value = 1080 }}}
+					custom_tooltip = male_gen2_2f4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2f1_age value = 1080 }}}
+					custom_tooltip = female_gen2_2f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2f2_age value = 1080 }}}
+					custom_tooltip = female_gen2_2f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2f3_age value = 1080 }}}
+					custom_tooltip = female_gen2_2f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2f4_age value = 1080 }}}
+					custom_tooltip = female_gen2_2f4_display
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						NOT = { check_variable = { which = male_gen2_2f1_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_2f2_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_2f3_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_2f4_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_2f1_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_2f2_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_2f3_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_2f4_age value = 1080 }}
+					}
+				}
+				custom_tooltip = daughter_died
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2f1_age value = 1080 }}}
+					custom_tooltip = male_gen2_2f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2f2_age value = 1080 }}}
+					custom_tooltip = male_gen2_2f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2f3_age value = 1080 }}}
+					custom_tooltip = male_gen2_2f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_2f4_age value = 1080 }}}
+					custom_tooltip = male_gen2_2f4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2f1_age value = 1080 }}}
+					custom_tooltip = female_gen2_2f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2f2_age value = 1080 }}}
+					custom_tooltip = female_gen2_2f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2f3_age value = 1080 }}}
+					custom_tooltip = female_gen2_2f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_2f4_age value = 1080 }}}
+					custom_tooltip = female_gen2_2f4_display
+				}
+			}
+			if = {
+				limit = { has_country_flag = female_gen1_3_heir }
+				custom_tooltip = tt_heir_children
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3f1_age value = 1080 }}}
+					custom_tooltip = male_gen2_3f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3f2_age value = 1080 }}}
+					custom_tooltip = male_gen2_3f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3f3_age value = 1080 }}}
+					custom_tooltip = male_gen2_3f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3f4_age value = 1080 }}}
+					custom_tooltip = male_gen2_3f4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3f1_age value = 1080 }}}
+					custom_tooltip = female_gen2_3f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3f2_age value = 1080 }}}
+					custom_tooltip = female_gen2_3f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3f3_age value = 1080 }}}
+					custom_tooltip = female_gen2_3f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3f4_age value = 1080 }}}
+					custom_tooltip = female_gen2_3f4_display
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { check_variable = { which = female_gen1_3_age value = 1080 }}
+					NOT = { has_country_flag = female_gen1_3_heir }
+				}
+				custom_tooltip = female_heir3_display
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3f1_age value = 1080 }}}
+					custom_tooltip = male_gen2_3f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3f2_age value = 1080 }}}
+					custom_tooltip = male_gen2_3f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3f3_age value = 1080 }}}
+					custom_tooltip = male_gen2_3f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3f4_age value = 1080 }}}
+					custom_tooltip = male_gen2_3f4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3f1_age value = 1080 }}}
+					custom_tooltip = female_gen2_3f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3f2_age value = 1080 }}}
+					custom_tooltip = female_gen2_3f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3f3_age value = 1080 }}}
+					custom_tooltip = female_gen2_3f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3f4_age value = 1080 }}}
+					custom_tooltip = female_gen2_3f4_display
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						NOT = { check_variable = { which = male_gen2_3f1_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_3f2_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_3f3_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_3f4_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_3f1_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_3f2_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_3f3_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_3f4_age value = 1080 }}
+					}
+				}
+				custom_tooltip = daughter_died
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3f1_age value = 1080 }}}
+					custom_tooltip = male_gen2_3f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3f2_age value = 1080 }}}
+					custom_tooltip = male_gen2_3f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3f3_age value = 1080 }}}
+					custom_tooltip = male_gen2_3f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_3f4_age value = 1080 }}}
+					custom_tooltip = male_gen2_3f4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3f1_age value = 1080 }}}
+					custom_tooltip = female_gen2_3f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3f2_age value = 1080 }}}
+					custom_tooltip = female_gen2_3f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3f3_age value = 1080 }}}
+					custom_tooltip = female_gen2_3f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_3f4_age value = 1080 }}}
+					custom_tooltip = female_gen2_3f4_display
+				}
+			}
+			if = {
+				limit = { has_country_flag = female_gen1_4_heir }
+				custom_tooltip = tt_heir_children
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4f1_age value = 1080 }}}
+					custom_tooltip = male_gen2_4f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4f2_age value = 1080 }}}
+					custom_tooltip = male_gen2_4f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4f3_age value = 1080 }}}
+					custom_tooltip = male_gen2_4f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4f4_age value = 1080 }}}
+					custom_tooltip = male_gen2_4f4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4f1_age value = 1080 }}}
+					custom_tooltip = female_gen2_4f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4f2_age value = 1080 }}}
+					custom_tooltip = female_gen2_4f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4f3_age value = 1080 }}}
+					custom_tooltip = female_gen2_4f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4f4_age value = 1080 }}}
+					custom_tooltip = female_gen2_4f4_display
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { check_variable = { which = female_gen1_4_age value = 1080 }}
+					NOT = { has_country_flag = female_gen1_4_heir }
+				}
+				custom_tooltip = female_heir4_display
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4f1_age value = 1080 }}}
+					custom_tooltip = male_gen2_4f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4f2_age value = 1080 }}}
+					custom_tooltip = male_gen2_4f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4f3_age value = 1080 }}}
+					custom_tooltip = male_gen2_4f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4f4_age value = 1080 }}}
+					custom_tooltip = male_gen2_4f4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4f1_age value = 1080 }}}
+					custom_tooltip = female_gen2_4f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4f2_age value = 1080 }}}
+					custom_tooltip = female_gen2_4f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4f3_age value = 1080 }}}
+					custom_tooltip = female_gen2_4f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4f4_age value = 1080 }}}
+					custom_tooltip = female_gen2_4f4_display
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						NOT = { check_variable = { which = male_gen2_4f1_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_4f2_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_4f3_age value = 1080 }}
+						NOT = { check_variable = { which = male_gen2_4f4_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_4f1_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_4f2_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_4f3_age value = 1080 }}
+						NOT = { check_variable = { which = female_gen2_4f4_age value = 1080 }}
+					}
+				}
+				custom_tooltip = daughter_died
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4f1_age value = 1080 }}}
+					custom_tooltip = male_gen2_4f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4f2_age value = 1080 }}}
+					custom_tooltip = male_gen2_4f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4f3_age value = 1080 }}}
+					custom_tooltip = male_gen2_4f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = male_gen2_4f4_age value = 1080 }}}
+					custom_tooltip = male_gen2_4f4_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4f1_age value = 1080 }}}
+					custom_tooltip = female_gen2_4f1_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4f2_age value = 1080 }}}
+					custom_tooltip = female_gen2_4f2_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4f3_age value = 1080 }}}
+					custom_tooltip = female_gen2_4f3_display
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = female_gen2_4f4_age value = 1080 }}}
+					custom_tooltip = female_gen2_4f4_display
+				}
+			}
+			hidden_effect = { country_event = { id = vef_encyclopedia.500 }}
+		}
+	}
+}

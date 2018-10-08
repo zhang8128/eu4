@@ -1,0 +1,101 @@
+########################################
+# VEF Events for Orissa
+########################################
+
+namespace = flavor_ori
+normal_or_historical_nations = yes
+
+# The Gajapati Dynasty
+country_event = {
+	id = flavor_ori.1000
+	title = flavor_ori.1000.t
+	desc = flavor_ori.1000.d
+	picture = VEF_ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ORI
+		NOT = { has_country_flag = vef_gajapati_rise }
+		is_year = 1434
+		NOT = { dynasty = "Gajapati" }
+		NOT = { has_regency_trigger = yes }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	immediate = {
+		set_country_flag = vef_gajapati_rise
+	}
+
+	option = {
+		name = flavor_ori.1000.a
+		ai_chance = { factor = 0 }
+		custom_tooltip = gajapati_rise_events
+		define_ruler = {
+			name = "Kapilendra"
+			dynasty = "Gajapati"
+			claim = 65
+			ADM = 4
+			DIP = 5
+			MIL = 6
+			fixed = yes
+		}
+		define_heir = {
+			name = "Hamvira"
+			dynasty = "Gajapati"
+			claim = 95
+			ADM = 3
+			DIP = 2
+			MIL = 2
+			birth_date = 1418.1.1
+		}
+	}
+	
+	option = {
+		name = flavor_ori.1000.b
+		ai_chance = { factor = 100 }
+		custom_tooltip = gajapati_rise_events
+		define_ruler = {
+			name = "Kapilendra"
+			dynasty = "Gajapati"
+			claim = 65
+			ADM = 4
+			DIP = 5
+			MIL = 6
+			fixed = yes
+		}
+		define_heir = {
+			name = "Hamvira"
+			dynasty = "Gajapati"
+			claim = 95
+			ADM = 3
+			DIP = 2
+			MIL = 2
+			birth_date = 1418.1.1
+		}
+		define_ruler_to_general = {
+			fire = 3
+			shock = 5
+			manuever = 2
+			siege = 1
+		}
+	}
+
+	option = {
+		name = flavor_ori.1000.c
+		ai_chance = { factor = 0 }
+		custom_tooltip = gajapati_rise_events
+		capital_scope = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+				leader = "Kapilendra Gajapati"
+			}
+		}
+	}
+
+}
+	

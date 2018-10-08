@@ -1,0 +1,208 @@
+# Trebizond
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 4
+primary_culture = pontian
+religion = orthodox
+technology_group = byzantine
+capital = 638	# Trebizond
+historical_rival = BYZ
+
+1290.1.1 = {
+	set_country_flag = vef_newgov_start
+	set_variable = { which = last_free_subjects value = 3 }
+	set_variable = { which = aristocratic_privilege value = 10 }
+	set_variable = { which = vef_merit value = 15 }
+	set_variable = { which = vef_rule_law value = 25 }
+	add_corruption = 35
+}
+
+1297.1.1 = {
+	monarch = {
+		name = "Alexios II"
+		dynasty = "Komnenos"
+		birth_date = 1282.9.1
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+}
+
+1330.5.3 = {
+	monarch = {
+		name = "Andronikos III"
+		dynasty = "Komnenos"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1332.1.8 = {
+	monarch = {
+		name = "Basileios"
+		dynasty = "Komnenos"
+		adm = 0
+		dip = 2
+		mil = 1
+	}
+}
+
+1342.9.4 = {
+	monarch = {
+		name = "Iohannes III"
+		dynasty = "Komnenos"
+		birth_date = 1321.1.1
+		adm = 0
+		dip = 2
+		mil = 1
+	}
+}
+
+1344.5.3 = {
+	monarch = {
+		name = "Micheal"
+		dynasty = "Komnenos"
+		birth_date = 1285.1.1
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1349.12.13 = {
+	monarch = {
+		name = "Alexios III"
+		dynasty = "Komnenos"
+		birth_date = 1338.10.5
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+}
+
+1351.9.20 = {
+	queen = {
+		country_of_origin = BYZ
+		name = "Theodora"
+		dynasty = "Kantakouzenos"
+		birth_date = 1340.1.1
+		death_date = 1390.1.1
+		female = yes
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1364.12.16 = {
+	heir = {
+		name = "Manuel"
+		monarch_name = "Manuel III"
+		dynasty = "Komnenos"
+		birth_date = 1364.12.16
+		death_date = 1417.3.5
+		claim = 95
+		adm = 3
+		dip = 0
+		mil = 2
+	}
+}
+
+1390.3.20 = {
+	monarch = {
+		name = "Manuel III"
+		dynasty = "Komnenos"
+		birth_date = 1364.12.16
+		adm = 3
+		dip = 0
+		mil = 2
+	}
+	queen = {
+		country_of_origin = GEO
+		name = "Eudokia"
+		dynasty = "Bagrationi"
+		birth_date = 1340.1.1
+		death_date = 1395.5.2
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Alexios"
+		monarch_name = "Alexios IV"
+		dynasty = "Komnenos"
+		birth_date = 1382.1.1
+		death_date = 1429.10.29
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}	
+
+1417.3.5 = {
+	monarch = {
+		name = "Alexios IV"
+		dynasty = "Komnenos"
+		birth_date = 1382.1.1
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+	queen = {
+		country_of_origin = BYZ
+		name = "Theodora"
+		dynasty = "Kantakouzenos"
+		birth_date = 1382.1.1
+		death_date = 1426.11.12
+		female = yes
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+	heir = {
+		name = "Ioannes"
+		monarch_name = "Ioannes IV"
+		dynasty = "Komnenos"
+		birth_date = 1403.1.1
+		death_date = 1459.1.1
+		claim = 95
+		adm = 3
+		dip = 4
+		mil = 5
+	}
+}
+
+1429.10.29 = {
+	monarch = {
+		name = "Ioannes IV"
+		dynasty = "Komnenos"
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+	heir = {
+		name = "Dauid"
+		monarch_name = "Dauid"
+		dynasty = "Komnenos"
+		birth_date = 1408.1.1
+		death_date = 1463.11.1
+		claim = 95
+		adm =  6
+		dip = 0
+		mil = 1
+	}
+}
+		
+
+1459.1.1 = {
+	monarch = {
+		name = "Dauid"
+		dynasty = "Komnenos"
+		adm = 3
+		dip = 0
+		mil = 1
+	}
+}

@@ -1,0 +1,19 @@
+name = "First Sardinian Rebellion"
+
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+	tag = SAR
+}
+
+# Sardinia rebels due to concerns over Aragon's consolidation
+1368.1.1 = {
+	add_attacker = SAR
+	add_defender = ARA
+}
+
+# Peace whereby Sardinia accepts Aragon's overlordship and returns some territory
+1388.1.1 = {
+	rem_attacker = SAR
+	rem_defender = ARA
+}

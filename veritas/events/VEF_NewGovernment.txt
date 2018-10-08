@@ -1,0 +1,4901 @@
+# New Government Calculations
+
+# SLIDERS #
+# aristocratic_privilege	(Equality)       0 - 100 (Aristocratic Privilege)
+# vef_merit					(Patrimonialism) 0 - 100 (Meritocracy)
+# vef_rule_law				(Absolutism)     0 - 100 (Constitutionalism)
+# province_count		Number of provinces
+# free_subjects			Measure of how free your people are
+# vef_governance		Measure of how well your bureaucracy can manage provinces; ADM tech based
+# ai_gov				Setting for AI to build small bureaucracy surplus    
+# central_management	Value of provinces requiring active management by the central government
+# core_provinces		Provinces which actually count for free_subjects calculation
+# noble_holdings		Percentage owned by nobles
+# church_holdings		Percentage owned by church (Catholic/Orthodox)
+# citizen_holdings		Percentage owned by all other non-crown/state persons
+
+# PUSHES #
+# Noble holdings above 40 pushes AP up to 40
+# Noble holdings above 60 pushes AP up to 60
+# Noble holdings above 80 pushes AP up to 80
+# Noble holdings below 25 pushes AP down to 30
+
+# Freedom building drives citizen ownership; how much depends on law (libbuild)
+
+#Aristocratic Privilege
+#0-20	Inconsequential
+#21-40	Weak
+#41-60	No Modifier
+#61-80	Strong
+#81-100	Ruling
+
+#Rule Of Law
+#0-20	Tyranny
+#21-40	Weak
+#41-60	No Modifier
+#61-80	Strong
+#81-100	Binding
+
+#Merit
+#0-20	Patrimonialism
+#21-40	Nominal
+#41-60	No Modifier
+#61-80	No Modifier
+#81-100	Meritocracy
+
+
+#1 Initial Values
+#2 Annual Maintenance
+
+#Regular Ticks
+#100 AI Reduce Serfdom (Country)
+#101 Reduce Serfdom (Province)
+#102 Policy Ended
+#110 AI Increase Serfdom (Country)
+#111 Increase Serfdom (Province)
+#112 Policy Ended
+
+#141 Granting Titles (Province)
+#142 Policy Ended
+#144 Selling Land (Province)
+#145 Policy Ended
+#147 Church Donation (Province)
+#148 Policy Ended
+#150 Seizing Land (Province)
+#151 Policy Ended
+
+
+#Elective Monarchy Disaster
+#400 Disaster Start
+#401 Disaster End
+#402 Spawn Rebels
+
+#Nomads
+#10000 Decide Reform Path
+#10001 Choose Culture
+#10002 Choose Religion
+#10003 Bi-yearly Reform Pulse
+#10004 Culture Change
+#10005 Religion Change
+#10010 Disaster Start
+#10011 Disaster End
+#10012 SIB
+#10013 NOG
+#10014 SHY
+#10015 BSH
+#10016 OIR
+#10017 KHA
+#10100 AI Capital Build
+
+#Mamluks
+#20000 Reform Control Event
+#20001 Reform Ends
+#20002 First Reform
+#20003 Second Reform
+#20004 Third Reform
+#20005 Final Reform - Aristocracy
+#20006 Mamluks Defeated
+#20007 Mamluk Revolt
+
+#Janissaries
+#30000 Establish Devsirme system
+#30001 End of Turkish Nobility
+#30002 Pay Raise
+#30003 Right to marry
+#30004 Janissary Children
+#30005 Disaster Over
+#30006 Janissary Revolt - Start
+#30007 Janissary Revolt - End
+#30008 Janissary Revolt - End
+#30009 Janissaries Over
+
+#Russian Government
+#40000 Zemsky Sobor Revolt
+#40001 Revolt Over
+#40002 Rebel Generation
+
+#Maintenance
+#90000 Maintenance Routine
+
+
+
+namespace = vef_newgov
+
+# Set Initial Values
+country_event = {
+	id = vef_newgov.1
+	title = "vef_newgov.1.t"
+	desc = "vef_newgov.1.d"
+
+	picture = VEF_COURT_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_country_flag = vef_newgov_start }
+	}
+
+	immediate = {
+		set_country_flag = vef_newgov_start
+		if = {
+			limit = {
+				OR = {
+					has_reform = french_monarchy
+					has_reform = feudalism_reform
+				}
+			}
+			set_variable = { which = aristocratic_privilege value = 60 }
+			set_variable = { which = vef_merit value = 0 }
+			set_variable = { which = vef_rule_law value = 30 }
+			add_corruption = 30
+		}
+		if = {
+			limit = { government = elective_monarchy }
+			set_variable = { which = aristocratic_privilege value = 80 }
+			set_variable = { which = vef_merit value = 0 }
+			set_variable = { which = vef_rule_law value = 50 }
+			add_corruption = 40
+		}
+		if = {
+			limit = { has_reform = principality }
+			set_variable = { which = aristocratic_privilege value = 70 }
+			set_variable = { which = vef_merit value = 0 }
+			set_variable = { which = vef_rule_law value = 20 }
+			add_corruption = 40
+		}
+		if = {
+			limit = { religion_group = muslim }
+			set_variable = { which = aristocratic_privilege value = 20 }
+			set_variable = { which = vef_merit value = 30 }
+			set_variable = { which = vef_rule_law value = 20 }
+			add_corruption = 35
+		}
+		if = {
+			limit = { primary_culture = japanese }
+			set_variable = { which = aristocratic_privilege value = 50 }
+			set_variable = { which = vef_merit value = 35 }
+			set_variable = { which = vef_rule_law value = 10 }
+			add_corruption = 30
+		}
+		if = {
+			limit = { religion = confucianism }
+			set_variable = { which = aristocratic_privilege value = 30 }
+			set_variable = { which = vef_merit value = 40 }
+			set_variable = { which = vef_rule_law value = 5 }
+			add_corruption = 30
+		}
+		if = {
+			limit = { government = republic }
+			set_variable = { which = aristocratic_privilege value = 20 }
+			set_variable = { which = vef_merit value = 20 }
+			set_variable = { which = vef_rule_law value = 70 }
+			add_corruption = 40
+		}
+		if = {
+			limit = { is_nomad = yes }
+			set_variable = { which = aristocratic_privilege value = 20 }
+			set_variable = { which = vef_merit value = 18 }
+			set_variable = { which = vef_rule_law value = 5 }
+			capital_scope = { set_province_flag = nomad_capital }
+		}
+		if = {
+			limit = { NOT = { check_variable = { which = vef_rule_law value = 5 }}}
+			set_variable = { which = aristocratic_privilege value = 50 }
+			set_variable = { which = vef_merit value = 5 }
+			set_variable = { which = vef_rule_law value = 30 }
+			add_corruption = 35
+		}
+	}
+	
+	option = { name = "vef_newgov.1.opta" }
+}
+
+
+################
+# Annual Pulse #
+################
+
+# Annual Event
+country_event = {
+	id = vef_newgov.2
+	title = "vef_newgov.2.t"
+	desc = "vef_newgov.2.d"
+	picture = VEF_COURT_eventPicture
+	
+	trigger = { NOT = { has_country_modifier = newgov_yearly_timer }}
+	
+	hidden = yes
+	
+	immediate = {
+		add_country_modifier = { name = newgov_yearly_timer duration = 350 hidden = yes }
+		if = {
+			limit = { ai = no NOT = { corruption = 90 }}
+			every_owned_province = {
+				if = {
+					limit = {
+						has_province_modifier = rm_increase_serfdom
+						NOT = { has_building = heavy_serfdom }
+					}
+					if = {
+						limit = {
+							NOT = { has_province_flag = serfdom_stop_light }
+							NOT = { has_province_flag = serfdom_stop_moderate }
+						}
+						change_variable = { which = serfdom_change value = 1 }
+						owner = { add_corruption = 0.25 }
+						else = {
+							if = {
+								limit = {
+									has_province_flag = serfdom_stop_light
+									NOT = { has_building = light_serfdom }
+									NOT = { has_building = moderate_serfdom }
+								}
+								change_variable = { which = serfdom_change value = 1 }
+								owner = { add_corruption = 0.25 }
+								else = {
+									if = {
+										limit = {
+											has_province_flag = serfdom_stop_moderate
+											NOT = { has_building = moderate_serfdom }
+										}
+										change_variable = { which = serfdom_change value = 1 }
+										owner = { add_corruption = 0.25 }
+									}
+								}
+							}
+						}
+					}
+					if = {
+						limit = { check_variable = { which = serfdom_change value = 10 }}
+						set_variable = { which = serfdom_change value = 0 }
+						province_event = { id = vef_newgov.111 }
+					}
+				}
+				if = {
+					limit = {
+						has_province_modifier = rm_decrease_serfdom
+						province_serfdom_trigger = yes
+					}
+					if = {
+						limit = {
+							NOT = { has_province_flag = serfdom_stop_light }
+							NOT = { has_province_flag = serfdom_stop_moderate }
+						}
+						change_variable = { which = serfdom_change value = -1 }
+						owner = { add_corruption = 0.25 }
+						else = {
+							if = {
+								limit = {
+									has_province_flag = serfdom_stop_light
+									NOT = { has_building = light_serfdom }
+								}
+								change_variable = { which = serfdom_change value = -1 }
+								owner = { add_corruption = 0.25 }
+								else = {
+									if = {
+										limit = {
+											has_province_flag = serfdom_stop_moderate
+											has_building = heavy_serfdom
+										}
+										change_variable = { which = serfdom_change value = -1 }
+										owner = { add_corruption = 0.25 }
+									}
+								}
+							}
+						}
+					}
+					if = {
+						limit = { check_variable = { which = serfdom_change value = -10 }}
+						set_variable = { which = serfdom_change value = 0 }
+						province_event = { id = vef_newgov.101 }
+					}
+				}
+			}
+		}
+		every_owned_province = {
+			limit = { NOT = { owner = { corruption = 90 }}}
+			if = {
+				limit = {
+					has_province_flag = noble_titles
+					NOT = { has_building = nobles_80 }
+					check_variable = { which = crown_ownership value = 1 }
+				}
+				if = {
+					limit = {
+						NOT = { has_province_flag = nobles_stop_20 }
+						NOT = { has_province_flag = nobles_stop_40 }
+						NOT = { has_province_flag = nobles_stop_60 }
+					}
+					change_variable = { which = nobles_change value = 1 }
+					owner = { add_corruption = 0.25 }
+					else = {
+						if = {
+							limit = {
+								has_province_flag = nobles_stop_20
+								NOT = { has_building = nobles_20 }
+								NOT = { has_building = nobles_40 }
+								NOT = { has_building = nobles_60 }
+							}
+							change_variable = { which = nobles_change value = 1 }
+							owner = { add_corruption = 0.25 }
+							else = {
+								if = {
+									limit = {
+										has_province_flag = nobles_stop_40
+										NOT = { has_building = nobles_40 }
+										NOT = { has_building = nobles_60 }
+									}
+									change_variable = { which = nobles_change value = 1 }
+									owner = { add_corruption = 0.25 }
+									else = {
+										if = {
+											limit = {
+												has_province_flag = nobles_stop_60
+												NOT = { has_building = nobles_60 }
+											}
+											change_variable = { which = nobles_change value = 1 }
+											owner = { add_corruption = 0.25 }
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = { check_variable = { which = nobles_change value = 5 }}
+					set_variable = { which = nobles_change value = 0 }
+					province_event = { id = vef_newgov.141 }
+				}
+			}
+			if = {
+				limit = {
+					has_province_flag = selling_land
+					check_variable = { which = crown_ownership value = 1 }
+					check_variable = { which = crown_ownership which = sell_goal }
+				}
+				change_variable = { which = sell_change value = 1 }
+				owner = { add_corruption = 0.25 }
+				if = {
+					limit = { check_variable = { which = sell_change value = 5 }}
+					set_variable = { which = sell_change value = 0 }
+					province_event = { id = vef_newgov.144 }
+				}
+			}
+			if = {
+				limit = {
+					has_province_flag = church_donation
+					NOT = { has_building = church_80 }
+					check_variable = { which = crown_ownership value = 1 }
+				}
+				if = {
+					limit = {
+						NOT = { has_province_flag = church_stop_20 }
+						NOT = { has_province_flag = church_stop_40 }
+						NOT = { has_province_flag = church_stop_60 }
+					}
+					change_variable = { which = church_change value = 1 }
+					owner = { add_corruption = 0.25 }
+					else = {
+						if = {
+							limit = {
+								has_province_flag = church_stop_20
+								NOT = { has_building = church_20 }
+								NOT = { has_building = church_40 }
+								NOT = { has_building = church_60 }
+							}
+							change_variable = { which = church_change value = 1 }
+							owner = { add_corruption = 0.25 }
+							else = {
+								if = {
+									limit = {
+										has_province_flag = church_stop_40
+										NOT = { has_building = church_40 }
+										NOT = { has_building = church_60 }
+									}
+									change_variable = { which = church_change value = 1 }
+									owner = { add_corruption = 0.25 }
+									else = {
+										if = {
+											limit = {
+												has_province_flag = church_stop_60
+												NOT = { has_building = church_60 }
+											}
+											change_variable = { which = church_change value = 1 }
+											owner = { add_corruption = 0.25 }
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = { check_variable = { which = church_change value = 5 }}
+					set_variable = { which = church_change value = 0 }
+					province_event = { id = vef_newgov.147 }
+				}
+			}
+			if = {
+				limit = {
+					has_province_flag = seizing_land_noble
+					OR = {
+						has_building = nobles_20
+						has_building = nobles_40
+						has_building = nobles_60
+						has_building = nobles_80
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_province_flag = nobles_stop_60 }
+						NOT = { has_province_flag = nobles_stop_40 }
+						NOT = { has_province_flag = nobles_stop_20 }
+					}
+					change_variable = { which = nobles_change value = -1 }
+					owner = { add_corruption = 0.25 }
+					else = {
+						if = {
+							limit = {
+								has_province_flag = nobles_stop_60
+								has_building = nobles_80
+							}
+							change_variable = { which = nobles_change value = -1 }
+							owner = { add_corruption = 0.25 }
+							else = {
+								if = {
+									limit = {
+										has_province_flag = nobles_stop_40
+										OR = {
+											has_building = nobles_80
+											has_building = nobles_60
+										}
+									}
+									change_variable = { which = nobles_change value = -1 }
+									owner = { add_corruption = 0.25 }
+									else = {
+										if = {
+											limit = {
+												has_province_flag = nobles_stop_20
+												NOT = { has_building = nobles_20 }
+											}
+											change_variable = { which = nobles_change value = -1 }
+											owner = { add_corruption = 0.25 }
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = nobles_change value = -4 }}}
+					set_variable = { which = nobles_change value = 0 }
+					province_event = { id = vef_newgov.150 }
+				}
+			}
+			if = {
+				limit = {
+					has_province_flag = seizing_land_citizen
+					OR = {
+						has_building = citizens_20
+						has_building = citizens_40
+						has_building = citizens_60
+						has_building = citizens_80
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_province_flag = citizens_stop_60 }
+						NOT = { has_province_flag = citizens_stop_40 }
+						NOT = { has_province_flag = citizens_stop_20 }
+					}
+					change_variable = { which = citizens_change value = -1 }
+					owner = { add_corruption = 0.25 }
+					else = {
+						if = {
+							limit = {
+								has_province_flag = citizens_stop_60
+								has_building = citizens_80
+							}
+							change_variable = { which = citizens_change value = -1 }
+							owner = { add_corruption = 0.25 }
+							else = {
+								if = {
+									limit = {
+										has_province_flag = citizens_stop_40
+										OR = {
+											has_building = citizens_80
+											has_building = citizens_60
+										}
+									}
+									change_variable = { which = citizens_change value = -1 }
+									owner = { add_corruption = 0.25 }
+									else = {
+										if = {
+											limit = {
+												has_province_flag = citizens_stop_20
+												NOT = { has_building = citizens_20 }
+											}
+											change_variable = { which = citizens_change value = -1 }
+											owner = { add_corruption = 0.25 }
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = citizens_change value = -4 }}}
+					set_variable = { which = citizens_change value = 0 }
+					province_event = { id = vef_newgov.150 }
+				}
+			}
+		}
+		# Recalculate Governance
+		set_variable = { which = vef_governance value = 0 }
+		export_to_variable = {
+			which = vef_governance
+			value = adm_tech
+		}
+		multiply_variable = { which = vef_governance value = 0.25 }
+		multiply_variable = { which = vef_governance which = vef_governance }
+		change_variable = { which = vef_governance value = 5 }
+		if = {
+			limit = {
+				OR = {
+					has_country_modifier = vef_janissaries_1
+					has_country_modifier = coc_janissaries_1
+					has_country_modifier = vef_janissaries_2
+					has_country_modifier = coc_janissaries_2
+					has_country_modifier = vef_janissaries_3
+					has_country_modifier = coc_janissaries_3
+					has_country_modifier = vef_janissaries_4
+					has_country_modifier = coc_janissaries_4
+					has_country_modifier = vef_janissaries_5
+					has_country_modifier = vef_janissaries_6
+				}
+			}
+			change_variable = { which = vef_governance value = 10 }
+		}
+		if = {
+			limit = { OR = { government = yuan_monarchy government = celestial_empire }}
+			change_variable = { which = vef_governance value = 25 }
+		}
+		if = {
+			limit = { has_active_policy = vef_sale_offices }
+			multiply_variable = { which = vef_governance value = 1.2 }
+		}
+		if = { # Keep Merit no greater than 100
+			limit = { check_variable = { which = vef_merit value = 100 }}
+			set_variable = { which = vef_merit value = 100 }
+		}
+		export_to_variable = { which = corrupt_calc value = corruption }
+		set_variable = { which = merit_max value = 100 }
+		subtract_variable = { which = merit_max which = corrupt_calc }
+		if = {
+			limit = { check_variable = { which = vef_merit which = merit_max }}
+			set_variable = { which = vef_merit which = merit_max }
+		}
+		if = {
+			limit = { NOT = { check_variable = { which = vef_merit value = 51 }}}
+			set_variable = { which = merit_factor which = vef_merit }
+			divide_variable = { which = merit_factor value = 100 }
+			change_variable = { which = merit_factor value = 1 }
+			multiply_variable = { which = vef_governance which = merit_factor }
+		}
+		if = {
+			limit = { check_variable = { which = vef_merit value = 51 }}
+			set_variable = { which = merit_factor which = vef_merit }
+			change_variable = { which = merit_factor value = -50 }
+			divide_variable = { which = merit_factor value = 50 }
+			change_variable = { which = merit_factor value = 1.5 }
+			multiply_variable = { which = vef_governance which = merit_factor }
+		}
+	}
+	
+	option = {
+		name = "vef_newgov.2.opta"
+	}
+}
+
+
+#################
+# Regular Ticks #
+#################
+
+# Regular increase in free subjects - AI
+country_event = {
+	id = vef_newgov.100
+	title = "vef_newgov.100.t"
+	desc = "vef_newgov.100.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes #on_action 3-year pulse
+	
+	hidden = yes
+	
+	trigger = {
+		ai = yes
+		has_country_flag = ai_serfdom_down
+	}
+	
+	immediate = {
+		if = {
+			limit = { 
+				NOT = {
+					any_owned_province = {
+						has_province_modifier = rm_decrease_serfdom
+						OR = {
+							has_building = heavy_serfdom
+							has_building = moderate_serfdom
+						}
+					}
+				}
+				any_owned_province = {
+					has_province_modifier = rm_decrease_serfdom
+					has_building = light_serfdom
+				}
+			}
+			random_owned_province = {
+				limit = {
+					has_province_modifier = rm_decrease_serfdom
+					has_building = light_serfdom
+				}
+				ROOT = { add_corruption = 2 }
+				province_event = { id = vef_newgov.101 }
+			}
+		}
+		if = {
+			limit = { 
+				NOT = {
+					any_owned_province = {
+						has_province_modifier = rm_decrease_serfdom
+						has_building = heavy_serfdom
+					}
+				}
+				any_owned_province = {
+					has_province_modifier = rm_decrease_serfdom
+					has_building = moderate_serfdom
+				}
+			}
+			random_owned_province = {
+				limit = {
+					has_province_modifier = rm_decrease_serfdom
+					has_building = moderate_serfdom
+				}
+				ROOT = { add_corruption = 2 }
+				province_event = { id = vef_newgov.101 }
+			}
+		}
+		if = {
+			limit = { 
+				any_owned_province = {
+					has_province_modifier = rm_decrease_serfdom
+					has_building = heavy_serfdom
+				}
+			}
+			random_owned_province = {
+				limit = {
+					has_province_modifier = rm_decrease_serfdom
+					has_building = heavy_serfdom
+				}
+				ROOT = { add_corruption = 2 }
+				province_event = { id = vef_newgov.101 }
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_newgov.100.opta"
+	}
+}
+
+# Province Change
+province_event = {
+	id = vef_newgov.101
+	title = "vef_newgov.101.t"
+	desc = "vef_newgov.101.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes #vef_newgov.100
+	
+	hidden = yes
+	
+	immediate = {
+		if = {
+			limit = { has_building = light_serfdom }
+			remove_building = light_serfdom
+			add_building = freedom
+			if = {
+				limit = {
+					owner = {
+						NOT = {
+							any_owned_province = {
+								area = ROOT
+								OR = {
+									has_building = light_serfdom
+									has_building = moderate_serfdom
+									has_building = heavy_serfdom
+								}
+							}
+						}
+					}
+				}
+				province_event = { id = vef_newgov.102 }
+			}
+		}
+		if = {
+			limit = { has_building = moderate_serfdom }
+			remove_building = moderate_serfdom
+			add_building = light_serfdom
+		}
+		if = {
+			limit = { has_building = heavy_serfdom }
+			remove_building = heavy_serfdom
+			add_building = moderate_serfdom
+		}
+	}
+	
+	option = {
+		name = "vef_newgov.101.opta"
+	}
+}
+
+# Message - Policy Ended
+province_event = {
+	id = vef_newgov.102
+	title = "vef_newgov.102.t"
+	desc = "vef_newgov.102.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes #vef_newgov.101
+	
+	immediate = {
+		owner = {
+			every_owned_province = {
+				limit = { area = ROOT }
+				remove_province_modifier = rm_decrease_serfdom
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_newgov.102.opta"
+	}
+}
+
+# Regular reduction in free subjects - AI
+country_event = {
+	id = vef_newgov.110
+	title = "vef_newgov.110.t"
+	desc = "vef_newgov.110.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes # on_action 3-year pulse
+	
+	hidden = yes
+	
+	trigger = {
+		ai = yes
+		has_country_flag = ai_serfdom_up
+	}
+	
+	immediate = {
+		if = {
+			limit = { 
+				NOT = {
+					any_owned_province = {
+						has_province_modifier = rm_increase_serfdom
+						OR = {
+							has_building = freedom
+							has_building = light_serfdom
+						}
+					}
+				}
+				any_owned_province = {
+					has_province_modifier = rm_increase_serfdom
+					has_building = moderate_serfdom
+				}
+			}
+			random_owned_province = {
+				limit = {
+					has_province_modifier = rm_increase_serfdom
+					has_building = moderate_serfdom
+				}
+				ROOT = { add_corruption = 2 }
+				province_event = { id = vef_newgov.111 }
+			}
+		}
+		if = {
+			limit = { 
+				NOT = {
+					any_owned_province = {
+						has_province_modifier = rm_increase_serfdom
+						has_building = freedom
+					}
+				}
+				any_owned_province = {
+					has_province_modifier = rm_increase_serfdom
+					has_building = light_serfdom
+				}
+			}
+			random_owned_province = {
+				limit = {
+					has_province_modifier = rm_increase_serfdom
+					has_building = light_serfdom
+				}
+				ROOT = { add_corruption = 2 }
+				province_event = { id = vef_newgov.111 }
+			}
+		}
+		if = {
+			limit = { 
+				any_owned_province = {
+					has_province_modifier = rm_increase_serfdom
+					has_building = freedom
+				}
+			}
+			random_owned_province = {
+				limit = {
+					has_province_modifier = rm_increase_serfdom
+					has_building = freedom
+				}
+				ROOT = { add_corruption = 2 }
+				province_event = { id = vef_newgov.111 }
+			}
+		}
+	}
+	
+	option = { name = "vef_newgov.110.opta"}
+}
+
+# Province Change
+province_event = {
+	id = vef_newgov.111
+	title = "vef_newgov.111.t"
+	desc = "vef_newgov.111.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes #vef_newgov.110
+	
+	hidden = yes
+	
+	immediate = {
+		if = {
+			limit = { has_building = moderate_serfdom }
+			remove_building = moderate_serfdom
+			add_building = heavy_serfdom
+			if = {
+				limit = {
+					owner = {
+						NOT = {
+							any_owned_province = {
+								area = ROOT
+								OR = {
+									has_building = freedom
+									has_building = light_serfdom
+									has_building = moderate_serfdom
+								}
+							}
+						}
+					}
+				}
+				province_event = { id = vef_newgov.112 }
+			}
+		}
+		if = {
+			limit = { has_building = light_serfdom }
+			remove_building = light_serfdom
+			add_building = moderate_serfdom
+		}
+		if = {
+			limit = { has_building = freedom }
+			remove_building = freedom
+			add_building = light_serfdom
+		}
+	}
+	
+	option = {
+		name = "vef_newgov.101.opta"
+	}
+}
+
+# Message - Policy Ended
+province_event = {
+	id = vef_newgov.112
+	title = "vef_newgov.112.t"
+	desc = "vef_newgov.112.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes #vef_newgov.111
+	
+	immediate = {
+		owner = {
+			every_owned_province = {
+				limit = { area = ROOT }
+				remove_province_modifier = rm_increase_serfdom
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_newgov.112.opta"
+	}
+}
+
+#Land Management#
+
+#Granting Titles
+province_event = {
+	id = vef_newgov.141
+	title = "vef_newgov.141.t"
+	desc = "vef_newgov.141.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	hidden = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_building = nobles_80 }
+				NOT = { has_building = nobles_60 }
+				NOT = { has_building = nobles_40 }
+				NOT = { has_building = nobles_20 }
+			}
+			add_building = nobles_20
+			change_variable = { which = crown_ownership value = -1 }
+			else = {
+				trigger_switch = {
+					on_trigger = has_building
+					nobles_60 = {
+						remove_building = nobles_60
+						add_building = nobles_80
+						change_variable = { which = crown_ownership value = -1 }
+						}
+					nobles_40 = {
+						remove_building = nobles_40
+						add_building = nobles_60
+						change_variable = { which = crown_ownership value = -1 }
+					}
+					nobles_20 = {
+						remove_building = nobles_20
+						add_building = nobles_40
+						change_variable = { which = crown_ownership value = -1 }
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_newgov.141.opta"
+		if = {
+			limit = {
+				owner = {
+					NOT = {
+						any_owned_province = {
+							area = ROOT
+							NOT = { has_building = nobles_80 }
+							check_variable = { which = crown_ownership value = 1 }
+						}
+					}
+				}
+			}
+			owner = {
+				every_owned_province = {
+					limit = { area = ROOT }
+					clr_province_flag = noble_titles
+				}
+			}
+			province_event = { id = vef_newgov.142 }
+		}
+	}
+}	
+
+# Message
+province_event = {
+	id = vef_newgov.142
+	title = "vef_newgov.142.t"
+	desc = "vef_newgov.142.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_newgov.142.opta"
+	}
+}
+
+#Selling Land
+province_event = {
+	id = vef_newgov.144
+	title = "vef_newgov.144.t"
+	desc = "vef_newgov.144.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	hidden = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_building = nobles_60 }
+				NOT = { has_building = nobles_40 }
+				NOT = { has_building = nobles_20 }
+			}
+			if = {
+				limit = {
+					NOT = { has_building = citizens_60 }
+					NOT = { has_building = citizens_40 }
+					NOT = { has_building = citizens_20 }
+				}
+				add_building = citizens_20
+				else = {
+					trigger_switch = {
+						on_trigger = has_building
+						citizens_60 = {
+							remove_building = citizens_60
+							add_building = citizens_80
+						}
+						citizens_40 = {
+							remove_building = citizens_40
+							add_building = citizens_60
+						}
+						citizens_20 = {
+							remove_building = citizens_20
+							add_building = citizens_40
+						}
+					}
+				}
+			}
+			else = {
+				trigger_switch = {
+					on_trigger = has_building
+					nobles_60 = {
+						if = {
+							limit = { NOT = { has_building = citizens_20 }}
+							remove_building = nobles_60
+							add_building = nobles_80
+							else = {
+								random_list = {
+									75 = { remove_building = nobles_60 add_building = nobles_80 }
+									25 = { remove_building = citizens_20 add_building = citizens_40 }
+								}
+							}
+						}	
+					}
+					nobles_40 = {
+						if = {
+							limit = {
+								NOT = { has_building = citizens_40 }
+								NOT = { has_building = citizens_20 }
+							}
+							remove_building = nobles_40
+							add_building = nobles_60
+							else = {
+								trigger_switch = {
+									on_trigger = has_building
+									citizens_40 = {
+										random_list = {
+											50 = { remove_building = nobles_40 add_building = nobles_60 }
+											50 = { remove_building = citizens_40 add_building = citizens_60 }
+										}
+									}
+									citizens_20 = {
+										random_list = {
+											67 = { remove_building = nobles_40 add_building = nobles_60 }
+											33 = { remove_building = citizens_20 add_building = citizens_40 }
+										}
+									}
+								}
+							}
+						}
+					}
+					nobles_20 = {
+						if = {
+							limit = {
+								NOT = { has_building = citizens_60 }
+								NOT = { has_building = citizens_40 }
+								NOT = { has_building = citizens_20 }
+							}
+							remove_building = nobles_20
+							add_building = nobles_40
+							else = {
+								trigger_switch = {
+									on_trigger = has_building
+									citizens_60 = {
+										random_list = {
+											25 = { remove_building = nobles_20 add_building = nobles_40 }
+											75 = { remove_building = citizens_60 add_building = citizens_80 }
+										}
+									}
+									citizens_40 = {
+										random_list = {
+											33 = { remove_building = nobles_20 add_building = nobles_40 }
+											67 = { remove_building = citizens_40 add_building = citizens_60 }
+										}
+									}
+									citizens_20 = {
+										random_list = {
+											50 = { remove_building = nobles_20 add_building = nobles_40 }
+											50 = { remove_building = citizens_20 add_building = citizens_40 }
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		change_variable = { which = crown_ownership value = -1 }
+		owner = { add_years_of_income = 0.1 }
+	}
+	
+	option = {
+		name = "vef_newgov.144.opta"
+		if = {
+			limit = {
+				owner = {
+					NOT = {
+						any_owned_province = {
+							area = ROOT
+							check_variable = { which = crown_ownership value = 1 }
+							NOT = { has_building = nobles_80 }
+							NOT = { has_building = citizens_80 }
+						}
+					}
+				}
+			}
+			owner = {
+				every_owned_province = {
+					limit = { area = ROOT }
+					clr_province_flag = selling_land
+				}
+			}
+			province_event = { id = vef_newgov.145 }
+		}
+	}
+}	
+
+# Message
+province_event = {
+	id = vef_newgov.145
+	title = "vef_newgov.145.t"
+	desc = "vef_newgov.145.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_newgov.145.opta"
+	}
+}
+
+#Church Donation
+province_event = {
+	id = vef_newgov.147
+	title = "vef_newgov.147.t"
+	desc = "vef_newgov.147.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	hidden = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_building = church_80 }
+				NOT = { has_building = church_60 }
+				NOT = { has_building = church_40 }
+				NOT = { has_building = church_20 }
+			}
+			add_building = church_20
+			change_variable = { which = crown_ownership value = -1 }
+			else = {
+				trigger_switch = {
+					on_trigger = has_building
+					church_60 = {
+						remove_building = church_60
+						add_building = church_80
+						change_variable = { which = crown_ownership value = -1 }
+					}
+					church_40 = {
+						remove_building = church_40
+						add_building = church_60
+						change_variable = { which = crown_ownership value = -1 }
+					}
+					church_20 = {
+						remove_building = church_20
+						add_building = church_40
+						change_variable = { which = crown_ownership value = -1 }
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_newgov.147.opta"
+		if = {
+			limit = {
+				owner = {
+					NOT = {
+						any_owned_province = {
+							area = ROOT
+							NOT = { has_building = church_80 }
+							check_variable = { which = crown_ownership value = 1 }
+						}
+					}
+				}
+			}
+			owner = {
+				every_owned_province = {
+					limit = { area = ROOT }
+					clr_province_flag = church_donation
+				}
+			}
+			province_event = { id = vef_newgov.148 }
+		}
+	}
+}	
+
+# Message
+province_event = {
+	id = vef_newgov.148
+	title = "vef_newgov.148.t"
+	desc = "vef_newgov.148.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_newgov.148.opta"
+	}
+}
+
+#Seizing Land
+province_event = {
+	id = vef_newgov.150
+	title = "vef_newgov.150.t"
+	desc = "vef_newgov.150.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	hidden = yes
+	
+	immediate = {
+		if = {
+			limit = { has_province_flag = seizing_land_noble }
+			trigger_switch = {
+				on_trigger = has_building
+				nobles_20 = {
+					remove_building = nobles_20
+					if = {
+						limit = {
+							NOT = {
+								owner = {
+									any_owned_province = {
+										area = ROOT
+										has_province_flag = seizing_land_noble
+										OR = {
+											has_building = nobles_20
+											has_building = nobles_40
+											has_building = nobles_60
+											has_building = nobles_80
+										}
+									}
+								}
+							}
+						}
+						owner = {
+							every_owned_province = {
+								limit = { area = ROOT }
+								clr_province_flag = seizing_land_noble
+								if = {
+									limit = { has_province_modifier = rm_seize_land }
+									remove_province_modifier = rm_seize_land
+								}
+							}
+						}
+						province_event = { id = vef_newgov.151 }
+					}
+				}
+				nobles_40 = {
+					remove_building = nobles_40
+					add_building = nobles_20
+				}
+				nobles_60 = {
+					remove_building = nobles_60
+					add_building = nobles_40
+				}
+				nobles_80 = {
+					remove_building = nobles_80
+					add_building = nobles_60
+				}
+			}
+			if = {
+				limit = { is_state = yes }
+				owner = {
+					if = {
+						limit = { has_estate = estate_nobles }
+						add_estate_loyalty = { estate = estate_nobles loyalty = -5 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { has_province_flag = seizing_land_citizen }
+			trigger_switch = {
+				on_trigger = has_building
+				citizens_20 = {
+					remove_building = citizens_20
+					if = {
+						limit = {
+							NOT = {
+								owner = {
+									any_owned_province = {
+										area = ROOT
+										has_province_flag = seizing_land_citizen
+										OR = {
+											has_building = citizens_20
+											has_building = citizens_40
+											has_building = citizens_60
+											has_building = citizens_80
+										}
+									}
+								}
+							}
+						}
+						owner = {
+							every_owned_province = {
+								limit = { area = ROOT }
+								clr_province_flag = seizing_land_citizen
+								if = {
+									limit = { has_province_modifier = rm_seize_land }
+									remove_province_modifier = rm_seize_land
+								}
+							}
+						}
+						province_event = { id = vef_newgov.151 }
+					}
+				}
+				citizens_40 = {
+					remove_building = citizens_40
+					add_building = citizens_20
+				}
+				citizens_60 = {
+					remove_building = citizens_60
+					add_building = citizens_40
+				}
+				citizens_80 = {
+					remove_building = citizens_80
+					add_building = citizens_60
+				}
+			}
+			if = {
+				limit = { is_state = yes }
+				owner = {
+					if = {
+						limit = { has_estate = estate_burghers }
+						add_estate_loyalty = { estate = estate_burghers loyalty = -5 }
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_newgov.150.opta"
+	}
+}	
+
+# Message
+province_event = {
+	id = vef_newgov.151
+	title = "vef_newgov.151.t"
+	desc = "vef_newgov.151.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_newgov.151.opta"
+	}
+}
+
+
+#################
+# Random Events #
+#################
+
+# Province seeks civic charter
+country_event = {
+	id = vef_newgov.300
+	title = "vef_newgov.300.t"
+	desc = "vef_newgov.300.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = ai_serfdom_down
+		any_owned_province = {
+			has_province_modifier = rm_decrease_serfdom
+			base_tax = 6
+			is_overseas = no
+			OR = {
+				has_building = light_serfdom
+				has_building = freedom
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "vef_newgov.300.opta"
+		random_owned_province = {
+			limit = { 
+				has_province_modifier = rm_decrease_serfdom
+				base_tax = 5
+				is_overseas = no
+				OR = {
+					has_building = light_serfdom
+					has_building = freedom
+				}
+			}
+			if = {
+				limit = { has_building = light_serfdom }
+				remove_building = light_serfdom
+			}
+			if = {
+				limit = { has_building = freedom }
+				remove_building = freedom
+			}
+			add_building = civic_charter
+			add_local_autonomy = 20
+		}
+		change_variable = { which = vef_rule_law value = 2 }
+	}
+	
+	option = {
+		name = "vef_newgov.300.optb"
+		change_variable = { which = aristocratic_privilege value = 1 }
+		add_years_of_income = 0.2
+	}
+}
+
+# Nobles Seek Recompense
+country_event = {
+	id = vef_newgov.301
+	title = "vef_newgov.301.t"
+	desc = "vef_newgov.301.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = ai_serfdom_down
+		any_owned_province = {
+			has_province_modifier = rm_decrease_serfdom
+			is_overseas = no
+			NOT = { has_building = civic_charter }
+			NOT = { has_building = local_assembly }
+			OR = {
+				has_building = nobles_60
+				has_building = nobles_80
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "vef_newgov.301.opta"
+		change_variable = { which = aristocratic_privilege value = 1 }
+		add_years_of_income = -0.1
+	}
+	
+	option = {
+		trigger = {
+			any_owned_province = {
+				NOT = { has_building = nobles_80 }
+				has_province_flag = crown_lands
+				is_capital = no
+			}
+		}
+		name = "vef_newgov.301.optb"
+		change_variable = { which = aristocratic_privilege value = 1 }
+		random_owned_province = {
+			limit = {
+				has_province_flag = crown_lands
+				is_capital = no
+				NOT = { has_building = nobles_80 }
+			}
+			if = {
+				limit = { has_building = nobles_60 }
+				remove_building = nobles_60
+				add_building = nobles_80
+			}
+			if = {
+				limit = { has_building = nobles_40 }
+				remove_building = nobles_40
+				add_building = nobles_60
+			}
+			if = {
+				limit = { has_building = nobles_20 }
+				remove_building = nobles_20
+				add_building = nobles_40
+			}
+			if = {
+				limit = {
+					NOT = { has_building = nobles_20 }
+					NOT = { has_building = nobles_40 }
+					NOT = { has_building = nobles_60 }
+					NOT = { has_building = nobles_80 }
+				}
+				add_building = nobles_20
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_newgov.301.optc"
+		random_owned_province = {
+			limit = {
+				has_province_modifier = rm_decrease_serfdom
+				OR = {
+					has_building = nobles_60
+					has_building = nobles_80
+				}
+				has_influencing_fort = no
+			}
+			add_unrest = 5
+			random = {
+				chance = 40
+				spawn_rebels = { type = noble_rebels size = 1 win = yes }
+			}
+		}
+	}
+}
+
+# Nobles seek to dissolve civic charter
+country_event = {
+	id = vef_newgov.302
+	title = "vef_newgov.302.t"
+	desc = "vef_newgov.302.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = ai_serfdom_up
+		any_owned_province = {
+			has_building = civic_charter
+			has_province_modifier = rm_increase_serfdom 
+			is_capital = no
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "vef_newgov.302.opta"
+		random_owned_province = {
+			limit = {
+				has_building = civic_charter
+				has_province_modifier = rm_increase_serfdom 
+				is_capital = no
+			}
+			remove_building = civic_charter
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_charter
+			add_building = freedom
+			if = {
+				limit = { has_building = citizens_20 }
+				remove_building = citizens_20
+				if = {
+					limit = { has_building = nobles_60 }
+					remove_building = nobles_60
+					add_building = nobles_80
+				}
+				if = {
+					limit = { has_building = nobles_40 }
+					remove_building = nobles_40
+					add_building = nobles_60
+				}
+				if = {
+					limit = { has_building = nobles_20 }
+					remove_building = nobles_20
+					add_building = nobles_40
+				}
+				if = {
+					limit = {
+						NOT = { has_building = nobles_20 }
+						NOT = { has_building = nobles_40 }
+						NOT = { has_building = nobles_60 }
+						NOT = { has_building = nobles_80 }
+					}
+					add_building = nobles_20
+				}
+			}
+			if = {
+				limit = { has_building = citizens_40 }
+				remove_building = citizens_40
+				add_building = citizens_20
+				if = {
+					limit = { has_building = nobles_60 }
+					remove_building = nobles_60
+					add_building = nobles_80
+				}
+				if = {
+					limit = { has_building = nobles_40 }
+					remove_building = nobles_40
+					add_building = nobles_60
+				}
+				if = {
+					limit = { has_building = nobles_20 }
+					remove_building = nobles_20
+					add_building = nobles_40
+				}
+				if = {
+					limit = {
+						NOT = { has_building = nobles_20 }
+						NOT = { has_building = nobles_40 }
+						NOT = { has_building = nobles_60 }
+						NOT = { has_building = nobles_80 }
+					}
+					add_building = nobles_20
+				}
+			}
+			if = {
+				limit = { has_building = citizens_60 }
+				remove_building = citizens_60
+				add_building = citizens_40
+				if = {
+					limit = { has_building = nobles_60 }
+					remove_building = nobles_60
+					add_building = nobles_80
+				}
+				if = {
+					limit = { has_building = nobles_40 }
+					remove_building = nobles_40
+					add_building = nobles_60
+				}
+				if = {
+					limit = { has_building = nobles_20 }
+					remove_building = nobles_20
+					add_building = nobles_40
+				}
+				if = {
+					limit = {
+						NOT = { has_building = nobles_20 }
+						NOT = { has_building = nobles_40 }
+						NOT = { has_building = nobles_60 }
+						NOT = { has_building = nobles_80 }
+					}
+					add_building = nobles_20
+				}
+			}
+			if = {
+				limit = { has_building = citizens_80 }
+				remove_building = citizens_80
+				add_building = citizens_60
+				if = {
+					limit = { has_building = nobles_60 }
+					remove_building = nobles_60
+					add_building = nobles_80
+				}
+				if = {
+					limit = { has_building = nobles_40 }
+					remove_building = nobles_40
+					add_building = nobles_60
+				}
+				if = {
+					limit = { has_building = nobles_20 }
+					remove_building = nobles_20
+					add_building = nobles_40
+				}
+				if = {
+					limit = {
+						NOT = { has_building = nobles_20 }
+						NOT = { has_building = nobles_40 }
+						NOT = { has_building = nobles_60 }
+						NOT = { has_building = nobles_80 }
+					}
+					add_building = nobles_20
+				}
+			}
+		}
+		change_variable = { which = aristocratic_privilege value = 1 }
+		change_variable = { which = vef_rule_law value = -1 }
+		add_years_of_income = 0.2
+	}
+	
+	option = {
+		name = "vef_newgov.302.optb"
+		change_variable = { which = vef_rule_law value = 2 }
+		
+	}
+}
+
+#Cities demand old rights
+province_event = {
+	id = vef_newgov.303 #Replaced PDX random event 5076
+	title = "EVTNAME5076"
+	desc = "EVTDESC5076"
+	picture = VEF_COURT_eventPicture
+
+
+	trigger = {
+		has_province_modifier = newgov_had_rights
+		owner = {
+			OR = {
+				government = monarchy
+				government = republic
+				government = theocracy
+			}
+		}
+		NOT = { has_province_modifier = urban_unrest }
+	}
+	
+	is_mtth_scaled_to_size = 1
+
+	mean_time_to_happen = {
+		months = 2000
+		modifier = {
+			factor = 0.5
+			has_province_flag = newgov_was_assembly
+		}
+		modifier = {
+			factor = 0.75
+			unrest = 4
+		}
+		modifier = {
+			factor = 0.25
+			unrest = 10
+		}
+	}
+
+	option = {
+		name = "EVTOPTA5076"		# Deny old rights
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0.5
+				owner = { NOT = { stability = 1 } }
+			}
+		}
+		if = {
+			limit = { owner = { NOT = { stability = -2 } } }
+			owner = { add_adm_power = -100 }
+		}
+		if = {
+			limit = { owner = { stability = -2 } }
+			owner = { change_variable = { which = national_stability value = -250 } }
+		}
+		add_province_modifier = { name = urban_unrest duration = 730 }
+	}
+	option = {
+		name = "EVTOPTB5076"		# Accept
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 0.5
+				owner = {
+					government = monarchy
+					NOT = { legitimacy_or_horde_unity = 70 }
+				}
+			}
+			modifier = {
+				factor = 0.5
+				owner = {
+					government = republic
+					NOT = { republican_tradition = 70 }
+				}
+			}
+			modifier = {
+				factor = 0.5
+				owner = {
+					government = theocracy
+					NOT = { prestige = 25 }
+				}
+			}
+		}
+		owner = {
+			add_legitimacy = -20
+			add_horde_unity = -20
+			add_republican_tradition = -10
+			add_devotion = -10
+			change_variable = { which = vef_rule_law value = 1 }
+		}
+		trigger_switch = {
+			on_trigger = has_building
+			heavy_serfdom = { remove_building = heavy_serfdom }
+			moderate_serfdom = { remove_building = moderate_serfdom }
+			light_serfdom = { remove_building = light_serfdom }
+			freedom = { remove_building = freedom }
+		}
+		trigger_switch = {
+			on_trigger = has_province_flag
+			newgov_was_charter = { add_building = civic_charter }
+			newgov_was_assembly = { add_building = local_assembly }
+		}
+	}
+}
+
+#########################################################
+#		Peasants getting uppity							#
+#########################################################
+province_event = {
+	id = vef_newgov.304 #Replaced PDX random event 5097
+	title = "EVTNAME5097"
+	desc = "EVTDESC5097"
+	picture = VEF_ANGRY_MOB_eventPicture
+
+	trigger = {
+		OR = {
+			has_building = light_serfdom
+			has_building = moderate_serfdom
+			has_building = heavy_serfdom
+		}
+	}
+	
+	is_mtth_scaled_to_size = 1
+
+	mean_time_to_happen = {
+		months = 2000
+		modifier = {
+			factor = 0.75
+			has_building = moderate_serfdom
+		}
+		modifier = {
+			factor = 0.5
+			has_building = heavy_serfdom
+		}
+		modifier = {
+			factor = 0.75
+			unrest = 4
+		}
+		modifier = {
+			factor = 0.25
+			unrest = 10
+		}
+	}
+
+	option = {
+		name = "EVTOPTA5097"		# Enforce serfdom
+		ai_chance = {
+			factor = 80
+		}
+		owner = { add_adm_power = -35 }
+	}
+	option = {
+		name = "EVTOPTB5097"		# These things happen
+		ai_chance = {
+			factor = 20
+		}
+		owner = {
+			add_legitimacy = -10
+			add_horde_unity = -10
+		}
+	}
+	option = {
+		name = "personality_options.5097.a"		# Attempt to mediate
+		highlight = yes
+		trigger = { owner = { ruler_has_personality = charismatic_negotiator_personality } }
+		required_personality = charismatic_negotiator_personality
+		owner = { add_dip_power = -15 }
+	}
+}
+
+# Growth of Cities attracts Serfs
+country_event = {
+	id = vef_newgov.305 #Replaced PDX random event 725
+	title = "EVTNAME725"
+	desc = "EVTDESC725"
+	picture = VEF_CITY_DEVELOPMENT_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		num_of_cities = 5
+		NOT = { has_country_modifier = serfdom_modifier }
+		any_owned_province = {
+			NOT = { base_tax = 5 }
+			base_tax = 2
+			is_capital = no
+			is_overseas = no
+			OR = {
+				has_building = light_serfdom
+				has_building = moderate_serfdom
+				has_building = heavy_serfdom
+				
+			}
+		}
+		NOT = { is_year = 1650 }
+	}
+
+	mean_time_to_happen = {
+		days = 1		
+	}
+
+	option = {
+		name = "EVTOPTA725"
+		ai_chance = {
+			factor = 50
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { base_tax = 5 }
+				base_tax = 2
+				is_capital = no
+				is_overseas = no
+				OR = {
+					has_building = light_serfdom
+					has_building = moderate_serfdom
+					has_building = heavy_serfdom					
+				}
+			}
+			add_base_tax = -1
+			add_local_autonomy = 25
+		}
+		random_owned_province = {
+			limit = {
+				OR = {
+					is_capital = yes
+					has_building = civic_charter
+					has_building = local_assembly
+				}
+			}
+			add_base_tax = 1
+		}
+
+	}
+	option = {
+		name = "EVTOPTB725"
+		ai_chance = {
+			factor = 50
+		}
+		add_country_modifier = {
+			name = serfdom_modifier
+			duration = 7300
+		}
+	}
+	option = {
+		name = "personality_options.725.a"
+		highlight = yes
+		trigger = { ruler_has_personality = calm_personality }
+		required_personality = calm_personality
+		ai_chance = {
+			factor = 100
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { base_tax = 5 }
+				base_tax = 2
+				is_capital = no
+				is_overseas = no
+				OR = {
+					has_building = light_serfdom
+					has_building = moderate_serfdom
+					has_building = heavy_serfdom					
+				}
+			}
+			add_local_autonomy = 25
+		}
+		random_owned_province = {
+			limit = {
+				OR = {
+					is_capital = yes
+					has_building = civic_charter
+					has_building = local_assembly
+				}
+			}
+			add_base_tax = 1
+		}
+	}
+}
+
+
+#####################
+# Elective Monarchy #
+#####################
+
+#Disaster Start
+country_event = {
+	id = vef_newgov.400
+	title = "vef_newgov.400.t"
+	desc = "vef_newgov.400.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes #disasters/VEF_electivemonarchy start
+	
+	immediate = {
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					is_capital = no
+					is_core = ROOT
+					OR = {
+						has_building = nobles_40
+						has_building = nobles_60
+						has_building = nobles_80
+					}
+				}
+				random_list = {
+					50 = { add_province_modifier = { name = em_noble_resistance duration = -1 }}
+					40 = { add_province_modifier = { name = em_noble_neutrality duration = -1 }}
+					10 = { add_province_modifier = { name = em_noble_support duration = -1 }}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_newgov.400.opta"
+		every_owned_province = {
+			limit = {
+				has_province_modifier = em_noble_resistance
+				NOT = { has_influencing_fort = yes }
+			}
+			spawn_rebels = { type = noble_rebels size = 1 win = yes }
+		}
+		every_owned_province = {
+			limit = {
+				has_province_modifier = em_noble_support
+			}
+			infantry = ROOT
+			infantry = ROOT
+			cavalry = ROOT
+			cavalry = ROOT
+		}
+	}
+}
+
+#Disaster End
+country_event = {
+	id = vef_newgov.401
+	title = "vef_newgov.401.t"
+	desc = "vef_newgov.401.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes #disasters/VEF_electivemonarchy end
+	
+	immediate = {
+		every_owned_province = {
+			if = {
+				limit = { has_province_modifier = em_noble_resistance }
+				remove_province_modifier = em_noble_resistance
+			}
+			if = {
+				limit = { has_province_modifier = em_noble_neutrality }
+				remove_province_modifier = em_noble_neutrality
+			}
+			if = {
+				limit = { has_province_modifier = em_noble_support }
+				remove_province_modifier = em_noble_support
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_newgov.401.opta"
+		add_legitimacy = 25
+		add_prestige = 10
+	}
+}
+
+#Spawn Rebels
+country_event = {
+	id = vef_newgov.402
+	title = "vef_newgov.402.t"
+	desc = "vef_newgov.402.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes #disasters/VEF_electivemonarchy monthly
+	
+	trigger = {
+		has_disaster = vef_electivemonarchy
+		any_owned_province = {
+			has_province_modifier = em_noble_resistance
+			NOT = { units_in_province = 1 }
+			NOT = { controlled_by = REB }
+		}
+	}
+	
+	immediate = {
+		random_owned_province = {
+			limit = {
+				has_province_modifier = em_noble_resistance
+				NOT = { units_in_province = 1 }
+				NOT = { controlled_by = REB }
+			}
+			spawn_rebels = { type = noble_rebels size = 1 }
+		}
+		random_owned_province = {
+			limit = {
+				has_province_modifier = em_noble_resistance
+				NOT = { units_in_province = 1 }
+				NOT = { controlled_by = REB }
+			}
+			spawn_rebels = { type = noble_rebels size = 1 }
+		}
+	}
+	
+	option = {
+		name = "vef_newgov.402.opta"
+	}
+}
+
+
+##########
+# Nomads #
+##########
+
+# Nomad Decision
+country_event = {
+	id = vef_newgov.10000
+	title = "vef_newgov.10000.t"
+	desc = "vef_newgov.10000.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes #decisions/VEF_Government.txt/nomad_reform_start
+	
+	immediate = {
+		set_country_flag = nomads_reforming
+		hidden_effect = {
+			if = {
+				limit = { capital_scope = { has_owner_culture = no }}
+				set_variable = { which = nomad_culture value = 5 }
+				country_event = { id = vef_newgov.10001 days = 5 }
+			}
+			if = {
+				limit = { capital_scope = { has_owner_religion = no }}
+				set_variable = { which = nomad_religion value = 5 }
+				country_event = { id = vef_newgov.10002 days = 15 }
+			}
+		}
+	}
+	
+	option = {	#Nobles
+		ai_chance = { factor = 100 }
+		name = "vef_newgov.10000.opta"
+		custom_tooltip = tt_nomad_nobles
+		set_country_flag = nomad_nobility_reform
+		hidden_effect = {
+			every_owned_province = {
+				limit = { has_building = freedom }
+				if = {
+					limit = { has_building = basic_fort }
+					change_variable = { which = nom_priority value = 1 }
+				}
+				if = {
+					limit = { has_influencing_fort = yes }
+					change_variable = { which = nom_priority value = 2 }
+				}
+				if = {
+					limit = { development = 6 }
+					change_variable = { which = nom_priority value = 1 }
+					if = {
+						limit = { development = 8 }
+						change_variable = { which = nom_priority value = 1 }
+						if = {
+							limit = { development = 10 }
+							change_variable = { which = nom_priority value = 1 }
+						}
+					}
+				}
+				if = {
+					limit = { is_in_capital_area = yes }
+					change_variable = { which = nom_priority value = 5 }
+				}
+				if = {
+					limit = { has_owner_culture = yes }
+					change_variable = { which = nom_priority value = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Bureaucracy
+		ai_chance = { factor = 0 }
+		name = "vef_newgov.10000.optb"
+		custom_tooltip = tt_nomad_bureaucrats
+		set_country_flag = nomad_bureaucracy_reform
+	}
+}
+
+# Nomad Culture Choice
+country_event = {
+	id = vef_newgov.10001
+	title = "vef_newgov.10001.t"
+	desc = "vef_newgov.10001.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes #vef_newgov.10000
+	
+	option = {	#New Culture
+		ai_chance = { factor = 100 }
+		name = "vef_newgov.10001.opta"
+		set_country_flag = nomad_adopt_culture
+		if = {
+			limit = { capital_scope = { has_owner_accepted_culture = no }}
+			add_accepted_culture = capital
+		}
+		hidden_effect = {
+			change_variable = { which = nomad_culture value = 5 }
+		}
+	}
+	
+	option = {	#Keep Culture
+		ai_chance = { factor = 0 }
+		name = "vef_newgov.10001.optb"
+		set_country_flag = nomad_keep_culture
+	}
+}
+
+# Nomad Religion Choice
+country_event = {
+	id = vef_newgov.10002
+	title = "vef_newgov.10002.t"
+	desc = "vef_newgov.10002.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes #vef_newgov.10000
+	
+	option = {	#New Religion
+		ai_chance = { factor = 100 }
+		name = "vef_newgov.10002.opta"
+		set_country_flag = nomad_adopt_religion
+		hidden_effect = {
+			change_variable = { which = nomad_religion value = 15 }
+		}
+	}
+	
+	option = {	#Keep Culture
+		ai_chance = { factor = 0 }
+		name = "vef_newgov.10002.optb"
+		set_country_flag = nomad_keep_religion
+	}
+}
+
+# Nomad Pulse
+country_event = {
+	id = vef_newgov.10003
+	title = "vef_newgov.10003.t"
+	desc = "vef_newgov.10003.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes #on_acton/bi-yearly pulse
+	
+	hidden = yes
+	
+	trigger = { 
+		has_country_flag = nomads_reforming
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = nomad_adopt_culture
+					has_country_flag = nomad_keep_culture
+				}
+			}
+			change_variable = { which = nomad_culture value = 5 }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = nomad_adopt_religion
+					has_country_flag = nomad_keep_religion
+				}
+			}
+			change_variable = { which = nomad_religion value = 10 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = nomad_culture value = 100 }
+				NOT = { has_country_flag = nomad_change_culture }
+			}
+			country_event = { id = vef_newgov.10004 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = nomad_religion value = 100 }
+				NOT = { has_country_flag = nomad_change_religion }
+			}
+			country_event = { id = vef_newgov.10005 }
+		}
+	}
+	
+	option = {	#Noble; 3 prov every two years
+		trigger = { has_country_flag = nomad_nobility_reform }
+		name = "vef_newgov.10003.opta"
+		set_variable = { which = nomad_prov_change value = 0 }
+		if = {
+			limit = { any_owned_province = { check_variable = { which = nom_priority value = 10 }}}
+			random_owned_province = {
+				limit = { check_variable = { which = nom_priority value = 10 }}
+				set_variable = { which = nom_priority value = 0 }
+				owner = { change_variable = { which = nomad_prov_change value = 1 }}
+				remove_building = freedom
+				add_building = heavy_serfdom
+				if = {
+					limit = {
+						NOT = { has_building = nobles_60 }
+						NOT = { has_building = nobles_80 }
+					}
+					add_building = nobles_80
+				}
+				if = {
+					limit = { has_building = citizens_20 }
+					remove_building = citizens_20
+				}
+				if = {
+					limit = { has_building = citizens_40 }
+					remove_building = citizens_40
+				}
+				if = {
+					limit = { has_building = citizens_60 }
+					remove_building = citizens_60
+				}
+				if = {
+					limit = { has_building = citizens_80 }
+					remove_building = citizens_80
+				}
+				if = {
+					limit = { has_building = church_20 }
+					remove_building = church_20
+				}
+				if = {
+					limit = { has_building = nobles_20 }
+					remove_building = nobles_20
+				}
+				if = {
+					limit = { has_building = nobles_40 }
+					remove_building = nobles_40
+				}
+			}
+			random_owned_province = {
+				limit = { check_variable = { which = nom_priority value = 10 }}
+				set_variable = { which = nom_priority value = 0 }
+				owner = { change_variable = { which = nomad_prov_change value = 1 }}
+				remove_building = freedom
+				add_building = heavy_serfdom
+				if = {
+					limit = {
+						NOT = { has_building = nobles_60 }
+						NOT = { has_building = nobles_80 }
+					}
+					add_building = nobles_80
+				}
+				if = {
+					limit = { has_building = citizens_20 }
+					remove_building = citizens_20
+				}
+				if = {
+					limit = { has_building = citizens_40 }
+					remove_building = citizens_40
+				}
+				if = {
+					limit = { has_building = citizens_60 }
+					remove_building = citizens_60
+				}
+				if = {
+					limit = { has_building = citizens_80 }
+					remove_building = citizens_80
+				}
+				if = {
+					limit = { has_building = church_20 }
+					remove_building = church_20
+				}
+				if = {
+					limit = { has_building = nobles_20 }
+					remove_building = nobles_20
+				}
+				if = {
+					limit = { has_building = nobles_40 }
+					remove_building = nobles_40
+				}
+			}
+			random_owned_province = {
+				limit = { check_variable = { which = nom_priority value = 10 }}
+				set_variable = { which = nom_priority value = 0 }
+				owner = { change_variable = { which = nomad_prov_change value = 1 }}
+				remove_building = freedom
+				add_building = heavy_serfdom
+				if = {
+					limit = {
+						NOT = { has_building = nobles_60 }
+						NOT = { has_building = nobles_80 }
+					}
+					add_building = nobles_80
+				}
+				if = {
+					limit = { has_building = citizens_20 }
+					remove_building = citizens_20
+				}
+				if = {
+					limit = { has_building = citizens_40 }
+					remove_building = citizens_40
+				}
+				if = {
+					limit = { has_building = citizens_60 }
+					remove_building = citizens_60
+				}
+				if = {
+					limit = { has_building = citizens_80 }
+					remove_building = citizens_80
+				}
+				if = {
+					limit = { has_building = church_20 }
+					remove_building = church_20
+				}
+				if = {
+					limit = { has_building = nobles_20 }
+					remove_building = nobles_20
+				}
+				if = {
+					limit = { has_building = nobles_40 }
+					remove_building = nobles_40
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { check_variable = { which = nomad_prov_change value = 3 }}
+				any_owned_province = { check_variable = { which = nom_priority value = 8 }}
+			}
+			random_owned_province = {
+				limit = { check_variable = { which = nom_priority value = 8 }}
+				set_variable = { which = nom_priority value = 0 }
+				owner = { change_variable = { which = nomad_prov_change value = 1 }}
+				remove_building = freedom
+				add_building = heavy_serfdom
+				if = {
+					limit = {
+						NOT = { has_building = nobles_60 }
+						NOT = { has_building = nobles_80 }
+					}
+					add_building = nobles_80
+				}
+				if = {
+					limit = { has_building = citizens_20 }
+					remove_building = citizens_20
+				}
+				if = {
+					limit = { has_building = citizens_40 }
+					remove_building = citizens_40
+				}
+				if = {
+					limit = { has_building = citizens_60 }
+					remove_building = citizens_60
+				}
+				if = {
+					limit = { has_building = citizens_80 }
+					remove_building = citizens_80
+				}
+				if = {
+					limit = { has_building = church_20 }
+					remove_building = church_20
+				}
+				if = {
+					limit = { has_building = nobles_20 }
+					remove_building = nobles_20
+				}
+				if = {
+					limit = { has_building = nobles_40 }
+					remove_building = nobles_40
+				}
+			}
+			if = {
+				limit = {
+					NOT = { check_variable = { which = nomad_prov_change value = 3 }}
+					any_owned_province = { check_variable = { which = nom_priority value = 8 }}
+				}
+				random_owned_province = {
+					limit = { check_variable = { which = nom_priority value = 8 }}
+					set_variable = { which = nom_priority value = 0 }
+					owner = { change_variable = { which = nomad_prov_change value = 1 }}
+					remove_building = freedom
+					add_building = heavy_serfdom
+					if = {
+						limit = {
+							NOT = { has_building = nobles_60 }
+							NOT = { has_building = nobles_80 }
+						}
+						add_building = nobles_80
+					}
+					if = {
+						limit = { has_building = citizens_20 }
+						remove_building = citizens_20
+					}
+					if = {
+						limit = { has_building = citizens_40 }
+						remove_building = citizens_40
+					}
+					if = {
+						limit = { has_building = citizens_60 }
+						remove_building = citizens_60
+					}
+					if = {
+						limit = { has_building = citizens_80 }
+						remove_building = citizens_80
+					}
+					if = {
+						limit = { has_building = church_20 }
+						remove_building = church_20
+					}
+					if = {
+						limit = { has_building = nobles_20 }
+						remove_building = nobles_20
+					}
+					if = {
+						limit = { has_building = nobles_40 }
+						remove_building = nobles_40
+					}
+				}
+				if = {
+					limit = {
+						NOT = { check_variable = { which = nomad_prov_change value = 3 }}
+						any_owned_province = { check_variable = { which = nom_priority value = 8 }}
+					}
+					random_owned_province = {
+						limit = { check_variable = { which = nom_priority value = 8 }}
+						set_variable = { which = nom_priority value = 0 }
+						owner = { change_variable = { which = nomad_prov_change value = 1 }}
+						remove_building = freedom
+						add_building = heavy_serfdom
+						if = {
+							limit = {
+								NOT = { has_building = nobles_60 }
+								NOT = { has_building = nobles_80 }
+							}
+							add_building = nobles_80
+						}
+						if = {
+							limit = { has_building = citizens_20 }
+							remove_building = citizens_20
+						}
+						if = {
+							limit = { has_building = citizens_40 }
+							remove_building = citizens_40
+						}
+						if = {
+							limit = { has_building = citizens_60 }
+							remove_building = citizens_60
+						}
+						if = {
+							limit = { has_building = citizens_80 }
+							remove_building = citizens_80
+						}
+						if = {
+							limit = { has_building = church_20 }
+							remove_building = church_20
+						}
+						if = {
+							limit = { has_building = nobles_20 }
+							remove_building = nobles_20
+						}
+						if = {
+							limit = { has_building = nobles_40 }
+							remove_building = nobles_40
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { check_variable = { which = nomad_prov_change value = 3 }}
+				any_owned_province = { check_variable = { which = nom_priority value = 6 }}
+			}
+			random_owned_province = {
+				limit = { check_variable = { which = nom_priority value = 6 }}
+				set_variable = { which = nom_priority value = 0 }
+				owner = { change_variable = { which = nomad_prov_change value = 1 }}
+				remove_building = freedom
+				add_building = heavy_serfdom
+				if = {
+					limit = {
+						NOT = { has_building = nobles_60 }
+						NOT = { has_building = nobles_80 }
+					}
+					add_building = nobles_80
+				}
+				if = {
+					limit = { has_building = citizens_20 }
+					remove_building = citizens_20
+				}
+				if = {
+					limit = { has_building = citizens_40 }
+					remove_building = citizens_40
+				}
+				if = {
+					limit = { has_building = citizens_60 }
+					remove_building = citizens_60
+				}
+				if = {
+					limit = { has_building = citizens_80 }
+					remove_building = citizens_80
+				}
+				if = {
+					limit = { has_building = church_20 }
+					remove_building = church_20
+				}
+				if = {
+					limit = { has_building = nobles_20 }
+					remove_building = nobles_20
+				}
+				if = {
+					limit = { has_building = nobles_40 }
+					remove_building = nobles_40
+				}
+			}
+			if = {
+				limit = {
+					NOT = { check_variable = { which = nomad_prov_change value = 3 }}
+					any_owned_province = { check_variable = { which = nom_priority value = 6 }}
+				}
+				random_owned_province = {
+					limit = { check_variable = { which = nom_priority value = 6 }}
+					set_variable = { which = nom_priority value = 0 }
+					owner = { change_variable = { which = nomad_prov_change value = 1 }}
+					remove_building = freedom
+					add_building = heavy_serfdom
+					if = {
+						limit = {
+							NOT = { has_building = nobles_60 }
+							NOT = { has_building = nobles_80 }
+						}
+						add_building = nobles_80
+					}
+					if = {
+						limit = { has_building = citizens_20 }
+						remove_building = citizens_20
+					}
+					if = {
+						limit = { has_building = citizens_40 }
+						remove_building = citizens_40
+					}
+					if = {
+						limit = { has_building = citizens_60 }
+						remove_building = citizens_60
+					}
+					if = {
+						limit = { has_building = citizens_80 }
+						remove_building = citizens_80
+					}
+					if = {
+						limit = { has_building = church_20 }
+						remove_building = church_20
+					}
+					if = {
+						limit = { has_building = nobles_20 }
+						remove_building = nobles_20
+					}
+					if = {
+						limit = { has_building = nobles_40 }
+						remove_building = nobles_40
+					}
+				}
+				if = {
+					limit = {
+						NOT = { check_variable = { which = nomad_prov_change value = 3 }}
+						any_owned_province = { check_variable = { which = nom_priority value = 6 }}
+					}
+					random_owned_province = {
+						limit = { check_variable = { which = nom_priority value = 6 }}
+						set_variable = { which = nom_priority value = 0 }
+						owner = { change_variable = { which = nomad_prov_change value = 1 }}
+						remove_building = freedom
+						add_building = heavy_serfdom
+						if = {
+							limit = {
+								NOT = { has_building = nobles_60 }
+								NOT = { has_building = nobles_80 }
+							}
+							add_building = nobles_80
+						}
+						if = {
+							limit = { has_building = citizens_20 }
+							remove_building = citizens_20
+						}
+						if = {
+							limit = { has_building = citizens_40 }
+							remove_building = citizens_40
+						}
+						if = {
+							limit = { has_building = citizens_60 }
+							remove_building = citizens_60
+						}
+						if = {
+							limit = { has_building = citizens_80 }
+							remove_building = citizens_80
+						}
+						if = {
+							limit = { has_building = church_20 }
+							remove_building = church_20
+						}
+						if = {
+							limit = { has_building = nobles_20 }
+							remove_building = nobles_20
+						}
+						if = {
+							limit = { has_building = nobles_40 }
+							remove_building = nobles_40
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { check_variable = { which = nomad_prov_change value = 3 }}
+				any_owned_province = { check_variable = { which = nom_priority value = 4 }}
+			}
+			random_owned_province = {
+				limit = { check_variable = { which = nom_priority value = 4 }}
+				set_variable = { which = nom_priority value = 0 }
+				owner = { change_variable = { which = nomad_prov_change value = 1 }}
+				remove_building = freedom
+				add_building = heavy_serfdom
+				if = {
+					limit = {
+						NOT = { has_building = nobles_60 }
+						NOT = { has_building = nobles_80 }
+					}
+					add_building = nobles_80
+				}
+				if = {
+					limit = { has_building = citizens_20 }
+					remove_building = citizens_20
+				}
+				if = {
+					limit = { has_building = citizens_40 }
+					remove_building = citizens_40
+				}
+				if = {
+					limit = { has_building = citizens_60 }
+					remove_building = citizens_60
+				}
+				if = {
+					limit = { has_building = citizens_80 }
+					remove_building = citizens_80
+				}
+				if = {
+					limit = { has_building = church_20 }
+					remove_building = church_20
+				}
+				if = {
+					limit = { has_building = nobles_20 }
+					remove_building = nobles_20
+				}
+				if = {
+					limit = { has_building = nobles_40 }
+					remove_building = nobles_40
+				}
+			}
+			if = {
+				limit = {
+					NOT = { check_variable = { which = nomad_prov_change value = 3 }}
+					any_owned_province = { check_variable = { which = nom_priority value = 4 }}
+				}
+				random_owned_province = {
+					limit = { check_variable = { which = nom_priority value = 4 }}
+					set_variable = { which = nom_priority value = 0 }
+					owner = { change_variable = { which = nomad_prov_change value = 1 }}
+					remove_building = freedom
+					add_building = heavy_serfdom
+					if = {
+						limit = {
+							NOT = { has_building = nobles_60 }
+							NOT = { has_building = nobles_80 }
+						}
+						add_building = nobles_80
+					}
+					if = {
+						limit = { has_building = citizens_20 }
+						remove_building = citizens_20
+					}
+					if = {
+						limit = { has_building = citizens_40 }
+						remove_building = citizens_40
+					}
+					if = {
+						limit = { has_building = citizens_60 }
+						remove_building = citizens_60
+					}
+					if = {
+						limit = { has_building = citizens_80 }
+						remove_building = citizens_80
+					}
+					if = {
+						limit = { has_building = church_20 }
+						remove_building = church_20
+					}
+					if = {
+						limit = { has_building = nobles_20 }
+						remove_building = nobles_20
+					}
+					if = {
+						limit = { has_building = nobles_40 }
+						remove_building = nobles_40
+					}
+				}
+				if = {
+					limit = {
+						NOT = { check_variable = { which = nomad_prov_change value = 3 }}
+						any_owned_province = { check_variable = { which = nom_priority value = 4 }}
+					}
+					random_owned_province = {
+						limit = { check_variable = { which = nom_priority value = 4 }}
+						set_variable = { which = nom_priority value = 0 }
+						owner = { change_variable = { which = nomad_prov_change value = 1 }}
+						remove_building = freedom
+						add_building = heavy_serfdom
+						if = {
+							limit = {
+								NOT = { has_building = nobles_60 }
+								NOT = { has_building = nobles_80 }
+							}
+							add_building = nobles_80
+						}
+						if = {
+							limit = { has_building = citizens_20 }
+							remove_building = citizens_20
+						}
+						if = {
+							limit = { has_building = citizens_40 }
+							remove_building = citizens_40
+						}
+						if = {
+							limit = { has_building = citizens_60 }
+							remove_building = citizens_60
+						}
+						if = {
+							limit = { has_building = citizens_80 }
+							remove_building = citizens_80
+						}
+						if = {
+							limit = { has_building = church_20 }
+							remove_building = church_20
+						}
+						if = {
+							limit = { has_building = nobles_20 }
+							remove_building = nobles_20
+						}
+						if = {
+							limit = { has_building = nobles_40 }
+							remove_building = nobles_40
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { check_variable = { which = nomad_prov_change value = 3 }}
+				any_owned_province = { check_variable = { which = nom_priority value = 2 }}
+			}
+			random_owned_province = {
+				limit = { check_variable = { which = nom_priority value = 2 }}
+				set_variable = { which = nom_priority value = 0 }
+				owner = { change_variable = { which = nomad_prov_change value = 1 }}
+				remove_building = freedom
+				add_building = heavy_serfdom
+				if = {
+					limit = {
+						NOT = { has_building = nobles_60 }
+						NOT = { has_building = nobles_80 }
+					}
+					add_building = nobles_80
+				}
+				if = {
+					limit = { has_building = citizens_20 }
+					remove_building = citizens_20
+				}
+				if = {
+					limit = { has_building = citizens_40 }
+					remove_building = citizens_40
+				}
+				if = {
+					limit = { has_building = citizens_60 }
+					remove_building = citizens_60
+				}
+				if = {
+					limit = { has_building = citizens_80 }
+					remove_building = citizens_80
+				}
+				if = {
+					limit = { has_building = church_20 }
+					remove_building = church_20
+				}
+				if = {
+					limit = { has_building = nobles_20 }
+					remove_building = nobles_20
+				}
+				if = {
+					limit = { has_building = nobles_40 }
+					remove_building = nobles_40
+				}
+			}
+			if = {
+				limit = {
+					NOT = { check_variable = { which = nomad_prov_change value = 3 }}
+					any_owned_province = { check_variable = { which = nom_priority value = 2 }}
+				}
+				random_owned_province = {
+					limit = { check_variable = { which = nom_priority value = 2 }}
+					set_variable = { which = nom_priority value = 0 }
+					owner = { change_variable = { which = nomad_prov_change value = 1 }}
+					remove_building = freedom
+					add_building = heavy_serfdom
+					if = {
+						limit = {
+							NOT = { has_building = nobles_60 }
+							NOT = { has_building = nobles_80 }
+						}
+						add_building = nobles_80
+					}
+					if = {
+						limit = { has_building = citizens_20 }
+						remove_building = citizens_20
+					}
+					if = {
+						limit = { has_building = citizens_40 }
+						remove_building = citizens_40
+					}
+					if = {
+						limit = { has_building = citizens_60 }
+						remove_building = citizens_60
+					}
+					if = {
+						limit = { has_building = citizens_80 }
+						remove_building = citizens_80
+					}
+					if = {
+						limit = { has_building = church_20 }
+						remove_building = church_20
+					}
+					if = {
+						limit = { has_building = nobles_20 }
+						remove_building = nobles_20
+					}
+					if = {
+						limit = { has_building = nobles_40 }
+						remove_building = nobles_40
+					}
+				}
+				if = {
+					limit = {
+						NOT = { check_variable = { which = nomad_prov_change value = 3 }}
+						any_owned_province = { check_variable = { which = nom_priority value = 2 }}
+					}
+					random_owned_province = {
+						limit = { check_variable = { which = nom_priority value = 2 }}
+						set_variable = { which = nom_priority value = 0 }
+						owner = { change_variable = { which = nomad_prov_change value = 1 }}
+						remove_building = freedom
+						add_building = heavy_serfdom
+						if = {
+							limit = {
+								NOT = { has_building = nobles_60 }
+								NOT = { has_building = nobles_80 }
+							}
+							add_building = nobles_80
+						}
+						if = {
+							limit = { has_building = citizens_20 }
+							remove_building = citizens_20
+						}
+						if = {
+							limit = { has_building = citizens_40 }
+							remove_building = citizens_40
+						}
+						if = {
+							limit = { has_building = citizens_60 }
+							remove_building = citizens_60
+						}
+						if = {
+							limit = { has_building = citizens_80 }
+							remove_building = citizens_80
+						}
+						if = {
+							limit = { has_building = church_20 }
+							remove_building = church_20
+						}
+						if = {
+							limit = { has_building = nobles_20 }
+							remove_building = nobles_20
+						}
+						if = {
+							limit = { has_building = nobles_40 }
+							remove_building = nobles_40
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = {	#Bureaucracy
+		trigger = { has_country_flag = nomad_bureaucracy_reform }
+		name = "vef_newgov.10003.opta"
+		change_variable = { which = vef_merit value = 1 }
+	}
+}
+
+# Nomad Culture
+country_event = {
+	id = vef_newgov.10004
+	title = "vef_newgov.10004.t"
+	desc = "vef_newgov.10004.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes #vef_newgov.10003
+
+	immediate = {
+		set_country_flag = nomad_change_culture
+		if = { 
+			limit = { has_country_flag = nomad_adopt_culture }
+			custom_tooltip = tt_nomad_adoptc
+		}
+		if = { 
+			limit = { has_country_flag = nomad_keep_culture }
+			custom_tooltip = tt_nomad_keepc
+		}
+	}
+
+	option = {
+		trigger = { has_country_flag = nomad_adopt_culture }
+		name = "vef_newgov.10004.opta"
+		change_primary_culture = capital
+	}
+
+	option = {
+		trigger = { has_country_flag = nomad_keep_culture }
+		name = "vef_newgov.10004.opta"
+		capital_scope = { change_culture = ROOT }
+	}
+}
+
+# Nomad Religion
+country_event = {
+	id = vef_newgov.10005
+	title = "vef_newgov.10005.t"
+	desc = "vef_newgov.10005.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes #vef_newgov.10003
+
+	immediate = {
+		set_country_flag = nomad_change_religion
+		if = { 
+			limit = { has_country_flag = nomad_adopt_religion }
+			custom_tooltip = tt_nomad_adoptr
+		}
+		if = { 
+			limit = { has_country_flag = nomad_keep_religion }
+			custom_tooltip = tt_nomad_keepr
+		}
+	}
+
+	option = {
+		trigger = { has_country_flag = nomad_adopt_religion }
+		name = "vef_newgov.10004.opta"
+		change_religion = capital
+	}
+
+	option = {
+		trigger = { has_country_flag = nomad_keep_religion }
+		name = "vef_newgov.10004.opta"
+		capital_scope = { change_religion = ROOT }
+	}
+}
+
+# Horde Reform Disaster Start
+country_event = {
+	id = vef_newgov.10010
+	title = "vef_newgov.10010.t"
+	desc = "vef_newgov.10010.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes #disaster/vef_horde_reform/start
+	
+	immediate = {
+		every_owned_province = {
+			limit = {
+				OR = {
+					culture_group  = tartar
+					culture_group = altaic
+					culture_group = oghuz
+					culture = afghani
+					culture = khorasani
+				}
+				NOT = { has_building = light_serfdom }
+				NOT = { has_building = moderate_serfdom }
+				NOT = { has_building = heavy_serfdom }
+				is_in_capital_area = no
+			}
+			add_province_modifier = { name = vef_horde_rebellion duration = 3650 }
+		}
+		every_known_country = {
+			limit = {
+				is_subject_of = ROOT
+				government = steppe_horde
+			}
+			add_country_modifier = { name = vef_hordesubject_rebellion duration = 3650 }
+		}
+	}
+	
+	option = {
+		name = "vef_newgov.10010.opta"	
+	}
+}
+
+# Horde Reform Disaster End
+country_event = {
+	id = vef_newgov.10011
+	title = "vef_newgov.10011.t"
+	desc = "vef_newgov.10011.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes #disaster/vef_horde_reform/end
+
+	immediate = { set_country_flag = nomad_reform_disaster }
+	
+	option = {
+		name = "vef_newgov.10011.opta"
+	}
+}
+
+# Horde Reform Disaster SIB
+country_event = {
+	id = vef_newgov.10012
+	title = "vef_newgov.10012.t"
+	desc = "vef_newgov.10012.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes #disaster/vef_horde_reform/random
+
+	trigger = {
+		OR = {
+			any_owned_province = { is_core = SIB has_province_modifier = vef_horde_rebellion }
+			SIB = { is_subject_of = ROOT }
+		}
+		normal_or_historical_nations = yes
+	}
+
+	immediate = {
+		if = {
+			limit = { exists = SIB }
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						is_core = SIB
+						has_province_modifier = vef_horde_rebellion
+					}
+					cede_province = SIB
+				}
+			}
+			custom_tooltip = tt_horde_province
+		}
+		if = {
+			limit = { NOT = { exists = SIB }}
+			hidden_effect = { release = SIB }
+			custom_tooltip = tt_horde_tribe
+		}
+	}
+	
+	option = {	#Fight
+		trigger = { SIB = { is_subject_of = ROOT }}
+		ai_chance = { factor = 60 }
+		name = "vef_newgov.10012.opta"
+		SIB = {
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+		}
+	}
+	
+	option = {	#Fight
+		trigger = { NOT = { SIB = { is_subject_of = ROOT }}}
+		ai_chance = { factor = 0 }
+		name = "vef_newgov.10012.opta"
+		declare_war = SIB
+	}
+	
+	option = {	#Let them go
+		ai_chance = { factor = 40 }
+		name = "vef_newgov.10012.optb"
+		if = {
+			limit = { SIB = { is_subject_of = ROOT }}
+			free_vassal = SIB
+		}
+		change_variable = { which = national_stability value = 100 }
+	}
+}
+
+# Horde Reform Disaster NOG
+country_event = {
+	id = vef_newgov.10013
+	title = "vef_newgov.10013.t"
+	desc = "vef_newgov.10013.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes #disaster/vef_horde_reform/random
+
+	trigger = {
+		OR = {
+			any_owned_province = { is_core = NOG has_province_modifier = vef_horde_rebellion }
+			NOG = { is_subject_of = ROOT }
+		}
+		normal_or_historical_nations = yes
+	}
+
+	immediate = {
+		if = {
+			limit = { exists = NOG }
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						is_core = NOG
+						has_province_modifier = vef_horde_rebellion
+					}
+					cede_province = NOG
+				}
+			}
+			custom_tooltip = tt_horde_province
+		}
+		if = {
+			limit = { NOT = { exists = NOG }}
+			hidden_effect = { release = NOG }
+			custom_tooltip = tt_horde_tribe
+		}
+	}
+	
+	option = {	#Fight
+		trigger = { NOG = { is_subject_of = ROOT }}
+		ai_chance = { factor = 60 }
+		name = "vef_newgov.10013.opta"
+		NOG = {
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+		}
+	}
+	
+	option = {	#Fight
+		trigger = { NOT = { NOG = { is_subject_of = ROOT }}}
+		ai_chance = { factor = 0 }
+		name = "vef_newgov.10013.opta"
+		declare_war = NOG
+	}
+	
+	option = {	#Let them go
+		ai_chance = { factor = 40 }
+		name = "vef_newgov.10013.optb"
+		if = {
+			limit = { NOG = { is_subject_of = ROOT }}
+			free_vassal = NOG
+		}
+		change_variable = { which = national_stability value = 100 }
+	}
+}
+
+# Horde Reform Disaster SHY
+country_event = {
+	id = vef_newgov.10014
+	title = "vef_newgov.10014.t"
+	desc = "vef_newgov.10014.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes #disaster/vef_horde_reform/random
+
+	trigger = {
+		OR = {
+			any_owned_province = { is_core = SHY has_province_modifier = vef_horde_rebellion }
+			SHY = { is_subject_of = ROOT }
+		}
+		normal_or_historical_nations = yes
+	}
+
+	immediate = {
+		if = {
+			limit = { exists = SHY }
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						is_core = SHY
+						has_province_modifier = vef_horde_rebellion
+					}
+					cede_province = SHY
+				}
+			}
+			custom_tooltip = tt_horde_province
+		}
+		if = {
+			limit = { NOT = { exists = SHY }}
+			hidden_effect = { release = SHY }
+			custom_tooltip = tt_horde_tribe
+		}
+	}
+	
+	option = {	#Fight
+		trigger = { SHY = { is_subject_of = ROOT }}
+		ai_chance = { factor = 60 }
+		name = "vef_newgov.10014.opta"
+		SHY = {
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+		}
+	}
+	
+	option = {	#Fight
+		trigger = { NOT = { SHY = { is_subject_of = ROOT }}}
+		ai_chance = { factor = 0 }
+		name = "vef_newgov.10014.opta"
+		declare_war = SHY
+	}
+	
+	option = {	#Let them go
+		ai_chance = { factor = 40 }
+		name = "vef_newgov.10014.optb"
+		if = {
+			limit = { SHY = { is_subject_of = ROOT }}
+			free_vassal = SHY
+		}
+		change_variable = { which = national_stability value = 100 }
+	}
+}
+
+# Horde Reform Disaster BSH
+country_event = {
+	id = vef_newgov.10015
+	title = "vef_newgov.10015.t"
+	desc = "vef_newgov.10015.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes #disaster/vef_horde_reform/random
+
+	trigger = {
+		OR = {
+			any_owned_province = { is_core = BSH has_province_modifier = vef_horde_rebellion }
+			BSH = { is_subject_of = ROOT }
+		}
+		normal_or_historical_nations = yes
+	}
+
+	immediate = {
+		if = {
+			limit = { exists = BSH }
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						is_core = BSH
+						has_province_modifier = vef_horde_rebellion
+					}
+					cede_province = BSH
+				}
+			}
+			custom_tooltip = tt_horde_province
+		}
+		if = {
+			limit = { NOT = { exists = BSH }}
+			hidden_effect = { release = BSH }
+			custom_tooltip = tt_horde_tribe
+		}
+	}
+	
+	option = {	#Fight
+		trigger = { BSH = { is_subject_of = ROOT }}
+		ai_chance = { factor = 60 }
+		name = "vef_newgov.10015.opta"
+		BSH = {
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+		}
+	}
+	
+	option = {	#Fight
+		trigger = { NOT = { BSH = { is_subject_of = ROOT }}}
+		ai_chance = { factor = 0 }
+		name = "vef_newgov.10015.opta"
+		declare_war = BSH
+	}
+	
+	option = {	#Let them go
+		ai_chance = { factor = 40 }
+		name = "vef_newgov.10015.optb"
+		if = {
+			limit = { BSH = { is_subject_of = ROOT }}
+			free_vassal = BSH
+		}
+		change_variable = { which = national_stability value = 100 }
+	}
+}
+
+# Horde Reform Disaster OIR
+country_event = {
+	id = vef_newgov.10016
+	title = "vef_newgov.10016.t"
+	desc = "vef_newgov.10016.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes #disaster/vef_horde_reform/random
+
+	trigger = {
+		OR = {
+			any_owned_province = { is_core = OIR has_province_modifier = vef_horde_rebellion }
+			OIR = { is_subject_of = ROOT }
+		}
+		normal_or_historical_nations = yes
+	}
+
+	immediate = {
+		if = {
+			limit = { exists = OIR }
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						is_core = OIR
+						has_province_modifier = vef_horde_rebellion
+					}
+					cede_province = OIR
+				}
+			}
+			custom_tooltip = tt_horde_province
+		}
+		if = {
+			limit = { NOT = { exists = OIR }}
+			hidden_effect = { release = OIR }
+			custom_tooltip = tt_horde_tribe
+		}
+	}
+	
+	option = {	#Fight
+		trigger = { OIR = { is_subject_of = ROOT }}
+		ai_chance = { factor = 60 }
+		name = "vef_newgov.10016.opta"
+		OIR = {
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+		}
+	}
+	
+	option = {	#Fight
+		trigger = { NOT = { OIR = { is_subject_of = ROOT }}}
+		ai_chance = { factor = 0 }
+		name = "vef_newgov.10016.opta"
+		declare_war = OIR
+	}
+	
+	option = {	#Let them go
+		ai_chance = { factor = 40 }
+		name = "vef_newgov.10016.optb"
+		if = {
+			limit = { OIR = { is_subject_of = ROOT }}
+			free_vassal = OIR
+		}
+		change_variable = { which = national_stability value = 100 }
+	}
+}
+
+# Horde Reform Disaster KHA
+country_event = {
+	id = vef_newgov.10017
+	title = "vef_newgov.10017.t"
+	desc = "vef_newgov.10017.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes #disaster/vef_horde_reform/random
+
+	trigger = {
+		OR = {
+			any_owned_province = { is_core = KHA has_province_modifier = vef_horde_rebellion }
+			KHA = { is_subject_of = ROOT }
+		}
+		normal_or_historical_nations = yes
+	}
+
+	immediate = {
+		if = {
+			limit = { exists = KHA }
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						is_core = KHA
+						has_province_modifier = vef_horde_rebellion
+					}
+					cede_province = KHA
+				}
+			}
+			custom_tooltip = tt_horde_province
+		}
+		if = {
+			limit = { NOT = { exists = KHA }}
+			hidden_effect = { release = KHA }
+			custom_tooltip = tt_horde_tribe
+		}
+	}
+	
+	option = {	#Fight
+		trigger = { KHA = { is_subject_of = ROOT }}
+		ai_chance = { factor = 60 }
+		name = "vef_newgov.10017.opta"
+		KHA = {
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+		}
+	}
+	
+	option = {	#Fight
+		trigger = { NOT = { KHA = { is_subject_of = ROOT }}}
+		ai_chance = { factor = 0 }
+		name = "vef_newgov.10017.opta"
+		declare_war = KHA
+	}
+	
+	option = {	#Let them go
+		ai_chance = { factor = 40 }
+		name = "vef_newgov.10017.optb"
+		if = {
+			limit = { KHA = { is_subject_of = ROOT }}
+			free_vassal = KHA
+		}
+		change_variable = { which = national_stability value = 100 }
+	}
+}
+
+# Help Nomads Reform
+country_event = {
+	id = vef_newgov.10100
+	title = "vef_newgov.10100.t"
+	desc = "vef_newgov.10100.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes #on_actions/five-year pulse
+
+	hidden = yes	
+
+	trigger = {
+		OR = {
+			tag = KAZ
+			tag = CRI
+			tag = AST
+			tag = CBN
+			tag = SRB
+			AND = {
+				tag = GOL
+				has_country_flag = golden_horde_collapse
+			}
+		}
+		ai = yes
+		is_nomad = yes
+		capital_scope = {
+			OR = {
+				NOT = { development = 9 }
+				NOT = { has_influencing_fort = yes }
+			}
+		}
+	}
+	
+	option = {
+		capital_scope = {
+			if = {
+				limit = { development = 9 NOT = { has_influencing_fort = yes }}
+				add_building = fort_15th
+			}
+			random_list = {
+				40 = { add_base_tax = 1 }
+				40 = { add_base_production = 1 }
+				20 = { add_base_manpower = 1 }
+			}
+		}
+	}
+}
+
+###########
+# Mamluks #
+###########
+
+# Reform Control Event - Hidden
+country_event = {
+	id = vef_newgov.20000
+	title = "vef_newgov.20000.t"
+	desc = "vef_newgov.20000.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	hidden = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_country_flag = mamluk_reform_1 }
+				NOT = { has_country_flag = mamluk_reform_2 }
+				NOT = { has_country_flag = mamluk_reform_3 }
+			}
+			country_event = { id = vef_newgov.20002 days = 1 }
+		}
+		if = {
+			limit = { has_country_flag = mamluk_reform_1 }
+			country_event = { id = vef_newgov.20003 days = 1 }
+		}
+		if = {
+			limit = { has_country_flag = mamluk_reform_2 }
+			country_event = { id = vef_newgov.20004 days = 1 }
+		}
+		if = {
+			limit = { has_country_flag = mamluk_reform_3 }
+			country_event = { id = vef_newgov.20005 days = 1 }
+		}
+	}
+	
+	option = { name = "vef_newgov.20000.opta" }
+
+}
+
+# Reform End Event - Hidden
+country_event = {
+	id = vef_newgov.20001
+	title = "vef_newgov.20001.t"
+	desc = "vef_newgov.20001.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	hidden = yes
+	
+	immediate = {
+		disband_rebels = mamluk_rebels
+	}
+	
+	option = { name = "vef_newgov.20000.opta" }
+
+}
+
+# First Reform
+country_event = {
+	id = vef_newgov.20002
+	title = "vef_newgov.20002.t"
+	desc = "vef_newgov.20002.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {	#Enact Reform
+		ai_chance = { factor = 100 }
+		name = vef_newgov.20002.opta
+		end_disaster = mamluk_reforms
+		set_country_flag = mamluk_reform_1
+		change_variable = { which = vef_merit value = -5 }
+		add_corruption = 30
+	}
+
+	option = {	# Refuse
+		name = vef_newgov.20002.optb
+		change_variable = { which = mamluk_strength value = -10 }
+	}
+}
+
+# Second Reform
+country_event = {
+	id = vef_newgov.20003
+	title = "vef_newgov.20003.t"
+	desc = "vef_newgov.20003.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {	#Enact Reform
+		ai_chance = { factor = 100 }
+		name = vef_newgov.20003.opta
+		end_disaster = mamluk_reforms
+		clr_country_flag = mamluk_reform_1
+		set_country_flag = mamluk_reform_2
+		change_variable = { which = vef_merit value = -5 }
+		add_corruption = 30
+	}
+
+	option = {	# Refuse
+		name = vef_newgov.20003.optb
+		change_variable = { which = mamluk_strength value = -10 }
+	}
+}
+
+# Third Reform
+country_event = {
+	id = vef_newgov.20004
+	title = "vef_newgov.20004.t"
+	desc = "vef_newgov.20004.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {	#Enact Reform
+		ai_chance = { factor = 100 }
+		name = vef_newgov.20004.opta
+		end_disaster = mamluk_reforms
+		clr_country_flag = mamluk_reform_2
+		set_country_flag = mamluk_reform_3
+		change_variable = { which = vef_merit value = -5 }
+		add_corruption = 30
+	}
+
+	option = {	# Refuse
+		name = vef_newgov.20004.optb
+		change_variable = { which = mamluk_strength value = -10 }
+	}
+}
+
+# Final Reform - Hereditary Nobility
+country_event = {
+	id = vef_newgov.20005
+	title = "vef_newgov.20005.t"
+	desc = "vef_newgov.20005.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {	#Enact Reform
+		ai_chance = { factor = 100 }
+		name = vef_newgov.20005.opta
+		end_disaster = mamluk_reforms
+		clr_country_flag = mamluk_reform_3
+		set_country_flag = mamluk_reforms_over
+		change_variable = { which = vef_merit value = -5 }
+		set_variable = { which = aristocratic_privilege which = mamluk_strength }
+		remove_government_reform = mamluk_government
+		add_corruption = 60
+		if = {
+			limit = { ai = no }
+			change_tag = EGM
+		}
+	}
+
+	option = {	# Refuse
+		name = vef_newgov.20005.optb
+		change_variable = { which = mamluk_strength value = -10 }
+	}
+}
+
+# Mamluks Defeated
+country_event = {
+	id = vef_newgov.20006
+	title = "vef_newgov.20006.t"
+	desc = "vef_newgov.20006.d"
+	picture = VEF_COURT_eventPicture
+	
+	trigger = {
+		tag = MAM
+		NOT = { has_country_flag = mamluk_reforms_over }
+		NOT = { has_country_flag = mamluk_reforms_na }
+		NOT = { check_variable = { which = mamluk_strength value = 25 }}
+		normal_or_historical_nations = yes
+	}
+	
+	option = {
+		name = "vef_newgov.20006.opta"
+		set_variable = { which = mamluk_strength value = 0 }
+		change_variable = { which = vef_merit value = -10 }
+		change_tag = EGM
+		set_country_flag = mamluk_reforms_na
+	}
+}
+
+# Mamluk Revolt
+country_event = {
+	id = vef_newgov.20007
+	title = "vef_newgov.20007.t"
+	desc = "vef_newgov.20007.d"
+	picture = VEF_CAVALRY_ARMY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_newgov.20007.opta"
+		random_owned_province = {
+			limit = { is_core = MAM }
+			spawn_rebels = { type = mamluk_rebels size = 1 }
+		}
+		random_owned_province = {
+			limit = { is_core = MAM }
+			spawn_rebels = { type = mamluk_rebels size = 1 }
+		}
+	}
+}
+
+
+###############
+# Janissaries #
+###############
+
+# Establish Devsirme System
+country_event = {
+	id = vef_newgov.30000
+	title = "vef_newgov.30000.t"
+	desc = "vef_newgov.30000.d"
+	picture = "VEF_ISLAM_DEFEAT_eventPicture"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = TUR
+			tag = OSM
+		}
+		has_country_flag = janissary_corps_active
+		NOT = { has_country_flag = devsirme_event }
+		NOT = { has_country_flag = devsirme_over }
+		normal_or_historical_nations = yes
+	}
+	
+	immediate = {
+		set_country_flag = devsirme_event
+	}
+	
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_newgov.30000.opta"
+		add_prestige = 10
+		add_mil_power = 75
+	}
+}
+
+# End of Turkish Nobility
+country_event = {
+	id = vef_newgov.30001
+	title = "vef_newgov.30001.t"
+	desc = "vef_newgov.30001.d"
+	picture = "VEF_ISLAM_DEFEAT_eventPicture"
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_newgov.30001.opta"
+		add_prestige = 10
+		clr_country_flag = janissary_corps_rising
+		set_country_flag = janissary_corps_established
+	}	
+}
+
+# Janissaries Demand Pay Raise
+country_event = {
+	id = vef_newgov.30002
+	title = "vef_newgov.30002.t"
+	desc = "vef_newgov.30002.d"
+	picture = "VEF_ISLAM_DEFEAT_eventPicture"
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_newgov.30002.opta"
+		if = {
+			limit = { has_dlc = "Cradle of Civilization" }
+			remove_country_modifier = coc_janissaries_2
+			add_country_modifier = { name = coc_janissaries_3 duration = -1 }
+		}
+		else = {
+			remove_country_modifier = vef_janissaries_2
+			add_country_modifier = { name = vef_janissaries_3 duration = -1 }
+		}
+	}
+	
+	option = {
+		ai_chance = { factor = 0 }
+		name = "vef_newgov.30002.optb"
+		clr_country_flag = janissary_corps_established
+		set_country_flag = janissary_coprs_troubles
+		add_country_modifier = { name = janissaries_angered duration = 365 }
+	}	
+}
+
+# Janissaries Demand Right To Marry
+country_event = {
+	id = vef_newgov.30003
+	title = "vef_newgov.30003.t"
+	desc = "vef_newgov.30003.d"
+	picture = "VEF_ISLAM_DEFEAT_eventPicture"
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		clr_country_flag = janissary_corps_established
+		set_country_flag = janissary_troubles
+	}
+
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_newgov.30003.opta"
+		set_country_flag = janissary_marriages
+		if = {
+			limit = { has_dlc = "Cradle of Civilization" }
+			remove_country_modifier = coc_janissaries_3
+			add_country_modifier = { name = coc_janissaries_4 duration = -1 }
+		}
+		else = {
+			remove_country_modifier = vef_janissaries_3
+			add_country_modifier = { name = vef_janissaries_4 duration = -1 }
+		}
+	}
+	
+	option = {
+		ai_chance = { factor = 0 }
+		name = "vef_newgov.30003.optb"
+		add_country_modifier = { name = janissaries_angered duration = 365 }
+	}
+}
+
+# Janissaries Demand Allowance of Their Children to the Ranks
+country_event = {
+	id = vef_newgov.30004
+	title = "vef_newgov.30004.t"
+	desc = "vef_newgov.30004.d"
+	picture = "VEF_ISLAM_DEFEAT_eventPicture"
+
+	is_triggered_only = yes
+	
+	immediate = { set_country_flag = revolt_janissary_children }
+	
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_newgov.30004.opta"
+		end_disaster = janissary_children
+		if = {
+			limit = { has_dlc = "Cradle of Civilization" }
+			remove_country_modifier = coc_janissaries_4
+		}
+		else = {
+			remove_country_modifier = vef_janissaries_4
+		}
+		add_country_modifier = { name = vef_janissaries_5 duration = -1 }
+		add_prestige = -5
+	}
+
+	option = {
+		ai_chance = { factor = 0 }
+		name = "vef_newgov.30004.optb"
+		if = {
+			limit = { has_dlc = "Cradle of Civilization" }
+			remove_country_modifier = coc_janissaries_4
+		}
+		else = {
+			remove_country_modifier = vef_janissaries_4
+		}
+	}
+}
+
+# Disaster Over
+country_event = {
+	id = vef_newgov.30005
+	title = "vef_newgov.30005.t"
+	desc = "vef_newgov.30005.d"
+	picture = "VEF_ISLAM_DEFEAT_eventPicture"
+
+	is_triggered_only = yes
+	
+	hidden = yes
+	
+	option = {
+		name = "vef_newgov.30005.opta"
+	}
+}
+
+# Janissaries Revolt - Start
+country_event = {
+	id = vef_newgov.30006
+	title = "vef_newgov.30006.t"
+	desc = "vef_newgov.30006.d"
+	picture = "VEF_ISLAM_DEFEAT_eventPicture"
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { has_country_modifier = vef_janissaries_5 }
+			remove_country_modifier = vef_janissaries_5
+			add_country_modifier = { name = vef_janissaries_6 duration = -1 }
+		}
+		if = {
+			limit = { has_country_modifier = vef_janissaries_4 }
+			remove_country_modifier = vef_janissaries_4
+			add_country_modifier = { name = vef_janissaries_5 duration = -1 }
+		}
+		if = {
+			limit = { has_country_modifier = coc_janissaries_4 }
+			remove_country_modifier = coc_janissaries_4
+			add_country_modifier = { name = vef_janissaries_5 duration = -1 }
+		}
+		if = {
+			limit = { has_country_modifier = vef_janissaries_3 }
+			remove_country_modifier = vef_janissaries_3
+			add_country_modifier = { name = vef_janissaries_5 duration = -1 }
+		}
+		if = {
+			limit = { has_country_modifier = coc_janissaries_3 }
+			remove_country_modifier = coc_janissaries_3
+			add_country_modifier = { name = vef_janissaries_5 duration = -1 }
+		}
+		if = {
+			limit = { has_country_modifier = vef_janissaries_2 }
+			remove_country_modifier = vef_janissaries_2
+			add_country_modifier = { name = vef_janissaries_5 duration = -1 }
+		}
+		if = {
+			limit = { has_country_modifier = coc_janissaries_2 }
+			remove_country_modifier = coc_janissaries_2
+			add_country_modifier = { name = vef_janissaries_5 duration = -1 }
+		}
+		set_country_flag = janissary_revolt
+	}
+	
+	option = {
+		name = "vef_newgov.30006.opta"
+		change_variable = { which = national_stability value = -350 }
+	}
+}
+
+# Janissaries Revolt - End
+country_event = {
+	id = vef_newgov.30007
+	title = "vef_newgov.30007.t"
+	desc = "vef_newgov.30007.d"
+	picture = "VEF_ISLAM_DEFEAT_eventPicture"
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_newgov.30007.opta"
+	}
+}
+
+# Janissaries Revolt - End
+country_event = {
+	id = vef_newgov.30008
+	title = "vef_newgov.30008.t"
+	desc = "vef_newgov.30008.d"
+	picture = "VEF_ISLAM_DEFEAT_eventPicture"
+
+	trigger = {
+		tag = TUR
+		has_disaster = janissary_revolt
+		had_country_flag = { flag = janissary_revolt days = 1095 }
+	}
+	
+	mean_time_to_happen = { months = 24 }
+	
+	option = {
+		name = "vef_newgov.30007.opta"
+		add_national_stability_or_adm_power = yes
+		clr_country_flag = janissary_revolt
+		end_disaster = janissary_revolt
+	}
+}
+
+# Janissaries Over
+country_event = {
+	id = vef_newgov.30009
+	title = "vef_newgov.30009.t"
+	desc = "vef_newgov.30009.d"
+	picture = "VEF_ISLAM_DEFEAT_eventPicture"
+
+	trigger = {
+		tag = TUR
+		has_country_flag = janissary_troubles
+		NOT = { check_variable = { which = janissary_strength value = 25 }}
+	}
+	
+	option = {
+		name = "vef_newgov.30008.opta"
+		clr_country_flag = janissary_troubles
+		if = {
+			limit = { has_country_modifier = vef_janissaries_4 }
+			remove_country_modifier = vef_janissaries_4
+		}
+		if = {
+			limit = { has_country_modifier = coc_janissaries_4 }
+			remove_country_modifier = coc_janissaries_4
+		}
+		if = {
+			limit = { has_country_modifier = vef_janissaries_5 }
+			remove_country_modifier = vef_janissaries_5
+		}
+		if = {
+			limit = { has_country_modifier = vef_janissaries_6 }
+			remove_country_modifier = vef_janissaries_6
+		}
+		if = {
+			limit = { has_reform = janissary_government }
+			add_government_reform = ottoman_government
+		}
+	}
+}
+
+
+###############
+# Russian Gov #
+###############
+
+#Zemsky Sobor Revolt
+country_event = {
+	id = vef_newgov.40000
+	title = "vef_newgov.40000.t"
+	desc = "vef_newgov.40000.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes #disasters/vef_sobor_revolt start
+	
+	option = {
+		name = "vef_newgov.40000.opta"
+	}
+}
+
+#Revolt Ends
+country_event = {
+	id = vef_newgov.40001
+	title = "vef_newgov.40001.t"
+	desc = "vef_newgov.40001.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes #disasters/vef_sobor_revolt end
+	
+	immediate = { end_disaster = sobor_revolt }
+	
+	option = {
+		trigger = { check_variable = { which = aristocratic_privilege value = 25 }}
+		name = "vef_newgov.40001.opta"
+	}
+	
+	option = {
+		trigger = { NOT = { check_variable = { which = aristocratic_privilege value = 25 }}}
+		name = "vef_newgov.40001.optb"
+	}
+}
+
+#Rebel Generation
+country_event = {
+	id = vef_newgov.40002
+	title = "vef_newgov.40002.t"
+	desc = "vef_newgov.40002.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes #disasters/vef_sobor_revolt random
+	
+	option = {
+		name = "vef_newgov.40002.opta"
+		random_owned_province = {
+			limit = {
+				is_core = ROOT
+				OR = {
+					region = russia_region
+					region = ural_region
+				}
+				OR = {
+					has_building = nobles_20
+					has_building = nobles_40
+					has_building = nobles_60
+					has_building = nobles_80
+				}
+			}
+			if = {
+				limit = {
+					has_building = basic_fort
+					is_capital = no
+					NOT = { has_building = civic_charter }
+					NOT = { has_building = local_assembly }
+				}
+				spawn_rebels = { type = noble_rebels size = 1 win = yes }
+			}
+			if = {
+				limit = {
+					OR = {
+						NOT = { has_building = basic_fort }
+						has_building = civic_charter 
+						has_building = local_assembly
+						is_capital = yes
+					}
+				}
+				spawn_rebels = { type = noble_rebels size = 1 }
+			}
+		}
+		random_owned_province = {
+			limit = {
+				is_core = ROOT
+				OR = {
+					region = russia_region
+					region = ural_region
+				}
+				OR = {
+					has_building = nobles_20
+					has_building = nobles_40
+					has_building = nobles_60
+					has_building = nobles_80
+				}
+			}
+			if = {
+				limit = {
+					has_building = basic_fort
+					is_capital = no
+					NOT = { has_building = civic_charter }
+					NOT = { has_building = local_assembly }
+				}
+				spawn_rebels = { type = noble_rebels size = 1 win = yes }
+			}
+			if = {
+				limit = {
+					OR = {
+						NOT = { has_building = basic_fort }
+						has_building = civic_charter 
+						has_building = local_assembly
+						is_capital = yes
+					}
+				}
+				spawn_rebels = { type = noble_rebels size = 1 }
+			}
+		}
+	}
+}
+
+
+#####################
+# Change Calculator #
+#####################
+
+country_event = {
+	id = vef_newgov.90000
+	title = "vef_newgov.90000.t"
+	desc = "vef_newgov.90000.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes # triggered by vef_setup.1 and on_thri_yearly_pulse action
+	
+	hidden = yes
+	
+	immediate = {
+		set_variable = { which = monarch_stats value = 0 }
+		export_to_variable = { which = monarch_adm_stat value = ADM }
+		export_to_variable = { which = monarch_dip_stat value = DIP }
+		export_to_variable = { which = monarch_mil_stat value = MIL }
+		change_variable = { which = monarch_stats which = monarch_adm_stat }
+		change_variable = { which = monarch_stats which = monarch_dip_stat }
+		change_variable = { which = monarch_stats which = monarch_mil_stat }
+	
+		set_variable = { which = heir_stats value = 0 }
+		export_to_variable = { which = heir_adm_stat value = heir_adm }
+		export_to_variable = { which = heir_dip_stat value = heir_dip }
+		export_to_variable = { which = heir_mil_stat value = heir_mil }
+		change_variable = { which = heir_stats which = heir_adm_stat }
+		change_variable = { which = heir_stats which = heir_dip_stat }
+		change_variable = { which = heir_stats which = heir_mil_stat }
+
+		if = {
+			limit = { has_country_flag = devsirme_event }
+			set_variable = { which = devsirme_requirement which = province_count }
+			multiply_variable = { which = devsirme_requirement value = 0.1 }
+		}
+		if = {
+			limit = {
+				has_country_flag = janissary_corps_rising
+				OR = {
+					NOT = { has_country_flag = devsirme_event }
+					check_variable = { which = tur_christian_provinces which = devsirme_requirement }
+					any_country = {
+						religion_group = christian
+						is_subject_of = ROOT
+					}
+					ai = yes
+				}
+			}
+			change_variable = { which = aristocratic_privilege value = -2 }
+			change_variable = { which = janissary_strength value = 2 }
+			change_variable = { which = vef_merit value = 1 }
+			if = {
+				limit = {
+					OR = {
+						has_country_modifier = vef_janissaries_1
+						has_country_modifier = coc_janissaries_1
+					}
+					check_variable = { which = janissary_strength value = 50 }
+				}
+				if = {
+					limit = { has_dlc = "Cradle of Civilization" }
+					remove_country_modifier = coc_janissaries_1
+					add_country_modifier = { name = coc_janissaries_2 duration = -1 }
+					else = {
+						remove_country_modifier = vef_janissaries_1
+						add_country_modifier = { name = vef_janissaries_2 duration = -1 }
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_modifier = vef_janissaries_2
+						has_country_modifier = coc_janissaries_2
+					}
+					NOT = { check_variable = { which = aristocratic_privilege value = 0 }}
+				}
+				country_event = { id = vef_newgov.30001 days = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = janissary_corps_established
+				NOT = { has_disaster = janissary_children }
+				NOT = { has_disaster = janissary_revolt }
+				OR = {
+					check_variable = { which = tur_christian_provinces which = devsirme_requirement }
+					any_country = {
+						religion_group = christian
+						is_subject_of = ROOT
+					}
+				}
+			}
+			change_variable = { which = janissary_strength value = 1 }
+			if = {
+				limit = { NOT = { has_country_flag = janissary_marriages }}
+				change_variable = { which = vef_merit value = 0.5 }
+			}
+			if = {
+				limit = { check_variable = { which = janissary_strength value = 72 }}
+				country_event = { id = vef_newgov.30002 days = 1 }
+			}
+			if = {
+				limit = { check_variable = { which = janissary_strength value = 105 }}
+				country_event = { id = vef_newgov.30003 days = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = janissary_troubles }
+			change_variable = { which = janissary_strength value = 1 }
+			change_variable = { which = vef_merit value = -0.5 }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_modifier = vef_janissaries_5
+					has_country_modifier = vef_janissaries_6
+				}
+				NOT = { has_active_policy = vef_suppress_janissaries }
+			}
+			change_variable = { which = vef_merit value = -1 }
+		}
+		if = {
+			limit = { has_active_policy = vef_suppress_janissaries }
+			change_variable = { which = janissary_strength value = -4 }
+			if = {
+				limit = { NOT = { check_variable = { which = janissary_strength value = 100 }}}
+				change_variable = { which = janissary_strength value = -2 }
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = janissary_strength value = 50 }}}
+				change_variable = { which = janissary_strength value = -2 }
+			}
+		}
+		if = {
+			limit = { check_variable = { which = janissary_strength value = 151 }}
+			set_variable = { which = janissary_strength value = 150 }
+		}
+		if = {
+			limit = { has_country_flag = mamluk_reform_3 }
+			change_variable = { which = vef_merit value = -1 }
+		}
+		if = {
+			limit = { has_country_flag = mamluk_reforms_over }
+			change_variable = { which = vef_merit value = -2 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = noble_holdings value = 40 }
+				NOT = { check_variable = { which = aristocratic_privilege value = 40 }}
+			}
+			change_variable = { which = aristocratic_privilege value = 2 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = noble_holdings value = 60 }
+				NOT = { check_variable = { which = aristocratic_privilege value = 60 }}
+			}
+			change_variable = { which = aristocratic_privilege value = 2 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = noble_holdings value = 80 }
+				NOT = { check_variable = { which = aristocratic_privilege value = 80 }}
+			}
+			change_variable = { which = aristocratic_privilege value = 2 }
+		}
+		if = {
+			limit = {
+				NOT = { check_variable = { which = noble_holdings value = 25 }}
+				check_variable = { which = aristocratic_privilege value = 31 }
+			}
+			change_variable = { which = aristocratic_privilege value = -1 }
+		}
+		if = {	# Meritocracy cannot be less than 0
+			limit = { NOT = { check_variable = { which = vef_merit value = 0 }}}
+			set_variable = { which = vef_merit value = 0 }
+		}
+		if = {	# Nor greater than 100
+			limit = { check_variable = { which = vef_merit value = 100 }}
+			set_variable = { which = vef_merit value = 100 }
+		}
+		if = {	# Rule of Law cannot be less than 0
+			limit = { NOT = { check_variable = { which = vef_rule_law value = 0 }}}
+			set_variable = { which = vef_rule_law value = 0 }
+		}
+		if = {	# Nor greater than 100
+			limit = { check_variable = { which = vef_rule_law value = 100 }}
+			set_variable = { which = vef_rule_law value = 100 }
+		}
+		if = {	# AP cannot be less than 0
+			limit = { NOT = { check_variable = { which = aristocratic_privilege value = 0 }}}
+			set_variable = { which = aristocratic_privilege value = 0 }
+		}
+		if = {	# Nor greater than 100
+			limit = { check_variable = { which = aristocratic_privilege value = 100 }}
+			set_variable = { which = aristocratic_privilege value = 100 }
+		}
+		if = {	# AP cannot be less than the low threshold for constitution
+			limit = { 
+				government = constitutional_monarchy
+				NOT = { check_variable = { which = aristocratic_privilege which = apcon_threshold_low }}
+			}
+			set_variable = { which = aristocratic_privilege which = apcon_threshold_low }
+		}
+		if = {	# AP cannot be above the high threshold for constitution
+			limit = {
+				government = constitutional_monarchy
+				check_variable = { which = aristocratic_privilege which = apcon_threshold_high }
+			}
+			set_variable = { which = aristocratic_privilege which = apcon_threshold_high }
+		}
+		if = {
+			limit = {
+				OR = {
+					government = monarchy
+					government = bohemian_republic
+				}
+				is_nomad = no
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = aristocratic_privilege value = 20 }}}
+				if = {
+					limit = { NOT = { has_country_modifier = hm_ap_0 }}
+					add_country_modifier = { name = hm_ap_0 duration = -1 }
+				}
+				if = {
+					limit = { has_country_modifier = hm_ap_20 }
+					remove_country_modifier = hm_ap_20
+				}
+				if = {
+					limit = { has_country_modifier = hm_ap_60 }
+					remove_country_modifier = hm_ap_60
+				}
+				if = {
+					limit = { has_country_modifier = hm_ap_80 }
+					remove_country_modifier = hm_ap_80
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = aristocratic_privilege value = 20 }
+					NOT = { check_variable = { which = aristocratic_privilege value = 40 }}
+				}
+				if = {
+					limit = { NOT = { has_country_modifier = hm_ap_20 }}
+					add_country_modifier = { name = hm_ap_20 duration = -1 }
+				}
+				if = {
+					limit = { has_country_modifier = hm_ap_0 }
+					remove_country_modifier = hm_ap_0
+				}
+				if = {
+					limit = { has_country_modifier = hm_ap_60 }
+					remove_country_modifier = hm_ap_60
+				}
+				if = {
+					limit = { has_country_modifier = hm_ap_80 }
+					remove_country_modifier = hm_ap_80
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = aristocratic_privilege value = 40 }
+					NOT = { check_variable = { which = aristocratic_privilege value = 60 }}
+				}
+				if = {
+					limit = { has_country_modifier = hm_ap_0 }
+					remove_country_modifier = hm_ap_0
+				}
+				if = {
+					limit = { has_country_modifier = hm_ap_20 }
+					remove_country_modifier = hm_ap_20
+				}
+				if = {
+					limit = { has_country_modifier = hm_ap_60 }
+					remove_country_modifier = hm_ap_60
+				}
+				if = {
+					limit = { has_country_modifier = hm_ap_80 }
+					remove_country_modifier = hm_ap_80
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = aristocratic_privilege value = 60 }
+					NOT = { check_variable = { which = aristocratic_privilege value = 80 }}
+				}
+				if = {
+					limit = { NOT = { has_country_modifier = hm_ap_60 }}
+					add_country_modifier = { name = hm_ap_60 duration = -1 }
+				}
+				if = {
+					limit = { has_country_modifier = hm_ap_0 }
+					remove_country_modifier = hm_ap_0
+				}
+				if = {
+					limit = { has_country_modifier = hm_ap_20 }
+					remove_country_modifier = hm_ap_20
+				}
+				if = {
+					limit = { has_country_modifier = hm_ap_80 }
+					remove_country_modifier = hm_ap_80
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = aristocratic_privilege value = 80 }
+				}
+				if = {
+					limit = { NOT = { has_country_modifier = hm_ap_80 }}
+					add_country_modifier = { name = hm_ap_80 duration = -1 }
+				}
+				if = {
+					limit = { has_country_modifier = hm_ap_0 }
+					remove_country_modifier = hm_ap_0
+				}
+				if = {
+					limit = { has_country_modifier = hm_ap_20 }
+					remove_country_modifier = hm_ap_20
+				}
+				if = {
+					limit = { has_country_modifier = hm_ap_60 }
+					remove_country_modifier = hm_ap_60
+				}
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = vef_rule_law value = 20 }}}
+				if = {
+					limit = { NOT = { has_country_modifier = hm_rl_0 }}
+					add_country_modifier = { name = hm_rl_0 duration = -1 }
+				}
+				if = {
+					limit = { has_country_modifier = hm_rl_20 }
+					remove_country_modifier = hm_rl_20
+				}
+				if = {
+					limit = { has_country_modifier = hm_rl_60 }
+					remove_country_modifier = hm_rl_60
+				}
+				if = {
+					limit = { has_country_modifier = hm_rl_80 }
+					remove_country_modifier = hm_rl_80
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = vef_rule_law value = 20 }
+					NOT = { check_variable = { which = vef_rule_law value = 40 }}
+				}
+				if = {
+					limit = { NOT = { has_country_modifier = hm_rl_20 }}
+					add_country_modifier = { name = hm_rl_20 duration = -1 }
+				}
+				if = {
+					limit = { has_country_modifier = hm_rl_0 }
+					remove_country_modifier = hm_rl_0
+				}
+				if = {
+					limit = { has_country_modifier = hm_rl_60 }
+					remove_country_modifier = hm_rl_60
+				}
+				if = {
+					limit = { has_country_modifier = hm_rl_80 }
+					remove_country_modifier = hm_rl_80
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = vef_rule_law value = 40 }
+					NOT = { check_variable = { which = vef_rule_law value = 60 }}
+				}
+				if = {
+					limit = { has_country_modifier = hm_rl_0 }
+					remove_country_modifier = hm_rl_0
+				}
+				if = {
+					limit = { has_country_modifier = hm_rl_20 }
+					remove_country_modifier = hm_rl_20
+				}
+				if = {
+					limit = { has_country_modifier = hm_rl_60 }
+					remove_country_modifier = hm_rl_60
+				}
+				if = {
+					limit = { has_country_modifier = hm_rl_80 }
+					remove_country_modifier = hm_rl_80
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = vef_rule_law value = 60 }
+					NOT = { check_variable = { which = vef_rule_law value = 80 }}
+				}
+				if = {
+					limit = { NOT = { has_country_modifier = hm_rl_60 }}
+					add_country_modifier = { name = hm_rl_60 duration = -1 }
+				}
+				if = {
+					limit = { has_country_modifier = hm_rl_0 }
+					remove_country_modifier = hm_rl_0
+				}
+				if = {
+					limit = { has_country_modifier = hm_rl_20 }
+					remove_country_modifier = hm_rl_20
+				}
+				if = {
+					limit = { has_country_modifier = hm_rl_80 }
+					remove_country_modifier = hm_rl_80
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = vef_rule_law value = 80 }
+				}
+				if = {
+					limit = { NOT = { has_country_modifier = hm_rl_80 }}
+					add_country_modifier = { name = hm_rl_80 duration = -1 }
+				}
+				if = {
+					limit = { has_country_modifier = hm_rl_0 }
+					remove_country_modifier = hm_rl_0
+				}
+				if = {
+					limit = { has_country_modifier = hm_rl_20 }
+					remove_country_modifier = hm_rl_20
+				}
+				if = {
+					limit = { has_country_modifier = hm_rl_60 }
+					remove_country_modifier = hm_rl_60
+				}
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = vef_merit value = 10 }}}
+				if = {
+					limit = { NOT = { has_country_modifier = hm_mer_0 }}
+					add_country_modifier = { name = hm_mer_0 duration = -1 }
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_10 }
+					remove_country_modifier = hm_mer_10
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_20 }
+					remove_country_modifier = hm_mer_20
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_30 }
+					remove_country_modifier = hm_mer_30
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_80 }
+					remove_country_modifier = hm_mer_80
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = vef_merit value = 10 }
+					NOT = { check_variable = { which = vef_merit value = 20 }}
+				}
+				if = {
+					limit = { NOT = { has_country_modifier = hm_mer_10 }}
+					add_country_modifier = { name = hm_mer_10 duration = -1 }
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_0 }
+					remove_country_modifier = hm_mer_0
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_20 }
+					remove_country_modifier = hm_mer_20
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_30 }
+					remove_country_modifier = hm_mer_30
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_80 }
+					remove_country_modifier = hm_mer_80
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = vef_merit value = 20 }
+					NOT = { check_variable = { which = vef_merit value = 30 }}
+				}
+				if = {
+					limit = { NOT = { has_country_modifier = hm_mer_20 }}
+					add_country_modifier = { name = hm_mer_20 duration = -1 }
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_0 }
+					remove_country_modifier = hm_mer_0
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_10 }
+					remove_country_modifier = hm_mer_10
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_30 }
+					remove_country_modifier = hm_mer_30
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_80 }
+					remove_country_modifier = hm_mer_80
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = vef_merit value = 30 }
+					NOT = { check_variable = { which = vef_merit value = 40 }}
+				}
+				if = {
+					limit = { NOT = { has_country_modifier = hm_mer_30 }}
+					add_country_modifier = { name = hm_mer_30 duration = -1 }
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_0 }
+					remove_country_modifier = hm_mer_0
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_10 }
+					remove_country_modifier = hm_mer_10
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_20 }
+					remove_country_modifier = hm_mer_20
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_80 }
+					remove_country_modifier = hm_mer_80
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = vef_merit value = 40 }
+					NOT = { check_variable = { which = vef_merit value = 80 }}
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_0 }
+					remove_country_modifier = hm_mer_0
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_10 }
+					remove_country_modifier = hm_mer_10
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_20 }
+					remove_country_modifier = hm_mer_20
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_30 }
+					remove_country_modifier = hm_mer_30
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_80 }
+					remove_country_modifier = hm_mer_80
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = vef_merit value = 80 }
+				}
+				if = {
+					limit = { NOT = { has_country_modifier = hm_mer_80 }}
+					add_country_modifier = { name = hm_mer_80 duration = -1 }
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_0 }
+					remove_country_modifier = hm_mer_0
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_10 }
+					remove_country_modifier = hm_mer_10
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_20 }
+					remove_country_modifier = hm_mer_20
+				}
+				if = {
+					limit = { has_country_modifier = hm_mer_30 }
+					remove_country_modifier = hm_mer_30
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_nomad = yes
+				NOT = { capital_scope = { has_province_flag = nomad_capital }}
+			}
+			add_adm_power = 200
+			every_owned_province = {
+				clr_province_flag = nomad_capital
+			}
+			capital_scope = { set_province_flag = nomad_capital }
+		}
+	}
+	
+	option = { name = "vef_newgov.90000.opta" }
+}

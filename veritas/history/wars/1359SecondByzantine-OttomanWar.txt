@@ -1,0 +1,33 @@
+# Ottoman conquest of byzantine Balkans
+
+name = "Second Byzantine-Ottoman War"
+
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 587 # Thrace	
+}
+
+1359.1.1 = { add_attacker = TUR	add_defender = BYZ	}
+1370.1.1 = { add_defender = SER } #Serbians cross the border to take advantage of the conflict
+#Surprise night attack sees the death of Serbian leaders
+1371.9.26 = {
+	battle = {
+		name = "Maritsa"
+		location = 585
+		attacker = {
+			commander = "Lala Sahin Pasha"
+			infantry = 1000
+			losses = 5	# percent
+			country = TUR
+		}
+		defender = {
+			commander = "Vukasin Mrnjavcevic"
+			infantry = 20000
+			losses = 20	# percent
+			country = SER
+		}
+		result = yes
+	}
+}
+1372.1.1 = { rem_attacker = TUR	rem_defender = BYZ rem_defender = SER } # Ottomans annexed Gallipoli, Adrianople, Komotini and Serres

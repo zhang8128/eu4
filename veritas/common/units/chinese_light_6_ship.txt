@@ -1,0 +1,10 @@
+#Qing Junk
+#model = heavy_frigate
+#tech_level = 46
+type = transport
+unit_type = chinese
+
+hull_size = 22
+base_cannons = 34
+sail_speed = 8
+sailors = 300

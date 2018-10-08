@@ -1,0 +1,30 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+technology_group = eastern
+religion = catholic
+primary_culture = hungarian
+capital = 493 # Abaúj
+historical_friend = BOH
+historical_friend = KAL
+historical_friend = POL
+historical_rival = HUN
+historical_rival = UGC
+historical_rival = KSZ
+historical_rival = CRO
+historical_rival = KBA
+historical_rival = TRA
+
+1288.8.27 = {
+	monarch = {
+		name = "Amadé"
+		dynasty = "Aba"
+		birth_date = 1260.1.1
+		adm = 6
+		dip = 2
+		mil = 2
+	}
+	set_ruler_flag = ambitious_vassal
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 10.0 }
+}

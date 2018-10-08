@@ -1,0 +1,287 @@
+# Tuetonic Order
+government = theocracy
+add_government_reform = monastic_order_reform
+government_rank = 2
+primary_culture = prussian
+religion = catholic
+technology_group = western
+historical_friend = HSA
+historical_friend = DNZ
+historical_friend = LIV
+historical_rival = SWE
+capital = 369	# Marienburg
+
+1267.1.1 = { add_country_modifier = { name = "hanseatic_league_member" duration = -1 } }
+
+1303.1.1 = {
+	monarch = {
+		name = "Siegfried von Feuchtwangen"
+		adm = 2
+		dip = 3
+		mil = 4
+	}
+}
+
+1311.1.1 = {
+	monarch = {
+		name = "Karl von Trier"
+		birth_date = 1265.1.1
+		adm = 4
+		dip = 2
+		mil = 4
+	}
+}
+
+1324.2.11 = {
+	monarch = {
+		name = "Werner von Orsein"
+		birth_date = 1280.1.1
+		adm = 4
+		dip = 2
+		mil = 4
+	}
+}
+
+1330.11.18 = {
+	monarch = {
+		name = "Luther von Braunschweig"
+		birth_date = 1275.1.1
+		adm = 4
+		dip = 2
+		mil = 4
+	}
+}
+
+1335.4.18 = {
+	monarch = {
+		name = "Dietrich von Altenburg"
+		birth_date = 1284.1.1
+		adm = 4
+		dip = 2
+		mil = 4
+	}
+}
+
+1341.1.1 = {
+	monarch = {
+		name = "Ludolf Konig"
+		birth_date = 1288.1.1
+		adm = 4
+		dip = 2
+		mil = 4
+	}
+}
+
+1345.1.1 = {
+	monarch = {
+		name = "Heinrich Dusemer von Arfberg"
+		adm = 4
+		dip = 2
+		mil = 4
+	}
+}
+
+1351.1.1 = {
+	monarch = {
+		name = "Winrich von Kniprode"
+		adm = 5
+		dip = 4
+		mil = 5
+	}
+}
+
+1382.1.1 = {
+	monarch = {
+		name = "Konrad von Rothenstein"
+		adm = 4
+		dip = 2
+		mil = 4
+	}
+}
+
+1390.8.20 = {
+	monarch = {
+		name = "Konrad von Wallenrode"
+		adm = 4
+		dip = 2
+		mil = 4
+	}
+}
+
+1393.7.23 = {
+	monarch = {
+		name = "Konrad von Jungingen"
+		adm = 3
+		dip = 0
+		mil = 1
+	}
+	leader = { name = "Ulrich von Jungingen"	type = general fire = 2	shock = 2	manuever = 3	siege = 0 }
+}
+
+1407.3.30 = {
+	monarch = {
+		name = "Ulrich von Jungingen"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1410.7.15 = {
+	monarch = {
+		name = "Heinrich von Plauen"
+		adm = 3
+		dip = 0
+		mil = 2
+	}
+}
+
+1413.1.1 = {
+	monarch = {
+		name = "Michael K�chmeister"
+		adm = 2
+		dip = 1
+		mil = 1
+	}
+}
+
+1422.12.15 = {
+	monarch = {
+		name = "Paul von Rusdorf"
+		adm = 0
+		dip = 3
+		mil = 0
+	}
+}
+
+1441.1.1 = {
+	monarch = {
+		name = "Konrad von Erlichshausen"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1449.11.8 = {
+	monarch = {
+		name = "Ludwig von Erlichschausen"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1466.10.19 = { capital = 457 } # K�nigsberg
+
+1467.4.5 = {
+	monarch = {
+		name = "Heinrich Reuss von Plauen"
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1477.2.19 = {
+	monarch = {
+		name = "Martin von Wetzhausen"
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1489.1.5 = {
+	monarch = {
+		name = "Johann von Tiefen"
+		adm = 1
+		dip = 1
+		mil = 0
+	}
+}
+
+1495.1.1 = { leader = {	name = "W. von Plettenberg"           	type = general fire = 3	shock = 4	manuever = 3	siege = 1	death_date = 1535.2.28 } }
+
+1497.8.26 = {
+	monarch = {
+		name = "Friedrich von Meissen"
+		adm = 1
+		dip = 2
+		mil = 2
+	}
+}
+
+1510.12.14 = {
+	monarch = {
+		name = "Albrecht von Hohenzollern"
+		adm = 1
+		dip = 3
+		mil = 1
+	}
+}
+
+1525.4.9 = {
+	monarch = {
+		name = "Wolter von Plettenberg"
+		adm = 2
+		dip = 1
+		mil = 3
+	}
+}
+
+1535.2.27 = {
+	monarch = {
+		name = "Hermann Brugsenei"
+		adm = 2
+		dip = 1
+		mil = 3
+	}
+}
+
+1549.2.5 = {
+	monarch = {
+		name = "Johann von der Recke"
+		adm = 2
+		dip = 1
+		mil = 1
+	}
+}
+
+1550.1.1 = { leader = {	name = "Magnus von D�nemark"		type = general fire = 3	shock = 2	manuever = 4	siege = 1	death_date = 1577.1.1 } }
+
+1551.5.19 = {
+	monarch = {
+		name = "Heinrich von Galen"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1557.5.30 = {
+	monarch = {
+		name = "Wilhelm von F�rstenberg"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1559.9.2 = {
+	monarch = {
+		name = "Gotthard von Kettler"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1562.3.6 = {
+	monarch = {
+		name = "Landmeister"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}

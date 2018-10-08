@@ -1,0 +1,4 @@
+# Lake Tchad
+#Province IDs changed
+discovered_by = sudanese_tech
+1804.1.1 = { discovered_by = SOK }

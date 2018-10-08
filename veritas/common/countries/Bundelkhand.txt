@@ -1,0 +1,116 @@
+#Country Name: See the Name of this File.
+
+graphical_culture = indiangfx
+
+color = { 23  114  143 }
+
+historical_idea_groups = {
+	quantity_ideas
+	spy_ideas
+	religious_ideas
+	defensive_ideas
+	mercantilist_ideas
+	cultural_unity_ideas
+	drafted_army_ideas
+	gf1_ideas
+}
+
+historical_units = {
+   indian_artillery_8_1
+   indian_artillery_16_1
+   indian_artillery_24_1
+   indian_artillery_32_1
+   indian_artillery_38_1
+   indian_artillery_42_1
+   indian_cavalry_0_1
+   indian_cavalry_16_1
+   indian_cavalry_21_1
+   indian_cavalry_27_1
+   indian_cavalry_31_1
+   indian_cavalry_36_1
+   indian_cavalry_48_1
+   indian_infantry_0_1
+   indian_infantry_6_1
+   indian_infantry_17_1
+   indian_infantry_21_1
+   indian_infantry_25_1
+   indian_infantry_34_1
+   indian_infantry_42_1
+   indian_infantry_45_1
+   indian_infantry_48_1
+   indian_infantry_50_1
+}
+
+
+
+
+monarch_names = {
+	"Mednepal Singh #0" = 20
+	"Arjun Deo #0" = 20
+	"Malkhan Singh #0" = 20
+	"Rudra-pratap Singh #0" = 20
+	"Bharti-candra #0" = 20
+	"Madukar #0" = 20
+	"Ram #0" = 20
+	"Bir Singh Deo #0" = 20
+	"Virsingh Dev #0" = 20
+	"Jujhar Singh #0" = 20
+	"Devi Singh #0" = 20
+	"Indramani Singh #0" = 20
+	"Jaswant Singh #0" = 20
+	"Baghwat Singh #0" = 20
+	"Udwat Singh #0" = 20
+	"Prithvi Singh #0" = 20
+	"Sawant Singh Mahendra #0" = 20
+	"HatiSingh Mahendra #0" = 20
+	"Man Singh Mahendra #0" = 20
+	"Jujhar #0" = 20
+	"Harde Sah #0" = 0
+	"Nirpat #0" = 0
+	"Sabha #0" = 0
+	"Hindupat #0" = 0
+	"Anirudh #0" = 0
+	"Dhokal #0" = 0
+	"Kishor #0" = 0
+	"Mahendra #0" = 0
+	"Lokpal #0" = 0
+	"Madho #0" = 0
+	"Malkhan #0" = 0
+	"Jayanti Devi #0" = -1
+	"Indira #0" = -1
+	"Padmini #0" = -1
+}
+
+leader_names = {
+	Singh
+	Datia
+	Mihir
+	Jasos
+	Bundela
+	Bais
+	Chattar
+	Minhas
+	Baghela
+	Pakhral
+	Pundir
+	Naru
+	Saharan
+	Mori
+	Chauhan
+	Bhaal
+	Naga
+	Tomara
+	Chandela
+	Katoch
+	Jadon
+}
+
+ship_names = {
+	Betwa Devi Durga Ganga Gandak
+	Gayatri Ghagra Gomti Jalsena
+	"Kala Jahazi" Ken Lakshmi
+	"Lal Jahazi" Nausena "Nav ka Yudh"
+	"Nila Jahazi" Parvati Radha
+	Ramganga Ratri Sagar Sarasvati
+	Satlaj Sita Yamuna
+}

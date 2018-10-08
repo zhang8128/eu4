@@ -1,0 +1,19 @@
+# Altai
+
+capital = "Altai"
+owner = GOL
+controller = GOL
+add_core = GOL
+add_core = OIR
+culture = mongol
+religion = tengri
+trade_goods = salt
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = chinese
+discovered_by = KHA
+
+1428.1.1   = { owner = OIR controller = OIR add_core = OIR remove_core = GOL }

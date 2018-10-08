@@ -1,0 +1,11 @@
+#Large Decked Balsa
+#model = cog
+#tech_level = 12
+type = light_ship
+unit_type = south_american
+
+hull_size = 6
+base_cannons = 1
+sail_speed = 6
+trade_power = 0.75
+sailors = 25

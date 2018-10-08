@@ -1,0 +1,169 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 102  102  255 }
+
+historical_idea_groups = {
+	quantity_ideas
+	free_trade_ideas
+	innovativeness_ideas
+	standing_army_ideas
+	gf1_ideas
+	exploration_ideas
+	defensive_ideas
+	spy_ideas
+}
+
+historical_units = { 
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+monarch_names = {
+	"Reinoud #1" = 40
+	"Willem #3" = 20
+	"Arnold #1" = 15
+	"Adolf #0" = 15
+	"Karel #0" = 15
+	"Gerard #4" = 5
+	"Diederik #1" = 5
+	"Hendrik #1" = 5
+	"Jan #1" = 5
+	"Alfons #0" = 0
+	"Andries #0" = 0
+	"Bartholomeus #0" = 0
+	"Constantijn #0" = 0
+	"Ernst #0" = 0
+	"Erwin #0" = 0
+	"Ewoud #0" = 0
+	"Floris #0" = 0
+	"Godfried #0" = 0
+	"Jacobus #0" = 0
+	"Joost #0" = 0
+	"Joris #0" = 0
+	"Kasper #0" = 0
+	"Koenraad #0" = 0
+	"Ludger #0" = 0
+	"Luuk #0" = 0
+	"Marinus #0" = 0
+	"Maurits #0" = 0
+	"Michaël #0" = 0
+	"Nikolaas #0" = 0
+	"Rutger #0" = 0
+	"Reinier #0" = 0
+	"Rien #0" = 0
+	"Rudolf #0" = 0
+	"Sebastiaan #0" = 0
+	"Siemen #0" = 0
+	"Sieuwerd #0" = 0
+	"Sjoerd #0" = 0
+	"Vincent #0" = 0
+	"Werner #0" = 0
+	"Wilfred #0" = 0
+	
+	"Amalia #0" = -1
+	"Cécile #0" = -1
+	"Hilda #0" = -1
+}
+
+leader_names = {
+	Bachman Bakker Bentinck Bosch Bulterman
+	"De Haas" Derksen "De Waal"
+	Elgershuisen Entink
+	Gelkom
+	Holst Honekes Hoornaert Huethorst
+	Jansen
+	Kempermans Kiperije Kleinluking Korthust Kreijhoeft
+	Oldenhaven
+	Polkamp
+	Remmelink
+	Saelckink Sluiter Sweerts
+	Teerink "Ter Horst"
+	"Van Bentheim" "Van Bommel" "Van Bronckhorst" "Van den Bergh"
+	"Van Gulik" "Van Wassenberg" "Van Zutfen" Vögelink
+	Wagevoord Wassink Wissink
+}
+
+ship_names = {
+	"Twee Gebroeders" "Jonge Daniël" "Gelderse Worst" 
+	"Wapen van Kampen" "Wapen van Zutphen" "Wapen van Hattem"
+	"Wapen van Zwolle" "Wapen van Deventer" "Wapen van Harderwijk"
+	"Hertog Gerard" "Hertog Reinoud" "De Zwarte Hertog" Wassenberg
+	"Hertog Arnold" "Hertog Eduard" Veluwe Betuwe Flipje Bronckhorst
+	"Hertogin Maria" "Graaf Godschalk" "Bommelerwaard"
+	"Wapen van Nijmegen" Lichtenvoorde "Maas en Waal"
+}
+
+army_names = {
+	"Leger van $PROVINCE$"  }
+
+fleet_names = {  "Vloot van $PROVINCE$" 
+	 }

@@ -1,0 +1,18 @@
+#Province IDs changed
+name = "First Desmond Rebellion"
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+	tag = DMS
+}
+
+1569.6.1 = {
+	add_attacker = DMS
+	add_defender = IRE
+}
+
+# FitzMaurice surrenders
+1573.2.23 = {
+	rem_attacker = DMS
+	rem_defender = IRE
+}

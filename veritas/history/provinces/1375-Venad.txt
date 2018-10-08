@@ -1,0 +1,28 @@
+# Venad
+
+capital = "Quilon"
+owner = MAD
+controller = MAD
+add_core = MAD
+add_core = VND
+culture = malayalam
+religion = hinduism
+trade_goods = spices
+base_tax = 2
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = indian
+discovered_by = indopersian
+
+1330.1.1 = { owner = DLH controller = DLH add_core = VIJ } #Pandya dynasty conqured by Delhi Sultanate
+1336.1.1 = { owner = VIJ controller = VIJ remove_core = MAD } 
+1350.1.1 = { owner = VND controller = VND }
+1405.1.1 = { discovered_by = chinese }
+1498.1.1 = { discovered_by = POR }
+1550.1.1 = { capital = "Padmanabhapuram" }
+1662.1.1 = { controller = NED }
+1663.1.1 = { owner = NED }
+1729.1.1 = { owner = VND controller = VND }#Dutch traders
+1795.1.1 = { capital = "Thiruvananthapuram" } # Rama Varma moved the capital

@@ -1,0 +1,627 @@
+##################################################  
+#
+# ADVISORS FOR THE REGION 'INDIA AND SOUTH-EAST ASIA'
+#
+##################################################  
+##################################################  
+# Era #1  1399 - 1540  (14/25 used currently)
+##################################################  
+#Province IDs changed
+
+advisor = {
+	advisor_id = 738
+	name = "Sripadaraya" #A contributor to the dvaita philosophy
+	location = 1381 #Mysore
+	discount = yes
+	skill = 2
+	type = theologian
+	date = 1429.1.1	#25 years old
+	death_date = 1502.1.1 #dies
+}
+
+advisor = {
+	advisor_id = 2000
+	name = "Annamayya" #Songmaster of Tirumala temple, composer of carnatic music
+	location = 1361 #Rayalaseema
+	discount = yes
+	skill = 1
+	type = composer
+	date = 1432.1.1	#25 years old
+	death_date = 1503.2.23 #dies
+}
+
+advisor = {
+	advisor_id = 739
+	name = "Sri Rahula Sthavira" #greatest practitioner of the sandesa style of Sinhalese poetry, high point of pre-modern literary production
+	location = 1374 #Korales/Kandy
+	discount = yes
+	skill = 2
+	type = composer
+	date = 1433.1.1 #25 years old
+	death_date = 1491.1.1
+}
+
+advisor = {
+	advisor_id = 740
+	name = "Tun Perak" #Bendahara (chief minister) of Malacca under four sultans from 1456 to 1498.
+	location = 1213 #Malacca
+	discount = yes
+	skill = 2
+	type = statesman
+	date = 1456.1.1 #appointed bendahara for the first time.
+	death_date = 1498.1.1 #dies
+}
+
+advisor = {
+	advisor_id = 2001
+	name = "Mahmud Gawan" #Rich Persian merchant and extremely influential minister of coin and politican in the Bahmani Sultanate
+	location = 1396 #Bidar
+	discount = yes
+	skill = 3
+	type = trader	#or diplomat
+	date = 1453.1.1 #First arrives at the docks of Dabhol
+	death_date = 1481.4.5 #Framed and executed
+}
+
+advisor = {
+	advisor_id = 2002
+	name = "Kabir" #Greatly influential poet and sant
+	location = 1468 #Varanasi
+	discount = yes
+	skill = 3
+	type = theologian
+	date = 1465.1.1 #25 years old
+	death_date = 1518.1.1 #dies
+}
+
+advisor = {
+	advisor_id = 2003
+	name = "Allasani Peddana" #Poet, the foremost of the Astadiggajas
+	location = 1385 #Vijayanagar
+	discount = yes
+	skill = 2
+	type = composer
+	date = 1500.1.1 #25 years old
+	death_date = 1535.1.1 #dies
+}
+
+advisor = {
+	advisor_id = 2004
+	name = "Tenali Rama" #Court poet, one of the Astadiggajas
+	location = 1385 #Vijayanagar
+	discount = yes
+	skill = 1
+	type = composer
+	date = 1509.8.9 #Coronation of Krishna Raya
+	death_date = 1540.1.1 #unkown death date
+}
+
+advisor = {
+	advisor_id = 741
+	name = "Chaitanya Mahaprabhu" #Ascetic Hindu monk and social modernist.
+	location = 1350 #Orissa
+	discount = yes
+	skill = 3
+	type = theologian
+	date = 1510.1.1 #~24 years old. Came to the court of Maharaja Prataparudra in Orissa and reached great prominence.
+	death_date = 1534.1.1 #dies
+}
+
+advisor = {
+	advisor_id = 2005
+	name = "Mirabai" #Poetess and Hindu saint, author of hundreds of devotionals to Krishna.
+	location = 1429 #Mewar 
+	discount = yes
+	female = yes	
+	skill = 2
+	type = theologian
+	date = 1524.1.1 #~22 years old, Princess of Chitter.
+	death_date = 1546.1.1 #dies (some sources say 1547)
+}
+
+advisor = { 
+	advisor_id = 742
+	name = "Purandara Dasa" #devotional composer, known as the father of Carnatic music.
+	location = 1385 #Vijayanagar - lived in Hampi, Karnataka
+	discount = yes
+	skill = 2
+	type = composer 
+	date = 1524.1.1 #30 years old 
+	death_date = 1564.1.1 #died 1564, exact date unknown
+}
+
+advisor = { 
+	advisor_id = 2006
+	name = "Ramaraya" #General and politican, power behind the throne for many years in Vijayanagara and eventually founded his own dynasty
+	location = 1361 #Rayalaseema
+	discount = yes
+	skill = 2
+	type = spymaster 
+	date = 1529.12.1 #In VIJ's service (served Golconda before this)
+	death_date = 1549.1.1 #Assumes the throne
+}
+
+advisor = {
+	advisor_id = 743
+	name = "Jyeshtadeva" #Astronomer and mathematician of the Kerala school - developed the first calculus text in the world.
+	location = 1379 #Calicut
+	discount = yes
+	skill = 2
+	type = natural_scientist 
+	date = 1530.1.1 #30 years old
+	death_date = 1575.1.1 #dies
+}
+
+advisor = {
+	advisor_id = 2007
+	name = "Tansen" #Prominent Hindusthani composer and musician, one of the nine jewels of the Mughal court
+	location = 1431 #Gwalior
+	discount = yes
+	skill = 2
+	type = composer 
+	date = 1530.1.1 #24 years old
+	death_date = 1589.1.1 #dies
+}
+
+##################################################  
+# Era #2  1540 - 1630  (17/25 used currently)
+##################################################  
+
+advisor = {
+	advisor_id = 2008
+	name = "Todar Mal" #Akbars minister of finance and architect of Akbars financial and taxation reforms
+	location = 1467 #Oudh
+	discount = yes
+	skill = 3
+	type = treasurer #or master_of_mint
+	date = 1560.1.1 #Assumes office
+	death_date = 1589.11.8 #dies
+}
+
+advisor = {
+	advisor_id = 744
+	name = "Tulsidas" #Goswami Tulsidas. Famous Indian poet, holy man and prolific author of religious texts.
+	location = 1468 #Varanasi  
+	discount = yes
+	skill = 3
+	type = composer
+	date = 1564.1.1 #~30 years old.
+	death_date = 1623.1.1 #dies
+}
+
+advisor = {
+	advisor_id = 2009
+	name = "Abd al-Samad" #Miniature painter, one of the founders of the Mughal school of miniature paintings
+	location = 1432 #Agra
+	discount = yes
+	skill = 2
+	type = composer
+	date = 1572.1.1 #Head of Imperial Workshops
+	death_date = 1595.1.1 #Death
+}
+
+advisor = {
+	advisor_id = 2010
+	name = "Abul Fazl" #Akbars historian and author of the Akbarnama
+	location = 1432 #Agra
+	discount = yes
+	skill = 2
+	type = artist
+	date = 1575.1.1 #First enters Akbars service
+	death_date = 1623.1.1 #dies
+}
+
+advisor = {
+	advisor_id = 2011
+	name = "Saiyid Sultan" #Bengali poet, sufi and author. Fused islamic and hindu traditions
+	location = 1338 #Dacca
+	discount = yes
+	skill = 1
+	type = theologian
+	date = 1575.1.1 #25 years old
+	death_date = 1648.1.1 #Death
+}
+
+advisor = {
+	advisor_id = 745
+	name = "Achyuta Pisharati" #Renowned Sanskrit grammarian, astrologer and mathematician of the Kerala school.
+	location = 1379 #Calicut
+	discount = yes
+	skill = 2
+	type = natural_scientist 
+	date = 1580.1.1 #aged 30 years.
+	death_date = 1621.1.1 #dies
+}
+
+advisor = {
+	advisor_id = 746
+	name = "Prajna Bhatta" #Kashmiri historian, author of the Rajavalipataka.
+	location = 1459 #Kashmir
+	discount = yes
+	skill = 1
+	type = artist
+	date = 1590.1.1 #approx date - the Rajavalipataka goes up to 1588.
+	death_date = 1620.1.1 #unknown, 30 years after start
+}
+
+advisor = {
+	advisor_id = 2012
+	name = "Malik Ambar" #Sidhi who rose to prominence inside the Ahmednagar sultanate, reorganized that state and started the development of deccani warfare that the Marathas would be the main practitioners of.
+	location = 1395 #Ahmednagar
+	discount = yes
+	skill = 3
+	type = army_reformer
+	date = 1595.1.1 #In Ahmednagari service
+	death_date = 1600.8.10 #Becomes leader instead from this date
+}
+
+#also present as conquistador. Need to decide what we want.
+advisor = {
+	advisor_id = 747
+	name = "Pieter Both" #first Governor-General of the Dutch East Indies
+	location = 1271 #Ambom
+	discount = yes
+	skill = 2
+	type = colonial_governor
+	date = 1609.1.1	#39 years old, Ambom becomes Dutch
+	death_date = 1615.3.6 #drowns near Mauritus
+}
+
+advisor = {
+	advisor_id = 748
+	name = "Tun Sri Lanang" #Bendahara (chief minister) of Johor, author of the Sejarah Melayu, an important book of Malay history.
+	location = 1214 #Johor
+	discount = yes
+	skill = 1
+	type = statesman #could be artist
+	date = 1610.1.1 #approximate date - he began the book in 1612.
+	death_date = 1640.1.1 #unknown, 30 years after start
+}
+
+advisor = {
+	advisor_id = 2013
+	name = "Asaf Khan" #Very influential noble and brother of Nur Jahan, part of the very closed group around the emperor
+	location = 1432 #Agra
+	discount = yes
+	skill = 1
+	type = spymaster
+	date = 1611.5.25 #Wedding of Nur Jahan
+	death_date = 1632.1.1 #Looses favor
+}
+
+advisor = {
+	advisor_id = 749
+	name = "Yamada Nagamasa" #Japanese adventurer who gained considerable influence in Thailand.
+	location = 1152 #Ayutthaya
+	discount = yes
+	skill = 2
+	type = army_reformer #headed a Japanese army under King Songtham
+	date = 1612.1.1 #arrived in Ayutthaya aged 22 years.
+	death_date = 1630.1.1 #dies
+}
+
+advisor = {
+	advisor_id = 750
+	name = "Marcelis Boschower" #aka Migomu Rala. Dutch East India Company employee who became Prince of Negombo and advisor to the court of Kandy.
+	location = 1374 #Jaffna 
+	discount = yes
+	skill = 1
+	type = diplomat #could also be naval_reformer since he was Lord High Admiral
+	date = 1612.3.8 #arrival in Sri Lanka.
+	death_date = 1615.6.2 #leaves Sri Lanka
+}
+
+advisor = {
+	advisor_id = 751
+	name = "Brug-rgyas" #First 'Desi Druk', Bhutanese civil head of state, served for 40 years under Shabdrung Ngawang Namgyal.
+	location = 1333 #Bhutan  
+	discount = yes
+	skill = 2
+	type = statesman
+	date = 1616.1.1 #came to Bhutan and became responsible for public administration of the Shabdrung's holdings.
+	death_date = 1651.1.1 #Shabdrung Ngawang Namgyal dies
+}
+
+#also present as conquistador. 
+advisor = {
+	advisor_id = 752
+	name = "Jan Pieterszoon Coen" #provided the impulse that started the VOC on the path to dominance in Indonesia
+	location = 1241 #Sunda
+	discount = yes
+	skill = 3
+	type = colonial_governor
+	date = 1619.1.1	#~32 years old, Sunda is Dutch.
+	death_date = 1629.9.21 #dies
+}
+
+advisor = {
+	advisor_id = 753
+	name = "Pieter de Carpentier" #served as Governor-General of the Dutch East Indies from 1623-1627, later Head of the Dutch East India Company
+	location = 1241 #Sunda
+	discount = yes
+	skill = 2
+	type = colonial_governor
+	date = 1623.2.1 #35 years old, becomes Governor-General
+	death_date = 1659.9.5 #dies
+}
+
+advisor = {
+	advisor_id = 754
+	name = "Guru Raghavendra" #Guru Raghavendra Theerta. Hugely influential Hindu saint and philosopher.
+	location = 1365 #Coromandel
+	discount = yes
+	skill = 3
+	type = theologian
+	date = 1625.1.1 #~30 years old.
+	death_date = 1671.1.1 #dies
+}
+
+##################################################  
+# Era #3  1630 - 1720  (16/25 used currently)
+##################################################  
+
+advisor = {
+	advisor_id = 756
+	name = "Tukaram" #Low-caste Indian devotional and philosophical poet.
+	location = 1391 #Desh  
+	discount = yes
+	skill = 2
+	type = philosopher 
+	date = 1631.1.1 #Has a vision and starts writing verse
+	death_date = 1649.1.1 #dies
+}
+
+advisor = {
+	advisor_id = 757
+	name = "Shahaji Bhonsle" #Father of Shivaji, served as jagirdar of the sultan of Bijapur in Bangalore.
+	location = 1391 #Desh 
+	discount = yes
+	skill = 2
+	type = army_reformer
+	date = 1634.1.1	#Shahaji first enters Bijapuri service
+	death_date = 1657.1.1 #reported year of death, exact date unknown
+}
+
+advisor = {
+	advisor_id = 758
+	name = "Antonius van Diemen" #Governor-General of the Dutch East-Indies
+	location = 1241 #Sunda
+	discount = yes
+	skill = 2
+	type = colonial_governor
+	date = 1636.1.1 #becomes Governor-General
+  death_date = 1645.4.1 #died
+}
+
+advisor = {
+	advisor_id = 759
+	name = "Gaga Bhatt" #Vedonarayana (Greatest exponent of Vedic discourse), a Brahmin from Varanasi who presided over the first coronation of Shivaji.
+	location = 1468 #Varanasi
+	discount = yes
+	skill = 2
+	type = theologian
+	date = 1654.1.1 #approximate date. Coronation of Shivaji was in 1674 - Bhatt was well established by then.
+	death_date = 1684.1.1 #death date unknown, 30 years after start
+}
+
+advisor = {
+	advisor_id = 760
+	name = "Ambanwela Rala" #Rebel who supplied the Dutch with information about the Kandyan kingdom in exchange for land.
+	location = 1374 #Jaffna 
+	discount = yes
+	skill = 1
+	type = spymaster
+	date = 1664.1.1 #date of rebellion.
+	death_date = 1694.1.1 #death date unknown, 30 years after start
+}
+
+advisor = { 
+	advisor_id = 761
+	name = "Amanna Gappa" #Bugis chief from Makassar who compiled detailed trade and navigation laws.
+	location = 1283 #Makassar
+	discount = yes
+	skill = 2
+	type = naval_reformer #or trader?
+	date = 1666.1.1 #approx date - naval laws compiled c.1676
+	death_date = 1696.1.1 #actual date not known
+}
+
+advisor = {
+	advisor_id = 762
+	name = "Constantine Phaulkon" #Greek adventurer who became first counsellor to King Narai of Ayutthaya.
+	location = 1152 #Ayutthaya
+	discount = yes
+	skill = 1
+	type = spymaster #could also be trader as originally with East India Company. 
+	date = 1675.1.1 #arrived in Ayutthaya aged 28 years.
+	death_date = 1688.6.5 #dies
+}
+
+advisor = {
+	advisor_id = 763
+	name = "Claude de Forbin" #Claude de Forbin-Gardanne. French musketeer who served as grand admiral, general and governor of Bangkok.
+	location = 1152 #Ayutthaya
+	discount = yes
+	skill = 2
+	type = naval_reformer #was a great seafarer in the French Navy in later life.
+	date = 1685.1.1 #mission to Siam.
+	death_date = 1688.1.1 #mission to Siam ends
+}
+
+advisor = {
+	advisor_id = 764
+	name = "Guru Gobind Singh" #10th and last Guru of Sikhism.
+	location = 1461 #Garhwal 
+	discount = yes
+	skill = 3 #hugely influential within Sikhism and India as a whole.
+	type = theologian #initiated the Sikh baptism ceremony of Amrit Sanchar.
+	date = 1688.11.1 #Return to Anandpur in november.
+	death_date = 1708.10.7 #dies
+}
+
+advisor = {
+	advisor_id = 765
+	name = "Alavi Shirazi" #Alavi Khan Nawwab Mu‘tamad al-Muluk, Persian physician to Mughal royalty
+	location = 1433 #Delhi
+	discount = yes
+	skill = 1
+	type = natural_scientist
+	date = 1699.1.1 #29 years old, went to India and presented himself at the Mughal court
+	death_date = 1747.1.1 #dies
+}
+
+advisor = {
+	advisor_id = 2014
+	name = "Tarabai" #Maratha queen who ruled through her son and effectively acts as the supreme ruler of the Maratha state for a long time. Pioneer of Maratha tactics and warfare
+	location = 1391 #Desh
+	discount = yes
+	female = yes
+	skill = 2
+	type = army_organiser #army_reformer? Also quite proficient at plotting, but her military leadership is more important in game terms
+	date = 1700.3.12 #Crowns her son and starts acting as the "queen of the Marathas"
+	death_date = 1714.10.1 #Ousted and put in house arrest for 34 years in Panhala, returns in 1748 (73 years old) and quickly becomes a major political player again
+}
+
+advisor = {
+	advisor_id = 2015
+	name = "Murshid Quli Khan" #Very able administrator who managed to greatly increase imperial income from Bengal. Was increasingly given very free hands due to good results and Mughal preoccupation with the Marathas
+	location = 1342 #Murshidabad
+	discount = yes
+	skill = 2
+	type = treasurer
+	date = 1701.1.1 #First put in charge of the economy of Bengal
+	death_date = 1707.3.15 #Death of Aurangzeb, becomes increasingly independent ruler instead
+}
+
+advisor = {
+	advisor_id = 766
+	name = "Abraham van Riebeeck" #Governor-General of the Dutch East Indies from 1709-1713 
+	location = 1241 #Sunda
+	discount = yes
+	skill = 2
+	type = colonial_governor
+	date = 1709.1.1	#54 years old, becomes Governor-General
+	death_date = 1713.11.17 #dies
+}
+
+advisor = {
+	advisor_id = 767
+	name = "Sant Dariya Saheb" #Hindu saint and poet, preached non-violence.
+	location = 1475 #Bihar  
+	discount = yes
+	skill = 2
+	type = philosopher
+	date = 1711.1.1 #'received enlightenment', aged 20.
+	death_date = 1780.1.1 #dies
+}
+
+advisor = { 
+	advisor_id = 768
+	name = "Daeng Parani" #Bugis warrior who became viceroy of Sultan Abdul Jalil of Johor.
+	location = 1214 #Johor
+	discount = yes
+	skill = 1
+	type = statesman
+	date = 1712.1.1 #Became involved, along with his brothers, in the succession disputes in Johor. 
+	death_date = 1726.1.1 #died on campaign between 1722 and 1728
+}
+
+advisor = {
+	advisor_id = 2016
+	name = "Nizam-ul-Mulk" #Able statesman and reformer, viceroy of the Deccan, founder of the future Hyderabad state
+	location = 1433 #Delhi
+	discount = yes
+	skill = 2
+	type = statesman
+	date = 1713.1.1 #First named as Nizam-ul-Mulk by Farrukhsiyar
+	death_date = 1724.1.1 #Retreats to his lands in the Deccan and quickly becomes an independent ruler in all but name
+}
+
+##################################################  
+# Era #2  1720 - 1810  (7/25 used currently)
+##################################################  
+
+#also present as conquistador
+advisor = {
+	advisor_id = 769
+	name = "Dupleix" #Joseph François Dupleix, governor general in India, rival of Robert Clive
+	location = 170 #Ile-de-France
+	discount = yes
+	skill = 2
+	type = colonial_governor
+	date = 1730.1.1 #33 years old, superintendent of French affairs in Chandernagore
+	death_date = 1763.11.10 #dies
+}
+
+advisor = {
+	advisor_id = 770
+	name = "Narenappa Nayaka" #Father in law of King Vijaya Rajasinha of Kandy, father to future kings.
+	location = 1374 #Jaffna  
+	discount = yes
+	skill = 2
+	type = statesman 
+	date = 1740.1.1 #comes to Sri Lanka from Madurai.
+	death_date = 1770.1.1 #death date unknown, 30 years after start
+}
+
+advisor = {
+	advisor_id = 771
+	name = "Nanjiraj" #Minister of the Raja of Mysore, responsible for 'discovering' the talents of Hyder Ali.
+	location = 1381 #Mysore
+	discount = yes
+	skill = 2
+	type = statesman 
+	date = 1745.1.1 #approx date to tie in with siege of Devanhalli in 1749.
+	death_date = 1775.1.1 #unknown, 30 years after start
+}
+
+advisor = {
+	advisor_id = 772
+	name = "Raghunathrao" #Uncle and regent to the young Madhavrao Peshwa.
+	location = 1391 #Desh
+	discount = yes
+	skill = 1
+	type = statesman #could perhaps be spymasters because he conspired quite a bit
+	date = 1761.6.23 #claimed the peshwa throne and becomes regent
+	death_date = 1773.8.30 #becomes ruler
+}
+
+advisor = {
+	advisor_id = 773
+	name = "Warren Hastings" #first governor-general of British India
+	location = 1341 #Calcutta
+	discount = yes
+	skill = 2
+	type = colonial_governor
+	date = 1761.1.1 #29 years old, already appointed to the Calcutta council
+	death_date = 1784.1.1 #retires
+}
+
+advisor = {
+	advisor_id = 755
+	name = "Lally" #the younger. French officer in Mysorean service, helped modernize Mysore's armies
+	location = 1381 #Mysore - Seringapatanam
+	discount = yes
+	skill = 1
+	type = army_reformer
+	date = 1780.1.1 #haven't found exact date but was in Mysore atleast since this year
+	death_date = 1790.1.1 #dies
+}
+
+#could also be a leader.
+advisor = {
+	advisor_id = 774
+	name = "Jao Phraya Surasee" #The 'Tiger General', innovative military commander and deputy king of Siam.
+	location = 1152 #Ayutthaya
+	discount = yes
+	skill = 3
+	type = army_reformer #aggressive and inventive military style led to victories over much larger armies.
+	date = 1768.12.28 #ennobled at the start of the reign of King Taaksin, aged 25.
+	death_date = 1803.1.1 #dies
+}
+
+# CURRENT TOTAL IS = 54
+
+####################################################
+# End of file
+####################################################

@@ -1,0 +1,20 @@
+# Yopitzinco
+
+capital = "Yopi"
+owner = TLA
+controller = TLA
+add_core = TLA
+culture = tlapanec
+religion = xochiyaoyotl
+trade_goods = fish
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+hre = no
+
+discovered_by = mesoamerican
+
+1522.1.1  = { discovered_by = SPA owner = SPA controller = SPA religion = catholic culture = castillian } # Alvarado conquers the Tlapanec
+1547.1.1 = { add_core = SPA }
+1810.9.16 = { owner = MEX add_core = MEX controller = MEX } # Mexican War of Independence

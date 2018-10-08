@@ -1,0 +1,21 @@
+#Province IDs changed
+government = republic add_government_reform = merchants_reform
+government_rank = 1
+mercantilism = 25
+primary_culture = russian
+religion = orthodox
+technology_group = eastern
+capital = 734 # Viatka
+historical_friend = MOS
+
+set_country_flag = russian_horde_tribute
+
+1309.1.1 = {
+	monarch = {
+		name = "Merchant Council"
+		adm = 2
+		dip = 2
+		mil = 2
+		regent = yes
+	}
+}

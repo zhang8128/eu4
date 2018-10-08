@@ -1,0 +1,11 @@
+#Hirasokobune
+#model = cog
+#tech_level = 0
+type = light_ship
+unit_type = niitaka
+
+hull_size = 5
+base_cannons = 2
+sail_speed = 6
+trade_power = 0.75
+sailors = 20

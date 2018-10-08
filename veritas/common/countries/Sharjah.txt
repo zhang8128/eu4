@@ -1,0 +1,127 @@
+#Country Name: Please see filename.
+
+graphical_culture = muslimgfx
+
+color = { 64  120  172 }
+
+historical_idea_groups = {
+	intimidatory_ideas
+	quantity_ideas
+	religious_ideas
+	land_trade_ideas
+	offensive_ideas
+	expansion_ideas
+	gf1_ideas
+	drafted_army_ideas
+}
+
+historical_units = {
+	muslim_artillery_10_1
+	muslim_artillery_16_1
+	muslim_artillery_23_1
+	muslim_artillery_29_1
+	muslim_artillery_35_1
+	muslim_artillery_40_1
+	muslim_artillery_44_1
+	muslim_artillery_48_1
+	muslim_artillery_52_1
+	muslim_artillery_55_1
+	muslim_artillery_55_2
+	muslim_cavalry_0_1
+	muslim_cavalry_0_2
+	muslim_cavalry_21_1
+	muslim_cavalry_21_2
+	muslim_cavalry_27_1
+	muslim_cavalry_31_1
+	muslim_cavalry_36_1
+	muslim_cavalry_40_1
+	muslim_cavalry_44_1
+	muslim_cavalry_48_1
+	muslim_cavalry_48_2
+	muslim_cavalry_51_1
+	muslim_cavalry_51_2
+	muslim_cavalry_55_1
+	muslim_cavalry_55_2
+	muslim_cavalry_58_1
+	muslim_cavalry_58_2
+	muslim_cavalry_16_1
+	muslim_cavalry_16_2
+	muslim_infantry_0_1
+	muslim_infantry_0_2
+	muslim_infantry_17_1
+	muslim_infantry_17_2
+	muslim_infantry_21_1
+	muslim_infantry_21_2
+	muslim_infantry_25_1
+	muslim_infantry_25_2
+	muslim_infantry_28_1
+	muslim_infantry_28_2
+	muslim_infantry_31_1
+	muslim_infantry_31_2
+	muslim_infantry_34_1
+	muslim_infantry_34_2
+	muslim_infantry_39_1
+	muslim_infantry_39_2
+	muslim_infantry_42_1
+	muslim_infantry_42_2
+	muslim_infantry_45_1
+	muslim_infantry_45_2
+	muslim_infantry_48_1
+	muslim_infantry_48_2
+	muslim_infantry_50_1
+	muslim_infantry_50_2
+	muslim_infantry_53_1
+	muslim_infantry_53_2
+	muslim_infantry_55_1
+	muslim_infantry_55_2
+	muslim_infantry_6_1
+	muslim_infantry_6_2
+	muslim_infantry_57_1
+	muslim_infantry_57_2
+	muslim_infantry_59_1
+	muslim_infantry_59_2
+	muslim_infantry_63_1
+	muslim_infantry_63_2
+	muslim_infantry_14_1
+	muslim_infantry_14_2
+}
+
+monarch_names = {
+	"Rashid #0" = 10
+	"Saqr #0" = 20
+	"Sultan #0" = 20
+	"ah-Husayn #0" = 20
+	"al-Hasan #0" = 20
+	"Khalid #0" = 20
+	"Salim #0" = 10
+	
+	"Ruwa #0" = -1
+	"Nadiyya #0" = -1
+	"Jawhara #0" = -1
+	"Noura #0" = -1
+	"Wadhah #0" = -1
+	"Munira #0" = -1
+	"Hessah #0" = -1
+	"Fatima #0" = -1
+	"Aisha #0" = -1
+}
+
+leader_names = {
+	"Al Mowaled"
+	Bahamdan
+	"Al Daye"
+	Al-Jurr
+	Alzeshi
+	Al-Razi
+	Alam
+	Shouaa
+	"Al Halou"
+	"Al Dwairan"
+}
+
+ship_names = {
+	Sabur Rashid Warith Baqi Badi Hadi
+	Nur Nafi Darr Mani Mughni Ghani Jami
+	Muqsit "Malik al Mulk" Ra'uf Afuww
+	Muntaquim Tawwab
+}

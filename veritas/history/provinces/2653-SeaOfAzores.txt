@@ -1,0 +1,7 @@
+# Sea Of Azores
+
+discovered_by = western
+discovered_by = scandinavian_tech
+discovered_by = byzantine
+1500.1.1 = { discovered_by = eastern }
+1600.1.1 = { discovered_by = muslim }

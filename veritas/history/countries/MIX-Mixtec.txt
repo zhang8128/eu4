@@ -1,0 +1,27 @@
+#Province IDs changed
+government = tribal add_government_reform = tribal_federation
+government_rank = 3
+primary_culture = mixtec
+religion = xochiyaoyotl
+technology_group = mesoamerican
+capital = 2098
+
+1300.1.1 = {
+	monarch = {
+		name = "Atonal I"
+		dynasty = "Coixtlahuaca"
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+} #Fictional
+
+1440.1.1 = {
+	monarch = {
+		name = "Atonal II"
+		dynasty = "Coixtlahuaca"
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+} #Only known mixtec ruler in-timeline

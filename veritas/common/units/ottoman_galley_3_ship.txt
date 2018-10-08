@@ -1,0 +1,10 @@
+#Pergandi
+#model = galleass
+#tech_level = 16
+type = galley
+unit_type = ottoman
+
+hull_size = 10
+base_cannons = 12
+sail_speed = 10
+sailors = 250

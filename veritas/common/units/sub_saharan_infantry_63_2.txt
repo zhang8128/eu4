@@ -1,0 +1,12 @@
+# Jaeger Infantry
+
+unit_type = sub_saharan
+type = infantry
+
+maneuver = 1
+offensive_morale = 13
+defensive_morale = 12
+offensive_fire = 11
+defensive_fire = 17
+offensive_shock = 6
+defensive_shock = 6

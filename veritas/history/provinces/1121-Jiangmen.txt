@@ -1,0 +1,22 @@
+# Jiangmen
+#Province IDs changed
+
+owner = YUN
+controller = YUN
+culture = cantonese
+religion = confucianism
+capital = "Jiangmen"
+trade_goods = chinaware
+hre = no
+base_tax = 4
+base_production = 4
+base_manpower = 3
+add_core = YUN
+is_city = yes
+discovered_by = chinese
+
+1356.8.1 = { owner = CZH controller = CZH add_core = CZH remove_core = YUN add_core = MNG }
+1365.4.1 = { owner = MNG controller = MNG }
+1650.10.24 = {	controller = QNG }
+1661.6.1 = {	owner = CZH controller = CZH remove_core = MNG } # The Three Feudatories
+1681.10.1 = {	owner = QNG controller = QNG add_core = QNG }

@@ -1,0 +1,163 @@
+country_decisions = {
+
+	restore_byzantine_empire = {
+		major = yes
+		potential = {
+			OR = {
+				primary_culture = greek
+				primary_culture = pontian
+			}
+			normal_or_historical_nations = yes
+			religion = orthodox
+			OR = {
+				is_playing_custom_nation = no
+				ai = no
+			}
+			OR = {
+				NOT = { exists = BYZ }
+				ai = no
+			}
+			NOT = { tag = BYZ }
+			NOT = { tag = ROM }
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = TUR }
+		}
+		allow = {
+			NOT = { exists = BYZ }
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 571	# Epiros
+			owns_core_province = 573	# Aetolia
+			owns_core_province = 574	# Achea
+			owns_core_province = 575	# Messenia
+			owns_core_province = 576	# Laconia
+			owns_core_province = 579	# Athens
+			owns_core_province = 581	# Salonica
+			owns_core_province = 582	# Kastoria
+			owns_core_province = 583	# Macedonia
+			owns_core_province = 584	# Serres
+			owns_core_province = 585	# Komotini
+			owns_core_province = 586	# Gallipoli
+			owns_core_province = 587	# Thrace
+			owns_core_province = 588	# Constantinople
+			owns_core_province = 590	# Troas
+			owns_core_province = 593	# Smyrna
+			owns_core_province = 602	# Bithynia
+			owns_core_province = 611	# Optimatoi
+		}
+		effect = {
+			clr_country_flag = crusader_state
+			change_tag = BYZ
+			every_province = {
+				limit = {
+					OR = {
+						province_id = 555	# Sofia
+						province_id = 557	# Tarnovo
+						province_id = 558	# Silistria
+						province_id = 559	# Dobrogea
+						province_id = 560	# Caliacra
+						province_id = 561	# Varna
+						province_id = 562	# Burgas
+						province_id = 563	# Sliven
+						province_id = 564	# Plovdiv
+						province_id = 565	# Melnik
+						province_id = 566	# Vardar
+						province_id = 567	# Palagonia
+						province_id = 568	# Albania
+						province_id = 569	# Durres
+						province_id = 570	# Argyrokastro
+						province_id = 596	# Rhodes
+						province_id = 618	# Cyprus						
+						province_id = 640	# Kaffa
+					}
+					NOT = { is_core = BYZ }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BYZ
+			}
+			anatolia_region = {
+				limit = {
+					NOT = { is_core = BYZ }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BYZ
+			}
+			morea_area = {
+				limit = {
+					NOT = { is_core = BYZ }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BYZ
+			}
+			northern_greece_area = {
+				limit = {
+					NOT = { is_core = BYZ }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BYZ
+			}
+			random_owned_province = {
+				limit = { culture = greek }
+				add_base_tax = 1
+			}
+			random_owned_province = {
+				limit = { culture = greek }
+				add_base_tax = 1
+			}
+			add_prestige = 25
+			set_capital = 588 # Constantinople
+			588 = {
+				change_province_name = "Constantinople"
+				rename_capital = "Constantinople" 
+				add_base_tax = 2
+				if = {
+					limit = { NOT = { has_province_modifier = major_center_of_trade } }
+					remove_province_modifier = center_of_trade_modifier
+					remove_province_modifier = lesser_center_of_trade
+					add_permanent_province_modifier = { name = "major_center_of_trade" duration = -1 }
+				}
+				if = {
+					limit = { NOT = { has_province_modifier = religious_center } }
+					add_province_modifier = { name = "religious_center" duration = -1 }
+				}
+			}
+			if = { 
+				limit = { exists = ROM }
+				reverse_add_opinion = { who = ROM modifier = formed_byzantine_empire }
+			}
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { has_global_flag = hagia_sophia_now_mosque }
+				clr_global_flag = hagia_sophia_now_mosque
+				show_ambient_object = hagia_sophia
+				hide_ambient_object = hagia_sophia_minarets
+			}
+			set_government_rank = 4
+			change_government = monarchy
+			set_legacy_government = hereditary_monarchy
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = BYZ_1_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+	
+}

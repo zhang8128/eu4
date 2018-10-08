@@ -1,0 +1,30 @@
+# Baden
+
+owner = BAD
+controller  = BAD
+add_core = BAD
+capital = "Baden"
+trade_goods = wine
+religion = catholic
+culture = alemannic
+base_tax = 3
+base_production = 3
+base_manpower = 3
+hre = yes
+is_city = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1538.1.1  = { religion = protestant } # Protestant majority
+1600.1.1  = { citysize = 8000 }
+1650.1.1  = { religion = catholic }
+1771.1.1  = { base_tax = 4 base_production = 4 base_manpower = 2 citysize = 14000 } # Baden-Baden Line dies without heirs, thus the possessions of the Baden family are reunited in one hand (Baden-Durlach).
+1792.10.3 = { controller = FRA } # Occupied by French troops
+1796.8.7  = { controller = BAD }
+1800.1.1  = { citysize = 15000 }
+1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved

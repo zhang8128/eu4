@@ -1,0 +1,22 @@
+# Wenshan
+
+capital = "Gejiu"
+owner = YUN
+controller = YUN
+add_core = YUN
+add_core = DLI
+culture = cantonese
+religion = confucianism
+trade_goods = livestock
+base_tax = 2
+base_production = 2
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1357.1.1	= { owner = DLI controller = DLI remove_core = YUN } # Mongol holdouts in the kingdom of Dali
+1382.1.6	= { owner = MNG controller = MNG add_core = MNG } # Ming puts down Mongol remnants
+1661.6.1 = {	owner = CZH controller = CZH remove_core = MNG } # The Three Feudatories
+1680.1.1 = { trade_goods = iron } # Mining became the main focus during the Qing Dynasty.
+1681.10.1 = {	owner = QNG controller = QNG add_core = QNG }

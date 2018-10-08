@@ -1,0 +1,10 @@
+#Kansen
+#model = twodecker
+#tech_level = 32
+type = heavy_ship
+unit_type = niitaka
+
+hull_size = 40
+base_cannons = 66
+sail_speed = 5
+sailors = 600

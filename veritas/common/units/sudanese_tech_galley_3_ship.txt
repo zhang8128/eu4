@@ -1,0 +1,10 @@
+#Alqades
+#model = galleass
+#tech_level = 20
+type = galley
+unit_type = sudanese_tech
+
+hull_size = 12
+base_cannons = 16
+sail_speed = 8
+sailors = 175

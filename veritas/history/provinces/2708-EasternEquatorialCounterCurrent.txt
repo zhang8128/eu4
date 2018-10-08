@@ -1,0 +1,4 @@
+# Eastern Equatorial Counter Current
+#Province IDs changed
+1405.1.1 = { discovered_by = MNG }
+1498.1.1 = { discovered_by = POR }

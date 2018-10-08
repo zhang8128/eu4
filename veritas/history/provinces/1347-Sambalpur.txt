@@ -1,0 +1,17 @@
+# Sambalpur
+
+capital = "Sambalpur"
+owner = ORI
+controller = ORI
+add_core = ORI
+culture = chhattisgarhi
+religion = hinduism
+trade_goods = chinaware
+base_tax = 3
+base_production = 3
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = indian
+
+1325.1.1   = { owner = GRJ controller = GRJ add_core = GRJ remove_core = ORI }	#Fracturing of eastern Ganges

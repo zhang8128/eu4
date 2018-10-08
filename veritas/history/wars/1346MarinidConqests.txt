@@ -1,0 +1,50 @@
+name = "Marinid Wars of Supremacy"
+# Death of Abu Bakr in Tunis sees Morocco seek to take advantage of Hafsid weakness
+war_goal = {
+	type = superiority_insult_mutual
+	casus_belli = cb_insult
+}
+
+1346.1.1 = {
+	add_attacker = MOR
+	add_defender = TUN
+	add_defender = BEJ
+}
+
+# Region submits to Marinids
+1347.1.1 = { rem_defender = BEJ }
+
+1348.4.1 = {
+	battle = {
+		name = "Kairouan"
+		location = 1646
+		attacker = {
+			commander = "Abu Al Hasan"	
+			infantry = 12000
+			losses = 25	# percent
+			country = ENG
+		}
+		defender = {
+			commander = "Arab Tribes"
+			infantry = 10000
+			losses = 8	# percent
+			country = TUN
+		}
+		result = no
+	}
+}
+
+# Areas rise up following the defeat
+1348.4.15 = { add_defender = BEJ add_defender = TLM }
+
+# Death of Abu Inan Faris limits Marinid concernds to Tlemcen
+1358.1.10 = {
+	rem_defender = TUN
+	rem_defender = BEJ
+}
+
+# Marinids forced to accept Tlemcen's independence
+1372.1.1 = {
+	rem_attacker = MOR
+	rem_defender = TLM
+}

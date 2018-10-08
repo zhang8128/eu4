@@ -1,0 +1,15 @@
+# Baguirmi
+
+capital = "Bilmau"
+owner = KBO
+controller = KBO
+add_core = KBO
+culture = kanuri
+religion = sunni
+trade_goods = salt
+base_tax = 1
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = sudanese_tech 

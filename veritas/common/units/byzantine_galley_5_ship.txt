@@ -1,0 +1,10 @@
+#Galea Bastard
+#model = archipelago_frigate
+#tech_level = 36
+type = galley
+unit_type = byzantine
+
+hull_size = 20
+base_cannons = 34
+sail_speed = 8
+sailors = 350

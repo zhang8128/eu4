@@ -1,0 +1,26 @@
+# Victual Brothers
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+primary_culture = gotland
+religion = catholic
+technology_group = scandinavian_tech
+capital = 397 # Gotland
+historical_rival = TEU
+historical_rival = SWE
+historical_rival = HSA
+historical_rival = DNZ
+historical_rival = LUB
+historical_rival = BRM
+historical_rival = HAM
+
+1393.12.30 = {
+	monarch = {
+		name = "Klaus Störtebeker"
+		adm = 3	
+		dip = 2	
+		mil = 6
+		
+		leader = { name = "Klaus Störtebeker" type = admiral fire = 4 shock = 4 manuever = 3 siege = 0 death_date = 1401.6.30 # Estimated } 
+	}
+}

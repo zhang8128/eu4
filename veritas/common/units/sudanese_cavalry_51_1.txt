@@ -1,0 +1,12 @@
+# Western Chasseur
+
+unit_type = sudanese_tech
+type = cavalry
+
+maneuver = 2
+offensive_morale = 8
+defensive_morale = 8
+offensive_fire = 2
+defensive_fire = 2
+offensive_shock = 5
+defensive_shock = 5

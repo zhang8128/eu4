@@ -1,0 +1,2009 @@
+########################################
+# Major Flavor Events                  #
+########################################
+
+namespace = flavor_eng
+normal_or_historical_nations = yes
+
+# The End of the Hundred Years War
+country_event = {
+	id = flavor_eng.9104
+	title = "flavor_eng.EVTNAME9104"
+	desc = "flavor_eng.EVTDESC9104"
+	picture = VEF_DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = 100war_claim_throne
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		primary_culture = english
+		NOT = { france_region = { owned_by = ROOT } }
+		FRA = {
+			exists = yes
+			NOT = { war_with = ENG }
+			NOT = { war_with = GBR }
+		}
+	}
+	
+	immediate = { FRA = { set_country_flag = restore_france set_country_flag = 100war_over }}
+	
+	option = {			# We have lost our foothold in France
+		name = "flavor_eng.EVTOPTA9104"
+		ai_chance = { factor = 80 }
+		add_national_stability_or_adm_power = yes
+		clr_country_flag = 100war_claim_throne
+		set_country_flag = 100war_over
+		remove_casus_belli = { target = FRA type = cb_hundred_years_war }
+		every_core_province = {
+			limit = {
+				region = france_region
+				NOT = { owned_by = ROOT }
+			}
+			remove_core = ENG
+		}
+		FRA = {
+			add_opinion = { who = ROOT modifier = eng_no_english_in_france }
+			set_country_flag = 100war_over
+			clr_country_flag = 100war_succession_dispute
+		}
+	}
+
+	option = {		# We will never give this up!
+		name = "flavor_eng.EVTOPTB9104"
+		ai_chance = { factor = 20 }
+		change_variable = { which = national_stability value = -300 }
+		FRA = { add_opinion = { who = ROOT modifier = eng_refuse_to_give_up_france } }
+	}
+}
+
+# The Justices of Peace
+country_event = {
+	id = flavor_eng.9105
+	title = "flavor_eng.EVTNAME9105"
+	desc = "flavor_eng.EVTDESC9105"
+	picture = VEF_REFORM_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1485
+		NOT = { is_year = 1509 }
+		any_owned_province = {
+			num_free_building_slots = 1
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	option = {			# Yes we need them
+		name = "flavor_eng.EVTOPTA9105"
+		ai_chance = { factor = 75 }
+		change_variable = { which = national_stability value = -750 }
+		add_years_of_income = -0.5
+		add_country_modifier = {
+			name = justices_of_peace
+			duration = -1
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { has_building = courthouse }
+				NOT = { has_building = town_hall }
+				num_free_building_slots = 1
+			}
+			hidden_effect = {
+				if = {
+					limit = { has_building = sheriffs_office }
+					remove_building = sheriffs_office
+				}
+			}
+			add_building = courthouse
+		}
+	}
+	option = {			# No that is the Noblemens job
+		name = "flavor_eng.EVTOPTB9105"
+		ai_chance = { factor = 25 }
+		add_national_stability_or_adm_power = yes
+	}
+}
+
+# Support Middle-class Bureaucrats
+country_event = {
+	id = flavor_eng.9106
+	title = "flavor_eng.EVTNAME9106"
+	desc = "flavor_eng.EVTDESC9106"
+	picture = VEF_COURT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1485
+		NOT = { is_year = 1550 }
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+	}
+
+	option = { # Give them our support
+		name = "flavor_eng.EVTOPTA9106"
+		ai_chance = { factor = 75 }
+		add_adm_power = 50
+		random_owned_province = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 1
+			}
+		}
+	}
+	option = { # Prohibit them from working in the Government
+		name = "flavor_eng.EVTOPTB9106"
+		ai_chance = { factor = 25 }
+		add_adm_power = -25
+	}
+}
+
+# Court of the Star Chamber
+country_event = {
+	id = flavor_eng.9107
+	title = "flavor_eng.EVTNAME9107"
+	desc = "flavor_eng.EVTDESC9107"
+	picture = VEF_LIBERUM_VETO_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1470
+		NOT = { is_year = 1600 }
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		months = 390
+	}
+	
+	option = {				# Yes we need one
+		name = "flavor_eng.EVTOPTA9107"
+		ai_chance = { factor = 90 }
+		add_country_modifier = {
+			name = "eng_court_star_chamber"
+			duration = -1
+		}
+	}
+	option = {				# No we don't
+		name = "flavor_eng.EVTOPTB9107"
+		ai_chance = { factor = 10 }
+		add_national_stability_or_adm_power = yes
+	}
+}
+
+# The Enclosure Movement
+country_event = {
+	id = flavor_eng.9108
+	title = "flavor_eng.EVTNAME9108"
+	desc = "flavor_eng.EVTDESC9108"
+	picture = VEF_REFORM_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1509
+		NOT = { is_year = 1521 }
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { is_capital = no }
+				set_province_flag = enclosure_movement
+			}
+		}
+	}
+
+	option = {			# Reform
+		name = "flavor_eng.EVTOPTA9108"
+		ai_chance = { factor = 75 }
+		capital_scope = {
+			add_base_tax = 2
+		}
+		change_variable = { which = national_stability value = -500 }
+		every_owned_province = {
+			limit = {
+				has_province_flag = enclosure_movement
+			}
+			spawn_rebels = {
+				type = anti_tax_rebels
+				size = 1
+			}			
+			clr_province_flag = enclosure_movement
+		}
+	}
+	option = {			# Do not Reform
+		name = "flavor_eng.EVTOPTB9108"
+		ai_chance = { factor = 25 }
+		add_national_stability_or_adm_power = yes
+	}
+}
+
+# The Admirality
+country_event = {
+	id = flavor_eng.9111
+	title = "flavor_eng.EVTNAME9111"
+	desc = "flavor_eng.EVTDESC9111"
+	picture = VEF_NAVAL_MILITARY_eventPicture
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		NOT = { has_country_modifier = the_admirality }
+		NOT = { has_country_modifier = the_royal_army }
+		is_year = 1500
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+	}
+	
+	option = {			# Let us authorize the Admirality
+		name = "flavor_eng.EVTOPTA9111"
+		ai_chance = { factor = 90 }
+		add_country_modifier = {
+			name = the_admirality
+			duration = -1
+		}
+	}
+	option = {			# Let us institute the Royal Army instead
+		name = "flavor_eng.EVTOPTB9111"
+		ai_chance = { factor = 10 }
+		add_country_modifier = {
+			name = the_royal_army
+			duration = -1
+		}
+	}
+}
+
+# The Royal Army
+country_event = {
+	id = flavor_eng.9112
+	title = "flavor_eng.EVTNAME9112"
+	desc = "flavor_eng.EVTDESC9112"
+	picture = MILITARY_CAMP_eventPicture
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		NOT = { has_country_modifier = the_admirality }
+		NOT = { has_country_modifier = the_royal_army }
+		is_year = 1500
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+	}
+
+	option = {			# Let us institute the Royal Army
+		name = "flavor_eng.EVTOPTA9112"
+		ai_chance = { factor = 90 }
+		add_country_modifier = {
+			name = the_royal_army
+			duration = -1
+		}
+	}
+	option = {			# Let us authorize the Admirality instead
+		name = "flavor_eng.EVTOPTB9112"
+		ai_chance = { factor = 10 }
+		add_country_modifier = {
+			name = the_admirality
+			duration = -1
+		}
+	}
+}
+
+# Jane Grey
+country_event = {
+	id = flavor_eng.9113
+	title = "flavor_eng.EVTNAME9113"
+	desc = "flavor_eng.EVTDESC9113"
+	picture = VEF_COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 20		# Northumberland
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1530
+		NOT = {
+			is_year = 1560
+		}
+		has_consort_regency = no
+		has_regency_trigger = yes
+	}
+
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			factor = 0.8
+			NOT = {
+				legitimacy = 80
+			}
+		}
+	}
+	
+	option = {			# Her claim will not recognized!
+		name = "flavor_eng.EVTOPTA9113"
+		20 = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 2
+				leader = "Jane Grey"
+				female = yes
+			}
+		}
+		change_variable = { which = national_stability value = -500 }
+	}
+}
+
+# The Muscovy Trade Company
+country_event = {
+	id = flavor_eng.9115
+	title = "flavor_eng.EVTNAME9115"
+	desc = "flavor_eng.EVTDESC9115"
+	picture = VEF_MERCHANTS_TALKING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		has_discovered = 2738	# White Sea
+		has_discovered = 738	# Archangelsk
+		is_year = 1540
+		NOT = {
+			is_year = 1640
+		}
+		OR = {
+			exists = RUS
+			exists = MOS
+		}
+		738 = {			# Archangelsk
+			OR = {
+				owned_by = RUS
+				owned_by = MOS
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {			# We will exploit this!
+		name = "flavor_eng.EVTOPTA9115"
+		#add_country_modifier = {
+		#	name = the_muskovy_trade_company
+		#	duration = -1
+		#}
+		738 = {
+			add_trade_modifier = {
+				who = ROOT
+				duration = -1
+				power = 20
+				key = the_muskovy_trade_company
+			}
+		}
+	}
+}
+
+# Sir Francis Walsingham
+country_event = {
+	id = flavor_eng.9116
+	title = "flavor_eng.EVTNAME9116"
+	desc = "flavor_eng.EVTDESC9116"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1550
+		NOT = { is_year = 1590 }
+		NOT = { advisor_exists = 236 }
+		OR = {
+			owns = 36		# Kent
+			owns = 34		# London
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 300
+	}
+
+	
+	option = {			# An Excellent Minister!
+		name = "EXCELLENTMINISTER"
+		add_adm_power = 25
+		if = {
+			limit = { owns = 36 }
+			define_advisor = {
+				type = spymaster
+				name = "Francis Walsingham"
+				location = 36
+				skill = 3
+				discount = yes
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns = 36 }
+				owns = 34
+			}
+			define_advisor = {
+				type = spymaster
+				name = "Francis Walsingham"
+				location = 34
+				skill = 3
+				discount = yes
+			}
+		}
+	}
+}
+
+# Sir Thomas Gresham's Currency Reform
+country_event = {
+	id = flavor_eng.9117
+	title = "flavor_eng.EVTNAME9117"
+	desc = "flavor_eng.EVTDESC9117"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 34		# London
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1537
+		NOT = { is_year = 1579 }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {				# Reform
+		name = "flavor_eng.EVTOPTA9117"
+		34 = {
+			add_base_tax = 1
+		}
+		add_inflation = -3
+		define_advisor = {
+			type = treasurer
+			name = "Thomas Gresham"
+			discount = yes
+			location = 34
+			skill = 3
+		}
+	}
+}
+
+# The Northern Rebellion
+country_event = {
+	id = flavor_eng.9118
+	title = "flavor_eng.EVTNAME9118"
+	desc = "flavor_eng.EVTDESC9118"
+	picture = VEF_ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1500
+		NOT = { is_year = 1600 }
+		religion = anglican
+		OR = {
+			owns = 20		# Northumberland
+			owns = 19		# Cumbria
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1600
+		modifier = {
+			factor = 0.8
+			NOT = {
+				legitimacy = 90
+			}
+		}
+		modifier = {
+			factor = 0.8
+			has_regency_trigger = yes
+		}
+	}
+
+	option = {		# Keep Norfolk in the Tower and smash the rebels
+		name = "flavor_eng.EVTOPTA9118"
+		ai_chance = { factor = 60 }
+		add_national_stability_or_adm_power = yes
+		if = {
+			limit = {
+				owns = 20		# Northumberland
+			}
+			20 = {
+				spawn_rebels = {
+					type = noble_rebels
+					size = 2
+				}
+			}
+		}
+		if = {
+			limit = {
+				owns = 19		# Cumbria
+			}
+			19 = {
+				spawn_rebels = {
+					type = noble_rebels
+					size = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				owns = 22		# Yorkshire
+			}
+			22 = {
+				spawn_rebels = {
+					type = noble_rebels
+					size = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				owns = 23		# Lancashire
+			}
+			23 = {
+				spawn_rebels = {
+					type = noble_rebels
+					size = 1
+				}
+			}
+		}
+		add_country_modifier = {
+			name = narrowminded_modifier
+			duration = 1825
+		}
+	}
+	option = {		# Keep Norfolk in the Tower and start to negotiate
+		name = "flavor_eng.EVTOPTB9118"
+		ai_chance = { factor = 30 }
+		if = {
+			limit = {
+				owns = 20		# Northumberland
+			}
+			20 = {
+				spawn_rebels = {
+					type = noble_rebels
+					size = 2
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns = 20 }	# Northumberland
+				owns = 19				# Cumbria
+			}
+			19 = {
+				spawn_rebels = {
+					type = noble_rebels
+					size = 2
+				}
+			}
+		}
+		add_country_modifier = {
+			name = aristocracy_modifier
+			duration = 1825
+		}
+	}
+	option = {			# Release Norfolk
+		name = "flavor_eng.EVTOPTC9118"
+		ai_chance = { factor = 10 }
+		change_variable = { which = national_stability value = -500 }
+		add_country_modifier = {
+			name = aristocracy_modifier
+			duration = 3650
+		}
+	}
+}
+
+# The Creation of the London Stock Exchange
+country_event = {
+	id = flavor_eng.9119
+	title = "flavor_eng.EVTNAME9119"
+	desc = "flavor_eng.EVTDESC9119"
+	picture = VEF_ECONOMY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1500
+		NOT = { is_year = 1600 }
+		owns = 20		# London
+	}
+
+	mean_time_to_happen = {
+		months = 800
+	}
+
+	option = {			# Expand Loan Market
+		name = "flavor_eng.EVTOPTA9119"
+		ai_chance = { factor = 50 }
+		add_national_stability_or_adm_power = yes
+		add_years_of_income = 1.5
+		add_inflation = 3	
+	}
+	option = {			# Issue Strict Control
+		name = "flavor_eng.EVTOPTB9119"
+		ai_chance = { factor = 50 }
+		add_national_stability_or_adm_power = yes
+		add_inflation = -3
+	}
+}
+
+# The Canceling of Royal Monopolies
+country_event = {
+	id = flavor_eng.9121
+	title = "flavor_eng.EVTNAME9121"
+	desc = "flavor_eng.EVTDESC9121"
+	picture = VEF_REFORM_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1500
+		NOT = { is_year = 1650 }
+	}
+
+	mean_time_to_happen = {
+		months = 1000
+	}
+
+	option = {			# Cancel them!
+		name = "flavor_eng.EVTOPTA9121"
+		ai_chance = { factor = 75 }
+		add_treasury = -200
+		add_country_modifier = {
+			name = freetrade_modifier
+			duration = 1825
+		}
+	}
+	option = {			# Strengthen them!
+		name = "flavor_eng.EVTOPTB9121"
+		ai_chance = { factor = 25 }
+		add_treasury = 100
+		add_corruption = 5
+		add_country_modifier = {
+			name = mercantilism_modifier
+			duration = 1825
+		}
+	}
+}
+
+# Hugh O'Neills Irish Rebellion
+country_event = {
+	id = flavor_eng.9122
+	title = "flavor_eng.EVTNAME9122"
+	desc = "flavor_eng.EVTDESC9122"
+	picture = VEF_ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1570
+		NOT = { is_year = 1616 }
+		NOT = { religion = catholic }
+		OR = {
+			ulster_area = {
+				owned_by = ROOT
+			}
+			leinster_area = {
+				owned_by = ROOT
+			}
+			munster_area = {
+				owned_by = ROOT
+			}
+			connacht_area = {
+				owned_by = ROOT
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 300
+	}
+
+	option = {			# We are not amused!
+		name = "flavor_eng.EVTOPTA9122"
+		random_owned_province = {
+			limit = { province_group = ireland_group }
+			spawn_rebels = {
+				type = noble_rebels
+				size = 2
+				leader = "Hugh O'Neill"
+			}
+		}
+	}
+}
+
+# The Petition of Rights
+country_event = {
+	id = flavor_eng.9123
+	title = "flavor_eng.EVTNAME9123"
+	desc = "flavor_eng.EVTDESC9123"
+	picture = VEF_REFORM_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1600
+		NOT = { is_year = 1700 }
+		government = monarchy
+	}
+
+	mean_time_to_happen = {
+		months = 1800
+		modifier = {
+			factor = 0.8
+			NOT = {
+				stability = 1
+			}
+		}
+		modifier = {
+			factor = 0.8
+			num_of_loans = 6
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					region = british_isles_region
+					is_capital = no
+					NOT = { has_province_modifier = refusal_of_petition_of_rights }
+				}
+				set_province_flag = refusal_of_petition_of_rights
+			}
+			random_owned_province = {
+				limit = {
+					region = british_isles_region
+					is_capital = no
+					NOT = { has_province_modifier = refusal_of_petition_of_rights }
+				}
+				set_province_flag = refusal_of_petition_of_rights
+			}
+			random_owned_province = {
+				limit = {
+					region = british_isles_region
+					is_capital = no
+					NOT = { has_province_modifier = refusal_of_petition_of_rights }
+				}
+				set_province_flag = refusal_of_petition_of_rights
+			}
+			random_owned_province = {
+				limit = {
+					region = british_isles_region
+					is_capital = no
+					NOT = { has_province_modifier = refusal_of_petition_of_rights }
+				}
+				set_province_flag = refusal_of_petition_of_rights
+			}
+			random_owned_province = {
+				limit = {
+					region = british_isles_region
+					is_capital = no
+					NOT = { has_province_modifier = refusal_of_petition_of_rights }
+				}
+				set_province_flag = refusal_of_petition_of_rights
+			}
+		}
+	}
+
+	option = {			# Sign it
+		name = "flavor_eng.EVTOPTA9123"
+		ai_chance = { factor = 75 }
+		change_variable = { which = national_stability value = -500 }
+		add_country_modifier = {
+			name = the_petition_of_rights
+			duration = 7300
+		}
+	}
+	option = {			# Refuse to sign it
+		name = "flavor_eng.EVTOPTB9123"
+		ai_chance = { factor = 25 }
+		change_variable = { which = national_stability value = -800 }
+		set_country_flag = refusal_of_petition_of_rights
+		every_owned_province = {
+			limit = {
+				has_province_flag = refusal_of_petition_of_rights
+			}
+			add_province_modifier = {
+				name = refusal_of_petition_of_rights
+				duration = 3650
+			}
+			clr_province_flag = refusal_of_petition_of_rights
+		}
+	}
+}
+
+# The Parliamentary Conflict
+country_event = {
+	id = flavor_eng.9124
+	title = "flavor_eng.EVTNAME9124"
+	desc = "flavor_eng.EVTDESC9124"
+	picture = VEF_LIBERUM_VETO_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = refusal_of_petition_of_rights
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1600
+		NOT = { is_year = 1700 }
+		government = monarchy
+	}
+
+	mean_time_to_happen = {
+		months = 300
+		modifier = {
+			factor = 0.7
+			is_year = 1670
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					region = british_isles_region
+					is_capital = no
+				}
+				set_province_flag = refusal_of_petition_of_rights
+			}
+			random_owned_province = {
+				limit = {
+					region = british_isles_region
+					is_capital = no
+					NOT = { has_province_flag = refusal_of_petition_of_rights }
+				}
+				set_province_flag = refusal_of_petition_of_rights
+			}
+			random_owned_province = {
+				limit = {
+					region = british_isles_region
+					is_capital = no
+					NOT = { has_province_flag = refusal_of_petition_of_rights }
+				}
+				set_province_flag = refusal_of_petition_of_rights
+			}
+			random_owned_province = {
+				limit = {
+					region = british_isles_region
+					is_capital = no
+					NOT = { has_province_flag = refusal_of_petition_of_rights }
+				}
+				set_province_flag = refusal_of_petition_of_rights
+			}
+			random_owned_province = {
+				limit = {
+					region = british_isles_region
+					is_capital = no
+					NOT = { has_province_flag = refusal_of_petition_of_rights }
+				}
+				set_province_flag = refusal_of_petition_of_rights
+			}
+		}
+	}
+
+	option = {			# Combat the Parliament
+		name = "flavor_eng.EVTOPTA9124"
+		ai_chance = { factor = 75 }
+		change_variable = { which = national_stability value = -800 }
+		every_owned_province = {
+			limit = {
+				has_province_flag = refusal_of_petition_of_rights
+			}
+			spawn_rebels = {
+				type = noble_rebels
+				size = 2
+			}
+			clr_province_flag = refusal_of_petition_of_rights
+		}
+
+	}
+	option = {			# Submit to the Parliament
+		name = "flavor_eng.EVTOPTB9124"
+		ai_chance = { factor = 25 }
+		clr_country_flag = refusal_of_petition_of_rights
+		change_variable = { which = national_stability value = -500 }
+		add_country_modifier = {
+			name = the_petition_of_rights
+			duration = 7300
+		}
+	}
+}
+
+# The Act of Navigation
+country_event = {
+	id = flavor_eng.9127
+	title = "flavor_eng.EVTNAME9127"
+	desc = "flavor_eng.EVTDESC9127"
+	picture = VEF_SHIP_SAILING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1600
+		NOT = { is_year = 1700 }
+	}
+
+	mean_time_to_happen = {
+		months = 2000
+	}
+	
+	option = {			# Enact
+		name = "flavor_eng.EVTOPTA9127"
+		ai_chance = { factor = 75 }
+		add_dip_power = 350
+	}
+	option = {			# The present policy is perfect
+		name = "flavor_eng.EVTOPTB9127"
+		ai_chance = { factor = 25 }
+		add_national_stability_or_adm_power = yes
+	}
+}
+
+# The Decree of Indulgence and the Bill of Test
+country_event = {
+	id = flavor_eng.9129
+	title = "flavor_eng.EVTNAME9129"
+	desc = "flavor_eng.EVTDESC9129"
+	picture = VEF_REFORM_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1600
+		NOT = { is_year = 1700 }
+		NOT = { religion = catholic }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+	}
+
+	option = {			# Religious Freedom for All
+		name = "flavor_eng.EVTOPTA9129"
+		ai_chance = { factor = 50 }
+		change_variable = { which = national_stability value = -500 }
+		add_country_modifier = {
+			name = the_decree_of_indulgence
+			duration = -1
+		}
+	}
+	option = {			# Protestant Supremacy
+		name = "flavor_eng.EVTOPTB9129"
+		ai_chance = { factor = 50 }
+		change_variable = { which = national_stability value = -500 }
+		add_country_modifier = {
+			name = bill_of_test
+			duration = -1
+		}
+	}
+	option = {			# Catholic Supremacy
+		name = "flavor_eng.EVTOPTC9129"
+		ai_chance = { factor = 0 }
+		change_religion = catholic
+		change_variable = { which = national_stability value = -1000 }
+	}
+}
+
+# The Creation of Bank of England
+country_event = {
+	id = flavor_eng.9134
+	title = "flavor_eng.EVTNAME9134"
+	desc = "flavor_eng.EVTDESC9134"
+	picture = VEF_ECONOMY_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1650
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+		
+		modifier = {
+			factor = 0.75
+			economic_ideas = 4		# National Bank
+		}
+	}
+
+	option = {			# National Loans at 500 ducats
+		name = "flavor_eng.EVTOPTA9134"
+		add_inflation = -3
+	}
+}
+
+# Jacobite Rebellion
+country_event = {
+	id = flavor_eng.9139
+	title = "flavor_eng.EVTNAME9139"
+	desc = "flavor_eng.EVTDESC9139"
+	picture = VEF_ANGRY_MOB_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		NOT = { has_country_flag = ENG_had_event_9143 }
+		is_year = 1700
+		NOT = { is_year = 1800 }
+		NOT = { dynasty = Stuart }
+	}
+
+	mean_time_to_happen = {
+		months = 1400
+	}
+
+	option = {			# We will smash them!
+		name = "flavor_eng.EVTOPTA9139"
+		if = {
+			limit = {
+				highlands_area = { owned_by = ROOT }
+			}
+			random_owned_province = {
+				limit = {
+					area = highlands_area
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 3
+					leader = "James Stuart"
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { highlands_area = { owned_by = ROOT } }
+				lowlands_area = { owned_by = ROOT }
+			}
+			random_owned_province = {
+				limit = {
+					area = lowlands_area
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 3
+					leader = "James Stuart"
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { highlands_area = { owned_by = ROOT } }
+				NOT = { lowlands_area = { owned_by = ROOT } }
+				british_isles_region = { owned_by = ROOT }
+			}
+			random_owned_province = {
+				limit = {
+					region = british_isles_region
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 3
+					leader = "James Stuart"
+				}
+			}
+		}
+	}
+}
+
+# Sir Robert Walpole
+country_event = {
+	id = flavor_eng.9140
+	title = "flavor_eng.EVTNAME9140"
+	desc = "flavor_eng.EVTDESC9140"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1700
+		NOT = { is_year = 1745 }
+		NOT = { advisor_exists = 284 }
+		OR = {
+			owns = 32		# East Anglia
+			owns = 34		# London
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {		# An Excellent Minister!
+		name = "EXCELLENTMINISTER"
+		add_adm_power = 25
+		if = {
+			limit = { owns = 32 }
+			define_advisor = {
+				type = statesman
+				name = "Robert Walpole"
+				location = 32
+				skill = 3
+				discount = yes
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns = 32 }
+				owns = 34
+			}
+			define_advisor = {
+				type = statesman
+				name = "Robert Walpole"
+				location = 34
+				skill = 3
+				discount = yes
+			}
+		}
+	}
+}
+
+# Captain Jenkins Ear
+country_event = {
+	id = flavor_eng.9141
+	title = "flavor_eng.EVTNAME9141"
+	desc = "flavor_eng.EVTDESC9141"
+	picture = VEF_NAVAL_MILITARY_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1700
+		NOT = { is_year = 1800 }
+		exists = SPA
+		is_rival = SPA
+	}
+
+	mean_time_to_happen = {
+		months = 1500
+	}
+
+	option = {			# Use it as an excuse for War
+		name = "flavor_eng.EVTOPTA9141"
+		ai_chance = { factor = 75 }
+		add_national_stability_or_adm_power = yes
+		add_casus_belli = {	
+			target = SPA
+			type = cb_insult
+			months = 24
+		}
+		SPA = {
+			add_opinion = {
+				who = ROOT
+				modifier = eng_captain_jenkins_incident
+			}
+		}
+	}
+	option = {			# Try not to severe our relation too much
+		name = "flavor_eng.EVTOPTB9141"
+		ai_chance = { factor = 25 }
+		add_prestige = -10
+	}
+}
+
+# Jacobite Rebellion
+country_event = {
+	id = flavor_eng.9143
+	title = "flavor_eng.EVTNAME9143"
+	desc = "flavor_eng.EVTDESC9143"
+	picture = VEF_ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1700
+		NOT = { is_year = 1800 }
+		NOT = { dynasty = Stuart }
+	}
+
+	mean_time_to_happen = {
+		months = 1400
+	}
+	
+	immediate = {
+		set_country_flag = ENG_had_event_9143
+	}
+
+	option = {			# We will smash them!
+		name = "flavor_eng.EVTOPTA9143"
+		if = {
+			limit = {
+				highlands_area = { owned_by = ROOT }
+			}
+			random_owned_province = {
+				limit = {
+					area = highlands_area
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 3
+					leader = "James Stuart"
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { highlands_area = { owned_by = ROOT } }
+				lowlands_area = { owned_by = ROOT }
+			}
+			random_owned_province = {
+				limit = {
+					area = lowlands_area
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 3
+					leader = "James Stuart"
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { highlands_area = { owned_by = ROOT } }
+				NOT = { lowlands_area = { owned_by = ROOT } }
+				british_isles_region = { owned_by = ROOT }
+			}
+			random_owned_province = {
+				limit = {
+					region = british_isles_region
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 3
+					leader = "James Stuart"
+				}
+			}
+		}
+	}
+}
+
+# William Pitt the Elder
+country_event = {
+	id = flavor_eng.9144
+	title = "flavor_eng.EVTNAME9144"
+	desc = "flavor_eng.EVTDESC9144"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1735
+		NOT = { is_year = 1778 }
+		NOT = { advisor_exists = 293 }
+		owns = 34		# London
+	}
+
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {		# An Excellent Minister!
+		name = "EXCELLENTMINISTER"
+		add_adm_power = 25
+		if = {
+			limit = { owns = 34 }
+			define_advisor = {
+				type = statesman
+				name = "W. Pitt the Elder"
+				discount = yes
+				location = 34
+				skill = 3
+			}
+		}
+	}
+}
+
+# The East India Company
+country_event = {
+	id = flavor_eng.9145
+	title = "flavor_eng.EVTNAME9145"
+	desc = "flavor_eng.EVTDESC9145"
+	picture = VEF_MERCHANTS_TALKING_eventPicture
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {			# We will exploit this!
+		name = "flavor_eng.EVTOPTA9145"
+		add_treasury = 100
+	}
+}
+
+# William Pitt the Younger
+country_event = {
+	id = flavor_eng.9150
+	title = "flavor_eng.EVTNAME9150"
+	desc = "flavor_eng.EVTDESC9150"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1781
+		NOT = { is_year = 1806 }
+		NOT = { advisor_exists = 315 }
+		OR = {
+			owns = 36		# Kent
+			owns = 34		# London
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {		# An Excellent Minister!
+		name = "EXCELLENTMINISTER"
+		add_adm_power = 25
+		if = {
+			limit = { owns = 36 }
+			define_advisor = {
+				type = statesman
+				name = "W. Pitt the Younger"
+				discount = yes
+				location = 36
+				skill = 3
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns = 36 }
+				owns = 34
+			}
+			define_advisor = {
+				type = statesman
+				name = "W. Pitt the Younger"
+				discount = yes
+				location = 34
+				skill = 3
+			}
+		}
+	}
+}
+
+# The Meuthen Agreement
+country_event = {
+	id = flavor_eng.9193
+	title = "flavor_eng.EVTNAME9193"
+	desc = "flavor_eng.EVTDESC9193"
+	picture = VEF_DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1650
+		NOT = { is_year = 1700 }
+		is_at_war = no
+		exists = POR
+		OR = {
+			AND = {
+				tag = ENG
+				british_isles_region = {
+					owned_by = ENG
+					has_port = yes
+				}
+			}
+			AND = {
+				tag = GBR
+				british_isles_region = {
+					owned_by = GBR
+					has_port = yes
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 500
+	}
+	
+	option = {			# Accept the Agreement
+		name = "flavor_eng.EVTOPTA9193"
+		ai_chance = { factor = 75 }
+		change_variable = { which = national_stability value = -500 }
+		POR = {
+			add_opinion = {
+				who = ROOT
+				modifier = accepted_meuthen_agreement
+			}
+		}
+		random_owned_province = {
+			limit = {
+				region = british_isles_region
+				has_port = yes
+			}
+			add_base_tax = 1
+		}
+	}
+	option = {			# Denounce the Agreement
+		name = "flavor_eng.EVTOPTB9193"
+		ai_chance = { factor = 25 }
+		add_national_stability_or_adm_power = yes
+		POR = {
+			add_opinion = {
+				who = ROOT
+				modifier = denounced_meuthen_agreement
+			}
+		}
+	}
+}
+
+# The Gunpowder Plot
+country_event = {
+	id = flavor_eng.9182
+	title = "flavor_eng.EVTNAME9182"
+	desc = "flavor_eng.EVTDESC9182"
+	picture = VEF_ASSASSINATION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1600
+		NOT = { is_year = 1650 }
+		NOT = { religion = catholic }
+		any_owned_province = {
+			is_capital = no
+			religion = catholic
+			can_spawn_rebels = catholic_rebels
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					religion = catholic
+					can_spawn_rebels = catholic_rebels
+				}
+				set_province_flag = gunpowder_plot
+			}
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					religion = catholic
+					can_spawn_rebels = catholic_rebels
+					NOT = { has_province_flag = gunpowder_plot }
+				}
+				set_province_flag = gunpowder_plot
+			}
+		}
+	}
+
+	option = {		# Punish all
+		name = "flavor_eng.EVTOPTA9182"
+		ai_chance = { factor = 75 }
+		add_national_stability_or_adm_power = yes
+		every_owned_province = {
+			limit = {
+				has_province_flag = gunpowder_plot
+			}
+			spawn_rebels = {
+				type = catholic_rebels
+				size = 2
+			}
+			clr_province_flag = gunpowder_plot
+		}
+		if = {
+			limit = {
+				PAP = {
+					exists = yes
+					religion = catholic
+				}
+			}
+			PAP = {
+				add_opinion = {
+					who = ROOT
+					modifier = eng_harsh_punishment_of_catholics
+				}
+			}
+		}
+		if = {
+			limit = {
+				SPA = {
+					exists = yes
+					religion = catholic
+				}
+			}
+			SPA = {
+				add_opinion = {
+					who = ROOT
+					modifier = eng_harsh_punishment_of_catholics
+					years = 10
+				}
+			}
+		}
+		if = {
+			limit = {
+				FRA = {
+					exists = yes
+					religion = catholic
+				}
+			}
+			FRA = {
+				add_opinion = {
+					who = ROOT
+					modifier = eng_harsh_punishment_of_catholics
+					years = 10
+				}
+			}
+		}
+	}
+	option = {		# Punish conspirators
+		name = "flavor_eng.EVTOPTB9182"
+		ai_chance = { factor = 25 }
+		change_variable = { which = national_stability value = -750 }
+	}
+}
+
+
+########################################
+# Minor Flavor Events                  #
+########################################
+
+# Thomas Hobbes publishes the 'Leviathan'
+country_event = {
+	id = flavor_eng.9200
+	title = "flavor_eng.EVTNAME9200"
+	desc = "flavor_eng.EVTDESC9200"
+	picture = VEF_ECONOMY_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1651
+		NOT = { is_year = 1670 }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {				# Ok
+		name = "EXCELLENT"
+		add_adm_power = 10
+		add_prestige = 10
+	}
+}
+
+# Adam Smith publishes 'The Wealth of Nations'
+country_event = {
+	id = flavor_eng.9201
+	title = "flavor_eng.EVTNAME9201"
+	desc = "flavor_eng.EVTDESC9201"
+	picture = VEF_ECONOMY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1776
+		NOT = { is_year = 1790 }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+	}
+
+	option = {				# Ok
+		name = "EXCELLENT"
+		add_adm_power = 10
+		add_prestige = 10
+	}
+}
+
+# David Hume
+country_event = {
+	id = flavor_eng.9202
+	title = "flavor_eng.EVTNAME9202"
+	desc = "flavor_eng.EVTDESC9202"
+	picture = VEF_INVENTION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1750
+		NOT = { is_year = 1776 }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {				# Ok
+		name = "EXCELLENT"
+		add_adm_power = 10
+		add_prestige = 10
+	}
+}
+
+# John Locke
+country_event = {
+	id = flavor_eng.9203
+	title = "flavor_eng.EVTNAME9203"
+	desc = "flavor_eng.EVTDESC9203"
+	picture = VEF_ECONOMY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				NOT = { exists = GBR }
+			}
+			tag = GBR
+		}
+		is_year = 1689
+		NOT = { is_year = 1700 }
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+
+	option = {				# Ok
+		name = "EXCELLENT"
+		add_adm_power = 10
+		add_prestige = 10
+	}
+}
+
+# Lack of an Heir
+country_event = {
+	id = flavor_eng.9250
+	title = "flavor_eng.EVTNAME9250"
+	desc = "flavor_eng.EVTDESC9250"
+	picture = VEF_WAR_OF_THE_ROSES_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ENG
+		OR = {
+			has_country_flag = 100war_succession_dispute
+			has_country_flag = 100war_over
+		}
+		NOT = { has_regency_trigger = yes }
+		has_heir = no
+		is_lesser_in_union = no
+		NOT = { has_country_flag = war_of_the_roses_ended }
+		NOT = { has_disaster = war_of_the_roses }
+		NOT = { is_year = 1500 }
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	
+	option = {		# Most troubling indeed
+		name = "flavor_eng.EVTOPTA9250"
+		if = {
+			limit = { NOT = { ruler_has_personality = infertile_personality } }
+			add_ruler_modifier = {
+				name = low_fertility
+				duration = -1
+			}
+		}
+	}
+}
+
+# Rumors Dispelled
+country_event = {
+	id = flavor_eng.9251
+	title = "flavor_eng.EVTNAME9251"
+	desc = "flavor_eng.EVTDESC9251"
+	picture = VEF_WAR_OF_THE_ROSES_eventPicture
+	
+	fire_only_once = yes
+	trigger = {
+		tag = ENG
+		has_ruler_modifier = low_fertility
+		has_heir = yes
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+
+	option = {		# I surely proved them wrong
+		name = "flavor_eng.EVTOPTA9251"
+		remove_country_modifier = low_fertility
+	}
+}
+
+# The Rise of the Tudors
+country_event = { 
+	id = flavor_eng.9237
+	title = flavor_eng.9237.t
+	desc = flavor_eng.9237.d
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+ 
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	trigger = {
+		OR = {
+			tag = ENG
+			tag = GBR
+		}
+		has_country_flag = had_war_of_the_roses
+		OR = {
+			dynasty = York
+			dynasty = Lancaster
+		}
+		is_lesser_in_union = no
+		NOT = { had_country_flag = { flag = had_war_of_the_roses days = 1095 } } #If you're under a union and get out of it quickly enough you'll still get this but otherwise you won't.
+	}
+
+	option = {
+	name = flavor_eng.9237.a  # There will never be reconciliation between our two houses
+		ai_chance = { factor = 0 }
+		every_owned_province = {
+			add_province_modifier = {
+				name = add_unrest_5_modifier
+				duration = 1825
+			}
+		}
+		add_prestige = 10
+	}
+
+	option = {
+		name = flavor_eng.9237.b  # It is time for peace, let us join our two houses together in marriage 
+		ai_chance = { factor = 100 }
+		add_national_stability_or_adm_power = yes
+		define_heir = {
+			claim = 100
+			name = "Henry #0"
+			dynasty = "Tudor"
+			adm = 3
+			dip = 4
+			mil = 2
+			age = 24
+		}
+	}
+}

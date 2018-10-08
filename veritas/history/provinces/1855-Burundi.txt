@@ -1,0 +1,16 @@
+# Burundi
+#Province IDs changed
+
+capital = "Bujumbura"
+native_size =   5
+native_ferocity =   3
+native_hostileness =   4
+culture = bachwezi
+base_tax = 1
+base_production = 1
+base_manpower = 2
+religion = bantu
+trade_goods = coffee
+discovered_by = tribal_african_tech
+discovered_by = sub_saharan
+hre = no

@@ -1,0 +1,10 @@
+#Barca
+#model = barque
+#tech_level = 0
+type = transport
+unit_type = ottoman
+
+hull_size = 8
+base_cannons = 8
+sail_speed = 10
+sailors = 150

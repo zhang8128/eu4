@@ -1,0 +1,34 @@
+# Algiers
+
+capital = "Al-Djazair"
+owner = TLM
+controller = TLM
+add_core = TLM
+culture = maghreb_arabic
+religion = sunni
+trade_goods = iron
+base_tax = 6
+base_production = 6
+base_manpower = 7
+is_city = yes
+hre = no
+discovered_by = muslim 
+discovered_by = ottoman
+discovered_by = western 
+discovered_by = scandinavian_tech
+discovered_by = eastern 
+discovered_by = byzantine 
+
+1349.1.1   = { base_manpower = 6 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1516.1.23  = { owner = ALG controller = ALG add_core = ALG remove_core = TLM } # Oruc seizes Algiers
+1520.1.1   = { owner = SPA controller = SPA add_core = SPA } # Lack of support from the Sultan in Istanbul sees city lost
+1529.1.1   = { owner = ALG controller = ALG remove_core = SPA } # Capture of Algiers
+1530.1.1 = { fort_15th = yes } # Fortified
+1581.1.1 = { fort_15th = no fort_16th = yes }
+1600.1.1   = { base_manpower = 2.1 }
+1650.1.1   = { base_manpower = 2 }
+1700.1.1   = { base_manpower = 1.75 }
+1750.1.1   = { base_manpower = 2 }
+1800.1.1   = { base_manpower = 2.3 }
+1848.2.24  = { owner = FRA controller = FRA add_core = FRA } # Algeria formally annexed to France

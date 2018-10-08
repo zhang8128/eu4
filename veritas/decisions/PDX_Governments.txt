@@ -1,0 +1,193 @@
+country_decisions = {
+	
+	formalize_separation_of_powers = {
+		potential = {
+			has_reform = parliamentary_reform
+			NOT = {
+				has_country_modifier = separation_of_powers
+			}
+		}
+		allow = {
+			stability = 2
+			advisor = statesman
+			is_at_war = no
+		}
+		effect = {
+			add_country_modifier = {
+				name = "separation_of_powers"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	go_cult_of_reason = {
+		potential = {
+			has_reform = revolutionary_republic_reform
+			NOT = {
+				has_country_modifier = cult_of_reason
+			}
+		}
+		allow = {
+			NOT = { stability = -1 }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "cult_of_reason"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	iqta_reform = {
+		major = yes
+		potential = {
+			has_reform = iqta
+			NOT = { has_dlc = "Dharma" }
+		}
+		allow = {
+			adm_tech = 12
+			legitimacy = 90
+			adm_power = 100
+			has_institution = feudalism
+		}
+		effect = {
+			set_legacy_government = despotic_monarchy
+			set_country_flag = reformed_iqta
+			add_adm_power = -100
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	secularization_of_protestant_theocracy = {
+		major = yes
+		potential = {
+			government = theocracy
+			NOT = { has_dlc = "Dharma" }
+			religion_group = christian
+			NOT = { religion = catholic }
+			NOT = { religion = orthodox }
+			NOT = { religion = coptic }
+			NOT = { religion = nestorian }
+			NOT = {
+				AND = {
+					tag = TEU
+					owns_core_province = 457 #Königsberg
+				}
+			}
+			NOT = {
+				AND = {
+					tag = LIV
+					owns_core_province = 444 #Courland
+					owns_core_province = 446 #Semigallia
+				}
+			}
+		}
+		allow = {
+			stability = 2
+			adm_tech = 33
+		}
+		effect = {
+			if = {
+				limit = { has_heir = yes }
+				kill_heir = yes
+			}
+			if = {
+				limit = { government = monastic_order_government }
+				every_neighbor_country = {
+					limit = { government = monarchy }
+					add_opinion = { who = ROOT modifier = secularized_monastic_order }
+				}
+			}
+			if = {
+				limit = { government = theocracy }
+				every_neighbor_country = {
+					limit = { government = monarchy }
+					add_opinion = { who = ROOT modifier = secularized_bishopric }
+				}
+			}
+			change_government = monarchy
+			if = {
+				limit = {
+					OR = {
+						is_subject = yes
+						NOT = { total_development = 300 }
+					}
+				}
+				set_government_rank = 2
+			}
+			add_stability = -1
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	secularization_of_christian_theocracy = {
+		major = yes
+		potential = {
+			government = theocracy
+			OR = {
+				religion = catholic
+				religion = orthodox
+				religion = coptic
+				religion = nestorian
+			}
+		}
+		allow = {
+			stability = 2
+			adm_tech = 42
+		}
+		effect = {
+			if = {
+				limit = { government = monastic_order_government }
+				every_neighbor_country = {
+					limit = { government = monarchy }
+					add_opinion = { who = ROOT modifier = secularized_monastic_order }
+				}
+			}
+			if = {
+				limit = { government = theocracy }
+				every_neighbor_country = {
+					limit = { government = monarchy }
+					add_opinion = { who = ROOT modifier = secularized_bishopric }
+				}
+			}
+			if = {
+				limit = { religion = catholic }
+				PAP = {
+					add_opinion = {
+						who = ROOT
+						modifier = opinion_displeased
+					}
+				}
+			}
+			change_government = monarchy
+			if = {
+				limit = {
+					OR = {
+						NOT = { total_development = 300 }
+						is_subject = yes
+					}
+				}
+				set_government_rank = 2
+			}
+			add_stability = -1
+			if = {
+				limit = { has_heir = yes }
+				kill_heir = yes
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+}

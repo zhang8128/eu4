@@ -1,0 +1,80 @@
+# Modified for VeF by Penguintopia
+
+mamluk_reforms = {
+	potential = {
+		tag = MAM
+		check_variable = { which = mamluk_strength value = 20 }
+		NOT = { has_country_flag = mamluk_reforms_over }
+		NOT = { has_country_flag = mamluk_reforms_na }
+		normal_or_historical_nations = yes
+	}
+
+	can_start = {
+		check_variable = { which = mamluk_strength value = 25 }
+	}
+	
+	can_stop = {
+		NOT = { check_variable = { which = mamluk_strength value = 25 }}
+	}
+	
+	progress = {
+		modifier = {
+			factor = 0.05
+			check_variable = { which = mamluk_strength value = 30 }
+		}
+		modifier = {
+			factor = 0.05
+			check_variable = { which = mamluk_strength value = 50 }
+		}
+		modifier = {
+			factor = 0.1
+			check_variable = { which = mamluk_strength value = 75 }
+		}
+		modifier = {
+			factor = 0.05
+			NOT = { legitimacy = 80 }
+		}
+		modifier = {
+			factor = 0.05
+			NOT = { stability = 1 }
+		}
+		modifier = {
+			factor = 0.05
+			NOT = { ADM = 2 }
+		}		
+		modifier = {
+			factor = 0.05
+			NOT = { DIP = 2 }
+		}		
+		modifier = {
+			factor = 0.05
+			NOT = { MIL = 2 }
+		}		
+	}
+	
+	can_end = {
+		NOT = { check_variable = { which = mamluk_strength value = 25 }}
+	}
+
+	modifier = {
+		global_unrest = 6
+		global_manpower_modifier = -0.10
+		discipline = -0.1
+		land_morale = -0.05
+		yearly_corruption = 1
+	}
+
+
+	on_start = vef_newgov.20000
+	on_end = vef_newgov.20001
+	
+	on_monthly = {
+		events = {
+		}
+		random_events = { 
+			1000 = 0
+			100 = vef_newgov.20007
+		}
+	}
+}
+

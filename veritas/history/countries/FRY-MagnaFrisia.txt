@@ -1,0 +1,6 @@
+government = republic add_government_reform = administrative_republic
+government_rank = 3
+primary_culture = frysk
+religion = catholic
+technology_group = western
+capital = 181	# Groningen

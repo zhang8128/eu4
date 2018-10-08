@@ -1,0 +1,11 @@
+#Buza
+#model = cog
+#tech_level = 14
+type = light_ship
+unit_type = scandinavian_tech
+
+hull_size = 6
+base_cannons = 4
+sail_speed = 8
+trade_power = 1.0
+sailors = 25

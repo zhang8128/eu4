@@ -1,0 +1,20 @@
+# Qujing
+
+capital = "Qujing"
+owner = YUN
+controller = YUN
+add_core = YUN
+culture = cantonese
+religion = confucianism
+trade_goods = iron
+base_tax = 5
+base_production = 5
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1357.1.1	= { owner = DLI controller = DLI add_core = DLI remove_core = YUN } # Mongol holdouts in the kingdom of Dali
+1382.1.6	= { owner = MNG controller = MNG add_core = MNG } # Ming puts down Mongol remnants
+1661.6.1 = {	owner = CZH controller = CZH remove_core = MNG } # The Three Feudatories
+1681.10.1 = {	owner = QNG controller = QNG add_core = QNG }

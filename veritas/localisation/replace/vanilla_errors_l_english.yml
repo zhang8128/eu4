@@ -1,0 +1,13 @@
+﻿l_english:
+ 
+ #Remove as Paradox fixes them
+  
+ #INQUISITOR_O_PRONOUN instead of INQUISITOR_O_PRONOUN. Also INQUISITOR_CAP_ADJ and INQUISITOR_ADJ instead of INQUISITOR_CAP_S_PRONOUN and INQUISITOR_S_PRONOUN
+ aow_events.19.d: "Under the watchful eye of $INQUISITOR$, trials for sorcery and heresy have proceeded under relatively controlled circumstances. $INQUISITOR_CAP_S_PRONOUN$ would not be at our court if we did not trust $INQUISITOR_O_PRONOUN$, after all. A recent event has complicated this, however, as $INQUISITOR_S_PRONOUN$ has challenged our trust of another. $STATESMAN$$TRADER$$SPYMASTER$$DIPLOMAT$, who has aided [Root.GetName] greatly in foreign relations, has been accused of witchcraft, a testament to no one being truly unquestionable.\n\n$STATESMAN$$TRADER$$SPYMASTER$$DIPLOMAT$ claims that $INQUISITOR$ is supporting these accusations out of pure jealousy. Political drama may be behind all this, but then again, we have trusted our inquisitor so far."
+ 
+ #Minor. Changing ROOT to Root in ROOT.Monarch.GetName
+ women_history_events.55.d: "The loss is to great for the heart, we fear it might break in two and never be whole again! Our dear Queen Suriyothai has died, sacrificing herself to save our $MONARCHTITLE$. She rode beside him on a small war elephant together with their daughter Princess Boromdhilok, both dressed in armor and helmets. [Root.Monarch.GetName] was mounted on his chief war elephant when the enemy attacked. His elephant panicked and charged away from the enemy commander who gave chase but Suriyothai charged ahead and blocked his pursuit. The commander attacked her with his spear, fatally cleaving her from shoulder to heart and wounded Princess Boromdhilok also. Both died on the elephant and it was not until their helmets fell off and exposed their long hair that the enemy commander realized that he had fought a woman. The enemy was driven back, the bodies of Princess Boromdhilok and Queen Suriyothai brought to Ayutthaya to be buried and mourned there."
+ 
+ #desc should be in front. Maybe. Not sure where this localisation is used. And some disasters have it in front, some have it at the end. Validator wants it in front.
+ desc_french_wars_of_religion: "France is being torn apart by a string of religious civil wars."
+ desc_english_civil_war: "England is being torn apart by a conflict between Parliamentarians and Royalists."

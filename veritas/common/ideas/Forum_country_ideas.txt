@@ -1,0 +1,38 @@
+NSE_ideas = {
+	start = {
+		naval_maintenance_modifier = -0.10
+		global_prov_trade_power_modifier = 0.1
+	}
+	bonus = {
+		colonists = 1
+	}
+	trigger = {
+		tag = NSE
+	}
+	free = yes
+	raiding_expertise = {
+		privateer_efficiency = 0.20
+		blockade_efficiency = 0.15
+	}	
+	many_shores = {
+		naval_forcelimit_modifier = 0.20
+	}
+	control_of_the_Sea = {
+		trade_steering = 0.15
+	}
+	naval_artillery = {
+		light_ship_power = 0.10
+		artillery_power = 0.05
+	}
+	surviving_the_elements = {
+		naval_attrition = -0.10
+		land_attrition = -0.05
+	}
+	long_distance_trade_routes = {
+		merchants = 1
+	}
+	for_the_union = {
+		discipline = 0.05
+		core_creation = -0.05
+	}
+}

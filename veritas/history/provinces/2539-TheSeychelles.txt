@@ -1,0 +1,4 @@
+# The Seychelles
+#Province IDs changed
+discovered_by = indopersian
+1505.1.1 = { discovered_by = POR }

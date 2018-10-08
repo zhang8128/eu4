@@ -1,0 +1,482 @@
+government = tribal add_government_reform = steppe_horde
+government_rank = 3
+primary_culture = kirgiz
+religion = tengri
+secondary_religion = vajrayana
+technology_group = nomad_group
+capital = 1482	# Qarshi
+
+add_country_modifier = { name = "silk_road_modifier" duration = -1 }
+
+1309.3.1 = {	#First reign
+	monarch = {
+		name = "Kebek"
+		dynasty = "Chagatayid"
+		adm = 1
+		dip = 3
+		mil = 4
+	}
+}
+
+1310.4.1 = {
+	monarch = {
+		name = "Esen Buqa"
+		dynasty = "Chagatayid"
+		adm = 1
+		dip = 2
+		mil = 3
+	}
+}
+
+1318.1.1 = {	#Second reign
+	monarch = {
+		name = "Kebek"
+		dynasty = "Chagatayid"
+		adm = 1
+		dip = 3
+		mil = 4
+	}
+}
+
+1325.1.1 = {
+	monarch = {
+		name = "Eljigidey"
+		dynasty = "Chagatayid"
+		adm = 2
+		dip = 1
+		mil = 3
+	}
+}
+
+1329.1.1 = {
+	monarch = {
+		name = "Duwa Temur"
+		dynasty = "Chagatayid"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1331.1.1 = {
+	monarch = {
+		name = "Tarmashirin"
+		dynasty = "Chagatayid"
+		adm = 2
+		dip = 2
+		mil = 4
+	}
+	secondary_religion = sunni
+}
+
+1334.1.1 = {
+	monarch = {
+		name = "Buzan"
+		dynasty = "Chagatayid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1335.1.1 = {
+	monarch = {
+		name = "Changshi"
+		dynasty = "Chagatayid"
+		adm = 2
+		dip = 3
+		mil = 3
+	}
+	secondary_religion = nestorian
+}
+
+1338.1.1 = {
+	monarch = {
+		name = "Yesun Temur"
+		dynasty = "Chagatayid"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+	secondary_religion = vajrayana
+}
+
+1342.1.1 = {
+	monarch = {
+		name = "Ali Sultan"
+		dynasty = "Ogedeid"
+		adm = 2
+		dip = 1
+		mil = 3
+	}
+	religion = sunni
+	add_piety = 0.2
+}
+
+1342.9.1 = {
+	monarch = {
+		name = "Muhammad"
+		dynasty = "Chagatayid"
+		adm = 2
+		dip = 1
+		mil = 3
+	}
+}
+
+1343.1.1 = {
+	monarch = {
+		name = "Qazan"
+		dynasty = "Chagatayid"
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+#From this point on the Khans are puppet of the Qara'unas
+1346.1.1 = {
+	monarch = {
+		name = "Danishmendji"
+		dynasty = "Ogedeid"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+#1347 Khanate divided into Eastern Chagatai Khanate (Moghulistan, represented by KSG tag)
+#and Western Chagatai Khanate (represented by this tag)
+
+1348.1.1 = {
+	monarch = {
+		name = "Bayan Quli"
+		dynasty = "Chagatayid"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1358.1.1 = {
+	monarch = {
+		name = "Shah Temur"
+		dynasty = "Chagatayid"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+#1358 Tribes rebel against the Qara'unas, forcing him to retreat. Power vacuum allowed Tughlugh Timur of
+#Moghulistan to reunite both halves of the Khanate. Leaves his son Ilyas Khoja as viceroy of Chagatai region.
+#After death in 1363, Ilyas returns to Moghulistan and tribal Amirs in Chagatai region place Adil-Sultan as puppet Khan.
+
+1363.1.1 = {
+	monarch = {
+		name = "Adil-Sultan"
+		dynasty = "Chagatayid"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1364.1.1 = {
+	monarch = {
+		name = "Khabul Shah"
+		dynasty = "Chagatayid"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+#1370 Western Chagatai Khanate under the control of Timur, founder of the Timurid dynasty. With Soyurghatmish and Mahmud as puppet khans.
+#1402 Death of Mahmud, and effectively end of the Chagatai khanate in Transoxiana.
+
+#This tag is now representing the Khans in Moghulistan, and the later division of Uyghurstan.
+#The Kashgaria tag will represent the Dughlats clan.
+
+#Khans of Mughalistan
+1399.1.1 = {
+	monarch = {
+		name = "Shams-i-Jahan"
+		dynasty = "Chagatayid"
+		adm = 0
+		dip = 3
+		mil = 1
+	}
+}
+
+1408.1.1 = {
+	monarch = {
+		name = "Muhammad I"
+		dynasty = "Chagatayid"
+		adm = 4
+		dip = 1
+		mil = 1
+	}
+}
+
+1416.1.1 = {
+	monarch = {
+		name = "Sher Muhammad"
+		dynasty = "Chagatayid"
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+}
+
+1416.6.1 = {
+	monarch = {
+		name = "Naqsh-i-Jahan"
+		dynasty = "Chagatayid"
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}
+
+1418.1.1 = {
+	monarch = {
+		name = "Uwais"
+		dynasty = "Chagatayid"
+		adm = 0
+		dip = 2
+		mil = 2
+	}
+}
+
+1421.1.1 = {
+	monarch = {
+		name = "Sher Muhammad"
+		dynasty = "Chagatayid"
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+}
+
+1425.1.1 = {
+	monarch = {
+		name = "Uwais"
+		dynasty = "Chagatayid"
+		adm = 0
+		dip = 2
+		mil = 2
+	}
+}
+
+1429.1.1 = {
+	monarch = {
+		name = "Esen Buqa"
+		dynasty = "Chagatayid"
+		adm = 1
+		dip = 0
+		mil = 5
+	}
+}
+
+1462.1.1 = {
+	monarch = {
+		name = "Dost Muhammad"
+		dynasty = "Chagatayid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	capital = 873
+}
+
+1468.1.1 = {
+	monarch = {
+		name = "Yunus"
+		dynasty = "Chagatayid"
+		adm = 3
+		dip = 4
+		mil = 4
+	}
+}
+
+1487.1.1 = {
+	monarch = {
+		name = "Mahmud"
+		dynasty = "Chagatayid"
+		adm = 0
+		dip = 0
+		mil = 3
+	}
+}
+
+1508.1.1 = {
+	monarch = {
+		name = "Mansur"
+		dynasty = "Chagatayid"
+		adm = 4
+		dip = 1
+		mil = 4
+	}
+}
+
+1533.1.1 = {
+	monarch = {
+		name = "Abdul-Rashid I"
+		dynasty = "Chagatayid"
+		adm = 0
+		dip = 0
+		mil = 3
+	}
+}
+
+1559.1.1 = {
+	monarch = {
+		name = "Abdul-Karim"
+		dynasty = "Chagatayid"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1592.1.1 = {
+	monarch = {
+		name = "Muhammad III"
+		dynasty = "Chagatayid"
+		adm = 3
+		dip = 1
+		mil = 1
+	}
+}
+
+1610.1.1 = {
+	monarch = {
+		name = "Ahmad"
+		dynasty = "Chagatayid"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1618.1.1 = {
+	monarch = {
+		name = "Quraysh"
+		dynasty = "Chagatayid"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1618.6.1 = {
+	monarch = {
+		name = "Abdul-Latif I"
+		dynasty = "Chagatayid"
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1630.1.1 = {
+	monarch = {
+		name = "Sultan Ahmad"
+		dynasty = "Chagatayid"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1632.1.1 = {
+	monarch = {
+		name = "Sultan Mahmud"
+		dynasty = "Chagatayid"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1635.1.1 = {
+	monarch = {
+		name = "Sultan Ahmad"
+		dynasty = "Chagatayid"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1638.1.1 = {
+	monarch = {
+		name = "Abdullah"
+		dynasty = "Chagatayid"
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+
+1668.1.1 = {
+	monarch = {
+		name = "Ilbars"
+		dynasty = "Chagatayid"
+		adm = 0
+		dip = 1
+		mil = 1
+	}
+}
+
+1669.1.1 = {
+	monarch = {
+		name = "Abdul-Latif II"
+		dynasty = "Chagatayid"
+		adm = 0
+		dip = 1
+		mil = 1
+	}
+}
+
+1670.1.1 = {
+	monarch = {
+		name = "Ismail"
+		dynasty = "Chagatayid"
+		adm = 0
+		dip = 0
+		mil = 2
+	}
+}
+
+1678.1.1 = {
+	monarch = {
+		name = "Abdul-Rashid II"
+		dynasty = "Chagatayid"
+		adm = 0
+		dip = 0
+		mil = 2
+	}
+}
+
+1681.1.1 = {
+	monarch = {
+		name = "Muhammad Amin"
+		dynasty = "Chagatayid"
+		adm = 0
+		dip = 1
+		mil = 2
+	}
+}
+
+1692.1.1 = {
+	monarch = {
+		name = "Muhammad Mumin"
+		dynasty = "Chagatayid"
+		adm = 3
+		dip = 4
+		mil = 5
+	}
+}
+
+# Absorbed by Oirats

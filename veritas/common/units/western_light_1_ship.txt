@@ -1,0 +1,17 @@
+#Barque
+#model = barque
+#tech_level = 0
+type = transport
+
+hull_size = 8
+base_cannons = 10
+sail_speed = 10
+sailors = 150
+
+trigger = {
+	OR = {
+		unit_type = western
+		technology_group = western
+		technology_group = high_american
+	}
+}

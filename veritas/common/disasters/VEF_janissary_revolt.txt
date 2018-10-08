@@ -1,0 +1,74 @@
+# VeF
+
+janissary_revolt = {
+	potential = {
+		tag = TUR
+		has_country_flag = janissary_troubles
+		normal_or_historical_nations = yes
+	}
+
+	can_start = {
+		OR = {
+			has_country_modifier = janissaries_angered
+			has_country_modifier = vef_janissaries_5
+			has_country_modifier = vef_janissaries_6
+		}
+	}
+	
+	can_stop = {
+		NOT = { has_country_modifier = janissaries_angered }
+		NOT = { has_country_modifier = vef_janissaries_5 }
+		NOT = { has_country_modifier = vef_janissaries_6 }
+	}
+	
+	progress = {
+		modifier = {
+			factor = 10
+			has_country_modifier = janissaries_angered
+		}
+		modifier = {
+			factor = 0.25
+			check_variable = { which = janissary_strength value = 25 }
+		}
+		modifier = {
+			factor = 0.25
+			check_variable = { which = janissary_strength value = 50 }
+		}
+		modifier = {
+			factor = 0.25
+			check_variable = { which = janissary_strength value = 100 }
+		}
+		modifier = {
+			factor = 0.25
+			check_variable = { which = janissary_strength value = 125 }
+		}
+		modifier = {
+			factor = 2
+			has_active_policy = vef_suppress_janissaries
+		}
+	}
+	
+	can_end = {
+		NOT = { has_country_flag = janissary_revolt }
+	}
+
+	modifier = {
+		global_unrest = 4
+		global_manpower_modifier = -0.10
+		discipline = -0.05
+		land_morale = -0.05
+	}
+
+
+	on_start = vef_newgov.30006
+	on_end = vef_newgov.30007
+	
+	on_monthly = {
+		events = {
+		}
+		random_events = { 
+			1000 = 0	
+		}
+	}
+}
+

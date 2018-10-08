@@ -1,0 +1,87 @@
+# Romagna (Papal Vassals) flavour
+
+namespace = flavor_rmg
+normal_or_historical_nations = yes
+
+#General
+#1 Romagna states under new overlord
+#2 Romagna states back under PAP
+#3 Romagna states will not fight offensive wars
+
+
+#Forli
+#100 Caterina Sforza
+
+
+# Romagna states free of the Pope
+country_event = {
+	id = flavor_rmg.1
+	title = "flavor_rmg.1.t"
+	desc = "flavor_rmg.1.d"
+	picture = VEF_COURT_eventPicture
+
+	trigger = {
+		is_subject_of_type = romagna_state
+		NOT = { is_subject_of = PAP }
+	}
+
+	immediate = { overlord = { create_subject = { who = ROOT subject_type = suzerainty }}}
+
+	option = {
+		name = "flavor_rmg.1.opta"
+	}
+}
+
+# Back under the Pope (and you silly players thought you could outwit me?)
+country_event = {
+	id = flavor_rmg.2
+	title = "flavor_rmg.2.t"
+	desc = "flavor_rmg.2.d"
+	picture = VEF_COURT_eventPicture
+
+	trigger = {
+		OR = {
+			tag = ANC
+			tag = FOR
+			tag = RIM
+			tag = URB
+			tag = BLG
+		}
+		is_subject_of = PAP
+		NOT = { is_subject_of_type = romagna_state }
+	}
+
+	immediate = { overlord = { create_subject = { who = ROOT subject_type = romagna_state }}}
+
+	option = {
+		name = "flavor_rmg.2.opta"
+	}
+}
+
+#Romagna States at War
+country_event = {
+	id = flavor_rmg.3
+	title = "flavor_rmg.3.t"
+	desc = "flavor_rmg.3.d"
+	picture = VEF_COURT_eventPicture
+
+	trigger = {
+		tag = PAP
+		romagna_state = 1
+		any_country = { defensive_war_with = ROOT }
+	}
+
+	immediate = {
+		every_subject_country = {
+			limit = { is_subject_of_type = romagna_state }
+			every_country = {
+				limit = { defensive_war_with = PREV }
+				white_peace = PREV
+			}
+		}
+	}
+
+	option = {
+		name = "flavor_rmg.3.opta"
+	}
+}

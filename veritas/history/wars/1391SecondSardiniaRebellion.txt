@@ -1,0 +1,44 @@
+name = "Second Sardinian Rebellion"
+
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+	tag = SAR
+}
+
+# Sardinia rebels once again
+1391.1.1 = {
+	add_attacker = SAR
+	add_defender = ARA
+	add_defender = SIC
+}
+
+# Few details of the battle are available except that the Sardinians were divided and defeated
+# by a numerically inferior Aragonese force
+1409.6.30 = {
+	battle = {
+		name = "Sanluri"
+		location = 207
+		attacker = {
+			commander = "Martin I"	
+			infantry = 6000
+			losses = 15	# percent
+			country = SIC
+			country = ARA
+		}
+		defender = {
+			commander = "William of Narbonne"
+			infantry = 8000
+			losses = 50	# percent
+			country = SAR
+		}
+		result = yes
+	}
+}
+
+# Aragonese rule definitively enforce
+1410.1.1 = {
+	rem_attacker = SAR
+	rem_defender = ARA
+	rem_defender = SIC
+}

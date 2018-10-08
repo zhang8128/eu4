@@ -1,0 +1,7 @@
+# Equatorial Counter Current
+#Province IDs changed
+discovered_by = indopersian
+discovered_by = indian
+
+1413.1.1 = { discovered_by = MNG }
+1498.1.1 = { discovered_by = POR }

@@ -1,0 +1,12 @@
+# Late Draguny
+
+unit_type = eastern
+type = cavalry
+
+maneuver = 2
+offensive_morale = 11
+defensive_morale = 7
+offensive_fire = 1
+defensive_fire = 3
+offensive_shock = 5
+defensive_shock = 5

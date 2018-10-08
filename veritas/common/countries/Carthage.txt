@@ -1,0 +1,97 @@
+graphical_culture = muslimgfx
+
+color = { 55  113  200 }
+
+historical_idea_groups = {
+	mercenary_ideas
+	mm1_ideas
+	religious_ideas
+	quantity_ideas
+	intimidatory_ideas
+	expansion_ideas
+	offensive_ideas
+	mercantilist_ideas
+}
+
+historical_units = {
+	muslim_artillery_10_1
+	muslim_artillery_16_1
+	muslim_artillery_23_1
+	muslim_artillery_29_1
+	muslim_artillery_35_1
+	muslim_artillery_40_1
+	muslim_artillery_44_1
+	muslim_artillery_48_1
+	muslim_artillery_52_1
+	muslim_artillery_55_2
+	muslim_cavalry_0_1
+	muslim_cavalry_16_1
+	muslim_cavalry_21_2
+	muslim_cavalry_27_1
+	muslim_cavalry_31_1
+	muslim_cavalry_36_1
+	muslim_cavalry_40_1
+	muslim_cavalry_44_1
+	muslim_cavalry_48_1
+	muslim_cavalry_51_1
+	muslim_cavalry_55_1
+	muslim_cavalry_58_1
+	muslim_infantry_0_2
+	muslim_infantry_6_1
+	muslim_infantry_14_2
+	muslim_infantry_17_2
+	muslim_infantry_21_2
+	muslim_infantry_25_1
+	muslim_infantry_28_2
+	muslim_infantry_31_1
+	muslim_infantry_34_2
+	muslim_infantry_39_2
+	muslim_infantry_42_1
+	muslim_infantry_45_1
+	muslim_infantry_48_1
+	muslim_infantry_50_1
+	muslim_infantry_53_1
+	muslim_infantry_55_2
+	muslim_infantry_57_2
+	muslim_infantry_59_2
+	muslim_infantry_63_2
+}
+
+monarch_names = {
+	"Mago #3" = 30
+	"Hanno #3" = 30
+	"Hannibal #1" = 30
+	"Hamilcar #2" = 20
+	"Himilco #2" = 20
+	"Gisco #1" = 10
+	"Bomilcar #1" = 10
+	"Admago #0" = 0
+	"Maharbal #0" = 0
+	"Salicar #0" = 0
+	"Zinnridi #0" = 0
+	"Jabnit #0" = 0
+	"Fuano #0" = 0
+	
+	"Dido #1" = -5
+	"Sophoniba #0" = -1
+	"Jezebel #0" = -1
+}
+
+leader_names = {
+	Taher
+	Akimi
+	Adhoum
+	Hakimi
+	Naybet
+	Bassir
+	Saber
+	Badra
+	Sassi
+	Dali
+	Hannibal
+}
+
+ship_names = {
+	Hannibal Dido Bomilcar Himilco Mago Jezebel
+	Zinnridi Admago Salicar Gisco Hanno
+}

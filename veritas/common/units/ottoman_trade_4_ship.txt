@@ -1,0 +1,11 @@
+#Filinta
+#model = flute
+#tech_level = 30
+type = light_ship
+unit_type = ottoman
+
+hull_size = 12
+base_cannons = 12
+sail_speed = 6
+trade_power = 2.25
+sailors = 30

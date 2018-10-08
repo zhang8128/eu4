@@ -1,0 +1,23 @@
+# Western Isles
+
+capital = "Stornoway"
+owner = SCO
+controller = SCO
+add_core = SCO
+add_core = ENG
+culture = scottish
+religion = catholic
+trade_goods = fish
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1328.5.1 	= { remove_core = ENG } # Treaty of Edinburgh-Northampton
+1560.8.1	= { religion = presbyterian }
+1707.5.1	= { owner = GBR controller = GBR add_core = GBR } #Acts of Union

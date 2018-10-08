@@ -1,0 +1,30 @@
+# Tosa
+
+capital = "Kochi"
+owner = CSK
+controller = CSK
+add_core = CSK
+culture = japanese
+religion = shinto
+trade_goods = naval_supplies
+base_tax = 5
+base_production = 5
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = chinese
+discovered_by = niitaka
+discovered_by = pacific_islander
+
+1400.1.1	= { base_manpower = 2.5 }
+1500.1.1	= { base_manpower = 3.5 }
+1549.5.9	= { capital = "Oko" }
+1591.1.1	= { capital = "Urado" }
+1600.1.1	= { base_manpower = 4.5 }
+1600.10.21	= { add_core = DTE owner = DTE controller = DTE remove_core = CSK }
+1603.3.24	= { owner = JAP controller = JAP add_core = JAP remove_core = TKG } # Tokugawa shogunate founded
+1614.1.1	= { capital = "Uwajima" }
+1650.1.1	= { base_manpower = 5 }
+1700.1.1	= { base_manpower = 6 }
+1750.1.1	= { base_manpower = 6 }
+1800.1.1	= { base_manpower = 5.75 }

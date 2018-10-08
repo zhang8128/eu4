@@ -1,0 +1,19 @@
+government = monarchy add_government_reform = principality
+government_rank = 1
+primary_culture = russian
+religion = orthodox
+technology_group = eastern
+capital = 707 # Beloozersk
+fixed_capital = 707
+
+set_country_flag = russian_horde_tribute
+
+1293.1.1 = {
+	monarch = {
+		name = "Fyodor"
+		dynasty = "Rurikovich"
+		adm = 1
+		dip = 0
+		mil = 2
+	}
+}

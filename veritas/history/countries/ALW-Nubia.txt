@@ -1,0 +1,41 @@
+#Province IDs changed
+government = tribal add_government_reform = tribal_kingdom
+government_rank = 3
+primary_culture = nubian
+religion = coptic
+technology_group = sudanese_tech
+capital = 1696
+historical_rival = MAM
+historical_friend = BYZ
+historical_friend = MAK
+
+1300.1.1 = {
+	monarch = {
+		name= "Basil"
+		dynasty = "Dotawo"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1440.1.1 = {
+	monarch = {
+		name= "Ioel"
+		dynasty = "Dotawo"
+		adm = 2
+		dip = 3
+		mil = 3
+	}
+}
+
+1480.1.1 = {
+	monarch = {
+		name = "Abdallah Jamma"
+		dynasty = "Abdallabi"
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+	religion = sunni
+}

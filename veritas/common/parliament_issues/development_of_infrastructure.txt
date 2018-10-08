@@ -1,0 +1,32 @@
+development_of_infrastructure = {
+
+	category = 3
+
+	allow = {
+		always = yes
+	}
+	
+	on_issue_taken = {
+		change_variable = { which = parliament_debate value = 1 }
+	}
+	
+	effect = {
+		
+	}
+	
+	modifier = {
+		development_cost = -0.1
+	}
+	
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2
+			has_idea_group = economic_ideas
+		}
+	}
+
+	ai_will_do = {
+		factor = 1	
+	}	
+}

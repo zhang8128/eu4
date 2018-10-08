@@ -1,0 +1,92 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+technology_group = western
+primary_culture = english
+religion = catholic
+capital = 22	# York
+historical_rival = FRA
+
+
+1459.1.1 = {
+	monarch = {
+		name = "Edward IV"
+		dynasty = "York"
+		adm = 3
+		dip = 2
+		mil = 4
+		leader = {
+			name = "Edward IV"
+			type = general
+			fire = 2
+			shock = 4
+			manuever = 4
+			siege = 0
+		}
+	}
+}
+
+1471.5.4 = {
+	heir = {
+		name = "Edward"
+		monarch_name = "Edward V"
+		dynasty = "York"
+		birth_date = 1470.11.1
+		death_date = 1483.6.20
+		claim = 95
+		adm = 0
+		dip = 0
+		mil = 2
+	}
+}
+
+
+1483.4.18 = {
+	monarch = {
+		name = "Edward V"
+		dynasty = "York"
+		adm = 0
+		dip = 0
+		mil = 2
+	}
+}
+
+1483.4.18 = {
+	heir = {
+		name = "Richard"
+		monarch_name = "Richard III"	
+		dynasty = "York"
+		birth_date = 1452.10.2
+		death_date = 1485.8.22
+		claim = 95
+		adm = 1
+		mil = 3
+		dip = 4
+		leader = {
+			name = "Richard III"
+			type = general
+			fire = 2
+			shock = 5
+			manuever = 4
+			siege = 1
+		}
+	}
+}
+
+1483.6.20 = {
+	monarch = {
+		name = "Richard III"
+		dynasty = "York"
+		adm = 1
+		dip = 4
+		mil = 3
+		leader = {
+			name = "Richard III"
+			type = general
+			fire = 2
+			shock = 5
+			manuever = 4
+			siege = 1
+		}
+	}
+}

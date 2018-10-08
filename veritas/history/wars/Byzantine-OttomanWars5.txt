@@ -1,0 +1,12 @@
+# Third ottoman siege of Constantinople
+
+name = "Fifth Byzantine-Ottoman War"
+
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 588 # Constantinople	
+}
+
+1453.4.6 = {	add_attacker = TUR	add_defender = BYZ	}
+1453.5.29 = {	rem_attacker = TUR	rem_defender = BYZ	} # Ottomans annexed Constantinople

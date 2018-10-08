@@ -1,0 +1,15 @@
+# Gobir
+
+capital = "Gobir"
+owner = KSN
+controller = KSN
+add_core = KSN
+culture = hausa
+religion = sunni
+trade_goods = livestock
+base_tax = 1
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = sudanese_tech

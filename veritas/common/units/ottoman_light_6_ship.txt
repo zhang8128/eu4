@@ -1,0 +1,10 @@
+#Seftiye
+#model = heavy_frigate
+#tech_level = 46
+type = transport
+unit_type = ottoman
+
+hull_size = 28
+base_cannons = 32
+sail_speed = 7
+sailors = 350

@@ -1,0 +1,284 @@
+government = theocracy add_government_reform = leading_clergy_reform
+government_rank = 1
+primary_culture = alemannic
+religion = catholic
+technology_group = western
+capital = 3977	# Dillingen
+fixed_capital = 3977
+
+1309.1.1 = { 
+	monarch = {
+		name = "Friedrich I"
+		dynasty = "von Flaimingen"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1331.1.1 = { 
+	monarch = {
+		name = "Ulrich II"
+		dynasty = "von Schonegg"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1337.1.1 = { 
+	monarch = {
+		name = "Heinrich III"
+		dynasty = "von Schonegg"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1348.1.1 = { 
+	monarch = {
+		name = "Marquard"
+		dynasty = "von Randeck"
+		birth_date = 1296.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1365.1.1 = { 
+	monarch = {
+		name = "Walter II"
+		dynasty = "von Hochschlitz"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1371.1.1 = { 
+	monarch = {
+		name = "Johann I"
+		dynasty = "von Schadland"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1373.1.1 = { 
+	monarch = {
+		name = "Buckhard"
+		dynasty = "von Ellerbach"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1404.1.1 = { 
+	monarch = {
+		name = "Eberhard II"
+		dynasty = "von Kirchberg"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1413.1.1 = { 
+	monarch = {
+		name = "Friedrich"
+		dynasty = "von Grafeneck"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1414.1.1 = { 
+	monarch = {
+		name = "Anselm II"
+		dynasty = "von Nenningen"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1424.1.1 = { 
+	monarch = {
+		name = "Peter"
+		dynasty = "von Schaumberg"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1469.1.1 = { 
+	monarch = {
+		name = "Johann II"
+		dynasty = "von Werdenberg"
+		birth_date = 1430.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1486.2.23 = { 
+	monarch = {
+		name = "Friedrich"
+		dynasty = "von Hohenzollern"
+		birth_date = 1449.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1505.3.8 = {	
+	monarch = {
+		name = "Heinrich"
+		dynasty = "von Lichtenau"
+		birth_date = 1444.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1517.4.12 = {	
+	monarch = {
+		name = "Christoph"
+		dynasty = "von Stadion"
+		birth_date = 1478.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1543.4.15 = {	
+	monarch = {
+		name = "Otto Truchsess"
+		dynasty = "von Waldburg"
+		birth_date = 1514.2.26
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1573.4.2 = {	
+	monarch = {
+		name = "Johann Eglof"
+		dynasty = "von Knoringen"
+		birth_date = 1537.7.25
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1575.6.4 = {	
+	monarch = {
+		name = "Marquard"
+		dynasty = "von Berg"
+		birth_date = 1528.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1591.1.29 = {	
+	monarch = {
+		name = "Johann Otto"
+		dynasty = "von Gemmingen"
+		birth_date = 1545.10.23
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1598.10.6 = {	
+	monarch = {
+		name = "Heinrich"
+		dynasty = "von Knoringen"
+		birth_date = 1570.2.5
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1646.6.25 = {	
+	monarch = {
+		name = "Sigismund Francis"
+		dynasty = "von Habsburg"
+		birth_date = 1630.11.27
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1665.6.25 = {	
+	monarch = {
+		name = "Johann Christoph"
+		dynasty = "von Freyberg-Allmendingen"
+		birth_date = 1616.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1690.4.1 = {	
+	monarch = {
+		name = "Alexander Sigismund"
+		dynasty = "von der Pfalz-Neuburg"
+		birth_date = 1663.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1737.1.24 = {	
+	monarch = {
+		name = "Johann Franz"
+		dynasty = "von Stauffenberg"
+		birth_date = 1658.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1740.6.12 = {	
+	monarch = {
+		name = "Joseph Ignaz"
+		dynasty = "von Hessen"
+		birth_date = 1699.1.22
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+# Last ruler is a union under Trier
+1768.8.20 = {	
+	monarch = {
+		name = "Clemens Wenceslaus"
+		dynasty = "von Wettin"
+		birth_date = 1739.9.28
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}

@@ -1,0 +1,11 @@
+#Lorcha
+#model = barque
+#tech_level = 26
+type = light_ship
+unit_type = chinese
+
+hull_size = 10
+base_cannons = 6
+sail_speed = 8
+trade_power = 1.75
+sailors = 30

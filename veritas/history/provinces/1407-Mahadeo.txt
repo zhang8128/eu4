@@ -1,0 +1,26 @@
+# Mahadeo
+
+capital = "Kherla"
+owner = AHM
+controller = AHM
+add_core = AHM
+culture = gondi
+religion = hinduism
+trade_goods = rice
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = indian
+
+1317.1.1	= { owner = GDW controller = GDW add_core = GDW remove_core = AHM } # Last Yadava sultan killed in rebellion against Delhi; Delhi does not occupy this area
+1418.1.1	= { owner = MLW controller = MLW add_core = MLW }
+1467.1.1	= { owner = BAH controller = BAH } # Invaded by Bahmanis
+1468.1.1	= { owner = MLW controller = MLW } # Invaded by Malwa
+1498.1.1	= { discovered_by = POR }
+1531.1.1	= { owner = GDW controller = GDW capital = "Deogarh" } # Independence and new dominant state
+1564.5.1	= { controller = MUG }
+1564.7.1	= { controller = GDW }
+1724.1.1	= { owner = NAG controller = NAG add_core = NAG }	#Kingdom of Nagpur
+1818.6.3	= { owner = GBR controller = GBR }

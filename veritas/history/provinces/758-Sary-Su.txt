@@ -1,0 +1,35 @@
+# Sary-Su
+#Province IDs changed
+owner = GOL
+controller = GOL
+culture = mishary
+religion = tengri
+capital = "Sarai"
+trade_goods = livestock
+hre = no
+base_tax = 1
+base_production = 1
+base_manpower = 2
+citysize = 3769
+add_core = GOL
+add_core = AST
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = indopersian
+discovered_by = byzantine
+is_city = yes
+
+1450.1.1   = { citysize = 4010 }
+1459.1.1   = { owner = AST controller = AST remove_core = GOL } # Independence of Astrakhan
+1500.1.1   = { citysize = 4543 }
+1550.1.1   = { citysize = 5145 }
+1556.6.2   = { owner = RUS controller = RUS add_core = RUS remove_core = AST } # Russians acquire Volga after fall of Astrakhan
+1600.1.1   = { citysize = 6840 culture = russian religion = orthodox }
+1650.1.1   = { citysize = 7886 }
+1670.3.1   = { revolt = { type = anti_tax_rebels size = 2 name = "Stepan Razin" } controller = REB unrest = 6 } # Razin rebellion
+1671.4.14  = { revolt = { } controller = RUS unrest = 0 } # Razin captured
+1700.1.1   = { citysize = 8470 }
+1750.1.1   = { citysize = 9100 }
+1773.9.13  = { revolt = { type = anti_tax_rebels size = 2 name = "Yemelyan Pugachev" } controller = REB unrest = 6 } # Pugachev rebellion
+1775.2.1   = { revolt = {} controller = RUS unrest = 0 } # Pugachev is captured
+1800.1.1   = { citysize = 10676 }

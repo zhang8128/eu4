@@ -1,0 +1,18 @@
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+primary_culture = bornean
+religion = hinduism
+technology_group = chinese
+capital = 1288	# Kutei
+historical_friend = MAJ
+
+1439.10.27 = {
+	monarch = {
+		name = "Regency"
+		regent = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}

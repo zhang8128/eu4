@@ -1,0 +1,200 @@
+# Jomsvikings
+graphical_culture = westerngfx
+color = { 51 51 51 }
+
+historical_idea_groups = {
+	administrative_ideas
+	diplomatic_ideas
+	defensive_ideas
+	economic_ideas
+	mercantilist_ideas
+	quantity_ideas
+	expansion_ideas
+	gf1_ideas	## mm1_ideas if Med or Baltic ## land_ideas if landlocked
+}
+
+historical_units = {
+   scandinavian_artillery_10_1
+   scandinavian_artillery_16_1
+   scandinavian_artillery_22_1
+   scandinavian_artillery_29_1
+   scandinavian_artillery_35_1
+   scandinavian_cavalry_0_1
+   scandinavian_cavalry_0_2
+   scandinavian_cavalry_16_1
+   scandinavian_cavalry_31_1
+   scandinavian_cavalry_36_1
+   scandinavian_cavalry_40_1
+   scandinavian_cavalry_44_1
+   scandinavian_cavalry_44_2
+   scandinavian_infantry_0_1
+   scandinavian_infantry_6_1
+   scandinavian_infantry_17_1
+   scandinavian_infantry_31_1
+   scandinavian_infantry_31_2
+   scandinavian_infantry_34_1
+   scandinavian_infantry_34_2
+   scandinavian_infantry_39_1
+   scandinavian_infantry_39_2
+   scandinavian_infantry_42_1
+   scandinavian_infantry_42_2
+   scandinavian_infantry_45_1
+   scandinavian_infantry_45_2
+}
+
+
+
+
+
+leader_names = {
+
+	"Palnatoke" "Ale" "Alfr" "Alfgeir" "Anders" "Anlaufr" "Anundr" "Arnbjörn" "Arngrimr" "Arni" 
+	"Arnfast" "Asbjörn" "Bagge" "Baldr" "Barid" "Bengt" "Bersi" "Bertil" "Birger" "Björn" 
+	"Bo" "Borkvard" "Botulfr" "Bragi" "Buðli" "Dag" "Dan" "Dyre" "Eilif" "Egill" 
+	"Emund" "Einarr" "Eirikr" "Eskild" "Falki" "Faste" "Filip" "Fredrik" "Frirek" "Froði" 
+	"Freyr" "Folki" "Gandalfr" "Geirr" "Georg" "Gnupa" "Gorm" "Greger" "Grimr" "Guðfrið" 
+	"Guðmundr" "Guðröðr" "Gunnarr" "Hakon" "Halsten" "Haraldr" "Helgi" "Hemming" "Holmger" "Hrafn" 
+	"Hrolfr" "Hrane" "Hæsteinn" "Hjalmar" "Hroðgar" "Hroðulfr" "Hrörekr" "Hysing" "Inge" "Ingemar" 
+	"Ingjald" "Ivar" "Jedvard" "Jon" "Karl" "Kettil" "Kettilmund" "Kjartan" "Klas" "Knut" 
+	"Kol" "Kolbjörn" "Markus" "Mats" "Nils" "Niklas" "Oddr" "Ofeig" "Olafr" "Ormr" 
+	"Ottarr" "Refr" "Refil" "Ragnarr" "Rikulfr" "Rögnvaldr" "Skuli" "Snorri" "Sigbjörn" "Sigtrygg" 
+	"Sigurðr" "Starkaðr" "Steinn" "Sturla" "Styrbjörn" "Styrkar" "Suni" "Sveinn" "Sverker" "Sæmundr" 
+	"Sölvi" "Sörkver" "Tjudmund" "Toke" "Tolir" "Þorbjörn" "Þorfinn" "Þorbrandr" "Þordr" "Þorgil" 
+	"Þorsteinn" "Þorolfr" "Toste" "Totil" "Tryggve" "Tyke" "Ulfr" "Vagn" "Valdemar" "Åke" 
+	"Yngvar" "Örvar" "Öysteinn" }
+monarch_names = {
+	"Palnatoke #1" = 1
+	"Ale #1" = 1
+	"Alfr #1" = 1
+	"Alfgeir #1" = 1
+	"Anders #1" = 1
+	"Anlaufr #1" = 1
+	"Anundr #1" = 1
+	"Arnbjörn #1" = 1
+	"Arngrimr #1" = 1
+	"Arni #1" = 1
+	"Arnfast #1" = 1
+	"Asbjörn #1" = 1
+	"Bagge #1" = 1
+	"Baldr #1" = 1
+	"Barid #1" = 1
+	"Bengt #1" = 1
+	"Bersi #1" = 1
+	"Bertil #1" = 1
+	"Birger #1" = 1
+	"Björn #1" = 1
+	"Bo #1" = 1
+	"Borkvard #1" = 1
+	"Botulfr #1" = 1
+	"Bragi #1" = 1
+	"Buðli #1" = 1
+	"Dag #1" = 1
+	"Dan #1" = 1
+	"Dyre #1" = 1
+	"Eilif #1" = 1
+	"Egill #1" = 1
+	"Emund #1" = 1
+	"Einarr #1" = 1
+	"Eirikr #1" = 1
+	"Eskild #1" = 1
+	"Falki #1" = 1
+	"Faste #1" = 1
+	"Filip #1" = 1
+	"Fredrik #1" = 1
+	"Frirek #1" = 1
+	"Froði #1" = 1
+	"Freyr #1" = 1
+	"Folki #1" = 1
+	"Gandalfr #1" = 1
+	"Geirr #1" = 1
+	"Georg #1" = 1
+	"Gnupa #1" = 1
+	"Gorm #1" = 1
+	"Greger #1" = 1
+	"Grimr #1" = 1
+	"Guðfrið #1" = 1
+	"Guðmundr #1" = 1
+	"Guðröðr #1" = 1
+	"Gunnarr #1" = 1
+	"Hakon #1" = 1
+	"Halsten #1" = 1
+	"Haraldr #1" = 1
+	"Helgi #1" = 1
+	"Hemming #1" = 1
+	"Holmger #1" = 1
+	"Hrafn #1" = 1
+	"Hrolfr #1" = 1
+	"Hrane #1" = 1
+	"Hæsteinn #1" = 1
+	"Hjalmar #1" = 1
+	"Hroðgar #1" = 1
+	"Hroðulfr #1" = 1
+	"Hrörekr #1" = 1
+	"Hysing #1" = 1
+	"Inge #1" = 1
+	"Ingemar #1" = 1
+	"Ingjald #1" = 1
+	"Ivar #1" = 1
+	"Jedvard #1" = 1
+	"Jon #1" = 1
+	"Karl #1" = 1
+	"Kettil #1" = 1
+	"Kettilmund #1" = 1
+	"Kjartan #1" = 1
+	"Klas #1" = 1
+	"Knut #1" = 1
+	"Kol #1" = 1
+	"Kolbjörn #1" = 1
+	"Markus #1" = 1
+	"Mats #1" = 1
+	"Nils #1" = 1
+	"Niklas #1" = 1
+	"Oddr #1" = 1
+	"Ofeig #1" = 1
+	"Olafr #1" = 1
+	"Ormr #1" = 1
+	"Ottarr #1" = 1
+	"Refr #1" = 1
+	"Refil #1" = 1
+	"Ragnarr #1" = 1
+	"Rikulfr #1" = 1
+	"Rögnvaldr #1" = 1
+	"Skuli #1" = 1
+	"Snorri #1" = 1
+	"Sigbjörn #1" = 1
+	"Sigtrygg #1" = 1
+	"Sigurðr #1" = 1
+	"Starkaðr #1" = 1
+	"Steinn #1" = 1
+	"Sturla #1" = 1
+	"Styrbjörn #1" = 1
+	"Styrkar #1" = 1
+	"Suni #1" = 1
+	"Sveinn #1" = 1
+	"Sverker #1" = 1
+	"Sæmundr #1" = 1
+	"Sölvi #1" = 1
+	"Sörkver #1" = 1
+	"Tjudmund #1" = 1
+	"Toke #1" = 1
+	"Tolir #1" = 1
+	"Þorbjörn #1" = 1
+	"Þorfinn #1" = 1
+	"Þorbrandr #1" = 1
+	"Þordr #1" = 1
+	"Þorgil #1" = 1
+	"Þorsteinn #1" = 1
+	"Þorolfr #1" = 1
+	"Toste #1" = 1
+	"Totil #1" = 1
+	"Tryggve #1" = 1
+	"Tyke #1" = 1
+	"Ulfr #1" = 1
+	"Vagn #1" = 1
+	"Valdemar #1" = 1
+	"Åke #1" = 1
+	"Yngvar #1" = 1
+	"Örvar #1" = 1
+	"Öysteinn #1" = 1
+}
+

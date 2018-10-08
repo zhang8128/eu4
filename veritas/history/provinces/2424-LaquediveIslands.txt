@@ -1,0 +1,8 @@
+# Laquedive Islands
+#Province IDs changed
+discovered_by = indopersian
+discovered_by = indian
+discovered_by = byzantine
+discovered_by = muslim
+
+1498.1.1 = { discovered_by = POR }

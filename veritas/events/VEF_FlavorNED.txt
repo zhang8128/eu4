@@ -1,0 +1,306 @@
+namespace = flavor_ned
+normal_or_historical_nations = yes
+
+# Dutch Revolt
+#1 Revolt Begins
+#2 Rebels seek support
+#3 Netherlands Independence War
+#4 Netherlands Claims Low Countries
+#5 Province Revolt
+
+# Revolt Begins
+country_event = {
+	id = flavor_ned.1
+	title = "flavor_ned.1.t"
+	desc = "flavor_ned.1.d"
+	picture = VEF_ANGRY_MOB_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			region = low_countries_region
+			OR = {
+				culture = dutch
+				culture = flemish
+				is_core = NED
+			}
+		}
+		capital_scope = { NOT = { region = low_countries_region }}
+		is_year = 1550
+		NOT = { is_year = 1650 }
+		NOT = { has_global_flag = dutch_revolt }
+		NOT = { exists = NED }
+		num_of_cities = 6
+		NOT = { primary_culture = dutch }
+		NOT = { primary_culture = flemish }
+	}
+
+	mean_time_to_happen = {
+		months = 4000
+		modifier = {
+			factor = 0.75
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 0.5
+			religion = catholic
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { culture_group = germanic }
+		}
+	}
+
+	immediate = { set_global_flag = dutch_revolt }
+	
+	option = {
+		name = "flavor_ned.1.opta"
+		random_owned_province = {
+			limit = {
+				region = low_countries_region
+				OR = {
+					culture = dutch
+					culture = flemish
+					is_core = NED
+				}
+			}
+			set_province_flag = dutch_revolt
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = NED
+			}
+		}
+		every_enemy_country = { country_event = { id = flavor_ned.2 days = 1 }}
+		hidden_effect = { country_event = { id = flavor_ned.3 days = 90 }}
+	}
+}
+
+# Dutch rebels seek assistance
+country_event = {
+	id = flavor_ned.2
+	title = "flavor_ned.2.t"
+	desc = "flavor_ned.2.d"
+	picture = VEF_BATTLE_eventPicture
+	
+	is_triggered_only = yes	#flavor_ned.1
+	
+	option = {
+		name = "flavor_ned.2.opta"
+		set_country_flag = netherlands_support
+	}
+	option = {
+		name = "flavor_ned.2.optb"
+		add_prestige = -10
+	}
+}
+
+# Netherlands Independent
+country_event = {
+	id = flavor_ned.3
+	title = "flavor_ned.3.t"
+	desc = "flavor_ned.3.d"
+	picture = VEF_BATTLE_eventPicture
+	
+	is_triggered_only = yes	#flavor_ned.1
+	
+	immediate = {
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					region = low_countries_region
+					OR = {
+						culture = dutch
+						culture = flemish
+						is_core = NED
+					}
+					is_capital = no
+				}
+				add_core = NED
+			}
+			release = NED
+			NED = { change_government = republic }
+			every_owned_province = {
+				limit = { region = low_countries_region }
+				add_permanent_claim = NED
+			}
+			every_country = { 
+				limit = { has_country_flag = netherlands_support }
+				create_alliance = NED
+				set_ai_attitude = {
+					who = NED
+					attitude = attitude_friendly
+				}
+				NED = {
+					add_opinion = {
+						who = ROOT
+						modifier = supported_independence
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_ned.3.opta"
+		NED = {
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			capital_scope = {
+				build_to_forcelimit = {
+					infantry = 0.6
+					cavalry = 0.3
+					artillery = 0.1
+				}
+			}
+			random_owned_province = {
+				limit = { has_port = yes }
+				build_to_forcelimit = {
+					heavy_ship = 0.1
+					light_ship = 0.3
+					transport = 0.3
+				}
+			}
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					NOT = { tag = ROOT }
+					NOT = { tag = NED }
+					any_owned_province = {
+						region = low_countries_region
+					}
+				}
+				country_event = { id = flavor_ned.4 }
+			}
+		}
+	}
+}
+
+# Netherlands Makes Claims
+country_event = {
+	id = flavor_ned.4
+	title = "flavor_ned.4.t"
+	desc = "flavor_ned.4.d"
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes	#flavor_ned.3
+	
+	option = {
+		trigger = {
+			NOT = { primary_culture = dutch }
+			NOT = { primary_culture = flemish }
+			OR = {
+				ai = no
+				is_at_war = yes
+				num_of_cities = 5
+			}
+		}
+		name = "flavor_ned.4.opta"
+		every_owned_province = {
+			limit = { region = low_countries_region }
+			add_permanent_claim = NED
+		}
+	}
+	
+	option = {
+		trigger = {
+			ai = yes
+			OR = {
+				primary_culture = dutch
+				primary_culture = flemish
+			}
+			is_at_war = no
+			NOT = { num_of_cities = 5 }
+		}
+		name = "flavor_ned.4.optb"
+		NED = { inherit = ROOT }
+	}
+}
+
+# Revolts Continue
+province_event = {
+	id = flavor_ned.5
+	title = "flavor_ned.5.t"
+	desc = "flavor_ned.5.d"
+	picture = VEF_ANGRY_MOB_eventPicture
+	
+	trigger = {
+		region = low_countries_region
+		NED = {
+			exists = yes
+			ai = yes
+		}
+		is_year = 1550
+		NOT = { is_year = 1650 }
+		owner = { NOT = { tag = NED }}
+		is_claim = NED
+		OR = {
+			NOT = { has_province_flag = dutch_revolt }
+			had_province_flag = { flag = dutch_revolt days = 1825 }
+		}
+		owner = {
+			capital_scope = { NOT = { region = low_countries_region }}
+			NOT = { primary_culture = dutch }
+			NOT = { primary_culture = flemish }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.75
+			any_neighbor_province = { owned_by = NED }
+		}
+		modifier = {
+			factor = 0.75
+			has_owner_religion = no
+		}
+		modifier = {
+			factor = 0.75
+			owner = { NOT = { culture_group = ROOT }}
+		}
+		modifier = {
+			factor = 0.5
+			owner = { war_with = NED }
+		}
+		modifier = {
+			factor = 0.75
+			unrest = 3
+		}
+		modifier = {
+			factor = 0.75
+			unrest = 7
+		}
+	}
+
+	option = {
+		name = "flavor_ned.5.opta"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				owner = { NOT = { num_of_cities = 5 }}
+			}
+		}
+		set_province_flag = dutch_revolt
+		spawn_rebels = {
+			type = nationalist_rebels
+			size = 2
+			friend = NED
+		}
+	}
+	option = {
+		name = "flavor_ned.5.optb"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				owner = { NOT = { num_of_cities = 5 }}
+			}
+		}
+		add_core = NED
+		cede_province = NED
+	}
+}

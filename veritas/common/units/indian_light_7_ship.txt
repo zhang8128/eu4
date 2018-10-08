@@ -1,0 +1,10 @@
+#Sandpuri
+#model = heavy_frigate
+#tech_level = 46
+type = transport
+unit_type = indian
+
+hull_size = 24
+base_cannons = 36
+sail_speed = 8
+sailors = 300

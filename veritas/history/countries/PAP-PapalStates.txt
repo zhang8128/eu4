@@ -1,0 +1,745 @@
+# Papal States
+
+government = theocracy add_government_reform = papacy_reform
+government_rank = 3
+primary_culture = umbrian
+add_accepted_culture = occitain
+religion = catholic
+technology_group = western
+capital = 135 # Avignon (Babylonian Captivity of the Church)
+trade_port = 227
+#fixed_capital = 227
+historical_friend = NAP
+historical_friend = SCL
+
+set_country_flag = vef_newgov_start
+set_variable = { which = vef_merit value = 0 }
+add_corruption = 80
+
+1305.6.5 = {
+	monarch = {
+		name = "Clement V"
+		dynasty = "de Got"
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+	set_country_flag = french_pope
+	set_ruler_flag = yield_to_france
+}
+
+1309.3.9 = { 
+	add_country_modifier =  {
+		name = "babylonian_captivity"
+		duration = -1
+	}
+}
+
+# Following Clement's death a Conclave was not convened until 1316 when John XXII was elected
+1314.4.20 = {
+	monarch = {
+		name = "Sede"
+		dynasty = "Vacante"
+		adm = 1
+		dip = 0
+		mil = 0
+	}
+}
+
+1316.8.7 = {
+	monarch = {
+		name = "John XXII"
+		dynasty = "d'Euse"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1334.12.20 = {
+	monarch = {
+		name = "Benedict XII"
+		dynasty = "Fournier"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1342.5.7 = {
+	monarch = {
+		name = "Clement VI"
+		dynasty = "Roger"
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1352.12.18 = {
+	monarch = {
+		name = "Innocent VI"
+		dynasty = "Aubert"
+		adm = 4
+		dip = 3
+		mil = 2
+	}
+}
+
+1362.9.28 = {
+	monarch = {
+		name = "Urban V"
+		dynasty = "de Grimoard"
+		adm = 4
+		dip = 3
+		mil = 3
+	}
+}
+
+1367.9.16 = { capital = 227 } # Urban V moves seat of power to Rome
+1370.9.5 = { capital = 135 } # Urban V moves back to Avignon
+
+1370.12.30 = {
+	monarch = {
+		name = "Gregorius XI"
+		dynasty = "de Beaufort"
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+	clr_country_flag = french_pope
+	set_country_flag = neopolitan_pope
+}
+
+1376.9.13 = { 
+	capital = 227  # Gregory moves seat of power to Rome
+	fixed_capital = 227
+	remove_country_modifier =  babylonian_captivity
+}
+
+1378.4.8 = {
+	monarch = {
+		name = "Urban VI"
+		dynasty = "Prignano"
+		adm = 1
+		dip = 2
+		mil = 3
+	}
+	clr_global_flag = vef_papacy_initial
+	set_global_flag = vef_papacy_schism
+}
+
+1389.10.15 = {
+	monarch = {
+		name = "Bonifacius IX"
+		dynasty = "Tomacelli"
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1399.1.1 = { decision = blasphemy_act }
+
+1401.1.1 = { set_variable = { which = vef_college_maximum value = 30 }}
+
+1404.10.1 = {
+	monarch = {
+		name = "Innocentius VII"
+		dynasty = "de Migliorati"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1406.11.6 = {
+	monarch = {
+		name = "Gregorius XII"
+		dynasty = "Corraro"
+		adm = 1
+		dip = 2
+		mil = 3
+	}
+	clr_country_flag = neopolitan_pope
+	set_country_flag = northitalian_pope
+}
+
+1414.8.6 = { capital = 227 } # Roma
+
+1417.10.18 = {
+	monarch = {
+		name = "Martinus V"
+		dynasty = "Colonna"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	clr_country_flag = northitalian_pope
+	set_country_flag = roman_pope
+	clr_global_flag = vef_papacy_schism
+	set_global_flag = vef_papacy_final
+}
+
+1431.2.20 = {
+	monarch = {
+		name = "Eugenius IV"
+		dynasty = "Condulmer"
+		adm = 1
+		dip = 1
+		mil = 2
+	}
+	clr_country_flag = roman_pope
+	set_country_flag = northitalian_pope
+}
+
+1447.2.23 = {
+	monarch = {
+		name = "Nicolaus V"
+		dynasty = "Parentucelli"
+		adm = 4
+		dip = 3
+		mil = 1
+	}
+}
+
+1455.3.25 = {
+	monarch = {
+		name = "Callistus III"
+		dynasty = "Borgia"
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+	clr_country_flag = northitalian_pope
+	set_country_flag = borgia_pope
+}
+
+1458.8.7 = {
+	monarch = {
+		name = "Pius II"
+		dynasty = "Piccolomini"
+		adm = 4
+		dip = 2
+		mil = 1
+	}
+	clr_country_flag = borgia_pope
+	set_country_flag = roman_pope
+}
+
+1464.8.16 = {
+	monarch = {
+		name = "Paulus II"
+		dynasty = "Barbo"
+		adm = 4
+		dip = 4
+		mil = 1
+	}
+	clr_country_flag = roman_pope
+	set_country_flag = northitalian_pope
+}
+
+1471.7.27 = {
+	monarch = {
+		name = "Xystus IV"
+		dynasty = "della Rovere"
+		adm = 4
+		dip = 4
+		mil = 3
+	}
+	clr_country_flag = northitalian_pope
+	set_country_flag = dellarovere_pope
+	set_country_flag = medici_faction_active
+}
+
+1484.8.13 = {
+	monarch = {
+		name = "Innocentius VIII"
+		dynasty = "Cibo"
+		adm = 1
+		dip = 4
+		mil = 1
+	}
+	clr_country_flag = dellarovere_pope
+	set_country_flag = northitalian_pope
+}
+
+1492.7.26 = {
+	monarch = {
+		name = "Alexander VI"
+		dynasty = "Borgia"
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+	clr_country_flag = northitalian_pope
+	set_country_flag = borgia_pope
+}
+1492.7.26 = { leader = {	name = "Giovanni Borgia"            type = general fire = 1	shock = 1	manuever = 2	siege = 1	death_date = 1503.11.1 } }
+1498.8.17 = { leader = {	name = "Cesare Borgia"             	type = general fire = 3	shock = 2	manuever = 2	siege = 3	death_date = 1503.11.1 } set_country_flag = final_borgia_pope }
+
+1501.1.1 = { set_variable = { which = vef_college_maximum value = 40 }}
+
+1503.8.19 = {
+	monarch = {
+		name = "Pius III"
+		dynasty = "Piccolomini"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+	clr_country_flag = borgia_pope
+	set_country_flag = roman_pope
+	
+}
+
+1503.10.19 = {
+	monarch = {
+		name = "Iulius II"
+		dynasty = "della Rovere"
+		adm = 1
+		dip = 4
+		mil = 2
+		leader = {	name = "Iulius II"             	type = general fire = 2	shock = 1	manuever = 2	siege = 1 }
+	}
+	clr_country_flag = roman_pope
+	set_country_flag = dellarovere_pope
+}
+
+1513.2.22 = {
+	monarch = {
+		name = "Leo X"
+		dynasty = "de Medici"
+		adm = 2
+		dip = 1
+		mil = 1
+	}
+	clr_country_flag = dellarovere_pope
+	set_country_flag = medici_pope
+}
+
+1522.1.1 = {
+	monarch = {
+		name = "Hadrianus VI"
+		dynasty = "Boeyens"
+		adm = 3
+		dip = 0
+		mil = 0
+	}
+	clr_country_flag = medici_pope
+	set_country_flag = ultramontane_pope
+}
+
+1523.9.15 = {
+	monarch = {
+		name = "Clemens VII"
+		dynasty = "de Medici"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+	clr_country_flag = ultramontane_pope
+	set_country_flag = medici_pope
+}
+
+1534.9.26 = {
+	monarch = {
+		name = "Paulus III"
+		dynasty = "Farnese"
+		adm = 2
+		dip = 0
+		mil = 1
+	}
+	clr_country_flag = medici_pope
+	set_country_flag = roman_pope
+}
+
+1545.12.13 = { set_global_flag = counter_reformation }	# Council of Trent
+
+1550.1.1 = { leader = {	name = "M. Colonna"               	type = admiral fire = 3	shock = 3	manuever = 2	siege = 0	death_date = 1577.1.1 } }
+
+1550.1.1 = {
+	monarch = {
+		name = "Iulius III"
+		dynasty = "del Monte"
+		adm = 2
+		dip = 3
+		mil = 0
+	}
+}
+
+1555.3.24 = {
+	monarch = {
+		name = "Marcellus II"
+		dynasty = "Cervini"
+		adm = 3
+		dip = 0
+		mil = 0
+	}
+}
+
+1555.5.2 = {
+	monarch = {
+		name = "Paulus IV"
+		dynasty = "Carafa"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+	clr_country_flag = roman_pope
+	set_country_flag = neopolitan_pope
+}
+
+1559.8.19 = {
+	monarch = {
+		name = "Pius IV"
+		dynasty = "de Medici"
+		adm = 0
+		dip = 1
+		mil = 1
+	}
+	clr_country_flag = neopolitan_pope
+	set_country_flag = medici_pope
+}
+
+1565.12.10 = {
+	monarch = {
+		name = "Pius V"
+		dynasty = "Ghislieri"
+		adm = 2
+		dip = 0
+		mil = 1
+	}
+	clr_country_flag = medici_pope
+	set_country_flag = northitalian_pope
+}
+
+1572.5.2 = {
+	monarch = {
+		name = "Gregorius XIII"
+		dynasty = "Boncompagni"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+	clr_country_flag = northitalian_pope
+	set_country_flag = roman_pope
+}
+
+1585.4.11 = {
+	monarch = {
+		name = "Xystus V"
+		dynasty = "di Montalto"
+		adm = 3
+		dip = 3
+		mil = 0
+	}
+}
+
+1590.8.28 = {
+	monarch = {
+		name = "Urbanus VII"
+		dynasty = "Castagna"
+		adm = 5
+		dip = 3
+		mil = 1
+	}
+}
+
+1590.9.28 = {
+	monarch = {
+		name = "Gregorius XIV"
+		dynasty = "Sfondrati"
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+	clr_country_flag = roman_pope
+	set_country_flag = northitalian_pope
+}
+
+1591.10.17 = {
+	monarch = {
+		name = "Innocentius IX"
+		dynasty = "Facchinetti"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+	clr_country_flag = northitalian_pope
+	set_country_flag = roman_pope
+}
+
+1592.1.1 = {
+	monarch = {
+		name = "Clemens VIII"
+		dynasty = "Aldobrandini"
+		adm = 2
+		dip = 1
+		mil = 0
+	}
+}
+
+1601.1.1 = { set_variable = { which = vef_college_maximum value = 45 }}
+
+1605.3.4 = {
+	monarch = {
+		name = "Leo XI"
+		dynasty = "de Medici"
+		adm = 3
+		dip = 5
+		mil = 2
+	}
+	clr_country_flag = roman_pope
+	set_country_flag = medici_pope
+}
+
+1605.4.28 = {
+	monarch = {
+		name = "Paulus V"
+		dynasty = "Borghese"
+		adm = 0
+		dip = 2
+		mil = 1
+	}
+	clr_country_flag = medici_pope
+	set_country_flag = roman_pope
+	set_country_flag = medici_faction_over
+	clr_country_flag = medici_faction_active
+}
+
+1621.1.29 = {
+	monarch = {
+		name = "Gregorius XV"
+		dynasty = "Ludovisi"
+		adm = 2
+		dip = 1
+		mil = 0
+	}
+}
+
+1623.7.9 = {
+	monarch = {
+		name = "Urbanus VIII"
+		dynasty = "Barberini"
+		adm = 3
+		dip = 1
+		mil = 2
+	}
+}
+
+1644.7.30 = {
+	monarch = {
+		name = "Innocentius X"
+		dynasty = "Pamphili"
+		adm = 2
+		dip = 1
+		mil = 1
+	}
+}
+
+1655.1.8 = {
+	monarch = {
+		name = "Alexander VII"
+		dynasty = "Chigi"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1667.5.23 = {
+	monarch = {
+		name = "Clemens IX"
+		dynasty = "Rospigliosi"
+		adm = 2
+		dip = 0
+		mil = 1
+	}
+}
+
+1669.12.10 = {
+	monarch = {
+		name = "Clemens X"
+		dynasty = "Altieri"
+		adm = 1
+		dip = 4
+		mil = 0
+	}
+}
+
+1676.7.23 = {
+	monarch = {
+		name = "Innocentius XI"
+		dynasty = "Odescalchi"
+		adm = 2
+		dip = 0
+		mil = 2
+	}
+	clr_country_flag = roman_pope
+	set_country_flag = northitalian_pope
+}
+
+1689.8.13 = {
+	monarch = {
+		name = "Alexander VIII"
+		dynasty = "Ottoboni"
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1691.3.20 = {
+	monarch = {
+		name = "Innocentius XII"
+		dynasty = "Pignatelli"
+		adm = 2
+		dip = 0
+		mil = 1
+	}
+	clr_country_flag = northitalian_pope
+	set_country_flag = neopolitan_pope
+}
+
+1700.9.28 = {
+	monarch = {
+		name = "Clemens XI"
+		dynasty = "Albani"
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+	clr_country_flag = neopolitan_pope
+	set_country_flag = roman_pope
+}
+
+1721.3.20 = {
+	monarch = {
+		name = "Innocentius XIII"
+		dynasty = "dei Conti"
+		adm = 1
+		dip = 0
+		mil = 1
+	}
+}
+
+1724.3.8 = {
+	monarch = {
+		name = "Benedictus XIII"
+		dynasty = "Orsini"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+	set_country_flag = neopolitan_pope
+	clr_country_flag = roman_pope
+}
+
+
+1730.2.22 = {
+	monarch = {
+		name = "Clemens XII"
+		dynasty = "Corsini"
+		adm = 1
+		dip = 3
+		mil = 1
+	}
+	clr_country_flag = neopolitan_pope
+	set_country_flag = roman_pope
+}
+
+
+1740.2.7 = {
+	monarch = {
+		name = "Benedictus XIV"
+		dynasty = "Lambertini"
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+
+1758.5.4 = {
+	monarch = {
+		name = "Clemens XIII"
+		dynasty = "di Rezzonico"
+		adm = 0
+		dip = 1
+		mil = 1
+	}
+	clr_country_flag = roman_pope
+	set_country_flag = northitalian_pope
+}
+
+1769.2.3 = {
+	monarch = {
+		name = "Clemens XIV"
+		dynasty = "Ganganelli"
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+	clr_country_flag = northitalian_pope
+	set_country_flag = roman_pope
+}
+
+1774.9.22 = {
+	monarch = {
+		name = "Pius VI"
+		dynasty = "Braschi"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1800.3.14 = {
+	monarch = {
+		name = "Pius VII"
+		dynasty = "Chiaramonti"
+		adm = 1
+		dip = 0
+		mil = 0
+	}
+}
+
+1823.9.28 = {
+	monarch = {
+		name = "Leo XII"
+		dynasty = "della Genga"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1829.3.31 = {
+	monarch = {
+		name = "Pius VIII"
+		dynasty = "Castiglioni"
+		adm = 2
+		dip = 1
+		mil = 0
+	}
+}
+
+1831.2.2 = {
+	monarch = {
+		name = "Gregorius XVI"
+		dynasty = "Cappellari"
+		adm = 2
+		dip = 1
+		mil = 0
+	}
+}
+
+1846.6.16 = {
+	monarch = {
+		name = "Pius IX"
+		dynasty = "Mastai-Ferretti"
+		adm = 5
+		dip = 4
+		mil = 2
+	}
+}

@@ -1,0 +1,11 @@
+#Ocean Sailboat
+#model = flute
+#tech_level = 28
+type = light_ship
+unit_type = mesoamerican
+
+hull_size = 8
+base_cannons = 5
+sail_speed = 6
+trade_power = 3.75
+sailors = 40

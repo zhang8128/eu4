@@ -1,0 +1,80 @@
+#Country Name: See the Name of this File.
+
+graphical_culture = asiangfx
+
+color = { 93  180  76 }
+
+historical_idea_groups = {
+	quantity_ideas
+	spy_ideas
+	religious_ideas
+	defensive_ideas
+	mercantilist_ideas
+	cultural_unity_ideas
+	drafted_army_ideas
+	gf1_ideas
+}
+
+historical_units = {
+   chinese_artillery_0_1
+   chinese_artillery_8_1
+   chinese_artillery_15_1
+   chinese_artillery_22_1
+   chinese_artillery_29_1
+   chinese_artillery_35_1
+   chinese_artillery_40_1
+   chinese_artillery_44_1
+   chinese_cavalry_0_1
+   chinese_cavalry_16_1
+   chinese_cavalry_31_1
+   chinese_cavalry_36_1
+   chinese_cavalry_40_1
+   chinese_cavalry_44_1
+   chinese_infantry_0_1
+   chinese_infantry_6_1
+   chinese_infantry_17_1
+   chinese_infantry_21_1
+   chinese_infantry_25_1
+   chinese_infantry_34_1
+   chinese_infantry_42_1
+   chinese_infantry_48_1
+   chinese_infantry_50_1
+}
+
+
+
+
+monarch_names = {
+	"Ngawang Namgyal #0" = 20
+	"Pekar Jungney #0" = 20
+	"Kunga Gyaltshen #0" = 20
+	"Phyogla Namgyal #0" = 20
+	"Jigme Norbu #0" = 20
+	"Mipham Wangpo #0" = 20
+	"Jigme Dragpa #0" = 40
+	"Choeki Gyaltshen #0" = 20
+	
+	"Surah Palinyal #0" = -5
+	"Kunzang #0" = -1
+	"Deki Choden #0" = -1
+}
+
+leader_names = {
+	Chomphel
+	Tshering
+	Peljor
+	Rabgye
+	Gyamtsho
+	Wangpo
+	Peljor
+	Gyaltshen
+	Wangchuk
+	Phuntsho
+}
+
+ship_names = {
+	Chhu Punaka "Dng Chu" "Manas Chu"
+	"Mangde Chu" "Mo Chu" "Pa Chu"
+	"Pho Chu" Sangkosh Thimbu
+	"Tongsa Chu" "Towang Chu"
+}

@@ -1,0 +1,16 @@
+#######################################
+# Muzaffarid Dynasty
+#######################################
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+technology_group = muslim
+primary_culture = persian
+religion = shiite
+capital = 1508 # Hormuz
+
+set_country_flag = vef_newgov_start
+set_variable = { which = aristocratic_privilege value = 20 }
+set_variable = { which = vef_merit value = 30 }
+set_variable = { which = vef_rule_law value = 20 }
+set_variable = { which = vef_governance value = 20 }

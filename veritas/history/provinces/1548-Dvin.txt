@@ -1,0 +1,45 @@
+# Armenia
+
+capital = "Yerevan"
+owner = ILK
+controller = ILK
+add_core = ILK
+add_core = CBN
+culture = armenian
+religion = nestorian
+trade_goods = wine
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+hre = no
+fort_15th = yes
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = byzantine
+
+add_province_modifier = { name = "nestorian_fidelity" duration = 7300 }
+
+1336.1.1	= { unrest = 0 owner = CBN controller = CBN remove_core = ILK } # collapse of Ilkhanate
+1357.1.1	= { owner = GOL controller = GOL remove_core = CBN } # Golden Horde ends the Chobanid line
+1358.1.1	= { owner = QAR controller = QAR add_core = QAR } # Golden Horde Abandons the area
+1387.1.1	= { owner = TIM controller = TIM add_core = TIM } # Tamerlane's conquest of Persia
+1406.1.1	= { owner = QAR controller = QAR } # Qara Yusuf is released on Timur's death and reestablishes himself in Tabriz
+1435.1.1	= { unrest = 10 } 
+1453.1.1	= { unrest = 0 }
+1453.1.1	= { discovered_by = western }
+1467.11.11	= { owner = AKK controller = AKK add_core = AKK remove_core = QAR } # The Ak Koyunlu expands on death of Jahan Shah
+1501.7.1 = { owner = PER controller = PER add_territorial_core = PER remove_core = AKK } # Ismail conquers Tabriz and defeats Alwand
+1554.1.1 = { controller = TUR } # Wartime occupation
+1555.5.29 = { controller = PER } # Peace of Amasya
+1583.8.15 = { controller = TUR } # Ottoman conquest
+1585.1.1 = { fort_15th = no fort_16th = yes }
+1590.3.21 = { owner = TUR add_territorial_core = TUR } # Peace of Istanbul
+1604.6.1 = { controller = PER } # Persian reconquest
+1612.11.20 = { owner = PER } # Part of Persia
+1639.5.17 = { remove_territorial_core = TUR } # Final division between Persia & Ottoman
+1722.1.1 = { unrest = 5 } # Rebellion against both the Persians & Ottomans
+1730.1.1 = { unrest = 0 }

@@ -1,0 +1,200 @@
+russian_princes_missions = {
+	slot = 1
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		NOT = { tag = MOS }
+		NOT = { tag = NOV }
+		has_country_flag = russian_horde_tribute
+	}
+	has_country_shield = yes
+	
+	rus_minor_grow = {
+		icon = mission_early_game_buildings
+		required_missions = {  } #None
+		trigger = {
+			num_of_cities = 6
+			custom_trigger_tooltip = {
+				tooltip = tt_cities_enforcer
+				event_target:horde_enforcer_tag = { NOT = { num_of_cities = ROOT }}
+			}
+		}
+		effect = {
+			event_target:horde_enforcer_tag = { every_owned_province = { add_permanent_claim = ROOT }}
+		}
+	}
+	
+	rus_minor_enforcer = {
+		icon = mission_war_chest
+		required_missions = { rus_minor_grow }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = tt_take_enforcer
+				event_target:horde_enforcer_tag = { ROOT = { war_score_against = { who = PREV value = 60 }}}
+			}
+		}
+		effect = {
+			event_target:horde_enforcer_tag = {
+				white_peace = ROOT
+				remove_country_modifier = horde_enforcer
+				every_subject_country = {
+					limit = { is_subject_of_type = russian_tribute }
+					overlord = { PREV = { grant_independence = yes }}
+					GOL = { create_subject = { who = PREV subject_type = russian_tribute }}
+				}
+				GOL = { create_subject = { who = PREV subject_type = russian_tribute }}
+			}
+			GOL = { create_subject = { who = ROOT subject_type = russian_enforcer }}
+			save_global_event_target_as = horde_enforcer_tag
+			add_country_modifier = { name = "horde_enforcer" duration = -1 }
+			suzdal_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			686 = { add_permanent_claim = ROOT }
+			715 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	rus_minor_moscow = {
+		icon = mission_conquer_50_development
+		required_missions = { rus_minor_enforcer }
+		provinces_to_highlight = {
+			province_id = 715
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			715 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			moscow_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	rus_minor_novgorod = {
+		icon = mission_unite_home_region
+		required_missions = { rus_minor_moscow }
+		provinces_to_highlight = {
+			province_id = 686
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			686 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			novgorod_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}	
+	}
+	
+	rus_minor_horde = {
+		icon = mission_non-western_soldiers
+		required_missions = { rus_minor_novgorod }
+		provinces_to_highlight = {
+			owned_by = NVS
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = tt_is_enforcer
+				event_target:horde_enforcer_tag = { tag = ROOT }
+			}
+			OR = {
+				NOT = { GOL = { num_of_cities = 20 }}
+				war_score_against = { who = GOL value = 60 }
+			}
+		}
+		effect = {
+			hidden_effect = {
+				every_country = { clr_country_flag = russian_horde_tribute }
+				clear_global_event_target = horde_enforcer_tag
+				every_subject_country = {
+					limit = { is_subject_of_type = russian_tribute }
+					grant_independence = yes
+				}
+			}
+			GOL = {
+				ROOT = { grant_independence = yes }
+				every_subject_country = {
+					limit = { is_subject_of_type = russian_tribute }
+					grant_independence = yes
+				}
+			}
+			690 = { add_permanent_claim = ROOT }
+			711 = { add_permanent_claim = ROOT }
+			720 = { add_permanent_claim = ROOT }
+			722 = { add_permanent_claim = ROOT }
+			725 = { add_permanent_claim = ROOT }
+			728 = { add_permanent_claim = ROOT }
+		}	
+	}
+	
+	rus_minor_russia = {
+		icon = mission_empire
+		required_missions = { rus_minor_horde }
+		trigger = {
+			NOT = { exists = KRU }
+			NOT = { exists = RUS }
+			is_subject = no
+			is_at_war = no
+			num_of_owned_provinces_with = {
+				value = 20
+				region = russia_region 
+				is_core = ROOT
+				NOT = { nationalism = 1 }
+			}
+			calc_true_if = {
+				owns_core_province = 686	# Novgorod
+				owns_core_province = 690	# Smolensk
+				owns_core_province = 711	# Tver
+				owns_core_province = 715	# Moskva
+				owns_core_province = 720	# Ryazan
+				owns_core_province = 722	# Vladimir
+				owns_core_province = 725	# Nijni-Novgorod
+				owns_core_province = 728	# Yaroslavl
+				amount = 6
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							primary_culture = russian
+							primary_culture = byelorussian
+						}
+					}
+				}
+				change_primary_culture = russian
+			}
+			change_tag = RUS
+			set_government_rank = 4
+			change_government = russian_empire
+			add_prestige = 25
+			russia_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = RUS
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = RUS_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}	
+	}
+}

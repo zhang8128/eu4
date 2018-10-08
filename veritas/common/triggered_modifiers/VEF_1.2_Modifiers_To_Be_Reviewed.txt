@@ -1,0 +1,72 @@
+center_of_europe = {
+	potential = {
+		normal_or_historical_nations = yes
+		OR = {
+			num_of_owned_provinces_with = { value = 1 region = south_german_region }
+			num_of_owned_provinces_with = { value = 1 region = north_german_region }
+			num_of_owned_provinces_with = { value = 1 region = poland_region }
+			num_of_owned_provinces_with = { value = 1 region = carpathia_region }
+		}
+	}
+
+	trigger = {
+		ROOT = { owns_or_vassal_of = 481 } 
+		ROOT = { owns_or_vassal_of = 479 } 
+		ROOT = { owns_or_vassal_of = 477 } 
+		ROOT = { owns_or_vassal_of = 478 } 
+		ROOT = { owns_or_vassal_of = 480 } 
+		NOT = { overseas_provinces_percentage = 0.01 }
+	}
+
+	trade_efficiency = 0.05
+	global_trade_power = 0.10
+	
+}
+	
+horde_manpower = {
+	potential = {
+		technology_group = nomad_group
+	}
+
+	trigger = {
+		is_at_war = yes
+	}
+
+	manpower_recovery_speed = 1.0 # Twice as fast
+}
+
+pope_vassal = {
+	potential = {
+		PAP = { is_subject_of = ROOT }
+		exists = PAP
+		normal_or_historical_nations = yes
+	}
+
+	trigger = {
+		PAP = { is_subject_of = ROOT }
+	}
+
+	prestige = 2
+}
+
+# Russian culture nations vs. Hordes
+rus_vs_hordes = {
+	potential = {
+		culture_group = east_slavic
+		normal_or_historical_nations = yes
+	}
+
+	trigger = {
+		culture_group = east_slavic
+		any_known_country = {
+			technology_group = nomad_group
+			war_with = ROOT
+			num_of_cities = 20
+		}
+	}
+	
+	infantry_power = 0.10
+	land_morale = 0.075
+	discipline = 0.075
+	land_forcelimit_modifier = 0.20
+}

@@ -1,0 +1,17 @@
+government = republic add_government_reform = free_city
+government_rank = 1
+primary_culture = alemannic
+religion = catholic
+technology_group = western
+capital = 309	# Augsburg
+fixed_capital = 309
+
+1309.1.1 = { 
+	monarch = {
+		name = "Stadtrat"
+		regent = yes
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}

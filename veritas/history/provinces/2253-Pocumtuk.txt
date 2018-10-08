@@ -1,0 +1,41 @@
+# Pocumtuk
+
+capital = "Pocumtuk"
+native_size = 5
+native_ferocity = 1
+native_hostileness = 4
+culture = mahican
+religion = totemism
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+
+discovered_by = north_american
+
+1609.1.1  = { discovered_by = FRA } # Samuel de Champlain
+1680.1.1  = { citysize = 120 } # The settlement is more or less abandoned 
+1691.1.1  = { add_core = FRA }   
+1724.1.1  = {	owner = GBR
+		controller = GBR
+		is_city = yes
+		citysize = 1030
+		culture = english
+		religion = protestant
+	    } # Fort Dummer, British settlement
+1749.1.1  = { add_core = GBR }
+1750.1.1  = { citysize = 6000 }
+1763.2.10 = { remove_core = FRA } # Treaty of Paris, France gave up its claim
+1764.7.1  = {	culture = american
+		unrest = 6
+	    } # Growing unrest
+1765.1.1  = { unrest = 7 } # Controversy regarding New York's territorial claim to Vermont
+1783.9.3  = {	owner = USA
+		controller = USA
+		add_core = USA
+	    } # Entered the union
+1790.1.1  = { unrest = 3 } # The dispute with New York is settled
+1799.1.1  = { base_tax = 2
+base_production = 2 } # Federal tax on property
+1800.1.1  = { citysize = 85450 }

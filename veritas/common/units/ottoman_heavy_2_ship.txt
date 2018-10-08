@@ -1,0 +1,10 @@
+#Kalyon
+#model = galleon
+#tech_level = 24
+type = heavy_ship
+unit_type = ottoman
+
+hull_size = 26
+base_cannons = 42
+sail_speed = 5
+sailors = 550

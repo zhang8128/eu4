@@ -1,0 +1,12 @@
+# Bulgarian reconquest of Plovdiv
+
+name = "Second Bulgarian-Byzantine War"
+
+war_goal = {
+	type = take_core
+	casus_belli = cb_core	
+	province = 564 # Plovdiv
+}
+
+1322.1.1 = {	add_attacker = BUL	add_defender = BYZ	}
+1324.1.1 = {	rem_attacker = BUL	rem_defender = BYZ	} # Status quo

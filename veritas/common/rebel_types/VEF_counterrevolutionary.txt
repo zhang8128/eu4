@@ -1,0 +1,113 @@
+######################################################################
+# Counter-Revolutionaries
+######################################################################
+counterrevolutionary_rebels = {
+	
+	area = nation 					# Stays within the nation
+	government = monarchy
+	defection = none					# Will defect to the "best" alternative.
+	independence = none				# Does not strive for independence
+	defect_delay = 120
+	gfx_type = culture_province
+	
+	resilient = yes					# Disbands on retreat
+	reinforcing = yes				# Does not receive reinforcements
+	general = yes					# Does not use generals
+	smart = yes						# Does not assault forts, tactically withdraw from battle, etc.
+	unit_transfer = yes				# Units do not remain after enforcing demands.
+	will_relocate = no				# Units will relocate if they have sieged all provinces nearby and has to move over sea.
+	
+	artillery = 0.1
+	infantry = 0.5
+	cavalry = 0.4
+	morale = 0.8
+	
+	
+	# Possible handle actions
+	handle_action_negotiate = no
+	handle_action_stability = no
+	handle_action_build_core = no
+	handle_action_send_missionary = no
+	
+	# The rebel type with the highest modifier for this province gets picked
+	spawn_chance = {
+		factor = 10
+		modifier = {
+			factor = 0
+			NOT = { owner = { is_revolution_target = yes }}
+		}
+	}
+ 
+ 	# This is checked for EACH province in the Area of Operations
+	movement_evaluation = {
+		factor = 1
+		modifier = {
+			factor = 0.1
+			units_in_province = 1
+		}
+		modifier = {
+			factor = 0.001
+			controlled_by = REB
+		}
+		modifier = {
+			factor = 2.0
+			has_building = sheriffs_office
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 2
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 4
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 6
+		}
+	}
+	
+ 	# Province Scope
+ 	siege_won_trigger = {
+ 		always = yes
+ 	}
+	siege_won_effect = {
+		add_local_autonomy = 10	
+	}
+	
+	# Country scope
+	can_negotiate_trigger = {
+		always = no
+	}
+	
+	# Country scope
+	can_enforce_trigger = {
+		always = yes
+	}
+	
+	# Localisation for their demands
+	demands_description = "counterrevolutionary_rebels_demand"
+	
+	# Country scope
+	demands_enforced_effect = {
+		if = {
+			limit = { has_disaster = revolution }
+			end_disaster = revolution
+		}
+		set_revolution_target = xxx
+		change_government = hereditary_monarchy
+		set_heir = revolution_heir_@ROOT
+		if = {
+			limit = { NOT = { has_country_flag = executed_monarch }}
+			set_ruler = revolution_monarch_@ROOT
+		}
+		if = {
+			limit = { has_country_flag = executed_monarch }
+			kill_ruler = yes
+		}
+		if = {
+			limit = { has_active_policy = vef_reign_terror }
+			country_event = { id = vef_terror.203 }
+		}
+	}
+}

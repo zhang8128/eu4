@@ -1,0 +1,47 @@
+# Raska
+
+capital = "Ras"
+owner = SER
+controller = SER
+add_core = SER
+culture = serbian
+religion = orthodox
+trade_goods = fur
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = scandinavian_tech
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1347.1.1   = { base_manpower = 2 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1459.6.20 = { owner = TUR controller = TUR add_territorial_core = TUR }
+1461.1.1 = { capital = "Novi Pazar" }
+1500.1.1 = { citysize = 2263 }
+1550.1.1 = { citysize = 2520 }
+1688.11.7 = { unrest = 12 } # Serb rebellion under D. Brankovic
+1691.1.1 = { courthouse = yes }
+1700.1.1 = { citysize = 3420 }
+1717.8.22 = {
+	unrest = 0
+	owner = HAB
+	controller = HAB
+} # Austrian occupation
+1718.8.22 = {
+	owner = TUR
+	controller = TUR
+}
+1788.3.1 = { controller = HAB } # Occupied by Austrian forces
+1791.1.1 = { controller = TUR }
+1800.1.1 = { citysize = 5450 }
+1806.1.8 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Belgrade is occupied by Serbian rebels
+1813.1.1 = { revolt = {} controller = TUR }
+1815.4.23 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # The Second Serbian uprising
+1817.1.1 = { revolt = {} owner = SER controller = SER remove_territorial_core = TUR } # Serbian revolution establishes semi-independent state

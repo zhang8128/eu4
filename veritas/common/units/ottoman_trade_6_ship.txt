@@ -1,0 +1,11 @@
+#Uskuna
+#model = eastindiaman
+#tech_level = 42
+type = light_ship
+unit_type = ottoman
+
+hull_size = 18
+base_cannons = 18
+sail_speed = 10
+trade_power = 5.625
+sailors = 65

@@ -1,0 +1,81 @@
+#Elective Monarchy
+vef_electivemonarchy = {
+	potential = {
+		government = monarchy
+		NOT = { government = elective_monarchy }
+		check_variable = { which = aristocratic_privilege value = 60 }
+		check_variable = { which = noble_holdings value = 60 }
+	}
+
+	can_start = {
+		OR = {
+			AND = {
+				check_variable = { which = aristocratic_privilege value = 75 }
+				check_variable = { which = noble_holdings value = 60 }
+				OR = {
+					custom_trigger_tooltip = {
+						has_regency_trigger = yes
+						tooltip = yes_regency
+					}
+					NOT = { check_variable = { which = monarch_stats value = 8 }}
+				}
+			}
+			has_country_modifier = em_disaster_trigger
+		}
+	}
+	
+	can_stop = {
+		custom_trigger_tooltip = {
+			NOT = { has_regency_trigger = yes }
+			tooltip = no_regency
+		}
+		NOT = { has_country_modifier = em_disaster_trigger }
+		check_variable = { which = monarch_stats value = 8 }
+	}
+	
+	progress = {
+		modifier = {
+			factor = 0.1
+			check_variable = { which = noble_holdings value = 50 }
+		}
+		modifier = {
+			factor = 0.1
+			check_variable = { which = aristocratic_privilege value = 75 }
+		}
+		modifier = {
+			factor = 0.2
+			NOT = { check_variable = { which = monarch_stats value = 6 }}
+		}
+		modifier = {
+			factor = 100
+			has_country_modifier = em_disaster_trigger
+		}
+	}
+	
+	can_end = {
+		OR = {
+			NOT = { check_variable = { which = aristocratic_privilege value = 60 }}
+			NOT = { check_variable = { which = noble_holdings value = 40 }}
+			NOT = { any_owned_province = { has_province_modifier = em_noble_resistance }}
+		}
+	}
+
+	modifier = {
+		global_unrest = 2
+		global_manpower_modifier = -0.10
+		land_morale = -0.05
+	}
+
+
+	on_start = vef_newgov.400
+	on_end = vef_newgov.401
+	
+	on_monthly = {
+		events = {
+		}
+		random_events = { 
+			1000 = 0
+			500 = vef_newgov.402 #Spawn Rebels
+		}
+	}
+}

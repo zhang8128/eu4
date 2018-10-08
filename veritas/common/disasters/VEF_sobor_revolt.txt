@@ -1,0 +1,83 @@
+#Zemsky Sobor Revolt - Russia
+sobor_revolt = {
+	potential = {
+		tag = RUS
+		normal_or_historical_nations = yes
+	}
+
+	can_start = {
+		check_variable = { which = aristocratic_privilege value = 25 }
+		num_of_owned_provinces_with = {
+			culture = russian
+			NOT = { has_province_modifier = rm_increase_serfdom }
+			NOT = { has_building = heavy_serfdom }
+			value = 10
+		}
+	}
+	
+	can_stop = {
+		OR = {
+			NOT = { check_variable = { which = aristocratic_privilege value = 25 }}
+			NOT = {
+				num_of_owned_provinces_with = {
+					culture = russian
+					NOT = { has_province_modifier = rm_increase_serfdom }
+					NOT = { has_building = heavy_serfdom }
+					value = 10
+				}
+			}
+		}
+	}
+	
+	progress = {
+		modifier = {
+			factor = 0.1
+			NOT = {
+				num_of_owned_provinces_with = {
+					culture = russian
+					NOT = { has_province_modifier = rm_increase_serfdom }
+					NOT = { has_building = heavy_serfdom }
+					value = 10
+				}
+			}
+		}
+		modifier = {
+			factor = 0.1
+			check_variable = { which = aristocratic_privilege value = 50 }
+		}
+	}
+	
+	can_end = {
+		OR = {
+			NOT = {
+				num_of_owned_provinces_with = {
+					culture = russian
+					NOT = { has_province_modifier = rm_increase_serfdom }
+					NOT = { has_building = heavy_serfdom }
+					value = 10
+				}
+			}
+			NOT = { check_variable = { which = aristocratic_privilege value = 25 }}
+		}
+	}
+
+	modifier = {
+		global_unrest = 10
+		global_manpower_modifier = -0.10
+		discipline = -0.1
+		land_morale = -0.05
+	}
+
+
+	on_start = vef_newgov.40000
+	on_end = vef_newgov.40001
+	
+	on_monthly = {
+		events = {
+		}
+		random_events = { 
+			1000 = 0
+			100 = vef_newgov.40002
+		}
+	}
+}

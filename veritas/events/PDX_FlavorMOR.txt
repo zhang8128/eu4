@@ -1,0 +1,394 @@
+###########################################
+# Flavor Events for Morocco
+#
+# Scripted by Henrik Lohmander
+###########################################
+
+namespace = flavor_mor
+normal_or_historical_nations = yes
+
+#Crisis of the Maghreb
+country_event = {
+	id = flavor_mor.1
+	title = flavor_mor.1.t
+	desc = flavor_mor.1.d
+	picture = VEF_FAMINE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MOR
+		is_year = 1440
+		NOT = { is_year = 1450 }
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = {
+		name = flavor_mor.1.a #Let them try! We shall rise again!
+		add_country_modifier = {
+			name = "mor_crisis"
+			duration = 1825
+		}
+		every_known_country = {
+			limit = {
+				capital_scope = {
+					region = maghreb_region
+				}
+			}
+			add_country_modifier = {
+				name = "mor_crisis"
+				duration = 1825
+			}
+			country_event = { id = flavor_mor.11 }
+		}
+	}
+}
+
+#Moorish Refugees
+country_event = {
+	id = flavor_mor.2
+	title = flavor_mor.2.t
+	desc = flavor_mor.2.d
+	picture = VEF_HARBOUR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MOR
+		any_known_country = { has_country_flag = end_of_granada }
+	}
+	
+	mean_time_to_happen = {
+		months = 48
+	}
+	
+	option = {
+		name = flavor_mor.2.a #We welcome you with open arms
+		add_country_modifier = {
+			name = "mor_andalucian_moors"
+			duration = 3650
+		}
+	}
+}
+
+#Muhammad al-Jazuli and the Dala'il al-Khayrat
+country_event = {
+	id = flavor_mor.3
+	title = flavor_mor.3.t
+	desc = flavor_mor.3.d
+	picture = VEF_BIG_BOOK_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MOR
+		is_year = 1440
+		NOT = { is_year = 1465 }
+	}
+	
+	mean_time_to_happen = {
+		months = 63
+	}
+	
+	option = {
+		name = flavor_mor.3.a #Ok
+		add_piety = 0.2
+		add_prestige = 10
+	}
+}
+
+#Idrisid Cult of Fez
+country_event = {
+	id = flavor_mor.4
+	title = flavor_mor.4.t
+	desc = flavor_mor.4.d
+	picture = VEF_RELIGIOUS_CONVERSION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MOR
+		is_year = 1440
+		NOT = { is_year = 1500 }
+	}
+	
+	mean_time_to_happen = {
+		months = 168
+	}
+	
+	option = {
+		name = flavor_mor.4.a #Ok
+		add_piety = 0.2
+		add_country_modifier = {
+			name = "mor_idrisid_cult_soaring"
+			duration = 3650
+		}
+	}
+	
+	option = {
+		name = flavor_mor.4.b #Ok
+		add_piety = -0.2
+	}
+}
+
+#The Wattasid Viziers - Foreboding
+country_event = {
+	id = flavor_mor.5
+	title = flavor_mor.5.t
+	desc = flavor_mor.5.d
+	picture = VEF_KING_SICK_IN_BED_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MOR
+		is_year = 1440
+		NOT = { is_year = 1455 } #Died in 1448
+	}
+	
+	mean_time_to_happen = {
+		months = 33
+	}
+	
+	option = {
+		name = flavor_mor.5.a #A great man has passed away
+		add_piety = 0.05
+		set_country_flag = mor_death_of_yahya
+	}	
+}
+
+#A Wattasid Conspiracy?
+country_event = {
+	id = flavor_mor.6
+	title = flavor_mor.6.t
+	desc = flavor_mor.6.d
+	picture = VEF_ACCUSATION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MOR
+		has_country_flag = mor_death_of_yahya
+		NOT = { is_year = 1490 }
+	}
+	
+	mean_time_to_happen = {
+		months = 126
+	}
+	
+	option = {
+		name = flavor_mor.6.a #Kill them all!
+		ai_chance = { factor = 1 }
+		add_stability = -1
+		country_event = { id = flavor_mor.7 days = 30 }
+	}
+	
+	option = {
+		name = flavor_mor.6.b #They remain our trusted advisors.
+		ai_chance = { factor = 0 }
+		set_country_flag = mor_wattasid_power
+	}	
+}
+
+#Wattasid Revolt
+country_event = {
+	id = flavor_mor.7
+	title = flavor_mor.7.t
+	desc = flavor_mor.7.d
+	picture = VEF_CIVIL_WAR_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes	# flavor_mor.6
+	
+	option = {
+		name = flavor_mor.7.a
+		random_owned_province = {
+			limit = {
+				is_capital = no
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 5
+				leader = "Muhammad ibn Yahya Wattasid"
+			}
+		}
+	}	
+}
+
+#Wattasid Ultimatum
+country_event = {
+	id = flavor_mor.8
+	title = flavor_mor.8.t
+	desc = flavor_mor.8.d
+	picture = VEF_CIVIL_WAR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MOR
+		has_country_flag = mor_wattasid_power
+	}
+	
+	mean_time_to_happen = {
+		months = 30
+	}
+	
+	option = {
+		name = flavor_mor.8.a #Abdicate
+		ai_chance = { factor = 50 }
+		add_stability = -1
+		change_variable = { which = national_stability value = -500 }
+		define_ruler = {
+			name = "Muhammad I"
+			dynasty = "Wattasid"
+		}
+		clear_existing_royals = yes
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			clr_country_flag = vef_regency
+			kill_heir = yes
+		}
+	}
+	
+	option = {
+		name = flavor_mor.8.b #This is my Throne!
+		ai_chance = { factor = 50 }
+		random_owned_province = {
+			limit = {
+				is_capital = no
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 5
+				leader = "Muhammad ibn Yahya Wattasid"
+			}
+		}
+	}	
+}
+
+#The Sudanese Expedition
+country_event = {
+	id = flavor_mor.9
+	title = flavor_mor.9.t
+	desc = flavor_mor.9.d
+	picture = EXPLORERS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MOR
+		is_year = 1550
+		owns_core_province = 1669	# Sijilmassa
+		1678 = { is_empty = yes }	# Tuat
+		NOT = { owns = 1677 }		# Taoudeni
+	}
+	
+	mean_time_to_happen = {
+		months = 150
+	}
+	
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						owns = 1677		# Taoudeni
+						owns = 1676		# Arawan
+						owns = 1802		# Timbuktu
+						owns = 1675		# Walata
+					}
+				}
+				set_country_flag = mor_crosses_sahara
+			}
+		}
+	}
+	
+	option = {
+		name = flavor_mor.9.a #Let us cross the Sahara!
+		ai_chance = { factor = 1 }
+		1678 = {
+			add_core = MOR
+			cede_province = MOR
+		}
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 1677	# Taoudeni
+					province_id = 1676	# Arawan
+					province_id = 1802	# Timbuktu
+					province_id = 1675	# Walata
+				}
+			}
+			add_claim = MOR
+		}
+		every_country = {
+			limit = { has_country_flag = mor_crosses_sahara }
+			country_event = { id = flavor_mor.10 }
+		}
+	}
+	
+	option = {
+		name = flavor_mor.9.b #This is a fools errand, the desert cannot be controlled.
+		ai_chance = { factor = 0 }
+	}	
+}
+
+#The Sudanese Expedition - Info Popup
+country_event = {
+	id = flavor_mor.10
+	title = flavor_mor.10.t
+	desc = flavor_mor.10.d
+	picture = BORDER_TENSION_eventPicture
+	
+	is_triggered_only = yes	# flavor_mor.9
+	
+	trigger = {
+		NOT = { tag = MOR }
+	}
+	
+	option = {
+		name = flavor_mor.10.a #This cannot end well.
+		tooltip = {
+			every_province = {
+				limit = {
+					OR = {
+						province_id = 1677	# Taoudeni
+						province_id = 1676	# Arawan
+						province_id = 1802	# Timbuktu
+						province_id = 1675	# Walata
+					}
+				}
+				add_claim = MOR
+			}
+		}
+	}	
+}
+
+#Crisis of the Maghreb - Info Popup
+country_event = {
+	id = flavor_mor.11
+	title = flavor_mor.1.t
+	desc = flavor_mor.1.d
+	picture = VEF_FAMINE_eventPicture
+	
+	is_triggered_only = yes	# flavor_mor.1
+	
+	trigger = {
+		NOT = { tag = MOR }
+	}
+	
+	option = {
+		name = flavor_mor.1.a
+		tooltip = {
+			add_country_modifier = {
+				name = "mor_crisis"
+				duration = 1825
+			}
+		}
+	}	
+}

@@ -1,0 +1,12 @@
+# Reformed Line Infantry
+
+unit_type = eastern
+type = infantry
+
+maneuver = 1
+offensive_morale = 6
+defensive_morale = 10
+offensive_fire = 8
+defensive_fire = 8
+offensive_shock = 3
+defensive_shock = 3

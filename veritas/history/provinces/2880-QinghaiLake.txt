@@ -1,0 +1,4 @@
+# Qinghai Lake
+#Province IDs changed
+discovered_by = chinese
+discovered_by = nomad_group

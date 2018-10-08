@@ -1,0 +1,16 @@
+# Agew
+#Province IDs changed
+
+capital = "Keren"
+owner = ETH
+controller = ETH
+add_core = ETH
+culture = amharic
+religion = judaism
+base_tax = 1
+base_production = 1
+base_manpower = 2
+trade_goods = millet
+discovered_by = sudanese_tech
+hre = no
+is_city = yes

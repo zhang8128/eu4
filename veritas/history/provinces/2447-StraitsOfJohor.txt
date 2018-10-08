@@ -1,0 +1,10 @@
+# Straits Of Johor
+# $Author$
+# $Date$
+# $Rev$
+#Province IDs changed
+
+discovered_by = chinese
+discovered_by = indian
+
+1509.1.1 = { discovered_by = POR }

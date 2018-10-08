@@ -1,0 +1,45 @@
+namespace = vef_historical_friends
+
+#1 War Ends Historical Friendship
+#2 Other Side of Friendship
+
+# War Ends Historical Friendship
+country_event = {
+	id = vef_historical_friends.1
+	title = "vef_historical_friends.1.t"
+	desc = "vef_historical_friends.1.d"
+	picture = VEF_RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		historical_friend_with = FROM
+	}
+	
+	immediate = {
+		if = {
+			limit = { FROM = { historical_friend_with = ROOT }}
+			FROM = { country_event = { id = vef_historical_friends.2 }}
+		}
+	}
+	
+	option = {
+		name = "vef_historical_friends.1.opta"
+		remove_historical_friend = FROM
+	}
+}
+
+# Other Side of Friendship
+country_event = {
+	id = vef_historical_friends.2
+	title = "vef_historical_friends.2.t"
+	desc = "vef_historical_friends.2.d"
+	picture = VEF_RELIGION_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_historical_friends.2.opta"
+		remove_historical_friend = FROM
+	}
+}

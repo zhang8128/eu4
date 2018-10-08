@@ -1,0 +1,26 @@
+# Mysore
+
+capital = "Dorasamudra"
+owner = VIJ
+controller = VIJ
+add_core = VIJ
+culture = kannada
+religion = hinduism
+trade_goods = iron
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+fort_15th = yes
+discovered_by = muslim
+discovered_by = indian
+
+1336.1.1 = { capital = "Seringpatanam" owner = DLH controller = DLH add_core = MYS } # Full occupation not until 1343 but the tag is shared
+1345.1.1 = { owner = VIJ controller = VIJ }
+1376.1.1 = { owner = MYS controller = MYS }
+1498.1.1 = { discovered_by = POR }
+1512.12.1 = { controller = VIJ owner = VIJ add_core = VIJ revolt = { } } #Vijayanagara finaly defeats the Ummatur cheifs, also marks the rise of the Wodeyars in Vijayanagara service
+1529.1.1 = { owner = MYS controller = MYS remove_core = VIJ } #After the death of Krishna raja the Wodeyar cheifs slipped central obligations and ruled with increasing independence
+1662.1.1 = { controller = BIJ owner = BIJ add_core = BIJ } #Bijapuri Expansion
+1684.1.1 = { owner = MYS controller = MYS } #Independent

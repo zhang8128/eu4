@@ -1,0 +1,92 @@
+government = theocracy add_government_reform = leading_clergy_reform
+religion = catholic
+primary_culture = occitain
+add_accepted_culture = cosmopolitan_french
+technology_group = western
+capital = 135	# Avignon
+fixed_capital = 135
+
+set_variable = { which = schism_ending_majority value = 16 }
+
+1305.6.5 = {
+	monarch = {
+		name = "Clement V"
+		dynasty = "de Got"
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+
+1316.8.7 = {
+	monarch = {
+		name = "John XXII"
+		dynasty = "d'Euse"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1334.12.20 = {
+	monarch = {
+		name = "Benedict XII"
+		dynasty = "Fournier"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1342.5.7 = {
+	monarch = {
+		name = "Clement VI"
+		dynasty = "Roger"
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1352.12.18 = {
+	monarch = {
+		name = "Innocent VI"
+		dynasty = "Aubert"
+		adm = 4
+		dip = 3
+		mil = 2
+	}
+}
+
+1362.9.28 = {
+	monarch = {
+		name = "Urban V"
+		dynasty = "de Grimoard"
+		adm = 4
+		dip = 3
+		mil = 3
+	}
+}
+
+1378.4.8 = {
+	government = theocracy add_government_reform = papal_government
+	monarch = {
+		name = "Clement VII"
+		dynasty = "Geneva"
+		adm = 5
+		dip = 3
+		mil = 1
+	}
+}
+
+1394.10.11 = {
+	monarch = {
+		name = "Benedict XIII"
+		dynasty = "de Luna"
+		adm = 5
+		dip = 3
+		mil = 1
+	}
+}
+
+1417.10.18 = { government = theocracy add_government_reform = leading_clergy_reform }

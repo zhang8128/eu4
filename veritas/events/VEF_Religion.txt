@@ -1,0 +1,343 @@
+# VeF Religious Events, except Reformation
+namespace = vef_religion
+
+country_event = {
+	id = vef_religion.10000
+	title = "vef_religion.10000.t"
+	desc = "vef_religion.10000.d"
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	trigger = {
+		has_global_flag = jesuit_order
+		religion = catholic
+		NOT = { capital_scope = { region = scandinavia_region } }
+		NOT = { capital_scope = { region = low_countries_region } }
+		NOT = { has_country_flag = jesuit_decision }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.75
+			any_neighbor_country = { has_country_modifier = jesuit_influence }
+		}
+	}
+
+	immediate = {
+		set_country_flag = jesuit_decision
+	}
+
+	option = {
+		ai_chance = { factor = 70 }
+		name = "vef_religion.10000.opta"
+		add_country_modifier = { name = "jesuit_influence" duration = -1 }
+	}
+	option = {
+		ai_chance = { factor = 30 }
+		name = "vef_religion.10000.optb"
+		add_country_modifier = { name = "religious_tolerance" duration = 182 }
+	}
+}
+
+country_event = {
+	id = vef_religion.10002
+	title = "vef_religion.10002.t"
+	desc = "vef_religion.10002.d"
+	picture = VEF_RELIGION_eventPicture
+
+	trigger = {
+		religion_group = muslim
+		has_idea = devoutness
+		NOT = { has_country_flag = jizya_enacted }
+	}
+
+	immediate = {
+		set_country_flag = jizya_enacted
+	}
+
+	option = {
+		name = "vef_religion.10002.opta"
+		every_owned_province = {
+			limit = { NOT = { religion_group = muslim } }
+			add_permanent_province_modifier = { name = "jizya_taxes" duration = -1 }
+		}
+		add_piety = 0.05
+	}
+}
+
+province_event = {
+	id = vef_religion.10003
+	title = "vef_religion.10003.t"
+	desc = "vef_religion.10003.d"
+	
+	picture = VEF_RELIGION_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		has_province_modifier = jizya_taxes
+		OR = {
+			NOT = { owner = { religion_group = muslim } }
+			religion_group = muslim
+		}
+	}
+
+	option = { 
+		name = "vef_religion.10003.opta"
+		remove_province_modifier = jizya_taxes
+	}
+}
+
+country_event = {
+	id = vef_religion.10004
+	title = "vef_religion.10004.t"
+	desc = "vef_religion.10004.d"
+	picture = VEF_RELIGION_eventPicture
+
+	trigger = {
+		culture_group = east_slavic
+		religion = catholic
+		any_neighbor_country = { religion = orthodox }
+		OR = {
+			has_country_modifier = ruler_excommunicated
+			has_country_modifier = under_interdict
+		}
+		NOT = { has_country_modifier = from_excommunicated_to_orthodoxy }
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "from_excommunicated_to_orthodoxy"
+				duration = 3650
+				hidden = yes
+			}
+		}
+	}
+
+	option = {
+		name = "vef_religion.10004.opta"
+		ai_chance = { factor = 60 }
+		every_owned_province = {
+			limit = { religion = catholic }
+			change_religion = orthodox
+		}
+		change_religion = orthodox
+	}
+
+	option = {
+		name = "vef_religion.10004.optb"
+		ai_chance = { factor = 40 }
+	}
+}
+
+# The further down the religious path we go, the more likely we have issues with research...
+country_event = {
+	id = vef_religion.10014
+	title = "vef_religion.10014.t"
+	desc = "vef_religion.10014.t"
+	picture = VEF_RELIGION_eventPicture
+
+	is_triggered_only = yes	#on_bi_yearly_pulse
+	
+	trigger = {
+		has_idea_group = religious_ideas
+		OR = {
+			religion = catholic
+			religion = protestant
+			religion = anglican
+			religion = reformed
+			religion = hussite
+			religion = anabaptist
+			religion = presbyterian
+		}
+		NOT = { has_country_modifier = luddites }
+		NOT = { has_country_modifier = free_thinkers }
+		NOT = { government = papal_government }
+		NOT = { government = archbishopric }
+	}
+
+	mean_time_to_happen = { days = 1 }
+	
+	# Stay Faithful
+	option = {
+		name = "vef_religion.10014.opta"
+		ai_chance = { factor = 80 }
+		add_country_modifier = { name = "luddites" duration = 1825 }
+	}
+
+	# Allow free thought
+	option = {
+		name = "vef_religion.10014.optb"
+		ai_chance = { factor = 20 }
+		add_country_modifier = { name = "unstable_nation" duration = 1865 }
+		change_variable = { which = national_stability value = -200 }
+		add_country_modifier = { name = "free_thinkers" duration = 1825 }
+	}
+}
+
+# If we have either luddite or free thinkers, things escalate if we are further down the
+# religious ideas path
+country_event = {
+	id = vef_religion.10015
+	title = "vef_religion.10015.t"
+	desc = "vef_religion.10015.t"
+	picture = VEF_RELIGION_eventPicture
+
+	is_triggered_only = yes	#on_bi_yearly_pulse
+	
+	trigger = {
+		religious_ideas = 4
+		religion_group = christian
+		NOT = { religion = orthodox }
+		NOT = { religion = coptic }
+		NOT = { religion = nestorian }
+		OR = {
+			has_country_modifier = luddites
+			has_country_modifier = free_thinkers
+		}
+		NOT = { has_country_modifier = luddites2 }
+		NOT = { has_country_modifier = free_thinkers2 }
+	}
+
+	mean_time_to_happen = { days = 1 }
+	
+	# Stay Faithful
+	option = {
+		name = "vef_religion.10015.opta"
+		trigger = { has_country_modifier = luddites }
+		add_country_modifier = { name = "luddites2" duration = 365 }
+	}
+
+	# Free thought
+	option = {
+		name = "vef_religion.10015.optb"
+		trigger = { has_country_modifier = free_thinkers }
+		add_country_modifier = { name = "free_thinkers2" duration = 365 }
+		add_country_modifier = { name = "unstable_nation" duration = 1865 }
+		change_variable = { which = national_stability value = -200 }
+	}
+}
+
+# Iconoclasm - radical reaction to Lutherans - can lead to Reformed faith. Low
+# Countries, Switzerland, Bavaria
+province_event = {
+	id = vef_religion.10017
+	title = "vef_religion.10017.t"
+	desc = "vef_religion.10017.d"
+
+	picture = VEF_MARTIN_LUTHER_eventPicture
+
+	trigger = {
+		religion = protestant
+		OR = {
+			region = low_countries_region
+			area = romandie_area
+			area = switzerland_area
+			culture = bavarian
+		}
+		NOT = { owner = { has_country_modifier = peace_of_westphalia_enacted } }
+		NOT = { is_reformation_center = yes }
+		is_religion_enabled = reformed
+	}
+
+	mean_time_to_happen = { months = 1800 }
+	
+	# Remain Lutheran - images do not mean idolatry
+	option = {
+		ai_chance = { factor = 50 }
+		name = "vef_religion.10017.opta"
+		add_unrest = 2
+		#add_reform_desire = 0.01
+		owner = { add_country_modifier = { name = "religious_turmoil" duration = 180 } }
+	}
+
+	# Destroy the images
+	option = {
+		ai_chance = { factor = 50 }
+		name = "vef_religion.10017.optb"
+		change_religion = reformed
+		#add_reform_desire = 0.02
+	}
+}
+
+# You are laying siege to Mecca; you are stupid and really shouldn't be doing this
+country_event = {
+	id = vef_religion.10020
+	title = "vef_religion.10020.t"
+	desc = "vef_religion.10020.d"
+
+	picture = VEF_SIEGE_eventPicture
+	
+	trigger = {
+		1600 = {
+			sieged_by = ROOT
+			owner = {
+				religion_group = muslim
+				NOT = { is_subject_of = ROOT }
+			}
+			NOT = { has_province_modifier = mecca_besieged }
+			NOT = { controlled_by = REB }
+		}
+		NOT = { religion_group = muslim }
+		any_country = {
+			religion_group = muslim
+			NOT = { war_with = ROOT }
+		}
+		NOT = { tag = REB }
+	}
+
+	option = {
+		name = vef_religion.10020.opta
+		1600 = { owner = { white_peace = ROOT } }
+	}
+	
+	option = {
+		trigger = { ai = no }
+		name = vef_religion.10020.optb
+		every_country = {
+			limit = {
+				religion_group = muslim
+				has_discovered = ROOT
+			}
+			country_event = { id = vef_religion.10021 days = 1 }
+		}
+		1600 = { add_province_modifier = { name = "mecca_besieged" duration = 1865 } }
+	}
+	
+	option = {
+		trigger = {
+			ai = no
+			NOT = { has_country_flag = mecca_stall_time }
+		}
+		name = "vef_religion.10020.optc"
+		country_event = { id = vef_religion.10020 days = 45 }
+		set_country_flag = mecca_stall_time
+	}
+}
+
+# Jihad
+country_event = {
+	id = vef_religion.10021
+	title = "vef_religion.10021.t"
+	desc = "vef_religion.10021.d"
+
+	picture = VEF_SIEGE_eventPicture
+	
+	is_triggered_only = yes	
+
+	option = {
+		ai_chance = { factor = 100 }
+		name = vef_religion.10021.opta
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = "cb_vef_crusade"
+		}
+	}
+	
+	option = {
+		ai_chance = { factor = 0 }
+		name = vef_religion.10021.optb
+		add_prestige = -50
+	}
+}

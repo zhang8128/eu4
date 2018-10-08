@@ -1,0 +1,19 @@
+#Province IDs changed
+government = monarchy add_government_reform = principality
+government_rank = 1
+primary_culture = byelorussian
+religion = orthodox
+technology_group = eastern
+capital = 678	# Polotsk
+
+1267.1.1 = { add_country_modifier = { name = "hanseatic_league_member" duration = -1 } }
+
+1307.1.1 = {
+	monarch = {
+		name = "Voin"
+		dynasty = "Gediminai"
+		adm = 1
+		dip = 3
+		mil = 2
+	}
+}

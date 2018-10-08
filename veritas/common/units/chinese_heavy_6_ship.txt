@@ -1,0 +1,10 @@
+#Fu Po
+#model = threedecker
+#tech_level = 44
+type = heavy_ship
+unit_type = chinese
+
+hull_size = 52
+base_cannons = 80
+sail_speed = 4
+sailors = 800

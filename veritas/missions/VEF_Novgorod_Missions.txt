@@ -1,0 +1,469 @@
+nov_scandinavia_missions = {
+	slot = 1
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = NOV
+	}
+	has_country_shield = yes
+	
+	nov_sweden_war = {
+		icon = mission_build_up_to_force_limit
+		required_missions = {  } #None
+		completed_by = 1323.6.6
+		provinces_to_highlight = {
+			province_id = 432
+		}
+		trigger = {
+			432 = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { war_with = SWE }
+		}
+		effect = {
+			SWE = {
+				every_owned_province = {
+					limit = { is_core = FIN }
+					add_permanent_claim = NOV
+				}
+			}
+		}
+	}
+	
+	nov_finland = {
+		icon = mission_invade_island
+		required_missions = { nov_sweden_war }
+		provinces_to_highlight = {
+			owned_by = SWE
+			is_core = FIN
+		}
+		trigger = {
+			OR = {
+				FIN = { is_subject_of = ROOT }
+				num_of_owned_provinces_with = {
+					value = 5
+					culture = finnish
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					FIN = {
+						is_subject_of = ROOT
+						is_subject_of_type = suzerainty
+					}
+				}
+				create_subject = { who = ROOT subject_type = dominion }
+				set_variable = { which = vassal_progress value = 20 }
+			}
+			else = { add_accepted_culture = finnish }
+		}
+	}
+	
+	nov_baltic_trade = {
+		icon = mission_dominate_home_trade_node
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 2870
+		}
+		trigger = {
+			2870 = { is_strongest_trade_power = ROOT }
+		}
+		effect = {
+			686 = {
+				add_province_modifier = {
+					name = "dominant_trade_hub"
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+nov_baltic_coast_missions = {
+	slot = 2
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = NOV
+	}
+	has_country_shield = yes
+	
+	nov_pskov = {
+		icon = mission_assemble_an_army
+		required_missions = {  } #None
+		provinces_to_highlight = {
+			area = pskov_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			pskov_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			livonia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	nov_livonia = {
+		icon = mission_cannons_firing
+		required_missions = { nov_pskov }
+		provinces_to_highlight = {
+			area = livonia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			livonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			curonia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			estonia_ingria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	nov_kurland = {
+		icon = mission_conquer_50_development
+		required_missions = { nov_livonia }
+		provinces_to_highlight = {
+			OR = {
+				area = curonia_area
+				area = estonia_ingria_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			curonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			estonia_ingria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			lithuania_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+nov_north_russia_missions = {
+	slot = 3
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = NOV
+	}
+	has_country_shield = yes
+	
+	nov_beloozersk = {
+		icon = mission_arch
+		required_missions = {  } #None
+		provinces_to_highlight = {
+			area = beloozero_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			beloozero_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			galich_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	nov_yaroslavl = {
+		icon = mission_unite_home_region
+		required_missions = { nov_beloozersk }
+		position = 3
+		provinces_to_highlight = {
+			area = yaroslavl_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			yaroslavl_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			galich_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+nov_enforcer_missions = {
+	slot = 4
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = NOV
+	}
+	has_country_shield = yes
+	
+	nov_enforcer = {
+		icon = mission_war_chest
+		required_missions = {  } #None
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = tt_take_enforcer
+				event_target:horde_enforcer_tag = { ROOT = { war_score_against = { who = PREV value = 60 }}}
+			}
+		}
+		effect = {
+			event_target:horde_enforcer_tag = {
+				white_peace = ROOT
+				remove_country_modifier = horde_enforcer
+				every_subject_country = {
+					limit = { is_subject_of_type = russian_tribute }
+					overlord = { PREV = { grant_independence = yes }}
+					GOL = { create_subject = { who = PREV subject_type = russian_tribute }}
+				}
+				GOL = { create_subject = { who = PREV subject_type = russian_tribute }}
+			}
+			GOL = { create_subject = { who = ROOT subject_type = russian_enforcer }}
+			save_global_event_target_as = horde_enforcer_tag
+			add_country_modifier = { name = "horde_enforcer" duration = -1 }
+			715 = { add_permanent_claim = ROOT }
+			suzdal_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	nov_moscow = {
+		icon = mission_have_two_subjects
+		required_missions = { nov_enforcer }
+		provinces_to_highlight = {
+			province_id = 715
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			715 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			moscow_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ryazan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	nov_end_tribute = {
+		icon = mission_non-western_soldiers
+		required_missions = { nov_moscow }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = tt_is_enforcer
+				event_target:horde_enforcer_tag = { tag = ROOT }
+			}
+			OR = {
+				NOT = { GOL = { num_of_cities = 20 }}
+				war_score_against = { who = GOL value = 60 }
+			}
+		}
+		effect = {
+			hidden_effect = {
+				every_country = { clr_country_flag = russian_horde_tribute }
+				clear_global_event_target = horde_enforcer_tag
+				every_subject_country = {
+					limit = { is_subject_of_type = russian_tribute }
+					grant_independence = yes
+				}
+			}
+			GOL = {
+				ROOT = { grant_independence = yes }
+				every_subject_country = {
+					limit = { is_subject_of_type = russian_tribute }
+					grant_independence = yes
+				}
+			}
+			690 = { add_permanent_claim = ROOT }
+			711 = { add_permanent_claim = ROOT }
+			720 = { add_permanent_claim = ROOT }
+			722 = { add_permanent_claim = ROOT }
+			725 = { add_permanent_claim = ROOT }
+			728 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	nov_form_russia = {
+		icon = mission_empire
+		required_missions = {
+			nov_end_tribute
+			nov_yaroslavl
+			nov_tver
+		}
+		trigger = {
+			NOT = { exists = RUS }
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			OR = {
+				NOT = { exists = MOS }
+				MOS = { is_subject = yes }
+			}
+			num_of_owned_provinces_with = {
+				value = 20
+				region = russia_region 
+				is_core = ROOT
+				NOT = { nationalism = 1 }
+			}
+			owns_core_province = 686	# Novgorod
+			calc_true_if = {
+				owns_core_province = 690	# Smolensk
+				owns_core_province = 711	# Tver
+				owns_core_province = 715	# Moskva
+				owns_core_province = 720	# Ryazan
+				owns_core_province = 722	# Vladimir
+				owns_core_province = 725	# Nijni-Novgorod
+				owns_core_province = 728	# Yaroslavl
+				amount = 5
+			}
+		}
+		effect = {
+			change_tag = RUS
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			set_government_rank = 4
+			change_government = russian_empire
+			swap_non_generic_missions = yes
+			add_prestige = 25
+			russia_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = RUS
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = RUS_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+	}
+}
+
+nov_central_russia_missions = {
+	slot = 5
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = NOV
+	}
+	has_country_shield = yes
+	
+	nov_novgorod = {
+		icon = mission_unite_home_region
+		required_missions = {  } #None
+		provinces_to_highlight = {
+			area = novgorod_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			novgorod_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			tver_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	nov_tver = {
+		icon = mission_conquer_5_states
+		required_missions = { nov_novgorod }
+		position = 3
+		provinces_to_highlight = {
+			area = tver_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tver_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			smolensk_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}

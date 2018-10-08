@@ -1,0 +1,97 @@
+country_decisions = {
+
+	polish_nation = {
+		major = yes
+		potential = {
+			OR = {
+				primary_culture = polish
+				primary_culture = schlesian
+				tag = DNZ
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = PLC }
+			NOT = { tag = POL }
+			OR = {
+				NOT = { exists = POL }
+				ai = no
+			}
+			OR = {
+				num_of_cities = 6
+				ai = no
+			}
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			NOT = { exists = POL }
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 465	# Warszawa
+			465 = { NOT = { nationalism = 1 } }
+			owns_core_province = 468	# Sandomierz
+			468 = { NOT = { nationalism = 1 } }
+			owns_core_province = 470	# Krakow
+			470 = { NOT = { nationalism = 1 } }
+			owns_core_province = 471	# Sieradz
+			471 = { NOT = { nationalism = 1 } }
+			owns_core_province = 472	# Leczyca
+			472 = { NOT = { nationalism = 1 } }
+			owns_core_province = 473	# Gniezno
+			473 = { NOT = { nationalism = 1 } }
+			owns_core_province = 476	# Poznan
+			476 = { NOT = { nationalism = 1 } }
+		}
+		effect = {
+			change_tag = POL
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			poland_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = POL
+			}
+			if = {
+				limit = { NOT = { primary_culture = polish } }
+				change_primary_culture = polish
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = POL_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 1000 #If there is no Poland then Polish minors will prioritize reforming it.
+	}
+	
+}

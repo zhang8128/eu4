@@ -1,0 +1,26 @@
+pay_churchpower = {
+	trigger = {
+		OR = {
+			AND = {
+				religion = protestant
+				FROM = { religion = protestant }
+			}
+			AND = {
+				religion = presbyterian
+				FROM = { religion = presbyterian }
+			}
+			AND = {
+				religion = anglican
+				FROM = { religion = anglican }
+			}
+		}
+	}
+	
+	effect = {
+		add_church_power = -10
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}

@@ -1,0 +1,185 @@
+country_decisions = {
+
+	construct_kiel_canal = {
+		major = yes
+		potential = {
+			adm_tech = 42
+			OR = {
+				ai = no
+				AND = {
+					treasury = 20000
+					owns_or_vassal_of = 382
+				}
+			}
+			has_discovered = 382
+			382 = {
+				range = ROOT
+				NOT = { has_great_project = kiel_canal }
+				NOT = { has_construction = canal }
+			}
+		}
+		allow = {
+			owns_or_vassal_of = 382
+			is_subject = no			
+			adm_tech = 49
+			treasury = 10000
+		}
+		effect = {
+			add_treasury = -10000
+			382 = {	# Holstein
+				add_great_project = kiel_canal
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	construct_suez_canal = {
+		major = yes
+		potential = {
+			adm_tech = 42
+			OR = {
+				ai = no
+				AND = {
+					treasury = 40000
+					owns_or_vassal_of = 1624
+				}
+			}
+			has_discovered = 1624
+			1624 = {
+				range = ROOT
+				NOT = { has_great_project = suez_canal }
+				NOT = { has_construction = canal }
+			}
+		}
+		allow = {
+			owns_or_vassal_of = 1624
+			owns_or_vassal_of = 1625
+			is_subject = no
+			adm_tech = 49
+			treasury = 20000
+		}
+		effect = {
+			add_treasury = -20000
+			1624 = {	# Dumyat
+				add_great_project = suez_canal
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	construct_panama_canal = {
+		major = yes
+		potential = {
+			adm_tech = 42
+			is_random_new_world = no
+			OR = {
+				ai = no
+				AND = {
+					treasury = 60000
+					owns_or_vassal_of = 2066
+				}
+			}
+			has_discovered = 2066
+			2066 = {
+				range = ROOT
+				NOT = { has_great_project = panama_canal }
+				NOT = { has_construction = canal }
+			}
+		}
+		allow = {
+			owns_or_vassal_of = 2066
+			is_subject = no
+			adm_tech = 49
+			treasury = 30000
+		}
+		effect = {
+			add_treasury = -30000
+			2066 = {	# Panama
+				add_great_project = panama_canal
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	cancel_kiel_canal = {
+		major = yes
+		potential = {
+			ai = no
+			owns_or_vassal_of = 382
+			is_subject = no
+			382 = {
+				has_construction = canal
+			}
+		}
+		allow = {
+			382 = {
+				has_construction = canal
+			}
+		}
+		effect = {
+			382 = {	# Holstein
+				cancel_construction = yes
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	cancel_suez_canal = {
+		major = yes
+		potential = {
+			ai = no
+			owns_or_vassal_of = 1624
+			is_subject = no
+			1624 = {
+				has_construction = canal
+			}
+		}
+		allow = {
+			1624 = {
+				has_construction = canal
+			}
+		}
+		effect = {
+			1624 = {	# Diamientia
+				cancel_construction = yes
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	cancel_panama_canal = {
+		major = yes
+		potential = {
+			ai = no
+			owns_or_vassal_of = 2066
+			is_subject = no
+			2066 = {
+				has_construction = canal
+			}
+		}
+		allow = {
+			2066 = {
+				has_construction = canal
+			}
+		}
+		effect = {
+			2066 = {	# Panama
+				cancel_construction = yes
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+}

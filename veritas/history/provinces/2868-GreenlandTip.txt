@@ -1,0 +1,6 @@
+# Greenland Tip
+#Province IDs changed
+1309.1.1 = {
+    discovered_by = ICE
+    discovered_by = NOR
+}

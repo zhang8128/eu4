@@ -1,0 +1,39 @@
+# General Venice alliances/vassalizations
+dependency = {
+	subject_type = dominion
+	first = VEN
+	second = RAG
+	start_date = 1309.1.1
+	end_date = 1358.1.12
+}
+
+dependency = {
+	subject_type = dominion
+	first = VEN
+	second = NAX
+	start_date = 1309.1.1
+	end_date = 1579.1.1
+}
+
+dependency = {
+	subject_type = dominion
+	first = VEN
+	second = CEP
+	start_date = 1386.1.1
+	end_date = 1460.1.1
+}
+
+dependency = {
+	subject_type = dominion
+	first = VEN
+	second = PAD
+	start_date = 1387.3.11
+	end_date = 1405.1.1
+}
+
+vassal = {
+	first = VEN
+	second = RAG
+	start_date = 1519.1.14
+	end_date = 1562.1.1
+}

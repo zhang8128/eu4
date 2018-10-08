@@ -1,0 +1,522 @@
+#VeF Policies Reimagined - Policies that can be run freely.
+#aka Operation Guilty Spark
+#aka Policaust
+
+vef_civil_service = {
+
+	monarch_power = ADM
+	
+	potential = {
+		OR = {
+			any_owned_province = { trade_goods = paper }
+			any_owned_province = { trade_goods = hemp }
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = economic_ideas
+			has_idea_group = administrative_ideas
+		}
+	}
+	
+	global_unrest = -1.0
+	advisor_cost = 0.05
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_burn_heretics = {
+
+	monarch_power = ADM
+	
+	potential = {
+		OR = {
+			any_owned_province = { trade_goods = sandalwood }
+			any_owned_province = { trade_goods = brazilwood }
+			any_owned_province = { trade_goods = coal }
+			any_owned_province = { trade_goods = palm }
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = religious_ideas
+			has_idea_group = cultural_unity_ideas
+		}
+	}
+	
+	global_heretic_missionary_strength = 0.01
+	global_unrest = 1.0
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_gold_standard = {
+
+	monarch_power = ADM
+
+	potential = {
+		any_owned_province = { trade_goods = gold }
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = economic_ideas
+			has_idea_group = administrative_ideas
+		}
+		NOT = { has_active_policy = vef_silver_standard}
+		any_owned_province = { trade_goods = gold }
+	}	
+	
+	global_tax_modifier = -0.05
+	production_efficiency = -0.1
+	global_trade_power = 0.05
+	global_own_trade_power = 0.05
+	global_trade_goods_size_modifier = 0.05
+	inflation_reduction = 0.05
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = { inflation = 1 }
+		}
+		modifier = {
+			factor = 1.5
+			inflation = 5
+		}
+		modifier = {
+			factor = 1.5
+			inflation = 10
+		}
+		modifier = {
+			factor = 1.5
+			inflation = 15
+		}
+		modifier = {
+			factor = 1.5
+			inflation = 20
+		}
+	}
+}
+
+vef_silver_standard = {
+
+	monarch_power = ADM
+
+	potential = {
+		any_owned_province = { trade_goods = silver }
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = economic_ideas
+			has_idea_group = administrative_ideas
+		}
+		NOT = { has_active_policy = vef_gold_standard}
+		any_owned_province = { trade_goods = silver }
+	}	
+	
+	global_tax_modifier = -0.025
+	production_efficiency = -0.05
+	global_trade_power = 0.025
+	global_own_trade_power = 0.025
+	global_trade_goods_size_modifier = 0.025
+	inflation_reduction = 0.025
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT { inflation = 1 }
+		}	
+		modifier = {
+			factor = 1.5
+			inflation = 5
+		}
+		modifier = {
+			factor = 1.5
+			inflation = 10
+		}
+		modifier = {
+			factor = 1.5
+			inflation = 15
+		}
+		modifier = {
+			factor = 1.5
+			inflation = 20
+		}	
+	}
+}
+
+vef_quidproquo = {
+
+	monarch_power = ADM
+
+	potential = {
+		OR = {
+			any_owned_province = { trade_goods = chinaware }
+			any_owned_province = { trade_goods = glassware }
+			any_owned_province = { trade_goods = tea }
+			any_owned_province = { trade_goods = cocoa }
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = religious_ideas
+			has_idea_group = gf1_ideas
+		}
+	}	
+	
+	advisor_cost = -0.1
+	build_cost = 0.05
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_national_pride = {
+
+	monarch_power = ADM
+
+	potential = {
+		OR = {
+			any_owned_province = { trade_goods = cloth }
+			any_owned_province = { trade_goods = cotton }
+			any_owned_province = { trade_goods = wool }
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = cultural_unity_ideas
+			has_idea_group = standing_army_ideas
+		}
+	}	
+	
+	manpower_recovery_speed = 0.15
+	yearly_corruption = 0.05
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_ostentatious_fashion = {
+
+	monarch_power = DIP
+	
+	potential = {
+		OR = {
+			any_owned_province = { trade_goods = silk }
+			any_owned_province = { trade_goods = fur }
+			any_owned_province = { trade_goods = dyes }
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = cultural_unity_ideas
+			has_idea_group = standing_army_ideas
+		}
+	}
+	
+	prestige = 0.25
+	diplomatic_reputation = 0.5
+	global_tax_modifier = -0.05
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_paid_informants = {
+
+	monarch_power = DIP
+	
+	potential = {
+		OR = {
+			any_owned_province = { trade_goods = gems }
+			any_owned_province = { trade_goods = pearls }
+			any_owned_province = { trade_goods = jade }
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = cultural_unity_ideas
+			has_idea_group = standing_army_ideas
+		}
+	}
+	
+	spy_offence = 0.1
+	global_spy_defence = 0.1
+	advisor_cost = 0.1
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_elaborate_embassies = {
+
+	monarch_power = DIP
+	
+	potential = {
+		OR = {
+			any_owned_province = { trade_goods = ivory }
+			any_owned_province = { trade_goods = ebony }
+			any_owned_province = { trade_goods = marble }
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = cultural_unity_ideas
+			has_idea_group = standing_army_ideas
+		}
+	}
+	
+	improve_relation_modifier = 0.2
+	build_cost = 0.10
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_spice_trade = {
+
+	monarch_power = DIP
+
+	potential = {
+		OR = {
+			any_owned_province = { trade_goods = cloves }
+			any_owned_province = { trade_goods = cinnamon }
+			any_owned_province = { trade_goods = spices }
+			any_owned_province = { trade_goods = nutmeg }
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = cultural_unity_ideas
+			has_idea_group = standing_army_ideas
+		}
+	}	
+	
+	trade_range_modifier = 0.25
+	global_tax_modifier = -0.05
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_ironsides = {
+
+	monarch_power = DIP
+
+	potential = {
+		mil_tech = 45
+		OR = {
+			any_owned_province = { trade_goods = iron }
+			any_owned_province = { trade_goods = naval_supplies }
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = cultural_unity_ideas
+			has_idea_group = standing_army_ideas
+		}
+	}	
+	
+	ship_durability = 0.1
+	naval_maintenance_modifier = 0.05
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = { num_of_ports = 5 }
+		}			
+	}
+}
+
+vef_maritime_preservation = {
+
+	monarch_power = DIP
+	
+	potential = {
+		OR = {
+			any_owned_province = { trade_goods = salt }
+			any_owned_province = { trade_goods = coffee }
+			any_owned_province = { trade_goods = wax }
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = cultural_unity_ideas
+			has_idea_group = standing_army_ideas
+		}
+	}
+	
+	naval_attrition = -0.1
+	naval_maintenance_modifier = 0.05
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = { num_of_ports = 5 }
+		}			
+	}
+}
+
+vef_hire_privateers = {
+
+	monarch_power = DIP
+
+	potential = {
+		num_of_ports = 1
+		OR = {
+			has_idea_group = gf1_ideas
+			has_idea_group = mm1_ideas
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = gf1_ideas
+			has_idea_group = mm1_ideas
+		}
+	}
+	
+	embargo_efficiency = 0.1
+	privateer_efficiency = 0.25
+	improve_relation_modifier = -0.10
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_liquid_courage = {
+
+	monarch_power = MIL
+	
+	potential = {
+		OR = {
+			any_owned_province = { trade_goods = beer }
+			any_owned_province = { trade_goods = wine }
+			any_owned_province = { trade_goods = spirits }
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = quality_ideas
+			has_idea_group = standing_army_ideas
+		}
+	}
+	
+	land_morale = 0.1
+	naval_morale = 0.1
+	land_maintenance_modifier = 0.05
+	naval_maintenance_modifier = 0.05
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_smokers_paradise = {
+
+	monarch_power = MIL
+	
+	potential = {
+		OR = {
+			any_owned_province = { trade_goods = tobacco }
+			any_owned_province = { trade_goods = opium }
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = gf1_ideas
+			has_idea_group = standing_army_ideas
+		}
+	}
+	
+	recover_army_morale_speed = 0.1
+	recover_navy_morale_speed = 0.1
+	land_maintenance_modifier = 0.05
+	naval_maintenance_modifier = 0.05
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_mixed_provisions = {
+
+	monarch_power = MIL
+	
+	potential = {
+		OR = {
+			any_owned_province = { trade_goods = livestock }
+			any_owned_province = { trade_goods = fish }
+			any_owned_province = { trade_goods = rice }
+			any_owned_province = { trade_goods = olive }
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = quality_ideas
+			has_idea_group = defensive_ideas
+		}
+	}
+	
+	infantry_power = 0.05
+	infantry_cost = 0.05
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_heavy_cavalry = {
+
+	monarch_power = MIL
+	
+	potential = {
+		OR = {
+			any_owned_province = { trade_goods = grain }
+			any_owned_province = { trade_goods = millet }
+			any_owned_province = { trade_goods = maize }
+			any_owned_province = { trade_goods = sugar }
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = quality_ideas
+			has_idea_group = offensive_ideas
+		}
+	}
+	
+	cavalry_power = 0.05
+	cavalry_cost = 0.05
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_fire_discipline = {
+
+	monarch_power = MIL
+	
+	potential = {
+		OR = {
+			any_owned_province = { trade_goods = copper }
+			any_owned_province = { trade_goods = lead }
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = quality_ideas
+			has_idea_group = artillery_ideas
+		}
+	}
+	
+	artillery_power = 0.05
+	artillery_cost = 0.05
+	
+	ai_will_do = { factor = 1 }
+}

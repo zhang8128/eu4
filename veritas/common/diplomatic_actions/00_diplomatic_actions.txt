@@ -1,0 +1,725 @@
+# INSTRUCTIONS:
+#
+# condition				A diplomatic action can have any number of condition blocks, each with its own
+#						tooltip, potential and allow section
+#
+# 	tooltip					Sets a custom text string similar to the hardcoded limits
+# 							If no tooltip is scripted, the tooltip for the actual condition will be shown
+#							Note that the custom tooltip is only shown if the allow condition is NOT met
+#
+# 	potential				Determines if the condition is applicable or not
+# 	allow					Determines if the action is valid or not
+#
+# effect				A diplomatic action can only have one effect block
+
+# ROOT					actor
+# FROM					target
+
+########################################
+# DIPLOMATIC ACTIONS
+########################################
+# royal_marriage
+# declarewar
+# requestpeace
+# support_independence_action
+# allianceaction
+# embargoaction
+# annexationaction
+# integrationaction
+# vassalaction
+# guaranteeaction
+# warningaction
+# threaten_war
+# milaccess
+# fleet_access
+# offer_fleet_access
+# offermilaccess
+# insultaction
+# giftaction
+# claimaction
+# callaction
+# offerloan
+# warsubsidy
+# sellprov
+# imperial_relations_action
+# religious_unity_action
+# grant_electorate
+# remove_electorate
+# grant_freecity
+# remove_freecity
+# demand_unlawful_territory_action
+# call_crusade_action
+# excommunicate_action
+# enforce_peace
+# improve_relation
+# fabricate_claim
+# justify_trade_conflict
+# transfer_trade_power
+# infiltrate_administration
+# sabotage_reputation
+# support_rebels
+# sow_discontent
+# study_technology
+# agitate_for_liberty
+# form_coalition
+# request_to_join_federation
+# invite_to_federation
+# support_heir
+# break_marriage
+# designate_march
+# ask_for_march
+# sell_ships_action
+# counterespionage
+# abandon_union_action
+
+royal_marriage = {
+	condition = {
+		tooltip = MARWAR
+		potential = {
+		}
+		allow = {
+			NOT = { war_with = FROM }
+		}
+	}
+	
+	condition = {
+		tooltip = NO_VACANTE_MARRIAGE
+		potential = { 
+			OR = {
+				tag = PAP
+				FROM = { tag = PAP }
+			}
+		}
+
+		allow = {
+			NOT = { PAP = { has_ruler = "Sede" }}
+		}
+	}
+	
+	#Vassal cannot ally against overlord's interests
+	condition = {
+		tooltip = VASSAL_LIMITS_ENEMY
+		potential = {
+			is_subject_of_type = suzerainty
+		}
+		allow = {
+			OR = {
+				AND = {
+					NOT = { overlord = { is_rival = FROM }}
+					NOT = { overlord = { is_enemy = FROM }}
+				}
+				liberty_desire = 50
+			}
+		}
+	}
+}
+
+declarewar = {
+	condition = {
+		tooltip = tooltip_regency_war
+		potential = {
+			has_country_flag = vef_regency
+			NOT = { has_dlc = "Rights of Man" }
+		}
+		allow = {
+			OR = {
+				uses_doom = yes
+				check_variable = { which = regency_any_war which = regency_requirement }
+				has_casus_belli = { type = cb_restore_personal_union target = FROM }
+				AND = {
+					check_variable = { which = regency_core_war which = regency_requirement } 
+					OR = {
+						has_casus_belli = { type = cb_defection target = FROM }
+						has_casus_belli = { type = cb_core target = FROM }
+					}
+				}
+				AND = {
+					check_variable = { which = regency_claim_war which = regency_requirement } 
+					OR = {
+						has_casus_belli = { type = cb_border_war target = FROM }
+						has_casus_belli = { type = cb_conquest target = FROM }
+					}
+				}
+				AND = {
+					check_variable = { which = regency_trade_war which = regency_requirement } 
+					OR = {
+						has_casus_belli = { type = cb_loan_cancelled target = FROM }
+						has_casus_belli = { type = cb_trade_war_triggered target = FROM }
+						has_casus_belli = { type = cb_trade_conflict target = FROM }
+						has_casus_belli = { type = cb_trade_war target = FROM }
+					}
+				}
+				AND = {
+					check_variable = { which = regency_religious_war which = regency_requirement } 
+					OR = {
+						has_casus_belli = { type = cb_religious_conformance target = FROM }
+						has_casus_belli = { type = cb_crusade target = FROM }
+						has_casus_belli = { type = cb_defender_of_the_faith target = FROM }
+						has_casus_belli = { type = cb_heretic target = FROM }
+						has_casus_belli = { type = cb_vef_crusade target = FROM }
+						has_casus_belli = { type = cb_vefcrusade target = FROM }
+					}
+				}
+				AND = {
+					check_variable = { which = regency_ally_war which = regency_requirement } 
+					has_casus_belli = { type = cb_alliance_war target = FROM }
+				}
+				AND = {
+					check_variable = { which = regency_colonial_war which = regency_requirement } 
+					OR = {
+						has_casus_belli = { type = cb_colonial target = FROM }
+						has_casus_belli = { type = cb_primitives target = FROM }
+						has_casus_belli = { type = cb_overseas target = FROM }
+					}
+				}
+				AND = {
+					check_variable = { which = regency_rival_war which = regency_requirement } 
+					has_casus_belli = { type = cb_rival target = FROM }
+				}
+			}
+		}
+	}
+
+   # Russia needs agreement from the Zemskhy Sobor if they are in power, OR if the Tsar
+	# decides to force the issue
+	condition = {
+		tooltip = RUSSIA_ZEMSKY_SOBOR
+		potential = {
+			tag = RUS
+			government = russian_empire
+			faction_in_power = rus_zemsky_sobor
+		}
+		allow = {
+			has_country_flag = zemsky_war_allowed
+		}
+	}
+
+   # The Golden Horde can't delcare war on MOS except by event, since they are the
+	# enforcer
+	condition = {
+		tooltip = HORDE_ENFORCER
+		potential = {
+			tag = GOL
+		}
+		allow = {
+			NOT = { FROM = { has_country_modifier = horde_enforcer } }
+			NOT = { FROM = { overlord = { has_country_modifier = horde_enforcer }}}
+		}
+	}
+	
+	# AI Golden Horde not declaring on Genoa or Venice for trade posts
+	condition = {
+		tooltip = HORDE_ENFORCER
+		potential = {
+			tag = GOL
+			ai = yes
+			NOT = { has_global_flag = black_trade_wars_over }
+		}
+		allow = {
+			NOT = { FROM = { tag = GEN }}
+			NOT = { FROM = { tag = VEN }}
+		}
+	}
+	
+	#Vassal cannot war against overlord's interests
+	condition = {
+		tooltip = VASSAL_LIMITS_FRIEND
+		potential = {
+			is_subject_of_type = suzerainty
+		}
+		allow = {
+			OR = {
+				AND = {
+					NOT = { overlord = { alliance_with = FROM }}
+					NOT = { overlord = { has_guaranteed = FROM }}
+					NOT = { overlord = { overlord_of = FROM }}
+				}
+				liberty_desire = 50
+			}
+		}
+	}
+	
+	#Europeans cannot declare war on primitives
+	condition = {
+		tooltip = PRIMITVES_WAR_LIMIT
+		potential = {
+			FROM = { government = native_council }
+		}
+		allow = {
+			OR = {
+				capital_scope = { continent = north_america }
+				capital_scope = { continent = south_america }
+				capital_scope = { continent = new_world }
+			}
+		}
+	}
+	
+	#Limit Bohemia as a subject
+	condition = {
+		tooltip = BOHEMIAN_WAR_LIMIT
+		potential = {
+			tag = BOH
+			is_subject_of_type = bohemian_union
+		}
+		allow = {
+			FROM = {
+				any_owned_province = { is_core = BOH }
+				NOT = { num_of_cities = 4 }
+			}
+		}
+	}
+
+	effect = {
+		hidden_effect = { 
+			if = {
+				limit = { tag = RUS }
+				clr_country_flag = zemsky_war_allowed
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_flag = vassal_flag
+						has_country_flag = long_term_vassal
+					}
+					FROM = { is_subject = no }
+				}
+				add_manpower = 3.5
+			}
+			remove_country_modifier = offensive_war_declared
+			add_country_modifier = { name = "offensive_war_declared" duration = 9125 hidden = yes }
+		}
+		if = {
+			limit = {
+				any_owned_province = { has_building = hansa_kontor }
+				FROM = { has_country_modifier = hansa_city_state_modifier }
+			}
+			country_event = { id = vef_hansa.30004 }
+			every_known_country = {
+				limit = {
+					has_country_modifier = hanseatic_league_member
+					NOT = { is_subject_of = ROOT }
+				}
+				add_opinion = { who = ROOT modifier = baltic_declared_war }
+			}
+		}	
+		if = {
+			limit = {
+				has_country_modifier = hansa_city_state_modifier
+				FROM = { any_owned_province = { has_building = hansa_kontor }}
+			}
+			FROM = { country_event = { id = vef_hansa.30004 }}
+			every_known_country = {
+				limit = {
+					has_country_modifier = hanseatic_league_member
+					NOT = { is_subject_of = ROOT }
+				}
+				add_opinion = { who = ROOT modifier = baltic_declared_war }
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = overlord_flag_@FROM
+				FROM = { check_variable = { which = subject_libdesire value = 1 }}
+			}
+			add_stability = 1
+			if = {
+				limit = { FROM = { check_variable = { which = subject_libdesire value = 2 }}}
+				add_stability = 1
+				if = {
+					limit = { FROM = { check_variable = { which = subject_libdesire value = 3 }}}
+					add_stability = 1
+				}
+			}
+			FROM = {
+				set_variable = { which = subject_libdesire value = 0 }
+				if = {
+					limit = { has_country_modifier = vassal_rebellious }
+					remove_country_modifier = vassal_rebellious
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = { has_country_flag = overlord_flag_@ROOT }
+				check_variable = { which = subject_libdesire value = 1 }
+			}
+			add_stability = 1
+			if = {
+				limit = { check_variable = { which = subject_libdesire value = 2 }}
+				add_stability = 1
+				if = {
+					limit = { check_variable = { which = subject_libdesire value = 3 }}
+					add_stability = 1
+				}
+			}
+			set_variable = { which = subject_libdesire value = 0 }
+			if = {
+				limit = { has_country_modifier = vassal_rebellious }
+				remove_country_modifier = vassal_rebellious
+			}
+		}
+	}
+}
+
+requestpeace = {
+	condition = {
+		tooltip = WOTR_NOT_END
+		potential = { tag = LAN }
+		allow = { NOT = { FROM = { tag = YOR }}}
+	}
+	condition = {
+		tooltip = WOTR_NOT_END
+		potential = { tag = YOR }
+		allow = { NOT = { FROM = { tag = LAN }}}
+	}
+}
+
+support_independence_action = {
+	condition = {
+		tooltip = BOHCROWN_INDEPENDENCE
+		potential = { FROM = { government = bohemian_monarchy }}
+		allow = { always = no }
+	}
+}
+
+annexationaction = {
+	# General case, can only annex once the integraiton process is complete. 
+	# See events/VEF_Vassals.txt.
+	condition = { 
+		tooltip = ALLOWED_TO_ANNEX
+		potential = {
+			OR = {
+				NOT = { is_nomad = yes } # AI Hordes will keep their vassals
+				ai = no
+			}
+		}
+		allow = {
+			OR = {
+				FROM = { has_country_flag = allowed_to_annex }
+				FROM = { is_subject_of_type = client_vassal }
+				FROM = { is_subject_of_type = client_march }
+				FROM = { is_subject_of_type = swiss_confederate }
+			}
+		}
+	}
+	
+	condition = {
+		tooltip = ANNEX_TOO_LOW
+		potential = {
+			FROM = {
+				vassal_of = ROOT
+			}
+		}
+		allow = {
+			FROM = {
+				has_opinion = {
+					who = ROOT
+					value = 190
+				}
+			}
+		}
+	}
+}
+
+integrationaction = {
+	condition = {
+		tooltip = INTEGRATETOOLOWDESC
+		potential = {
+			senior_union_with = FROM
+		}
+		allow = {
+			FROM = {
+				has_opinion = {
+					who = ROOT
+					value = 190
+				}
+			}
+		}
+	}
+	condition = {
+		tooltip = HANSA_INTEGRATE
+		potential = {
+			has_country_modifier = hansa_leader_modifier
+		}
+		allow = {
+			FROM = { NOT = { has_country_modifier = hanseatic_league_member }}
+		}
+	}
+}
+
+vassalaction = {
+	condition = {
+		tooltip = NO_REPUBLIC_VASSAL
+		potential = { 
+			FROM = { government = republic }
+		}
+
+		allow = { always = no }
+	}
+
+	condition = {
+		tooltip = VASSALINVALID
+		potential = {
+		}
+		allow = {
+			alliance_with = FROM
+			FROM = {
+				has_opinion = {
+					who = ROOT
+					value = 190
+				}
+			}
+			FROM = { is_at_war = no }
+		}
+	}
+	
+	effect = {
+		if = {
+			limit = {
+				FROM = {
+					has_opinion_modifier = {
+						modifier = had_war_with_us
+						who = ROOT
+					}
+				}
+			}
+			reverse_remove_opinion = { modifier = had_war_with_us who = FROM }
+		}
+		hidden_effect = {
+			create_subject = { who = FROM subject_type = suzerainty }
+			set_country_flag = overlord_flag_@FROM
+			FROM = {
+				set_country_flag = vassal_flag
+				set_variable = { which = vassal_progress value = 20 }
+				export_to_variable = { which = prevvassal_prov value = num_of_cities }
+			}
+		}
+	}
+}
+
+grant_freecity = {
+	condition = {
+		tooltip = NO_HANSA_FREECITY
+		potential = {
+		}
+		allow = { NOT = { FROM = { has_reform = hanseatic_union }}}
+	}
+	condition = {
+		tooltip = NO_SWISS_FREECITY
+		potential = {
+		}
+		allow = {
+			NOT = { FROM = { has_reform = swiss_canton }}
+			NOT = { FROM = { has_reform = swiss_confederation }}
+		}
+	}
+}
+
+demand_unlawful_territory_action = {
+	condition = {
+		tooltip = NO_SPAM_DEMANDS
+		potential = {
+		}
+		allow = { NOT = { has_opinion_modifier = { who = FROM modifier = opinion_unlawful_territory }}}
+	}
+}
+
+abandon_union_action = {
+	condition = {
+		potential = {
+		}
+		allow = {
+			ROOT = {
+				senior_union_with = FROM
+				is_at_war = no
+			}
+		}
+	}
+}
+
+form_coalition = {
+	condition = {
+		tooltip = MINAGGRESSIVEEXPANSION
+		potential = {	
+		}
+		allow = {
+			has_opinion_modifier = {
+				modifier = aggressive_expansion
+				who = FROM
+			}		
+			NOT = {
+				has_opinion_modifier = {
+					modifier = aggressive_expansion
+					who = FROM
+					value = -30
+				}
+			}
+		}
+	}
+}
+
+warningaction = {
+	condition = {
+		tooltip = HORDE_NO_WARN_RUSSIANS
+		potential = {
+			tag = GOL
+			FROM = { primary_culture = russian }
+		}
+
+		allow = {
+			OR = {
+				NOT = { exists = MOS }
+				NOT = { MOS = { has_country_flag = golden_horde_tribute } }
+			}
+		}
+	}
+
+	condition = {
+		tooltip = BYZ_NO_WARN
+		potential = {
+			tag = BYZ
+			has_country_modifier = byzantine_decline1
+		}
+
+		allow = {
+			FROM = { num_of_cities = 7 }
+		}
+	}
+}
+
+threaten_war = {
+	condition = {
+		tooltip = REGENCY_NO_THREATEN
+		potential = {
+			has_country_flag = vef_regency
+		}
+
+		allow = {
+			always = no
+		}
+	}
+}
+
+allianceaction = {
+	#Vassal cannot ally against overlord's interests
+	condition = {
+		tooltip = VASSAL_LIMITS_ENEMY
+		potential = {
+			is_subject_of_type = suzerainty
+		}
+		allow = {
+			OR = {
+				AND = {
+					NOT = { overlord = { is_rival = FROM }}
+					NOT = { overlord = { is_enemy = FROM }}
+				}
+				liberty_desire = 50
+			}
+		}
+	}
+}
+
+fabricate_claim = {
+	# You get 'offensive war points' for doing this
+	condition = {
+		tooltip = FABRICATE_POINTS
+		potential = {
+			ai = no
+		}
+
+		allow = {
+		}
+	}
+
+	effect = {
+		change_variable = { which = offensive_war_count value = 2 }
+	}
+}
+
+designate_march = {
+	condition = {
+		tooltip = MARCH_NOT_POSSIBLE
+		potential = { FROM = { is_subject_of = ROOT }}
+		allow = {
+			FROM = { is_subject_of_type = vassal check_variable = { which = vassal_progress value = 19 }}
+		}
+	}
+}
+
+ask_for_march = {
+	condition = {
+		tooltip = MARCH_NOT_POSSIBLE
+		potential = { is_subject_of = FROM }
+		allow = {
+			is_subject_of_type = vassal
+			check_variable = { which = vassal_progress value = 19 }
+		}
+	}
+}
+
+invite_to_trade_league = {
+	condition = {
+		tooltip = HANSEATIC_LEAGUE_TL
+		potential = {}
+		allow = {
+			NOT = { FROM = { has_country_modifier = hanseatic_league_member }}
+			NOT = { has_country_modifier = hanseatic_league_member }
+		}
+	}
+}
+request_to_join_trade_league = {
+	condition = {
+		tooltip = HANSEATIC_LEAGUE_TL
+		potential = {}
+		allow = {
+			NOT = { has_country_modifier = hanseatic_league_member }
+			NOT = { FROM = { has_country_modifier = hanseatic_league_member }}
+		}
+	}
+}
+
+tributary_state_action = {
+	condition = {
+		tooltip = TRIBUTE_GUARANTEE
+		potential = {}
+		allow = {
+			NOT = { has_guaranteed = FROM }
+			NOT = { FROM = { has_guaranteed = ROOT }}
+		}
+	}
+	condition = {
+		tooltip = HORDE_ENFORCER
+		potential = {
+			tag = GOL
+			ai = yes
+		}
+		allow = {
+			NOT = { FROM = { tag = GEN }}
+			NOT = { FROM = { tag = VEN }}
+		}
+	}
+}
+
+ask_for_tributary_state_action = {
+	condition = {
+		tooltip = TRIBUTE_GUARANTEE
+		potential = {}
+		allow = {
+			NOT = { has_guaranteed = FROM }
+			NOT = { FROM = { has_guaranteed = ROOT }}
+		}
+	}
+	condition = {
+		tooltip = HORDE_ENFORCER
+		potential = {
+			OR = {
+				tag = VEN
+				tag = GEN
+			}
+			ai = yes
+		}
+		allow = {
+			always = no
+		}
+	}
+}

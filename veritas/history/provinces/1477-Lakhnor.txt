@@ -1,0 +1,17 @@
+# Lakhnor
+#Province IDs changed
+
+owner = BNG
+controller = BNG
+culture = bihari
+religion = buddhism
+capital = "Lakhnor"
+trade_goods = rice
+hre = no
+base_tax = 3
+base_production = 3
+base_manpower = 3
+add_core = BNG
+is_city = yes
+discovered_by = chinese
+discovered_by = indian

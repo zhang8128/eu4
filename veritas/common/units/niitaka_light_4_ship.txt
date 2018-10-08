@@ -1,0 +1,10 @@
+#Shuinsen
+#model = caravel
+#tech_level = 28
+type = transport
+unit_type = niitaka
+
+hull_size = 16
+base_cannons = 16
+sail_speed = 10
+sailors = 250

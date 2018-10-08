@@ -1,0 +1,16 @@
+﻿l_english:
+ caliphate.40000.t: "Fall of the Caliphate"
+ caliphate.40000.d: "Disaster has struck the Caliphate. Caliph $MONARCHNAME$ has been killed in a futile defense of Mecca. The Umah is in a shambles. We must pick up the pieces."
+ caliphate.40000.opta: "Insha'Allah"
+ caliphate.40001.t: "Declare a Jihad"
+ caliphate.40001.d: "One of our great cities has fallen to the Christians. We must save the city from the infidel! Our target is..."
+ caliphate.40001.opta: "Istanbul"
+ caliphate.40001.optb: "Tangier"
+ caliphate.40001.optc: "Tripoli"
+ caliphate.40001.optd: "Jerusalem"
+ caliphate.40001.opte: "Damascus"
+ caliphate.40001.optf: "Medina"
+ caliphate.40001.optg: "Mecca"
+
+ attitude_jihad: "Jihad!"
+ attitude_jihad_desc: "We hold an important Muslim city and they will stop at nothing to restore Islamic rule there."

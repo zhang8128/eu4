@@ -1,0 +1,10 @@
+#Shu'ai
+#model = frigate
+#tech_level = 28
+type = transport
+unit_type = muslim
+
+hull_size = 8
+base_cannons = 8
+sail_speed = 10
+sailors = 250

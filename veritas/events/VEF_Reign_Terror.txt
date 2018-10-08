@@ -1,0 +1,1314 @@
+##############
+# Revolution #
+##############
+
+namespace = vef_terror
+
+#Opening
+#1 Rules
+#2 Choose Freedom
+#3 Choose Privilege/Merit
+#4 Choose Land Ownership
+#5 Royal Demesne?
+#6 Republics?
+#7 Value Saves
+
+#25 Revoke Charters?
+
+#Maintenance
+#100 Monthly Tick
+#101 Noble to Citizen Land
+#102 Take Citizen Land
+
+#Disaster
+#200 Notification
+#201 Backlash Start
+#202 Backlash End
+#203 Failure
+
+
+# Terror Begins - The Rules
+country_event = {
+	id = vef_terror.1
+	title = "vef_terror.1.t"
+	desc = "vef_terror.1.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	trigger = {
+		has_active_policy = vef_reign_terror
+		NOT = { has_country_flag = had_reign_terror }
+	}
+	
+	immediate = {
+		set_country_flag = had_reign_terror
+	}
+	
+	option = {
+		name = "vef_terror.1.opta"
+		country_event = { id = vef_terror.2 }
+	}
+}
+
+# Terror Begins - Freedom
+country_event = {
+	id = vef_terror.2
+	title = "vef_terror.2.t"
+	desc = "vef_terror.2.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #vef_terror.1
+	
+	option = {	#Free the People
+		name = "vef_terror.2.opta"
+		add_country_modifier = { name = terror_freedom duration = -1 }
+		country_event = { id = vef_terror.3 }
+	}
+	
+	option = {	#Serfdom
+		trigger = { NOT = { government = republic }}
+		name = "vef_terror.2.optb"
+		add_country_modifier = { name = terror_serfdom duration = -1 }
+		country_event = { id = vef_terror.3 }
+	}
+	
+	option = {	#Do nothing
+		name = "vef_terror.2.optc"
+		country_event = { id = vef_terror.3 }
+	}
+}
+
+# Terror Begins - Privilege
+country_event = {
+	id = vef_terror.3
+	title = "vef_terror.3.t"
+	desc = "vef_terror.3.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #vef_terror.2
+	
+	option = {	#End the Nobility
+		trigger = { NOT = { has_country_modifier = terror_serfdom }}
+		name = "vef_terror.3.opta"
+		add_country_modifier = { name = terror_end_nobles duration = -1 }
+		country_event = { id = vef_terror.4 }
+	}
+	
+	option = {	#Rein in Nobles
+		name = "vef_terror.3.optb"
+		add_country_modifier = { name = terror_curb_nobles duration = -1 }
+		country_event = { id = vef_terror.4 }
+	}
+	
+	option = {	#Do nothing
+		name = "vef_terror.3.optc"
+		country_event = { id = vef_terror.4 }
+	}
+}
+
+# Terror Begins - Land
+country_event = {
+	id = vef_terror.4
+	title = "vef_terror.4.t"
+	desc = "vef_terror.4.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #vef_terror.3
+	
+	option = {	#Nobles to People
+		trigger = { NOT = { has_country_modifier = terror_serfdom }}
+		name = "vef_terror.4.opta"
+		add_country_modifier = { name = terror_land_nobles duration = -1 }
+		random_owned_province = {
+			limit = { is_capital = yes }
+			province_event = { id = vef_terror.5 }
+		}
+	}
+	
+	option = {	#End Citizen Ownership
+		trigger = {
+			NOT = { government = republic }
+			NOT = { has_country_modifier = terror_end_nobles }
+		}
+		name = "vef_terror.4.optb"
+		add_country_modifier = { name = terror_land_citizens duration = -1 }
+		random_owned_province = {
+			limit = { is_capital = yes }
+			province_event = { id = vef_terror.5 }
+		}
+	}
+	
+	option = {	#Do nothing
+		name = "vef_terror.4.optc"
+		random_owned_province = {
+			limit = { is_capital = yes }
+			province_event = { id = vef_terror.5 }
+		}
+	}
+}
+
+# Terror Begins - Capital Region
+province_event = {
+	id = vef_terror.5
+	title = "vef_terror.5.t"
+	desc = "vef_terror.5.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #vef_terror.4
+	
+	immediate = {
+		owner = {
+			every_owned_province = {
+				limit = { area = ROOT }
+				set_province_flag = terror_capital
+			}
+		}
+	}
+	
+	option = {	#Royal Demesne
+		name = "vef_terror.5.opta"
+		owner = {
+			add_country_modifier = { name = terror_demesne duration = -1 }
+			if = {
+				limit = { any_owned_province = { has_building = local_assembly }}
+				country_event = { id = vef_terror.6 }
+			}
+			if = {
+				limit = { NOT = { any_owned_province = { has_building = local_assembly }}}
+				country_event = { id = vef_terror.7 }
+			}
+		}
+	}
+	
+	option = {	#As rest of nation
+		name = "vef_terror.5.optb"
+		owner = {
+			if = {
+				limit = { any_owned_province = { has_building = local_assembly }}
+				country_event = { id = vef_terror.6 }
+			}
+			if = {
+				limit = { NOT = { any_owned_province = { has_building = local_assembly }}}
+				country_event = { id = vef_terror.7 }
+			}
+		}
+	}
+	
+	option = {	#Leave Alone
+		name = "vef_terror.5.optc"
+		owner = {
+			set_country_flag = terror_capital_exempt
+			custom_tooltip = tt_capital_exempt
+			if = {
+				limit = { any_owned_province = { has_building = local_assembly }}
+				country_event = { id = vef_terror.6 }
+			}
+			if = {
+				limit = { NOT = { any_owned_province = { has_building = local_assembly }}}
+				country_event = { id = vef_terror.7 }
+			}
+		}
+	}
+}
+
+
+# Terror Begins - Republics
+country_event = {
+	id = vef_terror.6
+	title = "vef_terror.6.t"
+	desc = "vef_terror.6.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #vef_terror.5
+	
+	option = {	#No exceptions!
+		name = "vef_terror.6.opta"
+		country_event = { id = vef_terror.7 }
+	}
+	
+	option = {	#Leave Alone
+		name = "vef_terror.6.optb"
+		set_country_flag = terror_republics_exempt
+		country_event = { id = vef_terror.7 }
+	}
+}
+
+
+# Terror Begins - Actuation
+country_event = {
+	id = vef_terror.7
+	title = "vef_terror.7.t"
+	desc = "vef_terror.7.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #vef_terror.6
+	
+	hidden = yes
+	
+	immediate = {
+		every_owned_province = {
+			if = {
+				limit = { has_building = nobles_20 }
+				set_province_flag = terror_nob20
+			}
+			if = {
+				limit = { has_building = nobles_40 }
+				set_province_flag = terror_nob40
+			}
+			if = {
+				limit = { has_building = nobles_60 }
+				set_province_flag = terror_nob60
+			}
+			if = {
+				limit = { has_building = nobles_80 }
+				set_province_flag = terror_nob80
+			}
+			if = {
+				limit = { has_building = citizens_20 }
+				set_province_flag = terror_cit20
+			}
+			if = {
+				limit = { has_building = citizens_40 }
+				set_province_flag = terror_cit40
+			}
+			if = {
+				limit = { has_building = citizens_60 }
+				set_province_flag = terror_cit60
+			}
+			if = {
+				limit = { has_building = citizens_80 }
+				set_province_flag = terror_cit80
+			}
+			if = {
+				limit = { has_building = church_20 }
+				set_province_flag = terror_icxc20
+			}
+			if = {
+				limit = { has_building = church_40 }
+				set_province_flag = terror_icxc40
+			}
+			if = {
+				limit = { has_building = church_60 }
+				set_province_flag = terror_icxc60
+			}
+			if = {
+				limit = { has_building = church_80 }
+				set_province_flag = terror_icxc80
+			}
+			if = {
+				limit = { has_building = heavy_serfdom }
+				set_province_flag = terror_hs
+			}
+			if = {
+				limit = { has_building = moderate_serfdom }
+				set_province_flag = terror_ms
+			}
+			if = {
+				limit = { has_building = light_serfdom }
+				set_province_flag = terror_ls
+			}
+			if = {
+				limit = { has_building = freedom }
+				set_province_flag = terror_fdm
+			}
+			if = {
+				limit = { has_building = civic_charter }
+				set_province_flag = terror_cc
+			}
+			if = {
+				limit = { has_building = local_assembly }
+				set_province_flag = terror_la
+			}
+		}
+		set_variable = { which = terror_merit which = vef_merit }
+		set_variable = { which = terror_ap which = aristocratic_privilege }
+		set_variable = { which = terror_law which = vef_rule_law }
+	}
+	
+	option = {
+		name = "vef_terror.7.opta"
+	}
+}
+
+#################
+# Terror Events #
+#################
+
+#Charters
+country_event = {
+	id = vef_terror.25
+	title = "vef_terror.25.t"
+	desc = "vef_terror.25.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+
+	trigger = {
+		had_country_flag = { flag = had_reign_terror days = 1095 }
+		NOT = { has_country_flag = terror_over }
+		NOT = { has_country_flag = terror_charter_event }
+	}	
+	
+	immediate = { set_country_flag = terror_charter_event }
+	
+	option = {	#Revoke Charters
+		name = "vef_terror.25.opta"
+		every_owned_province = {
+			limit = { has_building = civic_charter }
+			remove_building = civic_charter
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 10950 }
+			set_province_flag = newgov_was_charter
+			add_building = freedom
+			add_unrest = 4
+		}
+	}
+	
+	option = {	#Leave Them
+		name = "vef_terror.25.opta"
+		if = {
+			limit = {
+				num_of_owned_provinces_with = {
+					value = 4
+					has_building = civic_charter
+				}
+			}
+			add_national_stability_or_adm_power = yes
+		}
+	}
+}
+
+
+######################
+# Terror Maintenance #
+######################
+
+#Monthly Tick
+country_event = {
+	id = vef_terror.100
+	title = "vef_terror.100.t"
+	desc = "vef_terror.100.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		has_active_policy = vef_reign_terror
+		had_country_flag = { flag = had_reign_terror days = 365 }
+		NOT = { has_country_flag = terror_over }
+		NOT = { has_country_modifier = terror_tick }
+	}
+	
+	immediate = {
+		add_country_modifier = { name = terror_tick duration = 28 hidden = yes }
+		if = {
+			limit = {
+				has_country_modifier = terror_end_nobles
+				check_variable = { which = aristocratic_privilege value = 11 }
+			}
+			change_variable = { which = aristocratic_privilege value = -1 }
+			random = {
+				chance = 20
+				change_variable = { which = vef_merit value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_country_modifier = terror_curb_nobles
+				check_variable = { which = aristocratic_privilege value = 46 }
+			}
+			change_variable = { which = aristocratic_privilege value = -1 }
+			random = {
+				chance = 10
+				change_variable = { which = vef_merit value = 1 }
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = terror_capital_exempt }}
+			if = {
+				limit = { has_country_modifier = terror_freedom }
+				if = {
+					limit = { NOT = { any_owned_province = { has_building = heavy_serfdom }}}
+					if = {
+						limit = { NOT = { any_owned_province = { has_building = moderate_serfdom }}}
+						random_owned_province = {
+							limit = { has_building = light_serfdom }
+							remove_building = light_serfdom
+							add_building = freedom
+							add_unrest = 6
+						}
+					}
+					random_owned_province = {
+						limit = { has_building = moderate_serfdom }
+						remove_building = moderate_serfdom
+						add_building = light_serfdom
+						add_unrest = 4
+					}
+				}
+				random_owned_province = {
+					limit = { has_building = heavy_serfdom }
+					remove_building = heavy_serfdom
+					add_building = moderate_serfdom
+					add_unrest = 2
+				}
+			}
+			if = {
+				limit = { has_country_modifier = terror_serfdom }
+				if = {
+					limit = { NOT = { any_owned_province = { has_building = freedom }}}
+					if = {
+						limit = { NOT = { any_owned_province = { has_building = light_serfdom }}}
+						random_owned_province = {
+							limit = { has_building = moderate_serfdom }
+							remove_building = moderate_serfdom
+							add_building = heavy_serfdom
+							add_unrest = 6
+						}
+					}
+					random_owned_province = {
+						limit = { has_building = light_serfdom }
+						remove_building = light_serfdom
+						add_building = moderate_serfdom
+						add_unrest = 4
+					}
+				}
+				random_owned_province = {
+					limit = { has_building = freedom }
+					remove_building = freedom
+					add_building = light_serfdom
+					add_unrest = 2
+				}
+			}
+			if = {
+				limit = { has_country_modifier = terror_land_nobles }
+				if = {
+					limit = { NOT = { any_owned_province = { has_building = nobles_80 }}}
+					if = {
+						limit = { NOT = { any_owned_province = { has_building = nobles_60 }}}
+						if = {
+							limit = { NOT = { any_owned_province = { has_building = nobles_40 }}}
+							random_owned_province = {
+								limit = { has_building = nobles_20 NOT = { has_building = citizens_80 }}
+								remove_building = nobles_20
+								add_unrest = 3
+								province_event = { id = vef_terror.101 }
+							}
+						}
+						random_owned_province = {
+							limit = { has_building = nobles_40 }
+							remove_building = nobles_40
+							add_building = nobles_20
+							add_unrest = 3
+							province_event = { id = vef_terror.101 }
+						}
+					}
+					random_owned_province = {
+						limit = { has_building = nobles_60 }
+						remove_building = nobles_60
+						add_building = nobles_40
+						add_unrest = 3
+						province_event = { id = vef_terror.101 }
+					}
+				}
+				random_owned_province = {
+					limit = { has_building = nobles_80 }
+					remove_building = nobles_80
+					add_building = nobles_60
+					add_unrest = 3
+					province_event = { id = vef_terror.101 }
+				}
+			}
+			if = {
+				limit = { has_country_modifier = terror_land_citizens }
+				if = {
+					limit = { NOT = { any_owned_province = { has_building = citizens_80 NOT = { has_building = civic_charter }}}}
+					if = {
+						limit = { NOT = { any_owned_province = { has_building = citizens_60 NOT = { has_building = civic_charter }}}}
+						if = {
+							limit = { NOT = { any_owned_province = { has_building = citizens_40 NOT = { has_building = civic_charter }}}}
+							random_owned_province = {
+								limit = { has_building = citizens_20 NOT = { has_building = civic_charter }}
+								remove_building = citizens_20
+								add_unrest = 3
+								province_event = { id = vef_terror.102 }
+							}
+						}
+						random_owned_province = {
+							limit = { has_building = citizens_40 NOT = { has_building = civic_charter }}
+							remove_building = citizens_40
+							add_building = citizens_20
+							add_unrest = 3
+							province_event = { id = vef_terror.102 }
+						}
+					}
+					random_owned_province = {
+						limit = { has_building = citizens_60 NOT = { has_building = civic_charter }}
+						remove_building = citizens_60
+						add_building = citizens_40
+						add_unrest = 3
+						province_event = { id = vef_terror.102 }
+					}
+				}
+				random_owned_province = {
+					limit = { has_building = citizens_80 NOT = { has_building = civic_charter }}
+					remove_building = citizens_80
+					add_building = citizens_60
+					add_unrest = 3
+					province_event = { id = vef_terror.102 }
+				}
+			}
+			if = {
+				limit = { has_country_modifier = terror_demesne }
+				random_owned_province = {
+					limit = { has_province_flag = terror_capital }
+					if = {
+						limit = { has_building = nobles_20 }
+						remove_building = nobles_20
+						add_unrest = 2
+					}
+					if = {
+						limit = { has_building = nobles_40 }
+						remove_building = nobles_40
+						add_building = nobles_20
+						add_unrest = 2
+					}
+					if = {
+						limit = { has_building = nobles_60 }
+						remove_building = nobles_60
+						add_building = nobles_40
+						add_unrest = 2
+					}
+					if = {
+						limit = { has_building = nobles_80 }
+						remove_building = nobles_80
+						add_building = nobles_60
+						add_unrest = 2
+					}
+					if = {
+						limit = { has_building = citizens_20 }
+						remove_building = citizens_20
+						add_unrest = 2
+					}
+					if = {
+						limit = { has_building = citizens_40 }
+						remove_building = citizens_40
+						add_building = citizens_20
+						add_unrest = 2
+					}
+					if = {
+						limit = { has_building = citizens_60 }
+						remove_building = citizens_60
+						add_building = citizens_40
+						add_unrest = 2
+					}
+					if = {
+						limit = { has_building = citizens_80 }
+						remove_building = citizens_80
+						add_building = citizens_60
+						add_unrest = 2
+					}
+				}
+			}
+		}
+		if = {
+			limit = { has_country_flag = terror_capital_exempt }
+			if = {
+				limit = { has_country_modifier = terror_freedom }
+				if = {
+					limit = { NOT = { any_owned_province = { has_building = heavy_serfdom NOT = { has_province_flag = terror_capital }}}}
+					if = {
+						limit = { NOT = { any_owned_province = { has_building = moderate_serfdom NOT = { has_province_flag = terror_capital }}}}
+						random_owned_province = {
+							limit = { has_building = light_serfdom NOT = { has_province_flag = terror_capital }}
+							remove_building = light_serfdom
+							add_building = freedom
+							add_unrest = 6
+						}
+					}
+					random_owned_province = {
+						limit = { has_building = moderate_serfdom NOT = { has_province_flag = terror_capital }}
+						remove_building = moderate_serfdom
+						add_building = light_serfdom
+						add_unrest = 4
+					}
+				}
+				random_owned_province = {
+					limit = { has_building = heavy_serfdom NOT = { has_province_flag = terror_capital }}
+					remove_building = heavy_serfdom
+					add_building = moderate_serfdom
+					add_unrest = 2
+				}
+			}
+			if = {
+				limit = { has_country_modifier = terror_serfdom }
+				if = {
+					limit = { NOT = { any_owned_province = { has_building = freedom NOT = { has_province_flag = terror_capital }}}}
+					if = {
+						limit = { NOT = { any_owned_province = { has_building = light_serfdom NOT = { has_province_flag = terror_capital }}}}
+						random_owned_province = {
+							limit = { has_building = moderate_serfdom NOT = { has_province_flag = terror_capital }}
+							remove_building = moderate_serfdom
+							add_building = heavy_serfdom
+							add_unrest = 6
+						}
+					}
+					random_owned_province = {
+						limit = { has_building = light_serfdom NOT = { has_province_flag = terror_capital }}
+						remove_building = light_serfdom
+						add_building = moderate_serfdom
+						add_unrest = 4
+					}
+				}
+				random_owned_province = {
+					limit = { has_building = freedom NOT = { has_province_flag = terror_capital }}
+					remove_building = freedom
+					add_building = light_serfdom
+					add_unrest = 2
+				}
+			}
+			if = {
+				limit = { has_country_modifier = terror_land_nobles }
+				if = {
+					limit = { NOT = { any_owned_province = { has_building = nobles_80 NOT = { has_province_flag = terror_capital }}}}
+					if = {
+						limit = { NOT = { any_owned_province = { has_building = nobles_60 NOT = { has_province_flag = terror_capital }}}}
+						if = {
+							limit = { NOT = { any_owned_province = { has_building = nobles_40 NOT = { has_province_flag = terror_capital }}}}
+							random_owned_province = {
+								limit = { has_building = nobles_20 NOT = { has_building = citizens_80 } NOT = { has_province_flag = terror_capital }}
+								remove_building = nobles_20
+								add_unrest = 3
+								province_event = { id = vef_terror.101 }
+							}
+						}
+						random_owned_province = {
+							limit = { has_building = nobles_40 NOT = { has_province_flag = terror_capital }}
+							remove_building = nobles_40
+							add_building = nobles_20
+							add_unrest = 3
+							province_event = { id = vef_terror.101 }
+						}
+					}
+					random_owned_province = {
+						limit = { has_building = nobles_60 NOT = { has_province_flag = terror_capital }}
+						remove_building = nobles_60
+						add_building = nobles_40
+						add_unrest = 3
+						province_event = { id = vef_terror.101 }
+					}
+				}
+				random_owned_province = {
+					limit = { has_building = nobles_80 NOT = { has_province_flag = terror_capital }}
+					remove_building = nobles_80
+					add_building = nobles_60
+					add_unrest = 3
+					province_event = { id = vef_terror.101 }
+				}
+			}
+			if = {
+				limit = { has_country_modifier = terror_land_citizens }
+				if = {
+					limit = { NOT = { any_owned_province = { has_building = citizens_80 NOT = { has_province_flag = terror_capital } NOT = { has_building = civic_charter }}}}
+					if = {
+						limit = { NOT = { any_owned_province = { has_building = citizens_60 NOT = { has_province_flag = terror_capital } NOT = { has_building = civic_charter }}}}
+						if = {
+							limit = { NOT = { any_owned_province = { has_building = citizens_40 NOT = { has_province_flag = terror_capital } NOT = { has_building = civic_charter }}}}
+							random_owned_province = {
+								limit = { has_building = citizens_20 NOT = { has_province_flag = terror_capital } NOT = { has_building = civic_charter }}
+								remove_building = citizens_20
+								add_unrest = 3
+								province_event = { id = vef_terror.102 }
+							}
+						}
+						random_owned_province = {
+							limit = { has_building = citizens_40 NOT = { has_province_flag = terror_capital } NOT = { has_building = civic_charter }}
+							remove_building = citizens_40
+							add_building = citizens_20
+							add_unrest = 3
+							province_event = { id = vef_terror.102 }
+						}
+					}
+					random_owned_province = {
+						limit = { has_building = citizens_60 NOT = { has_province_flag = terror_capital } NOT = { has_building = civic_charter }}
+						remove_building = citizens_60
+						add_building = citizens_40
+						add_unrest = 3
+						province_event = { id = vef_terror.102 }
+					}
+				}
+				random_owned_province = {
+					limit = { has_building = citizens_80 NOT = { has_province_flag = terror_capital } NOT = { has_building = civic_charter }}
+					remove_building = citizens_80
+					add_building = citizens_60
+					add_unrest = 3
+					province_event = { id = vef_terror.102 }
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = terror_republics_exempt }}
+			random_owned_province = {
+				limit = { has_building = local_assembly }
+				remove_building = local_assembly
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 10950 }
+				set_province_flag = newgov_was_assembly
+				add_building = freedom
+				add_unrest = 8
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_terror.100.opta"
+	}
+}
+
+#Noble to Citizen
+province_event = {
+	id = vef_terror.101
+	title = "vef_terror.101.t"
+	desc = "vef_terror.101.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #vef_terorr.100
+	
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			NOT = { owner = { has_country_modifier = terror_demesne }}
+			NOT = { has_province_flag = terror_capital }
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { has_building = citizens_60 }
+			remove_building = citizens_60
+			add_building = citizens_80
+		}
+		if = {
+			limit = { has_building = citizens_40 }
+			remove_building = citizens_40
+			add_building = citizens_60
+		}
+		if = {
+			limit = { has_building = citizens_20 }
+			remove_building = citizens_20
+			add_building = citizens_40
+		}
+		if = {
+			limit = {
+				has_building = citizens_20 
+				has_building = citizens_40 
+				has_building = citizens_60 
+				has_building = citizens_80 
+			}
+			add_building = citizens_20
+		}
+	}
+	
+	option = {
+		name = "vef_terror.101.opta"
+	}
+}
+
+#End Citizen Ownership
+province_event = {
+	id = vef_terror.102
+	title = "vef_terror.102.t"
+	desc = "vef_terror.102.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #vef_terorr.100
+	
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			NOT = { owner = { has_country_modifier = terror_demesne }}
+			NOT = { has_province_flag = terror_capital }
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { has_building = nobles_60 }
+			remove_building = nobles_60
+			add_building = nobles_80
+		}
+		if = {
+			limit = { has_building = nobles_40 }
+			remove_building = nobles_40
+			add_building = nobles_60
+		}
+		if = {
+			limit = { has_building = nobles_20 }
+			remove_building = nobles_20
+			add_building = nobles_40
+		}
+		if = {
+			limit = {
+				has_building = nobles_20 
+				has_building = nobles_40 
+				has_building = nobles_60 
+				has_building = nobles_80 
+			}
+			add_building = nobles_20
+		}
+	}
+	
+	option = {
+		name = "vef_terror.102.opta"
+	}
+}
+
+
+###############
+# Terror Over #
+###############
+
+#Notification
+country_event = {
+	id = vef_terror.200
+	title = "vef_terror.200.t"
+	desc = "vef_terror.200.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+
+	trigger = {
+		has_active_policy = vef_reign_terror
+		had_country_flag = { flag = had_reign_terror days = 3650 }
+		has_country_flag = terror_over
+	}
+	
+	immediate = { every_owned_province = { add_local_autonomy = 0.1 }}
+	
+	option = {
+		name = "vef_terror.200.opta"
+	}
+}
+
+#Backlash Begins
+country_event = {
+	id = vef_terror.201
+	title = "vef_terror.201.t"
+	desc = "vef_terror.201.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes	#disasters/reign_terror_backlash start
+	
+	option = {
+		name = "vef_terorr.201.opta"
+	}
+}
+
+#Terror Ended
+country_event = {
+	id = vef_terror.202
+	title = "vef_terror.202.t"
+	desc = "vef_terror.202.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #disasters/reign_terror_backlash end
+	
+	option = {
+		name = "vef_terorr.202.opta"
+		add_stability = 1
+		if = {
+			limit = { has_country_modifier = terror_freedom }
+			remove_country_modifier = terror_freedom
+		}
+		if = {
+			limit = { has_country_modifier = terror_serfdom }
+			remove_country_modifier = terror_serfdom
+		}
+		if = {
+			limit = { has_country_modifier = terror_end_nobles }
+			remove_country_modifier = terror_end_nobles
+		}
+		if = {
+			limit = { has_country_modifier = terror_curb_nobles }
+			remove_country_modifier = terror_curb_nobles
+		}
+		if = {
+			limit = { has_country_modifier = terror_land_nobles }
+			remove_country_modifier = terror_land_nobles
+		}
+		if = {
+			limit = { has_country_modifier = terror_land_citizens }
+			remove_country_modifier = terror_land_citizens
+		}
+		if = {
+			limit = { has_country_modifier = terror_demesne }
+			remove_country_modifier = terror_demesne
+		}
+		if = {
+			limit = { has_country_flag = terror_capital_exempt }
+			clr_country_flag = terror_capital_exempt
+		}
+		if = {
+			limit = { has_country_flag = terror_republics_exempt }
+			clr_country_flag = terror_republics_exempt
+		}
+		every_owned_province = {
+			limit = { has_province_flag = terror_capital }
+			clr_province_flag = terror_capital
+		}
+	}
+}
+
+#Failure
+country_event = {
+	id = vef_terror.203
+	title = "vef_terror.203.t"
+	desc = "vef_terror.203.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #Various
+	
+	immediate = {
+		set_country_flag = terror_over
+		set_variable = { which = vef_merit which = terror_merit }
+		set_variable = { which = aristocratic_privilege which = terror_ap }
+		set_variable = { which = vef_rule_law which = terror_law }
+		every_owned_province = {
+			if = {
+				limit = { has_province_flag = terror_nob20 }
+				if = {
+					limit = { has_building = nobles_80 }
+					remove_building = nobles_80
+				}
+				if = {
+					limit = { has_building = nobles_60 }
+					remove_building = nobles_60
+				}
+				if = {
+					limit = { has_building = nobles_40 }
+					remove_building = nobles_40
+				}
+				add_building = nobles_20
+			}
+			if = {
+				limit = { has_province_flag = terror_nob40 }
+				if = {
+					limit = { has_building = nobles_80 }
+					remove_building = nobles_80
+				}
+				if = {
+					limit = { has_building = nobles_60 }
+					remove_building = nobles_60
+				}
+				if = {
+					limit = { has_building = nobles_20 }
+					remove_building = nobles_20
+				}
+				add_building = nobles_40
+			}
+			if = {
+				limit = { has_province_flag = terror_nob60 }
+				if = {
+					limit = { has_building = nobles_80 }
+					remove_building = nobles_80
+				}
+				if = {
+					limit = { has_building = nobles_40 }
+					remove_building = nobles_40
+				}
+				if = {
+					limit = { has_building = nobles_20 }
+					remove_building = nobles_20
+				}
+				add_building = nobles_60
+			}
+			if = {
+				limit = { has_province_flag = terror_nob80 }
+				if = {
+					limit = { has_building = nobles_60 }
+					remove_building = nobles_60
+				}
+				if = {
+					limit = { has_building = nobles_40 }
+					remove_building = nobles_40
+				}
+				if = {
+					limit = { has_building = nobles_20 }
+					remove_building = nobles_20
+				}
+				add_building = nobles_80
+			}
+			if = {
+				limit = { has_province_flag = terror_cit20 }
+				if = {
+					limit = { has_building = citizens_80 }
+					remove_building = citizens_80
+				}
+				if = {
+					limit = { has_building = citizens_60 }
+					remove_building = citizens_60
+				}
+				if = {
+					limit = { has_building = citizens_40 }
+					remove_building = citizens_40
+				}
+				add_building = citizens_20
+			}
+			if = {
+				limit = { has_province_flag = terror_cit40 }
+				if = {
+					limit = { has_building = citizens_80 }
+					remove_building = citizens_80
+				}
+				if = {
+					limit = { has_building = citizens_60 }
+					remove_building = citizens_60
+				}
+				if = {
+					limit = { has_building = citizens_20 }
+					remove_building = citizens_20
+				}
+				add_building = citizens_40
+			}
+			if = {
+				limit = { has_province_flag = terror_cit60 }
+				if = {
+					limit = { has_building = citizens_80 }
+					remove_building = citizens_80
+				}
+				if = {
+					limit = { has_building = citizens_40 }
+					remove_building = citizens_40
+				}
+				if = {
+					limit = { has_building = citizens_20 }
+					remove_building = citizens_20
+				}
+				add_building = citizens_60
+			}
+			if = {
+				limit = { has_province_flag = terror_cit80 }
+				if = {
+					limit = { has_building = citizens_60 }
+					remove_building = citizens_60
+				}
+				if = {
+					limit = { has_building = citizens_40 }
+					remove_building = citizens_40
+				}
+				if = {
+					limit = { has_building = citizens_20 }
+					remove_building = citizens_20
+				}
+				add_building = citizens_80
+			}
+			if = {
+				limit = { has_province_flag = terror_icxc20 }
+				if = {
+					limit = { has_building = church_80 }
+					remove_building = church_80
+				}
+				if = {
+					limit = { has_building = church_60 }
+					remove_building = church_60
+				}
+				if = {
+					limit = { has_building = church_40 }
+					remove_building = church_40
+				}
+				add_building = church_20
+			}
+			if = {
+				limit = { has_province_flag = terror_icxc40 }
+				if = {
+					limit = { has_building = church_80 }
+					remove_building = church_80
+				}
+				if = {
+					limit = { has_building = church_60 }
+					remove_building = church_60
+				}
+				if = {
+					limit = { has_building = church_20 }
+					remove_building = church_20
+				}
+				add_building = church_40
+			}
+			if = {
+				limit = { has_province_flag = terror_icxc60 }
+				if = {
+					limit = { has_building = church_80 }
+					remove_building = church_80
+				}
+				if = {
+					limit = { has_building = church_40 }
+					remove_building = church_40
+				}
+				if = {
+					limit = { has_building = church_20 }
+					remove_building = church_20
+				}
+				add_building = church_60
+			}
+			if = {
+				limit = { has_province_flag = terror_icxc80 }
+				if = {
+					limit = { has_building = church_60 }
+					remove_building = church_60
+				}
+				if = {
+					limit = { has_building = church_40 }
+					remove_building = church_40
+				}
+				if = {
+					limit = { has_building = church_20 }
+					remove_building = church_20
+				}
+				add_building = church_80
+			}
+			if = {
+				limit = { has_province_flag = terror_hs }
+				if = {
+					limit = { has_building = freedom }
+					remove_building = freedom
+				}
+				if = {
+					limit = { has_building = light_serfdom }
+					remove_building = light_serfdom
+				}
+				if = {
+					limit = { has_building = moderate_serfdom }
+					remove_building = moderate_serfdom
+				}
+				add_building = heavy_serfdom
+			}
+			if = {
+				limit = { has_province_flag = terror_ms }
+				if = {
+					limit = { has_building = freedom }
+					remove_building = freedom
+				}
+				if = {
+					limit = { has_building = light_serfdom }
+					remove_building = light_serfdom
+				}
+				if = {
+					limit = { has_building = heavy_serfdom }
+					remove_building = heavy_serfdom
+				}
+				add_building = moderate_serfdom
+			}
+			if = {
+				limit = { has_province_flag = terror_ls }
+				if = {
+					limit = { has_building = freedom }
+					remove_building = freedom
+				}
+				if = {
+					limit = { has_building = heavy_serfdom }
+					remove_building = heavy_serfdom
+				}
+				if = {
+					limit = { has_building = moderate_serfdom }
+					remove_building = moderate_serfdom
+				}
+				add_building = light_serfdom
+			}
+			if = {
+				limit = { has_province_flag = terror_fdm }
+				if = {
+					limit = { has_building = heavy_serfdom }
+					remove_building = heavy_serfdom
+				}
+				if = {
+					limit = { has_building = light_serfdom }
+					remove_building = light_serfdom
+				}
+				if = {
+					limit = { has_building = moderate_serfdom }
+					remove_building = moderate_serfdom
+				}
+				add_building = freedom
+			}
+			if = {
+				limit = { has_province_flag = terror_cc }
+				if = {
+					limit = { has_building = freedom }
+					remove_building = freedom
+				}
+				if = {
+					limit = { has_building = light_serfdom }
+					remove_building = light_serfdom
+				}
+				if = {
+					limit = { has_building = moderate_serfdom }
+					remove_building = moderate_serfdom
+				}
+				if = {
+					limit = { has_building = heavy_serfdom }
+					remove_building = heavy_serfdom
+				}
+				add_building = civic_charter
+			}
+			if = {
+				limit = { has_province_flag = terror_la }
+				if = {
+					limit = { has_building = freedom }
+					remove_building = freedom
+				}
+				if = {
+					limit = { has_building = light_serfdom }
+					remove_building = light_serfdom
+				}
+				if = {
+					limit = { has_building = moderate_serfdom }
+					remove_building = moderate_serfdom
+				}
+				if = {
+					limit = { has_building = heavy_serfdom }
+					remove_building = heavy_serfdom
+				}
+				add_building = local_assembly
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_terorr.203.opta"
+		kill_ruler = yes
+		if = {
+			limit = { has_country_modifier = terror_freedom }
+			remove_country_modifier = terror_freedom
+		}
+		if = {
+			limit = { has_country_modifier = terror_serfdom }
+			remove_country_modifier = terror_serfdom
+		}
+		if = {
+			limit = { has_country_modifier = terror_end_nobles }
+			remove_country_modifier = terror_end_nobles
+		}
+		if = {
+			limit = { has_country_modifier = terror_curb_nobles }
+			remove_country_modifier = terror_curb_nobles
+		}
+		if = {
+			limit = { has_country_modifier = terror_land_nobles }
+			remove_country_modifier = terror_land_nobles
+		}
+		if = {
+			limit = { has_country_modifier = terror_land_citizens }
+			remove_country_modifier = terror_land_citizens
+		}
+		if = {
+			limit = { has_country_modifier = terror_demesne }
+			remove_country_modifier = terror_demesne
+		}
+		if = {
+			limit = { has_country_flag = terror_capital_exempt }
+			clr_country_flag = terror_capital_exempt
+		}
+		if = {
+			limit = { has_country_flag = terror_republics_exempt }
+			clr_country_flag = terror_republics_exempt
+		}
+		every_owned_province = {
+			limit = { has_province_flag = terror_capital }
+			clr_province_flag = terror_capital
+		}
+	}
+}

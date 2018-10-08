@@ -1,0 +1,227 @@
+#Province IDs changed
+government = theocracy add_government_reform = leading_clergy_reform
+technology_group = western
+religion = catholic
+primary_culture = wallonian
+capital = 200	# Liège
+
+
+1302.1.1 = {
+	monarch = {
+		name = "Thibaut"
+		dip = 3
+		adm = 2
+		mil = 3
+	}
+}
+
+1313.1.1 = {
+	monarch = {
+		name = "Adolph"
+		dip = 2
+		adm = 2
+		mil = 1
+	}
+}
+
+1345.1.1 = {
+	monarch = {
+		name = "Englebert"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1364.1.1 = {
+	monarch = {
+		name = "Jean V"
+		dip = 3
+		adm = 2
+		mil = 2
+	}
+}
+
+1378.1.1 = {
+	monarch = {
+		name = "Arnold"
+		dip = 2
+		adm = 2
+		mil = 1
+	}
+}
+
+1389.1.1 = {
+	monarch = {
+		name = "Jean VI"
+		dip = 3
+		adm = 1
+		mil = 3
+	}
+}
+
+1418.1.1 = {
+	monarch = {
+		name = "Jean VII"
+		dip = 0
+		adm = 2
+		mil = 2
+	}
+}
+
+1419.5.28 = {
+	monarch = {
+		name = "Jean VIII"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1455.11.22 = {
+	monarch = {
+		name = "Louis I de Bourbon"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1482.8.30 = {
+	monarch = {
+		name = "Jean IX"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1506.12.19 = {
+	monarch = {
+		name = "Érard I"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1538.3.18 = {
+	monarch = {
+		name = "Corneille I"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1544.8.16 = {
+	monarch = {
+		name = "Georges I"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1557.5.5 = {
+	monarch = {
+		name = "Robert II"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1563.7.22 = {
+	monarch = {
+		name = "Gérard I"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1580.12.28 = {
+	monarch = {
+		name = "Ernest I"
+		dip = 1
+		adm = 0
+		mil = 2
+	}
+}
+
+1612.2.17 = {
+	monarch = {
+		name = "Ferdinand I"
+		dip = 2
+		adm = 0
+		mil = 3
+	}
+}
+
+1650.8.13 = {
+	monarch = {
+		name = "Maximilien-Henri I"
+		dip = 2
+		adm = 2
+		mil = 3
+	}
+}
+
+1688.6.3 = {
+	monarch = {
+		name = "Jean-Louis I"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+1694.2.1 = {
+	monarch = {
+		name = "Joseph-Clément I"
+		dip = 2
+		adm = 3
+		mil = 1
+	}
+}
+
+1723.11.12 = {
+	monarch = {
+		name = "Georges-Louis I"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+1743.12.4 = {
+	monarch = {
+		name = "Jean-Théodore I"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+1763.1.27 = {
+	monarch = {
+		name = "Charles-Nicolas I"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+1771.10.22 = {
+	monarch = {
+		name = "François-Charles I"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+1784.4.30 = {
+	monarch = {
+		name = "César-Constantin I"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}

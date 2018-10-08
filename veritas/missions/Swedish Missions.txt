@@ -1,0 +1,585 @@
+
+swedish_missions_scandinavia = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = SWE
+		NOT = { started_in = 1444.1.1 }
+	}
+	has_country_shield = yes
+	
+	SWE_end_troubles = {
+		icon = mission_monarch_in_throne_room
+		completed_by = 1318.6.27
+		required_missions = { }
+		provinces_to_highlight = { province_id = 403 }
+		trigger = {
+			is_subject = no
+			owns_core_province = 403
+			is_at_war = no
+			NOT = { num_of_rebel_armies = 1 }
+			NOT = { num_of_rebel_controlled_provinces = 1 }
+		}
+		effect = {
+			add_prestige = 25
+			add_mil_power = 25
+		}
+	}
+
+	SWE_control_scania_early = {
+		icon = mission_assemble_an_army
+		required_missions = { SWE_end_troubles }
+		provinces_to_highlight = {
+			OR = {
+				area = gotaland_area
+				area = skaneland_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			gotaland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			skaneland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "consolidated_sweden"
+				duration = 5475
+			}
+			northern_norway_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			eastern_norway_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			western_norway_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			#subarctic_islands_area = {
+			#	limit = {
+			#		NOT = { is_core = ROOT }
+			#		NOT = { owned_by = ROOT }
+			#	}
+			#}
+			#iceland_area = {
+			#	limit = {
+			#		NOT = { is_core = ROOT }
+			#		NOT = { owned_by = ROOT }
+			#	}
+			#}
+		}
+	}
+	SWE_vassalize_norway_swe_early = {
+		icon = mission_have_two_subjects
+		required_missions = { SWE_control_scania_early }
+		provinces_to_highlight = {
+			OR = {
+				area = northern_norway_area
+				area = eastern_norway_area
+				area = western_norway_area
+				AND = {
+					area = norrland_area
+					is_core = NOR
+				}
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			northern_norway_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			eastern_norway_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			western_norway_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "norway_subjugated_swe"
+				duration = 5475
+			}
+			jutland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+			denmark_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+			holstein_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+}
+
+1444_swedish_missions_scandinavia = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = SWE
+		started_in = 1444.1.1
+	}
+	has_country_shield = yes
+	
+	SWE_win_independence = {
+		icon = mission_monarch_in_throne_room
+		required_missions = { }
+		trigger = {
+			is_subject = no
+			owns_core_province = 403
+			is_at_war = no
+		}
+		effect = {
+			gotaland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			skaneland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	SWE_control_scania = {
+		icon = mission_assemble_an_army
+		required_missions = { SWE_win_independence }
+		provinces_to_highlight = {
+			OR = {
+				area = gotaland_area
+				area = skaneland_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			gotaland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			skaneland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "consolidated_sweden"
+				duration = 5475
+			}
+			northern_norway_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			eastern_norway_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			western_norway_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			#subarctic_islands_area = {
+			#	limit = {
+			#		NOT = { is_core = ROOT }
+			#		NOT = { owned_by = ROOT }
+			#	}
+			#}
+			#iceland_area = {
+			#	limit = {
+			#		NOT = { is_core = ROOT }
+			#		NOT = { owned_by = ROOT }
+			#	}
+			#}
+		}
+	}
+	SWE_vassalize_norway = {
+		icon = mission_have_two_subjects
+		required_missions = { SWE_control_scania }
+		provinces_to_highlight = {
+			OR = {
+				area = northern_norway_area
+				area = eastern_norway_area
+				area = western_norway_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			northern_norway_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			eastern_norway_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			western_norway_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "norway_subjugated_swe"
+				duration = 5475
+			}
+			jutland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+			denmark_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+			holstein_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+	SWE_new_world_colonialism = {
+		icon = mission_colonial
+		required_missions = { SWE_vassalize_norway }
+		trigger = {
+			any_subject_country = {
+				is_colonial_nation = yes
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "colonial_enthusiasm"
+				duration = 5475
+			}
+		}
+	}
+}
+
+colonize_scandanavia = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = SWE
+	}
+	has_country_shield = yes
+
+	SWE_begin_colonization = {
+		icon = mission_colonial
+		position = 1
+		completed_by = 1323.1.1
+		required_missions = { }
+		provinces_to_highlight = { province_id = 436 }
+		trigger = {
+			436 = { 
+				is_city = yes
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "colonial_enthusiasm"
+				duration = 5475
+			}
+		}
+	}
+	
+	SWE_colonize_finland = {
+		icon = mission_colonial
+		completed_by = 1440.1.1
+		required_missions = { SWE_begin_colonization }
+		provinces_to_highlight = {
+			region = scandinavia_region
+			NOT = { is_city = yes }
+			NOT = { has_climate = arctic }
+			NOT = { area = greenland_area }
+			OR = {
+				NOT = { is_colony = yes }
+				controlled_by = SWE
+			}
+		}
+		trigger = {
+			scandinavia_region = {
+				type = all
+				OR = {
+					has_climate = arctic
+					is_city = yes
+					area = greenland_area
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "colonial_enthusiasm"
+				duration = 5475
+			}
+			add_adm_power = 25
+		}
+	}
+	
+	SWE_colonize_artic = {
+		icon = mission_colonial
+		completed_by = 1634.1.1
+		required_missions = { SWE_colonize_finland }
+		provinces_to_highlight = {
+			region = scandinavia_region
+			NOT = { is_city = yes }
+			NOT = { area = greenland_area }
+			OR = {
+				NOT = { is_colony = yes }
+				controlled_by = SWE
+			}
+		}
+		trigger = {
+			scandinavia_region = {
+				type = all
+				OR = {
+					is_city = yes
+					AND = {
+						is_colony = yes
+						NOT = { controlled_by = SWE }
+					}
+					area = greenland_area
+				}
+
+			}
+		}
+		effect = {
+			add_adm_power = 75
+			add_prestige = 10
+		}
+	}
+}
+
+swedish_missions_baltic = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = SWE
+	}
+	has_country_shield = yes
+
+	SWE_baltic_fleet = {
+		icon = mission_galleys_in_port
+		position = 4
+		required_missions = { }
+		trigger = {
+			naval_forcelimit = 25
+			navy_size_percentage = 0.9
+			is_subject = no
+			is_at_war = no
+		}
+		effect = {
+			estonia_ingria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			443 = { # osel
+				if = {
+					limit = {
+						NOT = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			442 = {
+				if = {
+					limit = {
+						NOT = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			447 = {
+				if = {
+					limit = {
+						NOT = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	SWE_control_latvia = {
+		icon = mission_sea_battles
+		required_missions = { SWE_baltic_fleet }
+		provinces_to_highlight = {
+			OR = {
+				area = estonia_ingria_area
+				province_id = 443
+				province_id = 442
+				province_id = 447
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			estonia_ingria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			443 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			442 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			447 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "baltic_ambition_new"
+				duration = 5475
+			}
+			vorpommern_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hinter_pommern_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			mecklenburg_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	SWE_swedish_pommerania = {
+		icon = mission_conquer_5_states
+		required_missions = { control_latvia }
+		provinces_to_highlight = {
+			OR = {
+				area = vorpommern_area
+				area = hinter_pommern_area
+				area = mecklenburg_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			vorpommern_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			hinter_pommern_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			mecklenburg_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "swe_pommerania_conquered"
+				duration = 5475
+			}
+			karelia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+			weser_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+}

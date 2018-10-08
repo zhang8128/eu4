@@ -1,0 +1,10 @@
+#Edo War Canoe
+#model = galley
+#tech_level = 6
+type = galley
+unit_type = sub_saharan
+
+hull_size = 6
+base_cannons = 4
+sail_speed = 6
+sailors = 100

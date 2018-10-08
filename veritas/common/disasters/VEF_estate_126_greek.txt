@@ -1,0 +1,129 @@
+estate_greek_disaster = {
+	potential = {
+		has_estate = vef_greek_estate
+		NOT = {
+			estate_loyalty = {
+				estate = vef_greek_estate
+				loyalty = 50
+			}
+		}
+	}
+
+
+	can_start = {
+		has_any_disaster = no
+		NOT = {
+			estate_loyalty = {
+				estate = vef_greek_estate
+				loyalty = 40
+			}
+		}
+	}
+	
+	can_stop = {
+		estate_loyalty = {
+			estate = vef_greek_estate
+			loyalty = 50
+		}		
+	}
+	
+	down_progress = {
+		factor = 1
+	}
+	
+	progress = {
+		modifier = {
+			factor = 1
+			NOT = {
+				estate_loyalty = {
+					estate = vef_greek_estate
+					loyalty = 40
+				}
+			}
+			hidden_trigger = {
+				estate_loyalty = {
+					estate = vef_greek_estate
+					loyalty = 30
+				}			
+			}
+		}
+		modifier = {
+			factor = 2
+			NOT = {
+				estate_loyalty = {
+					estate = vef_greek_estate
+					loyalty = 30
+				}
+			}
+			hidden_trigger = {
+				estate_loyalty = {
+					estate = vef_greek_estate
+					loyalty = 20
+				}			
+			}
+		}
+		modifier = {
+			factor = 3
+			NOT = {
+				estate_loyalty = {
+					estate = vef_greek_estate
+					loyalty = 20
+				}
+			}
+			hidden_trigger = {
+				estate_loyalty = {
+					estate = vef_greek_estate
+					loyalty = 10
+				}			
+			}
+		}	
+		modifier = {
+			factor = 4
+			NOT = {
+				estate_loyalty = {
+					estate = vef_greek_estate
+					loyalty = 10
+				}
+			}
+			hidden_trigger = {
+				estate_loyalty = {
+					estate = vef_greek_estate
+					loyalty = 1
+				}			
+			}
+		}	
+		modifier = {
+			factor = 5
+			NOT = {
+				estate_loyalty = {
+					estate = vef_greek_estate
+					loyalty = 1
+				}
+			}
+		}	
+	}
+	
+	can_end = {
+		OR = {
+			NOT = { has_estate = vef_greek_estate }
+			AND = {
+				estate_loyalty = {
+					estate = vef_greek_estate
+					loyalty = 40
+				}
+				NOT = { has_spawned_rebels = nationalist_rebels }
+			}
+		}
+	}
+	
+	modifier = {
+		global_unrest = 5
+	}
+
+	on_start = vef_culturedisasters.1
+	on_end = vef_culturedisasters.2
+
+	on_monthly = {
+	}
+}
+

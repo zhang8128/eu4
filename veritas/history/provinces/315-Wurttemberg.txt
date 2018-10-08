@@ -1,0 +1,34 @@
+# Württemberg
+
+culture = alemannic
+owner = WUR
+controller = WUR
+add_core = WUR
+capital = "Stuttgart"
+religion = catholic
+trade_goods = grain
+base_tax = 4
+base_production = 4
+base_manpower = 3
+is_city = yes
+hre = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1   = { base_tax = 3 base_production = 3 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death set_variable = { which = tax_growth value = 75 } set_variable = { which = prod_growth value = 75 }} # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1400.1.1   = { base_tax = 4 base_production = 4 set_variable = { which = tax_growth value = 0 } set_variable = { which = prod_growth value = 0 }}
+1519.1.1 = { controller = HAB owner = HAB add_core = HAB unrest = 8 } # After attacking the free town of Reutlingen the Duke of Würtemberg is sent fleeing and the country governed by the Austrians.
+1534.1.1 = { unrest = 0 owner = WUR controller = WUR religion = protestant } # House Würtemberg reconquers the coutnry and installs the protestant religion
+1637.1.1 = { citysize = 8000 } # A great plague and the 30 years war whcih results in plundring and occupation greatly reduces the population in Würtemberg
+1670.1.1 = { citysize = 12000 }
+1700.1.1 = { courthouse = yes citysize = 16000 }
+1724.1.1 = { capital = "Ludwigsburg" }
+1733.1.1 = { capital = "Stuttgart" unrest = 2 base_tax = 5
+base_production = 5 } # Karl Alexander becomes Duke of Würtemberg. He is a catholic with a jewish advisor, which is very much resented by the protestant nobility.
+1737.3.12 = { unrest = 0 } # Death of the Duke, execution of the advisor after a set up process.
+1750.3.12 = { citysize = 24000 }
+1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved

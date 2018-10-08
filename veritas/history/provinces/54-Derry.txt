@@ -1,0 +1,39 @@
+# Derry
+
+capital = "Derry"
+owner = TYR
+controller = TYR
+add_core = TYR
+culture = irish
+religion = catholic
+trade_goods = wool
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1350.1.1	= { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1	= { remove_province_modifier = province_black_death }
+1600.1.1	= { base_manpower = 4 }
+1602.6.1	= { controller = IRE } #Burning of Dungannon
+1603.3.31	= {	owner = IRE add_core = IRE } #End of the Nine Years War; Hugh O'Neill forced to yield
+1609.1.1 	= { culture = english religion = anglican } # Jacobean Plantations
+1641.10.23	= { revolt = { type = nationalist_rebels size = 1 } controller = REB } #Irish Rebellion
+1642.6.7	= { revolt = {} controller = IRE remove_core = TYR } # Confederation of Kilkenny
+1646.6.5	= { controller = IRE }
+1650.1.1	= { base_tax = 4 base_production = 4 }
+1650.6.21	= { controller = ENG } # Battle of Scarrifhollis
+1652.5.1	= { owner = ENG } # End of the Irish Confederates
+1660.5.1	= { owner = IRE controller = IRE seat_in_parliament = yes } # Restoration of Charles II
+1700.1.1	= { base_manpower = 5 }
+1750.1.1	= { base_tax = 5 base_production = 5 base_manpower = 6 }
+1798.5.23	= { unrest = 10 } # Irish rebellion
+1798.7.14	= { unrest = 0 } # The rebels are defeated
+1800.1.1	= { base_tax = 7 base_production = 7 base_manpower = 8 }
+1801.1.1	= { owner = GBR controller = GBR add_core = GBR } #Acts of Union
+1850.1.1	= { base_manpower = 9 }

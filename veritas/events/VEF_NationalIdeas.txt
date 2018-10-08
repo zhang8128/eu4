@@ -1,0 +1,23 @@
+namespace = national_ideas
+
+country_event = {
+	id = national_ideas.60000
+	title = "ideagroups.1.t"
+	desc = "ideagroups.1.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	is_triggered_only = yes # triggered by most country formation events/decisions
+	
+	trigger = {
+		has_custom_ideas = no
+	}
+
+	option = {
+		name = "ideagroups.1.a" #Yes Please!
+		swap_free_idea_group = yes		#keep progress
+	}
+	option = {
+		name = "ideagroups.1.b" #No, we cannot abandon our roots.
+		#No Effect
+	}
+}

@@ -1,0 +1,10 @@
+#War Catamaran
+#model = galley
+#tech_level = 0
+type = transport
+unit_type = pacific_islander
+
+hull_size = 4
+base_cannons = 4
+sail_speed = 6
+sailors = 40

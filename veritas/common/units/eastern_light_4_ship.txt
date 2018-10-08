@@ -1,0 +1,10 @@
+#Barkentina
+#model = caravel
+#tech_level = 38
+type = transport
+unit_type = eastern
+
+hull_size = 22
+base_cannons = 28
+sail_speed = 10
+sailors = 200

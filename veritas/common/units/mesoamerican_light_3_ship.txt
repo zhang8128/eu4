@@ -1,0 +1,10 @@
+#Warboat
+#model = caravel
+#tech_level = 24
+type = transport
+unit_type = mesoamerican
+
+hull_size = 8
+base_cannons = 8
+sail_speed = 8
+sailors = 100

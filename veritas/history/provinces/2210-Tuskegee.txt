@@ -1,0 +1,27 @@
+# Tuskegee
+
+capital = "Tuskegee"
+native_size = 10
+native_ferocity = 6
+native_hostileness = 2
+culture = choctaw
+religion = totemism
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+
+discovered_by = north_american
+
+1540.1.1  = { discovered_by = SPA } # Hernando De Soto
+1755.1.1  = { is_city = yes } # Fort Tombeche
+1791.7.2  = {	
+	owner = USA
+	controller = USA
+	add_core = USA
+	culture = american
+	citysize = 6980
+	religion = protestant 
+}
+1861.1.11 = { owner = CSA controller = CSA add_core = CSA remove_core = USA } # Alabama declares independence

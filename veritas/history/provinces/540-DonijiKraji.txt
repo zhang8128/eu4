@@ -1,0 +1,49 @@
+# Doniji Kraji
+
+capital = "Jajce"
+owner = SRE
+controller = SRE
+add_core = SRE
+add_core = BOS
+add_core = CRO
+culture = bosnian
+religion = catholic
+trade_goods = livestock
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = scandinavian_tech
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1316.10.29	= { owner = CRO controller = CRO remove_core = SRE } # Syrmia collapses on Dragutin's death
+1347.1.1	= { base_manpower = 2 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1350.10.1	= { controller = SER } # Garrisoned by Serbia
+1355.12.20	= { owner = BOS controller = BOS } # Serbian empire crumbles after death of Stefan IV Dusan
+1360.1.1   = { remove_province_modifier = province_black_death }
+1463.1.1  = { owner = TUR controller = TUR add_territorial_core = TUR } # The Ottoman province of Bosnia
+1500.1.1  = { citysize = 2365 }
+1550.1.1  = { citysize = 3003 }
+1593.1.1  = { unrest = 3 } # Fighting began in northwestern Bosnia, sparked Habsburg-Ottoman conflict
+1600.1.1  = { citysize = 4020 }
+1606.1.1  = { unrest = 0 } # Temporarty peace
+1650.1.1  = { citysize = 5423 }
+1683.1.1  = { unrest = 6 } # Heavy fighting & destruction in western Bosnia
+1699.1.1  = { unrest = 0 citysize = 6300 } # Flood of Muslim refugees from Slavonia & Ottoman Hungary 
+1700.1.1  = { citysize = 6553 }
+1716.1.1  = { controller = HAB } # Occupied by Habsburg
+1718.1.1  = { controller = TUR } # Estimated
+1737.7.1  = { controller = HAB } # Occupied by Habsburg again
+1738.1.1  = { unrest = 5 } # The constant fighting, increased taxation caused tax revolts
+1739.9.18 = { controller = TUR } # Treaty of Belgrade, Habsburg gave up its claim to the territory
+1740.1.1  = { unrest = 8 }
+1750.1.1  = { citysize = 7108 unrest = 0 }
+1788.12.6 = { controller = HAB } # Habsburg invasion
+1791.8.4  = { controller = TUR } # Treaty of Sistova
+1800.1.1  = { citysize = 10033 }

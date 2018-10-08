@@ -1,0 +1,16 @@
+government = native
+government_rank = 1
+primary_culture = ainu
+religion = animism
+technology_group = niitaka
+capital = 948
+
+1308.1.1 = { 
+	monarch = {
+		name = "Ainu Council"
+		adm = 3
+		dip = 3
+		mil = 3
+		regent = yes
+	}
+}

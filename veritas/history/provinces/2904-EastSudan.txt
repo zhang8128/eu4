@@ -1,0 +1,5 @@
+# Sudan
+#Province IDs changed
+
+discovered_by = muslim
+discovered_by = sudanese_tech

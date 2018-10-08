@@ -1,0 +1,20 @@
+# Rikuzen
+
+capital = "Aizu"
+owner = DTE
+controller = DTE
+add_core = DTE
+culture = japanese
+religion = shinto
+trade_goods = rice
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = chinese
+discovered_by = niitaka
+
+1520.1.1 = { fort_15th = yes } # Iwadeyama Castle, Estimation
+1542.1.1 = { discovered_by = POR }
+1601.6.28 = { capital = "Sendai" }

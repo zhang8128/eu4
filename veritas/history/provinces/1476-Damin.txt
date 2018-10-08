@@ -1,0 +1,22 @@
+# Damin
+
+capital = "Deogarh"
+owner = BNG
+controller = BNG
+add_core = BNG
+culture = bihari
+religion = buddhism
+trade_goods = silk
+base_tax = 3
+base_production = 3
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = chinese
+discovered_by = indian
+
+1325.1.1	= { owner = NGP controller = NGP add_core = NGP remove_core = BNG }
+1627.1.1	= { discovered_by = POR }
+1674.1.1	= { owner = MUG controller = MUG }
+1707.3.15	= { owner = BNG controller = BNG add_core = BNG remove_core = MUG }
+1760.1.1	= { owner = GBR controller = GBR } # Given to GBR by Mir Qasim

@@ -1,0 +1,157 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+technology_group = western
+religion = catholic
+primary_culture = irish
+capital = 3981	# Mayo
+
+1333.6.1 = {
+	monarch = {
+		name = "Edmond Albanach"
+		dynasty = "Burke"
+		birth_date = 1310.1.1	#Estimated
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1375.1.1 = {
+	monarch = {
+		name = "Thomas mac Edmond"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1402.1.1 = {
+	monarch = {
+		name = "Walter mac Thomas"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1440.1.1 = {
+	monarch = {
+		name = "Edmund"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1458.1.1 = {
+	monarch = {
+		name = "Thomas Og"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1460.1.1 = {
+	monarch = {
+		name = "Richard"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1469.1.1 = {
+	monarch = {
+		name = "Richard"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1473.1.1 = {
+	monarch = {
+		name = "Theobald"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1503.1.1 = {
+	monarch = {
+		name = "Richard"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1509.1.1 = {
+	monarch = {
+		name = "Edmond"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1527.1.1 = {
+	monarch = {
+		name = "Theobald"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1537.1.1 = {
+	monarch = {
+		name = "Richard mac Seaan"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1571.1.1 = {
+	monarch = {
+		name = "Seaan mac Oliver"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1580.1.1 = {
+	monarch = {
+		name = "Richard"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1586.10.1 = {
+	monarch = {
+		name = "Tibbot the Long"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}

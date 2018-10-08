@@ -1,0 +1,10 @@
+#Haariisen
+#model = galley
+#tech_level = 0
+type = galley
+unit_type = niitaka
+
+hull_size = 8
+base_cannons = 8
+sail_speed = 4
+sailors = 150

@@ -1,0 +1,71 @@
+#Zurich
+dependency = {
+	subject_type = swiss_confederate
+	first = SWI
+	second = ZUR
+	start_date = 1351.1.1
+	end_date = 1648.10.24
+}
+
+#Bern
+dependency = {
+	subject_type = swiss_confederate
+	first = SWI
+	second = BRN
+	start_date = 1353.1.1
+	end_date = 1648.10.24
+}
+
+#Neuchatel
+dependency = {
+	subject_type = swiss_confederate
+	first = SWI
+	second = NEU
+	start_date = 1406.1.1
+	end_date = 1648.10.24
+}
+
+#Wallis
+dependency = {
+	subject_type = swiss_confederate
+	first = SWI
+	second = VAL
+	start_date = 1416.1.1
+	end_date = 1529.3.12
+}
+
+#St. Gallen
+dependency = {
+	subject_type = swiss_confederate
+	first = SWI
+	second = STG
+	start_date = 1454.1.1
+	end_date = 1648.10.24
+}
+
+#Chur
+dependency = {
+	subject_type = swiss_confederate
+	first = SWI
+	second = CHU
+	start_date = 1497.1.1
+	end_date = 1648.10.24
+}
+
+#Basel
+dependency = {
+	subject_type = swiss_confederate
+	first = SWI
+	second = BAS
+	start_date = 1501.1.1
+	end_date = 1648.10.24
+}
+
+#Geneva
+dependency = {
+	subject_type = swiss_confederate
+	first = SWI
+	second = GNV
+	start_date = 1526.1.1
+	end_date = 1648.10.24
+}

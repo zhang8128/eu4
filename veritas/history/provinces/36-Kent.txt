@@ -1,0 +1,52 @@
+# Kent
+
+capital = "Canterbury"
+owner = ENG
+controller = ENG
+add_core = ENG
+culture = english
+religion = catholic
+trade_goods = hemp
+base_tax = 5
+base_production = 4
+base_manpower = 5
+is_city = yes
+hre = no
+temple = yes # Canterbury Cathedral
+dock = yes
+basic_fort = yes
+seat_in_parliament = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+set_province_flag = starting_fort
+
+1349.1.1	= { base_tax = 4 base_manpower = 4 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1	= { remove_province_modifier = province_black_death }
+1400.1.1	= { base_tax = 5 }
+1450.5.1	= { revolt = { type = anti_tax_rebels size = 2 } controller = REB } # Jack Cade's rebellion
+1450.7.12	= { revolt = {} controller = ENG }
+1453.1.1	= { unrest = 5 } # Start of the War of the Roses (minor conflicts )
+1459.1.1 	= { owner = YOR controller = LAN add_core = YOR } # War breaks out; Yorkists flee the country
+1460.1.1	= { controller = YOR } # Warwick invades from Calais
+1467.1.1	= { unrest = 5 } # Rivalry between Edward IV & Warwick
+1471.1.1	= { unrest = 8 } # Unpopularity of Warwick & War with Burgundy
+1471.5.4	= { unrest = 2 owner = ENG controller = ENG remove_core = YOR seat_in_parliament = yes } # Battle of Tewkesbury & the End of the War of the Roses
+1483.6.26	= { unrest = 8 } # Revulsion at Supposed Murder of the Princes in the Tower
+1485.8.23	= { unrest = 0 } # Battle of Bosworth Field
+1500.1.1	= { base_manpower = 5 }
+1513.1.1	= { shipyard = yes } # Deptford
+1550.1.1	= { base_manpower = 2 }
+1588.1.1	= { wharf = yes } # Chatham
+1600.1.1	= { base_manpower = 2.5 } # Influx of Walloons
+1642.8.22	= { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Start of First English Civil War
+1646.5.5	= { revolt = {} controller = ENG } # End of First English Civil War
+1648.5.1	= { controller = SCO } # Royalist risings in the Second Civil War
+1648.6.1	= { controller = ENG } # Battle of Maidstone
+1650.1.1	= { base_manpower = 4 }
+1700.1.1	= { base_manpower = 4 }
+1707.5.1	= { owner = GBR controller = GBR add_core = GBR remove_core = ENG } #Acts of Union
+1750.1.1	= { base_manpower = 5 }
+1800.1.1	= { base_manpower = 6 }

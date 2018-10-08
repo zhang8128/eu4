@@ -1,0 +1,16 @@
+# Gurma
+
+capital = "Gurma"
+owner = MSK
+controller = MSK
+add_core = MSK
+culture = mossi
+religion = akan
+trade_goods = cloth
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = sudanese_tech
+discovered_by = sub_saharan

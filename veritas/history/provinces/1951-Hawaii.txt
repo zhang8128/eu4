@@ -1,0 +1,14 @@
+# Hawaii
+
+capital = "Hawaii"
+native_size = 50
+native_ferocity = 2
+native_hostileness = 9
+culture = polynesian
+religion = animism
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+discovered_by = pacific_islander

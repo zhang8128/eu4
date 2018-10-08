@@ -1,0 +1,33 @@
+# Kostroma
+
+capital = "Kostroma"
+owner = KOS
+controller = KOS
+add_core = KOS
+culture = russian 
+religion = orthodox
+trade_goods = wool
+base_tax = 4
+base_production = 4
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1321.1.1 = { owner = MOS controller = MOS add_core = MOS }	#Estimated sale to Moscow
+1450.1.1  = { citysize = 4320 }
+1500.1.1  = { citysize = 5092 }
+1503.4.1 = { owner = RUS controller = RUS add_core = RUS remove_core = MOS }
+1550.1.1  = { citysize = 5990 }
+1598.1.7  = { unrest = 5 } # "Time of troubles"
+1600.1.1  = { citysize = 7047 }
+1612.3.1  = { unrest = 0 } # Pozharsky army moves through Kostroma
+1650.1.1  = { citysize = 8291 }
+1670.1.1  = { temple = yes } # Dedicated to the Domition of Mary, rebuilt in the 17th century
+1700.1.1  = { citysize = 9754 }
+1750.1.1  = { citysize = 11475 }
+1800.1.1  = { citysize = 13500 }

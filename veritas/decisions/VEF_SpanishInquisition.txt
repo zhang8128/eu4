@@ -1,0 +1,301 @@
+# Of course, nobody expects this! :-)
+#
+# Historical Notes:
+#
+# 1478 - Pope issues 'Exigit Sinceres Devotionis' allowing national offices of Inquisition
+# 1480 - Spain establishes the Office
+# 1482 In Seville and in Córdoba.
+# 1485 In Toledo and in Llerena.
+# 1488 In Valladolid and in Murcia.
+# 1489 In Cuenca.
+# 1505 In Las Palmas (Canary Islands).
+# 1512 In Logroño.
+# 1526 In Granada.
+# 1574 In Santiago de Compostela.
+#
+# Once the Inquisition is started, it can be cancelled with a penalty hit to ADM, Papal
+# Influence, Relations with Rome and prestige.
+#
+# Inquisition offices, when founded, increase local revolt risk for 5 years and present
+# decisions and events for dealing with local heretics. These decisions impact various 
+# attributes (e.g gaining funds from wealthy heretics, suppressing reform desire, etc).
+#
+# The Inquisition will increase religious unity, Papal Influence, Catholicism  at the cost of 
+# stability and production and create issues with religious minorities (Jews and Moors) who 
+# remain in Spain. It runs through the end of the game, barring the collapse of the Spanish 
+# Monarchy, conversion to Protestantism or becoming a vassal. No special penalties apply in 
+# this case.
+#
+# Failing to start (or cancelling) the Inquisition leaves Spain ripe for Protestant Conversion 
+# and affects the Jesuit Order events/decisions (how strong the Jesuit Influence in the New World
+# is and how much trouble there they cause for Spain. Either one increases tolerance and decreases
+# Catholic missionary strength.
+
+country_decisions = {
+	start_the_inquisition = {
+		major = yes
+		potential = {
+			OR = {
+				tag = SPA
+				tag = CAS
+			}
+			normal_or_historical_nations = yes
+			is_playing_custom_nation = no
+			religion = catholic
+			is_year = 1478
+			NOT = { is_year = 1517 }
+			NOT = { has_country_flag = the_inquisition }
+		}
+
+		allow = {
+			NOT = { has_regency_trigger = yes }
+			is_subject = no
+			adm_power = 100
+			stability = 1
+			treasury = 50
+		}
+
+		effect = {
+			reverse_add_opinion = { who = PAP modifier = spain_started_the_inquisition }
+			add_country_modifier = { name = "the_spanish_inquisition" duration = -1 }
+			remove_country_modifier = tolerate_moriscos_and_jews
+			set_country_flag = the_inquisition
+			
+			add_adm_power = -100
+			every_owned_province = {
+				limit = { NOT = { religion = catholic } }
+				add_unrest = 20
+			}
+			every_owned_province = {
+				limit = { religion = catholic }
+				add_unrest = 2
+			}
+			add_treasury = -50
+			add_reform_desire = -0.05
+			add_ruler_modifier = { name = vef_defender_faith duration = -1 }
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 1250
+	}
+	
+	cancel_the_inquisition = {
+		major = yes
+		potential = {
+			has_country_modifier = the_spanish_inquisition
+		}
+
+		allow = {
+			NOT = { has_regency_trigger = yes }
+			is_subject = no
+			adm_power = 200
+		}
+
+		effect = {
+			reverse_remove_opinion = { who = PAP modifier = spain_started_the_inquisition }
+			reverse_add_opinion = { who = PAP modifier = spain_cancelled_the_inquisition }
+			add_country_modifier = { name = "stopped_the_inquisition" duration = -1 }
+			remove_country_modifier = the_spanish_inquisition
+			remove_country_modifier = religious_turmoil
+			add_adm_power = -200
+			add_stability = 1
+			add_prestige = -25
+			add_reform_desire = 0.05
+		}
+		
+		ai_will_do = { factor = 0 } # AI won't cancel
+	}
+	
+	issue_the_decree_of_alhambra = {
+		major = yes
+		potential = {
+			has_country_modifier = the_spanish_inquisition
+			NOT = { has_country_modifier = decree_of_alhambra }
+			owns = 82
+		}
+
+		allow = {
+			had_country_flag = { flag = the_inquisition days = 1825 } # 5 years
+			NOT = { has_regency_trigger = yes }
+			is_subject = no
+			adm_power = 10
+			stability = 0
+		}
+
+		effect = {
+			add_country_modifier = { name = "decree_of_alhambra" duration = -1 }
+			add_country_modifier = { name = "religious_turmoil" duration = 1825 }
+			add_adm_power = -10
+
+			63 = { add_province_modifier = { name = "jewish_emigrees" duration = -1 }} # Lisbon
+			269 = { add_province_modifier = { name = "jewish_emigrees" duration = -1 }} # Venice
+			253 = { add_province_modifier = { name = "jewish_emigrees" duration = -1 }} # Liguria
+			
+			if = {
+				limit = { owns_or_vassal_of = 75 }
+				75 = { add_province_modifier = { name = "jews_expelled" duration = 730 }} # Madrid
+			}
+			if = {
+				limit = { owns_or_vassal_of = 87 }
+				87 = { add_province_modifier = { name = "jews_expelled" duration = 730 }} # Toledo
+			}
+			if = {
+				limit = { owns_or_vassal_of = 107 }
+				107 = { add_province_modifier = { name = "jews_expelled" duration = 730 }} # Barcelona
+			}
+			if = {
+				limit = { owns_or_vassal_of = 106 }
+				106 = { add_province_modifier = { name = "jews_expelled" duration = 730 }} # Girona
+			}
+
+			set_country_flag = torquemada
+
+			define_advisor = {
+				type = tomas_de_torquemada
+				skill = 2
+				location = 82
+				name = "Tomás de Torquemada"
+			}
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 1250	
+	}
+	
+	decree_moslem_conversion = {
+		major = yes
+		potential = {
+			has_country_modifier = the_spanish_inquisition
+			any_owned_province = {
+				region = iberia_region
+				religion_group = muslim
+			}
+			NOT = { has_country_flag = decree_moslem_conversion }
+		}
+		
+		allow = {
+			stability = 1
+			is_year = 1500
+			mil = 4	#Strong Ruler
+		}
+		
+		effect = {
+			set_country_flag = decree_moslem_conversion
+			add_country_modifier = { name = religious_turmoil duration = -1 }
+			every_owned_province = {
+				limit = {
+					region = iberia_region
+					religion_group = muslim
+				}
+				change_religion = catholic
+				add_permanent_province_modifier = { name = moriscos duration = -1 }
+			}
+		}
+	}
+	
+	expulsion_of_the_moriscos = {
+		major = yes
+		potential = {
+			has_country_modifier = the_spanish_inquisition
+			NOT = { has_country_flag = expell_the_moriscos }
+			has_country_modifier = the_morisco_revolt
+			any_owned_province = { has_province_modifier = moriscos }
+		}
+
+		allow = {
+			adm_power = 10
+			stability = 0
+			NOT = { has_country_modifier = moriscos_revolting }
+		}
+
+		effect = {
+			set_country_flag = expell_the_moriscos
+			remove_country_modifier = religious_turmoil
+			remove_country_modifier = the_morisco_revolt
+			add_adm_power = -10
+			# Murcia
+			if = {
+				limit = { owns_or_vassal_of = 89 }
+				89 = { 
+					add_base_tax = -1 
+					add_base_production = -1
+					add_base_manpower = -1
+				} 
+			}
+			# Valencia
+			if = {
+				limit = { owns_or_vassal_of = 103 }
+				103 = { 
+					add_base_tax = -1
+					add_base_production = -1
+					add_base_manpower = -1
+				} 
+			}
+			# Granada
+			if = {
+				limit = { owns_or_vassal_of = 100 }
+				100 = { 
+					add_base_tax = -2
+					add_base_production = -2
+					add_base_manpower = -2
+				} 
+			}
+			# Almeria
+			if = {
+				limit = { owns_or_vassal_of = 101 }
+				101 = { 
+					add_base_tax = -2
+					add_base_production = -2
+					add_base_manpower = -2
+				} 
+			}
+			# Malaga
+			if = {
+				limit = { owns_or_vassal_of = 99 }
+				99 = { 
+					add_base_tax = -2
+					add_base_production = -2
+					add_base_manpower = -2
+				} 
+			}
+			# Derna
+			1638 = { 
+				add_base_tax = 2 
+				add_base_manpower = 2
+				add_unrest = 1
+			}
+			# Tripoli
+			1641 = { 
+				add_base_tax = 2 
+				add_base_production = 2
+				add_base_manpower = 2
+				add_unrest = 1
+			} 
+			# Sirte
+			1640 = { 
+				add_base_tax = 2 
+				add_base_production = 2
+				add_base_manpower = 2
+				add_unrest = 1
+			}
+			# Casablanca
+			1666 = { 
+				add_base_tax = 1 
+				add_base_production = 1
+				add_base_manpower = 1
+				add_unrest = 1
+			}
+			# Marrakech
+			1667 = { 
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				add_unrest = 1
+			}
+			every_owned_province = {
+				limit = { has_province_modifier = moriscos }
+				remove_province_modifier = moriscos
+			}
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 1250	
+	}
+}

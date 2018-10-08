@@ -1,0 +1,19 @@
+#Province IDs changed
+government = tribal add_government_reform = tribal_federation
+government_rank = 3
+technology_group = sub_saharan
+primary_culture = edo_igbo
+religion = odinani
+capital = 1771
+historical_rival = OYO
+
+#this king lived mid-16th century and is half-way mythical, but there are no earlier records of rulers. Can be moved to a later date if it's against ethics.
+
+1309.1.1 = {
+	monarch = {
+		name = "Tsoede"
+		dip = 4
+		adm = 2
+		mil = 3
+	}
+}

@@ -1,0 +1,25 @@
+# Nueva Gerona
+#Province IDs changed
+
+culture = arawak
+religion = animism
+capital = "Nueva Gerona"
+trade_goods = unknown
+hre = no
+base_tax = 1
+base_production = 1
+base_manpower = 1
+native_size = 1
+native_ferocity = 1
+native_hostileness = 1
+
+1493.1.1 = { discovered_by = CAS } # Christopher Columbus's arrival
+1520.1.1   = {	
+		owner = SPA 
+		controller = SPA
+		add_core = SPA
+		culture = castillian
+		religion = catholic
+	   	citysize = 1000
+		trade_goods = sugar
+	}

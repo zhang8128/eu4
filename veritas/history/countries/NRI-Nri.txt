@@ -1,0 +1,97 @@
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+technology_group = sub_saharan
+primary_culture = edo_igbo
+religion = odinani
+capital = 1766
+
+1309.1.1 = {
+	monarch = {
+		name = "Jiofo"
+		dynasty = "Nri"
+		DIP = 2
+		ADM = 3
+		MIL = 2
+	}
+}
+
+1391.1.1 = {
+	monarch = {
+		name = "Omalonyeso"
+		dynasty = "Nri"
+		DIP = 2
+		ADM = 2
+		MIL = 2
+	}
+}
+
+1465.1.1 = {
+	monarch = {
+		name = "Anyamata"
+		dynasty = "Nri"
+		DIP = 2
+		ADM = 2
+		MIL = 2
+	}
+}
+
+1512.1.1 = {
+	monarch = {
+		name = "Fenunu"
+		dynasty = "Nri"
+		DIP = 3
+		ADM = 2
+		MIL = 2
+	}
+}
+
+1583.1.1 = {
+	monarch = {
+		name = "Agu"
+		dynasty = "Nri"
+		DIP = 2
+		ADM = 2
+		MIL = 3
+	}
+}
+
+1677.1.1 = {
+	monarch = {
+		name = "Apia"
+		dynasty = "Nri"
+		DIP = 0
+		ADM = 3
+		MIL = 1
+	}
+}
+
+1701.1.1 = {
+	monarch = {
+		name = "Ezimilo"
+		dynasty = "Nri"
+		DIP = 2
+		ADM = 2
+		MIL = 3
+	}
+}
+
+1724.1.1 = {
+	monarch = {
+		name = "Ewenetem"
+		dynasty = "Nri"
+		DIP = 1
+		ADM = 1
+		MIL = 1
+	}
+}
+
+1795.1.1 = {
+	monarch = {
+		name = "Enweleana"
+		dynasty = "Nri"
+		DIP = 1
+		ADM = 2
+		MIL = 1
+	}
+}

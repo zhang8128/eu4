@@ -1,0 +1,10 @@
+#Chebeck
+#model = archipelago_frigate
+#tech_level = 40
+type = galley
+unit_type = eastern
+
+hull_size = 28
+base_cannons = 40
+sail_speed = 6
+sailors = 350

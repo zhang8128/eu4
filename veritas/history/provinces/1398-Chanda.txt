@@ -1,0 +1,22 @@
+# Chanda
+
+capital = "Ballarsah"
+owner = ADH
+controller = ADH
+add_core = ADH
+culture = marathi
+religion = hinduism
+trade_goods = nutmeg
+base_tax = 3
+base_production = 3
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = indian
+
+1323.1.1	= { owner = GDW controller = GDW add_core = GDW remove_core = ADH } #Kakatiya dynasty conquered by Delhi Sultanate; Delhi does not occupy this area
+1347.1.1	= { owner = BAH controller = BAH add_core = BAH remove_core = GDW } #Bahmanis Sultanate independent
+1490.1.1	= { owner = BRR controller = BRR remove_core = BAH } # The Breakup of the Bahmani sultanate
+1690.1.1	= { discovered_by = ENG }
+1707.5.12	= { discovered_by = GBR }
+1757.1.1	= { owner = NAG controller = NAG add_core = NAG }

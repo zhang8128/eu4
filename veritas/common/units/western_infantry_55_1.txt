@@ -1,0 +1,21 @@
+# Professional Infantry
+
+type = infantry
+
+maneuver = 1
+offensive_morale = 9
+defensive_morale = 9
+offensive_fire = 9
+defensive_fire = 9
+offensive_shock = 4
+defensive_shock = 4
+
+trigger = {
+	OR = {
+		unit_type = western
+		technology_group = western
+		technology_group = scandinavian_tech
+		technology_group = byzantine
+		technology_group = high_american
+	}
+}

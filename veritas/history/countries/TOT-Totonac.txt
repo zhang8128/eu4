@@ -1,0 +1,17 @@
+#Province IDs changed
+government = tribal add_government_reform = tribal_federation
+government_rank = 3
+primary_culture = totonac
+religion = xochiyaoyotl
+technology_group = mesoamerican
+capital = 2105
+
+
+1305.1.1 = {
+	monarch = {
+		name = "Acamapichtli Panitzin"	#Fictional
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+} #No known Totonac rulers in-timeline

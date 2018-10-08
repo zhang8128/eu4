@@ -1,0 +1,4 @@
+# Coast Of Peru
+#Province IDs changed
+discovered_by = INC
+1535.1.18 = { discovered_by = SPA }

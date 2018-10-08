@@ -1,0 +1,57 @@
+########################################
+# Flavor Events for HRE 
+########################################
+
+namespace = flavor_hre
+normal_or_historical_nations = yes
+
+
+# Golden Bull of 1356
+country_event = {
+	id = flavor_hre.1
+	title = "flavor_hre.1.t"
+	desc = "flavor_hre.1.d"
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+	
+	trigger = {
+		is_emperor = yes
+		NOT = { has_global_flag = golden_bull_promulgated }
+		is_year = 1356
+	}
+	
+	option = {
+		ai_chance = { factor = 100 }
+		name = "flavor_hre.1.opta"
+		set_global_flag = golden_bull_promulgated
+	}
+	
+	option = {
+		ai_chance = { factor = 0 }
+		name = "flavor_hre.1.optb"
+	}
+}
+
+# The Pragmatic Sanction
+country_event = {
+	id = flavor_hre.2
+	title = "flavor_hre.2.t"
+	desc = "flavor_hre.2.d"
+	picture = VEF_REFORM_eventPicture
+
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = pragmatic_sanction
+	}
+
+	option = {
+		name = "flavor_hre.2.opta"
+		set_allow_female_emperor = yes
+	}
+}

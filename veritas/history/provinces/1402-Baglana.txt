@@ -1,0 +1,23 @@
+# Baglana
+
+capital = "Mayuragiri"
+owner = DLH
+controller = DLH
+add_territorial_core = DLH
+add_core = BGA
+culture = marathi
+religion = hinduism
+trade_goods = millet
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = indian
+
+1347.1.1	= { controller = BAH owner = BAH add_core = BAH remove_territorial_core = DLH } #Bahmani Sultanate
+1490.1.1	= { owner = BGA controller = BGA remove_core = BAH } # The Breakup of the Bahmani sultanate
+1573.6.1	= { owner = MUG controller = MUG add_core = MUG capital = "Khuldabad" } # Conquered by Akbar
+1650.1.1	= { add_core = MAR }
+1674.1.1	= { owner = MAR controller = MAR remove_core = MUG capital = "Nashik" } # The Maratha Empire
+1818.6.3	= { owner = GBR controller = GBR }

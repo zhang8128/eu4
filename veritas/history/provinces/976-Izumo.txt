@@ -1,0 +1,32 @@
+# Izumo
+
+capital = "Matsue"
+owner = AMA
+controller = AMA
+add_core = AMA
+culture = japanese
+religion = shinto
+trade_goods = iron
+base_tax = 5
+base_production = 5
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = chinese
+discovered_by = niitaka
+
+1400.1.1 = { base_manpower = 3 }
+1486.1.1 = { owner = AMA controller = AMA fort_15th = yes } # Siege of Gassantoda Castle
+1500.1.1 = { base_manpower = 4 }
+1542.1.1 = { discovered_by = POR }
+1558.1.1 = { add_core = MRI }
+1566.11.28 = { owner = MRI controller = MRI remove_core = AMA fort_15th = no } # Gassan Toda Castle has fallen
+1600.1.1 = { base_manpower = 6 }
+1600.10.21 = { add_core = TKG owner = TKG controller = TKG remove_core = MRI } # Battle of Sekigahara
+1603.3.24 = { owner = JAP controller = JAP add_core = JAP remove_core = TKG } # Tokugawa shogunate founded
+1639.8.4 = { trade_goods = silver } # Silver mine + Sakoku reduces sword demand
+1650.1.1 = { base_manpower = 7 }
+1693.1.1 = { trade_goods = fish } # Estimate, Japan stops silver export
+1700.1.1 = { base_manpower = 8 }
+1750.1.1 = { base_manpower = 8 }
+1800.1.1 = { base_manpower = 7.5 }

@@ -1,0 +1,70 @@
+# SuperchackiaMisl
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+technology_group = indian
+primary_culture = panjabi
+religion = sikhism
+capital = 1014	# Gujranwala
+
+#Khokhars
+
+1444.1.1 = {
+	monarch = {
+		name = "Jasrath"
+		dynasty = "Khokhar"
+		adm = 0
+		dip = 1
+		mil = 3
+	}
+	religion = hinduism
+}
+ 
+
+1553.1.1 = {
+	monarch = {
+		name = "Sikandar"
+		dynasty = "Suri"
+		adm = 1
+		dip = 3
+		mil = 2
+	}
+	religion = sunni
+}
+
+#Sikh leaders in Gujranwala
+1758.1.1 = {
+	add_country_modifier = { name = "sikh_confederacy" duration = -1 }
+	monarch = {
+		name = "Jassa Singh"
+		dynasty = "Ahluwalia"
+		adm = 1
+		dip = 2
+		mil = 6
+		leader = { name = "Jassa Ahluwalia"	type = general fire = 2	shock = 3	manuever = 2	siege = 1 }
+	}
+}
+
+1774.1.1 = {
+	monarch = {
+		name = "Maha Singh"
+		dynasty = "Sandhawalia"
+		adm = 0
+		dip = 1
+		mil = 5
+	}
+}
+
+1780.11.13 = {
+	heir = {
+		name = "Ranjit Singh"
+		monarch_name = "Ranjit Singh"
+		dynasty = "Sandhawalia"
+		birth_date = 1780.11.13
+		death_date = 1839.6.20
+		claim = 95
+		adm = 3
+		dip = 4
+		mil = 6
+	}
+}

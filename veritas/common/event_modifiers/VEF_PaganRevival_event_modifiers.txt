@@ -1,0 +1,12 @@
+pagan_revival_norse_temple = {
+	local_manpower_modifier = 0.25	
+}
+
+pagan_revival_pagan_stronghold = {
+	local_unrest = -2
+}
+
+pagan_revival_pagans_betrayed = {
+	local_unrest = 4
+	local_manpower_modifier = -0.25
+}

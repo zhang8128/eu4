@@ -1,0 +1,17 @@
+# Baghelkhand
+
+capital = "Bandhogarh"
+owner = ORI
+controller = ORI
+add_core = ORI
+culture = avadhi
+religion = hinduism
+trade_goods = rice
+base_tax = 3
+base_production = 3
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = indian
+
+1325.1.1 = { owner = GDW controller = GDW add_core = GDW remove_core = ORI } #Fracturing of eastern Ganges

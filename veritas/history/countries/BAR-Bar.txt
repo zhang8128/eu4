@@ -1,0 +1,234 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+primary_culture = champenois
+religion = catholic
+technology_group = western
+capital = 178	# Verdun
+
+
+1302.1.1 = {
+	monarch = {
+		name = "Edward I"
+		dynasty = "de Montbéliard"
+		birth_date = 1290.1.1	#Estimated; it is known he ascended in his minority
+		adm = 2
+		dip = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = BUR
+		name = "Marie"
+		dynasty = "de Bourgogne"
+		birth_date = 1290.1.1	#Made up
+		death_date = 1350.1.1	#Made up
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1315.1.1 = {
+	heir = {
+		name = "Henri"
+		monarch_name = "Henri IV"
+		dynasty = "de Montbéliard"
+		birth_date = 1315.1.1
+		death_date = 1344.6.1
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}
+
+1336.11.1 = {
+	monarch = {
+		name = "Henri IV"
+		dynasty = "de Montbéliard"
+		birth_date = 1315.1.1
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+	queen = {
+		country_of_origin = FLA
+		name = "Yolande"
+		dynasty = "van Dampierre"
+		birth_date = 1321.1.1
+		death_date = 1395.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1339.10.10 = {
+	heir = {
+		name = "Edward"
+		monarch_name = "Edward II"
+		dynasty = "de Montbéliard"
+		birth_date = 1339.10.10
+		death_date = 1352.5.1
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}
+
+1344.6.1 = {
+	monarch = {
+		name = "Yolande"
+		dynasty = "van Dampierre"
+		birth_date = 1321.1.1
+		female = yes
+		regent = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Edward"
+		monarch_name = "Edward II"
+		dynasty = "de Montbéliard"
+		birth_date = 1339.10.10
+		death_date = 1352.5.1
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}
+
+1350.1.1 = {
+	monarch = {
+		name = "Edward II"
+		dynasty = "de Montbéliard"
+		birth_date = 1339.10.10
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+	heir = {
+		name = "Robert"
+		monarch_name = "Robert I"
+		dynasty = "de Montbéliard"
+		birth_date = 1344.11.8
+		death_date = 1411.4.12
+		adm = 1
+		dip = 1
+		mil = 2
+	}
+}
+
+1352.5.1 = {
+	monarch = {
+		name = "Yolande"
+		dynasty = "van Dampierre"
+		birth_date = 1321.1.1
+		female = yes
+		regent = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Robert"
+		monarch_name = "Robert I"
+		dynasty = "de Montbéliard"
+		birth_date = 1344.11.8
+		death_date = 1411.4.12
+		adm = 1
+		dip = 1
+		mil = 2
+	}
+}
+
+1354.1.1 = {
+	government_rank = 2
+}
+
+1359.11.8 = {
+	monarch = {
+		name = "Robert I"
+		dynasty = "de Montbéliard"
+		birth_date = 1344.11.8
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+1364.1.1 = {
+	queen = {
+		country_of_origin = FRA
+		name = "Marie"
+		dynasty = "de Valois"
+		birth_date = 1344.9.18
+		death_date = 1404.10.15
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1377.6.25 = {
+	heir = {
+		name = "Edward"
+		monarch_name = "Edward III"
+		dynasty = "de Montbéliard"
+		birth_date = 1377.6.25
+		death_date = 1415.10.25
+		claim = 95
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1411.4.12 = {
+	monarch = {
+		name = "Edward III"
+		dynasty = "de Montbéliard"
+		birth_date = 1377.6.25
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+	heir = {
+		name = "Louis"
+		monarch_name = "Louis I"
+		dynasty = "de Montbéliard"
+		birth_date = 1375.1.1
+		death_date = 1430.6.26
+		claim = 75
+		adm = 1
+		dip = 4
+		mil = 2
+	}
+}
+
+1415.10.25 = {
+	monarch = {
+		name = "Louis I"
+		dynasty = "de Montbéliard"
+		adm = 1
+		dip = 4
+		mil = 2
+	}
+}
+
+# 1430.6.26: Inherited by René of Anjou
+
+1480.7.10 = {
+	monarch = {
+		name = "Yolande"
+		dynasty = "de Vaudémont"
+		adm = 2
+		dip = 2
+		mil = 1
+		female = yes
+	}
+}
+
+# 1483.3.23: Inherited by René II of Lorraine

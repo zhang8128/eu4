@@ -1,0 +1,17 @@
+name = "Fifth Siamese-Burmese War"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 1199 # Ratchaburi
+}
+
+1764.1.1 = {
+	add_attacker = TAU
+	add_defender = AYU
+}
+
+# Singu Mu welcomes peace
+1776.6.10 = {
+	rem_attacker = TAU
+	rem_defender = AYU
+}

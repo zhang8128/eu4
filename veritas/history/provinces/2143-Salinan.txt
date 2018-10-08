@@ -1,0 +1,42 @@
+# Salinan
+
+capital = "Salinan"
+native_size = 5 
+native_ferocity = 1 
+native_hostileness = 3 
+culture = piman
+religion = totemism
+trade_goods = unknown 
+base_tax = 1
+base_production = 1
+base_manpower = 1 
+hre = no
+
+discovered_by = north_american
+
+1542.1.1 = { discovered_by = SPA } # Juan Rodriguez Cabrillo
+1770.1.1 = {	owner = SPA
+	controller = SPA
+	citysize = 355
+	trade_goods = wool 
+} # Don Gaspar de Portolá
+1792.1.1 = {
+	capital = "Yerba Buena"
+	citysize = 1600
+} # British settlement, Yerba Buena (San Francisco) founded by George Vancouver
+1795.1.1 = {
+	citysize = 1200
+	culture = castillian
+	religion = catholic
+	add_core = SPA
+}
+1800.1.1 = { citysize = 1980 }
+1810.9.16 = { owner = MEX add_core = MEX controller = SPA } # Mexican War of Independence
+1821.8.24 = { controller = MEX remove_core = SPA } # Spain concedes defeat
+1846.7.19 = { controller = USA } # US forces under Stockton and Fremont sieze most of California
+1848.2.2 = {
+	owner = USA
+	add_core = USA
+	change_culture = american
+	remove_core = MEX
+	} # Treaty of Guadalupe-Hidalgo

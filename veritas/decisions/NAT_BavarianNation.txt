@@ -1,0 +1,60 @@
+country_decisions = {
+	bavarian_nation = {
+		major = yes
+		
+		potential = {
+			normal_or_historical_nations = yes
+			OR = {
+				tag = UBV
+				tag = LBV
+			}
+			OR = {
+				ai = no
+				num_of_cities = 3
+			}
+			NOT = { exists = BAV }
+		}
+		
+		allow = {
+			stability = 1
+			is_subject = no 
+			is_at_war = no
+			adm_tech = 12
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 301 	# Straubing
+			301 = { NOT = { nationalism = 1 } }
+			owns_core_province = 302 	# Cham
+			302 = { NOT = { nationalism = 1 } }
+			owns_core_province = 304 	# Ingolstadt
+			304 = { NOT = { nationalism = 1 } }
+			owns_core_province = 306	# Landshut
+			306 = { NOT = { nationalism = 1 } }
+			owns_core_province = 307 	# Wasserburg
+			307 = { NOT = { nationalism = 1 } }
+			owns_core_province = 308	# München
+			308 = { NOT = { nationalism = 1 } }
+		}	
+		
+		effect = {
+			change_tag = BAV
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = BAV_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+
+		ai_will_do = { factor = 1 }
+		ai_importance = 400
+	}
+}

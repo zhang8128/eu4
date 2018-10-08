@@ -1,0 +1,299 @@
+opinion_priory_founded = {
+	opinion = 25
+	years = 10
+	max = 25
+}
+
+opinion_priory_destroyed = {
+	opinion = -25
+	years = 10
+	min = -25
+}
+
+opinion_privateers_sponsorship = {
+	opinion = -25
+	years = 25
+	max = -25
+}
+
+opinion_help_refused = {
+	opinion = -20
+	years = 10
+	yearly_decay = 2
+}
+
+opinion_help_accepted = {
+	opinion = 10
+	years = 10
+	yearly_decay = 1
+}
+
+opinion_knights_newhome = {
+	opinion = 200
+	years = 50
+	max = 200
+}
+
+opinion_refused_newhome = {
+	opinion = -100
+	years = 25
+	min = -100
+	
+}
+
+opinion_support_KNI1 = {
+	opinion = 25
+	years = 5
+	max = 5
+}
+
+opinion_support_KNI2 = {
+	opinion = 50
+	years = 5
+	max = 50
+}
+
+opinion_support_KNI3 = {
+	opinion = -50
+	years = 5
+	min = -50
+}
+
+opinion_support_KNI4 = {
+	opinion = -25
+	years = 5
+	min = -25
+}
+
+
+opinion_priory2 = {
+	opinion = 30
+	months = 12
+	max= 30
+}
+
+opinion_priory3 = {
+	opinion = 35
+	months = 12
+	max= 35
+}
+
+opinion_priory4 = {
+	opinion = 40
+	months = 12
+	max= 40
+}
+
+opinion_priory5 = {
+	opinion = 45
+	months = 12
+	max= 45
+}
+
+opinion_priory6 = {
+	opinion = 50
+	months = 12
+	max= 50
+}
+
+opinion_priory7 = {
+	opinion = 55
+	months = 12
+	max= 55
+}
+
+opinion_priory8 = {
+	opinion = 60
+	months = 12
+	max= 60
+}
+
+opinion_priory9 = {
+	opinion = 65
+	months = 12
+	max= 65
+}
+
+opinion_KoSJ_advisor_1 = {
+	opinion = 10
+	months = 12
+	max = 10
+}
+
+opinion_KoSJ_advisor_2 = {
+	opinion = 10
+	months = 12
+	max = 10
+}
+
+opinion_KoSJ_advisor_3 = {
+	opinion = 10
+	months = 12
+	max = 10
+}
+
+opinion_KoSJ_advisor_4 = {
+	opinion = 10
+	months = 12
+	max = 10
+}
+
+opinion_war_ALG = {
+	opinion = 5
+	months = 12
+	max = 5
+}
+
+opinion_war_TUN = {
+	opinion = 5
+	months = 12
+	max = 5
+}
+
+opinion_war_MOR = {
+	opinion = 5
+	months = 12
+	max = 5
+}
+
+opinion_war_MAM = {
+	opinion = 10
+	months = 12
+	max = 10
+}
+
+opinion_war_TUR = {
+	opinion = 10
+	months = 12
+	max = 10
+}
+
+opinion_allied_ALG = {
+	opinion = -5
+	months = 12
+	min = -5
+}
+
+opinion_allied_TUN = {
+	opinion = -5
+	months = 12
+	min = -5
+}
+
+opinion_allied_MOR = {
+	opinion = -5
+	months = 12
+	min = -5
+}
+
+opinion_allied_TUR = {
+	opinion = -5
+	months = 12
+	min = -5
+}
+
+opinion_allied_MAM = {
+	opinion = -5
+	months = 12
+	min = -5
+}
+
+opinion_war_KNI = {
+	opinion = -25
+	months = 12
+	min = -25
+}
+
+opinion_war_catholics = {
+	opinion = -25
+	months = 12
+	min = -25
+}
+
+opinion_war_PAP = {
+	opinion = -25
+	months = 12
+	min = -25
+}
+
+opinion_support_Knights = {
+	opinion = 10
+	months = 12
+	max = 10
+}
+
+opinion_garrison = {
+	opinion = 10
+	months = 12
+	max = 10
+}
+
+opinion_fort_built = {
+	opinion = 10
+	years = 5
+	max = 10
+}
+
+opinion_fort_refused = {
+	opinion = -5
+	years = 1
+	min = -5
+}
+
+opinion_fort_destroyed = {
+	opinion = -10
+	years = 5
+	min = -10
+}
+
+opinion_province_takeover = {
+	opinion = -15
+	years = 5
+	min = -15
+}
+
+joined_holy_league = {
+	opinion = -20
+	yearly_decay = 1
+}
+
+not_holy_league = {
+	opinion = 20
+	yearly_decay = 1
+}
+
+joined_last_crusade = {
+	opinion = -20
+	yearly_decay = 1
+}
+
+not_last_crusade = {
+	opinion = 20
+	yearly_decay = 1
+}
+
+refused_jerusalem = {
+	opinion = -100
+	years = 10
+	yearly_decay = 5
+}
+
+opinion_muslim_overlord = {
+	opinion = -200
+	months = 12
+	min = -200
+}
+
+opinion_KNI_released = {
+	opinion = 100
+	years = 10
+}
+
+opinion_reichfurst = {
+	opinion = 25
+	yearly_decay = 1
+}
+
+opinion_cardinal = {
+	opinion = 25
+}

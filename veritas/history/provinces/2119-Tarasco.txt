@@ -1,0 +1,34 @@
+# Tarasco
+
+capital = "Tarasco"
+owner = CLM
+controller = CLM
+add_core = CLM
+add_core = TAR
+culture = tecos
+religion = xochiyaoyotl
+trade_goods = fish
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = mesoamerican
+add_local_autonomy = 50
+
+1450.1.1   = { citysize = 1600 }
+1465.1.1   = { owner = TAR controller = TAR } #Estimated
+1490.1.1   = { add_core = TAR } #Tarascan resettlement
+1500.1.1   = { citysize = 1987 }
+1510.1.1   = { owner = CLM remove_core = TAR controller = CLM } #Tarascan defeat in the Saltpeter war11
+1522.1.1   = { discovered_by = SPA } # Cristobal de Olid 
+1523.1.1   = { owner = SPA controller = SPA religion = catholic unrest = 5 } #Forced to surrender by Alvarado, Colimotl murdered
+1541.1.1   = { capital = "Valladolid" culture = castillian } # Founded by Antonio de Mendoza 
+1548.1.1   = { add_core = SPA }
+1600.1.1   = { citysize = 2960 } 
+1650.1.1   = { citysize = 3422 } 
+1700.1.1   = { citysize = 5600 } 
+1750.1.1   = { citysize = 10440 } 
+1800.1.1   = { citysize = 17050 }
+1810.9.16  = { owner = MEX add_core = MEX controller = SPA } # Mexican War of Independence
+1810.10.17 = { controller = MEX } # Conquered by José María Morelos

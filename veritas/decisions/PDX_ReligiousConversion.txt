@@ -1,0 +1,24 @@
+country_decisions = {
+
+	#join_the_counter_reformation in VEF_Reformation
+	
+	christian_daimyo = {
+		potential = {
+			government = daimyo
+			religion = shinto
+			any_owned_province = { religion = catholic }
+			NOT = { is_papal_controller = yes }
+		}
+		
+		allow = {
+			dominant_religion = catholic
+			stability = 3
+		}
+		
+		effect = {
+			change_religion = catholic
+			add_stability = -4
+		}
+	}
+
+}

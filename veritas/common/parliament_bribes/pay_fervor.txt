@@ -1,0 +1,26 @@
+pay_fervor = {
+	trigger = {
+		OR = {
+			AND = {
+				religion = reformed
+				FROM = { religion = reformed }
+			}
+			AND = {
+				religion = hussite
+				FROM = { religion = hussite }
+			}
+			AND = {
+				religion = anabaptist
+				FROM = { religion = anabaptist }
+			}
+		}
+	}
+	
+	effect = {
+		add_fervor = -5
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}

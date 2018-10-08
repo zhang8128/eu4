@@ -1,0 +1,13 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 4
+primary_culture = danish
+add_accepted_culture = scanian
+add_accepted_culture = norwegian
+add_accepted_culture = english
+religion = catholic
+technology_group = scandinavian_tech
+historical_friend = SCN
+capital = 390 #Sjaelland
+historical_friend = NRM
+historical_friend = POL

@@ -1,0 +1,29 @@
+# Dewa
+#Province IDs changed
+
+
+owner = MGI
+controller = MGI
+culture = japanese
+religion = shinto
+capital = "Akita"
+trade_goods = rice
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 5
+add_core = MGI
+is_city = yes
+discovered_by = chinese
+discovered_by = niitaka
+
+1400.1.1	= { base_manpower = 2.5 }
+1500.1.1	= { base_manpower = 3.5 }
+1598.1.10	= { add_core = UES owner = UES controller = UES } # Uesugi Kagekatsu moved from Echigo to Aizu-Yonezawa
+1600.1.1	= { base_manpower = 4.5 }
+1603.3.24	= { owner = JAP controller = JAP add_core = JAP remove_core = UES } # Tokugawa shogunate founded
+1622.8.21	= { remove_core = MGI }
+1650.1.1	= { base_manpower = 5 }
+1700.1.1	= { base_manpower = 6 }
+1750.1.1	= { base_manpower = 6 }
+1800.1.1	= { base_manpower = 5.75 }

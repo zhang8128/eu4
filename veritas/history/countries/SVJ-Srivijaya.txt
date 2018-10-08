@@ -1,0 +1,30 @@
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 2
+primary_culture = malayan
+religion = vajrayana
+technology_group = chinese
+capital = 1237 # palembang
+
+1299.1.1 = {
+	monarch = {
+		name = "Sang Nila Utama"
+		dynasty = "Srivijaya"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+1305.1.1 = {
+	heir = {
+		name = "Vikramavira"
+		monarch_name = "Vikramavira"
+		dynasty = "Srivijaya"
+		claim = 100
+		adm = 1
+		dip = 3
+		mil = 2
+		birth_date = 1305.1.1
+		death_date = 1368.1.1
+	}
+}

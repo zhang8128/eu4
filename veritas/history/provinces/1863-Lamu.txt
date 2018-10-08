@@ -1,0 +1,18 @@
+# Lamu
+#Province IDs changed
+
+capital = "Lamu"
+owner = MLI
+controller = MLI
+add_core = MLI
+is_city = yes
+culture = kiswahili
+religion = sunni
+base_tax = 2
+base_production = 2
+base_manpower = 3
+trade_goods = palm
+discovered_by = sudanese_tech 
+discovered_by = tribal_african_tech 
+discovered_by = muslim 
+hre = no

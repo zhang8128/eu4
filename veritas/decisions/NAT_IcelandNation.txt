@@ -1,0 +1,140 @@
+country_decisions = {
+
+	icelandic_nation = {
+		major = yes
+		potential = {
+			owns = 3
+			owns = 4
+			normal_or_historical_nations = yes
+			OR = {
+				is_playing_custom_nation = no
+				ai = no
+			}
+			NOT = { exists = ICE }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = TUR }
+			NOT = { tag = BYZ }
+			NOT = { has_country_flag = formed_iceland } #Only once
+			OR = {
+				NOT = { num_of_cities = 4 }
+				ai = no
+			}
+			is_colonial_nation = no		
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			stability = 1
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			NOT = { num_of_cities = 4 }
+			owns_core_province = 3
+			3 = { NOT = { nationalism = 1 } }
+			owns_core_province = 4
+			4 = { NOT = { nationalism = 1 } }
+		}
+		effect = {
+			hidden_effect = {
+				every_province = {
+					limit = {
+						is_core = ROOT
+						NOT = { owned_by = ROOT }
+					}
+					remove_core = ROOT
+					if = {
+						limit = { ROOT = { tag = NOR } }
+						set_province_flag = norwegian_core
+					}
+					if = {
+						limit = { ROOT = { tag = DAN } }
+						set_province_flag = danish_core
+					}
+					if = {
+						limit = { ROOT = { tag = SWE } }
+						set_province_flag = swedish_core
+					}					
+				}
+			}		
+			if = {
+	 			limit = { is_subject = yes }
+	 			overlord = {
+	 				clr_country_flag = overlord_flag_@ROOT
+	 				set_country_flag = overlord_flag_ICE
+	 			}
+	 		}
+			change_tag = ICE
+			set_country_flag = formed_iceland
+			if = {
+				limit = {
+					capital_scope = { NOT = { area = subarctic_islands_area } }
+				}
+				set_capital = 3
+			}
+			if = {
+				limit = { NOT = { primary_culture = norwegian } }
+				change_primary_culture = capital
+			}
+			every_owned_province = {
+				limit = { area = subarctic_islands_area }
+				add_local_autonomy = -100
+			}
+			3 = {
+				add_base_tax = 1
+				add_base_production = 1
+			}
+			4 = {
+				add_base_tax = 1
+				add_base_production = 1
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = ICE_ideas }
+				}
+				country_event = { id = national_ideas.60000 } #Swap Ideas
+			}
+			hidden_effect = {
+				every_province = {
+					if = {
+						limit = {
+							has_province_flag = norwegian_core
+						}
+						add_core = NOR
+						clr_province_flag = norwegian_core					
+					}
+					if = {
+						limit = {
+							has_province_flag = danish_core
+						}
+						add_core = DAN
+						clr_province_flag = danish_core					
+					}
+					if = {
+						limit = {
+							has_province_flag = swedish_core
+						}
+						add_core = SWE
+						clr_province_flag = swedish_core					
+					}					
+				}
+			}			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				capital_scope = { NOT = { area = subarctic_islands_area } }
+			}
+		}
+	}
+
+}

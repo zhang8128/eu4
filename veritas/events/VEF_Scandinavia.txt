@@ -1,0 +1,1868 @@
+########################################
+# Scandinavian Events
+# VEF
+########################################
+
+namespace = flavor_sca
+normal_or_historical_nations = yes
+
+#Bjälbo events#
+#10001 Birth of Magnus Eriksson
+#10002 Sweden notified of Magnus becoming heir in Norway
+#10003 Magnus Eriksson becomes king of Norway (trigger help)
+#10004 Magnus becomes king, gains claims to west Sweden
+#10005 Sweden notified of Magnus becoming king
+#10006 Sweden notified that Magnus dies in Norway (kills off Magnus in Sweden)
+#10007 Norway notified that Magnus dies in Sweden (kills off Magnus in Norway)
+#10008 flag clean up event 1
+#10009 flag clean up event 2
+#10010 Magnus' opinion modifier cleanup
+#10020 King Birger dies before Nykoping events
+#10021 Norway notified of Erik's election
+#10022 Erik Magnusson becomes king with Magnus Eriksson alive
+#10023 Norway notified that Magnus has become heir to Sweden
+#10024 Magnus Eriksson becomes king of Sweden (trigger help)
+#10040 Magnus Eriksson rules both Sweden and Norway
+#10041 Norway gains union over Sweden
+#10042 Norway notified of Sweden's union refusal
+
+
+#Nykoping banquet#
+#10100 Nykoping banquet setup event
+#10101 Nykoping banquet 1: Invitation
+#10102 Nykoping banquet 2: Banquet begins
+#10103 Nykoping banquet 3: Murder!
+#10104 Nykoping banquet 4: Sweden's path
+##10105 Nykoping banquet 5a: King Birger defeated
+#10106 Nykoping banquet 5b: Anti-Birger rebels defeated
+##10107 Nykoping banquet 5c: King Birger flees to Denmark
+#10120 "1319" election
+
+#Sweden under elected PU#
+#10130 Notification of PU gaining in "1319" election (above event) and concession decision
+#10131 Notification of overlords decision
+#10132 Swedish Concessions cleanup event (hidden)
+
+#Bohuslan events#
+#10201 Norway decides it wants Bohuslan; and has a PU over Sweden
+#10210 Norway decides it wants Bohuslan (with no PU)
+#10211 Sweden decides what to do with Norway's desire for Bohuslan 
+#10212 Sweden offers to pay for Bohuslan
+#10213 Sweden refuses to return Bohuslan
+#10214 Sweden cedes Bohuslan
+#10215 Norway refuses Sweden's money
+#10216 Norway accepts Sweden's money
+#10217 Norway goes to war for Bohuslan
+#10218 Results of the war for Bohuslan
+
+
+
+#################
+# Bjälbo events #
+#################
+
+# Birth of Magnus Eriksson
+country_event = {
+	id = flavor_sca.10001
+	title = "flavor_sca.10001.t"
+	desc = "flavor_sca.10001.d"
+	
+	picture = VEF_NEW_HEIR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		is_year = 1310
+		NOT = { is_year = 1318 }
+		NOT = { has_heir_flag = magnus_eriksson }
+		NOT = { has_country_flag = vef_regency }
+		is_lesser_in_union = no
+	}
+	
+	immediate = {
+		hidden_effect = {
+			SWE = {
+				exile_heir_as = proper_heir
+				define_heir = {
+					name = "Magnus Eriksson"
+					dynasty = "Bjälbo"
+					adm = 3
+					dip = 3
+					mil = 3
+					claim = 100
+				}
+				exile_heir_as = magnus_eriksson
+				set_heir = proper_heir
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+	}
+	
+	# Make him the heir (with no heir already)
+	option = {
+		name = "flavor_sca.10001.opta"
+		trigger = {
+			NOT = { has_heir = yes }
+		}
+		
+		define_heir = {
+			name = "Magnus Eriksson"
+			dynasty = "Bjälbo"
+			adm = 3
+			dip = 3
+			mil = 3
+			claim = 80
+		}
+		hidden_effect = {
+			SWE = { country_event = { id = flavor_sca.10002 } }
+			set_heir_flag = magnus_eriksson
+			set_ruler_flag = magnus_not_yet_king
+			set_country_flag = heir_magnus_eriksson
+		}
+	}
+	
+	# Make him the heir (over another heir)
+	option = {
+		name = "flavor_sca.10001.optb"
+		trigger = {
+			has_heir = yes
+		}
+		ai_chance = {
+			factor = 90
+		}
+		define_heir = {
+			name = "Magnus Eriksson"
+			dynasty = "Bjälbo"
+			adm = 3
+			dip = 3
+			mil = 3
+			claim = 60
+		}
+		add_legitimacy = -5
+		hidden_effect = { 
+			SWE = { country_event = { id = flavor_sca.10002 } }
+			set_heir_flag = magnus_eriksson
+			set_ruler_flag = magnus_not_yet_king
+			set_country_flag = heir_magnus_eriksson
+		}
+	}
+	
+	# Leave our current heir
+	option = {
+		name = "flavor_sca.10001.optc"
+		trigger = {
+			has_heir = yes
+		}
+		ai_chance = {
+			factor = 10
+		}
+		add_prestige = -5
+		hidden_effect = {
+			set_country_flag = declined_magnus
+		}
+	}
+}
+
+# Sweden notified of Magnus becoming heir in Norway
+country_event = {
+	id = flavor_sca.10002
+	title = "flavor_sca.10002.t"
+	desc = "flavor_sca.10002.d"
+	
+	picture = VEF_NEW_HEIR_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_ruler_flag = erik_magnusson }
+	}
+	
+	option = {
+		name = "flavor_sca.10002.opta"
+		add_legitimacy = -15
+	}
+}
+
+# Magnus Eriksson becomes king of Norway (trigger help)
+country_event = {
+	id = flavor_sca.10003
+	title = "flavor_sca.10003.t"
+	desc = "flavor_sca.10003.d"
+	
+	picture = VEF_KING_DIES_eventPicture
+	
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		tag = NOR
+		NOT = { has_ruler_flag = magnus_not_yet_king }
+		has_country_flag = heir_magnus_eriksson
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_ruler_flag = magnus_eriksson
+			set_country_flag = king_magnus_eriksson
+			clr_country_flag = heir_magnus_eriksson
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10003.opta"
+	}
+}
+
+# Magnus becomes king, gains claims to west Sweden
+country_event = {
+	id = flavor_sca.10004
+	title = "flavor_sca.10004.t"
+	desc = "flavor_sca.10004.d"
+	
+	picture = VEF_KING_DIES_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		NOT = { has_ruler_flag = magnus_not_yet_king }
+		has_ruler_flag = magnus_eriksson
+		NOT = { SWE = { has_ruler_flag = erik_magnusson } }
+		NOT = { SWE = { has_ruler_flag = magnus_eriksson } }
+		NOT = { SWE = { has_heir_flag = magnus_eriksson } }
+		NOT = { senior_union_with = SWE }
+	}
+	
+	option = {
+		name = "flavor_sca.10004.opta"
+		add_claim = 395
+		add_claim = 398
+		add_claim = 399
+		add_claim = 400
+		add_claim = 401
+		add_claim = 402
+		add_claim = 406
+		hidden_effect = {
+			SWE = { country_event = { id = flavor_sca.10005 } }
+		}
+	}
+}
+
+# Sweden notified of Magnus becoming king
+country_event = {
+	id = flavor_sca.10005
+	title = "flavor_sca.10005.t"
+	desc = "flavor_sca.10005.d"
+	
+	picture = VEF_KING_DIES_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_sca.10005.opta"
+		add_prestige = -5
+	}
+}
+
+# Sweden notified that Magnus dies in Norway (kills off Magnus in Sweden)
+country_event = {
+	id = flavor_sca.10006
+	title = "flavor_sca.10006.t"
+	desc = "flavor_sca.10006.d"
+	
+	picture = VEF_KING_DIES_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SWE
+		OR = {
+			has_country_flag = erik_magnusson_revolt
+			has_heir_flag = magnus_eriksson
+			has_ruler_flag = magnus_eriksson
+		}
+		OR = {
+			AND = {
+				NOT = { NOR = { has_heir_flag = magnus_eriksson } }
+				NOR = { has_ruler_flag = magnus_not_yet_king }
+			}
+			AND = {
+				NOR = { has_regency_trigger = yes }
+				NOT = { NOR = { has_heir_flag = magnus_eriksson } }
+			}
+			AND = {
+				NOR = { has_country_flag = king_magnus_eriksson }
+				NOT = { NOR = { has_ruler_flag = magnus_eriksson } }
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				has_ruler_flag = magnus_eriksson
+			}
+			kill_ruler = yes	
+		}
+		if = {
+			limit = {
+				has_heir_flag = magnus_eriksson
+			}
+			kill_heir = yes	
+		}
+		hidden_effect = {
+			NOR = { clr_ruler_flag = magnus_not_yet_king }
+			NOR = { clr_country_flag = declined_magnus }
+			clr_country_flag = heir_magnus_eriksson
+			NOR = { clr_country_flag = heir_magnus_eriksson }
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10006.opta"
+		trigger = {
+			has_country_flag = erik_magnusson_revolt
+		}
+		add_legitimacy = 5
+	}
+	
+	option = {
+		name = "flavor_sca.10006.optb"
+		trigger = {
+			NOT = { has_country_flag = erik_magnusson_revolt }
+		}
+	}
+}
+
+# Norway notified that Magnus dies in Sweden (kills off Magnus in Norway)
+country_event = {
+	id = flavor_sca.10007
+	title = "flavor_sca.10007.t"
+	desc = "flavor_sca.10007.d"
+	
+	picture = VEF_KING_DIES_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		OR = {
+			has_country_flag = declined_magnus
+			has_heir_flag = magnus_eriksson
+			has_ruler_flag = magnus_eriksson
+		}
+		OR = {
+			AND = {
+				SWE = { had_ruler_flag = { flag = erik_magnusson days = 40 } }
+				NOT = { SWE = { has_heir_flag = magnus_eriksson } }
+			}
+			AND = {
+				SWE = { has_regency_trigger = yes }
+				SWE = { has_country_flag = heir_magnus_eriksson }
+				NOT = { SWE = { has_heir_flag = magnus_eriksson } }
+			}
+			AND = {
+				SWE = { has_country_flag = king_magnus_eriksson }
+				NOT = { SWE = { has_ruler_flag = magnus_eriksson } }
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				has_ruler_flag = magnus_eriksson
+			}
+			kill_ruler = yes	
+		}
+		if = {
+			limit = {
+				has_heir_flag = magnus_eriksson
+			}
+			kill_heir = yes
+		}
+		hidden_effect = {
+			clr_ruler_flag = magnus_not_yet_king
+			clr_country_flag = declined_magnus
+			clr_country_flag = heir_magnus_eriksson
+			SWE = { clr_country_flag = heir_magnus_eriksson }
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10007.opta"
+		trigger = {
+			has_country_flag = declined_magnus
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10007.optb"
+		trigger = {
+			NOT = { has_country_flag = declined_magnus }
+		}
+	}
+}
+
+# flag clean up event 1
+country_event = {
+	id = flavor_sca.10008
+	title = "flavor_sca.10008.t"
+	desc = "flavor_sca.10008.d"
+	
+	picture = VEF_KING_DIES_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			tag = SWE
+			tag = NOR
+		}
+		has_country_flag = king_magnus_eriksson
+		NOT = { has_ruler_flag = magnus_eriksson }
+		
+	}
+	
+	option = {
+		name = "flavor_sca.10008.opta"
+		country_event = {
+			id = flavor_sca.10009
+			days = 60 #to prevent race condition with above events
+		}
+	}
+}
+
+# flag clean up event 2
+country_event = {
+	id = flavor_sca.10009
+	title = "flavor_sca.10009.t"
+	desc = "flavor_sca.10009.d"
+	
+	picture = VEF_KING_DIES_eventPicture
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_sca.10009.opta"
+		clr_country_flag = king_magnus_eriksson
+	}
+}
+
+# Magnus' opinion modifier cleanup
+country_event = {
+	id = flavor_sca.10010
+	title = "flavor_sca.10010.t"
+	desc = "flavor_sca.10010.d"
+	
+	picture = VEF_KING_DIES_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		tag = SWE
+		has_opinion_modifier { who = NOR modifier = sca_magnus }
+		OR = {
+			AND = {
+				junior_union_with = NOR
+				has_ruler = "Magnus Eriksson"
+			}
+			NOT = {
+				OR = {
+					has_ruler = "Magnus Eriksson"
+					has_heir = "Magnus Eriksson"
+					NOR = { has_ruler = "Magnus Eriksson" }
+					NOR = { has_heir = "Magnus Eriksson" }
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10010.opta"
+		remove_opinion = { who = NOR modifier = sca_magnus }
+		reverse_remove_opinion = { who = NOR modifier = sca_magnus }
+	}
+}
+
+# King Birger dies before Nykoping events
+country_event = {
+	id = flavor_sca.10020
+	title = "flavor_sca.10020.t"
+	desc = "flavor_sca.10020.d"
+	
+	picture = VEF_KING_DIES_eventPicture
+    
+	fire_only_once = yes
+    
+	trigger = {
+        tag = SWE
+        NOT = {has_ruler_flag = king_birger}
+        has_country_flag = erik_magnusson_revolt
+        NOT = {is_year = 1318}
+		is_lesser_in_union = no
+	}
+    
+	# Erik becomes king
+	option = {
+        name = "flavor_sca.10020.opta"
+        ai_chance = {factor = 40}
+        hidden_effect = {
+			clr_country_flag = bohuslan_disputed
+			disband_rebels = pretender_rebels
+			clr_country_flag = vef_regency
+			clr_country_flag = erik_magnusson_revolt
+		}
+		define_ruler = {
+			name = "Erik Magnusson"
+			dynasty = "Bjälbo"
+			claim = 70
+			adm = 3
+			dip = 2
+			mil = 4
+			fixed = yes
+			age = 31
+		}
+		change_variable = { which = national_stability value = 150 }
+		NOR = { add_opinion = { who = SWE modifier = swe_elected_erik } }
+		kill_heir = yes
+		hidden_effect = {
+			set_ruler_flag = erik_magnusson
+			NOR = {country_event = {id = flavor_sca.10021} }
+		}
+	}
+    
+    # Status quo
+    option = {
+        name = "flavor_sca.10020.optb"
+        ai_chance = {factor = 60}
+        trigger = {
+            legitimacy = 75
+        }   
+    }
+}
+
+# Norway notified of Erik's election
+country_event = {
+	id = flavor_sca.10021
+	title = "flavor_sca.10021.t"
+	desc = "flavor_sca.10021.d"
+	
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_sca.10021.opta"
+	}
+}
+
+# Erik Magnusson becomes king with Magnus Eriksson alive
+country_event = {
+	id = flavor_sca.10022
+	title = "flavor_sca.10022.t"
+	desc = "flavor_sca.10022.d"
+	
+	picture = VEF_NEW_HEIR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SWE
+		has_ruler_flag = erik_magnusson
+		OR = {
+			NOR = { has_heir_flag = magnus_eriksson }
+			NOR = { has_country_flag = declined_magnus }
+			NOR = { has_ruler_flag = magnus_eriksson }
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			NOR = { country_event = { id = flavor_sca.10023 } }
+			set_heir = magnus_eriksson
+			set_heir_flag = magnus_eriksson
+			set_country_flag = heir_magnus_eriksson
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10022.opta"
+		trigger = {
+			NOR = { has_heir_flag = magnus_eriksson }
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10022.optb"
+		trigger = {
+			NOR = { has_country_flag = declined_magnus }
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10022.optc"
+		trigger = {
+			NOR = { has_ruler_flag = magnus_eriksson }
+		}
+	}
+}
+
+# Norway notified that Magnus has become heir to Sweden
+country_event = {
+	id = flavor_sca.10023
+	title = "flavor_sca.10023.t"
+	desc = "flavor_sca.10023.d"
+	
+	picture = VEF_NEW_HEIR_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_sca.10023.opta"
+		trigger = {
+			has_heir_flag = magnus_eriksson
+		}
+		hidden_effect = {
+			add_opinion = { who = SWE modifier = sca_magnus }
+			reverse_add_opinion = { who = SWE modifier = sca_magnus }
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10023.optb"
+		trigger = {
+			has_country_flag = declined_magnus
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10023.optc"
+		trigger = {
+			has_ruler_flag = magnus_eriksson
+		}
+		hidden_effect = {
+			add_opinion = { who = SWE modifier = sca_magnus }
+			reverse_add_opinion = { who = SWE modifier = sca_magnus }
+		}
+	}
+}
+
+# Magnus Eriksson becomes king of Sweden (trigger help)
+country_event = {
+	id = flavor_sca.10024
+	title = "flavor_sca.10024.t"
+	desc = "flavor_sca.10024.d"
+	
+	picture = VEF_KING_DIES_eventPicture
+	
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		tag = SWE
+		NOT = { has_ruler_flag = erik_magnusson }
+		NOT = { has_regency_trigger = yes}
+		has_country_flag = heir_magnus_eriksson
+		NOT = { has_heir_flag = magnus_eriksson }
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_ruler_flag = magnus_eriksson
+			set_country_flag = king_magnus_eriksson
+			clr_country_flag = heir_magnus_eriksson
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10024.opta"
+	}
+}
+
+# Magnus Eriksson rules both Sweden and Norway
+country_event = {
+	id = flavor_sca.10040
+	title = "flavor_sca.10040.t"
+	desc = "flavor_sca.10040.d"
+	
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SWE
+		NOR = { has_ruler_flag = magnus_eriksson }
+		SWE = { has_ruler_flag = magnus_eriksson }
+	}
+	
+	immediate = {
+		NOR = { create_union = SWE }
+	}
+	
+	option = {
+		name = "flavor_sca.10040.opta"
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			NOR = { country_event = { id = flavor_sca.10041 } }
+		}
+		if = {
+			limit = { NOR = { AI = yes } }
+			add_liberty_desire = -40
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10040.optb"
+		ai_chance = { factor = 0 }
+		break_union = NOR
+		hidden_effect = {
+			NOR = { country_event = { id = flavor_sca.10042 } }
+		}
+	}
+}
+
+# Norway gains union over Sweden
+country_event = {
+	id = flavor_sca.10041
+	title = "flavor_sca.10041.t"
+	desc = "flavor_sca.10041.d"
+	
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_sca.10041.opta"
+		add_prestige = 15
+		if = {
+			limit = { AI = no }
+			SWE = { add_liberty_desire = -40 }
+		}
+	}
+}
+
+# Norway notified of Sweden's union refusal
+country_event = {
+	id = flavor_sca.10042
+	title = "flavor_sca.10042.t"
+	desc = "flavor_sca.10042.d"
+	
+	picture = VEF_ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_sca.10042.opta"
+		add_prestige = -15
+	}
+}
+
+####################
+# Nykoping Banquet #
+####################
+
+# Nykoping banquet setup event
+# sets up the invitation to be mid-october.
+country_event = {
+	id = flavor_sca.10100
+	title = "flavor_sca.10100.t"
+	desc = "flavor_sca.10100.d"
+	picture = VEF_BATTLE_eventPicture
+	
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SWE
+		has_ruler_flag = king_birger
+		has_country_flag = erik_magnusson_revolt
+		is_year = 1317
+		NOT = { is_year = 1318}
+	}
+	
+	option = {
+		name = "flavor_sca.10100.opta"
+	}
+	
+	immediate = {
+		SWE = {
+			country_event = {
+				id = flavor_sca.10101
+				days = 285
+			}
+		}
+	}
+}
+
+# Nykoping banquet 1: Invitation
+# sets up banquet to occur December 11
+country_event = {
+	id = flavor_sca.10101
+	title = "flavor_sca.10101.t"
+	desc = "flavor_sca.10101.d"
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			SWE = {
+				country_event = {
+					id = flavor_sca.10102
+					days = 56
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10101.opta"
+		add_prestige = 15
+		disband_rebels = pretender_rebels
+	}
+}
+
+# Nykoping banquet 2: Banquet begins
+country_event = {
+	id = flavor_sca.10102
+	title = "flavor_sca.10102.t"
+	desc = "flavor_sca.10102.d"
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			SWE = {
+				country_event = {
+					id = flavor_sca.10103
+					days = 3
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10102.opta"
+		change_variable = { which = national_stability value = 150 }
+	}
+}
+
+# Nykoping banquet 3: Murder!
+country_event = {
+	id = flavor_sca.10103
+	title = "flavor_sca.10103.t"
+	desc = "flavor_sca.10103.d"
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			SWE = {
+				country_event = {
+					id = flavor_sca.10104
+					days = 3
+				}
+			}	
+			clr_country_flag = erik_magnusson_revolt
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10103.opta"
+		change_variable = { which = national_stability value = -600 }
+		add_prestige = -20
+	}
+}
+
+# Nykoping banquet 4: Sweden's path
+country_event = {
+	id = flavor_sca.10104
+	title = "flavor_sca.10104.t"
+	desc = "flavor_sca.10104.d"
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_sca.10104.opta"
+		ai_chance = {
+			factor = 0
+		}
+		403 = {
+			noble_rebels = 1
+		}
+		400 = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 1
+			}
+		}
+		399 = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 1
+			}
+		}
+		add_legitimacy = -30
+		hidden_effect = {
+			set_ruler_flag = birger_true_king
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10104.optb"
+		ai_chance = {
+			factor = 100
+		}
+		402 = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 1
+				leader = "Birger Magnusson Bjälbo"
+			}
+			change_controller = REB
+		}
+		hidden_effect = {
+			SWE = { country_event = { id = flavor_sca.10120 } }
+		}
+	}
+}
+
+## Nykoping banquet 5a: King Birger defeated
+#country_event = {
+#	id = flavor_sca.10105
+#	title = "flavor_sca.10105.t"
+#	desc = "flavor_sca.10105.d"
+#	picture = VEF_DIPLOMACY_eventPicture
+#	
+#	fire_only_once = yes
+#	
+#	trigger = {
+#		tag = SWE
+#		has_country_flag = swedish_interregnum
+#		NOT = { num_of_rebel_armies = 1 }
+#		NOT = { num_of_rebel_controlled_provinces = 1 }
+#	}
+#	
+#	option = {
+#		name = "flavor_sca.10105.opta"
+#		hidden_effect = {
+#			country_event = { id = flavor_sca.10120 }
+#			clr_country_flag = swedish_interregnum
+#		}
+#	}
+#}
+
+# Nykoping banquet 5b: Anti-Birger rebels defeated
+country_event = {
+	id = flavor_sca.10106
+	title = "flavor_sca.10106.t"
+	desc = "flavor_sca.10106.d"
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SWE
+		is_year = 1318
+		has_ruler_flag = birger_true_king
+		NOT = { num_of_rebel_armies = 1 }
+		NOT = { num_of_rebel_controlled_provinces = 1}
+	}
+	
+	option = {
+		name = "flavor_sca.10106.opta"
+		add_legitimacy = 20
+		add_prestige = 20
+		clr_ruler_flag = birger_true_king
+	}
+}
+
+## Nykoping banquet 5c: King Birger flees to Denmark
+#country_event = {
+#	id = flavor_sca.10107
+#	title = "flavor_sca.10107.t"
+#	desc = "flavor_sca.10107.d"
+#	picture = VEF_DIPLOMACY_eventPicture
+#	
+#	fire_only_once = yes
+#	
+#	trigger = {
+#		tag = SWE
+#		has_country_flag = swedish_interregnum
+#		is_year = 1320
+#		num_of_rebel_armies = 1
+#	}
+#
+#	mean_time_to_happen = {
+#		months = 6
+#	}
+#	
+#	option = {
+#		name = "flavor_sca.10107.opta"
+#		add_prestige = -20
+#		add_legitimacy = -10
+#		hidden_effect = {
+#			disband_rebels = pretender_rebels
+#			country_event = { id = flavor_sca.10120 }
+#			clr_country_flag = swedish_interregnum
+#		}
+#	}
+#}
+
+# "1319" election
+country_event = {
+	id = flavor_sca.10120
+	title = "flavor_sca.10120.t"
+	desc = "flavor_sca.10120.d"
+	picture = VEF_DIPLOMACY_eventPicture
+    
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_sca.10120.opta"
+		ai_chance = {
+			factor = 80
+		}
+		trigger = {
+			NOR = { has_heir_flag = magnus_eriksson }
+		}
+		set_heir = magnus_eriksson
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc = "Rights of Man" }
+				}
+				set_country_flag = regency_decision_run
+				set_country_flag = queen_regency
+			}
+			kill_ruler = yes
+			set_heir_flag = magnus_eriksson
+			set_country_flag = heir_magnus_eriksson
+			add_opinion = { who = NOR modifier = sca_magnus }
+			reverse_add_opinion = { who = NOR modifier = sca_magnus }
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10120.optb"
+		ai_chance = {
+			factor = 80
+		}
+		trigger = {
+			NOR = { has_country_flag = declined_magnus }
+		}
+		set_heir = magnus_eriksson
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { has_dlc = "Rights of Man" }
+				}
+				set_country_flag = regency_decision_run
+				set_country_flag = noble_regency
+			}
+			kill_ruler = yes
+			set_heir_flag = magnus_eriksson
+			set_country_flag = heir_magnus_eriksson
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10120.optc"
+		ai_chance = {
+			factor = 10
+		}
+		define_ruler = {
+			dynasty = Bjälbo
+			claim = 80
+		}
+		kill_heir = yes
+	}
+	
+	option = {
+		name = "flavor_sca.10120.optd"
+		ai_chance = {
+			factor = 10
+		}
+		define_ruler = {
+			claim = 80
+		}
+		kill_heir = yes
+	}
+	
+	option = {
+		name = "flavor_sca.10120.opte"
+		ai_chance = {
+			factor = 10
+		}
+		trigger = {
+			marriage_with = DAN
+		}
+		define_ruler = {
+			dynasty = DAN
+			claim = 70
+		}
+		kill_heir = yes
+	}
+	
+	option = {
+		name = "flavor_sca.10120.optf"
+		ai_chance = {
+			factor = 7
+			modifier = {
+				factor = 2
+				has_opinion = {
+					who = DAN
+					value = 100
+				}
+			}
+		}
+		trigger = {
+			marriage_with = DAN
+			has_opinion = {
+				who = DAN
+				value = 25
+			}
+			DAN = { num_of_cities = 4 }
+		}
+		DAN = { create_union = SWE }
+		hidden_effect = {
+			DAN = { country_event = { id = flavor_sca.10130 days = 10 } }
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10120.optg"
+		ai_chance = {
+			factor = 7
+			modifier = {
+				factor = 2
+				has_opinion = {
+					who = POL
+					value = 100
+				}
+			}
+		}
+		trigger = {
+			marriage_with = POL
+			has_opinion = {
+				who = POL
+				value = 25
+			}
+			POL = { num_of_cities = 4 }
+		}
+		POL = { create_union = SWE }
+		hidden_effect = {
+			POL = { country_event = { id = flavor_sca.10130 days = 10 } }
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10120.opth"
+		ai_chance = {
+			factor = 7
+			modifier = {
+				factor = 2
+				has_opinion = {
+					who = POM
+					value = 100
+				}
+			}
+		}
+		trigger = {
+			marriage_with = POM
+			has_opinion = {
+				who = POM
+				value = 25
+			}
+			POM = { num_of_cities = 4 }
+		}
+		POM = { create_union = SWE }
+		hidden_effect = {
+			POM = { country_event = { id = flavor_sca.10130 days = 10 } }
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10120.opti"
+		ai_chance = {
+			factor = 7
+			modifier = {
+				factor = 2
+				has_opinion = {
+					who = MKL
+					value = 100
+				}
+			}
+		}
+		trigger = {
+			marriage_with = MKL
+			has_opinion = {
+				who = MKL
+				value = 25
+			}
+			MKL = { num_of_cities = 4 }
+		}
+		MKL = { create_union = SWE }
+		hidden_effect = {
+			MKL = { country_event = { id = flavor_sca.10130 days = 10 } }
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10120.optj"
+		ai_chance = {
+			factor = 7
+			modifier = {
+				factor = 2
+				has_opinion = {
+					who = BRA
+					value = 100
+				}
+			}
+		}
+		trigger = {
+			marriage_with = BRA
+			has_opinion = {
+				who = BRA
+				value = 25
+			}
+			BRA = { num_of_cities = 4 }
+		}
+		BRA = { create_union = SWE }
+		hidden_effect = {
+			BRA = { country_event = { id = flavor_sca.10130 days = 10 } }
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10120.optk"
+		ai_chance = {
+			factor = 7
+			modifier = {
+				factor = 2
+				has_opinion = {
+					who = SCO
+					value = 100
+				}
+			}
+		}
+		trigger = {
+			marriage_with = SCO
+			has_opinion = {
+				who = SCO
+				value = 25
+			}
+			SCO = { num_of_cities = 4 }
+		}
+		SCO = { create_union = SWE }
+		hidden_effect = {
+			SCO = { country_event = { id = flavor_sca.10130 days = 10 } }
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10120.optl"
+		ai_chance = {
+			factor = 7
+			modifier = {
+				factor = 2
+				has_opinion = {
+					who = ENG
+					value = 100
+				}
+			}
+		}
+		trigger = {
+			marriage_with = ENG
+			has_opinion = {
+				who = ENG
+				value = 25
+			}
+			ENG = { num_of_cities = 4 }
+		}
+		ENG = { create_union = SWE }
+		hidden_effect = {
+			ENG = { country_event = { id = flavor_sca.10130 days = 10 } }
+		}
+	}
+}
+
+###########################
+# Sweden under elected PU #
+###########################
+
+#10130 Notification of PU gaining in "1319" election (above event) and concession decision
+country_event = {
+	id = flavor_sca.10130
+	title = "flavor_sca.10130.t"
+	desc = "flavor_sca.10130.d"
+	picture = VEF_DIPLOMACY_eventPicture
+    
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_sca.10130.opta"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 27
+				NOT = { tag = NOR }
+			}
+		}
+		ROOT = {
+			add_country_modifier = {
+				name = concessions_to_sweden
+				duration = -1
+				#desc = until we revoke
+			}
+		}
+		SWE = {
+			add_country_modifier = {
+				name = concessions_from_elected
+				duration = -1
+				#desc = until overlord revokes
+			}
+			add_liberty_desire = 20
+		}
+		hidden_effect = {
+			SWE = { 
+				country_event = { id = flavor_sca.10131 days = 10 }
+				set_country_flag = concessions_from_elected
+			}
+		}
+		
+	}
+	
+	option = {
+		name = "flavor_sca.10130.optb"
+		ai_chance = { factor = 90 }
+		SWE = { add_liberty_desire = 40 }
+		hidden_effect = {
+			SWE = {
+				country_event = { id = flavor_sca.10131 days = 10 }
+				set_country_flag = overlord_disdain
+			}
+		}
+	}
+}
+
+#10131 Notification of overlords decision; different description for different choice and decisons after
+country_event = {
+	id = flavor_sca.10131
+	title = "flavor_sca.10131.t"
+	desc = {
+		trigger = { SWE = { has_country_flag = overlord_disdain } }
+		desc = "flavor_sca.10131.d.1"
+	}
+	desc = {
+		trigger = { SWE = { has_country_flag = revoked_concessions } }
+		desc = "flavor_sca.10131.d.2"
+	}
+	desc = {
+		trigger = { SWE = { has_country_modifier = concessions_from_elected } }
+		desc = "flavor_sca.10131.d.3"
+	}
+	
+	picture = VEF_DIPLOMACY_eventPicture
+    
+	is_triggered_only = yes
+	
+	option = {
+		trigger = { SWE = { has_country_flag = overlord_disdain } }
+		name = "flavor_sca.10131.opta"
+	}
+	
+	option = {
+		trigger = { SWE = { has_country_flag = revoked_concessions } }
+		name = "flavor_sca.10131.optb"
+	}
+	
+	option = {
+		trigger = { SWE = { has_country_modifier = concessions_from_elected } }
+		name = "flavor_sca.10131.optc"
+	}
+}
+
+# Swedish Concessions cleanup event (hidden)
+country_event = {
+	id = flavor_sca.10132
+	title = "flavor_sca.10132.t"
+	desc = "flavor_sca.10132.d"
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_country_modifier = concessions_to_sweden
+			has_country_modifier = concessions_from_elected
+		}
+		NOT = { SWE = { is_lesser_in_union = yes } }
+		
+	}
+	
+	option = {
+		name = "flavor_sca.10132.opta"
+		if = {
+			limit = {
+				has_country_modifier = concessions_to_sweden
+			}
+			remove_country_modifier = concessions_to_sweden
+		}
+		if = {
+			limit = {
+				has_country_modifier = concessions_from_elected
+			}
+			remove_country_modifier = concessions_from_elected
+		}
+		if = {
+			limit = {
+				has_country_flag = overlord_disdain
+			}
+			clr_country_flag = overlord_disdain
+		}
+		if = {
+			limit = {
+				has_country_flag = concessions_from_elected
+			}
+			clr_country_flag = concessions_from_elected
+		}
+	}
+}
+
+############
+# Bohuslan #
+############
+
+# Norway decides it wants Bohuslan; and has a PU over Sweden
+country_event = {
+	id = flavor_sca.10201
+	title = "flavor_sca.10201.t"
+	desc = "flavor_sca.10201.d"
+	picture = VEF_DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SWE
+		is_year = 1307
+		NOT = { is_year = 1357 }
+		400 = { owned_by = SWE }
+		junior_union_with = NOR
+	}
+	
+	immediate = {
+		hidden_effect = {
+			SWE = { clr_country_flag = bohuslan_disputed }
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10201.opta"
+		ai_chance = {
+			factor = 100
+		}
+		400 = {
+			cede_province = NOR
+			add_core = NOR
+			remove_core = SWE
+		}
+	}
+	
+	option = {
+		name = "flavor_sca.10201.optb"
+		ai_chance = {
+			factor = 0
+		}
+		400 = {
+			cede_province = NOR
+			add_core = NOR
+		}
+		add_prestige = -10
+	}
+}
+
+# Norway decides it wants Bohuslan (with no PU)
+country_event = {
+	id = flavor_sca.10210
+	title = "flavor_sca.10210.t"
+	desc = "flavor_sca.10210.d"
+	picture = VEF_DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = NOR
+		OR = {
+			is_year = 1321
+			has_ruler_flag = king_birger
+		}
+		NOT = { is_year = 1357 }
+		SWE = { has_country_flag = bohuslan_disputed }
+		NOT = { SWE = { has_country_flag = erik_magnusson_revolt } }
+		400 = { owned_by = SWE }
+		NOT = { senior_union_with = SWE }
+	}
+
+	mean_time_to_happen = {
+		months = 2
+		modifier = {
+			factor = 48
+			AND = {
+				NOT = {
+					OR = {	
+						NOR = { has_ruler_flag = magnus_eriksson }
+						NOR = { has_heir_flag = magnus_eriksson }
+					}
+				}
+				NOT = {
+					OR = {	
+						SWE = { has_ruler_flag = magnus_eriksson }
+						SWE = { has_heir_flag = magnus_eriksson }
+					}
+				}
+			}
+		}
+	}
+
+	# Demand
+	option = {
+		name = "flavor_sca.10210.opta"
+		trigger = {
+			NOT = { war_with = SWE }
+		}
+		SWE = { country_event = { id = flavor_sca.10211 days = 10 } }
+        	SWE = { clr_country_flag = bohuslan_disputed }
+	}
+	
+	# At war
+	option = {
+		name = "flavor_sca.10210.optb"
+		trigger = {
+			war_with = SWE
+		}
+		SWE = { clr_country_flag = bohuslan_disputed }
+		400 = { add_core = NOR }
+	}
+}
+
+# Sweden decides what to do with Norway's desire for Bohuslan 
+country_event = {
+	id = flavor_sca.10211
+	title = "flavor_sca.10211.t"
+	desc = "flavor_sca.10211.d"
+	picture = VEF_DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	# Return it
+	option = {
+		name = "flavor_sca.10211.opta"
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0.75
+				prestige = NOR
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { has_opinion = { who = NOR value = 0 } }
+			}
+			modifier = {
+				factor = 0.75
+				army_size = NOR
+			}
+		}
+		NOR = { add_opinion = { who = SWE modifier = swe_returned_bohuslan } }
+		400 = {
+			cede_province = NOR
+			add_core = NOR
+			remove_core = SWE
+	    }
+		hidden_effect = {
+			NOR = { country_event = { id = flavor_sca.10214 } }
+	    }
+	}
+
+	# Refuse
+	option = {
+		name = "flavor_sca.10211.optb"
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				war_exhaustion = 6
+			}
+			modifier = {
+				factor = 0
+				alliance_with = NOR
+			}
+		}
+		NOR = { add_opinion = { who = SWE modifier = swe_refused_return_bohuslan } }
+		add_prestige = -5
+		add_legitimacy = -10
+		add_country_modifier = { name = "sweden_bad_boy" duration = 3650 }
+		400 = {
+			add_province_modifier = { name = "bohuslan_revolt" duration = 3650 }
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 2
+			}
+		}
+		hidden_effect = { NOR = { country_event = { id = flavor_sca.10213 } } }
+	}
+
+	# Buy
+	option = {
+		name = "flavor_sca.10211.optc"
+		ai_chance = {
+			factor = 15
+			modifier = {
+				factor = 0
+				num_of_loans = 5
+			}
+		}
+		NOR = { country_event = { id = flavor_sca.10212 days = 10 } }
+	}
+}
+
+# Sweden offers to pay for Bohuslan
+country_event = {
+	id = flavor_sca.10212
+	title = "flavor_sca.10212.t"
+	desc = "flavor_sca.10212.d"
+	picture = VEF_DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	#Accept
+	option = {
+		name = "flavor_sca.10212.opta"
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.5
+				army_size = SWE
+			}
+		}
+
+		add_opinion = { who = SWE modifier = swe_bought_bohuslan }
+		add_treasury = 200
+		400 = { remove_core = NOR }
+		hidden_effect = { SWE = { country_event = { id = flavor_sca.10216 } } }
+    }
+
+	#Refuse
+	option = {
+		name = "flavor_sca.10212.optb"
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0.8
+				NOT = { treasury = 20 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { has_opinion = { who = SWE value = 0 } }
+			}
+		}
+		SWE = { country_event = { id = flavor_sca.10215 days = 10 } }
+	}
+}
+
+# Sweden refuses to return Bohuslan
+country_event = {
+	id = flavor_sca.10213
+	title = "flavor_sca.10213.t"
+	desc = "flavor_sca.10213.d"
+	picture = VEF_DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	#Give up
+	option = {
+		name = "flavor_sca.10213.opta"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				prestige = SWE
+				army_size = SWE
+			}
+		}
+		add_prestige = -10
+	}
+
+	#War
+	option = {
+		name = "flavor_sca.10213.optb"
+		ai_chance = {
+			factor = 99
+			modifier = {
+				factor = 0
+				war_exhaustion = 6
+			}
+			modifier = {
+				factor = 0.25
+				has_opinion = { who = SWE value = 50 }
+			}
+			modifier = {
+				factor = 0
+				alliance_with = SWE
+			}
+		}
+		400 = { add_core = NOR }
+		declare_war_with_cb = { who = SWE casus_belli = cb_core }
+		add_country_modifier = { name = "norway_bohuslan_ours" duration = -1 }
+		417 = {
+			build_to_forcelimit = {
+				infantry = 0.7
+				cavalry = 0.3
+			}
+		}
+		hidden_effect = {
+			SWE = { country_event = { id = flavor_sca.10217 } }
+		}
+	}
+}
+
+# Sweden cedes Bohuslan
+country_event = {
+	id = flavor_sca.10214
+	title = "flavor_sca.10214.t"
+	desc = "flavor_sca.10214.d"
+	picture = VEF_DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "flavor_sca.10214.opta"
+		add_prestige = 10
+	}
+}
+
+# Norway refuses Sweden's money
+country_event = {
+	id = flavor_sca.10215
+	title = "flavor_sca.10215.t"
+	desc = "flavor_sca.10215.d"
+	picture = VEF_DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	# Return it
+	option = {
+		name = "flavor_sca.10215.opta"
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0.75
+				prestige = NOR
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { has_opinion = { who = NOR value = 0 } }
+			}
+			modifier = {
+				factor = 0.75
+				army_size = NOR
+			}
+		}
+	    NOR = { add_opinion = { who = SWE modifier = swe_returned_bohuslan } }
+		400 = {
+			cede_province = NOR
+			add_core = NOR
+			remove_core = SWE
+			rename_capital = "Konghelle"
+		}
+		hidden_effect = {
+			NOR = { country_event = { id = flavor_sca.10214 } }
+		}
+	}
+
+	# Refuse
+	option = {
+		name = "flavor_sca.10215.optb"
+
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				alliance_with = NOR
+			}
+		}
+	    NOR = { add_opinion = { who = SWE modifier = swe_refused_return_bohuslan } }
+		hidden_effect = {
+			NOR = { country_event = { id = flavor_sca.10213 } }
+		}
+	}
+}
+
+# Norway accepts Sweden's money
+country_event = {
+	id = flavor_sca.10216
+	title = "flavor_sca.10216.t"
+	desc = "flavor_sca.10216.d"
+	picture = VEF_DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "flavor_sca.10216.opta"
+		add_treasury = -200
+	}
+}
+
+# Norway goes to war for Bohuslan
+country_event = {
+	id = flavor_sca.10217
+	title = "flavor_sca.10217.t"
+	desc = "flavor_sca.10217.d"
+	picture = VEF_BATTLE_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "flavor_sca.10217.opta"
+	}
+}
+
+# Results of the war for Bohuslan
+country_event = {
+	id = flavor_sca.10218
+	title = flavor_sca.10218.t
+	desc = flavor_sca.10218.d
+	picture = VEF_BATTLE_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = NOR
+		truce_with = SWE
+		has_country_modifier = norway_bohuslan_ours
+	}
+
+	option = {
+		name = "flavor_sca.10218.opta"
+        trigger = { owns = 400 }
+		remove_country_modifier = norway_bohuslan_ours
+		add_prestige = 10
+	}
+
+	option = {
+		name = "flavor_sca.10218.optb"
+		trigger = { NOT = { owns = 400 } }
+		remove_country_modifier = norway_bohuslan_ours
+		add_prestige = -10
+	}
+}

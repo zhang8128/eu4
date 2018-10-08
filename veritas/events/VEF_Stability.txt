@@ -1,0 +1,401 @@
+# VeF 2.0 Stability Mechanic
+#
+# vef_stability.1 : National Matineance routine
+# vef_stability.2 : Stability Increase
+# vef_stability.3 : Stability Decrease
+#
+# Province stability goes from -100 to +100, but will trend towards -50 and +50 with no intervention
+# 
+# -51 to -100......Highly Unstable
+#  -1 to -50.......Unstable
+#   0 to 49........Quiet
+#  50 to 100.......Stable
+#
+# National stability ranges from -500 to +500. When hitting either boundary, causes a +1 or -1
+# stability change. These values are modified by stability cost modifiers.
+#
+# Province Stability defaults to 0 at game start - that makes each province "Quiet"
+#
+# No event should directly increase/decrease stability (i.e. add_stability = N) more than 1.
+# Generally, 'national_stability' should be changed by +/-250*N with a cap of 500. For an
+# event that would change stability by -3, then, the following would be used:
+#
+# 			change_variable = { which = "national_stability" value = -500 }
+# 			add_stability = -1
+#
+# This would potentially cause a reduction in stability overall of -2, but take into account
+# the current status - that is, if they had several hundred points of stability gain then it
+# would attenuate the loss. 
+#
+# Hitting province stability severely is actually a much harsher punishment in the long run.
+
+namespace = vef_stability
+
+# Master stability event - runs for every country on the monthly pulse
+country_event = {
+	id = vef_stability.1
+	title = "vef_stability.1.t"
+	desc = "vef_stability.1.d"
+
+	picture = VEF_ADMIN_CAPACITY_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		NOT = { REB = { has_country_modifier = vef_stability_1_run } }
+		ai = yes
+	}
+
+	immediate = {
+		REB = { add_country_modifier = { name = "vef_stability_1_run" duration = 28 } }
+		every_country = { 
+			set_variable = { which = stability_gain value = 500 }
+			set_variable = { which = stability_loss value = -500 }
+			set_variable = { which = gov_build_count value = 0 }
+			set_variable = { which = national_stability_change value = 0 }
+
+			####
+			# national stability change
+			####
+	
+			# 2 points at -3, 1 at -2, .5 at -1
+			if = { 
+				limit = { NOT = { stability = 0 } }
+				change_variable = { which = national_stability_change value = 1.00 }
+				if = { 
+					limit = { NOT = { stability = -1 } }
+					change_variable = { which = national_stability_change value = 1.50 }
+					if = { 
+						limit = { NOT = { stability = -2 } }
+						change_variable = { which = national_stability_change value = 2.00 }
+					}
+				}
+			}
+			# The default tick. Slow for stability 2. None at stability 3.
+			if = { 
+				limit = {
+					NOT = { stability = 3 }
+					NOT = { technology_group = nomad_group }
+				}
+				change_variable = { which = national_stability_change value = 0.50 }
+				if = { 
+					limit = { NOT = { stability = 2 } }
+					change_variable = { which = national_stability_change value = 0.75 }
+					if = { 
+						limit = { NOT = { stability = 1 } }
+						change_variable = { which = national_stability_change value = 1.25 }
+					}
+				}
+			}
+
+			# Count Administrative Offices
+			set_variable = { which = gov_th_count value = 0 }
+			set_variable = { which = gov_ch_count value = 0 }
+			set_variable = { which = gov_so_count value = 0 }
+			every_owned_province = {
+				if = {
+					limit = { any_province_in_state = { has_building = town_hall }}
+					owner = { change_variable = { which = gov_th_count value = 1 }}
+				}
+				if = {
+					limit = { any_province_in_state = { has_building = courthouse }}
+					owner = { change_variable = { which = gov_ch_count value = 1 }}
+				}
+				if = {
+					limit = { any_province_in_state = { has_building = sheriffs_office }}
+					owner = { change_variable = { which = gov_so_count value = 1 }}
+				}
+				if = {
+					limit = { any_province_in_state = { is_capital = yes }}
+					if = {
+						limit = { NOT = { adm_tech = 27 }}
+						owner = { change_variable = { which = gov_so_count value = 1 }}
+					}
+					if = {
+						limit = { adm_tech = 27 NOT = { adm_tech = 44 }}
+						owner = { change_variable = { which = gov_ch_count value = 1 }}
+					}
+					if = {
+						limit = { adm_tech = 44 }
+						owner = { change_variable = { which = gov_th_count value = 1 }}
+					}
+				}
+			}
+			divide_variable = { which = gov_th_count which = province_count }
+			divide_variable = { which = gov_ch_count which = province_count }
+			divide_variable = { which = gov_so_count which = province_count }
+			multiply_variable = { which = gov_th_count value = 2 }
+			multiply_variable = { which = gov_ch_count value = 1.5 }
+			multiply_variable = { which = gov_so_count value = 1 }
+			change_variable = { which = national_stability_change which = gov_th_count }
+			change_variable = { which = national_stability_change which = gov_ch_count }
+			change_variable = { which = national_stability_change which = gov_so_count }
+			# Unrest levels in ANY province limit stability growth
+			if = {
+				limit = { any_owned_province = { is_state = yes unrest = 5 } }
+				change_variable = { which = national_stability_change value = -0.50 }
+				if = {
+					limit = { any_owned_province = { is_state = yes unrest = 10 } }
+					change_variable = { which = national_stability_change value = -0.50 }
+					if = {
+						limit = { 
+							num_of_owned_provinces_with = {
+								unrest = 10
+								is_state = yes
+								value = 3
+							}
+						}
+						change_variable = { which = national_stability_change value = -2.50 }
+					}
+					if = {
+						limit = { any_owned_province = { is_state = yes unrest = 15 } }
+						change_variable = { which = national_stability_change value = -0.50 }
+						# Serious unrest in core provinces hurts bad
+						if = {
+							limit = { 
+								num_of_owned_provinces_with = {
+									unrest = 15
+									is_state = yes
+									value = 3
+								}
+							}
+							change_variable = { which = national_stability_change value = -1.00 }
+						}
+					}
+				}
+			}
+			if = {
+				limit = { 
+					num_of_owned_provinces_with = {
+						unrest = 10
+						value = 3
+					}
+				}
+				change_variable = { which = national_stability_change value = -0.50 }
+				if = {
+					limit = { 
+						num_of_owned_provinces_with = {
+							unrest = 15
+							value = 3
+						}
+					}
+					change_variable = { which = national_stability_change value = -0.50 }
+				}
+			}
+	
+			############# DISABLED DUE TO NEW FORT MECHANICS ##############
+			# Occupation causes decrease 
+			#if = {
+			#	limit = { any_owned_province = { NOT = { controlled_by = owner } } }
+			#	change_variable = { which = national_stability value = -0.50 }
+			#	# Rebels anywhere cause instability
+			#	if = {
+			#		limit = { any_owned_province = { controlled_by = REB } }
+			#		change_variable = { which = national_stability value = -1.00 }
+			#		# Multiple core provinces controled by Rebels is very bad.
+			#		if = { 
+			#			limit = { 
+			#				num_of_owned_provinces_with = {
+			#					is_core = owner
+			#					controlled_by = REB
+			#					value = 2
+			#				}
+			#			}
+			#			change_variable = { which = national_stability value = -2.50 }
+			#		}
+			#	}
+			#}
+	
+			# Small nations get an additional boost
+			if = {
+				limit = { 
+					NOT = { num_of_cities = 6 } 
+					NOT = { stability = 2 }
+				}
+				change_variable = { which = national_stability_change value = 0.60 }
+			}
+	
+			# bonus from other sources
+			# war effects; more extreme for nomads
+			if = {
+				limit = { is_at_war = yes }
+				if = { 
+					limit = { war_score = 10 }
+					change_variable = { which = national_stability_change value = 0.25 }
+					if = {
+						limit = { is_nomad = yes }
+						change_variable = { which = national_stability_change value = 0.25 }
+					}
+				}
+				if = { 
+					limit = { NOT = { war_score = -10 } }
+					change_variable = { which = national_stability_change value = -0.50 }
+					if = {
+						limit = { is_nomad = yes }
+						change_variable = { which = national_stability_change value = -0.25 }
+					}
+					if = { 
+						limit = { NOT = { war_score = -25 } }
+						change_variable = { which = national_stability_change value = -1.00 }
+						if = {
+							limit = { is_nomad = yes }
+							change_variable = { which = national_stability_change value = -0.5 }
+						}
+					}
+				}
+			}
+			
+			# Homefront Policy Finisher
+			if = {
+				limit = { has_active_policy = vef_homefrontf }
+				change_variable = { which = national_stability_change value = 2.50 }
+			}
+			
+			# Determine stability gain value based on the stability modifier
+			export_to_variable = {
+				which = stability_cost_var
+				value = modifier:stability_cost_modifier
+			}
+			change_variable = { which = stability_cost_var value = 1 }
+			multiply_variable = { which = stability_gain which = stability_cost_var }
+			if = {
+				limit = { NOT = { check_variable = { which = stability_gain value = 100 } } }
+				set_variable = { which = stability_gain value = 100 }
+			}
+			#Catholics
+			if = {
+				limit = { religion = catholic exists = PAP NOT = { tag = PAP }}
+				set_variable = { which = national_stability_church value = 0 }
+				if = {
+					limit = { NOT = { stability = 2 } reverse_has_opinion = { who = PAP value = 0 }}
+					change_variable = { which = national_stability_church value = 1 }
+					if = {
+						limit = { reverse_has_opinion = { who = PAP value = 50 }}
+						change_variable = { which = national_stability_church value = 1 }
+						if = {
+							limit = { reverse_has_opinion = { who = PAP value = 100 }}
+							change_variable = { which = national_stability_church value = 1 }
+							if = {
+								limit = { reverse_has_opinion = { who = PAP value = 150 }}
+								change_variable = { which = national_stability_church value = 1 }
+								if = {
+									limit = { reverse_has_opinion = { who = PAP value = 200 }}
+									change_variable = { which = national_stability_church value = 1 }
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = { stability = -1 NOT = { reverse_has_opinion = { who = PAP value = 0 }}}
+					change_variable = { which = national_stability_church value = -2 }
+					if = {
+						limit = { NOT = { reverse_has_opinion = { who = PAP value = -50 }}}
+						change_variable = { which = national_stability_church value = -1 }
+						if = {
+							limit = { NOT = { reverse_has_opinion = { who = PAP value = -100 }}}
+							change_variable = { which = national_stability_church value = -1 }
+							if = {
+								limit = { NOT = { reverse_has_opinion = { who = PAP value = -150 }}}
+								change_variable = { which = national_stability_church value = -1 }
+								if = {
+									limit = { NOT = { reverse_has_opinion = { who = PAP value = -200 }}}
+									change_variable = { which = national_stability_church value = -1 }
+								}
+							}
+						}
+					}
+				}
+				multiply_variable = { which = national_stability_church which = church_holdings }
+				multiply_variable = { which = national_stability_church value = 0.01 }	#Account for church_holdings being an integar not a fraction
+				change_variable = { which = national_stability_change which = national_stability_church }
+				
+			}
+			#Half increase when at war
+			if = {
+				limit = { NOT = { is_nomad = yes } any_country = { war_with = PREV } check_variable = { which = national_stability_change value = 0 }}
+				multiply_variable = { which = national_stability_change value = 0.5 }
+			}
+			change_variable = { which = national_stability which = national_stability_change }
+			
+			#Set previous count down if nation has shrunk.
+			if = {
+				limit = { check_variable = { which = previous_count which = province_count }}
+				set_variable = { which = previous_count which = province_count }
+			}
+			
+			# At the edges, set to 0
+			if = {
+				limit = { 
+					stability = 3
+					check_variable = { which = national_stability value = 0 }
+				}
+				set_variable = { which = national_stability value = 0 }
+			}
+			if = {
+				limit = { 
+					NOT = { stability = -2 }
+					NOT = { check_variable = { which = national_stability value = 0 } }
+				}
+				set_variable = { which = national_stability value = 0 }
+			}
+		}
+	}
+		
+	option = {
+		name = "vef_stability.1.opta"
+	}
+
+}
+
+# +500 causes stability increase
+country_event = {
+	id = vef_stability.2
+	title = "vef_stability.2.t"
+	desc = "vef_stability.2.d"
+
+	picture = VEF_ADMIN_CAPACITY_eventPicture
+
+	trigger = {
+		check_variable = { which = national_stability which = stability_gain  }
+		NOT = { stability = 3 }
+	}
+
+	immediate = { 
+		hidden_effect = {
+			subtract_variable = { which = national_stability which = stability_gain }
+			add_stability = 1
+		}
+	}
+
+	option = {
+		name = "vef_stability.2.opta"
+		tooltip = { add_stability = 1 }
+	}
+}
+
+# - 500 causes stability decrease
+country_event = {
+	id = vef_stability.3
+	title = "vef_stability.3.t"
+	desc = "vef_stability.3.d"
+
+	picture = VEF_ADMIN_CAPACITY_eventPicture
+
+	trigger = {
+		NOT = { check_variable = { which = national_stability which = stability_loss } }
+		stability = -2
+	}
+
+	immediate = { 
+		hidden_effect = {
+			set_variable = { which = national_stability value = 0 }
+			add_stability = -1
+		}		
+	}
+
+	option = {
+		name = "vef_stability.3.opta"
+		tooltip = { add_stability = -1 }
+	}
+}

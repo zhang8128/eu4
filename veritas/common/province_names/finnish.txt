@@ -1,0 +1,10 @@
+#Province IDs changed
+403 = "Södermanlanti"
+404 = "Uplanti"
+416 = "Ahvenanmaa"
+425 = "Ruija"
+426 = "Lappi"
+434 = "Varsinais-Suomi"
+435 = "Satakunda"
+438 = "Pohjanmaa"
+702 = "Aunus"

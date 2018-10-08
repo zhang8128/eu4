@@ -1,0 +1,10 @@
+#Boum
+#model = frigate
+#tech_level = 39
+type = transport
+unit_type = sudanese_tech
+
+hull_size = 12
+base_cannons = 12
+sail_speed = 10
+sailors = 250

@@ -1,0 +1,5 @@
+# Palau Islands
+#Province IDs changed
+discovered_by = chinese
+discovered_by = pacific_islander
+1512.1.1 = { discovered_by = POR }

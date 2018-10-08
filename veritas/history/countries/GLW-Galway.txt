@@ -1,0 +1,197 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+technology_group = western
+religion = catholic
+primary_culture = english
+capital = 51	# Galway
+
+1333.6.1 = {
+	monarch = {
+		name = "Ulick"
+		dynasty = "Burke"
+		birth_date = 1300.1.1	#Made Up
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	heir = {
+		name = "Richard"
+		monarch_name = "Richard Og"
+		dynasty = "Burke"
+		birth_date = 1320.1.1
+		death_date = 1387.1.1
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1353.1.1 = {
+	monarch = {
+		name = "Richard Og"
+		dynasty = "Burke"
+		birth_date = 1320.1.1	#Made Up
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	heir = {
+		name = "Ulick"
+		monarch_name = "Ulick"
+		dynasty = "Burke"
+		birth_date = 1340.1.1	#Made Up
+		death_date = 1424.1.1
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1387.1.1 = {
+	primary_culture = irish
+	monarch = {
+		name = "Ulick"
+		dynasty = "Burke"
+		birth_date = 1340.1.1	#Made Up
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	heir = {
+		name = "William mac Ulick"
+		monarch_name = "William mac Ulick"
+		dynasty = "Burke"
+		birth_date = 1370.1.1	#Made Up
+		death_date = 1430.1.1
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1424.1.1 = {
+	monarch = {
+		name = "William mac Ulick"
+		dynasty = "Burke"
+		birth_date = 1370.1.1	#Made Up
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	heir = {
+		name = "Ulick Raudh"
+		monarch_name = "Ulick Raudh"
+		dynasty = "Burke"
+		birth_date = 1400.1.1	#Made Up
+		death_date = 1485.1.1
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1430.1.1 = {
+	monarch = {
+		name = "Ulick Raudh"
+		dynasty = "Burke"
+		birth_date = 1400.1.1	#Made Up
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1485.1.1 = {
+	monarch = {
+		name = "Ulick Fionn"
+		dynasty = "Burke"
+		birth_date = 1430.1.1	#Made Up
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1509.1.1 = {
+	monarch = {
+		name = "Richard Oge"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1519.1.1 = {
+	monarch = {
+		name = "Richard Mor"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1530.1.1 = {
+	monarch = {
+		name = "John mac Richard"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1536.1.1 = {
+	monarch = {
+		name = "Richard Bacach"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1538.1.1 = {
+	monarch = {
+		name = "Ulick na gCeann"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1544.3.1 = {
+	monarch = {
+		name = "Richard Sassanach"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1582.7.24 = {
+	monarch = {
+		name = "Ulick"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1601.1.1 = {
+	monarch = {
+		name = "Richard"
+		dynasty = "Burke"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}

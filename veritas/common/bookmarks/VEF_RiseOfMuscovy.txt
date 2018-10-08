@@ -1,0 +1,16 @@
+bookmark =
+{
+	name = "RISE_OF_MUSCOVY_NAME"
+	desc = "RISE_OF_MUSCOVY_DESC"
+	date = 1370.1.1
+
+	center = 715
+	
+	country = MOS
+	country = NOV
+	country = BYZ
+	country = TUR
+	country = GRA
+	country = TEU
+
+}

@@ -1,0 +1,523 @@
+lit_subjects_missions = {
+	slot = 1
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = LIT
+	}
+	has_country_shield = yes
+	
+	lit_vitsebsk_inherit = {
+		icon = mission_empire
+		required_missions = {  } #None
+		completed_by = 1320.1.1
+		trigger = {
+			PLT = {
+				is_subject_of = ROOT
+				NOT = { liberty_desire = 40 }
+			}
+		}
+		effect = {
+			677 = { add_territorial_core = LIT cede_province = LIT }
+		}
+	}
+	
+	lit_yotvings_people = {
+		icon = mission_alliances
+		required_missions = { lit_vitsebsk_inherit }
+		completed_by = 1340.1.1
+		trigger = {
+			NOT = { any_province = { culture = yotvingian NOT = { country_or_non_sovereign_subject_holds = ROOT }}}
+			OR = {
+				NOT = { exists = YOT }
+				YOT = {
+					is_subject_of = ROOT
+					has_opinion = { who = ROOT value = 199 }
+				}
+			}
+		}
+		effect = {
+			add_accepted_culture = yotvingian
+			inherit = YOT
+		}
+	}
+	
+	lit_integrate_polotsk = {
+		icon = mission_early_game_buildings
+		required_missions = { lit_yotvings_people }
+		completed_by = 1390.1.1
+		provinces_to_highlight = {
+			OR = {
+				province_id = 673
+				province_id = 674
+				province_id = 678
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			673 = { owned_by = ROOT }
+			674 = { owned_by = ROOT }
+			678 = { owned_by = ROOT }
+		}
+		effect = {
+			smolensk_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	lit_cherignov = {
+		icon = mission_conquer_50_development
+		required_missions = {
+			lit_integrate_polotsk
+			lit_kiev
+		}
+		completed_by = 1401.1.1
+		provinces_to_highlight = {
+			area = oka_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			oka_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			moldavia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	lit_moldavia = {
+		icon = mission_conquer_5_states
+		required_missions = { lit_cherignov }
+		provinces_to_highlight = {
+			area = moldavia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			moldavia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			zaporizhia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			yedisan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+lit_expansion_missions = {
+	slot = 2
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = LIT
+	}
+	has_country_shield = yes
+	
+	lit_turov_pinsk = {
+		icon = mission_conquer_5_states
+		required_missions = {  } #None
+		completed_by = 1333.1.1
+		provinces_to_highlight = {
+			area = pripyat_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			pripyat_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			667 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	lit_volodymyr = {
+		icon = mission_cannons_firing
+		required_missions = { lit_turov_pinsk }
+		completed_by = 1340.4.7
+		provinces_to_highlight = {
+			province_id = 667
+		}
+		trigger = {
+			667 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			east_dniepr_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_dniepr_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	lit_kiev = {
+		icon = mission_assemble_an_army
+		required_missions = {
+			lit_catholic
+			lit_volodymyr
+		}
+		completed_by = 1362.1.1
+		provinces_to_highlight = {
+			area = west_dniepr_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			west_dniepr_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			oka_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			minsk_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			655 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	lit_novgord_seversk = {
+		icon = mission_build_up_to_force_limit
+		required_missions = { lit_kiev }
+		completed_by = 1390.1.1
+		provinces_to_highlight = {
+			OR = {
+				province_id = 655
+				province_id = 656
+				province_id = 695
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			655 = { country_or_non_sovereign_subject_holds = ROOT }
+			656 = { country_or_non_sovereign_subject_holds = ROOT }
+			695 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			sloboda_ukraine_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			moscow_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+			ryazan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+}
+
+lit_catholic_missions = {
+	slot = 3
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = LIT
+	}
+	has_country_shield = yes
+	
+	lit_polish_aliance = {
+		icon = mission_arch
+		required_missions = {  } #None
+		completed_by = 1387.1.1
+		trigger = {
+			alliance_with = POL
+			POL = { has_opinion = { who = ROOT value = 150 }}
+			religion = romuva
+			NOT = { has_country_modifier = lit_romuva_revival }
+			OR = {
+				num_of_cities = 7
+				is_year = 1380
+			}
+		}
+		effect = {
+			change_religion = catholic
+			create_marriage = POL
+			add_country_modifier = { name = lit_catholic_convert duration = 7300 }
+		}
+	}
+	
+	lit_catholic = {
+		icon = mission_religious
+		required_missions = { lit_polish_aliance }
+		completed_by = 1387.1.1
+		trigger = {
+			NOT = { any_owned_province = { religion = romuva }}
+		}
+		effect = {
+			
+		}
+	}
+}
+
+lit_orthodox_missions = {
+	slot = 4
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = LIT
+	}
+	has_country_shield = yes
+	
+	lit_tver_aliance = {
+		icon = mission_alliances
+		required_missions = {  } #None
+		trigger = {
+			alliance_with = TVE
+			TVE = { has_opinion = { who = ROOT value = 150 }}
+			religion = romuva
+			NOT = { has_country_modifier = lit_romuva_revival }
+			OR = {
+				num_of_cities = 7
+				is_year = 1380
+			}
+		}
+		effect = {
+			change_religion = orthodox
+			create_marriage = TVE
+			add_country_modifier = { name = lit_orthodox_convert duration = 7300 }
+		}
+	}
+	
+	lit_orthodox = {
+		icon = mission_hands_praying
+		required_missions = { lit_tver_aliance }
+		trigger = {
+			NOT = { any_owned_province = { religion = romuva }}
+		}
+		effect = {
+			east_prussia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+	
+	lit_east_prussia = {
+		icon = mission_non-western_cavalry_raid
+		required_missions = { lit_orthodox }
+		provinces_to_highlight = {
+			area = east_prussia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			east_prussia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			pomerelia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+	
+	lit_pomeralia = {
+		icon = mission_cannons_firing
+		required_missions = { lit_east_prussia }
+		provinces_to_highlight = {
+			area = pomerelia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			pomerelia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			west_prussia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+}
+
+lit_romuva_missions = {
+	slot = 5
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = LIT
+	}
+	has_country_shield = yes
+	
+	lit_grow_lithuania = {
+		icon = mission_conquer_50_development
+		required_missions = {  } #None
+		provinces_to_highlight = {
+			religion = romuva
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			religion = romuva
+			NOT = { any_province = { religion = romuva NOT = { country_or_non_sovereign_subject_holds = ROOT }}}
+		}
+		effect = {
+			add_country_modifier = { name = lit_romuva_revival duration = -1 }
+			curonia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+	
+	lit_kurland = {
+		icon = mission_unite_home_region
+		required_missions = { lit_grow_lithuania }
+		provinces_to_highlight = {
+			area = curonia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			curonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			livonia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+	
+	lit_livonia = {
+		icon = mission_have_two_subjects
+		required_missions = { lit_kurland }
+		provinces_to_highlight = {
+			area = livonia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			livonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			estonia_ingria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+	
+	lit_estonia = {
+		icon = mission_invade_island
+		required_missions = { lit_livonia }
+		provinces_to_highlight = {
+			area = estonia_ingria_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			estonia_ingria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			west_prussia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+			east_prussia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+			pomerelia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+}

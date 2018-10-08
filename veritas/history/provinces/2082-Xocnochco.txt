@@ -1,0 +1,24 @@
+# Xocnochco
+
+capital = "Xoconochco"
+owner = KIC
+controller = KIC
+add_core = KIC
+culture = highland_mayan
+religion = popol
+trade_goods = cocoa
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+
+discovered_by = mesoamerican
+add_local_autonomy = 50
+
+1485.1.1 = { owner = AZT controller = AZT religion = xochiyaoyotl } #Estimated; occured during Ahuizotl's reign
+1521.8.13 = { owner = KIC controller = KIC }
+1524.1.1 = { discovered_by = SPA owner = SPA controller = SPA }
+1529.1.1 = { culture = castillian religion = catholic } # First settlers
+1549.1.1 = { add_core = SPA }
+1810.9.16 = { owner = MEX add_core = MEX controller = SPA } # Mexican War of Independence

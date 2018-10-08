@@ -1,0 +1,10 @@
+#Pal
+#model = threedecker
+#tech_level = 42
+type = heavy_ship
+unit_type = indian
+
+hull_size = 50
+base_cannons = 70
+sail_speed = 5
+sailors = 500

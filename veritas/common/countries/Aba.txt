@@ -1,0 +1,141 @@
+#Country Name: Please see filename.
+
+graphical_culture = easterngfx
+
+color = { 152  115  112 }
+
+historical_idea_groups = {
+	quantity_ideas
+	mercantilist_ideas
+	religious_ideas
+	offensive_ideas
+	spy_ideas
+	cultural_unity_ideas
+	drafted_army_ideas
+	mm1_ideas
+}
+
+historical_units = { 
+	eastern_artillery_9_1
+	eastern_artillery_16_1
+	eastern_artillery_22_1
+	eastern_artillery_29_1
+	eastern_artillery_35_1
+	eastern_artillery_40_1
+	eastern_artillery_44_1
+	eastern_artillery_48_1
+	eastern_artillery_52_1
+	eastern_artillery_55_2
+	eastern_cavalry_0_1
+	eastern_cavalry_16_1
+	eastern_cavalry_21_2
+	eastern_cavalry_27_1
+	eastern_cavalry_31_1
+	eastern_cavalry_36_1
+	eastern_cavalry_40_1
+	eastern_cavalry_44_2
+	eastern_cavalry_48_2
+	eastern_cavalry_51_2
+	eastern_cavalry_55_2
+	eastern_cavalry_58_1
+	eastern_infantry_0_1
+	eastern_infantry_6_1
+	eastern_infantry_14_2
+	eastern_infantry_17_1
+	eastern_infantry_17_2
+	eastern_infantry_25_1
+	eastern_infantry_28_1
+	eastern_infantry_31_1
+	eastern_infantry_34_1
+	eastern_infantry_39_2
+	eastern_infantry_42_2
+	eastern_infantry_45_1
+	eastern_infantry_48_2
+	eastern_infantry_50_2
+	eastern_infantry_53_2
+	eastern_infantry_55_1
+	eastern_infantry_57_2
+	eastern_infantry_59_2
+	eastern_infantry_63_1
+}
+
+monarch_names = {
+	"Amadé #1" = 50
+	"Ulászló #0" = 40
+	"Lászlo #0" = 20
+	"Lájos #0" = 20
+	"Albert #0" = 20
+	"János #0" = 20
+	"Mátyás #0" = 20
+	"Zsigmond #0" = 20
+	"András #0" = 15
+	"Károly #0" = 15
+	"István #0" = 10
+	"Anna #0" = -10
+	"Béla #0" = 5
+	"Anasztáz #0" = 0
+	"Branabás #0" = 0
+	"Betalan #0" = 0
+	"Boldiszár #0" = 0
+	"Dávid #0" = 0
+	"Dömötör #0" = 0
+	"Edvárd #0" = 0
+	"Ernö #0" = 0
+	"Ferenc #0" = 0
+	"Gábor #0" = 0
+	"György #0" = 0
+	"Iszák #0" = 0
+	"Jenö #0" = 0
+	"Jószef #0" = 0
+	"Kálmán #0" = 0
+	"Kázmér #0" = 0
+	"Kelemen #0" = 0
+	"Lörinc #0" = 0
+	"Lukäcs #0" = 0
+	"Márk #0" = 0
+	"Miklós #0" = 0
+	"Oszkár #0" = 0
+	"Otto #0" = 0
+	"Patrik #0" = 0
+	"Péter #0" = 0
+	"Simon #0" = 0
+	"Tamás #0" = 0
+	"Vencel #0" = 0
+}
+
+leader_names = {
+	Andrássy Alvinczy
+	Bocskay Bethlen Báthory Batthyány Benovský Beleznay
+	Csák
+	Dessewffy
+	Esterházy
+	Festetics Frangepán
+	Garay
+	Hunyadi Hadik Horthy
+	Kinizsi Károlyi Kán "de Kovats" Kemeny
+	Lackovic' Losonci
+	Mészáros Milványi
+	Nadasdy
+	Ozoray
+	Rákóczi Rozgonyi
+	Šubic' Széchenyi
+	Thököly Teleki
+	Zrinski Zápolya Zichy
+}
+
+ship_names = {
+	Aranybulla 
+	Arpad
+	Magyar
+	Sigismund
+	"Szent Istvan kiraly"
+	"Hunyadi Matyas"
+	"Karoly Robert"
+	"Nagy Lajos"
+	Laszlo
+	Kalman
+}
+
+army_names = {
+	"A hadsereg $PROVINCE$" 
+}

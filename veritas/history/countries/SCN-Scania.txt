@@ -1,0 +1,21 @@
+# Scania
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+primary_culture = scanian
+religion = catholic
+technology_group = scandinavian_tech
+historical_friend = NOR
+historical_friend = DAN
+capital = 392
+
+1286.9.22 = {
+	monarch = {
+		name = "Heinrikr II"
+		dynasty = "Stenbrok"
+		birth_date = 1274.1.1
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}

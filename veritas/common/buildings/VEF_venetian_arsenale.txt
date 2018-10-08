@@ -1,0 +1,180 @@
+############ VENETIAN ARSENALE ############
+## Arsenale 0
+## Arsenale 1
+## Arsenale 2
+## Arsenale 3
+## Arsenale 4
+## Arsenale 5
+## Arsenale 6
+###########################################
+
+arsenale_base = {
+	cost = 100
+	time = 12
+
+	trigger = {
+		province_id = 269
+		owned_by = VEN
+	}
+
+	modifier = {
+		allowed_num_of_buildings = 1
+		naval_forcelimit = 2
+		ship_recruit_speed = -0.25
+		local_ship_repair = 0.25
+	}
+	
+	one_per_country = yes
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+arsenale_first = {
+	cost = 100
+	time = 12
+	
+	trigger = {
+		province_id = 269
+		owned_by = VEN
+	}
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+		naval_forcelimit = 3
+		ship_recruit_speed = -0.25
+		local_ship_repair = 0.25
+		local_ship_cost = -0.05
+	}
+	
+	one_per_country = yes
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+arsenale_second = {
+	cost = 100
+	time = 12
+	
+	trigger = {
+		province_id = 269
+		owned_by = VEN
+	}
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+		naval_forcelimit = 4
+		ship_recruit_speed = -0.50
+		local_ship_repair = 0.50
+		local_ship_cost = -0.1
+	}
+	
+	one_per_country = yes
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+arsenale_third = {
+	cost = 100
+	time = 12
+	
+	trigger = {
+		province_id = 269
+		owned_by = VEN
+	}
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+		naval_forcelimit = 5
+		ship_recruit_speed = -0.50
+		local_ship_repair = 0.50
+		local_production_efficiency = 0.05
+		local_ship_cost = -0.1
+	}
+	
+	one_per_country = yes
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+arsenale_fourth = {
+	cost = 100
+	time = 12
+	
+	trigger = {
+		province_id = 269
+		owned_by = VEN
+	}
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+		naval_forcelimit = 6
+		ship_recruit_speed = -0.66
+		local_ship_repair = 0.66
+		local_production_efficiency = 0.075
+		local_ship_cost = -0.125
+	}
+	
+	one_per_country = yes
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+arsenale_fifth = {
+	cost = 100
+	time = 12
+	
+	trigger = {
+		province_id = 269
+		owned_by = VEN
+	}
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+		naval_forcelimit = 7
+		ship_recruit_speed = -0.66
+		local_ship_repair = 0.66
+		local_production_efficiency = 0.10
+		local_ship_cost = -0.125
+	}
+	
+	one_per_country = yes
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+arsenale_sixth = {
+	cost = 100
+	time = 12
+	
+	trigger = {
+		province_id = 269
+		owned_by = VEN
+	}
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+		naval_forcelimit = 8
+		ship_recruit_speed = -0.75
+		local_ship_repair = 0.75
+		local_production_efficiency = 0.15
+		local_ship_cost = -0.15
+	}
+	
+	one_per_country = yes
+	
+	ai_will_do = {
+		factor = 0
+	}
+}

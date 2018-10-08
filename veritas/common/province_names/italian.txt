@@ -1,0 +1,6 @@
+#Province IDs changed
+260 = "Monferrato"
+273 = "Gorizia"
+276 = "Vaud"
+281 = "Vallese"
+3969 = "Durazzo"

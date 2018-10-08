@@ -1,0 +1,11 @@
+#Shitik
+#model = flute
+#tech_level = 12
+type = light_ship
+unit_type = nomad_group
+
+hull_size = 6
+base_cannons = 2
+sail_speed = 8
+trade_power = 0.75
+sailors = 25

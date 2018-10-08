@@ -1,0 +1,68 @@
+country_decisions = {
+
+	georgian_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = {
+				tag = KLI
+				tag = IMR
+				tag = KAK
+			}
+			NOT = { exists = GEO }
+		}
+
+		allow = {
+			stability = 1
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 1542 # Kartli
+			1542 = { NOT = { nationalism = 1 } }
+			owns_core_province = 1543  # Imereti
+			1543 = { NOT = { nationalism = 1 } }
+			owns_core_province = 1541  # Kakheti
+			1541 = { NOT = { nationalism = 1 } }
+			owns_core_province = 1545  # Abkhazia
+			1545 = { NOT = { nationalism = 1 } }
+		}
+
+		effect = {
+			if = {
+	 			limit = { is_subject = yes }
+	 			overlord = {
+	 				clr_country_flag = overlord_flag_@ROOT
+	 				set_country_flag = overlord_flag_GEO
+	 			}
+	 		}
+			change_tag = GEO
+			add_prestige = 25
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = GEO_custom_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+}

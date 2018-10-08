@@ -1,0 +1,255 @@
+gen_tradewars_missions = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = GEN
+	}
+	has_country_shield = yes
+	
+	gen_retake_azov = {
+		icon = mission_galleys_in_port
+		required_missions = {  }
+		completed_by = 1332.1.1
+		provinces_to_highlight = {
+			province_id = 643
+		}
+		trigger = {
+			643 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			640 = {
+				add_province_modifier = {
+					name = "dominant_trade_hub"
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	gen_black_sea = {
+		icon = mission_invade_island
+		required_missions = { gen_retake_azov }
+		completed_by = 1395.1.1
+		provinces_to_highlight = {
+			province_id = 638
+		}
+		trigger = {
+			638 = { is_strongest_trade_power = ROOT }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "black_sea_ambition"
+				duration = 3650
+			}
+		}
+	}
+	
+	gen_constantinople = {
+		icon = mission_have_two_subjects
+		required_missions = { gen_black_sea }
+		provinces_to_highlight = {
+			province_id = 588
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			588 = { is_strongest_trade_power = ROOT }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "mediterranean_ambition"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	gen_venetian_fleet = {
+		icon = mission_sea_battles
+		required_missions = { gen_constantinople }
+		trigger = {
+			naval_strength = {
+				who = VEN
+				value = 2
+			}
+		}
+		effect = {
+			572 = {
+				if = {
+					limit = {
+						NOT = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			577 = {
+				if = {
+					limit = {
+						NOT = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			578 = {
+				if = {
+					limit = {
+						NOT = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			580 = {
+				if = {
+					limit = {
+						NOT = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	
+	gen_greek_possessions = {
+		icon = mission_trade_company_region_abroad
+		required_missions = { gen_venetian_fleet }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 572
+				province_id = 577
+				province_id = 578
+				province_id = 580
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			572 = { country_or_non_sovereign_subject_holds = ROOT }
+			577 = { country_or_non_sovereign_subject_holds = ROOT }
+			578 = { country_or_non_sovereign_subject_holds = ROOT }
+			580 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "hegemonic_ambition"
+				duration = 3650
+			}
+		}
+	}
+}
+
+
+
+gen_home_region = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = GEN
+	}
+	has_country_shield = yes
+	
+	gen_home_node = {
+		icon = mission_sea_battles
+		required_missions = {  }
+		provinces_to_highlight = {
+			province_id = 2394
+		}
+		trigger = {
+			253 = { is_strongest_trade_power = ROOT }
+		}
+		effect = {
+			add_dip_power = 100
+			add_mercantilism = 2
+			205 = {
+				if = {
+					limit = {
+						NOT = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			207 = {
+				if = {
+					limit = {
+						NOT = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			208 = {
+				if = {
+					limit = {
+						NOT = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	gen_expand_in_sardinia = {
+		icon = mission_conquer_50_development
+		required_missions = { gen_home_node }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 205
+				province_id = 207
+				province_id = 208
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			205 = { country_or_non_sovereign_subject_holds = ROOT }
+			207 = { country_or_non_sovereign_subject_holds = ROOT }
+			208 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			add_mercantilism = 2
+			253 = {
+				add_province_modifier = {
+					name = "dominant_trade_hub"
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	gen_subjugate_pisa = {
+		icon = mission_dominate_home_trade_node
+		required_missions = { gen_expand_in_sardinia }
+		trigger = {
+			OR = {
+				PIS = { is_subject_of = ROOT }
+				NOT = { exists = PIS }
+			}
+		}
+		effect = {
+			add_dip_power = 100
+			add_mercantilism = 2
+			add_country_modifier = {
+				name = vef_merchant_mission
+				duration = -1
+			}
+		}
+	}
+}

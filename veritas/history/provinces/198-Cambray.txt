@@ -1,0 +1,33 @@
+# Cambray
+
+capital = "Cambray"
+owner = BUR
+controller = BUR
+add_core = BUR
+culture = picard
+religion = catholic
+trade_goods = grain
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+hre = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1   = { base_manpower = 1.75 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1400.1.1   = { base_manpower = 1.4 }
+1477.1.5   = { owner = FRA controller = FRA remove_core = BUR } # Charles the Bold dies and Louis XII takes Artois
+1500.1.1   = { base_manpower = 1.9 }
+1543.1.1   = { owner = SPA controller = SPA add_core = SPA remove_core = FRA } # Conquered by Charles V
+1600.1.1   = { base_manpower = 2.25 }
+1650.1.1   = { base_manpower = 2.5 }
+1677.4.19  = { owner = FRA controller = FRA add_core = FRA remove_core = HAB } # Captured by Louis XIV
+1700.1.1   = { base_manpower = 2.7 }
+1750.1.1   = { base_manpower = 3 }
+1789.5.5   = { base_tax = 6
+base_production = 6 } # The General Estates
+1800.1.1   = { base_manpower = 3.75 }

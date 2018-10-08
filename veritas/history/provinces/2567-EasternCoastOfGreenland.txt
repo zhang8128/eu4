@@ -1,0 +1,10 @@
+# Eastern Coast Of Greenland
+#Province IDs changed
+1309.1.1 = {
+    discovered_by = ICE
+    discovered_by = NOR
+}
+1453.1.1 = {
+	discovered_by = western 
+	discovered_by = scandinavian_tech
+}

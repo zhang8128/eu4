@@ -1,0 +1,87 @@
+country_decisions = {
+
+	lotharingian_nation = {
+		major = yes		
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			OR = {
+				primary_culture = moselfranconian
+				primary_culture = dutch
+			}
+			normal_or_historical_nations = yes
+			NOT = { exists = LOT }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = GER }
+			NOT = { tag = HLR }
+			NOT = { tag = NED }
+		}		
+		allow = {
+			NOT = { tag = NED }
+			NOT = { tag = GER }
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 179 # Lothringen
+			179 = { NOT = { nationalism = 1 } }
+			owns_core_province = 184 # Utrecht
+			184 = { NOT = { nationalism = 1 } }
+			owns_core_province = 187 # Breda
+			187 = { NOT = { nationalism = 1 } }
+			owns_core_province = 333 # Trier
+			333 = { NOT = { nationalism = 1 } }
+			owns_core_province = 336 # Köln
+			336 = { NOT = { nationalism = 1 } }
+		}		
+		effect = {
+			change_tag = LOT
+			add_prestige = 25
+			if = {
+				limit = { government = monastic_order_government }
+				every_neighbor_country = {
+					limit = { government = monarchy }
+					add_opinion = { who = ROOT modifier = secularized_monastic_order }
+				}
+			}
+			if = {
+				limit = { government = theocracy }
+				every_neighbor_country = {
+					limit = { government = monarchy }
+					add_opinion = { who = ROOT modifier = secularized_bishopric }
+				}
+			}
+			if = {
+				limit = { government = theocracy }
+				change_government = monarchy
+				set_legacy_government = hereditary_monarchy
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = LOT_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+}

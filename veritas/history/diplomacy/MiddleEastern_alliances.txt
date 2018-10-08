@@ -1,0 +1,124 @@
+### Corrections from CanOmer - verified correct; game start
+# Tekke PU of Hamid for a bit
+union = {
+	first = HMD
+	second = TEK
+	start_date = 1308.1.1
+	end_date = 1321.1.1
+}
+#Vassal for the rest
+vassal = {
+	first = HMD
+	second = TEK
+	start_date = 1321.1.1
+	end_date = 1337.12.31
+}
+# Ankara vassal of Germiyan
+dependency = {
+	subject_type = dominion
+	first = GRM
+	second = ANA
+	start_date = 1309.1.1
+	end_date = 1337.12.31
+}
+# Alaiye PU with Karamon
+union = {
+	first = KAR
+	second = ALA
+	start_date = 1308.1.1
+	end_date = 1337.12.31
+}
+# Rum vassalof the Ilkhanate
+vassal = {
+	first = ILK
+	second = RUM
+	start_date = 1309.1.1
+	end_date = 1336.1.1
+}
+#Hejaz protected by the Mamluks
+dependency = {
+	subject_type = vassal_hedjaz
+	first = MAM
+	second = HED
+	start_date = 1309.1.1
+	end_date = 1517.1.1
+}
+################################
+
+#Mentese submission to turks
+vassal = {
+	first = TUR
+	second = MEN
+	start_date = 1390.1.1
+	end_date = 1402.8.1
+}
+#Broken by Ottoman Interregnum
+vassal = {
+	first = TUR
+	second = MEN
+	start_date = 1414.1.1
+	end_date = 1426.1.1
+}
+################################
+
+# Eyalet of Egypt
+vassal = {
+	first = TUR
+	second = EGM
+	start_date = 1517.1.1
+	end_date = 1768.1.1
+}
+#Rebellion
+vassal = {
+	first = TUR
+	second = EGM
+	start_date = 1772.1.1
+	end_date = 1797.1.1
+}
+#Rebellion
+vassal = {
+	first = TUR
+	second = EGM
+	start_date = 1804.1.1
+	end_date = 1866.1.1
+}
+################################
+#Jalayrids and the Qara Kounlu
+vassal = {
+	first = JAI
+	second = QAR
+	start_date = 1370.1.1
+	end_date = 1395.1.1
+}
+
+# Georgia and the Timurid Empire
+vassal = {
+	first = TIM
+	second = GEO
+	start_date = 1403.1.1
+	end_date = 1405.1.1
+}
+
+# The Timurids - Khorasan (Abû Sa'id)
+union = {
+	first = TIM
+	second = KHO
+	start_date = 1461.1.1
+	end_date = 1469.8.27
+}
+
+# Cyprus, a Mamluk tributary
+guarantee = {
+	first = MAM
+	second = CYP
+	start_date = 1399.1.1
+	end_date = 1489.1.1
+}
+
+# Beylik of Ramazan
+vassal = {
+	first = TUR
+	second = RAM
+	start_date = 1516.1.1
+	end_date = 1608.1.1
+}

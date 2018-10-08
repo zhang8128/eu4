@@ -1,0 +1,23 @@
+government = republic add_government_reform = merchants_reform
+government_rank = 2
+mercantilism = 25
+technology_group = western
+religion = catholic
+primary_culture = lowersaxon
+historical_friend = HAM #Hamburg
+historical_friend = BRM #Bremen
+historical_friend = LUB #Lübeck
+historical_friend = RIG #Riga
+capital = 381	# Lübeck
+
+1309.3.9 = {
+	monarch = {
+		name = "Stadtrat"
+		adm = 3
+		dip = 3
+		mil = 3
+		regent = yes
+	}
+}
+
+1529.1.1 = { religion = protestant }

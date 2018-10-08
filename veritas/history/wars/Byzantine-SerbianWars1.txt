@@ -1,0 +1,12 @@
+# Syrgiannes defection to the Serbs
+
+name = "First Byzantine-Serbian War"
+
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 566 # Vardar	
+}
+
+1334.1.1 = {	add_attacker = SER	add_defender = BYZ	}
+1335.1.1 = {	rem_attacker = SER	rem_defender = BYZ	} # Serbia annexed Vardar and Pelagonia

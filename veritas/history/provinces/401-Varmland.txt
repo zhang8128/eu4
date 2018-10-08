@@ -1,0 +1,45 @@
+# Värmland
+
+capital = "Arvika"
+owner = SWE
+controller = SWE
+add_core = SWE
+culture = swedish
+religion = catholic
+trade_goods = livestock
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+hre = no
+fort_15th = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+set_local_autonomy = 20
+
+1307.1.1   = { revolt = { type = pretender_rebels name = "Erik Magnusson Bjälbo" } controller = REB }
+1318.12.1   = { revolt = {} controller = SWE }
+1353.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1437.6.1   = { revolt = { type = anti_tax_rebels size = 2 name = "Jösse" } controller = REB } # Engelbrekt rebellion
+1497.3.13  = { controller = DAN } #Danish loyalists at Danish DoW
+1497.10.6  = { controller = SWE } #Hans I become King and Sweden a Danish Vassal
+1501.8.1   = { controller = DAN } #Danish loyalists at Swedish DoW and breaking of vassalage
+1502.3.15  = { controller = SWE } #Retaken by Sweden
+1504.1.1   = { temple = yes }
+# 1520.3.6  = { owner = DAN controller = DAN } #The Council accept Christian II as King
+# 1521.5.20 = { owner = SWE controller = SWE } #Joins after V?ster?s is taken by Sweden
+1527.6.1   = { religion = protestant}
+1560.1.1   = { marketplace = yes } #controller of trade route to Norway (Denmark)
+1584.1.1   = { capital = "Karlstad" base_tax = 4
+base_production = 4 }
+1600.1.1   = { base_manpower = 0.5 }
+1640.1.1   = { courthouse = yes } #minor court belonging to G?ta Hovr?tt
+1647.1.1   = { temple = yes } #Unknown date
+1650.1.1   = { base_manpower = 0.6 }
+1700.1.1   = { base_manpower = 0.7 }
+1750.1.1   = { base_manpower = 0.85 }
+1800.1.1   = { base_manpower = 1 }

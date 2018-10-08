@@ -1,0 +1,221 @@
+#by Marco Dandolo
+country_decisions = {
+
+	si_venice_display = {
+		major = yes
+		potential = { government = venice_republic }
+		
+		allow = { always = no }
+		
+		effect = {
+			custom_tooltip = consiglio_x_display
+			custom_tooltip = consiglio_p_display
+			custom_tooltip = consiglio_m_display
+			custom_tooltip = doge_power_display
+			custom_tooltip = doge_crimes_display
+		}
+		
+		ai_will_do = { factor = 0 }
+	}
+	
+	procuratori_reform = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_playing_custom_nation = no
+			government = venice_republic
+			has_country_flag = Serenissima
+			NOT = { has_country_flag = procuratori_reform_done }
+		}
+		allow = {
+			years_of_income = 0.3
+			adm = 3
+			OR = {
+				has_country_modifier = strong_maggior_consiglio
+				has_country_modifier = dominant_maggior_consiglio
+			}
+			NOT = {
+				OR = {
+					has_country_modifier = dominant_consiglio_dieci
+					has_country_modifier = strong_consiglio_dieci
+					has_country_modifier = dominant_consiglio_pregadi
+					has_country_modifier = strong_consiglio_pregadi
+					has_country_modifier = dominant_doge
+					has_country_modifier = strong_doge
+				}
+			}
+		}
+		effect = {
+			add_prestige = 5
+			add_adm_power = 50
+			add_years_of_income = -0.25
+			set_country_flag = procuratori_reform_done
+			custom_tooltip = venetian_procuratori_reform
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ambasciatori_reform = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_playing_custom_nation = no
+			government = venice_republic
+			has_country_flag = Serenissima
+			NOT = { has_country_flag = ambasciatori_reform_done }
+		}
+		allow = {
+			years_of_income = 0.3
+			dip = 3
+			OR = {
+				has_country_modifier = strong_consiglio_pregadi
+				has_country_modifier = dominant_consiglio_pregadi
+			}
+			NOT = {
+				OR = {
+					has_country_modifier = dominant_consiglio_dieci
+					has_country_modifier = strong_consiglio_dieci
+					has_country_modifier = dominant_maggior_consiglio
+					has_country_modifier = strong_maggior_consiglio
+					has_country_modifier = dominant_doge
+					has_country_modifier = strong_doge
+				}
+			}
+		}
+		effect = {
+			add_prestige = 5
+			add_dip_power = 50
+			add_years_of_income = -0.25
+			set_country_flag = ambasciatori_reform_done
+			custom_tooltip = venetian_ambasciatori_reform
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	violate_promessione = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_playing_custom_nation = no
+			government = venice_republic
+			has_country_flag = Serenissima
+			NOT = { has_country_modifier = violated_promessione }
+		}
+		allow = {
+			OR = {
+				adm = 3
+				dip = 3
+				mil = 5
+			}
+		}
+		effect = {
+			add_prestige = -5
+			add_stability = -1
+			add_republican_tradition = -20
+			add_adm_power = 25
+			add_dip_power = 25
+			add_country_modifier = { name = "violated_promessione" duration = 7300 }
+			custom_tooltip = consiglio_m_sub
+			change_variable = { which = "consiglio_m_power" value = -3 }
+			custom_tooltip = consiglio_x_sub
+			change_variable = { which = "consiglio_x_power" value = -3 }
+			custom_tooltip = consiglio_p_sub
+			change_variable = { which = "consiglio_p_power" value = -3 }
+			custom_tooltip = doge_add
+			change_variable = { which = "doge_power" value = 3 }
+			custom_tooltip = doge_against_constitution
+			change_variable = { which = "doge_crimes" value = 1 }		
+		}
+	}
+	
+	organise_sensa = {
+		potential = {
+			normal_or_historical_nations = yes
+			is_playing_custom_nation = no
+			NOT = { has_country_flag = cultural_decision_off }
+			government = venice_republic
+			NOT = {
+				OR = {
+					has_country_modifier = preparing_sensa
+					has_country_modifier = festivating_sensa
+					has_country_modifier = glorious_sensa
+					has_country_flag = sensa_decision
+				}
+			}			
+		}
+
+		allow = {
+			is_at_war = no
+			years_of_income = 0.66
+			prestige = 20
+			num_of_total_ports = 4
+			owns = 269
+			is_month = 4
+			NOT = { is_month = 6 }
+		}
+
+		effect = {
+			add_years_of_income = -0.33
+			country_event = { id = festa_sensa.1 }
+			set_country_flag = sensa_decision
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+
+##############
+# TERRAFERMA #
+##############
+
+	ven_stato_da_tera = {
+		potential = {
+			government = venice_republic
+			normal_or_historical_nations = yes
+			is_playing_custom_nation = no
+			NOT = { has_country_flag = stato_da_tera }
+		}
+		allow = {
+		    has_idea = administrative_efficiency_idea
+			adm_tech = 22
+			adm_power = 100
+			treasury = 300
+			OR = {
+				has_country_modifier = dominant_consiglio_dieci
+				has_country_modifier = strong_consiglio_dieci
+			}
+			has_country_modifier = weak_maggior_consiglio
+			num_of_owned_provinces_with = {
+				is_core = ROOT
+				is_overseas = no
+				has_port = no
+			    value = 10
+	        }
+			
+		}
+		effect = {
+			add_adm_power = -100
+			add_treasury = -300
+			add_prestige = 10
+			add_republican_tradition = 10
+			set_country_flag = stato_da_tera
+			add_country_modifier = {
+			    name = "stato_da_tera"
+			    duration = -1
+		    }
+			custom_tooltip = venetian_stato_da_tera
+		    
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+

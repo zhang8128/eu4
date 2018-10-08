@@ -1,0 +1,23 @@
+# Vanni
+
+capital = "Yapapatuna"
+owner = JAF
+controller = JAF
+add_core = JAF
+culture = tamil
+religion = hinduism
+trade_goods = pearls
+base_tax = 4
+base_production = 4
+base_manpower = 6
+is_city = yes
+hre = no
+discovered_by = indian
+
+1411.1.1 = { owner = CEY controller = CEY } #Sangamas expelled by Zheng He
+1432.1.1 = { owner = JAF controller = JAF } #Reconquest by Vijayanagar
+1505.1.1 = { discovered_by = POR } # Francisco de Almeida
+1619.1.1 = { owner = POR controller = POR add_core = POR }
+1660.1.1 = { owner = NED controller = NED add_core = NED remove_core = POR } # Dutch control
+1799.8.1 = { controller = GBR } # Occupied by England
+1802.3.25 = { owner = GBR add_core = GBR remove_core = NED } # Treaty of Amiens

@@ -1,0 +1,102 @@
+
+# Sets off the Hundred Years War
+country_decisions = {
+	claim_french_throne = {
+		major = yes
+		potential = {
+			tag = ENG
+			normal_or_historical_nations = yes
+			is_playing_custom_nation = no
+			FRA = { has_country_flag = 100war_succession_dispute }
+			NOT = { ENG = { has_country_flag = 100war_claim_throne } }
+		}
+		
+		allow = {
+			NOT = { ENG = { war_with = FRA }}
+		}
+		
+		effect = {
+			set_country_flag = 100war_claim_throne
+			FRA = { country_event = { id = vef_100war.6 }}
+			if = {
+				limit = { NOT = { has_dlc = "Mandate of Heaven" }}
+				add_country_modifier = {
+					name = english_longbows
+					duration = 9125
+				}
+			}
+			115 = { add_core = FRA }	# Labourd
+			117 = { add_core = FRA }	# Gascone
+			116 = { add_core = FRA }	# Albret
+			reverse_add_opinion = {
+				who = FRA
+				modifier = hundred_years_war
+			}
+			reverse_add_opinion = {
+				who = DAU
+				modifier = hundred_years_war
+			}
+			every_known_country = {
+				limit = { is_subject_of = FRA }
+				add_opinion = { who = ENG  modifier = hundred_years_war }
+			}
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+	# Avert the disputes over Aquitaine 
+	release_aquitaine = {
+	
+		potential = {
+			tag = ENG
+			normal_or_historical_nations = yes
+			is_playing_custom_nation = no
+			115 = { owner = { tag = ENG }}		# Labourd
+			117 = { owner = { tag = ENG }}		# Gascone
+			116 = { owner = { tag = ENG }}		# Albret
+			NOT = { ENG = { has_country_flag = 100war_claim_throne } }
+		}
+		
+		allow = {
+			NOT = { ENG = { war_with = FRA }}
+		}
+		
+		effect = {
+			release = GUY
+			GUY = { 
+				every_owned_province = { remove_core = ENG }
+			}
+			set_country_flag = 100war_released_aquitaine 
+		}
+		
+		ai_will_do = { factor = 0 }
+	}
+	# Withdraw claims to Scotland
+	acknowledge_scottish_throne = {
+		
+		potential = {
+			tag = ENG
+			normal_or_historical_nations = yes
+			is_playing_custom_nation = no
+			SCO = { ai = yes }
+			SCO = { has_country_modifier = highland_armies }
+			NOT = { is_year = 1327 }
+			NOT = { has_country_flag = released_scotland }
+		}
+		
+		allow = {
+			war_score_against = {
+				who = SCO
+				value = -10
+			}
+		}
+		
+		effect = {
+			ENG = { white_peace = SCO }
+			set_country_flag = released_scotland
+			SCO = { every_owned_province = { remove_core = ENG }}
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+}

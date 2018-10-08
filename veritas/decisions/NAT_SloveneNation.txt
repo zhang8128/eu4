@@ -1,0 +1,57 @@
+country_decisions = {
+
+	slovene_nation = {
+		major = yes
+		potential = {
+			primary_culture = slovene
+			normal_or_historical_nations = yes
+			OR = {
+				is_playing_custom_nation = no
+				ai = no
+			}
+			NOT = { exists = SLV }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 529 	# Marburg
+			529 = { NOT = { nationalism = 1 } }
+			owns_core_province = 530 	# Krain
+			530 = { NOT = { nationalism = 1 } }
+		}
+		effect = {
+			change_tag = SLV
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			add_prestige = 25
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 600
+	}
+
+}

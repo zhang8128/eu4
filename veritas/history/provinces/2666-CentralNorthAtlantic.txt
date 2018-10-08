@@ -1,0 +1,8 @@
+# Central North Atlantic
+#Province IDs changed
+1434.1.1 = { discovered_by = POR } # Prince Henry's School
+1453.1.1 = { 
+	discovered_by = western 
+	discovered_by = scandinavian_tech
+}
+1600.1.1 = { discovered_by = byzantine }

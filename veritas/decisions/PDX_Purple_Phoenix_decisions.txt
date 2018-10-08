@@ -1,0 +1,153 @@
+# rome restored???
+
+# Only when starting in 1444.11.11
+country_decisions = {
+
+	triumph_greece = {
+		potential = {
+			start_date = 1444.11.11
+			tag = BYZ
+			normal_or_historical_nations = yes
+			has_dlc = "Purple Phoenix"
+			NOT = { has_country_flag = triumph_greece }
+			OR = {
+				morea_area = { owned_by = BYZ }
+				northern_greece_area = { owned_by = BYZ }
+			}
+		}
+		allow = {
+			morea_area = { type = all owned_by = BYZ }
+			northern_greece_area = { type = all owned_by = BYZ }
+			
+		}
+		effect = {
+			add_prestige = 10
+			add_army_tradition = 25
+			set_country_flag = triumph_greece
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	triumph_balkans = {
+		potential = {
+			start_date = 1444.11.11
+			tag = BYZ
+			normal_or_historical_nations = yes
+			has_dlc = "Purple Phoenix"
+			NOT = { has_country_flag = triumph_balkans }
+			balkan_region = { owned_by = BYZ }
+		}
+		allow = {
+			owns = 535	# Dalmatia
+			owns = 536	# Split
+			owns = 537	# Ragusa
+			owns = 551	# Zeta
+			owns = 552	# Kotor
+			owns = 555	# Sofia
+			owns = 557	# Tarnovo
+			owns = 558	# Silistra
+			owns = 559	# Dobrogea
+			owns = 560	# Caliacra
+			owns = 561	# Varna
+			owns = 562	# Burgas
+			owns = 568	# Durres
+			owns = 569	# Albania
+			owns = 570	# Argyrokastro
+			owns = 582	# Kastoria
+			owns = 583	# Macedonia
+			owns = 584	# Serres
+			owns = 585	# Komotini
+			owns = 586	# Gallipoli
+			owns = 587	# Thrace
+		}
+		effect = {
+			add_prestige = 20
+			add_army_tradition = 25
+			set_country_flag = triumph_balkans
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	triumph_asia = {
+		potential = {
+			start_date = 1444.11.11
+			tag = BYZ
+			normal_or_historical_nations = yes
+			has_dlc = "Purple Phoenix"
+			NOT = { has_country_flag = triumph_asia }
+			OR = {
+				eastern_aegean_area = { owned_by = BYZ }
+				aydin_area = { owned_by = BYZ }
+				karesi_area = { owned_by = BYZ }
+				mentese_area = { owned_by = BYZ }
+				nicea_area = { owned_by = BYZ }
+				hudavendigar_area = { owned_by = BYZ }
+			}
+		}
+		allow = {
+			eastern_aegean_area = { type = all owned_by = BYZ }
+			aydin_area = { type = all owned_by = BYZ }
+			karesi_area = { type = all owned_by = BYZ }
+			mentese_area = { type = all owned_by = BYZ }
+			nicea_area = { type = all owned_by = BYZ }
+			hudavendigar_area = { type = all owned_by = BYZ }
+		}
+		effect = {
+			add_prestige = 10
+			add_army_tradition = 25
+			set_country_flag = triumph_asia
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	triumph_anatolia = {
+		potential = {
+			start_date = 1444.11.11
+			tag = BYZ
+			normal_or_historical_nations = yes
+			has_dlc = "Purple Phoenix"
+			NOT = { has_country_flag = triumph_anatolia }
+			anatolia_region = { owned_by = BYZ }
+		}
+		allow = {
+			anatolia_region = { type = all owned_by = BYZ }			
+		}
+		effect = {
+			add_prestige = 20
+			add_army_tradition = 25
+			set_country_flag = triumph_anatolia
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	triumph_italy = {
+		potential = {
+			start_date = 1444.11.11
+			tag = BYZ
+			normal_or_historical_nations = yes
+			has_dlc = "Purple Phoenix"
+			NOT = { has_country_flag = triumph_italy }
+			italy_region = { owned_by = BYZ }
+		}
+		allow = {
+			italy_region = { type = all owned_by = BYZ }			
+		}
+		effect = {
+			add_prestige = 35
+			add_army_tradition = 25
+			set_country_flag = triumph_italy
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}

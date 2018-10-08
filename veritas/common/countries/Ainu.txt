@@ -1,0 +1,61 @@
+#Country Name: Please see filename.
+
+graphical_culture = asiangfx
+
+color = { 218 127 127 }
+
+historical_idea_groups = {
+	defensive_ideas
+	mercantilist_ideas
+	economic_ideas
+	quality_ideas
+	intimidatory_ideas
+	expansion_ideas
+	standing_army_ideas
+	gf1_ideas
+}
+
+historical_units = {
+	niitaka_artillery_23_1
+	niitaka_artillery_29_1
+	niitaka_artillery_35_1
+	niitaka_artillery_40_1
+	niitaka_artillery_44_1
+	niitaka_cavalry_0_1
+	niitaka_cavalry_16_1
+	niitaka_cavalry_31_1
+	niitaka_cavalry_36_1
+	niitaka_cavalry_40_1
+	niitaka_cavalry_44_1
+	niitaka_infantry_0_1
+	niitaka_infantry_6_1
+	niitaka_infantry_17_1
+	niitaka_infantry_21_1
+	niitaka_infantry_25_1
+	niitaka_infantry_34_1
+	niitaka_infantry_42_1
+	niitaka_infantry_48_1
+	niitaka_infantry_50_1
+}
+
+monarch_names = {
+	"Koshamain #0" = 15
+	"Shakushain #0" = 15
+	"Kamokutain #0" = 15
+	"Onibishi #0" = 15
+	"Penri #0" = 15
+	"Piripos #0" = 15
+	"Takatsuki #0" = 15
+	
+	"Monashir #0" = -1
+	"Etunrachich #0" = -1
+	"Toitoi #0" = -1
+}
+
+leader_names = {
+	Shibushari Hae Betsu Shiraoi Kurasi Kakizaki Ponyanpe Shirokani Otona Ekashi Saru Usu
+}
+
+ship_names = {
+	Monashir Etunrachich Toitoi Shiratekka Menkakush Horpecha Huisak Opere Unkatuye Umoshmatek
+}

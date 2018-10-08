@@ -1,0 +1,23 @@
+# Kunming
+
+capital = "Kunming"
+owner = YUN
+controller = YUN
+add_core = YUN
+add_core = DLI
+culture = cantonese
+religion = buddhism
+trade_goods = lead
+base_tax = 6
+base_production = 6
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1357.1.1	= { owner = DLI controller = DLI remove_core = YUN } # Mongol holdouts in the kingdom of Dali
+1382.1.6	= { owner = MNG controller = MNG add_core = MNG } # Ming puts down Mongol remnants
+1655.1.1 = { discovered_by = SPA }#Novus Atlas Sinensis
+1659.1.3 = { owner = QNG controller = QNG }
+1661.6.1 = { owner = CZH controller = CZH add_core = CZH remove_core = MNG } # The Three Feudatories
+1681.10.1 = { owner = QNG controller = QNG add_core = QNG }

@@ -1,0 +1,26 @@
+# Totorames
+
+capital = "Totorames"
+native_size = 5 
+native_ferocity = 1 
+native_hostileness = 5
+culture = chichimecan 
+religion = xochiyaoyotl 
+trade_goods = unknown 
+base_tax = 1
+base_production = 1
+base_manpower = 1 
+hre = no
+
+discovered_by = mesoamerican
+
+1529.1.1  = { discovered_by = SPA owner = SPA controller = SPA trade_goods = gold culture = castillian religion = catholic citysize = 3555 } 
+1550.1.1  = { citysize = 4100 } 
+1554.1.1  = { add_core = SPA }
+1578.1.1  = { discovered_by = ENG } # Drake 
+1600.1.1  = { citysize = 5780 } 
+1650.1.1  = { citysize = 6552 } 
+1700.1.1  = { citysize = 7231 } 
+1750.1.1  = { citysize = 8800 } 
+1800.1.1  = { citysize = 11420 }
+1810.9.16 = { owner = MEX add_core = MEX controller = MEX } # Mexican War of Independence

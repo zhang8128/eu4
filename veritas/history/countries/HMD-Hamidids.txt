@@ -1,0 +1,57 @@
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 2
+primary_culture = turkish
+religion = sunni
+technology_group = ottoman
+capital = 607 # Hamid
+
+1298.1.1 = {
+	monarch = {
+		name = "Dündar"
+		dynasty = "Hamidoglu"
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+	add_piety = 0.1
+}
+
+1324.1.1 = {
+	monarch = {
+		name = "Hizir"
+		dynasty = "Hamidoglu"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1328.1.1 = {
+	monarch = {
+		name = "Ishak"
+		dynasty = "Hamidoglu"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1340.1.1 = {
+	monarch = {
+		name = "Mustafa"
+		dynasty = "Hamidoglu"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1340.1.1 = {
+	monarch = {
+		name = "Ilyas II"
+		dynasty = "Hamidoglu"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}

@@ -1,0 +1,254 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+technology_group = byzantine
+primary_culture = lombard
+add_accepted_culture = greek
+religion = catholic
+capital = 575	# Mystras
+historical_friend = NAP
+historical_friend = SCL
+
+set_country_flag = crusader_state
+
+1306.5.5 = {
+	monarch = {
+		name = "Philip I"
+		dynasty = "de Anjou"
+		birth_date = 1278.11.10
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	
+	heir = {
+		name = "Charles"
+		monarch_name = "Charles I"
+		dynasty = "de Anjou"
+		birth_date = 1296.1.1
+		death_date = 1315.8.29
+		claim = 100
+		dip = 2
+		adm = 2
+		mil = 3
+	}
+	set_country_flag = cadet_branch_NAP
+	set_variable = { which = cadet_branch_time value = 1 }
+}
+
+1313.7.29 = {
+	monarch = {
+		name = "Matilda"
+		dynasty = "Hainut"
+		birth_date = 1293.11.29
+		female = yes
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	clr_country_flag = cadet_branch_NAP
+}
+# Nominally John is married to Matilda but when she refuses to cede authority to John the
+# king of Naples transfers it to John and the marriage is annulled for non-consumation
+1318.3.1 = {
+	monarch = {
+		name = "Jean"
+		dynasty = "de Anjou"
+		birth_date = 1276.11.29
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+	set_country_flag = cadet_branch_NAP
+}
+
+1321.11.14 = {
+	queen = {
+        country_of_origin = FRA
+        name = "Agnes"
+        dynasty = "de Perigord" 
+        birth_date = 1304.1.1	# Estimated
+        death_date = 1345.1.1
+        female = yes
+        adm = 2
+        dip = 2
+        mil = 2
+    }
+}
+
+1323.1.1 = {
+	heir = {
+		name = "Charles"
+		monarch_name = "Charles I"
+		dynasty = "de Anjou"
+		birth_date = 1323.1.1
+		death_date = 1348.1.23
+		claim = 100
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1333.1.1 = {
+	monarch = {
+		name = "Robert II"
+		dynasty = "de Anjou"
+		birth_date = 1319.1.1
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1347.9.9 = {
+	queen = {
+        country_of_origin = BOU
+        name = "Marie"
+        dynasty = "de Bourbon" 
+        birth_date = 1315.1.1
+        death_date = 1387.1.1
+        female = yes
+        adm = 1
+        dip = 1
+        mil = 1
+    }
+}
+# No children; succeeded by his younger brother
+1364.9.10 = {
+	monarch = {
+		name = "Philip II"
+		dynasty = "de Anjou"
+		birth_date = 1229.1.1
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	queen = {
+        country_of_origin = NAP
+        name = "Maria"
+        dynasty = "de Anjou" 
+        birth_date = 1329.5.6
+        death_date = 1366.5.20
+        female = yes
+        adm = 2
+        dip = 2
+        mil = 2
+    }
+}
+
+1370.10.20 = {
+	queen = {
+        country_of_origin = HUN
+        name = "Elizabeth"
+        dynasty = "de Anjou" 
+        birth_date = 1352.1.1
+        death_date = 1380.1.1
+        female = yes
+        adm = 2
+        dip = 2
+        mil = 2
+    }
+}
+# Phillip names his nephew as his universal heir
+1373.1.1 = {
+	heir = {
+		name = "James"
+		monarch_name = "James I"
+		dynasty = "de Baux"
+		birth_date = 1353.1.1 #Guesstimate
+		death_date = 1386.1.1
+		claim = 75
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+# Union with Naples after Phillip's death 1374.11.25 to 1381.8.25
+# James, nephew of Phillip, gains the principality when Joanna is deposed
+1381.8.25 = {
+	monarch = {
+		name = "James I"
+		dynasty = "de Baux"
+		birth_date = 1353.1.1 #Guesstimate
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+# Union with Naples after James' death 1383.11.25 to 1386.2.21
+# Although not appointed to the title until 1396, no one held it after Charles' death and
+# Pietro was styled as Captain or Vicar General of the principality
+1386.2.21 = {
+	monarch = {
+		name = "Pietro I"
+		dynasty = "de Saint-Superan"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	
+	heir = {
+		name = "Maria"
+		monarch_name = "Maria II"
+		dynasty = "Zaccaria"
+		birth_date = 1360.1.1 #Guesstimate
+		death_date = 1404.1.1
+		claim = 75
+		dip = 1
+		adm = 3
+		mil = 1
+		female = yes
+	}
+	clr_country_flag = cadet_branch_NAP
+}
+
+1402.1.1 = {
+	monarch = {
+		name = "Maria II"
+		dynasty = "Zaccaria"
+		birth_date = 1360.1.1 #Guesstimate
+		dip = 1
+		adm = 3
+		mil = 1
+		female = yes
+	}
+	
+	heir = {
+		name = "Centurione"
+		monarch_name = "Centurione II"
+		dynasty = "Zaccaria"
+		birth_date = 1380.1.1
+		death_date = 1439.1.1
+		claim = 95
+		dip = 1
+		adm = 0
+		mil = 0
+	}
+}
+
+1404.1.1 = {
+	monarch = {
+		name = "Centurione II"
+		dynasty = "Zaccaria"
+		birth_date = 1380.1.1
+		dip = 1
+		adm = 0
+		mil = 0
+	}
+}
+
+1432.1.1 = { primary_culture = greek religion = orthodox clr_country_flag = crusader_state }
+
+# 1432, Despotate of Morea
+
+1453.5.29 = {
+	monarch = {
+		name = "Thomas"
+		dynasty = "Palaiologos"
+		birth_date = 1409.1.1
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}

@@ -1,0 +1,283 @@
+government = republic add_government_reform = revolutionary_republic
+government_rank = 3
+primary_culture = castillian
+religion = catholic
+technology_group = western
+capital = 1964	# Santiago
+
+
+1810.9.18 = {
+	monarch = {
+		name = "Mateo de Toro"
+		adm = 2
+		dip = 2
+		mil = 5
+	}
+}
+
+1811.2.27 = {
+	monarch = {
+		name = "Juan Martínez de Rozas"
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1811.4.2 = {
+	monarch = {
+		name = "Fernando Márquez"
+		adm = 4
+		dip = 3
+		mil = 2
+	}
+}
+
+1811.5.17 = {
+	monarch = {
+		name = "Juan Martínez de Rozas"
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1811.7.4 = {
+	monarch = {
+		name = "Juan Antonio Ovalle"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1811.8.11 = {
+	monarch = {
+		name = "Martín Calvo Encalada"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1811.9.4 = {
+	monarch = {
+		name = "Juan Martínez de Rozas"
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1811.11.15 = {
+	monarch = {
+		name = "José Miguel Carrera"
+		adm = 4
+		dip = 3
+		mil = 5
+	}
+}
+
+1811.12.13 = {
+	monarch = {
+		name = "José Santiago Portales"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1812.1.8 = {
+	monarch = {
+		name = "José Miguel Carrera"
+		adm = 4
+		dip = 3
+		mil = 5
+	}
+}
+
+1812.11.3 = {
+	monarch = {
+		name = "Pedro José Prado"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1812.12.6 = {
+	monarch = {
+		name = "José Miguel Carrera"
+		adm = 4
+		dip = 3
+		mil = 5
+	}
+}
+
+1813.4.13 = {
+	monarch = {
+		name = "Francisco Antonio Pérez"
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1813.8.23 = {
+	monarch = {
+		name = "José Miguel Infante"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1814.1.11 = {
+	monarch = {
+		name = "Agustín Manuel"
+		adm = 4
+		dip = 2
+		mil = 2
+	}
+}
+
+1814.3.7 = {
+	monarch = {
+		name = "Antonio José de Irisarri"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1814.3.14 = {
+	monarch = {
+		name = "Francisco de la Lastra"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+1814.7.23 = {
+	monarch = {
+		name = "José Miguel Carrera"
+		adm = 4
+		dip = 3
+		mil = 5
+	}
+}
+
+1818.2.18 = { government = republic add_government_reform = republican_dictatorship }
+
+1818.2.18 = {
+	monarch = {
+		name = "Bernardo O'Higgins"
+		adm = 4
+		dip = 3
+		mil = 5
+	}
+}
+
+1823.4.4 = {
+	monarch = {
+		name = "Ramón Freire Serrano"
+		adm = 3
+		dip = 4
+		mil = 4
+	}
+}
+
+1826.7.9 = { 
+	government = republic
+}
+
+1826.7.9 = {
+	monarch = {
+		name = "Manuel Blanco Encalada"
+		adm = 4
+		dip = 4
+		mil = 2
+	}
+}
+
+1826.9.9 = {
+	monarch = {
+		name = "Agustín de Eyzaguirre"
+		adm = 4
+		dip = 3
+		mil = 1
+	}
+}
+
+1827.1.25 = {
+	monarch = {
+		name = "Ramón Freire Serrano"
+		adm = 3
+		dip = 4
+		mil = 4
+	}
+}
+
+1827.5.8 = {
+	monarch = {
+		name = "Francisco Antonio Pinto"
+		adm = 3
+		dip = 1
+		mil = 3
+	}
+}
+
+1829.12.24 = {
+	monarch = {
+		name = "José Tomás Ovalle"
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1831.3.8 = {
+	monarch = {
+		name = "Fernamdo Errázuriz Aldunate"
+		adm = 3
+		dip = 4
+		mil = 3
+	}
+}
+
+1831.9.18 = {
+	monarch = {
+		name = "José Joaquín Prieto"
+		adm = 4
+		dip = 3
+		mil = 3
+	}
+}
+
+1841.9.18 = {
+	monarch = {
+		name = "Manuel Bulnes"
+		adm = 4
+		dip = 4
+		mil = 3
+	}
+}
+
+1851.9.18 = {
+	monarch = {
+		name = "Manuel Montt"
+		adm = 2
+		dip = 3
+		mil = 4
+	}
+}
+
+1861.9.18 = {
+	monarch = {
+		name = "José Joaquín Pérez"
+		adm = 2
+		dip = 4
+		mil = 3
+	}
+}

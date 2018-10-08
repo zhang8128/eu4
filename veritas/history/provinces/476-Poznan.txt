@@ -1,0 +1,58 @@
+# Poznan
+
+capital = "Poznan"
+owner = GLO
+controller = GLO
+add_core = GLO
+add_core = POL
+culture = polish
+religion = catholic
+trade_goods = salt
+base_tax = 5
+base_production = 5
+base_manpower = 5
+is_city = yes
+hre = no
+temple = yes		# Cathedral Basilica of St. Peter and St. Paul
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1313.1.1   = { owner = POL controller = POL }
+1316.1.1   = { unrest = 0 }
+1347.1.1   = { base_manpower = 4 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1500.1.1   = { base_manpower = 5 }
+1550.1.1   = { citysize = 17000 }
+1569.7.1   = {	owner = PLC
+	     	controller = PLC
+			remove_core = POL
+	     	add_core = PLC
+	     } # Union of Lublin
+1588.1.1   = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Civil war, Polish succession
+1589.1.1   = { revolt = {} controller = PLC } # Coronation of Sigismund III
+1600.1.1   = { citysize = 20000 }
+1650.1.1   = { citysize = 23000 }
+1655.1.1   = { controller = SWE } # Swedish invasion
+1660.1.1   = { controller = PLC } # End of Northern war
+1700.1.1   = { citysize = 4200 } # Due to epidemics, catastophes & the Swedish invasion
+1733.1.1   = { revolt = { type = revolutionary_rebels size = 2 } controller = REB } # The war of the Polish succession
+1735.1.1   = { revolt = {} controller = PLC }
+1750.1.1   = { citysize = 5600 courthouse = yes } # Several waves of Dutch & rural settlers
+1772.2.17  = { add_core = PRU } # First partition of Poland, only lost the northern part
+1793.1.23  = { owner = PRU controller = PRU } # Second partition of Poland, the remaining part came under Prussian control
+1794.3.24  = { revolt = { type = nationalist_rebels size = 2 leader = "Tadeusz Kosciuszko" } controller = REB } # Kosciuszko uprising, Prussia lost control briefly
+1794.11.16 = { revolt = {} controller = PRU } # The end of the uprising
+1800.1.1   = { citysize = 16000 }
+1806.11.3  = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Polish uprising instigated by Napoleon
+1807.7.9   = {	revolt = {}
+		owner = POL
+		controller = POL
+	     	remove_core = PRU
+	     } # The Duchy of Warsaw is established after the treaty of Tilsit, ruled by Frederick Augustus I of Saxony
+1813.3.17  = { controller = PRU }
+1814.4.11  = {	owner = PRU
+		add_core = PRU
+	     } # Actually returned to Prussia after the Congress of Vienna

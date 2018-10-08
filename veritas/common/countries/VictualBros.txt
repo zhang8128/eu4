@@ -1,0 +1,62 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 218  215  56 }
+
+historical_idea_groups = {
+	administrative_ideas
+	diplomatic_ideas
+	defensive_ideas
+	economic_ideas
+	mercantilist_ideas
+	quantity_ideas
+	expansion_ideas
+	gf1_ideas	## mm1_ideas if Med or Baltic ## land_ideas if landlocked
+}
+
+historical_units = {
+   scandinavian_artillery_10_1
+   scandinavian_artillery_16_1
+   scandinavian_artillery_22_1
+   scandinavian_artillery_29_1
+   scandinavian_artillery_35_1
+   scandinavian_cavalry_0_1
+   scandinavian_cavalry_0_2
+   scandinavian_cavalry_16_1
+   scandinavian_cavalry_31_1
+   scandinavian_cavalry_36_1
+   scandinavian_cavalry_40_1
+   scandinavian_cavalry_44_1
+   scandinavian_cavalry_44_2
+   scandinavian_infantry_0_1
+   scandinavian_infantry_6_1
+   scandinavian_infantry_17_1
+   scandinavian_infantry_31_1
+   scandinavian_infantry_31_2
+   scandinavian_infantry_34_1
+   scandinavian_infantry_34_2
+   scandinavian_infantry_39_1
+   scandinavian_infantry_39_2
+   scandinavian_infantry_42_1
+   scandinavian_infantry_42_2
+   scandinavian_infantry_45_1
+   scandinavian_infantry_45_2
+}
+
+
+
+
+monarch_names = {
+	"Karl #0" = 100
+	"Erik #13" = 40
+	"Oskar #0" = 10
+}
+
+leader_names = {
+	"Störtebeker" "Grip" "Brahe"
+}
+
+ship_names = {
+	"Bunte Kuh" Enighet Falk Fenix Galathe "Gotha Lejon" Grip 
+}

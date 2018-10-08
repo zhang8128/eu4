@@ -1,0 +1,77 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+primary_culture = austrian
+religion = catholic
+technology_group = western
+capital = 294 # Kärnten
+
+1295.11.1 = {
+	monarch = {
+		name = "Heinrich VI"
+		dynasty = "von Meinhardiner"
+		birth_date = 1265.1.1
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1306.1.1 = {
+	queen = {
+		country_of_origin = BOH
+		name = "Anna"
+		dynasty = "Premyslovci"
+		birth_date = 1290.10.15
+		death_date = 1313.9.3
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+#1335 To Austria upon Henry's death
+
+1379.1.1 = {
+	monarch = {
+		name = "Leopold III"
+		dynasty = "von Habsburg"
+		birth_date = 1351.11.1
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1386.7.10 = {
+	monarch = {
+		name = "Wilhelm I"
+		dynasty = "von Habsburg"
+		birth_date = 1370.1.1
+		adm = 3
+		dip = 1
+		mil = 1
+	}
+}
+
+1406.7.16 = {
+	monarch = {
+		name = "Ernst I"
+		dynasty = "von Habsburg"
+		birth_date = 1377.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1424.6.11 = {
+	monarch = {
+		name = "Friedrich III"
+		dynasty = "von Habsburg"
+		birth_date = 1415.9.21
+		adm = 2
+		dip = 5
+		mil = 1
+	}
+}

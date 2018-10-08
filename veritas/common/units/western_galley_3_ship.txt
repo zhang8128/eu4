@@ -1,0 +1,17 @@
+#Galleass
+#model = galleass
+#tech_level = 18
+type = galley
+
+hull_size = 12
+base_cannons = 16
+sail_speed = 8
+sailors = 300
+
+trigger = {
+	OR = {
+		unit_type = western
+		technology_group = western
+		technology_group = high_american
+	}
+}

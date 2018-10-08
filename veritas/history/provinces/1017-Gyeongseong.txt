@@ -1,0 +1,32 @@
+#1017 - Gyeongseong
+
+capital = "Gyeongseong"
+owner = YUN
+controller = YUN
+add_core = YUN
+add_core = MCH
+culture = manchu
+religion = tengri
+trade_goods = fur
+base_tax = 1
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = chinese
+discovered_by = niitaka
+add_local_autonomy = 25
+
+1356.1.1  = { owner = KOR controller = KOR remove_core = YUN }
+1392.7.17 = { religion = confucianism }
+1413.1.1 = { owner = KOR controller = KOR add_core = KOR remove_core = MCH }
+1500.1.1 = { culture = korean }
+1542.1.1 = { discovered_by = POR }
+1592.7.18 = { controller = ODA } # Japanese invasion - Battle of Haejungchang
+1593.2.22 = { controller = KOR } # Kato retreats to Seoul
+1637.1.1 = { add_core = MNG } # Tributary of Qing China
+1644.1.1 = { add_core = MCH remove_core = MNG } # Part of the Manchu empire
+1645.7.1 = { add_core = QNG remove_core = MCH }
+1653.1.1 = { discovered_by = NED } # Hendrick Hamel
+1739.1.1 = { discovered_by = RUS } # Martin Spanberg
+

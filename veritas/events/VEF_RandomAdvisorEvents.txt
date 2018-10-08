@@ -1,0 +1,163 @@
+# Random Advisor Events - start id 30000
+
+namespace = vef_random
+
+# Advisor murdered
+country_event = {
+	id = vef_random.30000
+	title = "vef_random.30000.t"
+	desc = "vef_random.30000.d"
+
+	picture = VEF_ADVISOR_eventPicture
+
+	is_triggered_only = yes
+
+	# Negative stability or Rebels
+	trigger = {
+		has_advisor = yes
+		OR = {
+			NOT = { stability = 0 }
+			num_of_revolts = 1
+		}
+	}
+
+	mean_time_to_happen = { 
+		days = 1 
+		modifier = {
+			factor = 0.75
+			num_of_revolts = 2
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { stability = -1 }
+		}
+	}
+
+	option = {
+		name = "vef_random.30000.opta"
+		kill_advisor = random
+	}
+}
+
+# War is going poorly - people blame the military advisor
+country_event = {
+	id = vef_random.30003
+	title = "vef_random.30003.t"
+	desc = "vef_random.30003.d"
+
+	picture = VEF_ADVISOR_eventPicture
+
+	trigger = { 
+		is_at_war = yes
+		NOT = { war_score = -20 }
+		OR = {
+			advisor = army_reformer
+			advisor = army_organiser
+			advisor = quartermaster
+			advisor = recruitmaster
+			advisor = grand_captain
+			AND = {
+				advisor = fortification_expert			
+				any_known_country = {
+					offensive_war_with = ROOT
+				}
+			}
+		}
+		OR = { 
+			has_idea_group = standing_army_ideas
+			has_idea_group = offensive_ideas
+			has_idea_group = defensive_ideas
+			has_idea_group = expansion_ideas
+		}
+		NOT = { has_country_modifier = civil_turmoil }
+	}
+
+	mean_time_to_happen = { months = 24 }
+
+	# Dismiss him!
+	option = {
+		name = "vef_random.30003.opta"
+		add_prestige = -5
+		if = { 
+			limit = { advisor = army_reformer }
+			kill_advisor = army_reformer
+		}
+		if = { 
+			limit = { advisor = army_organiser }
+			kill_advisor = army_organiser
+		}
+		if = { 
+			limit = { advisor = quartermaster }
+			kill_advisor = quartermaster
+		}
+		if = { 
+			limit = { advisor = recruitmaster }
+			kill_advisor = recruitmaster
+		}
+		if = { 
+			limit = { advisor = grand_captain }
+			kill_advisor = grand_captain
+		}
+		if = { 
+			limit = { advisor = fortification_expert }
+			kill_advisor = fortification_expert
+		}
+	}
+
+	# Kepp him on
+	option = {
+		name = "vef_random.30003.optb"
+		add_prestige = -20
+		add_war_exhaustion = 3
+		add_country_modifier = { name = "civil_turmoil" duration = 181 }
+	}
+}
+
+# Naval Forces Suffering under Naval Reformer
+country_event = {
+	id = vef_random.30004
+	title = "vef_random.30004.t"
+	desc = "vef_random.30004.d"
+
+	picture = VEF_ADVISOR_eventPicture
+
+	trigger = { 
+		advisor = naval_reformer
+		OR = {
+			has_idea_group = mm1_ideas
+			has_idea_group = gf1_ideas
+		}
+		NOT = { navy_size_percentage = 0.60 }
+		NOT = { navy_tradition = 10.0 }
+		num_of_heavy_ship = 1
+		NOT = { has_country_modifier = naval_reform }
+		NOT = { has_country_modifier = upset_admirals }
+	}
+
+	mean_time_to_happen = { months = 300 }
+
+	# Dismiss Him
+	option = {
+		name = "vef_random.30004.opta"
+		add_prestige = -5
+		kill_advisor = naval_reformer
+		add_country_modifier = { name = "naval_reform" duration = 180 }
+		random_owned_province = {
+			limit = { has_port = yes }
+			add_unit_construction = {
+				amount = 2
+				type = heavy_ship
+				speed = 1.0
+				cost = 1.0
+			}
+		}
+	}
+
+	# Navy not our focus
+	option = {
+		name = "vef_random.30004.optb"
+		add_prestige = -20
+		add_navy_tradition = -10
+		add_country_modifier = { name = "upset_admirals" duration = 365 }
+	}
+}

@@ -1,0 +1,263 @@
+# Economy Modifiers
+namespace = vef_economy
+
+#1 Trade Goods Modifiers
+
+#Trade Goods Modifiers
+country_event = {
+	id = vef_economy.1
+	title = "vef_economy.1.t"
+	desc = "vef_economy.1.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes #on_actions/five_year_pulse
+	
+	hidden = yes
+	
+	option = {
+		name = "vef_economy.1.opta"
+		#Metals Trade
+		if = {
+			limit = {
+				NOT = { has_country_modifier = metals_trade }
+				num_of_owned_provinces_with = {
+					OR = { 
+						trade_goods = iron
+						trade_goods = copper
+						trade_goods = lead
+					}
+					value = 5
+				}
+			}
+			add_country_modifier = { name = metals_trade duration = -1 }
+		}
+		if = {
+			limit = {
+				has_country_modifier = metals_trade
+				NOT = {
+					num_of_owned_provinces_with = {
+						OR = { 
+							trade_goods = iron
+							trade_goods = copper
+							trade_goods = lead
+						}
+						value = 5
+					}
+				}
+			}
+			remove_country_modifier = metals_trade
+		}
+		#Timber Trade
+		if = {
+			limit = {
+				NOT = { has_country_modifier = timber_trade }
+				OR = {
+					naval_supplies = 5 
+					AND = {
+						naval_supplies = 3
+						any_subject_country = { naval_supplies = 3 }
+					}
+				}
+			}
+			add_country_modifier = { name = timber_trade duration = -1 }
+		}
+		if = {
+			limit = {
+				has_country_modifier = timber_trade
+				NOT = {
+					OR = {
+						naval_supplies = 5 
+						AND = {
+							naval_supplies = 3
+							any_subject_country = { naval_supplies = 3 }
+						}
+					}
+				}
+			}
+			remove_country_modifier = timber_trade
+		}
+		#Cinnamon
+		if = {
+			limit = {
+				NOT = { has_country_modifier = cinnamon_monopoly }
+				cinnamon = 5
+			}
+			add_country_modifier = { name = cinnamon_monopoly duration = -1 }
+		}
+		if = {
+			limit = {
+				has_country_modifier = cinnamon_monopoly
+				NOT = { cinnamon = 5 }
+			}
+			remove_country_modifier = cinnamon_monopoly
+		}
+		#Your people want chocolate
+		if = {
+			limit = {
+				NOT = { has_country_modifier = chocolate_bonus }
+				OR = {
+					cocoa = 1 
+					any_subject_country = { cocoa = 2 }
+				}
+				OR = {
+					sugar = 1
+					any_subject_country = { sugar = 2 }
+				}
+			}
+			add_country_modifier = { name = chocolate_bonus duration = -1 }
+		}
+		if = {
+			limit = {
+				has_country_modifier = chocolate_bonus
+				NOT = {
+					OR = {
+						cocoa = 1
+						any_subject_country = { cocoa = 2 }
+					}
+				}
+				NOT = {
+					OR = {
+						sugar = 1
+						any_subject_country = { sugar = 2 }
+					}
+				}
+			}
+			remove_country_modifier = chocolate_bonus
+		}
+		#Salted Fish
+		if = {
+			limit = {
+				NOT = { has_country_modifier = salted_fish }
+				OR = {
+					salt = 1 
+					any_subject_country = { salt = 2 }
+				}
+				OR = {
+					fish = 1
+					any_subject_country = { fish = 2 }
+				}
+			}
+			add_country_modifier = { name = salted_fish duration = -1 }
+		}
+		if = {
+			limit = {
+				has_country_modifier = salted_fish
+				NOT = {
+					OR = {
+						salt = 1
+						any_subject_country = { salt = 2 }
+					}
+				}
+				NOT = {
+					OR = {
+						fish = 1
+						any_subject_country = { fish = 2 }
+					}
+				}
+			}
+			remove_country_modifier = salted_fish
+		}
+		#Salted Beef
+		if = {
+			limit = {
+				NOT = { has_country_modifier = salted_beef }
+				OR = {
+					salt = 1 
+					any_subject_country = { salt = 2 }
+				}
+				OR = {
+					livestock = 1
+					any_subject_country = { livestock = 2 }
+				}
+			}
+			add_country_modifier = { name = salted_beef duration = -1 }
+		}
+		if = {
+			limit = {
+				has_country_modifier = salted_beef
+				NOT = {
+					OR = {
+						salt = 1
+						any_subject_country = { salt = 2 }
+					}
+				}
+				NOT = {
+					OR = {
+						livestock = 1
+						any_subject_country = { livestock = 2 }
+					}
+				}
+			}
+			remove_country_modifier = salted_beef
+		}
+		#Grain Supply
+		if = {
+			limit = {
+				NOT = { has_country_modifier = grain_bonus_2 }
+				num_of_owned_provinces_with = {
+					OR = { 
+						trade_goods = grain
+						trade_goods = maize
+						trade_goods = rice
+						trade_goods = millet
+					}
+					value = 8
+				}
+			}
+			add_country_modifier = { name = grain_bonus_2 duration = -1 }
+		}
+		if = {
+			limit = {
+				has_country_modifier = grain_bonus_2
+				NOT = {
+					num_of_owned_provinces_with = {
+						OR = { 
+							trade_goods = grain
+							trade_goods = maize
+							trade_goods = rice
+							trade_goods = millet
+						}
+						value = 8
+					}
+				}
+			}
+			remove_country_modifier = grain_bonus_2
+		}
+		if = {
+			limit = {
+				NOT = { has_country_modifier = grain_bonus_2 }
+				NOT = { has_country_modifier = grain_bonus_1 }
+				num_of_owned_provinces_with = {
+					OR = { 
+						trade_goods = grain
+						trade_goods = maize
+						trade_goods = rice
+						trade_goods = millet
+					}
+					value = 4
+				}
+			}
+			add_country_modifier = { name = grain_bonus_1 duration = -1 }
+		}
+		if = {
+			limit = {
+				has_country_modifier = grain_bonus_1
+				OR = {
+					NOT = {
+						num_of_owned_provinces_with = {
+							OR = { 
+								trade_goods = grain
+								trade_goods = maize
+								trade_goods = rice
+								trade_goods = millet
+							}
+							value = 4
+						}
+					}
+					has_country_modifier = grain_bonus_2
+				}
+			}
+			remove_country_modifier = grain_bonus_1
+		}
+	}
+}

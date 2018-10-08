@@ -1,0 +1,59 @@
+country_decisions = {
+
+	form_pagan_nation = {
+		major = yes
+		potential = {
+			tag = AVA
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			normal_or_historical_nations = yes
+			NOT = { exists = PGN }
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				pagan_kingdom_group = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				tooltip = pagan_empire_formation
+			}
+		}
+	 	effect = {
+			change_tag = PGN
+			add_prestige = 25
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			set_government_rank = 4
+			set_capital = 1192 #Pagan
+			1192 = { add_base_tax = 2 }
+			#if = {
+			#	limit = { has_custom_ideas = no }
+			#	country_event = { id = "national_ideas.60000" }
+			#}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+}

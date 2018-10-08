@@ -1,0 +1,259 @@
+#Province IDs changed
+name = "Scottish War of Independence"
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+	tag = SCO
+}
+
+1296.1.1 = {
+	add_attacker = SCO
+	add_defender = ENG
+	add_defender = ULS
+}
+
+1297.4.10 = {
+	battle = {
+		name = "Scottish Raids"  # Scottish raids into northern England under Wallace and Moray did much to dishearten the English
+		location = 22
+		attacker = {
+			commander = "William Wallace"
+			infantry = 5000
+			cavalry = 1000
+			losses = 5	# percent	
+			country = SCO
+		}
+		defender = {
+			commander = "Northern Garrisons"
+			infantry = 10000
+			cavalry = 0
+			losses = 40	# percent
+			country = ENG
+		}
+		result = yes
+	}
+}
+
+1297.9.11 = {
+	battle = {
+		name = "Stirling Bridge"
+		location = 17
+		attacker = {
+			commander = "John de Warenne"	
+			infantry = 9000
+			cavalry = 2000
+			losses = 45	# percent	
+			country = ENG
+		}
+		defender = {
+			commander = "William Wallace"
+			infantry = 2000
+			cavalry = 300
+			losses = 10	# percent
+			country = SCO
+		}
+		result = yes
+	}
+}
+
+1298.6.22 = {
+	battle = {
+		name = "Falkirk"
+		location = 17
+		attacker = {
+			commander = "Edward I"	
+			infantry = 12500
+			cavalry = 2500
+			losses = 15	# percent	
+			country = ENG
+		}
+		defender = {
+			commander = "William Wallace"
+			infantry = 5000
+			cavalry = 1000
+			losses = 25	# percent
+			country = SCO
+		}
+		result = no
+	}
+}
+
+1303.2.24 = {
+	battle = {
+		name = "Roslin"
+		location = 15
+		attacker = {
+			commander = "William Wallace"	
+			infantry = 700
+			cavalry = 0
+			losses = 5	# percent	
+			country = SCO
+		}
+		defender = {
+			commander = "Sir John Segarve"
+			infantry = 500
+			cavalry = 50
+			losses = 90	# percent
+			country = ENG
+		}
+		result = yes
+	}
+}
+
+1307.3.19 = {
+	battle = {
+		name = "Glen Tool"
+		location = 13
+		attacker = {
+			commander = "Robert the Bruce"	
+			infantry = 700
+			cavalry = 0
+			losses = 5	# percent	
+			country = SCO
+		}
+		defender = {
+			commander = "Aymer de Valence"
+			infantry = 100
+			cavalry = 400
+			losses = 80	# percent
+			country = ENG
+		}
+		result = yes
+	}
+}
+
+1307.5.1 = {
+	battle = {
+		name = "Loudon Hill"
+		location = 17
+		attacker = {
+			commander = "Aymer de Valence"	
+			infantry = 2600
+			cavalry = 400
+			losses = 30	# percent	
+			country = ENG
+		}
+		defender = {
+			commander = "Robert the Bruce"
+			infantry = 550
+			cavalry = 50
+			losses = 1	# percent
+			country = SCO
+		}
+		result = yes
+	}
+}
+
+1308.1.1 = {
+	battle = {
+		name = "Guerrilla Warfare"
+		location = 13
+		attacker = {
+			commander = "Robert the Bruce"	
+			infantry = 5000
+			cavalry = 1000
+			losses = 5	# percent	
+			country = SCO
+		}
+		defender = {
+			commander = "English Garrisons"
+			infantry = 10000
+			cavalry = 0
+			losses = 45	# percent
+			country = ENG
+		}
+		result = yes
+	}
+}
+
+1314.6.24 = {
+	battle = {
+		name = "Bannockburn"
+		location = 13
+		attacker = {
+			commander = "Edward II"	
+			infantry = 15000
+			cavalry = 5000
+			losses = 50	# percent	
+			country = ENG
+		}
+		defender = {
+			commander = "Robert the Bruce"
+			infantry = 6000
+			cavalry = 2000
+			losses = 15	# percent
+			country = SCO
+		}
+		result = yes
+	}
+}
+
+1315.5.26 = {
+	add_attacker = TYR
+	add_attacker = MNS
+	add_defender = CNN
+} # Edward Bruce invades Scotland; O'Neill declares his support while Conchobair supports Ulster
+
+# Exactly when Fedlim switched sides is unclear, but certainly he marched with English relief forces
+# in July and fought against them at Athenry the following year.  We are assuming he switched sides
+# while wintered back in Connacht
+1316.1.1 = {
+	rem_defender = CNN
+	add_attacker = CNN
+}
+
+# Details scarce; definitely Fedlim & Donnchad killed and about 3000 irish casualties.
+# No indication of Scottish support in the battle
+1316.8.10 = {
+	battle = {
+		name = "Athenry"
+		location = 51
+		attacker = {
+			commander = "Fedlim"	
+			infantry = 5000
+			losses = 60	# percent	
+			country = CNN
+		}
+		defender = {
+			commander = "Richard Bermingham"
+			infantry = 4000
+			losses = 20	# percent
+			country = ENG
+		}
+		result = yes
+	}
+	rem_attacker = CNN # Connacht yields when Fedlim is killed
+}
+
+# Details are quite sketchy but it seems most of Edward's Irish allies refused to attack the English
+# and his small Scottish force was badly beaten. Ends the involvement of Ireland in the war
+1318.10.14 = {
+	battle = {
+		name = "Faughart"
+		location = 46
+		attacker = {
+			commander = "Edward Bruce"	
+			infantry = 12000
+			cavalry = 1000
+			losses = 10	# percent	
+			country = SCO
+		}
+		defender = {
+			commander = "John Bermingham"
+			infantry = 18000
+			cavalry = 2000
+			losses = 5	# percent
+			country = ENG
+		}
+		result = yes
+	}
+	rem_attacker = TYR
+	rem_attacker = MNS
+	rem_defender = ULS
+}
+
+# Treaty of Edinburgh-Northampton
+1328.3.17 = {
+	rem_attacker = SCO
+	rem_defender = ENG
+}

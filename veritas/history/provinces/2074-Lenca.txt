@@ -1,0 +1,19 @@
+# Lenca
+
+capital = "Lenca"
+native_size = 5
+native_ferocity = 1
+native_hostileness = 2
+culture = miskito
+religion = popol
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+discovered_by = mesoamerican
+
+1525.1.1 = { discovered_by = SPA owner = SPA controller = SPA culture = castillian religion = catholic is_city = yes capital = "Choluteca" trade_goods = fish } # First settlers
+1550.1.1 = { add_core = SPA }
+1578.1.1 = { capital = "Tegucigalpa" }
+1810.9.16 = { owner = MEX add_core = MEX controller = SPA } # Mexican War of Independence

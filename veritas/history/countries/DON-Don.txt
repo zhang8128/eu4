@@ -1,0 +1,143 @@
+government = tribal
+add_government_reform = steppe_horde
+government_rank = 2
+technology_group = eastern
+religion = orthodox
+primary_culture = russian
+capital = 760	# Zaporozhia
+historical_friend = RUS
+
+1552.1.1 = {
+	monarch = {
+		name = "Susar Fedorov"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+1554.1.1 = {
+	monarch = {
+		name = "Lyapun Filimonov"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+1570.1.1 = {
+	monarch = {
+		name = "Mikhail Cherkashenin"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+1581.1.1 = {
+	monarch = {
+		name = "Ermak Timofeevich"
+		adm = 2
+		dip = 2
+		mil = 4
+	}
+}
+
+1584.1.1 = {
+	monarch = {
+		name = "Ivan Kishkin"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+1600.1.1 = {
+	monarch = {
+		name = "Andrei Karela"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+1612.1.1 = {
+	monarch = {
+		name = "Smaga Chershinskii"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+1615.1.1 = {
+	monarch = {
+		name = "Isaj Martimjarov"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+1628.1.1 = {
+	monarch = {
+		name = "Mikhail Tatarinov"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+1630.1.1 = {
+	monarch = {
+		name = "Epiphan Rodilov"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+1639.1.1 = {
+	monarch = {
+		name = "Naum Vasiliev"
+		adm = 3
+		dip = 3
+		mil = 5
+	}
+}
+
+1654.1.1 = {
+	monarch = {
+		name = "Kornilij Jakovlev"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+1680.1.1 = {
+	monarch = {
+		name = "Frol Minaev"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+1700.1.1 = {
+	monarch = {
+		name = "Lukjan Maksimov"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+1708.1.1 = {
+	monarch = {
+		name = "Kondratij Bulavin"
+		adm = 4
+		dip = 4
+		mil = 4
+	}
+}

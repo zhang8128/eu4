@@ -1,0 +1,16 @@
+# Jolof
+
+capital = "Jolof"
+owner = JOL
+controller = JOL
+add_core = JOL
+culture = wolof
+religion = serer
+trade_goods = millet
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = sudanese_tech
+

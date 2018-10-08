@@ -1,0 +1,3 @@
+# Coast Of Florida
+#Province IDs changed
+1492.12.5 = { discovered_by = CAS }

@@ -1,0 +1,165 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+colonial_parent = GBR
+random_nation_chance = 0
+
+color = { 94  117  55 }
+
+historical_idea_groups = {
+	mercantilist_ideas
+	quality_ideas
+	economic_ideas
+	gf1_ideas
+	standing_army_ideas
+	expansion_ideas
+	defensive_ideas
+	diplomatic_ideas
+}
+
+historical_units = { 
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+
+
+
+
+monarch_names = {
+	"Charles #0" = 20
+	"Paul #0" = 20
+	"Henry #0" = 15
+	"James #0" = 15
+	"David #0" = 10
+	"Thomas #0" = 10
+	"Ambrose #0" = 0
+	"Archibald #0" = 0
+	"Benjamin #0" = 0
+	"Brian #0" = 0
+	"Bruce #0" = 0
+	"Christopher #0" = 0
+	"Conrad #0" = 0
+	"Denis #0" = 0
+	"Duncan #0" = 0
+	"Eustace #0" = 0
+	"Frederick #0" = 0
+	"Gerard #0" = 0
+	"Gregory #0" = 0
+	"Homer #0" = 0
+	"Joseph #0" = 0
+	"Julius #0" = 0
+	"Kevin #0" = 0
+	"Laurence #0" = 0
+	"Leroy #0" = 0
+	"Lewis #0" = 0
+	"Matthew #0" = 0
+	"Michael #0" = 0
+	"Montgomery #0" = 0
+	"Nicholas #0" = 0
+	"Peter #0" = 0
+	"Richard #0" = 0
+	"Rowan #0" = 0
+	"Scott #0" = 0
+	"Silvester #0" = 0
+	"Spencer #0" = 0
+	"Ulysses #0" = 0
+	"Victor #0" = 0
+	
+	"Victoria #0" = -1
+	"Ambrosia #0" = -1
+	"Charlotte #0" = -1
+}
+
+leader_names = { 
+	Adams Anderson
+	Bagot Byrne
+	Canuck Chaffey
+	Dawson Dion Douglas
+	Fahey Fizzard
+	Gladman
+	Jackson Joe
+	MacDonald McLaughlin Miles Murphy
+	Puddester
+	Stephanson Stone
+	Twain
+	Young
+}
+
+ship_names = {
+	Algonquin Athabaskan
+	Halifax Huron
+	Iroquois
+	Kingston
+	Montreal
+	Preserver Protectuer 
+	"Ville de Quebec"
+}

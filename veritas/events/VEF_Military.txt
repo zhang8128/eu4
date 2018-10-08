@@ -1,0 +1,156 @@
+# Military Events (including lack of focus) - random events are in vef_RandomEvents.txt
+namespace = vef_military
+
+# Army neglected
+country_event = {
+	id = vef_military.70000
+	title = "vef_military.70000.t"
+	desc = "vef_military.70000.d"
+
+	picture = VEF_MILITARY_CAMP_eventPicture
+
+	trigger = {
+		adm_tech = 16 # 3 ideas available
+		NOT = { has_idea_group = standing_army_ideas }
+		NOT = { has_idea_group = quality_ideas }
+		NOT = { has_idea_group = quantity_ideas }
+		NOT = { has_idea_group = offensive_ideas }
+		NOT = { has_idea_group = defensive_ideas }
+		NOT = { has_country_modifier = army_neglect_timer }
+	}
+
+	mean_time_to_happen = { months = 120 }
+
+	immediate = { 
+		hidden_effect = {
+			add_country_modifier = { name = "army_neglect_timer" duration = 14600 hidden = yes }
+		}
+	}
+
+	option = {
+		name = "vef_military.70000.opta"
+		trigger = { NOT = { army_size_percentage = 0.90 } }
+		add_country_modifier = { name = "army_training" duration = 365 }
+		add_years_of_income = -0.10
+	}
+
+	option = {
+		name = "vef_military.70000.optb"
+		trigger = { NOT = { army_size_percentage = 0.90 } }
+		add_country_modifier = { name = "army_neglected" duration = 1825 }
+		if = {
+			limit = { mil = 4 }
+			random = {
+				chance = 10
+				change_mil = -1
+			}
+		}
+	}
+
+	option = {
+		name = "vef_military.70000.optc"
+		trigger = { army_size_percentage = 0.90 }
+		add_country_modifier = { name = "army_training" duration = 365 }
+		add_years_of_income = -0.05
+	}
+}
+
+# Navy neglected
+country_event = {
+	id = vef_military.70001
+	title = "vef_military.70001.t"
+	desc = "vef_military.70001.d"
+
+	picture = VEF_SHIP_SAILING_eventPicture
+
+	trigger = {
+		adm_tech = 16 # 3 ideas
+		any_owned_province = { has_port = yes }
+		primitives = no
+		NOT = { has_idea_group = mm1_ideas }
+		NOT = { has_idea_group = gf1_ideas }
+		NOT = { has_idea = oak_forests_for_ships } # Idea #4 in Quality
+		NOT = { has_idea = ships_penny } # Idea # 6 in Quantity
+		NOT = { exploration_ideas = 4 }
+		NOT = { has_country_modifier = navy_neglect_timer }
+	}
+
+	mean_time_to_happen = { months = 120 }
+
+	immediate = { 
+		hidden_effect = {
+			add_country_modifier = { name = "navy_neglect_timer" duration = 14600 hidden = yes }
+		}
+	}
+
+	option = {
+		name = "vef_military.70001.opta"
+		trigger = { NOT = { navy_size_percentage = 0.90 } }
+		add_country_modifier = { name = "navy_training" duration = 365 }
+		add_years_of_income = -0.10
+	}
+
+	option = {
+		name = "vef_military.70001.optb"
+		trigger = { NOT = { navy_size_percentage = 0.90 } }
+		add_country_modifier = { name = "navy_neglected" duration = 1825 }
+		if = {
+			limit = { mil = 4 }
+			random = {
+				chance = 10
+				change_mil = -1
+			}
+		}
+	}
+
+	option = {
+		name = "vef_military.70001.optc"
+		trigger = { navy_size_percentage = 0.90 }
+		add_country_modifier = { name = "navy_training" duration = 365 }
+		add_years_of_income = -0.05
+	}
+}
+
+# Military Reform - occurs at level 8 with artillery
+country_event = {
+	id = vef_military.70002
+	title = "vef_military.70002.t"
+	desc = "vef_military.70002.d"
+
+	picture = VEF_ARTILLERY_eventPicture
+
+	trigger = {
+		has_institution = gunpowder
+		NOT = { has_country_flag = artillery_reform }
+		mil_tech = 17
+        NOT = { mil_tech = 18 }
+	}
+
+	mean_time_to_happen = { days = 31 }
+
+	immediate = { set_country_flag = artillery_reform }
+
+	option = {
+		name = "vef_military.70002.opta"
+		add_years_of_income = -0.10
+		add_prestige = 10
+		create_advisor = army_reformer
+		create_advisor = fortification_expert
+		random = {
+			chance = 15
+			create_general = { tradition = 60 }
+		}
+	}
+
+	option = {
+		name = "vef_military.70002.optb"
+		add_country_modifier = { name = "untrained_artillery" duration = 1865 }
+		if = {
+			limit = {
+				mil = 4
+				NOT = { has_dlc = "Rights of Man" }
+			}
+			add_ruler_modifier = { name = "ruler_trait_weak" }
+		}
+	}
+}

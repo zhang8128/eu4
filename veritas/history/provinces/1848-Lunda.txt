@@ -1,0 +1,16 @@
+# Lunda
+#Province IDs changed
+
+capital = "Lunda"
+native_size =   5
+native_ferocity =   3
+native_hostileness =   4
+culture = balunda
+religion = bantu
+base_tax = 1
+base_production = 1
+base_manpower = 3
+trade_goods = ivory
+discovered_by = tribal_african_tech
+hre = no
+is_city = yes

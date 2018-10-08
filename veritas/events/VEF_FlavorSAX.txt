@@ -1,0 +1,66 @@
+########################################
+# Flavor Events for Saxony
+########################################
+
+namespace = flavor_sax
+normal_or_historical_nations = yes
+
+# Electorship Change
+country_event = {
+	id = flavor_sax.10000
+	title = "flavor_sax.10000.t"
+	desc = "flavor_sax.10000.d"
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	is_triggered_only = yes #on_siege_won_country
+	
+	trigger = {
+		OR = {
+			tag = SAX
+			tag = LAU
+		}
+		NOT = { has_global_flag = golden_bull_promulgated }
+		is_elector = yes
+		OR = {
+			AND = {
+				tag = SAX
+				capital_scope = { controlled_by = LAU }
+			}
+			AND = {
+				tag = LAU
+				capital_scope = { controlled_by = SAX }
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_sax.10000.opta"
+		add_prestige = -10
+		if = {
+			limit = { capital_scope = { controlled_by = SAX }}
+			SAX = { country_event = { id = flavor_sax.10001 days = 1 }}
+		}
+		if = {
+			limit = { capital_scope = { controlled_by = LAU }}
+			LAU = { country_event = { id = flavor_sax.10001 days = 1 }}
+		}
+	}
+}
+
+# Electorship Change - We are now elector
+country_event = {
+	id = flavor_sax.10001
+	title = "flavor_sax.10001.t"
+	desc = "flavor_sax.10001.d"
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "flavor_sax.10001.opta"
+		FROM = { elector = no }
+		elector = yes
+		add_prestige = 10
+	}
+	
+}

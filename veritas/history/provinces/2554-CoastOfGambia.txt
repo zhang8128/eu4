@@ -1,0 +1,6 @@
+# Coast Of Gambia
+#Province IDs changed
+discovered_by = sub_saharan
+discovered_by = sudanese_tech
+
+1462.1.1 = { discovered_by = POR } 

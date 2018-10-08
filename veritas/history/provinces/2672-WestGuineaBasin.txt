@@ -1,0 +1,3 @@
+# West Guinea Basin
+#Province IDs changed
+1465.1.1 = { discovered_by = POR } 

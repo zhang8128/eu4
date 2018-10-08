@@ -1,0 +1,10 @@
+#Mongol Jeongkeu
+#model = cog
+#tech_level = 16
+type = transport
+unit_type = nomad_group
+
+hull_size = 8
+base_cannons = 4
+sail_speed = 10
+sailors = 150

@@ -1,0 +1,333 @@
+# VeF tribute events
+
+namespace = vef_tribute
+normal_or_historical_nations = yes
+
+#Russian Tributaries
+#1 Convert Russian Subject
+#2 Demand Return
+#3 Takeover as Enforcer
+#4 Transfer from Enforcer
+#5 End Tribute
+#6 Enforcer Subjugation (start)
+#7 Enforcer Subjugation (choice)
+#8 Enforcer Purchase (start)
+#9 Enforcer Purchase (choice)
+#10 Back to Enforcer
+
+# Convert Russian Subject
+country_event = {
+	id = vef_tribute.1
+	title = "vef_tribute.1.t"
+	desc = "vef_tribute.1.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		is_subject_of = GOL
+		NOT = { is_subject_of_type = russian_tribute }
+		NOT = { is_subject_of_type = russian_enforcer }
+		has_country_flag = russian_horde_tribute
+		GOL = { ai = yes }
+	}
+	
+	option = {
+		trigger = {
+			OR = {
+				event_target:horde_enforcer_tag = { ROOT = { historical_rival_with = PREV }}
+				NOT = { event_target:horde_enforcer_tag = { num_of_cities = ROOT army_size = ROOT }}
+				tag = KIV 
+			}
+		}
+		name = "vef_tribute.1.opta"
+		GOL = { create_subject = { who = ROOT subject_type = russian_tribute }}
+	}
+	
+	option = {
+		trigger = {
+			NOT = { event_target:horde_enforcer_tag = { ROOT = { historical_rival_with = PREV }}}
+			event_target:horde_enforcer_tag = { num_of_cities = ROOT army_size = ROOT }
+			NOT = { tag = KIV }
+		}
+		name = "vef_tribute.1.opta"
+		GOL = { ROOT = { grant_independence = yes }}
+		event_target:horde_enforcer_tag = { create_subject = { who = ROOT subject_type = russian_tribute }}
+	}
+}
+
+# Demand Return to Tribute
+country_event = {
+	id = vef_tribute.2
+	title = "vef_tribute.2.t"
+	desc = "vef_tribute.2.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	trigger = {
+		GOL = { num_of_cities = 20 }
+		has_country_flag = russian_horde_tribute
+		is_subject = no
+		is_at_war = no
+	}
+	
+	option = {
+		trigger = {
+			NOT = { event_target:horde_enforcer_tag = { tag = ROOT }}
+			OR = {
+				event_target:horde_enforcer_tag = { ROOT = { historical_rival_with = PREV }}
+				NOT = { event_target:horde_enforcer_tag = { num_of_cities = ROOT army_size = ROOT }}
+				tag = KIV 
+			}
+		}
+		name = "vef_tribute.2.opta"
+		GOL = { create_subject = { who = ROOT subject_type = russian_tribute }}
+	}
+	
+	option = {
+		trigger = {
+			NOT = { event_target:horde_enforcer_tag = { tag = ROOT }}
+			NOT = { event_target:horde_enforcer_tag = { ROOT = { historical_rival_with = PREV }}}
+			event_target:horde_enforcer_tag = { num_of_cities = ROOT army_size = ROOT }
+			NOT = { tag = KIV }
+		}
+		name = "vef_tribute.2.opta"
+		event_target:horde_enforcer_tag = { create_subject = { who = ROOT subject_type = russian_tribute }}
+	}
+	
+	option = {
+		trigger = { event_target:horde_enforcer_tag = { tag = ROOT }}
+		name = "vef_tribute.2.opta"
+		GOL = { create_subject = { who = ROOT subject_type = russian_enforcer }}
+	}
+}
+
+# Takeover as Enforcer
+country_event = {
+	id = vef_tribute.3
+	title = "vef_tribute.3.t"
+	desc = "vef_tribute.3.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	trigger = {
+		is_subject_of_type = russian_tribute
+		event_target:horde_enforcer_tag = { ROOT = { war_score_against = { who = PREV value = 60 }}}
+		ai = yes
+	}
+	
+	immediate = {
+		event_target:horde_enforcer_tag = {
+			white_peace = ROOT
+			every_subject_country = {
+				limit = { is_subject_of_type = russian_tribute }
+				overlord = { PREV = { grant_independence = yes }}
+				GOL = { create_subject = { who = PREV subject_type = russian_tribute }}
+			}
+			GOL = { create_subject = { who = PREV subject_type = russian_tribute }}
+		}
+		GOL = { create_subject = { who = ROOT subject_type = russian_enforcer }}
+		save_global_event_target_as = horde_enforcer_tag
+	}
+	
+	option = {
+		name = "vef_tribute.3.opta"
+	}	
+}
+
+# Transfer from Enforcer
+country_event = {
+	id = vef_tribute.4
+	title = "vef_tribute.4.t"
+	desc = "vef_tribute.4.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+	
+	trigger = {
+		is_subject_of_type = russian_tribute
+		NOT = { is_subject_of = GOL }
+		OR = {
+			liberty_desire = 70
+			NOT = { overlord = { army_size = ROOT }}
+			NOT = { overlord = { num_of_cities = ROOT }}
+		}
+	}
+	
+	immediate = {
+		overlord = { ROOT = { grant_independence = yes }}
+		GOL = { create_subject = { who = ROOT subject_type = russian_tribute }}
+	}
+	
+	option = {
+		name = "vef_tribute.4.opta"
+	}
+}
+
+# End Tribute
+country_event = {
+	id = vef_tribute.5
+	title = "vef_tribute.5.t"
+	desc = "vef_tribute.5.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+	
+	trigger = {
+		event_target:horde_enforcer_tag = { tag = ROOT }
+		OR = {
+			NOT = { GOL = { num_of_cities = 20 }}
+			war_score_against = { who = GOL value = 60 }
+		}
+		ai = yes
+	}
+	
+	immediate = {
+		hidden_effect = { every_country = { clr_country_flag = russian_horde_tribute }}
+		clear_global_event_target = horde_enforcer_tag
+		GOL = {
+			ROOT = { grant_independence = yes }
+			every_subject_country = {
+				limit = { is_subject_of_type = russian_tribute }
+				grant_independence = yes
+			}
+		}
+		every_subject_country = {
+			limit = { is_subject_of_type = russian_tribute }
+			grant_independence = yes
+		}
+	}
+	
+	option = {
+		name = "vef_tribute.5.opta"
+	}
+}
+
+# Enforcer Subjugation
+country_event = {
+	id = vef_tribute.6
+	title = "vef_tribute.6.t"
+	desc = "vef_tribute.6.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		event_target:horde_enforcer_tag = {
+			war_with = ROOT
+			war_score_against = { who = ROOT value = 80 }
+			ROOT = { NOT = { num_of_cities = PREV }}
+		}
+		has_country_flag = russian_horde_tribute
+		is_subject = no
+		ai = yes
+		NOT = { num_of_cities = 5 }
+		NOT = { has_country_modifier = subjugate_cooldown }
+	}
+	
+	
+	option 	= {
+		name = "vef_tribute.6.opta"
+		event_target:horde_enforcer_tag = { country_event = { id = vef_tribute.7 }}
+	}
+}
+
+#Enforcer Subjugation (choice)
+country_event = {
+	id = vef_tribute.7
+	title = "vef_tribute.7.t"
+	desc = "vef_tribute.7.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes #vef_tribute.6
+	
+	trigger = { war_with = FROM }
+	
+	option = {
+		ai_chance = {
+			factor = 90
+			modifier = {
+				FROM = { historical_rival_with = ROOT }
+				factor = 0
+			}
+		}
+		name = "vef_tribute.7.opta"
+		FROM = { white_peace = ROOT }
+		create_subject = { who = FROM subject_type = suzerainty }
+	}
+	
+	option = {
+		ai_chance = { factor = 10 }
+		name = "vef_tribute.7.optb"
+		FROM = { add_country_modifier = { name = subjugate_cooldown duration = `1095 hidden = yes }}
+	}
+}
+
+#Enforcer Purchase (start)
+country_event = {
+	id = vef_tribute.8
+	title = "vef_tribute.8.t"
+	desc = "vef_tribute.8.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		event_target:horde_enforcer_tag = {
+			ROOT = { is_subject_of = PREV }
+			marriage_with = ROOT
+			is_at_war = no
+		}
+		is_subject_of_type = russian_tribute
+		NOT = { num_of_cities = 2 }
+		ai = yes
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = { months = 240 }
+	
+	option = {
+		name = "vef_tribute.8.opta"
+		event_target:horde_enforcer_tag = { country_event = { id = vef_tribute.9 }}
+	}
+}
+
+#Enforcer Purchase (choice)
+country_event = {
+	id = vef_tribute.9
+	title = "vef_tribute.9.t"
+	desc = "vef_tribute.9.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	is_triggered_only = yes #vef_tribute.8
+
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_tribute.9.opta"
+		inherit = FROM
+		add_treasury = -100
+	}
+	option = {
+		name = "vef_tribute.9.optb"
+		add_prestige = -5
+	}
+}
+
+# Back to Enforcer
+country_event = {
+	id = vef_tribute.10
+	title = "vef_tribute.10.t"
+	desc = "vef_tribute.10.d"
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		is_subject_of = GOL
+		is_subject_of_type = russian_tribute
+		NOT = { event_target:horde_enforcer_tag = { ROOT = { historical_rival_with = PREV }}}
+		event_target:horde_enforcer_tag = { num_of_cities = ROOT army_size = ROOT }
+		NOT = { tag = KIV }
+		GOL = { ai = yes }
+	}
+	
+	option = {
+		name = "vef_tribute.10.opta"
+		GOL = { ROOT = { grant_independence = yes }}
+		event_target:horde_enforcer_tag = { create_subject = { who = ROOT subject_type = russian_tribute }}
+	}
+}

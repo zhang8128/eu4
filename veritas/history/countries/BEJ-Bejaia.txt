@@ -1,0 +1,13 @@
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 2
+technology_group = muslim
+religion = sunni
+primary_culture = sanhaja
+add_accepted_culture = maghreb_arabic
+capital = 1653 # Bejaia
+
+1309.1.1 = { 
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 20.0 }
+}

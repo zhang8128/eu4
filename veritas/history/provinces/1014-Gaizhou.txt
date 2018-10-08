@@ -1,0 +1,19 @@
+# Gaizhou
+
+capital = "Gaizhou"
+owner = YUN
+controller = YUN
+add_core = YUN
+add_core = MCH
+culture = manchu
+religion = confucianism
+trade_goods = rice
+base_tax = 3
+base_production = 3
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = chinese
+discovered_by = niitaka
+
+1368.4.1 = { owner = MCH controller = MCH remove_core = YUN estate = estate_nomadic_tribes }

@@ -1,0 +1,308 @@
+# Roman Empire Formation Decisions
+
+country_decisions = {
+
+	# Upstart nation in the Italian Peninsula decides to make a claim for the Roman Throne
+	# Causes the HRE and BYZ to object. To make the claim, need to hold several key Italian
+	# cities, including either Rome or the Pope as a vassal
+	claim_roman_legacy = {
+		major = yes
+		potential = {
+			ai = no
+			culture_group = latin
+			NOT = { has_global_flag = claimed_roman_legacy }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = BYZ }
+			NOT = { tag = ROM }
+			NOT = { tag = PQR }
+			NOT = { tag = ITA }
+		}
+		allow = {
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			num_of_owned_provinces_with = {
+				value = 8
+				culture_group = latin
+			}
+			owns_core_province = 242 	# Pisa
+			owns_core_province = 237 	# Firenze
+			owns_core_province = 222 	# Naples
+			owns_core_province = 212 	# Palermo
+			owns_core_province = 223 	# Capua
+			OR = {
+				owns_core_province = 227 # Roma
+				PAP = {
+					owns_core_province = 227
+					is_subject_of = ROOT
+				}
+			}
+			adm_power = 50
+			dip_power = 50
+		}
+		effect = {
+			set_global_flag = claimed_roman_legacy
+			add_prestige = 25
+			add_adm_power = -50
+			add_dip_power = -50
+			if = {
+				limit = { exists = BYZ }
+				reverse_add_opinion = { who = BYZ modifier = declared_for_roman_throne }
+			}
+			if = { 
+				limit = { exists = HLR }
+				reverse_add_opinion = { who = HLR modifier = declared_for_roman_throne }
+			}
+			if = {
+				limit = { hre_size = 5 }
+				reverse_add_opinion = { who = emperor modifier = declared_for_roman_throne }
+			}
+			tunisia_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = roman_claims_tunisia
+			every_owned_province = {
+				limit = { is_part_of_hre = yes }
+				set_in_empire = no
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	form_roman_empire = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			culture_group = latin
+			normal_or_historical_nations = yes
+			NOT = { exists = ROM }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = ITA }
+			NOT = { tag = LAE }
+			NOT = { has_country_flag = crusader_state }
+		}
+		allow = {
+			NOT = { tag = ITA }
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			has_global_flag = claimed_roman_legacy
+			OR = {
+				emperor = { is_at_war = no }
+				NOT = { hre_size = 1 }
+			}
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			NOT = { is_part_of_hre = yes }
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { region = italy_region }
+						AND = {
+							region = italy_region
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_italy
+			}
+			owns_core_province = 212 	# Palermo
+			owns_core_province = 222 	# Naples
+			owns_core_province = 223 	# Capua
+			owns_core_province = 227	# Rome
+			owns_core_province = 237	# Florence
+			owns_core_province = 242	# Pisa
+			owns_core_province = 248	# Ferrara
+			owns_core_province = 253	# Genoa
+			owns_core_province = 269	# Venice
+			owns_core_province = 535 	# Dalmatia
+			owns_core_province = 537 	# Ragusa
+			owns_core_province = 1648 	# Tunis
+			owns_core_province = 132	# Nice
+			owns_core_province = 128	# Montpellier
+			owns_core_province = 107	# Barcelona
+			owns_core_province = 103	# Valencia
+			num_of_owned_provinces_with = {
+				value = 40
+				region = italy_region
+				is_core = ROOT
+			}
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					area = croatia_area
+					area = east_adriatic_coast_area
+					area = bosnia_area
+					area = zeta_area
+					area = serbia_area
+					area = albania_area
+					area = macedonia_area
+					area = morea_area
+				}
+				is_core = ROOT
+			}
+			num_of_owned_provinces_with = {
+				value = 10
+				region = iberia_region
+				is_core = ROOT
+			}
+			num_of_owned_provinces_with = {
+				value = 10
+				region = france_region
+				is_core = ROOT
+			}
+			num_of_owned_provinces_with = {
+				value = 5
+				area = tunisia_area
+				is_core = ROOT
+			}
+		}
+		effect = {
+			change_tag = ROM
+			set_government_rank = 4
+			if = {
+				limit = { NOT = { government = monarchy } }
+				change_government = monarchy
+				set_legacy_government = hereditary_monarchy
+			}
+			set_capital = 227
+			227 = {
+				add_base_tax = 1
+				add_base_production = 1
+			}
+			if = {
+				limit = {
+					hre_size = 25
+				}
+				country_event = { id = "flavor_rom.1000" }
+			}
+			hidden_effect = {
+				every_country = {
+					clr_country_flag = italian_power
+					remove_country_modifier = local_italian_power
+					remove_country_modifier = regional_italian_power
+					remove_country_modifier = major_italian_power
+					remove_country_modifier = dominant_italian_power
+					remove_country_modifier = menacing_italian_power
+				}
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = ROM_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+	# Republic of Rome
+	form_roman_republic = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			culture_group = latin
+			normal_or_historical_nations = yes
+			capital_scope = { region = italy_region }
+			NOT = { has_country_flag = crusader_state }
+			NOT = { exists = PQR }
+			NOT = { tag = LAE }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = ITA }
+			NOT = { tag = BYZ }
+		}
+		allow = {
+			NOT = { tag = ITA }
+			NOT = { tag = LAE }
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			government = republic
+			has_global_flag = claimed_roman_legacy
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			num_of_owned_provinces_with = {
+				value = 10
+				region = italy_region
+				is_core = ROOT
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { region = italy_region }
+						AND = {
+							region = italy_region
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_italy
+			}
+			owns_core_province = 227
+		}
+		effect = {
+			change_tag = PQR
+			change_government = republic
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			set_capital = 227
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = ROM_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+			hidden_effect = {
+				every_country = {
+					clr_country_flag = italian_power
+					remove_country_modifier = local_italian_power
+					remove_country_modifier = regional_italian_power
+					remove_country_modifier = major_italian_power
+					remove_country_modifier = dominant_italian_power
+					remove_country_modifier = menacing_italian_power
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+}

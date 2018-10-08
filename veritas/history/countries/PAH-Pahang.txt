@@ -1,0 +1,59 @@
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+primary_culture = malayan
+religion = buddhism
+technology_group = chinese
+capital = 1211	# Pahang
+
+#Made Up
+1309.1.1 = {
+	monarch = {
+		name = "Dewa"
+		dynasty = "Sura"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+#Made Up
+1340.1.1 = {
+	monarch = {
+		name = "Sang Nila Utama"
+		dynasty = "Sura"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1378.1.1 = {
+	monarch = {
+		name = "Tajau"
+		dynasty = "Sura"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1411.1.1 = {
+	monarch = {
+		name = "Parameswara Teluk Chini"
+		dynasty = "Sura"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1445.1.1 = {
+	monarch = {
+		name = "Dewa"
+		dynasty = "Sura"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}

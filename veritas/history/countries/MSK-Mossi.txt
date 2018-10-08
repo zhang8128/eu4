@@ -1,0 +1,66 @@
+#Province IDs changed
+government = tribal add_government_reform = tribal_federation
+government_rank = 3
+primary_culture = mossi
+religion = akan
+technology_group = sub_saharan
+capital = 1794
+historical_rival = MAL
+
+1309.1.1 = {
+	monarch = {
+		name = "Wedraogo"
+		dynasty = "Ouagadougou"
+		dip = 0
+		adm = 2
+		mil = 5
+	}
+}
+
+1309.1.1 = {
+	heir = {
+		name = "Zoungrana"
+		monarch_name = "Zoungrana"
+		dynasty = "Ouagadougou"
+		birth_date = 1304.1.1
+		death_date = 1375.1.1
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+}
+
+1337.1.1 = {
+	monarch = {
+		name = "Zoungrana"
+		dynasty = "Ouagadougou"
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+}
+
+1337.1.1 = {
+	heir = {
+		name = "Oubri"
+		monarch_name = "Oubri"
+		dynasty = "Ouagadougou"
+		birth_date = 1320.1.1
+		death_date = 1390.1.1
+		claim = 95
+		adm = 2
+		dip = 0
+		mil = 4
+	}
+}
+
+1365.1.1 = {
+	monarch = {
+		name = "Oubri"
+		dynasty = "Ouagadougou"
+		adm = 2
+		dip = 0
+		mil = 4
+	}
+}

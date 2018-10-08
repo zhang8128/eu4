@@ -1,0 +1,10 @@
+#Budgerow
+#model = galleass
+#tech_level = 16
+type = galley
+unit_type = indian
+
+hull_size = 10
+base_cannons = 12
+sail_speed = 8
+sailors = 150

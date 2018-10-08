@@ -1,0 +1,11 @@
+﻿l_english:
+
+ ###Replacement localisations from vanilla's diplomacy_l_english###
+
+ royal_marriage: "State Marriage"
+ DIPIRO_RM_WITH: "State Marriage with §Y$NAME$§!."
+ DIP_MAINT_RM: "State Marriage: (§Y$COUNTRY$§W): §Y-$VAL$§W."
+ break_marriage: "Broke State Marriage"
+ RM_ACTIVITY: "conclude a State Marriage"
+ claimed_throne_other_rm: "They used their state marriage as pretext to claim a throne"
+ claimed_throne_on_us: "They used their state marriage as pretext to claim our throne"

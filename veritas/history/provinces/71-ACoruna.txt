@@ -1,0 +1,41 @@
+# A Coruna
+
+capital = "A Corunha" 
+owner = GAL		
+controller = GAL
+add_core = GAL
+culture = galician
+religion = catholic
+trade_goods = fish
+base_tax = 4
+base_production = 4
+base_manpower = 4
+is_city = yes
+hre = no
+temple = yes # Santiago de Compostela pilgrimage
+basic_fort = yes
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+set_province_flag = starting_fort
+
+1349.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1467.1.1   = { unrest = 4 } # Second war of the "irmandiños"
+1470.1.1   = { unrest = 0 } # End of the Second war of the "irmandiños"
+1475.6.2   = { controller = POR }
+1476.3.2   = { controller = GAL }
+1490.1.1   = { owner = CAS controller = CAS add_core = CAS } # Santa Hermandad imposed
+1516.1.23  = {	controller = SPA owner = SPA add_core = SPA remove_core = CAS }
+1600.1.1   = { base_manpower = 1.25 }
+1650.1.1   = { base_manpower = 1 }
+1700.1.1   = { base_manpower = 1.1 }
+1750.1.1   = { base_manpower = 1.4 }
+1800.1.1   = { base_manpower = 1.75 }
+1808.6.6   = { revolt = { type = pretender_rebels size = 2 leader = "Fernando" } controller = REB }
+1809.1.1   = { revolt = {} controller = SPA }
+1812.10.1  = { revolt = { type = pretender_rebels size = 2 leader = "Fernando" } controller = REB }
+1813.12.11 = { revolt = {} controller = SPA }

@@ -1,0 +1,419 @@
+namespace = flavor_bur
+normal_or_historical_nations = yes
+
+#Generic Historical Events
+#1 Inherit Flanders
+#2 Acquisition of Namur
+#3 Inherit Brabant
+#4 Seize Hainaut, Holland, Zeeland
+
+#Burgundian Inheritance
+#100 Ruler of Burgundy Dies
+#101 French Inheritance
+#102 Other Inheritance
+
+# Inherit Flanders
+country_event = {
+	id = flavor_bur.1
+	title = "flavor_bur.1.t"
+	desc = "flavor_bur.1.d"
+	picture = VEF_DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BUR
+		NOT = { has_country_flag = bur_inherited_flanders }
+		exists = FLA
+		is_year = 1384
+		NOT = { is_year = 1404 }
+		FLA = { 
+			ai = yes
+			is_subject = no
+			is_at_war = no
+		}
+		NOT = { FLA = { num_of_cities = 5 } }
+	}
+
+	immediate = {
+		set_country_flag = bur_inherited_flanders
+	}
+	
+	option = {
+		name = "flavor_bur.1.opta"
+		create_union = FLA
+	}
+}
+
+# Acquisition of Namur
+country_event = {
+	id = flavor_bur.2
+	title = "flavor_bur.2.t"
+	desc = "flavor_bur.2.d"
+	picture = VEF_DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BUR
+		is_year = 1421
+		NOT = { is_year = 1435 }
+		HAI = {
+			owns = 201
+			ai = yes
+			is_at_war = no
+			is_subject = no
+			num_of_cities = 2
+		}
+	}
+	
+	option = {
+		name = "flavor_bur.2.opta"
+		ai_chance = { factor = 100 }
+		201 = { 
+			cede_province = BUR 
+			remove_core = HAI
+			add_core = BUR
+		}
+		add_years_of_income = -0.15
+		hidden_effect = { 
+			HAI = { add_years_of_income = 1.0 }
+		}
+	}
+
+	option = {
+		name = "flavor_bur.2.optb"
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Inherit Brabant
+country_event = {
+	id = flavor_bur.3
+	title = "flavor_bur.3.t"
+	desc = "flavor_bur.3.d"
+	picture = VEF_DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BUR
+		NOT = { has_country_flag = bur_inherited_brabant }
+		exists = BRB
+		is_year = 1430
+		NOT = { is_year = 1445 }
+		BRB = { 
+			ai = yes
+			is_subject = no
+			is_at_war = no			
+			NOT = { num_of_cities = 5 }
+		}
+	}
+	
+	immediate = {
+		set_country_flag = bur_inherited_brabant
+	}
+	
+	option = {
+		name = "flavor_bur.3.opta"
+		create_union = BRB
+	}
+}
+
+# Sieze Hainaut, Holland, Zeeland
+country_event = {
+	id = flavor_bur.4
+	title = "flavor_bur.4.t"
+	desc = "flavor_bur.4.d"
+	picture = VEF_DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BUR
+		is_year = 1432
+		NOT = { is_year = 1435 }
+		is_subject = no
+		OR = {
+			NOT = { 197 = { owned_by = BUR }}	# Hainaut
+			NOT = { 185 = { owned_by = BUR }}	# Holland
+			NOT = { 186 = { owned_by = BUR }}	# Zeeland
+		}
+	}
+	
+	option = {
+		name = "flavor_bur.4.opta"
+		ai_chance = { factor = 100 }
+		197 = { add_core = BUR }
+		185 = { add_core = BUR }
+		186 = { add_core = BUR }
+	}
+	
+	option = {
+		name = "flavor_bur.4.optb"
+		ai_chance = { factor = 0 }
+		add_prestige = -5
+	}
+}
+
+# Ruler of Burgundy Dies
+country_event = {
+	id = flavor_bur.100
+	title = "flavor_bur.100.t"
+	desc = "flavor_bur.100.d"
+	picture = VEF_DEATH_OF_HEIR_eventPicture
+	
+	major = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BUR
+		ai = yes
+		was_player = no
+		is_free_or_tributary_trigger = yes
+		is_emperor = no
+		government = monarchy
+		NOT = { has_regency_trigger = yes }
+		is_female = no
+		OR = {
+			has_heir = no
+			has_female_heir = yes
+		}
+		NOT = { is_year = 1500 }
+		FRA = {
+			exists = yes
+			is_free_or_tributary_trigger = yes
+			num_of_cities = 8
+			is_neighbor_of = BUR
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 0.25
+			is_monarch_leader = yes
+			is_at_war = yes
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { emperor = { num_of_cities = 4 }}
+			if = {
+				limit = { emperor = { marriage_with = BUR }}
+				set_country_flag = bur_suc_emperoroption
+				else = { set_country_flag = bur_suc_emperormarriage }
+			}
+		}
+		if = {
+			limit = {
+				any_known_country = {
+					marriage_with = ROOT
+					num_of_cities = 4
+					NOT = { tag = FRA }
+					NOT = { is_emperor = yes }
+					is_subject = no
+					OR = {
+						is_part_of_hre = yes
+						tag = SPA
+						AND = {
+							tag = CAS
+							SPA = { exists = no }
+						}
+					}
+				}
+			}
+			if = {
+				limit = { dynasty = ROOT }
+				set_country_flag = bur_suc_dynastyoption
+				else = { set_country_flag = bur_suc_marriageoption }
+			}
+		}
+		if = {
+			limit = { has_country_flag = bur_suc_emperormarriage }
+			set_country_flag = bur_suc_emperor
+			else = {
+				if = {
+					limit = { has_country_flag = bur_suc_dynastyoption }
+					set_country_flag = bur_suc_dynasty
+					else = {
+						if = {
+							limit = {
+								has_country_flag = bur_suc_emperoroption
+								has_country_flag = bur_suc_marriageoption
+							}
+							random_list = {
+								60 = { set_country_flag = bur_suc_emperor }
+								40 = { set_country_flag = bur_suc_marriage }
+							}
+							else = {
+								if = {
+									limit = { has_country_flag = bur_suc_emperoroption }
+									set_country_flag = bur_suc_emperor
+									else = {
+										if = {
+											limit = { has_country_flag = bur_suc_marriageoption }
+											set_country_flag = bur_suc_marriage
+											else = { set_country_flag = bur_suc_independence }
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = { has_country_flag = bur_suc_dynasty }
+			random_country = {
+				limit = {
+					marriage_with = ROOT
+					dynasty = ROOT
+					num_of_cities = 4
+					NOT = { tag = FRA }
+					NOT = { is_emperor = yes }
+					is_subject = no
+					OR = {
+						is_part_of_hre = yes
+						tag = SPA
+						AND = {
+							tag = CAS
+							SPA = { exists = no }
+						}
+					}
+				}
+				set_country_flag = inherits_burgundy
+			}
+		}
+		if = {
+			limit = { has_country_flag = bur_suc_marriage }
+			random_country = {
+				limit = {
+					marriage_with = ROOT
+					num_of_cities = 4
+					NOT = { tag = FRA }
+					NOT = { is_emperor = yes }
+					is_subject = no
+					OR = {
+						is_part_of_hre = yes
+						tag = SPA
+						AND = {
+							tag = CAS
+							SPA = { exists = no }
+						}
+					}
+				}
+				set_country_flag = inherits_burgundy
+			}
+		}
+		if = {
+			limit = { has_country_flag = bur_suc_emperor }
+			emperor = { set_country_flag = inherits_burgundy }
+		}
+	}
+	
+	option = {
+		name = "flavor_bur.100.opta"
+		if = {
+			limit = { NOT = { has_country_flag = bur_suc_independence }}
+			FRA = { country_event = { id = flavor_bur.101 }}
+			if = {
+				limit = { has_female_heir = yes }
+				kill_ruler = yes
+			}
+			else = { kill_ruler = yes }
+		}
+	}
+}
+
+# France Inherits Burgundy
+country_event = {
+	id = flavor_bur.101
+	title = "flavor_bur.101.t"
+	desc = "flavor_bur.101.d"
+	picture = VEF_DEATH_OF_HEIR_eventPicture
+
+	is_triggered_only = yes	#flavor_bur.100
+	
+	immediate = {
+		BUR = {
+			every_subject_country = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							region = france_region
+							culture_group = french
+						}
+						is_part_of_hre = no
+					}
+					cede_province = ROOT
+					add_core = ROOT
+					add_local_autonomy = 20
+				}
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						region = france_region
+						culture_group = french
+					}
+					is_part_of_hre = no
+				}
+				cede_province = ROOT
+				add_core = ROOT
+				add_local_autonomy = 10
+			}
+		}
+		hidden_effect = {
+			random_country = {
+				limit = { has_country_flag = inherits_burgundy }
+				country_event = { id = flavor_bur.102 }
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_bur.101.opta"
+	}
+}
+
+# Other Inherits Burgundy
+country_event = {
+	id = flavor_bur.102
+	title = "flavor_bur.102.t"
+	desc = "flavor_bur.102.d"
+	picture = VEF_DEATH_OF_HEIR_eventPicture
+
+	is_triggered_only = yes	#flavor_bur.101
+	
+	option = {
+		name = "flavor_bur.102.opta"
+		BUR = {
+			every_subject_country = {
+				limit = {
+					ai = yes
+					capital_scope = {
+						OR = {
+							is_part_of_hre = no
+							region = low_countries_region
+						}
+					}
+				}
+				BUR = { inherit = PREV }
+			}
+			every_subject_country = { grant_independence = yes }
+			every_owned_province = {
+				if = {
+					limit = { NOT = { is_core = ROOT }}
+					add_core = ROOT
+				}
+				cede_province = ROOT
+				add_local_autonomy = 10
+				set_province_flag = bur_succession_province
+			}
+		}
+	}
+}

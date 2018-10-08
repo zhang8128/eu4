@@ -1,0 +1,71 @@
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+primary_culture = georgian
+religion = orthodox
+technology_group = eastern
+historical_friend = CRI
+capital = 1542 # Kakheti
+
+1465.1.1 = {
+	monarch = {
+		name = "Giorgi I"
+		dynasty = "Bagrationi"
+		birth_date = 1465.1.1
+		adm = 0
+		dip = 0
+		mil = 3
+	}
+}
+1476.1.1 = {
+	monarch = {
+		name = "Aleksandre I"
+		dynasty = "Bagrationi"
+		birth_date = 1456.1.1
+		adm = 5
+		dip = 5
+		mil = 3
+	}
+}
+
+1511.4.27 = {
+	monarch = {
+		name = "Giorgi II"
+		dynasty = "Bagrationi"
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}
+
+1518.1.1 = {
+	monarch = {
+		name = "Levan I"
+		dynasty = "Bagrationi"
+		birth_date = 1503.1.1
+		adm = 4
+		dip = 3
+		mil = 4
+	}
+}
+
+1574.1.1 = {
+	monarch = {
+		name = "Aleksandre II"
+		dynasty = "Bagrationi"
+		adm = 0
+		dip = 1
+		mil = 0
+	}
+}
+
+1605.3.12 = {
+	monarch = {
+		name = "Teimurez I"
+		dynasty = "Bagrationi"
+		birth_date = 1567.1.1
+		adm = 1
+		dip = 3
+		mil = 2
+	}
+}

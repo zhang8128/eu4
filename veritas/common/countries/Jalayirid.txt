@@ -1,0 +1,116 @@
+#Country Name: Please see filename.
+
+graphical_culture = muslimgfx
+
+color = { 79  89  182 }
+
+historical_idea_groups = {
+	intimidatory_ideas
+	quantity_ideas
+	religious_ideas
+	mercantilist_ideas
+	offensive_ideas
+	expansion_ideas
+	gf1_ideas
+	drafted_army_ideas
+}
+
+historical_units = { 
+	nomad_artillery_0_1
+	nomad_artillery_20_1
+	nomad_artillery_32_1
+	nomad_artillery_44_1
+	nomad_cavalry_0_1
+	nomad_cavalry_10_1
+	nomad_cavalry_15_1
+	nomad_cavalry_20_1
+	nomad_cavalry_25_1
+	nomad_cavalry_30_1
+	nomad_cavalry_35_1
+	nomad_cavalry_40_1
+	nomad_cavalry_5_1
+	nomad_infantry_0_1
+	nomad_infantry_10_1
+	nomad_infantry_20_1
+	nomad_infantry_28_1
+	nomad_infantry_36_1
+	nomad_infantry_42_1
+}
+
+
+
+
+monarch_names = {
+	"Husain #1" = 20
+	"Uwais #1" = 20
+	"Ahmad #0" = 20
+	"Mahmud #0" = 20
+	"Muhammad #0" = 20
+	"Shah Walad #0" = 20
+	"Hasan #1" = 15
+	"Rashîd #0" = 15
+	"Isma'il #0" = 10
+	"Qasim #0" = 10
+	"'Abbas #0" = 0
+	"'Abd al-Karim #0" = 0
+	"'Abd al-Rahman #0" = 0
+	"Anwar #0" = 0
+	"Atuf #0" = 0
+	"Bakr #0" = 0
+	"Fahd #0" = 0
+	"Faruq #0" = 0
+	"Fouad #0" = 0
+	"Hakim #0" = 0
+	"Harun #0" = 0
+	"Hikmat #0" = 0
+	"Hisham #0" = 0
+	"Iqbal #0" = 0
+	"Jafar #0" = 0
+	"Jamaal #0" = 0
+	"Karim #0" = 0
+	"Khalil #0" = 0
+	"Malîk #0" = 0
+	"Mirza #0" = 0
+	"Najib #0" = 0
+	"Rusul #0" = 0
+	"Shimun #0" = 0
+	"Tarîq #0" = 0
+	"Usama #0" = 0
+	"Yasir #0" = 0
+	"Yusuf #0" = 0
+	"Zaid #0" = 0
+	"Zîyad #0" = 0
+	"Zulqifar #0" = 0
+	
+	"Gawahir #0" = -1
+	"Basira #0" = -1
+}
+
+leader_names = {
+	Rukh
+	Jahagir
+	Sa'id
+	Uways
+	Hussain
+	Ahmad
+	Mahmud
+	Mirza
+	Mohsin
+	Zaman
+}
+
+ship_names = {
+	Ardabil
+	Bakhura Baluches Balkh
+	Herat
+	Ispahan
+	Kirman Kish Kharesm Kandahar
+	Lahore
+	Merv
+	Nishupur
+	Ormuz
+	Rustam
+	Sikandar Sebzewar Slurax Samarqand
+	Tamerlane Tahriz
+	"Shah Rukh"
+}

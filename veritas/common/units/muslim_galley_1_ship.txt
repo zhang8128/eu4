@@ -1,0 +1,10 @@
+#Tarrada
+#model = galley
+#tech_level = 0
+type = galley
+unit_type = muslim
+
+hull_size = 8
+base_cannons = 8
+sail_speed = 8
+sailors = 175

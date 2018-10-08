@@ -1,0 +1,19 @@
+# Debarwa
+
+capital = "Debarwa"
+owner = MDB
+controller = MDB
+add_core = MDB
+culture = tigray
+religion = coptic
+base_tax = 2
+base_production = 2
+base_manpower = 3
+trade_goods = millet
+hre = no
+is_city = yes
+discovered_by = sudanese_tech
+discovered_by = muslim
+
+1588.1.1 = { unrest = 7 } # Raids by Sarsa Dengel
+1589.1.1 = { unrest = 0 }

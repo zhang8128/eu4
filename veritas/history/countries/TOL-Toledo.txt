@@ -1,0 +1,89 @@
+# Toledo
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+primary_culture = castillian
+add_accepted_culture = andalucian
+religion = catholic
+technology_group = western
+historical_friend = CAS
+historical_rival = GRA
+capital = 87 # Toledo
+
+#Seigneury of Villena
+
+1292.4.25 = {
+	monarch = {
+		name = "Juan Manuel I"
+		dynasty = "de Bourgogne"
+		birth_date = 1282.5.5
+		adm = 4
+		dip = 4
+		mil = 5
+	}
+	set_ruler_flag = ambitious_vassal
+}
+
+1309.1.1 = { 
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 10.0 }
+}
+#Rebellion when his daughter is repudiated by the king (Nominally begins in 1327)
+#Open Warfare
+1328.1.1 = {
+	clr_country_flag = starting_vassal
+	clr_country_flag = vassal_flag
+	heir = {
+		name = "Fernando Manuel"
+		monarch_name = "Fernando Manuel I"
+		dynasty = "de Bourgogne"
+		birth_date = 1320.1.1	#Made up
+		death_date = 1350.6.1	#Estimated; known to be 1350
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+#Reconciliation sees Juan Manuel retire
+1340.1.1 = {
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 10.0 }
+	monarch = {
+		name = "Fernando Manuel I"
+		dynasty = "de Bourgogne"
+		birth_date = 1320.1.1	#Made up
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+#Henry II, though illegitimate, claims the crown of Castile.  He maries Juana Manuel to
+#strengthen his position and gain one of the richest holdings in Castile which he has
+#use of through his wife after Fernando dies sometime in 1350.
+1351.1.1 = {
+	monarch = {
+		name = "Enrique II"
+		dynasty = "de Trast·mara"
+		birth_date = 1334.1.13
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = TOL
+		name = "Juana Manuel"
+		dynasty = "de Bourgogne"
+		birth_date = 1339.2.9
+		death_date = 1381.3.27
+		female = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+	set_ruler_flag = ambitious_vassal
+	set_ruler_flag = henry_trastamara
+}

@@ -1,0 +1,37 @@
+# Slutsk
+
+capital = "Slutsk"
+owner = PLT
+controller = PLT 
+add_core = PLT
+culture = litvin
+religion = orthodox
+trade_goods = wax
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1390.1.1 = { owner = LIT controller = LIT add_Core = LIT }
+1500.1.1   = { citysize = 3000 }
+1550.1.1   = { citysize = 3000 }
+1569.7.1   = {	owner = PLC
+		controller = PLC
+		add_core = PLC
+		} # Union of Lublin
+1570.1.1  = { religion = catholic } # Union of Lublin
+1600.1.1   = { citysize = 3000 }
+1650.1.1   = { citysize = 3000 }
+1700.1.1   = { citysize = 3000 }
+1750.1.1   = { citysize = 3000 }
+1795.10.24 = {	owner = RUS
+		controller = RUS
+		add_core = RUS
+	     } # Third partition of Poland
+1800.1.1   = { citysize = 3000 }

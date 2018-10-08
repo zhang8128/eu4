@@ -1,0 +1,10 @@
+#Gunsen
+#model = archipelago_frigate
+#tech_level = 36
+type = galley
+unit_type = niitaka
+
+hull_size = 18
+base_cannons = 30
+sail_speed = 8
+sailors = 300

@@ -1,0 +1,44 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+primary_culture = serbian
+add_accepted_culture = bosnian
+add_accepted_culture = hungarian
+add_accepted_culture = bulgarian
+religion = orthodox
+technology_group = eastern
+capital = 546 # Srbija
+
+historical_friend = HUN
+historical_friend = SER
+historical_rival = BUL
+historical_rival = BOS
+historical_rival = VDN
+
+1282.1.1 = {
+	monarch = {
+		name = "Stefan Dragutin"
+		dynasty = "Nemanjic"
+		birth_date = 1253.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1316.10.29 = {
+	monarch = {
+		name = "Stefan Vladislav II"
+		dynasty = "Nemanjic"
+		birth_date = 1285.1.1
+		adm = 3
+		dip = 3
+		mil = 5
+	}
+}
+
+1319.6.1 = {
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 10.0 }
+}

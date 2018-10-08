@@ -1,0 +1,344 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+primary_culture = piedmontese
+religion = catholic
+technology_group = western
+capital = 260 # Montferrat
+
+1200.1.1 = { set_country_flag = guelphs_ghibellines_active }
+1306.1.1 = {
+	monarch = {
+		name = "Theodore I"
+		dynasty = "Palaiologos"
+		birth_date = 1290.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = GEN
+		name = "Argentina"
+		dynasty = "Spinola"
+		birth_date = 1290.1.1	#Made up
+		death_date = 1340.1.1	#Made up
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1321.2.5 = {
+	heir = {
+		name = "John"
+		monarch_name = "John II"
+		dynasty = "Palaiologos"
+		birth_date = 1321.2.5
+		death_date = 1372.3.19
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1338.4.24 = {
+	monarch = {
+		name = "John II"
+		dynasty = "Palaiologos"
+		birth_date = 1321.2.5
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1358.9.4 = {
+	queen = {
+		country_of_origin = MJC
+		name = "Isabella"
+		dynasty = "d'AragÛ"
+		birth_date = 1337.1.1
+		death_date = 1406.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1360.1.1 = {
+	heir = {
+		name = "Secondotto"
+		monarch_name = "Otto III"
+		dynasty = "Palaiologos"
+		birth_date = 1360.1.1
+		death_date = 1378.12.16
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1372.3.19 = {
+	monarch = {
+		name = "Otto III"
+		dynasty = "Palaiologos"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "John"
+		monarch_name = "John III"
+		dynasty = "Palaiologos"
+		birth_date = 1362.1.1
+		death_date = 1381.8.25
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1377.8.2 = {
+	queen = {
+		country_of_origin = MLO
+		name = "Violante"
+		dynasty = "Visconti"
+		birth_date = 1354.1.1
+		death_date = 1386.11.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1378.12.16 = {
+	monarch = {
+		name = "John III"
+		dynasty = "Palaiologos"
+		birth_date = 1362.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Theodore"
+		monarch_name = "Theodore II"
+		dynasty = "Palaiologos"
+		birth_date = 1364.1.1
+		death_date = 1418.4.16
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1381.8.25 = {
+	monarch = {
+		name = "Theodore II"
+		dynasty = "Palaiologos"
+		birth_date = 1364.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1393.1.1 = {
+	queen = {
+		country_of_origin = BAR
+		name = "Joanna"
+		dynasty = "de MontbÈliard"
+		birth_date = 1384.1.1	# Estimated
+		death_date = 1402.1.15
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1395.3.23 = {
+	heir = {
+		name = "John Jacob"
+		monarch_name = "John Jacob I"
+		dynasty = "Palaiologos"
+		birth_date = 1395.3.23
+		death_date = 1445.3.12
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1418.4.16 = {
+	monarch = {
+		name = "John Jacob I"
+		dynasty = "Palaiologos"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = SAV
+		name = "Joanna"
+		dynasty = "de Savoia"
+		birth_date = 1395.1.1
+		death_date = 1460.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "John"
+		monarch_name = "John IV"
+		dynasty = "Palaiologos"
+		birth_date = 1413.6.24
+		death_date = 1464.1.19
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1445.3.12 = {
+	monarch = {
+		name = "John IV"
+		dynasty = "Palaiologos"
+		birth_date = 1413.6.24
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1464.1.1 = {
+	monarch = {
+		name = "William VIII"
+		dynasty = "Palaiologos"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1494.1.1 = {
+	monarch = {
+		name = "William IX"
+		dynasty = "Palaiologos"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1518.1.1 = {
+	monarch = {
+		name = "Boniface IV"
+		dynasty = "Palaiologos"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1530.1.1 = {
+	monarch = {
+		name = "John George I"
+		dynasty = "Palaiologos"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1536.1.1 = {
+	monarch = {
+		name = "Frederick I"
+		dynasty = "Gonzaga"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1540.1.1 = {
+	monarch = {
+		name = "Francis I"
+		dynasty = "Gonzaga"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1550.1.1 = {
+	monarch = {
+		name = "William X"
+		dynasty = "Gonzaga"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+1560.1.1 = { clr_country_flag = guelphs_ghibellines_active }
+1587.1.1 = {
+	monarch = {
+		name = "Vincent I"
+		dynasty = "Gonzaga"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1612.1.1 = {
+	monarch = {
+		name = "Francis II"
+		dynasty = "Gonzaga"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1612.5.5 = {
+	monarch = {
+		name = "Ferdinand I"
+		dynasty = "Gonzaga"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1626.5.5 = {
+	monarch = {
+		name = "Vincent II"
+		dynasty = "Gonzaga"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

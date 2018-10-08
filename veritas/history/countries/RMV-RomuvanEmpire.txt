@@ -1,0 +1,18 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 4
+primary_culture = lithuanian
+add_accepted_culture = polish
+religion = romuva
+technology_group = eastern
+capital = 450 # Vilnius
+
+1295.1.1 = {
+	monarch = {
+		name = "General"
+		dynasty = "von Gelre"
+		adm = 6
+		dip = 6
+		mil = 6
+	}
+}

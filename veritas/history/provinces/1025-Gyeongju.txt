@@ -1,0 +1,29 @@
+#1025 - Gyeongju
+
+capital = "Gyeongju"
+owner = KOR
+controller = KOR
+add_core = KOR
+culture = korean
+religion = mahayana
+trade_goods = opium
+base_tax = 6
+base_production = 6
+base_manpower = 7
+is_city = yes
+hre = no
+fort_15th = yes
+discovered_by = chinese
+discovered_by = niitaka
+
+extra_cost = 15
+center_of_trade = 1
+
+1392.7.17 = { religion = confucianism }
+1542.1.1 = { discovered_by = POR }
+1592.5.25 = { controller = ODA } # Japanese invasion - Siege of Busan
+1598.12.24 = { controller = KOR }
+1637.1.1 = { add_core = MNG } # Tributary of Qing China
+1644.1.1 = { add_core = MCH remove_core = MNG } # Part of the Manchu empire
+1645.7.1 = { add_core = QNG remove_core = MCH }
+1653.1.1 = { discovered_by = NED } # Hendrick Hamel

@@ -1,0 +1,89 @@
+country_decisions = {
+
+	swabian_nation = {
+		major = yes		
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			primary_culture = alemannic
+			normal_or_historical_nations = yes
+			NOT = { exists = SWA }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = WES }
+			NOT = { tag = GER }
+			NOT = { tag = SWI }
+			NOT = { government = swiss_canton }
+			NOT = { government = swiss_confederation }
+		}		
+		allow = {
+			NOT = { tag = WES }
+			NOT = { tag = GER }
+			stability = 1
+			is_subject = no 
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}		
+			owns_core_province = 311 	# Ulm
+			311 = { NOT = { nationalism = 1 } }
+			owns_core_province = 313 	# Fürstenberg
+			313 = { NOT = { nationalism = 1 } }
+			owns_core_province = 315 	# Württemberg
+			315 = { NOT = { nationalism = 1 } }
+			owns_core_province = 319 	# Elsass
+			319 = { NOT = { nationalism = 1 } }			
+		}				
+		effect = {
+			change_tag = SWA
+			add_prestige = 25
+			if = {
+				limit = { government = monastic_order_government }
+				every_neighbor_country = {
+					limit = { government = monarchy }
+					add_opinion = { who = ROOT modifier = secularized_monastic_order }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						government = theocratic_government
+						government = archbishopric
+					}
+				}
+				every_neighbor_country = {
+					limit = { government = monarchy }
+					add_opinion = { who = ROOT modifier = secularized_bishopric }
+				}
+			}
+			if = {
+				limit = { government = theocracy }
+				change_government = monarchy
+				set_legacy_government = hereditary_monarchy
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = SWA_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+}

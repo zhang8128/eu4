@@ -1,0 +1,3 @@
+# Western Indian Ocean South Equatorial Current
+#Province IDs changed
+1521.1.1 = { discovered_by = SPA }

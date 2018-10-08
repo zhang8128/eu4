@@ -1,0 +1,156 @@
+# North Sea Union - Fantasy Formable for Denmark
+
+country_decisions = {
+
+	north_sea_nation = {
+		major = yes
+		potential = {
+			tag = DAN
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			normal_or_historical_nations = yes
+			NOT = { exists = NSE }
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 392	# Skåne
+			owns_core_province = 393	# Halland
+			owns_core_province = 394	# Blekinge
+			custom_trigger_tooltip = {
+				denmark_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				jutland_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				tooltip = owns_all_denmark
+			}
+			custom_trigger_tooltip = {
+				wessex_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				east_anglia_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				home_counties_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				west_midlands_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				east_midlands_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				northern_england_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				tooltip = owns_all_england
+			}
+			custom_trigger_tooltip = {
+				eastern_norway_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				western_norway_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				northern_norway_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				tooltip = owns_all_norway
+			}
+		}
+		effect = {
+			change_tag = NSE
+			if = {
+				limit = {
+					exists = SWE
+					NOT = { SWE = { is_subject_of = ROOT } }
+				}
+				add_casus_belli = { target = SWE type = cb_vassalize_mission months = 240 }
+			}
+			if = {
+				limit = {
+					exists = SCO
+					NOT = { SCO = { is_subject_of = ROOT } }
+				}
+				add_casus_belli = { target = SCO type = cb_vassalize_mission months = 240 }
+			}
+			if = {
+				limit = {
+					exists = POM
+					NOT = { POM = { is_subject_of = ROOT } }
+				}
+				add_casus_belli = { target = POM type = cb_vassalize_mission months = 240 }
+			}
+			add_prestige = 5
+			add_legitimacy = 25
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			set_government_rank = 4
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = NSE_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+	
+}

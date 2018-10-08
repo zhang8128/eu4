@@ -1,0 +1,23 @@
+# Handan
+#Province IDs changed
+
+owner = YUN
+controller = YUN
+culture = chihan
+religion = confucianism
+capital = "Handan"
+trade_goods = millet
+hre = no
+base_tax = 4
+base_production = 4
+base_manpower = 4
+add_core = YUN
+is_city = yes
+discovered_by = chinese
+
+1356.8.1 = { owner = MNG controller = MNG add_core = MNG remove_core = YUN }
+1630.1.1  = { unrest = 6 } # Li Zicheng rebellion
+1644.3.1 = { unrest = 0 controller = CSH }
+1644.4.1 = { owner = CSH } # The Shun dynasty of Li Zicheng
+1645.7.1  = {	owner = QNG controller = QNG add_core = QNG } # The Qing Dynasty
+1662.1.1 = { remove_core = MNG } # The government in Taiwan surrendered

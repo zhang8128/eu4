@@ -1,0 +1,15 @@
+# Sayan
+
+capital = "Sayan"
+native_size = 10
+native_ferocity = 1
+native_hostileness = 3
+culture = mongol
+religion = tengri
+trade_goods = unknown
+hre = no
+discovered_by = nomad_group
+
+1652.1.1   = { base_manpower = 0.1 base_tax = 1 base_production = 1 discovered_by = RUS }
+1756.1.1   = { owner = RUS controller = RUS add_core = RUS religion = orthodox culture = russian citysize = 400 base_manpower = 0.1 trade_goods = fur } # Part of Russia
+1800.1.1   = { citysize = 850 base_manpower = 0.1 }

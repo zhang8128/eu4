@@ -1,0 +1,18 @@
+# Ngchow
+
+capital = "Ngchow"
+owner = YUN
+controller = YUN
+add_core = YUN
+culture = cantonese
+religion = confucianism
+trade_goods = iron
+base_tax = 2
+base_production = 2
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1357.1.1 = { owner = CSH controller = CSH add_core = CSH remove_core = YUN add_core = MNG }
+1365.4.1 = { owner = MNG controller = MNG }

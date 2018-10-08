@@ -1,0 +1,19 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+primary_culture = galician
+religion = catholic
+technology_group = western
+capital = 71	# Galicia
+
+1369.1.1 = { set_country_flag = galician_independence_option set_country_flag = left_castillian_crown }
+
+1386.6.25 = {
+	monarch = {
+		name = "John of Gaunt"
+		dynasty = "Plantagenet"
+		birth_date = 1340.3.6
+		adm = 2
+		dip = 2
+		mil = 4
+	}
+}

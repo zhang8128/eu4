@@ -1,0 +1,18 @@
+# Govi Altay
+
+capital = "Govi Altay"
+owner = YUN
+controller = YUN
+add_core = YUN
+add_core = OIR
+culture = mongol
+religion = tengri
+trade_goods = wool
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1368.1.1 = { owner = KHA controller = KHA add_core = KHA remove_core = YUN }

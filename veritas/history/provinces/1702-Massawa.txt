@@ -1,0 +1,17 @@
+# Massawa
+#Province IDs changed
+
+capital = "Massawa"
+owner = MDB
+controller = MDB
+add_core = MDB
+culture = tigray
+religion = coptic
+base_tax = 1
+base_production = 1
+base_manpower = 2
+trade_goods = millet
+discovered_by = sudanese_tech
+discovered_by = muslim
+hre = no
+is_city = yes

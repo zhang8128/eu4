@@ -1,0 +1,10 @@
+#Waka Taua
+#model = galley
+#tech_level = 14
+type = galley
+unit_type = pacific_islander
+
+hull_size = 8
+base_cannons = 6
+sail_speed = 8
+sailors = 60

@@ -1,0 +1,84 @@
+# Country name see file name.
+
+graphical_culture = indiangfx
+
+color = { 245  139  127 }
+
+historical_idea_groups = {
+	quantity_ideas
+	spy_ideas
+	religious_ideas
+	defensive_ideas
+	mercantilist_ideas
+	cultural_unity_ideas
+	drafted_army_ideas
+	gf1_ideas
+}
+
+historical_units = {
+   indian_artillery_8_1
+   indian_artillery_16_1
+   indian_artillery_24_1
+   indian_artillery_32_1
+   indian_artillery_38_1
+   indian_artillery_42_1
+   indian_cavalry_0_1
+   indian_cavalry_16_1
+   indian_cavalry_21_1
+   indian_cavalry_27_1
+   indian_cavalry_31_1
+   indian_cavalry_36_1
+   indian_cavalry_48_1
+   indian_infantry_0_1
+   indian_infantry_6_1
+   indian_infantry_17_1
+   indian_infantry_21_1
+   indian_infantry_25_1
+   indian_infantry_34_1
+   indian_infantry_42_1
+   indian_infantry_45_1
+   indian_infantry_48_1
+   indian_infantry_50_1
+}
+
+
+
+
+monarch_names = {
+	"Pilaji Rao #0" = 10
+	"Damaji Rao #0" = 10
+	"Govind Rao #0" = 10
+	"Sayaji Rao #0" = 10
+	"Fateh Singh Rao #0" = 10
+	"Manaji Rao #0" = 10
+	"Anand Rao #0" = 10
+	"Baiji Bai #0" = -1
+	"Chimna Bai #0" = -1
+	"Chandra Bai #0" = -1
+	"Gulab Bai #0" = -1
+	"Gena Bai #0" = -1
+}
+
+leader_names = {
+	Nisheeth
+	Sukarman
+	Yateen
+	Sitipala
+	Vyapari
+	Vishwa
+	Tjakur
+	Ramdas
+	Prajna
+	Lakhani
+}
+
+ship_names = {
+	Agni Bhim Brahma Devi Durga
+	Ganesh Gayatri Hanumaun Indra
+	Jalsena "Kala Jahazi" Kali Kubera
+	Krishna Lakshmi "Lal Jahazi"
+	Nausena "Nav ka Yudh" "Nila Jahazi"
+	Parvati Radha Ratri Sagar Sarasvati
+	Shiva Sita Soma Surya Varuna Vayu
+	Vishnu Yama
+}

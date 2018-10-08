@@ -1,0 +1,17 @@
+# Busoga
+#Province IDs changed
+
+capital = "Bugembe"
+native_size =   5
+native_ferocity =   3
+native_hostileness =   4
+culture = bachwezi
+religion = bantu
+base_tax = 1
+base_production = 1
+base_manpower = 2
+trade_goods = ebony
+discovered_by = sudanese_tech 
+discovered_by = tribal_african_tech
+discovered_by = sub_saharan
+hre = no

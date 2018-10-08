@@ -1,0 +1,36 @@
+# Quimper
+
+capital = "Quimper"
+owner = BRI
+controller = BRI
+add_core = BRI
+culture = breton
+religion = catholic
+trade_goods = naval_supplies
+base_tax = 4
+base_production = 4
+base_manpower = 4
+add_core = BRI
+is_city = yes
+hre = no
+estate = vef_breton_estate
+
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1453.1.1   = { add_core = FRA }
+1532.8.4   = { owner = FRA controller = FRA } # Union Treaty
+1570.1.1   = { wharf = yes  }
+1588.12.1  = { unrest = 5 } # Henri de Guise assassinated at Blois, Ultra-Catholics into a frenzy
+1594.1.1   = { unrest = 0 } # 'Paris vaut bien une messe!', Henri converts to Catholicism
+1600.1.1   = { base_manpower = 2 }
+1631.1.1   = { shipyard = yes } # Brest begins to become a major naval base under the influence of Richelieu
+1650.1.1   = { base_manpower = 2.2 }
+1700.1.1   = { base_manpower = 2.25 }
+1702.1.1   = { temple = yes } # Le Saint-Louis
+1750.1.1   = { base_manpower = 2.5 }
+1800.1.1   = { base_manpower = 3 }

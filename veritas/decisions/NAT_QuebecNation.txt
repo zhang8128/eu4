@@ -1,0 +1,83 @@
+country_decisions = {
+
+	quebec_nation = {
+		major = yes
+		potential = {
+			colonial_canada = { owned_by = ROOT }
+			is_random_new_world = no
+			is_nomad = no
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+			}
+			NOT = { exists = QUE }
+			OR = {
+				ai = no
+				num_of_cities = 3	
+			}
+			NOT = { has_country_flag = changed_from_colonial_nation }
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			is_former_colonial_nation = yes
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { colonial_region = colonial_canada }
+						AND = {
+							colonial_region = colonial_canada
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_canada
+			}
+			owns_core_province = 2265	# Stadacona
+			owns_core_province = 2266	# Atikamekw
+			owns_core_province = 2267	# Innu
+			owns_core_province = 2268	# Labrador
+			owns_core_province = 2270	# Ungava
+			owns_core_province = 2274	# Hochelega
+			owns_core_province = 2280	# Algonquin
+			owns_core_province = 2283	# Abitbi
+		}
+		effect = {
+			change_tag = QUE
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			colonial_canada = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = QUE
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = QUE_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+			set_country_flag = changed_from_colonial_nation
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+}

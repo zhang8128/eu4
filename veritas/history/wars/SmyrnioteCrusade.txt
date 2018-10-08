@@ -1,0 +1,20 @@
+name = "Smyrniote Crusade"
+war_goal = {
+	type = superiority_vef_crusade
+	casus_belli = cb_vef_crusade
+}
+
+1343.9.30 = {
+	add_attacker = KNI
+	add_attacker = CYP
+	add_attacker = VEN
+	add_defender = AYD
+}
+
+#Peace and end of war
+1351.9.1 = {
+	rem_attacker = KNI
+	rem_attacker = CYP
+	rem_attacker = VEN
+	rem_defender = AYD
+}

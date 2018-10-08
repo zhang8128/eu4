@@ -1,0 +1,26 @@
+# Sayultecas
+
+capital = "Sayultecas"
+owner = CLM
+controller = CLM
+add_core = CLM
+culture = tecos
+religion = xochiyaoyotl 
+trade_goods = grain
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = mesoamerican
+
+1522.1.1  = { discovered_by = SPA } # Saavedra 
+1523.1.1   = { owner = SPA controller = SPA religion = catholic culture = castillian unrest = 5 } #Forced to surrender by Alvarado, Colimotl murdered
+1548.1.1  = { add_core = SPA }
+1578.1.1  = { discovered_by = ENG } # Drake 
+1600.1.1  = { citysize = 5200 } 
+1650.1.1  = { citysize = 8611 } 
+1700.1.1  = { citysize = 10862 } 
+1750.1.1  = { citysize = 15200 } 
+1800.1.1  = { citysize = 20000 }
+1810.9.16 = { owner = MEX add_core = MEX controller = MEX } # Mexican War of Independence

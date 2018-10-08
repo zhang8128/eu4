@@ -1,0 +1,100 @@
+government = monarchy add_government_reform = feudalism_reform 
+government_rank = 3
+primary_culture = armenian
+religion = catholic
+technology_group = byzantine
+capital = 628	# Cilicia
+
+# Tarsus; despite not being a state established by crusaders the Kingdom of
+# Armenia in Cilicia was primarily catholic in its aristocracy and allied with
+# the crusader states of the Levant
+set_country_flag = crusader_state
+
+1307.1.1 = {
+	monarch = {
+		name = "Oshin"
+		dynasty = "Hetoumid"
+		birth_date = 1282.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	queen = {
+		name = "Isabel"
+		dynasty = "Hetoumid"
+		birth_date = 1290.1.1	#made up
+		death_date = 1310.4.3
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1309.1.1 = {
+	heir = {
+		name = "Levon"
+		monarch_name = "Levon IV"
+		dynasty = "Hetoumid"
+		birth_date = 1309.1.1
+		death_date = 1341.8.28
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1320.7.20 = {
+	monarch = {
+		name = "Levon IV"
+		dynasty = "Hetoumid"
+		birth_date = 1309.1.1
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1341.8.28 = {
+	monarch = {
+		name = "Gosdantin II"
+		dynasty = "de Lusignan"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1344.4.17 = {
+	monarch = {
+		name = "Gosdantin III"
+		dynasty = "de Lusignan"
+		birth_date = 1313.4.17
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1360.1.1 = { capital = 629 } # Kozani
+
+1362.12.21 = {
+	monarch = {
+		name = "Gosdantin IV"
+		dynasty = "de Lusignan"
+		adm = 1
+		dip = 3
+		mil = 2
+	}
+}
+
+1373.1.1 = {
+	monarch = {
+		name = "Levon V"
+		dynasty = "de Lusignan"
+		birth_date = 1342.1.1
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}

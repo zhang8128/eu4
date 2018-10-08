@@ -1,0 +1,604 @@
+#Italian power system
+#--inspired by the original Admin Efficiency system by Helius (et al) for SRI and MM and Status quo by alvya
+
+namespace = italian_power
+normal_or_historical_nations = yes
+
+country_event = { # big remote event to determine Italian power status
+
+	id = italian_power.1
+	title = "italian_power.EVTNAME1"
+	desc = "italian_power.EVTDESC1"
+	picture = ITALIAN_POWER_eventPicture
+
+	trigger = {
+		NOT = { REB = { has_country_modifier = italian_power_admin } }
+		NOT = { exists = ITA }
+		NOT = { exists = ROM }
+		NOT = { exists = PQR }
+		NOT = { exists = LAE }
+		NOT = { PAP = { has_country_modifier = kingdom_of_god } }
+		ai = yes
+	}
+# event will actually happen almost immediately, as all AI countries are eligible
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+# delay timer so that event triggers approx once per year
+      REB = { add_country_modifier = { name = "italian_power_admin" duration = 365 } }
+# remove last round of modifiers
+		every_country = {
+			remove_country_modifier = local_italian_power
+			remove_country_modifier = regional_italian_power
+			remove_country_modifier = major_italian_power
+			remove_country_modifier = dominant_italian_power
+			remove_country_modifier = menacing_italian_power
+			set_variable = { which = italian_power value = 0 }
+
+			# overlord vassals: every vassal gives two points, every additional
+			# province of the vassal gives two points more
+			if = {
+        	 	limit = { overlord = { culture_group = latin } }
+        	 	every_owned_province = {
+           		 	owner = { overlord = { change_variable = { which = "italian_power" value = 2 } } }
+         		}
+      		}
+
+			# subject vassals: beeing a subject destroys power in every way
+			if = {
+				limit = { is_subject = yes }
+				change_variable = { which = "italian_power" value = -10 }
+			}
+	
+			# monarchies: these are more eager to achieve a dominant position than republics
+    		if = {
+     			limit = { government = monarchy }
+        		change_variable = { which = "italian_power" value = 1 }
+    		}
+
+			# state military power: actual manpower; checks how vulnerable the
+			# military is; max. value 7
+    		if = { #5000 men available
+        		limit = { manpower = 5000 }
+        		change_variable = { which = "italian_power" value = 1 }
+				if = { #15000 men available
+      			limit = { manpower = 15000 }
+       			change_variable = { which = "italian_power" value = 1 }
+					if = { #30000 men available
+        				limit = { manpower = 30000 }
+        				change_variable = { which = "italian_power" value = 1 }
+						if = { #50000 men available
+        					limit = { manpower = 50000 }
+        					change_variable = { which = "italian_power" value = 1 }
+    					}
+    				}
+    			}
+			}
+    	}
+	}
+
+	option = {
+		name = "italian_power.EVTOPTA1"
+
+		# Calculate Italian power status
+		
+		##ADMINISTRATION
+		
+		# base power: every province in the italian region gives 1 base point;
+		# base tax 11 and 12 are considered especially valuable; max. value 8
+		every_province = { # base province count
+			limit = { region = italy_region }
+			owner = { change_variable = { which = italian_power value = 1 } }
+			if = { # Base Tax 4-5
+				limit = { base_tax = 4 }
+				owner = { change_variable = { which = italian_power value = 1 } }
+				if = { # Base Tax 6-8
+					limit = { base_tax = 6 }
+					owner = { change_variable = { which = italian_power value = 1 } }
+					if = { # Base Tax 9-10
+						limit = { base_tax = 9 }
+						owner = { change_variable = { which = italian_power value = 1 } }
+						if = { # Base Tax 11
+							limit = { base_tax = 11 }
+							owner = { change_variable = { which = italian_power value = 2 } }
+							if = { # Base Tax 12 or higher
+								limit = { base_tax = 12 }
+								owner = { change_variable = { which = italian_power value = 2 } }
+							}
+						}
+					}
+				}
+			}
+			# has Important Centre of Trade modifier: +1 point
+			if = { # CoT
+				limit = { has_province_modifier = center_of_trade_modifier }
+				owner = { change_variable = { which = italian_power value = 1 } }
+			}
+			# province military power: every province in the italian region gives
+			# powerpoints based on manpower; max. value 3
+			if = { # Manpower 3-4
+				limit = { manpower = 3 }
+				owner = { change_variable = { which = italian_power value = 1 } }
+				if = { # Manpower 5-6
+					limit = { manpower = 5 }
+					owner = { change_variable = { which = italian_power value = 2 } }
+					if = { # Manpower 7+
+						limit = { manpower = 7 }
+						owner = { change_variable = { which = italian_power value = 1 } }
+					}
+				}
+			}
+		}
+	
+		#ASSIGNMENT
+		# Assign Italian power country modifiers
+	
+		every_country = {
+			limit = { 
+				capital_scope = { region = italy_region }
+				culture_group = latin 
+			}
+			if = { 
+				limit = { NOT = { check_variable = { which = italian_power value = 10 } } }
+				add_country_modifier = { name = "local_italian_power" duration = -1 }
+			}
+			if = {
+				limit = { 
+					check_variable = { which = italian_power value = 10 }
+					NOT = { check_variable = { which = italian_power value = 20 } }
+				}
+				add_country_modifier = { name = "regional_italian_power" duration = -1 }
+			}
+			if = {
+				limit = { 
+					check_variable = { which = italian_power value = 20 }
+					NOT = { check_variable = { which = italian_power value = 35 } }
+				}
+				add_country_modifier = { name = "major_italian_power" duration = -1 }
+			}
+			if = {
+				limit = { 
+					check_variable = { which = italian_power value = 35 }
+					NOT = { check_variable = { which = italian_power value = 45 } }
+				}
+				add_country_modifier = { name = "dominant_italian_power" duration = -1 }
+			}
+			if = {
+				limit = { check_variable = { which = italian_power value = 45 } }
+				add_country_modifier = { name = "menacing_italian_power" duration = -1 }
+			}
+		}
+	} #closes option
+} #closes event1
+
+#######################
+# POWER STATUS CHANGE #
+#######################
+
+### Changing Power Status
+
+country_event = {
+
+	id = italian_power.2
+	title = "italian_power.EVTNAME2"
+	desc = "italian_power.EVTDESC2"
+	picture = ITALIAN_POWER_eventPicture
+	
+		trigger = {
+			has_country_flag = italian_power
+			OR = {
+				AND = {
+					has_country_modifier = local_italian_power
+					NOT = { has_country_flag = local_italian_power }
+				}
+				AND = {
+					has_country_modifier = regional_italian_power
+					NOT = { has_country_flag = regional_italian_power }
+				}
+				AND = {
+					has_country_modifier = major_italian_power
+					NOT = { has_country_flag = major_italian_power }
+				}
+				AND = {
+					has_country_modifier = dominant_italian_power
+					NOT = { has_country_flag = dominant_italian_power }
+				}
+				AND = {
+					has_country_modifier = menacing_italian_power
+					NOT = { has_country_flag = menacing_italian_power }
+				}
+			}
+		}
+		
+		mean_time_to_happen = {
+			days = 7
+		}
+		
+		#RISE
+
+		option = {
+			name = "italian_power.EVTOPTA2" #Rising from local to regional
+			trigger = {
+				has_country_flag = local_italian_power
+				has_country_modifier = regional_italian_power
+		    }
+			custom_tooltip = italian_power_regional
+			add_prestige = 3
+			set_country_flag = regional_italian_power
+			clr_country_flag = local_italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTB2" #Rising from regional to major
+			trigger = {
+			    has_country_flag = regional_italian_power
+				has_country_modifier = major_italian_power
+		    }
+			custom_tooltip = italian_power_major
+			add_prestige = 5
+			set_country_flag = major_italian_power
+			clr_country_flag = regional_italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTC2" #Rising from major to dominant
+			trigger = {
+			    has_country_flag = major_italian_power
+				has_country_modifier = dominant_italian_power
+		    }
+			custom_tooltip = italian_power_dominant
+			add_prestige = 2
+			set_country_flag = dominant_italian_power
+			clr_country_flag = major_italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTD2" #Rising from dominant to menacing
+			trigger = {
+			    has_country_flag = dominant_italian_power
+				has_country_modifier = menacing_italian_power
+		    }
+			custom_tooltip = italian_power_menacing
+			add_prestige = 1
+			set_country_flag = menacing_italian_power
+			clr_country_flag = dominant_italian_power
+		}
+		
+		#FALL
+		
+		option = {
+			name = "italian_power.EVTOPTE2" #Falling from menacing to dominant
+			trigger = {
+			    has_country_flag = menacing_italian_power
+				has_country_modifier = dominant_italian_power
+		    }
+			custom_tooltip = italian_power_dominant
+			add_prestige = -2
+			set_country_flag = dominant_italian_power
+			clr_country_flag = menacing_italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTF2" #Falling from dominant to major
+			trigger = {
+			    has_country_flag = dominant_italian_power
+				has_country_modifier = major_italian_power
+		    }
+			custom_tooltip = italian_power_major
+			add_prestige = -3
+			set_country_flag = major_italian_power
+			clr_country_flag = dominant_italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTG2" #Falling from major to regional
+			trigger = {
+			    has_country_flag = major_italian_power
+				has_country_modifier = regional_italian_power
+		    }
+			custom_tooltip = italian_power_regional
+			add_prestige = -5
+			set_country_flag = regional_italian_power
+			clr_country_flag = major_italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTH2" #Falling from regional to local
+			trigger = {
+			    has_country_flag = regional_italian_power
+				has_country_modifier = local_italian_power
+		    }
+			custom_tooltip = italian_power_local
+			add_prestige = -4
+			set_country_flag = local_italian_power
+			clr_country_flag = regional_italian_power
+		}
+		
+		####Exceptional rise and fall - RISE#### Call me Cesar!
+		
+		option = {
+			name = "italian_power.EVTOPTI2" #Rising from local to major
+			trigger = {
+			    has_country_flag = local_italian_power
+				has_country_modifier = major_italian_power
+		    }
+			custom_tooltip = italian_power_major
+			add_prestige = 10
+			set_country_flag = major_italian_power
+			clr_country_flag = local_italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTI2" #Rising from local to dominant
+			trigger = {
+			    has_country_flag = local_italian_power
+				has_country_modifier = dominant_italian_power
+		    }
+			custom_tooltip = italian_power_dominant
+			add_prestige = 15
+			set_country_flag = dominant_italian_power
+			clr_country_flag = local_italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTI2" #Rising from local to menacing
+			trigger = {
+			    has_country_flag = local_italian_power
+				has_country_modifier = menacing_italian_power
+		    }
+			custom_tooltip = italian_power_menacing
+			add_prestige = 20
+			set_country_flag = menacing_italian_power
+			clr_country_flag = local_italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTI2" #Rising from regional to dominant
+			trigger = {
+			    has_country_flag = regional_italian_power
+				has_country_modifier = dominant_italian_power
+		    }
+			custom_tooltip = italian_power_dominant
+			add_prestige = 10
+			set_country_flag = dominant_italian_power
+			clr_country_flag = regional_italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTI2" #Rising from regional to menacing
+			trigger = {
+			    has_country_flag = regional_italian_power
+				has_country_modifier = menacing_italian_power
+		    }
+			custom_tooltip = italian_power_menacing
+			add_prestige = 15
+			set_country_flag = menacing_italian_power
+			clr_country_flag = regional_italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTI2" #Rising from major to menacing
+			trigger = {
+			    has_country_flag = major_italian_power
+				has_country_modifier = menacing_italian_power
+		    }
+			custom_tooltip = italian_power_menacing
+			add_prestige = 10
+			set_country_flag = menacing_italian_power
+			clr_country_flag = major_italian_power
+		}
+		
+		####Exceptional rise and fall - FALL#### ... aut nihil?
+		
+		option = {
+			name = "italian_power.EVTOPTJ2" #Falling from menacing to major
+			trigger = {
+			    has_country_flag = menacing_italian_power
+				has_country_modifier = major_italian_power
+		    }
+			custom_tooltip = italian_power_major
+			add_prestige = -10
+			set_country_flag = major_italian_power
+			clr_country_flag = menacing_italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTJ2" #Falling from menacing to regional
+			trigger = {
+			    has_country_flag = menacing_italian_power
+				has_country_modifier = regional_italian_power
+		    }
+			custom_tooltip = italian_power_regional
+			add_prestige = -15
+			set_country_flag = regional_italian_power
+			clr_country_flag = menacing_italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTJ2" #Falling from menacing to local
+			trigger = {
+			    has_country_flag = menacing_italian_power
+				has_country_modifier = local_italian_power
+		    }
+			custom_tooltip = italian_power_local
+			add_prestige = -20
+			set_country_flag = local_italian_power
+			clr_country_flag = menacing_italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTJ2" #Falling from dominant to regional
+			trigger = {
+			    has_country_flag = dominant_italian_power
+				has_country_modifier = regional_italian_power
+		    }
+			custom_tooltip = italian_power_regional
+			add_prestige = -10
+			set_country_flag = regional_italian_power
+			clr_country_flag = dominant_italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTJ2" #Falling from dominant to local
+			trigger = {
+			    has_country_flag = dominant_italian_power
+				has_country_modifier = local_italian_power
+		    }
+			custom_tooltip = italian_power_local
+			add_prestige = -15
+			set_country_flag = local_italian_power
+			clr_country_flag = dominant_italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTJ2" #Falling from major to local
+			trigger = {
+			    has_country_flag = major_italian_power
+				has_country_modifier = local_italian_power
+		    }
+			custom_tooltip = italian_power_local
+			add_prestige = -10
+			set_country_flag = local_italian_power
+			clr_country_flag = major_italian_power
+		}
+}
+
+###New Italian power (also welcome message)
+
+country_event = { 
+
+	id = italian_power.3
+	title = "italian_power.EVTNAME1"
+	desc = "italian_power.EVTDESC1"
+	picture = ITALIAN_POWER_eventPicture
+
+	trigger = {
+	    NOT = { has_country_flag = italian_power }
+	    OR = {
+		    has_country_modifier = local_italian_power
+			has_country_modifier = regional_italian_power
+			has_country_modifier = major_italian_power
+			has_country_modifier = dominant_italian_power
+			has_country_modifier = menacing_italian_power
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+		option = {
+			name = "italian_power.EVTOPTA3" #Not titles make men illustrious, but men make titles illustrious.
+			trigger = { has_country_modifier = local_italian_power }
+			custom_tooltip = italian_power_local
+			add_prestige = 1
+			set_country_flag = local_italian_power
+			set_country_flag = italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTA2" #Every one sees what you appear to be, few really know what you are.
+			trigger = { has_country_modifier = regional_italian_power } 
+			custom_tooltip = italian_power_regional
+			add_prestige = 2
+			set_country_flag = regional_italian_power
+			set_country_flag = italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTB2" #One must be a fox to recognize traps, and a lion to frighten wolves.
+			trigger = { has_country_modifier = major_italian_power } 
+			custom_tooltip = italian_power_major
+			add_prestige = 3
+			set_country_flag = major_italian_power
+			set_country_flag = italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTC2" #It is far safer to be feared than loved.
+			trigger = { has_country_modifier = dominant_italian_power } 
+			custom_tooltip = italian_power_dominant
+			add_prestige = 4
+			set_country_flag = dominant_italian_power
+			set_country_flag = italian_power
+		}
+		
+		option = {
+			name = "italian_power.EVTOPTD2" #Armed prophets have been victorious, unarmed prophets have been destroyed.
+			trigger = { has_country_modifier = menacing_italian_power }
+			custom_tooltip = italian_power_menacing
+			add_prestige = 5
+			set_country_flag = menacing_italian_power
+			set_country_flag = italian_power
+		}
+}
+
+###Not an Italian power anymore
+country_event = { 
+
+	id = italian_power.4
+	title = "italian_power.EVTNAME4"
+	desc = "italian_power.EVTDESC4"
+	picture = ITALIAN_POWER_eventPicture
+
+	trigger = {
+		has_country_flag = italian_power
+		NOT = { has_country_modifier = local_italian_power }
+		NOT = { has_country_modifier = regional_italian_power }
+		NOT = { has_country_modifier = major_italian_power }
+		NOT = { has_country_modifier = dominant_italian_power }
+		NOT = { has_country_modifier = menacing_italian_power }
+	}
+	
+	immediate = { clr_country_flag = italian_power }
+
+	mean_time_to_happen = { months = 1 }
+
+	option = {
+		name = "italian_power.EVTOPTA4" #Va pensiero...
+		add_prestige = -5
+		clr_country_flag = local_italian_power
+		clr_country_flag = regional_italian_power
+		clr_country_flag = major_italian_power
+		clr_country_flag = dominant_italian_power
+		clr_country_flag = menacing_italian_power
+	}
+}
+
+###Italian power founded
+
+country_event = { 
+
+	id = italian_power.5
+	title = "italian_power.EVTNAME5"
+	desc = "italian_power.EVTDESC5"
+	picture = ITALIAN_POWER_eventPicture
+
+	trigger = {
+		has_country_flag = italian_power
+		OR = {
+			exists = ITA
+			exists = ROM 
+			exists = LAE
+			exists = PQR
+			PAP = { has_country_modifier = kingdom_of_god }
+			tag = HLR
+		}
+	}
+	
+	immediate = { clr_country_flag = italian_power }
+
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "italian_power.EVTOPTA5" #Italian politics have changed dramatically
+		clr_country_flag = local_italian_power
+		clr_country_flag = regional_italian_power
+		clr_country_flag = major_italian_power
+		clr_country_flag = dominant_italian_power
+		clr_country_flag = menacing_italian_power
+		remove_country_modifier = local_italian_power
+		remove_country_modifier = regional_italian_power
+		remove_country_modifier = major_italian_power
+		remove_country_modifier = dominant_italian_power
+		remove_country_modifier = menacing_italian_power
+	}
+}

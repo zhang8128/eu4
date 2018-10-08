@@ -1,0 +1,6 @@
+# Dead Sea
+#Province IDs changed
+discovered_by = indopersian
+discovered_by = western
+discovered_by = scandinavian_tech
+discovered_by = byzantine

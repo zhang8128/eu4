@@ -1,0 +1,10 @@
+#Lineyny Korabl
+#model = twodecker
+#tech_level = 38
+type = heavy_ship
+unit_type = eastern
+
+hull_size = 42
+base_cannons = 66
+sail_speed = 5
+sailors = 700

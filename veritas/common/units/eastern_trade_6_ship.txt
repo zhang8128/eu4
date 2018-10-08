@@ -1,0 +1,11 @@
+#Koch
+#model = merchantman
+#tech_level = 40
+type = light_ship
+unit_type = eastern
+
+hull_size = 14
+base_cannons = 14
+sail_speed = 8
+trade_power = 5.0
+sailors = 50

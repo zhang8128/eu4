@@ -1,0 +1,26 @@
+# Suzhou
+
+capital = "Suzhou"
+owner = YUN
+controller = YUN
+add_core = YUN
+culture = chihan
+religion = confucianism
+trade_goods = silk
+base_tax = 5
+base_production = 5
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = chinese
+discovered_by = niitaka
+
+extra_cost = 10
+add_permanent_province_modifier = { name = yangtze_estuary_modifier duration = -1 }
+
+1356.8.1   = { owner = CZH controller = CZH add_core = CZH remove_core = YUN add_core = MNG }
+1367.10.1  = { owner = MNG controller = MNG }	# Suzhou falls and Zhou is defeated
+1645.9.9 = { controller = QNG }
+1661.6.1 = {	owner = QNG controller = QNG add_core = QNG remove_core = MNG } # The Qing Dynasty
+1675.1.1 = { controller = MNG }
+1680.1.1 = { controller = QNG }

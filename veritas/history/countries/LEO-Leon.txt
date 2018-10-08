@@ -1,0 +1,12 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+primary_culture = leonese
+add_accepted_culture = andalucian
+add_accepted_culture = castillian
+religion = catholic
+technology_group = western
+historical_friend = CAS
+historical_rival = GRA
+capital = 79 # Leon
+
+# Personal Union with Castille

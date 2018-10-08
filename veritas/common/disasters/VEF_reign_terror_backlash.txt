@@ -1,0 +1,46 @@
+# Response to a Reign of Terror
+# DO NOT ADJUST THESE VALUES WITHOUT SPECIFIC PERMISSION FROM RIVTALDM; IT IS INTENDED
+# THAT THIS IS UNAVOIDABLE IF YOU ACTIVATE THE POLICY (5-8 YEARS INTO THE POLICY)
+
+reign_terror_backlash = {
+	potential = {
+		has_active_policy = vef_reign_terror
+		NOT = { has_disaster = revolution }
+	}
+
+	can_start = {
+		has_active_policy = vef_reign_terror
+	}
+	
+	can_stop = { NOT = { has_active_policy = vef_reign_terror }}
+	
+	progress = {
+		modifier = {
+			factor = 1.25
+			has_active_policy = vef_reign_terror
+		}
+	}
+	
+	
+	can_end = {
+		NOT = { has_active_policy = vef_reign_terror }
+	}
+
+	modifier = {
+		stability_cost_modifier = 0.50
+		global_manpower_modifier = -0.25
+		global_autonomy = -0.33
+		global_unrest = 10
+	}
+
+	on_start = vef_terror.201
+	on_end = vef_terror.202
+	
+	on_monthly = {
+		events = {
+		}
+		random_events = { 
+			1000 = 0
+		}
+	}
+}

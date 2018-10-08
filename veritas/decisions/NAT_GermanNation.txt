@@ -1,0 +1,122 @@
+country_decisions = {
+
+	german_nation = {
+		major = yes
+		potential = {
+			culture_group = germanic
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { primary_culture = austrian }
+			NOT = { primary_culture = swiss }
+			NOT = { primary_culture = dutch }
+			NOT = { primary_culture = flemish }
+			NOT = { primary_culture = frysk }
+			NOT = { exists = GER }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 15
+					adm_tech = 36
+				}
+			}
+			OR = {
+				ai = no
+				NOT = { government = theocracy }
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			adm_tech = 36
+			is_emperor = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { region = south_german_region }
+						AND = {
+							region = south_german_region
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_sgermany
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { region = north_german_region }
+						AND = {
+							region = north_german_region
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_ngermany
+			}
+			owns_core_province = 379	# Hamburg
+			owns_core_province = 372	# Rostock
+			owns_core_province = 358	# Brandenburg
+			owns_core_province = 346	# Brunswick
+			owns_core_province = 351	# Sachsen
+			owns_core_province = 348	# Thuringen
+			owns_core_province = 321	# Nurnberg
+			owns_core_province = 308	# Munich
+			owns_core_province = 332	# Hessen
+			owns_core_province = 336	# Köln
+			owns_core_province = 326	# Worms
+			owns_core_province = 309	# Augsburg
+			owns_core_province = 331	# Frankfurt
+			OR = {
+				owns_core_province = 457	# Königsberg
+				owns_core_province = 319	# Strassburg
+			}
+		}
+		effect = {
+			change_tag = GER
+			if = {
+				limit = { is_part_of_hre = yes }
+				emperor = {
+					add_opinion = {
+						who = ROOT
+						modifier = opinion_left_empire
+					}
+				}
+				set_in_empire = no
+				emperor = { country_event = { id = hre_event.5 } }
+			}
+			if = {
+				limit = { NOT = { government_rank = 4 } }
+				set_government_rank = 4
+			}
+			south_german_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = GER
+			}
+			north_german_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = GER
+			}
+			add_prestige = 25
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+}

@@ -1,0 +1,191 @@
+government = monarchy
+add_government_reform = shogunate
+government_rank = 2
+primary_culture = japanese
+religion = shinto
+secondary_religion = mahayana
+technology_group = niitaka
+capital = 962	#Suruga
+
+1301.1.1 = {
+	monarch = {
+		name = "Morotoki"
+		dynasty = "Hojo"
+		birth_date = 1275.1.1
+		adm = 3
+		dip = 3
+		mil = 3	
+	}
+}
+
+1311.11.3 = {
+	monarch = {
+		name = "Munenobu"
+		dynasty = "Hojo"
+		birth_date = 1259.1.1
+		adm = 3
+		dip = 3
+		mil = 3	
+	}
+}
+
+1312.7.16 = {
+	monarch = {
+		name = "Hirotoki"
+		dynasty = "Hojo"
+		birth_date = 1279.1.1
+		adm = 3
+		dip = 3
+		mil = 3	
+	}
+}
+
+1315.8.18 = {
+	monarch = {
+		name = "Mototoki"
+		dynasty = "Hojo"
+		birth_date = 1286.1.1
+		adm = 3
+		dip = 3
+		mil = 3	
+	}
+}
+
+1318.1.1 = {
+	monarch = {
+		name = "Takatoki"
+		dynasty = "Hojo"
+		birth_date = 1303.1.1
+		adm = 3
+		dip = 3
+		mil = 3	
+	}
+}
+
+1326.4.19 = {
+	monarch = {
+		name = "Sadaaki"
+		dynasty = "Hojo"
+		birth_date = 1278.1.1
+		adm = 3
+		dip = 3
+		mil = 3	
+	}
+}
+
+1329.4.29 = {
+	monarch = {
+		name = "Moritoki"
+		dynasty = "Hojo"
+		birth_date = 1295.1.1
+		adm = 3
+		dip = 3
+		mil = 3	
+	}
+}
+
+1333.1.1 = { government = monarchy add_government_reform = daimyo }
+
+1490.1.1 = {
+	monarch = {
+		name = "Soun" # 1453 - 1519 
+		dynasty = "Hojo"
+#		birth_date = 1453.1.1
+#		death_date = 1519.9.18
+		adm = 5
+		dip = 4
+		mil = 5
+	}
+}
+
+1490.1.1 = {
+	heir = {
+		name = "Ujitsuna"
+		monarch_name = "Ujitsuna"
+		dynasty = "Hojo"
+		birth_date = 1487.1.1
+		death_date = 1541.8.10
+		claim = 90
+		adm = 5
+		dip = 4
+		mil = 4
+	}
+}
+	
+1519.9.18 = { 
+	monarch = {
+		name = "Ujitsuna"
+		dynasty = "Hojo"
+#		birth_date = 1487.1.1
+#		death_date = 1541.8.10
+		adm = 5
+		dip = 4
+		mil = 4
+	}
+}
+
+1519.9.18 = {
+	heir = {
+		name = "Ujiyasu"
+		monarch_name = "Ujiyasu"
+		dynasty = "Hojo"
+		birth_date = 1515.1.1
+		death_date = 1571.10.21
+		claim = 90
+		adm = 5
+		dip = 5
+		mil = 5
+	}
+}
+
+1541.4.15 = { 
+	monarch = {
+		name = "Ujiyasu"
+		dynasty = "Hojo"
+#		birth_date = 1515.1.1
+#		death_date = 1571.10.21
+		adm = 5
+		dip = 5
+		mil = 5
+	}
+}
+
+1541.4.15 = {
+	heir = {
+		name = "Ujimasa"
+		monarch_name = "Ujimasa"
+		dynasty = "Hojo"
+		birth_date = 1538.1.1
+		death_date = 1590.8.10
+		claim = 90
+		adm = 4
+		dip = 3
+		mil = 3
+	}
+}
+
+1571.10.21 = { 
+	monarch = {
+		name = "Ujimasa"
+		dynasty = "Hojo"
+#		birth_date = 1538.1.1
+#		death_date = 1590.8.10
+		adm = 4
+		dip = 3
+		mil = 3
+	}
+}
+
+1571.10.21 = {
+	heir = {
+		name = "Ujinao"
+		monarch_name = "Ujinao"
+		dynasty = "Hojo"
+		birth_date = 1562.1.1
+		death_date = 1591.12.19
+		claim = 90
+		adm = 4
+		dip = 3
+		mil = 3
+	}
+}

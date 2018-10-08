@@ -1,0 +1,127 @@
+# Geography...
+natural_harbor = {
+	province_trade_power_value = 5
+	naval_forcelimit = 0.5
+	local_colonial_growth = 10
+	picture = "natural_harbor_icon"
+}
+
+# Important center of trade
+lesser_center_of_trade = {
+	local_institution_spread = 0.10
+	province_trade_power_value = 5
+	naval_forcelimit = 1
+	picture = "province_trade_power_value"
+}
+
+major_center_of_trade = {
+	local_institution_spread = 0.10
+	province_trade_power_value = 15
+	naval_forcelimit = 1
+	local_development_cost = -0.05
+	picture = "major_center_of_trade"
+}
+
+dessert_oasis = {
+	province_trade_power_value = 3
+	local_friendly_movement_speed = -0.25
+	local_hostile_movement_speed = -0.25
+	allowed_num_of_buildings = -1
+	picture = "climate_arid"
+}
+
+trading_port = {
+	local_institution_spread = 0.05
+	province_trade_power_value = 3
+	local_colonial_growth = 5
+	picture = "natural_harbor_icon"
+}
+
+
+# Important river estuaries
+salween_estuary_modifier = {
+	province_trade_power_value = 10
+	picture = "estuary_icon"
+}
+
+chao_phraya_estuary_modifier = {
+	province_trade_power_value = 10
+	picture = "estuary_icon"
+}
+
+nile_delta = {	#two provinces
+	province_trade_power_value = 5
+	picture = "delta_icon"
+}
+
+rhine_delta = {
+	province_trade_power_value = 10
+	picture = "delta_icon"
+}
+
+tigris_euphrates_delta = {
+	province_trade_power_value = 10
+	picture = "delta_icon"
+}
+
+irrawaddy_delta = {	#Split over 2 provinces
+	province_trade_power_value = 5
+	picture = "estuary_icon"
+}
+
+rock_of_gibraltar = {
+	local_defensiveness = 0.75
+	local_hostile_attrition = 1
+	picture = "gibraltar_icon"
+}
+
+himalayas = {
+	local_defensiveness = 1.0
+	local_hostile_attrition = 5
+	local_hostile_movement_speed = -0.30
+	picture = "mountain_icon"
+}
+
+the_alps = {
+	local_defensiveness = 0.5
+	local_hostile_attrition = 3
+	local_hostile_movement_speed = -0.15
+	picture = "mountain_icon"
+}
+
+the_pyrenees = {
+	local_defensiveness = 0.4
+	local_hostile_attrition = 2
+	local_hostile_movement_speed = -0.10
+	picture = "mountain_icon"
+}
+
+venetian_lagoon = {
+	local_hostile_attrition = 2
+	local_defensiveness = 0.3
+	picture = "venetian_lagoon"
+}
+
+port_of_murmansk = {
+	range = 0.5
+	trade_range_modifier = 0.5
+	naval_forcelimit_modifier = 0.20
+}
+
+med_islands = {
+	local_defensiveness = 0.25
+	local_hostile_attrition = 4
+	picture = "island_icon"
+}
+
+ligurian_sea = {
+	province_trade_power_value = 5
+	naval_forcelimit = 1.5
+	picture = "major_center_of_trade"
+}
+
+port_of_suez = {
+	province_trade_power_value = 10
+	naval_forcelimit = 1
+	picture = "province_trade_power_value"
+}

@@ -1,0 +1,463 @@
+###############
+# Population #
+##############
+
+namespace = vef_growth
+
+# Compare base tax/prod against man for boost (wealthier/more developed provinces grow faster )
+# vef_dev_cost in place of local_development_cost modifier (PDX locks modifier to the DLC)
+# base_(manpower/production/tax) grows when the value corresponding reaches 100
+
+#Growth Events
+#vef_growth.1 5-year Growth Event
+#vef_growth.2 20-year factor calculations
+#vef_growth.3 Set off calculations just before 1370
+
+#THE EVENT
+country_event = {
+	id = vef_growth.1
+	title = "vef_growth.1.t"
+	desc = "vef_growth.1.d"
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	is_triggered_only = yes	#on_action/Five-year pulse
+	
+	hidden = yes
+	
+	trigger = {
+		NOT = { REB = { has_country_modifier = population_event }}
+		is_year = 1370
+		ai = yes
+	}
+	
+	immediate = {
+		REB = { add_country_modifier = { name = population_event duration = 1800 }}
+		every_province = {
+			limit = { is_city = yes NOT = { has_building = trading_post_building }}
+			if = {
+				limit = { check_variable = { which = vef_dev_cost value = 0 }}
+				if = {
+					limit = { NOT = { check_variable = { which = crown_ownership value = 3 }}}
+					random_list = {
+						50 = {
+							change_variable = { which = tax_growth value = 5 }
+							change_variable = { which = prod_growth value = 5 }
+							change_variable = { which = man_growth value = 5 }
+						}
+						30 = {
+							change_variable = { which = tax_growth value = 4 }
+							change_variable = { which = prod_growth value = 4 }
+							change_variable = { which = man_growth value = 4 }
+						}
+						20 = {
+							change_variable = { which = tax_growth value = 6 }
+							change_variable = { which = prod_growth value = 6 }
+							change_variable = { which = man_growth value = 6 }
+						}
+					}
+					else = {
+						change_variable = { which = tax_growth value = 3 }
+						change_variable = { which = prod_growth value = 3 }
+						change_variable = { which = man_growth value = 3 }
+					}
+				}
+				if = {
+					limit = { check_variable = { which = vef_dev_cost value = 20 }}
+					change_variable = { which = tax_growth value = -1 }
+					change_variable = { which = prod_growth value = -1 }
+					change_variable = { which = man_growth value = -1 }
+					if = {
+						limit = { check_variable = { which = vef_dev_cost value = 40 }}
+						change_variable = { which = tax_growth value = -1 }
+						change_variable = { which = prod_growth value = -1 }
+						change_variable = { which = man_growth value = -1 }
+						if = {
+							limit = { check_variable = { which = vef_dev_cost value = 60 }}
+							change_variable = { which = tax_growth value = -1 }
+							change_variable = { which = prod_growth value = -1 }
+							change_variable = { which = man_growth value = -1 }
+							if = {
+								limit = { check_variable = { which = vef_dev_cost value = 80 }}
+								change_variable = { which = tax_growth value = -1 }
+								change_variable = { which = prod_growth value = -1 }
+								change_variable = { which = man_growth value = -1 }
+							}
+						}
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = { NOT = { check_variable = { which = crown_ownership value = 3 }}}
+					random_list = {
+						50 = {
+							change_variable = { which = tax_growth value = 5 }
+							change_variable = { which = prod_growth value = 5 }
+							change_variable = { which = man_growth value = 5 }
+						}
+						30 = {
+							change_variable = { which = tax_growth value = 4 }
+							change_variable = { which = prod_growth value = 4 }
+							change_variable = { which = man_growth value = 4 }
+						}
+						20 = {
+							change_variable = { which = tax_growth value = 6 }
+							change_variable = { which = prod_growth value = 6 }
+							change_variable = { which = man_growth value = 6 }
+						}
+					}
+					else = {
+						change_variable = { which = tax_growth value = 3 }
+						change_variable = { which = prod_growth value = 3 }
+						change_variable = { which = man_growth value = 3 }
+					}
+				}
+				if = {
+					limit = { NOT = {  check_variable = { which = vef_dev_cost value = -20 }}}
+					change_variable = { which = tax_growth value = 1 }
+					change_variable = { which = prod_growth value = 1 }
+					change_variable = { which = man_growth value = 1 }
+					if = {
+						limit = { NOT = {  check_variable = { which = vef_dev_cost value = -40 }}}
+						change_variable = { which = tax_growth value = 1 }
+						change_variable = { which = prod_growth value = 1 }
+						change_variable = { which = man_growth value = 1 }
+						if = {
+							limit = { NOT = {  check_variable = { which = vef_dev_cost value = -60 }}}
+							change_variable = { which = tax_growth value = 1 }
+							change_variable = { which = prod_growth value = 1 }
+							change_variable = { which = man_growth value = 1 }
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = { check_variable = { which = crown_ownership value = 3 }}
+					check_variable = { which = vef_growth_boost value = 1 }
+				}
+				change_variable = { which = tax_growth value = 1 }
+				change_variable = { which = prod_growth value = 1 }
+				change_variable = { which = man_growth value = 1 }
+				if = {
+					limit = { check_variable = { which = vef_growth_boost value = 2 }}
+					change_variable = { which = tax_growth value = 1 }
+					change_variable = { which = prod_growth value = 1 }
+					change_variable = { which = man_growth value = 1 }
+					if = {
+						limit = { check_variable = { which = vef_growth_boost value = 3 }}
+						change_variable = { which = tax_growth value = 1 }
+						change_variable = { which = prod_growth value = 1 }
+						change_variable = { which = man_growth value = 1 }
+						if = {
+							limit = { check_variable = { which = vef_growth_boost value = 4 }}
+							change_variable = { which = tax_growth value = 1 }
+							change_variable = { which = prod_growth value = 1 }
+							change_variable = { which = man_growth value = 1 }
+							if = {
+								limit = { check_variable = { which = vef_growth_boost value = 5 }}
+								change_variable = { which = tax_growth value = 1 }
+								change_variable = { which = prod_growth value = 1 }
+								change_variable = { which = man_growth value = 1 }
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = crown_ownership value = 3 }}}
+				if = {
+					limit = { any_province_in_state = { has_building = town_hall base_tax = PREV }}
+					change_variable = { which = tax_growth value = 1 }
+				}
+				if = {
+					limit = { any_province_in_state = { has_building = town_hall base_production = PREV }}
+					change_variable = { which = prod_growth value = 1 }
+				}
+				if = {
+					limit = { any_province_in_state = { has_building = town_hall base_manpower = PREV }}
+					change_variable = { which = man_growth value = 1 }
+				}
+			}
+			if = {
+				limit = { base_tax = 20 } #MAX
+				set_variable = { which = tax_growth value = 1 }
+			}
+			if = {
+				limit = { base_production = 20 } #MAX
+				set_variable = { which = prod_growth value = 1 }
+			}
+			if = {
+				limit = { base_manpower = 20 } #MAX
+				set_variable = { which = man_growth value = 1 }
+			}
+			if = {
+				limit = { check_variable = { which = tax_growth value = 100 }}
+				add_base_tax = 1
+				set_variable = { which = tax_growth value = 1 }
+			}
+			if = {
+				limit = { check_variable = { which = prod_growth value = 100 }}
+				add_base_production = 1
+				set_variable = { which = prod_growth value = 1 }
+			}
+			if = {
+				limit = { check_variable = { which = man_growth value = 100 }}
+				add_base_manpower = 1
+				set_variable = { which = man_growth value = 1 }
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = tax_growth value = 0 }}}
+				set_variable = { which = tax_growth value = 1 }
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = prod_growth value = 0 }}}
+				set_variable = { which = prod_growth value = 1 }
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = man_growth value = 0 }}}
+				set_variable = { which = man_growth value = 1 }
+			}
+		}
+	}
+		
+	option = {
+		name = "vef_growth.1.opta"
+		if = {
+			limit = { has_global_flag = growth_pulse_3 }
+			clr_global_flag = growth_pulse_3
+			set_global_flag = growth_pulse_0
+			country_event = { id = vef_growth.2 }
+		}
+		if = {
+			limit = { has_global_flag = growth_pulse_2 }
+			clr_global_flag = growth_pulse_2
+			set_global_flag = growth_pulse_3
+		}
+		if = {
+			limit = { has_global_flag = growth_pulse_1 }
+			clr_global_flag = growth_pulse_1
+			set_global_flag = growth_pulse_2
+		}
+		if = {
+			limit = { has_global_flag = growth_pulse_0 }
+			clr_global_flag = growth_pulse_0
+			set_global_flag = growth_pulse_1
+		}
+	}
+ }
+ 
+ #20-year factor calculation
+ country_event = {
+	id = vef_growth.2
+	title = "vef_growth.2.t"
+	desc = "vef_growth.2.d"
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	is_triggered_only = yes #vef_growth.1
+	
+	hidden = yes
+
+	immediate = {
+		every_province = {
+			export_to_variable = { which = vef_tax_track value = base_tax }
+			export_to_variable = { which = vef_prd_track value = base_production }
+			export_to_variable = { which = vef_man_track value = base_manpower }
+			set_variable = { which = vef_growth_boost which = vef_tax_track }
+			change_variable = { which = vef_growth_boost which = vef_prd_track }
+			subtract_variable = { which = vef_growth_boost which = vef_man_track }	#Yes, I'm doing this twice.  Don't touch it!
+			subtract_variable = { which = vef_growth_boost which = vef_man_track }	#Yes, I'm doing this twice.  Don't touch it!
+			set_variable = { which = vef_dev_cost value = 0 }
+			trigger_switch = {
+				on_trigger = has_climate
+				tropical = { change_variable = { which = vef_dev_cost value = 15 } }
+				arctic = { change_variable = { which = vef_dev_cost value = 50 } }
+				arid = { change_variable = { which = vef_dev_cost value = 15 } }
+			}
+			trigger_switch = {
+				on_trigger = has_terrain
+				farmlands = { change_variable = { which = vef_dev_cost value = -5 } }
+				forest = { change_variable = { which = vef_dev_cost value = 20 } }
+				hills = { change_variable = { which = vef_dev_cost value = 25 } }
+				woods = { change_variable = { which = vef_dev_cost value = 15 } }
+				mountain = { change_variable = { which = vef_dev_cost value = 50 } }
+				jungle = { change_variable = { which = vef_dev_cost value = 35 } }
+				marsh = { change_variable = { which = vef_dev_cost value = 25 } }
+				highlands = { change_variable = { which = vef_dev_cost value = 20 } }
+				savannah = { change_variable = { which = vef_dev_cost value = 15 } }
+				drylands = { change_variable = { which = vef_dev_cost value = 5 } }
+				steppe = { change_variable = { which = vef_dev_cost value = 20 } }
+				coastline = { change_variable = { which = vef_dev_cost value = 25 } }
+				desert = { change_variable = { which = vef_dev_cost value = 35 } }
+				coastal_desert = { change_variable = { which = vef_dev_cost value = 25 } }
+				glacier = { change_variable = { which = vef_dev_cost value = 50 } }
+			}
+			trigger_switch = {
+				on_trigger = has_building
+				light_serfdom = { change_variable = { which = vef_dev_cost value = 20 } }
+				moderate_serfdom = { change_variable = { which = vef_dev_cost value = 40 } }
+				heavy_serfdom = { change_variable = { which = vef_dev_cost value = 60 } }
+			}
+			trigger_switch = {
+				on_trigger = has_building
+				seminary = { change_variable = { which = vef_dev_cost value = -10 } }
+				college = { change_variable = { which = vef_dev_cost value = -15 } }
+				university = { change_variable = { which = vef_dev_cost value = -20 } }
+			}
+			trigger_switch = {
+				on_trigger = trade_goods
+				cloth = { change_variable = { which = vef_dev_cost value = -10 }}
+				cotton = { change_variable = { which = vef_dev_cost value = -10 }}
+			}
+			trigger_switch = {
+				on_trigger = has_province_modifier
+				rm_light_levies = { change_variable = { which = vef_dev_cost value = -10 }}
+				rm_harsh_levies = { change_variable = { which = vef_dev_cost value = 10 }}
+			}
+			trigger_switch = {
+				on_trigger = has_province_modifier
+				rm_light_taxes = { change_variable = { which = vef_dev_cost value = -10 }}
+				rm_harsh_taxes = { change_variable = { which = vef_dev_cost value = 10 }}
+			}
+			if = {
+				limit = { has_owner_culture = yes }
+				change_variable = { which = vef_dev_cost value = -20 }
+			}
+			if = {
+				limit = { has_owner_accepted_culture = yes }
+				change_variable = { which = vef_dev_cost value = -10 }
+			}
+			if = {
+				limit = { NOT = { tolerance_to_this = -1 }}
+				change_variable = { which = vef_dev_cost value = 10 }
+				if = {
+					limit = { NOT = { tolerance_to_this = -2 }}
+					change_variable = { which = vef_dev_cost value = 20 }
+				}
+			}
+			trigger_switch = {
+				on_trigger = tolerance_to_this
+				2 = { change_variable = { which = vef_dev_cost value = -30 } }
+				1 = { change_variable = { which = vef_dev_cost value = -15 } }
+				0 = { change_variable = { which = vef_dev_cost value = -5 } }
+			}
+			if = {
+				limit = { has_active_policy = vef_productionsb }
+				change_variable = { which = vef_dev_cost value = -10 }
+			}
+			if = {
+				limit = { has_province_modifier = center_of_trade_modifier }
+				change_variable = { which = vef_growth_boost value = 1 }
+			}
+			if = {
+				limit = { has_province_modifier = inland_center_of_trade_modifier }
+				change_variable = { which = vef_growth_boost value = 1 }
+			}
+			if = {
+				limit = { has_province_modifier = important_natural_harbor }
+				change_variable = { which = vef_growth_boost value = 1 }
+			}
+			# Byzanitum growth increased after restoration; but not in Fantasia!
+			if = {
+				limit = {
+					province_id = 588
+					owner = { has_country_flag = byzantium_restored }
+					NOT = { has_global_flag = veritas_fantasia }
+				}
+				change_variable = { which = vef_dev_cost value = -50 }
+			}
+		}
+		every_country = {
+			trigger_switch = {
+				on_trigger = tag
+				NED = { if = { limit = { has_idea = polders } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				HOL = { if = { limit = { has_idea = polders } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				BAV = { if = { limit = { full_idea_group = BAV_ideas } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				LBV = { if = { limit = { full_idea_group = BAV_ideas } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				UBV = { if = { limit = { full_idea_group = BAV_ideas } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				NAP = { if = { limit = { has_idea = encouraged_city_living } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				SCL = { if = { limit = { has_idea = encouraged_city_living } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				MLO = { if = { limit = { has_idea = lowered_power_of_barons } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				ASS = { if = { limit = { has_idea = wet_rice_cultivation } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				TUS = { if = { limit = { has_idea_group = TUS_ideas } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				MDI = { if = { limit = { has_idea = city_of_mogadishu } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				AJU = { if = { limit = { has_idea = aju_hydraulic_empire } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				KAR = { if = { limit = { has_idea = karamanid_architecture } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				PLT = { if = { limit = { has_idea = forest_of_europe } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				INC = { if = { limit = { has_idea = mitma } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				JNP = { if = { limit = { has_idea = jaunpuri_architecture } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				ZAZ = { if = { limit = { has_idea = zaz_fort_builders } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				CND = { if = { limit = { has_idea = ismail_bey_complex } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				LNA = { if = { limit = { full_idea_group = LNA_ideas } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				PEG = { if = { limit = { full_idea_group = PEG_ideas } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				ZIM = { if = { limit = { full_idea_group = ZIM_ideas } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				ORM = { if = { limit = { has_idea = orm_develop_qeshm_and_ormuz } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				NZH = { if = { limit = { has_idea = nzh_crossroads_of_nations } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				DLI = { if = { limit = { has_idea = cdl_rice_terraces } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				LUB = { if = { limit = { has_idea = lub_lukasa_boards } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				PAT = { if = { limit = { has_idea = pat_canals } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				HSK = { if = { limit = { has_idea = hsk_horeki_reform } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				STK = { if = { limit = { has_idea = stk_mito_castle } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				SAX = { if = { limit = { has_idea_group = SAX_ideas } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				PRU = { if = { limit = { full_idea_group = PRU_ideas } every_owned_province = { change_variable = { which = vef_dev_cost value = -5 }}}}
+				OPO = { if = { limit = { has_idea = german_towns } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				LGN = { if = { limit = { has_idea = german_towns } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				GLO = { if = { limit = { has_idea = german_towns } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				SIL = { if = { limit = { has_idea = german_towns } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				RAT = { if = { limit = { has_idea = german_towns } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				WRO = { if = { limit = { has_idea = german_towns } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+				KSN = { if = { limit = { has_idea = hausan_economics } every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}}}
+			}
+			if = {
+				limit = { has_idea = oasis_of_peace_and_prosperity }
+				every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}
+			}
+			if = {
+				limit = { has_idea_group = colonial_ideas }
+				every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}
+			}
+			if = {
+				limit = { has_idea = mayan_building_traditions }
+				every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}
+			}
+			if = {
+				limit = { full_idea_group = economic_ideas }
+				every_owned_province = { change_variable = { which = vef_dev_cost value = -20 }}
+			}
+			if = {
+				limit = { has_idea = free_colonies }
+				every_owned_province = { change_variable = { which = vef_dev_cost value = -10 }}
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_growth.2.opta"
+	}
+}
+
+#Trigger vef_growth.2 just before pulses start
+country_event = {
+	id = vef_growth.3
+	title = "vef_growth.3.t"
+	desc = "vef_growth.3.d"
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	is_triggered_only = yes	#on_action/Five-year pulse
+	
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = { is_year = 1370 }
+		is_year = 1369
+		ai = yes
+	}
+	
+	immediate = { country_event = { id = vef_growth.2 }}
+	
+	option = {
+		name = "vef_growth.3.opta"
+	}
+}

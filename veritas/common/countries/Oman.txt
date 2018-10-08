@@ -1,0 +1,153 @@
+#Country Name: Please see filename.
+
+graphical_culture = muslimgfx
+
+color = { 98  134  153 }
+
+historical_idea_groups = {
+	free_trade_ideas
+	quantity_ideas
+	innovativeness_ideas
+	gf1_ideas
+	offensive_ideas
+	administrative_ideas
+	diplomatic_ideas
+	drafted_army_ideas
+}
+
+historical_units = {
+	muslim_artillery_10_1
+	muslim_artillery_16_1
+	muslim_artillery_23_1
+	muslim_artillery_29_1
+	muslim_artillery_35_1
+	muslim_artillery_40_1
+	muslim_artillery_44_1
+	muslim_artillery_48_1
+	muslim_artillery_52_1
+	muslim_artillery_55_1
+	muslim_artillery_55_2
+	muslim_cavalry_0_1
+	muslim_cavalry_0_2
+	muslim_cavalry_21_1
+	muslim_cavalry_21_2
+	muslim_cavalry_27_1
+	muslim_cavalry_31_1
+	muslim_cavalry_36_1
+	muslim_cavalry_40_1
+	muslim_cavalry_44_1
+	muslim_cavalry_48_1
+	muslim_cavalry_48_2
+	muslim_cavalry_51_1
+	muslim_cavalry_51_2
+	muslim_cavalry_55_1
+	muslim_cavalry_55_2
+	muslim_cavalry_58_1
+	muslim_cavalry_58_2
+	muslim_cavalry_16_1
+	muslim_cavalry_16_2
+	muslim_infantry_0_1
+	muslim_infantry_0_2
+	muslim_infantry_17_1
+	muslim_infantry_17_2
+	muslim_infantry_21_1
+	muslim_infantry_21_2
+	muslim_infantry_25_1
+	muslim_infantry_25_2
+	muslim_infantry_28_1
+	muslim_infantry_28_2
+	muslim_infantry_31_1
+	muslim_infantry_31_2
+	muslim_infantry_34_1
+	muslim_infantry_34_2
+	muslim_infantry_39_1
+	muslim_infantry_39_2
+	muslim_infantry_42_1
+	muslim_infantry_42_2
+	muslim_infantry_45_1
+	muslim_infantry_45_2
+	muslim_infantry_48_1
+	muslim_infantry_48_2
+	muslim_infantry_50_1
+	muslim_infantry_50_2
+	muslim_infantry_53_1
+	muslim_infantry_53_2
+	muslim_infantry_55_1
+	muslim_infantry_55_2
+	muslim_infantry_6_1
+	muslim_infantry_6_2
+	muslim_infantry_57_1
+	muslim_infantry_57_2
+	muslim_infantry_59_1
+	muslim_infantry_59_2
+	muslim_infantry_63_1
+	muslim_infantry_63_2
+	muslim_infantry_14_1
+	muslim_infantry_14_2
+}
+
+monarch_names = {
+	"Sulaymân #0" = 10
+	"'Umar #0" = 10
+	"Abu'l-Hasan #0" = 10
+	"Barakât #0" = 10
+	"Makhzûm #0" = 10
+	"Nabhân #0" = 10
+	"Nâsir #0" = 10
+	"Muhannâ #0" = 10
+	"Sâlim #0" = 10
+	"Sultân #0" = 30
+	"Ab'ul-Arab #0" = 10
+	"Sayf #0" = 20
+	"Muhammad #0" = 10
+	"Ya'rub #0" = 10
+	"Ahmad #0" = 10
+	
+	"Lujayn #0" = -1
+	"Ghanneyeh #0" = -3
+	"Ghaliya #0" = -3
+	"Ralie #0" = -3
+	"Fatimah #0" = -1
+	"Walida #0" = -1
+	"Tahani #0" = -1
+	"Safaa  #0" = -1
+	"Randa #0" = -1
+	"Qismah #0" = -1
+	"Nadirah #0" = -1
+	"Maram #0" = -1
+	"Layla #0" = -1
+	"Kamilah #0" = -1
+	"Jabirah #0" = -1
+	"Hudun #0" = -1
+	"Fadwa #0" = -1
+	"Daliyah #0" = -1
+	"Amirah #0" = -1
+	"Abal #0" = -1
+	"Nadiyya #0" = -1
+	"Norah #0" = -1
+	"Fahda #0" = -1
+}
+
+leader_names = {
+	Bazzi
+	Abbas
+	Moustafa
+	Moussa
+	Jomaa
+	Issa
+	Nasser
+	Sakr
+	Mourad
+	Khoury
+}
+
+ship_names = {
+	Masqat Matrah "Al-Hajar" "Ash-Sharqi" Sür
+	"Ra's Al-Hadd" Masirah "Al-Akhdar" "Al-Jabal"
+	"Al-Batinah" Nizwä "Al-Gharbi" "Wadi Aswad"
+	"Wadi Andam" "Wadi al-Bahta" "Ra's Abu Daud"
+	"Jabal ash-Shäm" "Ramlat al Wahibah" "Al-Hadd"
+	Tiwi Fins Ibrä Quraqqät "As-Sib" Sarür Maskin
+	Shinas Suhar "Al-Khaburah" Tan'am Dank
+	"Umm As-Samim" "Tur at Masirah" "Al-Huqf"
+}

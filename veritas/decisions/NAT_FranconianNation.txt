@@ -1,0 +1,86 @@
+country_decisions = {
+
+	franconian_nation = {
+		major = yes		
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			OR = {
+				primary_culture = eastfranconian
+				primary_culture = rhinefranconian
+			}
+			normal_or_historical_nations = yes
+			NOT = { exists = FRC }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = GER }
+			NOT = { tag = HLR }
+			NOT = { tag = WES }
+			NOT = { tag = HAN }
+		}		
+		allow = {
+			NOT = { tag = GER }
+			NOT = { tag = WES }
+			NOT = { tag = HAN }
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 321	# Nürnberg
+			321 = { NOT = { nationalism = 1 } }
+			owns_core_province = 325 	# Würzburg
+			325 = { NOT = { nationalism = 1 } }
+			owns_core_province = 327 	# Pfalz
+			327 = { NOT = { nationalism = 1 } }
+			owns_core_province = 332 	# Hessen
+			332 = { NOT = { nationalism = 1 } }			
+		}		
+		effect = {
+			change_tag = FRC
+			add_prestige = 25
+			if = {
+				limit = { government = monastic_order_government }
+				every_neighbor_country = {
+					limit = { government = monarchy }
+					add_opinion = { who = ROOT modifier = secularized_monastic_order }
+				}
+			}
+			if = {
+				limit = { government = theocracy }
+				every_neighbor_country = {
+					limit = { government = monarchy }
+					add_opinion = { who = ROOT modifier = secularized_bishopric }
+				}
+			}
+			if = {
+				limit = { government = theocracy }
+				change_government = monarchy
+				set_legacy_government = hereditary_monarchy
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = FRC_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+}

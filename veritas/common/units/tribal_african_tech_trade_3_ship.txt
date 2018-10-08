@@ -1,0 +1,11 @@
+#Kongolese Trade Sail Ship
+#model = barque
+#tech_level = 12
+type = light_ship
+unit_type = tribal_african_tech
+
+hull_size = 6
+base_cannons = 2
+sail_speed = 6
+trade_power = 0.9
+sailors = 30

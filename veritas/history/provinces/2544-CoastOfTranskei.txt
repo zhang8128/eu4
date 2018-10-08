@@ -1,0 +1,5 @@
+# Coast Of Transkei
+#Province IDs changed
+discovered_by = tribal_african_tech
+
+1497.12.25 = { discovered_by = POR }

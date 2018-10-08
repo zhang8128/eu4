@@ -1,0 +1,7 @@
+#Province IDs changed
+government = tribal add_government_reform = tribal_despotism
+government_rank = 3
+technology_group = tribal_african_tech
+primary_culture = chewa
+religion = bantu
+capital = 1871

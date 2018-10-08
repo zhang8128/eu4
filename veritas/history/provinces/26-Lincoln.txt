@@ -1,0 +1,46 @@
+# Lincoln
+
+capital = "Nottingham"
+owner = ENG
+controller = ENG
+add_core = ENG
+culture = english
+religion = catholic
+trade_goods = livestock
+base_tax = 4
+base_production = 5
+base_manpower = 4
+is_city = yes
+hre = no
+basic_fort = yes
+seat_in_parliament = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+set_local_autonomy = 10
+set_province_flag = starting_fort
+
+1349.1.1	= { base_production = 4 base_manpower = 3 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1	= { remove_province_modifier = province_black_death }
+1400.1.1	= { base_production = 5 }
+1453.1.1	= { unrest = 5 } # Start of the War of the Roses (minor conflicts )
+1459.1.1 	= { owner = YOR controller = LAN add_core = YOR } # War breaks out; Yorkists flee the country
+1460.7.10	= { controller = YOR } # York takes Henry VI prisoner at Northampton and occupies London
+1461.6.1	= { unrest = 2 } # Coronation of Edward IV
+1467.1.1	= { unrest = 5 } # Rivalry between Edward IV & Warwick
+1471.1.1	= { unrest = 8 } # Unpopularity of Warwick & War with Burgundy
+1471.5.4	= { unrest = 2 owner = ENG controller = ENG remove_core = YOR seat_in_parliament = yes } # Battle of Tewkesbury & the End of the War of the Roses
+1483.6.26	= { unrest = 8 } # Revulsion at Supposed Murder of the Princes in the Tower
+1485.8.23	= { unrest = 0 } # Battle of Bosworth Field
+1500.1.1	= { base_manpower = 4 }
+1560.1.1	= { religion = anglican }
+1600.1.1	= { base_manpower = 1 }
+1643.10.11	= { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Battle of Winceby
+1646.5.5   = { revolt = {} controller = ENG } # End of First English Civil War
+1650.1.1   = { base_manpower = 1 } # Estimated
+1700.1.1   = { base_manpower = 1 }
+1707.5.1	= { owner = GBR controller = GBR add_core = GBR remove_core = ENG } #Acts of Union
+1750.1.1   = { base_manpower = 1 }
+1800.1.1   = { base_manpower = 2 }

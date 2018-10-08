@@ -1,0 +1,41 @@
+# Lancaster
+
+capital = "Blackpool"
+owner = ENG
+controller = ENG
+add_core = ENG
+culture = english
+religion = catholic
+trade_goods = wool
+base_tax = 5
+base_production = 4
+base_manpower = 5
+is_city = yes
+hre = no
+basic_fort = yes
+seat_in_parliament = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+set_local_autonomy = 20
+set_province_flag = starting_fort
+
+1349.1.1	= { base_manpower = 4 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1	= { remove_province_modifier = province_black_death }
+1400.1.1 	= { base_manpower = 4 }
+1453.1.1	= { unrest = 5 } # Start of the War of the Roses (minor conflicts )
+1459.1.1 	= { owner = LAN controller = LAN add_core = LAN } # War breaks out
+1471.5.4	= { unrest = 2 owner = ENG controller = ENG remove_core = LAN seat_in_parliament = yes } # Battle of Tewkesbury & the End of the War of the Roses
+1483.6.26	= { unrest = 8 } # Revulsion at Supposed Murder of the Princes in the Tower
+1485.8.23	= { unrest = 0 } # Battle of Bosworth Field
+1500.1.1  	= { base_manpower = 5 }
+1575.1.1	= { courthouse = yes } # Estimated
+1600.1.1	= { base_manpower = 2 } # Estimated
+1650.1.1  	= { base_manpower = 2 }
+1700.1.1  	= { base_manpower = 2 capital = "Liverpool" }
+1707.5.1	= { owner = GBR controller = GBR add_core = GBR remove_core = ENG } #Acts of Union
+1715.1.1  	= { shipyard = yes }
+1750.1.1  	= { base_manpower = 2 } # Manufactory, Workshop, Regimental Camp Estimated
+1800.1.1  	= { base_manpower = 4 }

@@ -1,0 +1,10 @@
+#Vänergaleas
+#model = galleass
+#tech_level = 30
+type = galley
+unit_type = scandinavian_tech
+
+hull_size = 16
+base_cannons = 24
+sail_speed = 8
+sailors = 300

@@ -1,0 +1,12 @@
+# Eastern Cavalary Artillery
+
+unit_type = eastern
+type = artillery
+
+maneuver = 2
+offensive_morale = 2
+defensive_morale = 6
+offensive_fire = 34
+defensive_fire = 6
+offensive_shock = 0
+defensive_shock = 0

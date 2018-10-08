@@ -1,0 +1,8 @@
+#Province IDs changed
+2257 = "Vinland"
+2258 = "Bjarney"
+2266 = "Hvitramannaland"
+2267 = "Furdustrandir"
+2269 = "Straumfjord"
+2270 = "Markland"
+2271 = "Helluland"

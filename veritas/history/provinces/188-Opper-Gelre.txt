@@ -1,0 +1,38 @@
+# Opper-Gelre
+
+capital = "Maastricht"
+owner = GEL
+controller = GEL
+add_core = GEL
+culture = flemish
+religion = catholic
+trade_goods = iron
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+hre = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1473.8.14  = { owner = BUR controller = BUR add_core = BUR }
+1477.1.5   = { owner = HAB controller = HAB add_core = HAB remove_core = BUR unrest = 4 } # Charles the Bold dies, Lowlands to Austria
+1492.7.12  = { unrest = 0 } # Peace of Cadzand, peace returns
+1519.1.12  = { owner = SPA controller = SPA add_core = SPA remove_core = HAB } # Charles V gets total control over his Burgundian inheritance
+1526.1.1   = { religion = anabaptist }
+1579.1.23  = { revolt = {} controller = NED add_core = NED unrest = 0 } # Union of Utrecht - Flanders joins
+1600.1.1   = { base_manpower = 1.25 }
+1650.1.1   = { base_manpower = 1.75 }
+1700.1.1   = { base_manpower = 1.75 }
+1713.4.11  = { owner = HAB controller = HAB add_core = HAB remove_core = SPA } # Treaty of Utrecht
+1750.1.1   = { base_manpower = 1.75 }
+1797.12.26 = { owner = FRA controller = FRA add_core = FRA remove_core = HAB } # Treaty of Campo Formio
+1800.1.1   = { base_manpower = 1.75 }
+1806.6.5   = { owner = NED controller = NED add_core = NED remove_core = BTR } # Kingdom of Holland established under Louis Bonaparte
+1806.7.12  = { hre = no } # The Holy Roman Empire is dissolved
+1810.7.10  = { owner = FRA controller = FRA add_core = FRA } # Annexed by France
+1813.11.30 = { owner = NED controller = NED remove_core = FRA  } # William returns to the Netherlands

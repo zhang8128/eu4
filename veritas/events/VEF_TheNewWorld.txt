@@ -1,0 +1,246 @@
+# New World Generic Events
+namespace = vef_new_world
+
+# First to discover the New World gets additional pretige.
+country_event = {
+	id = vef_new_world.90000
+	title = "vef_new_world.90000.t"
+	desc = "vef_new_world.90000.d"
+
+	picture = VEF_NEW_WORLD_eventPicture
+
+	trigger = {
+  		has_country_flag = has_western_tech
+		OR = {
+			south_america = { has_discovered = ROOT }
+			north_america = { has_discovered = ROOT }
+		}
+		capital_scope = { continent = europe }
+		# To prevent Norway from moving their capital to gain an advantage, or from releasing
+		# Greenland and/or Iceland to the same advantage.
+		NOT = { capital_scope = { area = greenland_area } }
+		NOT = { capital_scope = { area = subarctic_islands_area } }
+		NOT = { has_global_flag = the_new_world_discovered }
+	}
+
+	immediate = { set_global_flag = the_new_world_discovered }
+
+	option = {
+		name = "vef_new_world.90000.opta"
+		add_prestige = 30
+	}
+}
+
+# Within 3 years of 1506, or 3 years after the discovery of the Americas (whichever is later) 
+# all Europe gets an event for publication of maps by Martin Waldesmüller based on letters from 
+# Amerigo Vespuchi. Reveals the coastline from Florida to Brazil to all European nations. Requires 
+# that SOME nation has discovered some part of the Americas.
+
+country_event = {
+	id = vef_new_world.90001
+	title = "vef_new_world.90001.t"
+	desc = "vef_new_world.90001.d"
+	
+	picture = VEF_NEW_WORLD_eventPicture
+
+	trigger = {
+		technology_group = western
+		has_global_flag = the_new_world_discovered
+		NOT = { has_country_flag = new_world_maps }
+		is_year = 1506
+	}
+
+	immediate = { set_country_flag = new_world_maps }
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		name = "vef_new_world.90001.opta"
+		discover_province = 1502 # Coast of Carolina
+		discover_province = 1503 # Coast of Florida
+		discover_province = 1505 # Florida Straits
+		discover_province = 1506 # Apalachee Bay
+		discover_province = 1521 # Eastern Caribbean
+		discover_province = 1522 # Winward Islands
+		discover_province = 1523 # Lesser Antilles
+		discover_province = 1524 # Turks and Caicos Sea
+		discover_province = 1525 # Coast of Cuba
+		discover_province = 1526 # Coast of Hispanola
+		discover_province = 1527 # Guyana Coast
+		discover_province = 1528 # Bay of Belem
+		discover_province = 1529 # Amazonas Gulf
+		discover_province = 1530 # Coast of Brazil
+		discover_province = 1531 # Coast of Receife
+	}
+}
+
+####################
+#    Easter Egg    #
+####################
+# If the Galapagos Islands are unihabited when discovered by the player, a new country arises. :-)
+# Do NOT change this event in any way without express permission from Penguintopia.
+country_event = {
+	id = vef_new_world.90002
+	title = "vef_new_world.90002.t"
+	desc = "vef_new_world.90002.d"
+
+	picture = VEF_EXPLORERS_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		ai = no # Only for a human player
+  		has_country_flag = has_western_tech
+		1993 = { 
+			is_empty = yes
+			has_discovered = ROOT 
+		}
+		capital_scope = { continent = europe }
+	}
+
+	immediate = {  
+		hidden_effect = {
+			1993 = { 
+				cede_province = ROOT # Need to do this to get proper tech level 
+				add_core = ROOT
+				change_trade_goods = fish
+				add_core = PNG
+				add_building = fort_15th
+				add_building = courthouse
+				add_building = cathedral
+				add_building = shipyard
+				change_religion = orthodox
+				change_culture = american
+			}
+	
+			# Get the correct tech level and then remove the core.
+			release = PNG
+			1993 = { remove_core = ROOT }
+	
+			PNG = {
+				define_general = {
+					name = "Stephen I"
+					fire = 6
+					shock = 6
+					manuever = 6
+					siege = 6
+				}
+				define_ruler = {
+					name = "Stephen I"
+					dynasty = "Adams"
+					adm = 8
+					dip = 8
+					mil = 8
+					attach_leader = "Stephen I"
+				}
+				define_heir = {
+					name = "Matthew"
+					dynasty = "Adams"
+					adm = 6
+					dip = 6
+					mil = 6
+					claim = 100
+				}
+				add_legitimacy = 100
+				add_prestige = 100
+				add_patriarch_authority = 0.75
+				add_treasury = 250
+				add_country_modifier = { name = "cabinet_dynamism" duration = -1 }
+				add_country_modifier = { name = "civil_happiness" duration = -1 }
+				add_country_modifier = { name = "colonial_range_limit" duration = -1 hidden = yes }
+				change_primary_culture = american
+			}
+			1993 = { 
+				infantry = PNG
+				infantry = PNG
+				cavalry = PNG
+				heavy_ship = PNG
+				heavy_ship = PNG
+			}
+		}
+	}
+
+	option = {
+		name = "vef_new_world.90002.opta"
+		add_prestige = 50
+	}
+}
+
+# A few Years later, OR if the human switches to them, nearly immediatley, PNG simply vanishes
+# into the night!
+country_event = {
+	id = vef_new_world.90003
+	title = "vef_new_world.90003.t"
+	desc = "vef_new_world.90003.d"
+
+	picture = VEF_EXPLORERS_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	mean_time_to_happen = {
+		months = 24
+		modifier = {
+			ai = no
+			factor = 0.50 # 6 months, so event can fire to warn them
+		}
+	}
+
+	trigger = {
+		tag = PNG
+	}
+
+	option = {
+		name = "vef_new_world.90003.opta"
+		1993 = {
+			remove_core = PNG
+			cede_province = XXX
+			create_colony = -1000
+			change_native_size = 5
+			change_native_ferocity = 2
+			change_native_hostileness = 9
+			change_trade_goods = unknown
+		}
+	}
+}
+
+# Warn the Human PLayer if they have tag-switched
+country_event = {
+	id = vef_new_world.90004
+	title = "vef_new_world.90004.t"
+	desc = "vef_new_world.90004.d"
+
+	picture = VEF_ADMIN_CAPACITY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = PNG
+		ai = no
+	}
+
+	option = {
+		name = "vef_new_world.90004.opta"
+	}
+}
+
+# Friendly warning about Random New Worlds
+country_event = {
+	id = vef_new_world.90005
+	title = "vef_new_world.90005.t"
+	desc = "vef_new_world.90005.d"
+
+	picture = VEF_EXPLORERS_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		ai = no
+		is_random_new_world = yes
+	}
+
+	option = {
+		name = "vef_new_world.90004.opta"
+	}
+}

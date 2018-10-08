@@ -1,0 +1,109 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+technology_group = western
+primary_culture = lowersaxon
+religion = catholic
+capital = 346 # Gottingen
+
+1267.1.1 = { add_country_modifier = { name = "hanseatic_league_member" duration = -1 }}
+
+# Union under Brunswick
+
+1344.8.30 = {
+	monarch = {
+		name = "Ernest I"
+		dynasty = "von Welf"
+		birth_date = 1305.1.1
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = HES
+		name = "Elizabeth"
+		dynasty = "von Hessen"
+		birth_date = 1329.1.1
+		death_date = 1390.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Otto"
+		monarch_name = "Otto I"
+		dynasty = "von Welf"
+		birth_date = 1330.1.1
+		death_date = 1394.12.13
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1367.4.24 = {
+	monarch = {
+		name = "Otto I"
+		dynasty = "von Welf"
+		birth_date = 1330.1.1
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+}
+
+1379.1.1 = {
+	queen = {
+		country_of_origin = JUL
+		name = "Margarete"
+		dynasty = "von Julich"
+		birth_date = 1364.1.1
+		death_date = 1442.7.18
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1380.1.1 = {
+	heir = {
+		name = "Otto"
+		monarch_name = "Otto II"
+		dynasty = "von Welf"
+		birth_date = 1380.1.1
+		death_date = 1463.2.6
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1394.12.13 = {
+	monarch = {
+		name = "Otto II"
+		dynasty = "von Welf"
+		birth_date = 1380.1.1
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+}
+
+1408.1.1 = {
+	queen = {
+		country_of_origin = HES
+		name = "Agnes"
+		dynasty = "von Hessen"
+		birth_date = 1391.1.1
+		death_date = 1471.1.16
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+# Passes to Calenberg when Otto dies without a male heir 1463.2.6

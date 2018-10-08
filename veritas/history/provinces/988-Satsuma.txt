@@ -1,0 +1,28 @@
+# Satsuma
+# Manpower revision complete
+#Province IDs changed
+
+owner = SMZ
+controller = SMZ
+culture = japanese
+religion = shinto
+capital = "Kagoshima"
+trade_goods = iron
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 5
+add_core = SMZ
+is_city = yes
+discovered_by = chinese
+discovered_by = niitaka
+discovered_by = pacific_islander
+
+1400.1.1	= { base_manpower = 4 }
+1500.1.1	= { base_manpower = 5 }
+1600.1.1	= { base_manpower = 6 }
+1603.3.24	= { owner = JAP controller = JAP add_core = JAP remove_core = SMZ } # Tokugawa shogunate founded
+1650.1.1	= { base_manpower = 7 }
+1700.1.1	= { base_manpower = 8 }
+1750.1.1	= { base_manpower = 8 }
+1800.1.1	= { base_manpower = 7.5 }

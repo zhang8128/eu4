@@ -1,0 +1,38 @@
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 2
+technology_group = chinese
+religion = confucianism
+primary_culture = cantonese
+capital = 1089	# Suzhou
+
+1355.1.1 = {
+	monarch = {
+		name = "Shicheng"
+		dynasty = "Zhang"
+		birth_date = 1321.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1662.1.1 = {
+	monarch = {
+		name = "Sangui"
+		dynasty = "Wu"
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+	capital = 1114	# Kunming
+}
+
+1678.8.1 = {
+	monarch = {
+		name = "Shifan"
+		dynasty = "Wu"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}

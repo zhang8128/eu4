@@ -1,0 +1,29 @@
+government = republic
+add_government_reform = hanseatic_union
+mercantilism = 25
+primary_culture = lowersaxon
+religion = catholic
+technology_group = western
+unit_type = western
+capital = 377	# Bremen
+fixed_capital = 377	# Bremen
+historical_friend = LUB #Lübeck
+historical_friend = HAM #Hamburg
+historical_friend = RIG #Riga
+
+1260.1.1 = {
+    add_country_modifier = { name = "hanseatic_league_member" duration = -1 }
+    add_country_modifier = { name = "hansa_city_state_modifier" duration = -1 }
+    set_country_flag = hansa_city_state
+}
+
+1296.1.1 = {
+    monarch = {
+        name = "Heinrich"
+        adm = 1
+        dip = 3
+        mil = 1
+    }
+}
+
+1532.1.1 = { religion = protestant }

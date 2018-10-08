@@ -1,0 +1,160 @@
+#Holstein
+
+graphical_culture = westerngfx
+
+color = { 220  150  158 }
+
+historical_idea_groups = {
+	mm1_ideas
+	quantity_ideas
+	economic_ideas
+	mercantilist_ideas
+	defensive_ideas
+	administrative_ideas
+	diplomatic_ideas
+	standing_army_ideas
+}
+
+historical_units = {
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+monarch_names = {
+	"Christian #0" = 60
+	"Friedrich #0" = 60
+	"Friedrich Wilhelm #0" = 40
+	"Johann #0" = 40
+	"Adolf #7" = 20
+	"Gerhard #6" = 20
+	"Heinrich #2" = 20
+	"Albrecht #1" = 20
+	"Alexander #0" = 20
+	"August #0" = 20
+	"August Philip #0" = 20
+	"Friedrich Ludwig #0" = 20
+	"Karl #0" = 20
+	"Karl Anton #0" = 20
+	"Karl Ludwig #0" = 20
+	"Peter August #0" = 20
+	"Eugen #0" = 10
+	"Franz #0" = 10
+	"Johann Christian #0" = 10
+	"Karl Friedrich #0" = 10
+	"Magnus #0" = 10
+	"Philip Ludwig #0" = 10
+	"Anton #0" = 5
+	"Ernst #0" = 5
+	"Ernst Kasimir #0" = 5
+	"Karl Gustav #0" = 5
+	"Maximilian #0" = 5
+	"Philip Wilhelm #0" = 5
+	"Adelmar #0" = 0
+	"Bruno #0" = 0
+	"Conrad #0" = 0
+	"Florian #0" = 0
+	"Harald #0" = 0
+	"Joachim #0" = 0
+	"Kaspar #0" = 0
+	"Leonhard #0" = 0
+	"Oskar #0" = 0
+	"Peter #0" = 0
+	"Thomas #0" = 0
+	"Waldemar #0" = 0
+	
+	"Ada #0" = -1
+	"Germaine #0" = -1
+	"Mathilde #0" = -1
+}
+
+leader_names = {
+	Albert Augustenborg
+	Günther
+	Holstein Holstein-Gottorp
+	Oldenburg
+	Philip	
+	Rantzau
+	"von Barner"
+	"von Dellwigh"
+}
+
+ship_names = {
+	Dahme
+	Grömtz Grossenbrode
+	Kiel Kellenhusen
+	Neustadt
+	Ostsee 
+	Scharbeutz Sierksdorf
+	Wedel
+}
+
+army_names = {
+	"Armee von $PROVINCE$" 
+}

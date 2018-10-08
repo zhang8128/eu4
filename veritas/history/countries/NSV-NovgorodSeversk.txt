@@ -1,0 +1,32 @@
+# Novgorod-Seversk
+#Province IDs changed
+government = monarchy add_government_reform = principality
+government_rank = 1
+primary_culture = ruthenian
+religion = orthodox
+technology_group = eastern
+capital = 656 # Novgorod-Seversk
+historical_friend = MOS
+
+
+set_country_flag = russian_horde_tribute
+
+1309.1.1 = {
+	monarch = {
+		name = "Svyatoslav"
+		dynasty = "Rostaslavichi"
+		adm = 1
+		dip = 2
+		mil = 2
+	}
+}
+
+1386.1.1 = {
+	monarch = {
+		name = "Yury I"
+		dynasty = "Rostaslavichi"
+		adm = 0
+		dip = 0
+		mil = 3
+	}
+}

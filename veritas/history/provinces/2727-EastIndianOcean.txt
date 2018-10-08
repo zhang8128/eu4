@@ -1,0 +1,4 @@
+# East Indian Ocean
+#Province IDs changed
+discovered_by = pacific_islander
+1521.1.1 = { discovered_by = SPA }

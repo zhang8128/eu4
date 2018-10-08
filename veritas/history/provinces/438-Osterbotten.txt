@@ -1,0 +1,42 @@
+# Österbotten
+
+capital = "Korsholm"
+owner = SWE
+controller = SWE
+add_core = SWE
+add_core = FIN
+culture = finnish
+religion = catholic
+trade_goods = wax
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+hre = no
+basic_fort = yes
+temple = yes #Saint Mary's church
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+
+set_province_flag = starting_fort
+set_local_autonomy = 20
+
+1353.1.1	= { add_province_modifier = { name = "province_black_death" duration = 1825 } set_province_flag = had_black_death } # Black Death
+1360.1.1	= { remove_province_modifier = province_black_death }
+1520.3.6	= { owner = DAN controller = DAN } #The Council accept Christian II as King
+1523.8.15	= { owner = SWE controller = SWE } # Liberated by Ivar and Erik Fleming and joins Gustav Eriksson Wasa
+1528.6.1	= { religion = protestant}
+1600.1.1	= { base_manpower = 0.25 }
+1606.10.2	= { dock = yes }
+1611.1.1	= { capital = "Wasa" }
+1650.1.1	= { base_manpower = 0.25 }
+1700.1.1	= { base_manpower = 0.4 }
+1713.8.28	= { controller = RUS } # The Great Nordic War-Captured by Apraksin
+1721.8.30	= { controller = SWE } # The Peace of Nystad
+1742.10.15	= { controller = RUS } # The War of the Hats-Estimated date
+1743.8.7	= { controller = SWE } # The Peace of Åbo
+1750.1.1	= { base_manpower = 1 }
+1800.1.1	= { base_manpower = 1.25 }
+1808.3.1	= { controller = RUS } # Overran by Russian troops
+1809.9.17	= {	owner = RUS add_core = RUS remove_core = SWE } # Treaty of Fredrikshamn

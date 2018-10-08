@@ -1,0 +1,79 @@
+country_decisions = {
+
+	belgian_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = {
+				tag = FLA
+				tag = WLN
+				tag = BRB
+			}
+			OR = {
+				primary_culture = wallonian
+				primary_culture = flemish
+				primary_culture = picard
+			}
+			NOT = { exists = BEL }
+			OR = {
+				ai = no
+				num_of_cities = 5
+			}
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			adm_tech = 36
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			calc_true_if = {
+				tag = FLA
+				tag = WLN
+				tag = BRB
+				NOT = { exists = FLA }
+				NOT = { exists = WLN }
+				NOT = { exists = BRB }
+				amount = 3
+			}
+			owns_core_province = 192 	# Antwerpen
+			owns_core_province = 193 	# Brabant
+			owns_core_province = 194 	# Vlaanderen
+			owns_core_province = 197 	# Hainaut
+			owns_core_province = 200 	# Liege
+			owns_core_province = 201 	# Namur
+		}
+	 	effect = {
+			change_tag = BEL
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			if = {
+				limit = { NOT = { owns = 191 } }
+				add_permanent_claim = 191
+			}
+			if = {
+				limit = { NOT = { owns = 195 } }
+				add_permanent_claim = 195
+			}
+			add_prestige = 25
+			set_capital = 193	# Brussels (Brabant)
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 400
+	}
+
+}

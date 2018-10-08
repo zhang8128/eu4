@@ -1,0 +1,300 @@
+############################
+# Dynamism for TIM and OSM #
+############################
+
+namespace = vef_dynamism
+normal_or_historical_nations = yes
+
+#10 City Names
+
+# Osman
+country_event = {
+	id = vef_dynamism.1
+	title = "vef_dynamism.1.t"
+	desc = "vef_dynamism.1.d"
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		tag = OSM
+		is_subject = no
+		NOT = { is_year = 1400 }
+		ai = yes
+	}
+	
+	immediate = {
+		hidden_effect = {
+			every_province = {
+				limit = {
+					province_group = ghazi_unity_group
+					controlled_by = OSM
+					NOT = { owned_by = OSM }
+					is_capital = no
+					NOT = { owned_by = BYZ }
+					owner = { ai = yes }
+				}
+				cede_province = OSM
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_dynamism.1.opta"
+	}
+}
+
+# Osman Vassals
+country_event = {
+	id = vef_dynamism.2
+	title = "vef_dynamism.2.t"
+	desc = "vef_dynamism.2.d"
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		overlord = {
+			OR = {
+				tag = OSM
+				tag = TUR
+			}
+			ai = yes
+		}
+		capital_scope = { province_group = ghazi_unity_group }
+		NOT = { is_year = 1400 }
+		ai = yes
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = "vef_dynamism.2.opta"
+		overlord = { inherit = ROOT }
+	}
+}
+
+#Timurids
+country_event = {
+	id = vef_dynamism.3
+	title = "vef_dynamism.3.t"
+	desc = "vef_dynamism.3.d"
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		tag = TIM
+		is_subject = no
+		NOT = { is_year = 1400 }
+	}
+	
+	immediate = {
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						region = persia_region
+						region = khorasan_region
+					}
+					controlled_by = TIM
+					NOT = { owned_by = TIM }
+					is_capital = no
+					owner = { ai = yes }
+				}
+				if = {
+					limit = { TIM = { ai = no }}
+					random = {
+						chance = 10
+						cede_province = TIM
+						set_local_autonomy = 50
+					}
+				}
+				if = {
+					limit = { TIM = { ai = yes }}
+					random = {
+						chance = 40
+						cede_province = TIM
+						add_core = TIM
+						set_local_autonomy = 50
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_dynamism.3.opta"
+	}
+}
+
+# Turkish Lords Join Osman
+country_event = {
+	id = vef_dynamism.4
+	title = "vef_dynamism.4.t"
+	desc = "vef_dynamism.4.d"
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			tag = OSM
+			tag = TUR
+		}
+		num_of_cities = 10
+		ai = yes
+		any_neighbor_country = {
+			primary_culture = turkish
+			ai = yes
+			is_subject = no
+			NOT = { war_with = ROOT }
+			NOT = { num_of_cities = 4 }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 96
+	}
+	
+	option = {
+		name = "vef_dynamism.4.opta"
+		random_neighbor_country = {
+			limit = {
+				primary_culture = turkish
+				ai = yes
+				is_subject = no
+				NOT = { war_with = ROOT }
+				NOT = { num_of_cities = 4 }
+			}
+			ROOT = { vassalize = PREV }
+		}
+	}
+}
+
+# Osman Grab Cores
+country_event = {
+	id = vef_dynamism.5
+	title = "vef_dynamism.5.t"
+	desc = "vef_dynamism.5.d"
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	hidden = yes
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = OSM
+		exists = KRS
+		is_at_war = no
+		ai = yes
+	}
+	
+	immediate = {
+		hidden_effect = {
+			declare_war_with_cb = { who = KRS casus_belli = cb_core }
+		}
+	}
+	
+	option = {
+		name = "vef_dynamism.5.opta"
+	}
+}
+
+# City Names
+province_event = {
+	id = vef_dynamism.10
+	title = "vef_dynamism.10.t"
+	desc = "vef_dynamism.10.d"
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	is_triggered_only = yes
+	
+	hidden = yes
+	
+	option = {
+		name = "vef_dynamism.10.opta"
+		trigger_switch = {
+			on_trigger = province_id
+			1657 = {
+				if = {
+					limit = { owner = { culture_group = iberian }}
+					rename_capital = "Oran"
+				}
+				else_if = {
+					limit = { owner = { culture_group = african_berber }}
+					rename_capital = "Wehran"
+				}
+				else_if = {
+					limit = { owner = { culture_group = turko_semitic }}
+					rename_capital = "Wahran"
+				}
+			}
+			1660 = {
+				if = {
+					limit = { owner = { culture_group = iberian }}
+					rename_capital = "Melilla"
+				}
+				else_if = {
+					limit = { owner = { culture_group = african_berber }}
+					rename_capital = "Mlilt"
+				}
+				else_if = {
+					limit = { owner = { culture_group = turko_semitic }}
+					rename_capital = "Mlilya"
+				}
+			}
+			1661 = {
+				if = {
+					limit = { owner = { culture_group = iberian }}
+					rename_capital = "Ceuta"
+				}
+				else_if = {
+					limit = { owner = { culture_group = african_berber }}
+					rename_capital = "Sebtah"
+				}
+				else_if = {
+					limit = { owner = { culture_group = turko_semitic }}
+					rename_capital = "Cebta"
+				}
+			}
+			2317 = {
+				if = {
+					limit = { owner = { culture_group = iberian }}
+					rename_capital = "Villa de la Vega"
+				}
+				else_if = {
+					limit = {
+						culture_group = iberian
+						owner = { culture_group = british }
+					}
+					rename_capital = "Spanish Town"
+				}
+				else_if = {
+					limit = { owner = { culture_group = british }}
+					rename_capital = "Kingston"
+				}
+			}
+			2320 = {
+				if = {
+					limit = { owner = { culture_group = iberian }}
+					rename_capital = "Azua"
+				}
+			}
+			2321 = {
+				if = {
+					limit = { owner = { culture_group = iberian }}
+					rename_capital = "La Isabella"
+				}
+			}
+			2322 = {
+				if = {
+					limit = { owner = { culture_group = iberian }}
+					rename_capital = "Santo Domingo"
+				}
+			}
+		}
+	}
+}

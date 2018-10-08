@@ -1,0 +1,25 @@
+# Malabar
+
+owner = MAB
+controller = MAB
+culture = malayalam
+religion = hinduism
+capital = "Calicut"
+trade_goods = nutmeg
+hre = no
+base_tax = 3
+base_production = 4
+base_manpower = 2
+is_city = yes
+add_core = MAB
+discovered_by = indopersian
+discovered_by = indian
+discovered_by = muslim
+
+extra_cost = 15
+center_of_trade = 1
+
+1559.1.1 = { owner = VIJ controller = VIJ add_core = VIJ } # Consolidation
+1565.1.26 = { owner = MAB controller = MAB add_core = KLN } # The Vijayanagar empire collapses
+1766.1.1 = { owner = MYS controller = MYS } # Annexed by Hyder Ali
+1792.1.1 = { controller = GBR owner = GBR add_core = GBR } #Fourth Anglo-Mysore War

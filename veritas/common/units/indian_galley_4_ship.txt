@@ -1,0 +1,10 @@
+#Gallivat
+#model = archipelago_frigate
+#tech_level = 30
+type = galley
+unit_type = indian
+
+hull_size = 18
+base_cannons = 28
+sail_speed = 8
+sailors = 200

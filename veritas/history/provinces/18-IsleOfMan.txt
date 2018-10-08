@@ -1,0 +1,31 @@
+# Isle Of Man
+
+capital = "Douglass"
+owner = ENG
+controller = ENG
+add_territorial_core = ENG
+add_core = SCO
+culture = scottish
+religion = catholic
+trade_goods = fish
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1400.1.1	= { base_manpower = 1 }
+1453.1.1	= { unrest = 5 } # Start of the War of the Roses (minor conflicts )
+1459.1.1 	= { owner = LAN controller = LAN add_core = LAN } # War breaks out
+1471.5.4	= { unrest = 0 owner = ENG controller = ENG remove_core = LAN } # Battle of Tewkesbury & the End of the War of the Roses
+1500.1.1	= { base_manpower = 1 }
+1600.1.1	= { base_manpower = 1 }
+1650.1.1 	= { base_manpower = 1 }
+1700.1.1	= { base_manpower = 1 }
+1707.5.1	= { owner = GBR controller = GBR add_core = GBR remove_core = ENG } #Acts of Union
+1750.1.1	= { base_manpower = 1 } # Manufactory, Workshop, Regimental Camp Estimated
+1800.1.1	= { base_manpower = 1 }

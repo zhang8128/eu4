@@ -1,0 +1,75 @@
+# Maghreb
+dependency = {
+	subject_type = dominion
+	first = TUN
+	second = BEJ
+	start_date = 1309.1.1
+	end_date = 1347.1.1
+}
+
+dependency = {
+	subject_type = suzerainty
+	first = MOR
+	second = BEJ
+	start_date = 1347.1.1
+	end_date = 1348.4.15
+}
+
+dependency = {
+	subject_type = dominion
+	first = TUN
+	second = BEJ
+	start_date = 1348.4.15
+	end_date = 1510.1.1
+}
+
+dependency = {
+	subject_type = suzerainty
+	first = MOR
+	second = TLM
+	start_date = 1337.1.1
+	end_date = 1348.4.15
+}
+
+dependency = {
+	subject_type = suzerainty
+	first = MOR
+	second = TLM
+	start_date = 1352.1.1
+	end_date = 1358.1.10
+}
+
+vassal = {
+	first = TUR
+	second = ALG
+	start_date = 1520.1.1
+	end_date = 1830.7.5
+}
+
+vassal = {
+	first = FRA
+	second = ALG
+	start_date = 1830.7.6
+	end_date = 1848.2.24
+}
+
+vassal = {
+	first = TUR
+	second = TUN
+	start_date = 1574.9.13
+	end_date = 1881.1.1
+}
+
+vassal = {
+	first = MOR
+	second = TLM
+	start_date = 1419.1.1
+	end_date = 1452.12.31
+}
+
+vassal = {
+	first = TUN
+	second = TLM
+	start_date = 1453.1.1
+	end_date = 1599.12.31
+}

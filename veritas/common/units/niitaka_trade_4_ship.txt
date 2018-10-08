@@ -1,0 +1,11 @@
+#Tenmasen
+#model = merchantman
+#tech_level = 32
+type = light_ship
+unit_type = niitaka
+
+hull_size = 12
+base_cannons = 12
+sail_speed = 6
+trade_power = 2.75
+sailors = 35

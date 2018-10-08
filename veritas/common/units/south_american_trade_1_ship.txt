@@ -1,0 +1,11 @@
+#Large Balsa
+#model = cog
+#tech_level = 0
+type = light_ship
+unit_type = south_american
+
+hull_size = 4
+base_cannons = 1
+sail_speed = 6
+trade_power = 0.5
+sailors = 20

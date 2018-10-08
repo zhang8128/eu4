@@ -1,0 +1,824 @@
+###############################
+# Reformers & Counter-Reformers
+###############################
+
+namespace = vef_reformers
+
+# Jan Hus
+country_event = {
+	id = vef_reformers.1
+	title = "vef_reformers.1.t"
+	desc = "vef_reformers.1.d"
+	picture = VEF_RELIGION_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		is_year = 1419
+		488 = { owned_by = ROOT } # Bohemia
+		NOT = { is_religion_enabled = hussite }
+	}
+
+	mean_time_to_happen = { months = 10 }
+		
+	immediate = {
+		hidden_effect = {
+			488 = {
+				set_province_flag = will_convert_hussite
+				every_neighbor_province = {
+					limit = {
+						controlled_by = ROOT
+						NOT = { has_province_flag = will_convert_hussite }
+					}
+					set_province_flag = will_convert_hussite
+					every_neighbor_province = {
+						limit = { 
+							controlled_by = ROOT 
+							NOT = { has_province_flag = will_convert_hussite }
+						}
+						random = {
+							chance = 20
+							set_province_flag = will_convert_hussite
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "vef_reformers.1.opta"
+		trigger = { ai = no }
+		define_advisor = {
+			type = jan_hus
+			skill = 2
+			location = 488
+			discount = yes
+			name = "Jan Hus"
+		}
+		enable_religion = hussite
+		change_religion = hussite
+		
+		# section largely copied from 00_religion.txt on_convert for protestant
+		remove_country_modifier = counter_reformation
+		remove_country_modifier = the_statue_in_restraint_of_appeals
+		remove_country_modifier = bavarian_jesuits
+		remove_country_modifier = the_societas_jesu
+		remove_country_modifier = the_declaration_of_indulgence
+		remove_country_modifier = de_heretico_comburendo
+		remove_country_modifier = the_conventicle_act
+		add_country_modifier = { name = "conversion_zeal" duration = 3650 }
+		every_known_country = {
+			limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_demote_pope } }
+			reverse_remove_opinion = { who = ROOT modifier = opinion_demote_pope }
+		}
+		
+		# added so that this decision can't be abused (by the AI, too) by immediately converting back
+		force_converted = yes
+		
+		every_owned_province = {
+			limit = { has_province_flag = will_convert_hussite }
+			change_religion = hussite
+			clr_province_flag = will_convert_hussite
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		name = "vef_reformers.1.opta"
+		trigger = { ai = yes }
+		ai_chance = { factor = 100 }
+		add_country_modifier = { name = "ai_reformer" duration = 7300 }
+		define_advisor = {
+			type = jan_hus
+			skill = 2
+			location = 488
+			discount = yes
+			name = "Jan Hus"
+		}
+		enable_religion = hussite
+		change_religion = hussite
+		
+		# section largely copied from 00_religion.txt on_convert for protestant
+		remove_country_modifier = counter_reformation
+		remove_country_modifier = the_statue_in_restraint_of_appeals
+		remove_country_modifier = bavarian_jesuits
+		remove_country_modifier = the_societas_jesu
+		remove_country_modifier = the_declaration_of_indulgence
+		remove_country_modifier = de_heretico_comburendo
+		remove_country_modifier = the_conventicle_act
+		add_country_modifier = { name = "conversion_zeal" duration = 3650 }
+		every_known_country = {
+			limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_demote_pope } }
+			reverse_remove_opinion = { who = ROOT modifier = opinion_demote_pope }
+		}
+		
+		# added so that this decision can't be abused (by the AI, too) by immediately converting back
+		force_converted = yes
+		
+		every_owned_province = {
+			limit = { has_province_flag = will_convert_hussite }
+			change_religion = hussite
+			clr_province_flag = will_convert_hussite
+		}
+	}
+		
+	option = {
+		name = "vef_reformers.1.optb"
+		trigger = { ai = no }
+		set_country_flag = radical_hussites
+		add_country_modifier = { name = "hussite_radicals" duration = 7300 }
+		define_advisor = {
+			type = jan_hus
+			skill = 2
+			location = 488
+			discount = yes
+			name = "Jan Hus"
+		}
+		enable_religion = hussite
+		change_religion = hussite
+		
+		# section largely copied from 00_religion.txt on_convert for protestant
+		remove_country_modifier = counter_reformation
+		remove_country_modifier = the_statue_in_restraint_of_appeals
+		remove_country_modifier = bavarian_jesuits
+		remove_country_modifier = the_societas_jesu
+		remove_country_modifier = the_declaration_of_indulgence
+		remove_country_modifier = de_heretico_comburendo
+		remove_country_modifier = the_conventicle_act
+		add_country_modifier = { name = "conversion_zeal" duration = 3650 }
+		every_known_country = {
+			limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_demote_pope } }
+			reverse_remove_opinion = { who = ROOT modifier = opinion_demote_pope }
+		}
+		
+		# added so that this decision can't be abused (by the AI, too) by immediately converting back
+		force_converted = yes
+		
+		every_owned_province = {
+			limit = { has_province_flag = will_convert_hussite }
+			change_religion = hussite
+			clr_province_flag = will_convert_hussite
+		}
+	}
+	
+	option = {
+		name = "vef_reformers.1.optc"
+		trigger = { ai = no }
+		add_prestige = 10
+		enable_religion = hussite
+		488 = { change_religion = hussite }
+		every_owned_province = { clr_province_flag = will_convert_hussite }
+		change_variable = { which = vef_papal_influence value = 15 }
+		add_ruler_modifier = { name = vef_defender_faith duration = -1 }
+	}
+}
+
+# Martin Luther
+country_event = {
+	id = vef_reformers.2
+	title = "vef_reformers.2.t"
+	desc = "vef_reformers.2.d"
+	picture = VEF_MARTIN_LUTHER_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		354 = { owned_by = ROOT } # Wittenberg
+		is_year = 1517
+		NOT = { is_religion_enabled = protestant }
+	}
+
+	mean_time_to_happen = { months = 10 }
+	
+	immediate = {
+		hidden_effect = {
+			354 = { set_province_flag = start_of_protestant_reformation }
+		}
+	}
+
+	option = {
+		name = "vef_reformers.2.opta"
+		if = {
+			limit = { ai = no }
+			enable_religion = protestant
+			change_religion = protestant
+			
+			# section largely copied from 00_religion.txt on_convert for protestant
+			remove_country_modifier = counter_reformation
+			remove_country_modifier = the_statue_in_restraint_of_appeals
+			remove_country_modifier = bavarian_jesuits
+			remove_country_modifier = the_societas_jesu
+			remove_country_modifier = the_declaration_of_indulgence
+			remove_country_modifier = de_heretico_comburendo
+			remove_country_modifier = the_conventicle_act
+			add_country_modifier = { name = "conversion_zeal" duration = 5475 }
+			every_known_country = {
+				limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_demote_pope } }
+				reverse_remove_opinion = { who = ROOT modifier = opinion_demote_pope }
+			}
+		
+			# added so that this decision can't be abused (by the AI, too) by immediately converting back
+			force_converted = yes
+			
+			354 = {
+				change_religion = protestant
+				if = {
+					limit = { is_reformation_center = no }
+					add_reform_center = protestant
+				}
+				add_province_modifier = { name = religious_zeal_at_conv duration = 7300 }
+			}
+			define_advisor = {
+				type = martin_luther
+				skill = 2
+				location = 354
+				discount = yes
+				name = "Martin Luther"
+			}
+		}
+		
+		# AI has trouble with great persons. Give them the benefit.
+		if = {
+			limit = { ai = yes }
+			add_treasury = -10
+			enable_religion = protestant
+			354 = {
+				change_religion = protestant
+				if = {
+					limit = { is_reformation_center = no }
+					add_reform_center = protestant
+				}
+				add_province_modifier = { name = religious_zeal_at_conv duration = 7300 }
+			}
+			if = {
+				limit = { NOT = { num_of_cities = 4 }}
+				change_religion = protestant
+				
+				# section largely copied from 00_religion.txt on_convert for protestant
+				remove_country_modifier = counter_reformation
+				remove_country_modifier = the_statue_in_restraint_of_appeals
+				remove_country_modifier = bavarian_jesuits
+				remove_country_modifier = the_societas_jesu
+				remove_country_modifier = the_declaration_of_indulgence
+				remove_country_modifier = de_heretico_comburendo
+				remove_country_modifier = the_conventicle_act
+				add_country_modifier = { name = "conversion_zeal" duration = 5475 }
+				every_known_country = {
+					limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_demote_pope } }
+					reverse_remove_opinion = { who = ROOT modifier = opinion_demote_pope }
+				}
+			
+				# added so that this decision can't be abused (by the AI, too) by immediately converting back
+				force_converted = yes
+				
+				add_country_modifier = { name = "ai_reformer" duration = 7300 }
+			}
+			if = { 
+				limit = { exists = ENG }
+				hidden_effect = {
+					random = {
+						chance = 10
+						ENG = { set_country_flag = ai_no_anglican }
+					}
+				}
+			}
+		}
+		set_country_flag = protestant_reformation
+	}
+	
+	option = {
+		trigger = { ai = no }
+		name = "vef_reformers.2.optb"
+		enable_religion = protestant
+		354 = {
+			change_religion = protestant
+			if = {
+				limit = { is_reformation_center = no }
+				add_reform_center = protestant
+			}
+			add_province_modifier = { name = religious_zeal_at_conv duration = 7300 }
+		}
+	}
+}
+
+# Zwingli
+country_event = {
+	id = vef_reformers.3
+	title = "vef_reformers.3.t"
+	desc = "vef_reformers.3.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		280 = { owned_by = ROOT } # Bern
+		is_year = 1519
+		is_religion_enabled = protestant
+	}
+
+	mean_time_to_happen = { months = 24 }
+
+	immediate = { 
+		280 = {
+			change_religion = protestant
+			if = {
+				limit = { is_reformation_center = no }
+				add_reform_center = protestant
+			}
+			add_province_modifier = { name = religious_zeal_at_conv duration = 7300 }
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_country_modifier = counter_reformation }}
+		name = "vef_reformers.3.opta"		
+		if = {
+			limit = { ai = no }
+			change_religion = protestant
+			
+			# section largely copied from 00_religion.txt on_convert for protestant
+			remove_country_modifier = counter_reformation
+			remove_country_modifier = the_statue_in_restraint_of_appeals
+			remove_country_modifier = bavarian_jesuits
+			remove_country_modifier = the_societas_jesu
+			remove_country_modifier = the_declaration_of_indulgence
+			remove_country_modifier = de_heretico_comburendo
+			remove_country_modifier = the_conventicle_act
+			add_country_modifier = { name = "conversion_zeal" duration = 3650 }
+			every_known_country = {
+				limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_demote_pope } }
+				reverse_remove_opinion = { who = ROOT modifier = opinion_demote_pope }
+			}
+		
+			# added so that this decision can't be abused (by the AI, too) by immediately converting back
+			force_converted = yes
+			
+			define_advisor = {
+				type = zwingli
+				skill = 2
+				location = 280
+				discount = yes
+				name = "Huldrych Zwingli"
+			}
+		}
+		
+		# AI has trouble with great persons. Give them the benefit.
+		if = {
+			limit = { ai = yes }
+			add_treasury = -10
+			add_country_modifier = { name = "ai_reformer" duration = 7300 }
+		}
+	}
+	
+	option = {
+		trigger = {
+			OR = {
+				ai = no
+				has_country_modifier = counter_reformation
+			}
+		}
+		name = "vef_reformers.3.optb"
+	}
+}
+
+# John Calvin
+country_event = {
+	id = vef_reformers.4
+	title = "vef_reformers.4.t"
+	desc = "vef_reformers.4.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		319 = { owned_by = ROOT } # Strassburg/Alsace
+		is_year = 1541
+		NOT = { is_religion_enabled = reformed }
+	}
+
+	mean_time_to_happen = { months = 10 }
+	
+	immediate = {
+		hidden_effect = {
+			319 = { set_province_flag = start_of_reformed_reformation }
+			if = {
+				limit = { 280 = { is_reformation_center = yes }}
+				280 = { remove_reform_center = protestant }
+			}
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_country_modifier = counter_reformation }}
+		name = "vef_reformers.4.opta"
+		enable_religion = reformed
+		
+		319 = {
+			change_religion = reformed
+			if = {
+				limit = { is_reformation_center = no }
+				add_reform_center = reformed
+			}
+			add_province_modifier = { name = religious_zeal_at_conv duration = 7300 }
+		}
+		if = {
+			limit = { ai = no }
+			change_religion = reformed
+			
+			# section largely copied from 00_religion.txt on_convert for protestant
+			remove_country_modifier = counter_reformation
+			remove_country_modifier = the_statue_in_restraint_of_appeals
+			remove_country_modifier = bavarian_jesuits
+			remove_country_modifier = the_societas_jesu
+			remove_country_modifier = the_declaration_of_indulgence
+			remove_country_modifier = de_heretico_comburendo
+			remove_country_modifier = the_conventicle_act
+			add_country_modifier = { name = "conversion_zeal" duration = 3650 }
+			every_known_country = {
+				limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_demote_pope } }
+				reverse_remove_opinion = { who = ROOT modifier = opinion_demote_pope }
+			}
+		
+			# added so that this option can't be abused (by the AI, too) by immediately converting back
+			force_converted = yes
+			
+			define_advisor = {
+				type = john_calvin
+				skill = 2
+				location = 319
+				discount = yes
+				name = "Jean Calvin"
+			}
+		}
+		
+		# AI has trouble with great persons. Give them the benefit.
+		if = {
+			limit = { ai = yes }
+			add_treasury = -10
+			if = {
+				limit = { NOT = { num_of_cities = 4 }}
+				change_religion = reformed
+				
+				# section largely copied from 00_religion.txt on_convert for protestant
+				remove_country_modifier = counter_reformation
+				remove_country_modifier = the_statue_in_restraint_of_appeals
+				remove_country_modifier = bavarian_jesuits
+				remove_country_modifier = the_societas_jesu
+				remove_country_modifier = the_declaration_of_indulgence
+				remove_country_modifier = de_heretico_comburendo
+				remove_country_modifier = the_conventicle_act
+				add_country_modifier = { name = "conversion_zeal" duration = 3650 }
+				every_known_country = {
+					limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_demote_pope } }
+					reverse_remove_opinion = { who = ROOT modifier = opinion_demote_pope }
+				}
+		
+				# added so that this option can't be abused (by the AI, too) by immediately converting back
+				force_converted = yes
+				
+				
+				add_country_modifier = { name = "ai_reformer" duration = 7300 }
+			}
+		}
+		set_country_flag = calvinist_reformation
+	}
+	
+	option = {
+		trigger = {
+			OR = {
+				ai = no
+				has_country_modifier = counter_reformation
+			}
+		}
+		name = "vef_reformers.4.optb"
+		enable_religion = reformed
+		319 = {
+			change_religion = reformed
+			if = {
+				limit = { is_reformation_center = no }
+				add_reform_center = reformed
+			}
+			add_province_modifier = { name = religious_zeal_at_conv duration = 7300 }
+		}
+	}
+}
+
+# John Knox
+country_event = {
+	id = vef_reformers.5
+	title = "vef_reformers.5.t"
+	desc = "vef_reformers.5.d"
+	picture = VEF_ADVISOR_eventPicture
+	
+	fire_only_once = yes
+	major = yes
+	
+	trigger = {
+		is_year = 1560
+		OR = {
+			tag = SCO
+			AND = {
+				NOT = { exists = SCO }
+				14 = { owned_by = ROOT } # Fife (Dundee)
+			}
+		}
+		NOT = { is_religion_enabled = presbyterian }
+	}
+	
+	mean_time_to_happen = { months = 10 }
+   
+	option = {	#Presbyterian
+		trigger = { primary_culture = scottish }
+		ai_chance = { factor = 100 }
+		name = "vef_reformers.5.opta"
+		enable_religion = presbyterian
+		change_religion = presbyterian
+		
+		# section largely copied from 00_religion.txt on_convert for protestant
+		remove_country_modifier = counter_reformation
+		remove_country_modifier = the_statue_in_restraint_of_appeals
+		remove_country_modifier = bavarian_jesuits
+		remove_country_modifier = the_societas_jesu
+		remove_country_modifier = the_declaration_of_indulgence
+		remove_country_modifier = de_heretico_comburendo
+		remove_country_modifier = the_conventicle_act
+		add_country_modifier = { name = "conversion_zeal" duration = 3650 }
+		every_known_country = {
+			limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_demote_pope } }
+			reverse_remove_opinion = { who = ROOT modifier = opinion_demote_pope }
+		}
+		
+		# added so that this option can't be abused (by the AI, too) by immediately converting back
+		force_converted = yes
+		
+		14 = { change_religion = presbyterian }
+		every_owned_province = { 
+			limit = { 
+				culture = scottish
+				is_reformation_center = no
+			}
+			random = {
+				chance = 33
+				change_religion = presbyterian
+			}
+		}
+		
+		if = {
+			limit = { ai = no }
+			
+			define_advisor = {
+				type = john_knox
+				skill = 2
+				location = 14
+				discount = yes
+				name = "John Knox"
+			}
+		}
+		
+		# AI has trouble with great persons. Give them the benefit.
+		if = {
+			limit = { ai = yes }
+			add_treasury = -10
+			add_country_modifier = { name = "ai_reformer" duration = 7300 }
+		}
+	}
+	
+	option = {	#Reformed
+		trigger = { primary_culture = scottish }
+		ai_chance = { factor = 0 }
+		name = "vef_reformers.5.optb"
+		14 = { change_religion = reformed }
+		change_religion = reformed
+		
+		# section largely copied from 00_religion.txt on_convert for protestant
+		remove_country_modifier = counter_reformation
+		remove_country_modifier = the_statue_in_restraint_of_appeals
+		remove_country_modifier = bavarian_jesuits
+		remove_country_modifier = the_societas_jesu
+		remove_country_modifier = the_declaration_of_indulgence
+		remove_country_modifier = de_heretico_comburendo
+		remove_country_modifier = the_conventicle_act
+		add_country_modifier = { name = "conversion_zeal" duration = 3650 }
+		every_known_country = {
+			limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_demote_pope } }
+			reverse_remove_opinion = { who = ROOT modifier = opinion_demote_pope }
+		}
+		
+		# added so that this option can't be abused (by the AI, too) by immediately converting back
+		force_converted = yes
+		
+		every_owned_province = { 
+			limit = {
+				culture = scottish
+				is_reformation_center = no
+			}
+			random = {
+				chance = 33
+				change_religion = reformed
+			}
+		}
+		define_advisor = {
+			type = john_knox
+			skill = 2
+			location = 14
+			discount = yes
+			name = "John Knox"
+		}
+	}
+	
+	option = {	#Catholic
+		trigger = { primary_culture = scottish }
+		ai_chance = { factor = 0 }
+		name = "vef_reformers.5.optc"
+		enable_religion = presbyterian
+		14 = { change_religion = presbyterian }
+		every_owned_province = { 
+			limit = {
+				culture = scottish
+				is_reformation_center = no
+			}
+			random = {
+				chance = 33
+				change_religion = presbyterian
+			}
+		}
+	}
+	
+	option = {
+		trigger = { NOT = { primary_culture = scottish }}
+		name = "vef_reformers.5.optd"
+		enable_religion = presbyterian
+		14 = { change_religion = presbyterian }
+		every_province = { 
+			limit = {
+				culture = scottish
+				is_reformation_center = no
+			}
+			random = {
+				chance = 33
+				change_religion = presbyterian
+			}
+		}
+	}
+}
+
+# Piotr Skarga - Only if LIT, POL, PLC own Krakow
+country_event = {
+	id = vef_reformers.6
+	title = "vef_reformers.6.t"
+	desc = "vef_reformers.6.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = LIT
+			tag = POL
+			tag = PLC
+		}
+		470 = { owned_by = ROOT }
+		is_year = 1586
+	}
+
+	mean_time_to_happen = { months = 24 }
+
+	immediate = {
+		set_country_flag = piotr_skarga_arrived
+	}
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_reformers.6.opta"
+		define_advisor = {
+			type = piotr_skarga
+			skill = 2
+			location = 470
+			discount = yes
+			name = "Piotr Skarga"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_reformers.6.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "ai_counter_reformer" duration = 7300 }
+	}
+}
+
+# Jacob Arminius - Random City (requires 2 events)
+country_event = {
+	id = vef_reformers.7
+	title = "vef_reformers.7.t"
+	desc = "vef_reformers.7.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	hidden = yes
+
+	trigger = {
+		is_year = 1603
+		NOT = { is_year = 1609 }
+		capital_scope = { region = low_countries_region }
+		NOT = { government = archbishopric }
+	}
+
+	mean_time_to_happen = { months = 6 }
+
+	option = {
+		trigger = {
+			ai = no
+			NOT = { has_country_modifier = counter_reformation }
+		}
+		name = "vef_reformers.7.opta"
+		change_religion = reformed
+		
+		# section largely copied from 00_religion.txt on_convert for protestant
+		remove_country_modifier = counter_reformation
+		remove_country_modifier = the_statue_in_restraint_of_appeals
+		remove_country_modifier = bavarian_jesuits
+		remove_country_modifier = the_societas_jesu
+		remove_country_modifier = the_declaration_of_indulgence
+		remove_country_modifier = de_heretico_comburendo
+		remove_country_modifier = the_conventicle_act
+		add_country_modifier = { name = "conversion_zeal" duration = 3650 }
+		every_known_country = {
+			limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_demote_pope } }
+			reverse_remove_opinion = { who = ROOT modifier = opinion_demote_pope }
+		}
+		
+		# added so that this option can't be abused (by the AI, too) by immediately converting back
+		force_converted = yes
+		
+		define_advisor = {
+			type = arminius
+			skill = 2
+			discount = yes
+			name = "Jacob Arminius"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = {
+			ai = yes
+			NOT = { has_country_modifier = counter_reformation }
+		}
+		name = "vef_reformers.7.opta"
+		if = {
+			limit = { NOT = { num_of_cities = 4 }}
+			add_treasury = -10
+			add_country_modifier = { name = "ai_reformer" duration = 3650 }
+			if = {
+				limit = { NOT = { religion = anabaptist }}
+				change_religion = reformed
+				
+				# section largely copied from 00_religion.txt on_convert for protestant
+				remove_country_modifier = counter_reformation
+				remove_country_modifier = the_statue_in_restraint_of_appeals
+				remove_country_modifier = bavarian_jesuits
+				remove_country_modifier = the_societas_jesu
+				remove_country_modifier = the_declaration_of_indulgence
+				remove_country_modifier = de_heretico_comburendo
+				remove_country_modifier = the_conventicle_act
+				add_country_modifier = { name = "conversion_zeal" duration = 3650 }
+				every_known_country = {
+					limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_demote_pope } }
+					reverse_remove_opinion = { who = ROOT modifier = opinion_demote_pope }
+				}
+		
+				# added so that this option can't be abused (by the AI, too) by immediately converting back
+				force_converted = yes
+			}
+		}
+	}
+	
+	option = {
+		trigger = {
+			OR = {
+				ai = no
+				has_country_modifier = counter_reformation
+			}
+		}
+		name = "vef_reformers.7.optb"
+		every_owned_province = {
+			limit = {
+				region = low_countries_region
+				is_capital = no
+			}
+			random_list = {
+				60 = {}
+				20 = { change_religion = reformed }
+				20 = { change_religion = anabaptist }
+			}
+		}
+	}
+}

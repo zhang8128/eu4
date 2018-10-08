@@ -1,0 +1,10 @@
+#Plank Canoe
+#model = galley
+#tech_level = 8
+type = galley
+unit_type = north_american
+
+hull_size = 4
+base_cannons = 2
+sail_speed = 4
+sailors = 25

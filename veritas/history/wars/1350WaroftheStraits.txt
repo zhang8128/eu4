@@ -1,0 +1,91 @@
+name = "War of the Straits"
+
+war_goal = {
+	type = superiority_trade_mutual
+	casus_belli = cb_venice_vs_genoa
+}
+
+
+1350.1.1 = {
+	add_attacker = VEN
+	add_attacker = ARA
+	add_attacker = SAR
+	add_attacker = BYZ
+	add_defender = GEN
+}
+
+1352.2.1 = {
+	battle = {
+		name = "Battle of the Straits"
+		location = 2406
+		attacker = {
+			commander = "Niccolo Pisani"	
+			galley = 30
+			losses = 60	# percent
+			country = ARA
+			country = VEN
+			country = BYZ
+		}
+		defender = {
+			commander = "Paganino Doria"
+			galley = 30
+			losses = 60	# percent
+			country = GEN
+		}
+		result = no
+	}
+}
+
+1352.5.1 = { rem_attacker = BYZ }
+
+1353.8.1 = {
+	battle = {
+		name = "Battle of Aleghro"
+		location = 2386
+		attacker = {
+			commander = "Niccolo Pisani"	
+			galley = 30
+			losses = 10	# percent
+			country = ARA
+			country = VEN
+		}
+		defender = {
+			commander = "Antonia Grimaldi"
+			galley = 30
+			losses = 60	# percent
+			country = GEN
+		}
+		result = yes
+	}
+}
+
+1354.1.1 = { add_defender = MLO }	#Genoa submits to Milan for aid
+
+1353.8.1 = {
+	battle = {
+		name = "Battle of Sapienza"
+		location = 2398
+		attacker = {
+			commander = "Niccolo Pisani"	
+			galley = 30
+			losses = 100	# percent
+			country = VEN
+		}
+		defender = {
+			commander = "Paganino Doria"
+			galley = 30
+			losses = 20	# percent
+			country = GEN
+		}
+		result = no
+	}
+}
+
+#Peace
+1355.6.1 = {
+	rem_attacker = VEN
+	rem_attacker = ARA
+	rem_attacker = SAR
+	rem_defender = GEN
+	rem_defender = MLO
+}

@@ -1,0 +1,30 @@
+# Benkulen
+
+capital = "Benkulen"
+owner = SVJ
+controller = SVJ
+add_core = SVJ
+culture = sumatran
+religion = hinduism
+trade_goods = rice
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = MKS
+discovered_by = MLC
+discovered_by = ATJ
+discovered_by = MAJ
+discovered_by = BEI
+discovered_by = KUT
+discovered_by = BLI
+discovered_by = SUN
+discovered_by = SVJ
+
+1405.1.1 = { discovered_by = MNG }
+1509.1.1 = { discovered_by = POR }
+1658.1.1 = { owner = NED controller = NED } # The Dutch gradually gained control
+1683.1.1 = { add_core = NED }
+1795.1.1   = { owner = BTR controller = BTR add_core = BTR remove_core = NED } # Batavian Republic proclaimed when French troops occupy Netherlands
+1806.6.5   = { owner = NED controller = NED add_core = NED remove_core = BTR } # Kingdom of Holland established under Louis Bonaparte

@@ -1,0 +1,5 @@
+colonial_enthusiasm_province = {
+	local_colonist_placement_chance = 0.05
+	local_colonial_growth = 25
+	#icon = 1
+}

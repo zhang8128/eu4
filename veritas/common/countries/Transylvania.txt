@@ -1,0 +1,167 @@
+#Country Name: Please see filename.
+
+graphical_culture = easterngfx
+
+color = { 211  207  173 }
+
+historical_idea_groups = {
+	quantity_ideas
+	mercantilist_ideas
+	religious_ideas
+	defensive_ideas
+	spy_ideas
+	cultural_unity_ideas
+	drafted_army_ideas
+	mm1_ideas
+}
+
+historical_units = { 
+	eastern_artillery_16_1
+	eastern_artillery_22_1
+	eastern_artillery_29_1
+	eastern_artillery_35_1
+	eastern_artillery_40_1
+	eastern_artillery_44_1
+	eastern_artillery_48_1
+	eastern_artillery_48_2
+	eastern_artillery_52_1
+	eastern_artillery_55_1
+	eastern_artillery_55_2
+	eastern_artillery_9_1
+	eastern_cavalry_0_1
+	eastern_cavalry_0_2
+	eastern_cavalry_21_1
+	eastern_cavalry_21_2
+	eastern_cavalry_27_1
+	eastern_cavalry_31_1
+	eastern_cavalry_36_1
+	eastern_cavalry_40_1
+	eastern_cavalry_44_1
+	eastern_cavalry_44_2
+	eastern_cavalry_48_1
+	eastern_cavalry_48_2
+	eastern_cavalry_51_1
+	eastern_cavalry_51_2
+	eastern_cavalry_55_1
+	eastern_cavalry_55_2
+	eastern_cavalry_58_1
+	eastern_cavalry_58_2
+	eastern_cavalry_16_1
+	eastern_cavalry_16_2
+	eastern_infantry_0_1
+	eastern_infantry_0_2
+	eastern_infantry_17_1
+	eastern_infantry_17_2
+	eastern_infantry_25_1
+	eastern_infantry_25_2
+	eastern_infantry_28_1
+	eastern_infantry_28_2
+	eastern_infantry_31_1
+	eastern_infantry_31_2
+	eastern_infantry_34_1
+	eastern_infantry_34_2
+	eastern_infantry_39_1
+	eastern_infantry_39_2
+	eastern_infantry_42_1
+	eastern_infantry_42_2
+	eastern_infantry_45_1
+	eastern_infantry_45_2
+	eastern_infantry_48_1
+	eastern_infantry_48_2
+	eastern_infantry_50_1
+	eastern_infantry_50_2
+	eastern_infantry_53_1
+	eastern_infantry_53_2
+	eastern_infantry_55_1
+	eastern_infantry_55_2
+	eastern_infantry_57_1
+	eastern_infantry_57_2
+	eastern_infantry_59_1
+	eastern_infantry_59_2
+	eastern_infantry_63_1
+	eastern_infantry_63_2
+	eastern_infantry_6_1
+	eastern_infantry_6_2
+	eastern_infantry_14_1
+	eastern_infantry_14_2
+}
+
+
+
+
+monarch_names = {
+	"Janos #0" = 60
+	"István #0" = 60
+	"Mihály #0" = 50
+	"Ferenc #0" = 40
+	"Gábor #0" = 40
+	"György #0" = 40
+	"Ákos #0" = 20
+	"András #0" = 20
+	"Krisztóf #0" = 20
+	"Lancu #0" = 20
+	"Lorand #0" = 20
+	"Stibor #0" = 20
+	"Zsigmond #0" = 20
+	"Boldiszár #0" = 15
+	"Imre #0" = 15
+	"Leopold #0" = 15
+	"Samuel #0" = 15
+	"Sándor #0" = 15
+	"Miklós #0" = 10
+	"Tamás #0" = 10
+	"Ardojan #0" = 0
+	"Amasztáz #0" = 0
+	"Barnabás #0" = 0
+	"Betalan #0" = 0
+	"Dávid #0" = 0
+	"Dömötör #0" = 0
+	"Edvárd #0" = 0
+	"Ernö #0" = 0
+	"Iszák #0" = 0
+	"Jószef #0" = 0
+	"Kálmán #0" = 0
+	"Kázmér #0" = 0
+	"Kelemen #0" = 0
+	"Lörinc #0" = 0
+	"Lukäcs #0" = 0
+	"Márk #0" = 0
+	"Oszkár #0" = 0
+	"Péter #0" = 0
+	"Simon #0" = 0
+	"Vencel #0" = 0
+	
+	"Dorina #0" = -1
+	"Elisabeta #0" = -1
+	"Isabela #0" = -1
+}
+
+leader_names = {
+	Alvinczy Apafi
+	Báthory Bethlen Bocskai "von Brukenthal"
+	Dózsa 
+	Gyulai
+	"von Harteneck"
+	Kemény
+	Lackovic Lázár
+	Rákóczy Rhédey
+	Sasul
+	Thököly 
+	Zabanius Zápolya Zrinyi
+}
+
+ship_names = {
+	Gyula
+	"Roland Borsza"
+	"Ladislas Kan"
+	"Antal Budai Nagy"
+	"Hunyadi Janos"
+	Vaskapu Varna
+	Mercurius
+	Leustachius
+	Legforus
+}
+
+army_names = {
+	"A hadsereg $PROVINCE$" 
+}

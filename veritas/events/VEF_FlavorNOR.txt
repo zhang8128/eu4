@@ -1,0 +1,37 @@
+namespace = vef_norway
+normal_or_historical_nations = yes
+
+# Greenland abandoned
+country_event = {
+	id = vef_norway.1
+	title = "vef_norway.1.t"
+	desc = "vef_norway.1.d"
+	picture = VEF_COLONIZATION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 2
+		is_year = 1400
+		NOT = { is_year = 1500 }
+		NOT = { has_global_flag = glory_of_byzantium }	#Don't mess with Vinland
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+	}
+	
+	option = {
+		name = "vef_norway.1.opta"
+		2 = {
+			cede_province = XXX
+			change_controller = XXX
+			remove_core = ROOT
+			change_culture = inuit	
+			change_religion = shamanism
+			change_native_size = 5
+			change_native_ferocity = 2
+			change_native_hostileness = 9
+		}
+	}
+}

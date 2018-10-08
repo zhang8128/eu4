@@ -1,0 +1,10 @@
+#Gwiseon
+#model = wargalleon
+#tech_level = 22
+type = heavy_ship
+unit_type = chinese
+
+hull_size = 26
+base_cannons = 45
+sail_speed = 4
+sailors = 500

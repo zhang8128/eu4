@@ -1,0 +1,338 @@
+# Republican/Aristocracy events
+
+namespace = vef_aristocrats
+
+# Aristocrats complain about grain prices being too low - province event for grain or
+# millet
+country_event = {
+	id = vef_aristocrats.60000
+	title = "vef_aristocrats.60000.t"
+	desc = "vef_aristocrats.60000.d"
+
+	picture = VEF_COURT_eventPicture
+
+	is_triggered_only = yes # On the two year event
+
+	mean_time_to_happen = { days = 1  }
+
+	trigger = {
+		any_owned_province = {
+			OR = {
+				trade_goods = grain
+				trade_goods = millet
+			}
+		}
+		check_variable = { which = noble_holdings value = 40 }
+		NOT = { has_country_modifier = aristocrats_60000_cooldown }
+		NOT = { has_country_modifier = aristocrats_60001_cooldown }
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = { name = "aristocrats_60000_cooldown" duration = 1865 hidden = yes }
+		}
+	}
+
+	# Support the Aristocrats
+	option = {
+		name = "vef_aristocrats.60000.opta"
+		ai_chance = { factor = 20 }
+		change_variable = { which = aristocratic_privilege value = 2 }
+		change_variable = { which = vef_rule_law value = -1 }
+		add_legitimacy = 5
+		add_horde_unity = 5
+		every_owned_province = {
+			limit = {
+				NOT = { has_building = light_serfdom }
+				NOT = { has_building = moderate_serfdom }
+				NOT = { has_building = heavy_serfdom }
+			}
+			add_unrest = 5
+		}
+	}
+
+	# Pay off the Aristocrats
+	option = {
+		name = "vef_aristocrats.60000.optb"
+		ai_chance = { factor = 70 }
+		add_prestige = -5
+		add_years_of_income = -0.17
+		change_variable = { which = aristocratic_privilege value = 1 }
+	}
+
+	# Ignore the issue
+	option = {
+		name = "vef_aristocrats.60000.optc"
+		ai_chance = { factor = 10 }
+		add_country_modifier = { name = "civil_turmoil" duration = 180 }
+		change_variable = { which = aristocratic_privilege value = -2 }
+		hidden_effect = {
+			random = {
+				chance = 20
+				random_owned_province = { 
+					limit = { 
+						OR = {
+							trade_goods = grain
+							trade_goods = millet
+						}
+						NOT = { has_building = fort_15th }
+						NOT = { has_building = fort_16th }
+						NOT = { has_building = fort_17th }
+						NOT = { has_building = fort_18th }
+					}
+					spawn_rebels = { type = noble_rebels size = 1 win = yes }
+				}
+			}
+		}
+	}
+}
+
+# Cities complain about grain prices being too high
+country_event = {
+	id = vef_aristocrats.60001
+	title = "vef_aristocrats.60001.t"
+	desc = "vef_aristocrats.60001.d"
+
+	picture = VEF_CITY_DEVELOPMENT_eventPicture
+
+	trigger = {
+		check_variable = { which = noble_holdings value = 60 }
+		NOT = { has_country_modifier = aristocrats_60001_cooldown }
+		NOT = { has_country_modifier = aristocrats_60000_cooldown } 
+	}
+
+	is_triggered_only = yes	#two-year pulse; random
+
+	mean_time_to_happen = { days = 1  }
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = { name = "aristocrats_60001_cooldown" duration = 1865 hidden = yes }
+		}
+	}
+
+	# Pay off the Aristocrats and Lower Prices
+	option = {
+		name = "vef_aristocrats.60001.opta"
+		ai_chance = { factor = 20 }
+		change_variable = { which = aristocratic_privilege value = 2 }
+		add_years_of_income = -0.17
+	}
+
+	# Lower Prices
+	option = {
+		name = "vef_aristocrats.60001.optb"
+		ai_chance = { factor = 70 }
+		change_variable = { which = aristocratic_privilege value = -2 }
+		add_prestige = 5
+		add_legitimacy = -5
+		add_horde_unity = -5
+	}
+
+	# Ignore the issue
+	option = {
+		name = "vef_aristocrats.60001.optc"
+		ai_chance = { factor = 10 }
+		change_variable = { which = aristocratic_privilege value = 1 }
+		add_country_modifier = { name = "civil_turmoil" duration = 180 }
+		hidden_effect = {
+			random = {
+				chance = 20
+				random_owned_province = { republican_rebels = 1 }
+			}
+		}
+	}
+}
+
+# Assassination
+country_event = {
+	id = vef_aristocrats.60002
+	title = "vef_aristocrats.60002.t"
+	desc = "vef_aristocrats.60002.d"
+
+	picture = VEF_ASSASSINATION_eventPicture
+
+	is_triggered_only = yes	#vef_random.50009
+
+	trigger = {
+		NOT = { has_regency_trigger = yes } 
+	}
+
+	option = {
+		name = "vef_aristocrats.60002.opta"
+		kill_ruler = yes
+		change_variable = { which = aristocratic_privilege value = 5 }
+	}
+}
+
+country_event = {
+	id = vef_aristocrats.60003
+	title = "vef_aristocrats.60003.t"
+	desc = "vef_aristocrats.60003.d"
+
+	picture = VEF_KING_SICK_IN_BED_eventPicture
+
+	is_triggered_only = yes #vef_random.50009
+
+	trigger = { NOT = { has_regency_trigger = yes }}
+
+	option = {
+		name = "vef_aristocrats.60003.opta"
+		add_prestige = 15
+		change_variable = { which = aristocratic_privilege value = -2 }
+	}
+}
+
+country_event = {
+	id = vef_aristocrats.60004
+	title = "vef_aristocrats.60004.t"
+	desc = "vef_aristocrats.60004.d"
+
+	picture = VEF_ACCUSATION_eventPicture
+
+	is_triggered_only = yes #vef_random.50009
+
+	option = {
+		name = "vef_aristocrats.60004.opta"
+		add_prestige = 10
+		change_variable = { which = aristocratic_privilege value = -2 }
+	}
+}
+
+country_event = {
+	id = vef_aristocrats.60005
+	title = "vef_aristocrats.60005.t"
+	desc = "vef_aristocrats.60005.d"
+
+	picture = VEF_BAD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes #vef_random.50009
+
+	option = {
+		name = "vef_aristocrats.60005.opta"
+		add_prestige = 5
+		random_owned_province = {
+			limit = { 
+				NOT = { has_building = fort_15th }
+				NOT = { has_building = fort_16th }
+				NOT = { has_building = fort_17th }
+				NOT = { has_building = fort_18th }
+			}
+			spawn_rebels = { type = noble_rebels size = 1 win = yes }
+		}
+		change_variable = { which = aristocratic_privilege value = -2 }
+	}
+}
+
+country_event = {
+	id = vef_aristocrats.60006
+	title = "vef_aristocrats.60006.t"
+	desc = "vef_aristocrats.60006.d"
+
+	picture = VEF_ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes #vef_random.50009
+
+	option = {
+		name = "vef_aristocrats.60006.opta"
+		add_country_modifier = { name = "civil_turmoil" duration = 182 }
+	}
+}
+
+# Feuding Nobles
+country_event = {
+	id = vef_aristocrats.60007
+	title = "vef_aristocrats.60007.t"
+	desc = "vef_aristocrats.60007.d"
+
+	picture = VEF_COURT_eventPicture
+	
+	trigger = {
+		num_of_royal_marriages = 2 
+		num_of_cities = 3
+		check_variable = { which = noble_holdings value = 25 }
+		OR = { 
+			check_variable = { which = aristocratic_privilege value = 40 } 
+			has_regency_trigger = yes
+		}
+	}
+	
+	# 50 years
+	mean_time_to_happen = { months = 600 }
+
+	# Mediate the dispute
+	option = {
+		name = "vef_aristocrats.60007.opta"
+		ai_chance = { factor = 60 }
+		change_variable = { which = aristocratic_privilege value = 1 }
+		add_legitimacy = 5
+		add_horde_unity = 5
+		add_years_of_income = -0.125
+	}
+	
+	# Reduce Aristocratic Power
+	option = {
+		name = "vef_aristocrats.60007.optb"
+		ai_chance = { factor = 30 }
+		add_prestige = 5
+		change_variable = { which = aristocratic_privilege value = -2 }
+		random_owned_province = {
+			limit = {
+				OR = {
+					has_building = nobles_20
+					has_building = nobles_40
+					has_building = nobles_60
+					has_building = nobles_80
+				}
+			}
+			add_province_modifier = { name = "disgruntled_nobles" duration = 365 }
+		}
+	}
+
+	# Ignore them
+	option = {
+		name = "vef_aristocrats.60007.optc"
+		ai_chance = { factor = 10 }
+		add_prestige = -5
+		add_legitimacy = -5
+		add_horde_unity = -5
+		add_country_modifier = { name = "disorder" duration = 182 }
+	}
+}
+
+# Aristocrats concerned with loss of power
+country_event = {
+	id = vef_aristocrats.60008
+	title = "vef_aristocrats.60008.t"
+	desc = "vef_aristocrats.60008.d"
+
+	picture = VEF_ACCUSATION_eventPicture
+
+	trigger = {
+		check_variable = { which = noble_holdings value = 50 } 
+		NOT = { has_country_modifier = unhappy_aristocrats }
+		has_country_flag = ai_serfdom_down
+	}
+
+	is_triggered_only = yes #two-year pulse; random
+
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vef_aristocrats.60008.opta"
+		add_prestige = 5
+		add_legitimacy = -1
+		add_horde_unity = -1
+		add_country_modifier = { name = "civil_turmoil" duration = 180 }
+		add_country_modifier = { name = "unhappy_aristocrats" duration = 180 }
+		change_variable = { which = aristocratic_privilege value = -1 } 
+	}
+	
+	option = {
+		name = "vef_aristocrats.60008.optb"
+		add_prestige = -5
+		add_legitimacy = 2
+		add_horde_unity = 2
+		change_variable = { which = aristocratic_privilege value = 5 } 
+	}
+}

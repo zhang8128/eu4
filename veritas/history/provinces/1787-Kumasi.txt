@@ -1,0 +1,16 @@
+# Kumasi
+
+capital = "Kumasi"
+owner = ASH
+controller = ASH
+add_core = ASH
+culture = akan
+religion = akan
+trade_goods = gold
+base_tax = 3
+base_production = 3
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = sub_saharan 
+

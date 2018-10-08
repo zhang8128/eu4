@@ -1,0 +1,98 @@
+#Country Name: See the Name of this File.
+
+graphical_culture = indiangfx
+
+color = { 100  94  125 }
+
+historical_idea_groups = {
+	quantity_ideas
+	spy_ideas
+	religious_ideas
+	defensive_ideas
+	mercantilist_ideas
+	cultural_unity_ideas
+	drafted_army_ideas
+	gf1_ideas
+}
+
+historical_units = {
+   indian_artillery_8_1
+   indian_artillery_16_1
+   indian_artillery_24_1
+   indian_artillery_32_1
+   indian_artillery_38_1
+   indian_artillery_42_1
+   indian_cavalry_0_1
+   indian_cavalry_16_1
+   indian_cavalry_21_1
+   indian_cavalry_27_1
+   indian_cavalry_31_1
+   indian_cavalry_36_1
+   indian_cavalry_48_1
+   indian_infantry_0_1
+   indian_infantry_6_1
+   indian_infantry_17_1
+   indian_infantry_21_1
+   indian_infantry_25_1
+   indian_infantry_34_1
+   indian_infantry_42_1
+   indian_infantry_45_1
+   indian_infantry_48_1
+   indian_infantry_50_1
+}
+
+
+
+
+monarch_names = {
+	"Malik Qaranful #0" = 20
+	"Mahmud #0" = 20
+	"Muhammad #0" = 20
+	"Husayn #0" = 20
+	"Ahmad #0" = 20
+	"Burhan #0" = 30
+	"Husain #0" = 20
+	"Murtaza #0" = 20
+	"Ibrahim #0" = 10
+	"Bahadur #0" = 10
+	"Saadat #0" = 0
+	"Safdarjung #0" = 0
+	"Hyder #0" = 0
+	"Birjis Qadra #0" = 0
+	"Ali #0" = 0
+	"Iqbal #0" = 0
+	"Alauddin #0" = 0
+	"Bhi #0" = 0
+	"Malik #0" = 0
+	"Narendra #0" = 0
+	"Bismillah #0" = 0
+	"Obaid #0" = 0
+	"Fakhr-un-Nisa #0" = -1
+	"Bibi Raji #0" = -1
+	"Malika-i Jahan #0" = -1
+}
+
+leader_names = {
+	Hindustani
+	Khan
+	Karrani
+	Chand
+	Awadhi
+	"ud Daula"
+	Khilji
+	Lodi
+	Pundir
+	Sharqi
+	Sarwar
+	Siddiqui
+}
+
+ship_names = {
+	Bagmati Budhi Devi Durga Falgu
+	Gandak Ganga Gayatri Jalsena
+	"Kali Nauk" Kosi Lakshmi "Lal Nauk"
+	"Loki Devi" "Manasa Devi" Parvati
+	Radha Ratri "Sagorer Bahini" Sarasvati
+	Shakti "Shaktir Nauk" "Shasti Ma" Sita
+	Son Trishool Uma
+}

@@ -1,0 +1,4 @@
+# Eastern Coast Of Iceland
+#Province IDs changed
+discovered_by = scandinavian_tech
+discovered_by = western

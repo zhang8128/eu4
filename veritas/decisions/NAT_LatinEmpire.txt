@@ -1,0 +1,120 @@
+country_decisions = {
+
+	form_the_latin_empire = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			OR = {
+				primary_culture = greek
+				has_country_flag = crusader_state
+			}
+			normal_or_historical_nations = yes
+			NOT = { exists = LAE }
+			NOT = { tag = BYZ }
+			NOT = { tag = ROM }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = PQR }
+			NOT = { tag = ITA }
+		}
+		allow = {
+			NOT = { exists = BYZ }
+			NOT = { exists = ROM }
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			religion = catholic
+			government = monarchy
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			num_of_owned_provinces_with = {
+				value = 4
+				region = balkan_region
+			}
+			num_of_owned_provinces_with = {
+				value = 4
+				region = anatolia_region
+			}
+			owns_core_province = 588	# Constantinople
+		}
+		effect = {
+			change_tag = LAE
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 4 } }
+				set_government_rank = 4
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = LAE_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+	byz_form_latin_empire = {
+		major = yes
+		potential = {
+			ai = no
+			tag = BYZ
+			normal_or_historical_nations = yes
+			NOT = { exists = LAE }
+			religion = catholic
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			government = monarchy
+			owns_core_province = 588	# Constantinople
+		}
+		effect = {
+			change_tag = LAE
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 4 } }
+				set_government_rank = 4
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = LAE_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+}

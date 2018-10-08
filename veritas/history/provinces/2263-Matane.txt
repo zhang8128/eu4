@@ -1,0 +1,33 @@
+# Matane
+
+capital = "Matane"
+native_size = 5
+native_ferocity = 1
+native_hostileness = 3
+culture = mikmaq
+religion = totemism
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+
+discovered_by = north_american
+
+1534.1.1  = { discovered_by = FRA } # Jacques Cartier
+	1615.1.1  = {	owner = FRA
+		controller = FRA
+		citysize = 1000
+		culture = cosmopolitan_french
+		religion = catholic
+	} # First missions on the south shore
+1640.1.1  = { add_core = FRA }
+1650.1.1  = { citysize = 1000 trade_goods = fish }
+1707.5.12 = { discovered_by = GBR } 
+1750.1.1  = { citysize = 1300 }
+1760.1.1  = { controller = GBR } # The government of New France capitulate at Montreal
+1763.2.10 = {	owner = GBR
+		remove_core = FRA
+	    } # Treaty of Paris
+1788.10.7 = { add_core = GBR }
+1800.1.1  = { citysize = 2250 }

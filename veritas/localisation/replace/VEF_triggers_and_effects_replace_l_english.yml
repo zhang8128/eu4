@@ -1,0 +1,11 @@
+﻿l_english:
+
+ #Replacement for vanilla triggers_and_effects_l_english.yml
+ 
+ HAVE_HEAVY_SHIP_IN: "$COUNTRY$ have heavy warships in $PROVINCE$."
+ HAVE_NO_HEAVY_SHIP_IN: "$COUNTRY$ have NO heavy warships in $PROVINCE$."
+ HAVE_LIGHT_SHIP_IN: "$COUNTRY$ have trade ships in $PROVINCE$."
+ HAVE_NO_LIGHT_SHIP_IN: "$COUNTRY$ have NO trade ships in $PROVINCE$."
+ HAVE_TRANSPORTS_IN: "$COUNTRY$ have light warships in $PROVINCE$."
+ HAVE_NO_TRANSPORTS_IN: "$COUNTRY$ have NO light warships in $PROVINCE$." 
+ dlc_or_feudalism_tooltip: "Has Reformed Religion or adopted Beasts of Burden and Gunpowder"

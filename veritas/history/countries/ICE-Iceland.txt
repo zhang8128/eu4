@@ -1,0 +1,12 @@
+government = republic add_government_reform = oligarchic_republic
+government_rank = 3
+primary_culture = icelandic
+religion = catholic
+technology_group = scandinavian_tech
+capital = 3 #Reykjavik
+
+add_country_modifier = { name = "the_abolish_slavery_act" duration = -1 }
+
+1540.1.1 = { government = republic add_government_reform = administrative_republic }
+
+1750.1.1 = { government = republic }

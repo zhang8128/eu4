@@ -1,0 +1,150 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 119  176  189 }
+
+historical_idea_groups = {
+	defensive_ideas
+	spy_ideas
+	religious_ideas
+	quantity_ideas
+	mercantilist_ideas
+	administrative_ideas
+	drafted_army_ideas
+	mm1_ideas
+}
+
+historical_units = { 
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+
+
+
+
+monarch_names = {
+	"Fryderyk #0" = 80
+	"Jan #0" = 40
+	"Henryk #8" = 40
+	"Ludwik #2" = 20
+	"Jan Krystian #0" = 20
+	"Jerzy #0" = 20
+	"Jerzy Rudolf #0" = 20
+	"Jerzy Wilhelm #0" = 20
+	"Joachim Fryderyk #0" = 20
+	"Krystian #0" = 20
+	"Ruprecht #1" = 20
+	"Jan Jerzy #0" = 15
+	"Jerzy Ernest #0" = 15
+	"August #0" = 10
+	"Ernest #0" = 10
+	"Krystian Ludwik #0" = 10
+	"Rudolf #0" = 10
+	"Wladislaw #1" = 5
+	"Albert #0" = 0
+	"Aleksander #0" = 0
+	"Andel #0" = 0
+	"Branko #0" = 0
+	"Bruno #0" = 0
+	"Cezar #0" = 0
+	"Dietrich #0" = 0
+	"Eugeniusz #0" = 0
+	"Filip #0" = 0
+	"Hermann #0" = 0
+	"Joachim #0" = 10
+	"Krzysztof #0" = 0
+	"Lech #0" = 0
+	"Libor #0" = 0
+	"Markus #0" = 0
+	"Maurycy #0" = 0
+	"Radomir #0" = 0
+	"Siegfried #0" = 0
+	"Tomás #0" = 0
+	"Václav #0" = 0
+	"Wilhelm #0" = 0
+	
+	"Heinrike #0" = -1
+	"Ilona #0" = -1
+	"Andrea #0" = -1
+}
+
+leader_names = { 
+	Schwarz Hergesell Heintzel Hoppe
+	Kahl Tilch Greve Abeln Liegnitz
+	Jauernik Wiehle Gronau Sterner
+}
+
+ship_names = {
+	Teschen Falkenberg "Cosel-Beuthen" Oppeln Ratibor
+	Breslau Sagan Oels Steinau "Liegnitz-Brieg" Glogau
+	Münsterberg "Neisse-Ottmachau" "Schweidnitz-Jauer"
+}

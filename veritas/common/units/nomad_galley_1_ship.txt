@@ -1,0 +1,10 @@
+#Penteconter
+#model = galley
+#tech_level = 0
+type = galley
+unit_type = nomad_group
+
+hull_size = 4
+base_cannons = 2
+sail_speed = 8
+sailors = 100

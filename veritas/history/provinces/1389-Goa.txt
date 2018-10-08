@@ -1,0 +1,30 @@
+# Goa
+
+capital = "Goa"
+owner = VIJ
+controller = VIJ
+add_core = VIJ
+culture = marathi
+religion = hinduism
+trade_goods = nutmeg
+base_tax = 3
+base_production = 3
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = indian
+discovered_by = muslim
+
+extra_cost = 15
+center_of_trade = 2
+
+1312.1.1	= { owner = DLH controller = DLH }
+1347.1.1	= { owner = BAH controller = BAH add_core = BAH }
+1370.1.1	= { controller = VIJ owner = VIJ } # Taken by Bukka Raya I
+1469.1.1	= { controller = BAH } # Conquered by the Bahmani sultans
+1470.1.1	= { owner = BAH }
+1490.1.1	= { owner = BIJ controller = BIJ remove_core = BAH } # The breakup of the Bahmani sultanate
+1498.1.1	= { discovered_by = POR }
+1510.1.1	= { owner = POR controller = POR } # Conquered by Afonso de Albuquerque
+1650.1.1	= { add_core = MAR }
+1818.6.3	= { remove_core = MAR }

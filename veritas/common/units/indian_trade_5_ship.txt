@@ -1,0 +1,11 @@
+#Kotiya
+#model = merchantman
+#tech_level = 34
+type = light_ship
+unit_type = indian
+
+hull_size = 12
+base_cannons = 12
+sail_speed = 8
+trade_power = 3.75
+sailors = 40

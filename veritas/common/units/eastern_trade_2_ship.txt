@@ -1,0 +1,11 @@
+#Ushkui
+#model = cog
+#tech_level = 16
+type = light_ship
+unit_type = eastern
+
+hull_size = 6
+base_cannons = 4
+sail_speed = 8
+trade_power = 1.25
+sailors = 25

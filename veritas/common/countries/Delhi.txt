@@ -1,0 +1,106 @@
+#Country Name: See the Name of this File.
+
+graphical_culture = indiangfx
+
+color = { 157  200  42 }
+
+historical_idea_groups = {
+	offensive_ideas
+	intimidatory_ideas
+	religious_ideas
+	quality_ideas
+	gf1_ideas
+	expansion_ideas
+	standing_army_ideas
+	mercantilist_ideas
+}
+
+historical_units = {
+   indian_artillery_8_1
+   indian_artillery_16_1
+   indian_artillery_24_1
+   indian_artillery_32_1
+   indian_artillery_38_1
+   indian_artillery_42_1
+   indian_cavalry_0_1
+   indian_cavalry_16_1
+   indian_cavalry_21_1
+   indian_cavalry_27_1
+   indian_cavalry_31_1
+   indian_cavalry_36_1
+   indian_cavalry_48_1
+   indian_infantry_0_1
+   indian_infantry_6_1
+   indian_infantry_17_1
+   indian_infantry_21_1
+   indian_infantry_25_1
+   indian_infantry_34_1
+   indian_infantry_42_1
+   indian_infantry_45_1
+   indian_infantry_48_1
+   indian_infantry_50_1
+}
+
+
+
+
+monarch_names = {
+	"Nusrat #0" = 20
+	"Sayyid Khidr #0" = 20
+	"Daulat Khan #0" = 20
+	"Khidr Khan #0" = 20
+	"Mubarrak Shah #1" = 30
+	"Mohammed Shah #3" = 40
+	"Aladdin Alam Shah #0" = 10
+	"Bahlûl #0" = 20
+	"Saikander #0" = 20
+	"Ibrahim #1" = 20
+	"Sher #0" = 20
+	"Islam Shah #0" = 20
+	"Saadat #0" = 0
+	"Safdarjung #0" = 0
+	"Hyder #0" = 0
+	"Birjis Qadra #0" = 0
+	"Ali #0" = 0
+	"Iqbal #0" = 0
+	"Alauddin #0" = 0
+	"Bhi #0" = 0
+	"Malik #0" = 0
+	"Narendra #0" = 0
+	"Bismillah #0" = 0
+	"Obaid #0" = 0
+	"Hemu #0" = 0
+	"Ghazi #0" = 0
+	"Raziyya #0" = -5
+	"Bahar #0" = -1
+	"Roshanara #0" = -1
+	"Fakhr-un-Nisa #0" = -1
+}
+
+leader_names = {
+	Ali
+	Azad
+	Bhutto
+	Hussein
+	Jahan
+	Khan
+	Lodi
+	Lohia
+	Musharif
+	Nagar
+	Nazimuddin
+	Ra'ana
+	Sharma
+	Sinan
+	Singh
+	Sharif
+	Viqar-ul-Mulk
+}
+
+ship_names = {
+	Alia Chambal Fatimah Jalsena Ganges
+	"Kala Jahazi" Khan "Lal Jahazi"
+	Nausena "Nav ka Yudh" Niknaz
+	"Nila Jahazi" Niloufa Noor Sagar
+	Spiti Yamuna Yasmine
+}

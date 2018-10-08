@@ -1,0 +1,100 @@
+# Yuan
+government = monarchy
+add_government_reform = celestial_empire
+government_rank = 4
+technology_group = chinese
+religion = vajrayana
+primary_culture = mongol
+add_accepted_culture = khitan
+capital = 1030	# Beijing
+historical_rival = MNG
+
+
+1307.6.21 = { 
+	monarch = {
+		name = "Wuzong"
+		dynasty = "Borjigin"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+	add_ruler_modifier = { name = "ruler_trait_impotent" duration = -1 hidden = yes }
+	set_country_flag = vef_newgov_start
+	set_variable = { which = aristocratic_privilege value = 30 }
+	set_variable = { which = vef_merit value = 60 }
+	set_variable = { which = vef_rule_law value = 5 }
+	add_corruption = 20
+}
+
+1311.4.7 = {
+	monarch = {
+		name = "Renzong"
+		dynasty = "Borjigin"
+		adm = 4
+		dip = 3
+		mil = 3
+	}
+}
+
+1320.4.19 = {
+	monarch = {
+		name = "Yingzong"
+		dynasty = "Borjigin"
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1323.10.4 = {
+	monarch = {
+		name = "Taiding"
+		dynasty = "Borjigin"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1328.10.14 = {
+	monarch = {
+		name = "Tianshun"
+		dynasty = "Borjigin"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1328.10.16 = {
+	monarch = {
+		name = "Wenzong"
+		dynasty = "Borjigin"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1332.10.23 = {
+	monarch = {
+		name = "Ningzong"
+		dynasty = "Borjigin"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1333.7.19 = {
+	monarch = {
+		name = "Huizong "
+		dynasty = "Borjigin"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+# Setup the Han Rebellion
+1356.8.1 = { set_global_flag = han_rebellionflag }

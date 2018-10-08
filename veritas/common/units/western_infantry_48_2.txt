@@ -1,0 +1,21 @@
+# Line Infantry
+
+type = infantry
+
+maneuver = 1
+offensive_morale = 6
+defensive_morale = 5
+offensive_fire = 3
+defensive_fire = 5
+offensive_shock = 2
+defensive_shock = 3
+
+trigger = {
+	OR = {
+		unit_type = western
+		technology_group = western
+		technology_group = scandinavian_tech
+		technology_group = byzantine
+		technology_group = high_american
+	}
+}

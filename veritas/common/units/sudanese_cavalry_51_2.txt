@@ -1,0 +1,12 @@
+# Reformed Dragoon Cavalary
+
+unit_type = sudanese_tech
+type = cavalry
+
+maneuver = 2
+offensive_morale = 8
+defensive_morale = 8
+offensive_fire = 1
+defensive_fire = 3
+offensive_shock = 5
+defensive_shock = 5

@@ -1,0 +1,14 @@
+# Barotse
+
+capital = "Barotse"
+native_size =   5
+native_ferocity =   3
+native_hostileness =   4 
+culture = balunda
+religion = bantu
+trade_goods = millet
+base_tax = 1
+base_production = 1
+base_manpower = 2
+hre = no
+discovered_by = tribal_african_tech

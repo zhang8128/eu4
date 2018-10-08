@@ -1,0 +1,19 @@
+government = monarchy add_government_reform = principality
+government_rank = 1
+primary_culture = russian
+religion = orthodox
+technology_group = eastern
+historical_friend = MOS
+capital = 732 # Galich
+
+set_country_flag = russian_horde_tribute
+
+1280.1.1 = {
+	monarch = {
+		name = "Vasili"
+		dynasty = "Rurikovich"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}

@@ -1,0 +1,80 @@
+country_decisions = {
+
+	maya_nation = {
+		major = yes
+		potential = {
+			culture_group = maya
+			normal_or_historical_nations = yes
+			is_random_new_world = no
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			religion = popol
+			NOT = { exists = MAY }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+			OR = {
+				ai = no
+				num_of_cities = 6
+			}
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			is_religion_reformed = yes
+			owns_core_province = 2080 #Chacujal
+			2080 = { NOT = { nationalism = 1 } }
+			owns_core_province = 2085 #Ecab
+			2085 = { NOT = { nationalism = 1 } }
+			owns_core_province = 2086 #Yucatan
+			2086 = { NOT = { nationalism = 1 } }
+			owns_core_province = 2087 #Mani
+			2087 = { NOT = { nationalism = 1 } }
+			owns_core_province = 2091 #Petén
+			2091 = { NOT = { nationalism = 1 } }
+			owns_core_province = 2093 #Xicallanco
+			2093 = { NOT = { nationalism = 1 } }
+		}
+		effect = {
+			change_tag = MAY
+			change_government = monarchy
+			set_legacy_government = hereditary_monarchy
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 4 } }
+				set_government_rank = 4
+			}
+			yucatan_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = MAY
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+}

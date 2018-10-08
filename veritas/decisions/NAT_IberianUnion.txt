@@ -1,0 +1,73 @@
+country_decisions = {
+
+	form_iberian_union = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				culture_group = iberian
+				primary_culture = basque
+			}
+			capital_scope = { region = iberia_region }
+			NOT = { religion_group = muslim } # Al Andalus may not...
+			NOT = { exists = IBE }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = ADL }
+			is_colonial_nation = no
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				iberia_region = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				tooltip = owns_all_iberia
+			}
+		}
+		effect = {
+			change_tag = IBE
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 4 } }
+				set_government_rank = 4
+			}
+			add_prestige = 25
+			set_capital = 85 #Madrid
+			85 = {
+				add_base_tax = 2
+				add_base_manpower = 1
+				add_base_production = 2
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+}

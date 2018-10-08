@@ -1,0 +1,37 @@
+# Trakai
+#Province IDs changed
+
+owner = LIT
+controller = LIT
+religion = romuva
+culture = lithuanian
+capital = "Trakai"
+trade_goods = grain
+hre = no
+base_tax = 2
+base_production = 2
+base_manpower = 2
+citysize = 1900
+is_city = yes
+add_core = LIT
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1386.1.1 = { religion = catholic }
+1569.7.1   = {	owner = PLC controller = PLC add_core = PLC } # Union of Lublin
+1600.1.1   = { citysize = 4527 }
+1654.1.1   = { citysize = 2149 } # Troki was plundered and burnt, wars between Russia and Poland
+1680.1.1   = { citysize = 3900 } # Economical decline
+1702.1.1   = { citysize = 2435 } # War with Sweden, famine and plague
+1750.1.1   = { citysize = 2800}
+1794.3.24  = { unrest = 6 } # Kosciuszko uprising
+1794.11.16 = { unrest = 0 }
+1795.10.24 = { 	add_core = RUS
+		owner = RUS
+		controller = RUS 
+		courthouse = yes 
+	     } # Third Partition of Poland, tightened ice regime
+1800.1.1   = { citysize = 3500 }

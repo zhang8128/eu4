@@ -1,0 +1,21 @@
+# Cutzamala
+
+capital = "Cutzamala"
+owner = TAR
+controller = TAR
+add_core = TAR
+is_city = yes
+culture = purepecha
+religion = xochiyaoyotl
+trade_goods = sugar
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = mesoamerican
+
+1530.1.1   = { owner = SPA controller = SPA religion = catholic unrest = 5 } #Tangaxuan II is deposed and murdered.
+1541.1.1   = { culture = castillian } # growing aculturation
+1548.1.1   = { add_core = SPA }
+1810.9.16 = { owner = MEX add_core = MEX controller = MEX } # Mexican War of Independence

@@ -1,0 +1,10 @@
+#Reinforced War Canoe
+#model = galleass
+#tech_level = 20
+type = galley
+unit_type = mesoamerican
+
+hull_size = 12
+base_cannons = 14
+sail_speed = 8
+sailors = 100

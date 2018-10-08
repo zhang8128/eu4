@@ -1,0 +1,1631 @@
+# VeF Random Events
+
+namespace = vef_random
+
+# Random Events - moved from vanilla files and modified significantly
+#
+# Random Advisor Events are in vef_RandomAdvisorEvents.txt (start ID 30000)
+# Random Province Events are in vef_RandomProviceEvents.txt (start ID 40000)
+
+# Scandal in the Court - random event 5017
+country_event = {
+	id = vef_random.50000
+	title = "vef_random.50000.t"
+	desc = "vef_random.50000.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		num_of_royal_marriages = 2
+		OR = {
+			AND = {
+				government = monarchy
+				NOT = { government = steppe_horde }
+				NOT = { legitimacy = 80 }
+			}
+			AND = {
+				government = republic
+				NOT = { republican_tradition = 60 }
+			}
+		}
+		NOT = { has_country_modifier = court_scandal_timer }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			ruler_has_personality = careful_personality
+		}
+		modifier = {
+			factor = 1.25
+			OR = {
+				ruler_has_personality = drunkard_personality
+				ruler_has_personality = babbling_buffoon_personality
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = { 
+				name = "court_scandal_timer"
+				duration = 7300 # 20 Years
+				hidden = yes
+			}
+		}
+	}
+
+	option = {
+		name = "vef_random.50000.opta"		# Take the blame and move on.
+		ai_chance = { factor = 45 }
+		add_country_modifier = { name = "scandal_at_court" duration = 1095 }
+	}
+	option = {
+		name = "vef_random.50000.optb"		# Bribe an advisor to take the blame.
+		ai_chance = { factor = 55 }
+		add_years_of_income = -0.2
+		add_corruption = 5
+	}
+	option = {
+		name = "personality_options.5017.c" #Don't Panic!
+		ai_chance = { factor = 100 }
+		highlight = yes
+		trigger = {
+			ruler_has_personality = calm_personality
+		}
+		required_personality = calm_personality
+		add_prestige = -10
+	}
+	option = {
+		name = "personality_options.5017.dd" #Attempt to lessen the impact
+		ai_chance = { factor = 100 }
+		highlight = yes
+		trigger = {
+			ruler_has_personality = silver_tongue_personality
+		}
+		required_personality = silver_tongue_personality
+		add_dip_power = -25
+	}
+	option = {
+		name = "personality_options.5017.e" #It was their fault all along.
+		ai_chance = { factor = 100 }
+		highlight = yes
+		trigger = {
+			ruler_has_personality = babbling_buffoon_personality
+		}
+		required_personality = babbling_buffoon_personality
+		add_prestige = -5
+	}
+}
+
+# Heir goes out at night
+country_event = {
+	id = vef_random.50001
+	title = "vef_random.50001.t"
+	desc = "vef_random.50001.d"
+	picture = VEF_COURT_eventPicture
+	
+	trigger = {
+		capital_scope = { continent = europe }
+		religion_group = christian
+		NOT = { government = elective_monarchy }
+		has_heir = yes
+		is_lesser_in_union = no
+		heir_age = 15
+	}
+	
+	mean_time_to_happen = { months = 1000 }
+
+	option = {
+		name = "vef_random.50001.opta"
+		add_prestige = -5
+		hidden_effect = {
+			random = {
+				chance = 20 
+				set_country_flag = heir_challenge
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_random.50001.optb"
+		add_heir_claim = -5
+		hidden_effect = {
+			random_list = {
+				5 = { set_country_flag = heir_blackmail }
+				35 = { set_country_flag = heir_secret_public }
+				60 = {}
+			}
+		}
+	}
+}
+
+# Comet sighted - only an issue for Christians before Westphalia...after that, science
+# takes over...
+# random event 5060
+country_event = {
+	id = vef_random.50002
+	title = "vef_random.50002.t"
+	desc = "vef_random.50002.d"
+	picture = VEF_COMET_SIGHTED_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = { 
+		religion_group = christian
+		NOT = { has_country_modifier = peace_of_westphalia_enacted }
+		NOT = { has_country_modifier = comet_cooldown_timer } 
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 1.1
+			OR = {
+				has_idea = comets
+				ruler_has_personality = scholar_personality
+			}
+		}
+		
+		modifier = {
+			factor = 1.5
+			natural_scientist = 1
+		}
+	}
+		
+	option = {
+		name = "vef_random.50002.opta"		# It's an omen
+		add_country_modifier = { name = "civil_turmoil" duration = 180 }
+		# Chance at a scientific discovery
+		#hidden_effect = {
+			random_list = { 
+				4 = {
+					add_adm_power = 20
+					add_dip_power = 20
+					add_mil_power = 20
+				}
+				1 = { add_country_modifier = { name = "superstition" duration = 1865 } }
+				95 = {}
+			}
+			add_country_modifier = { name = "comet_cooldown_timer" duration = 7200 hidden = yes }
+		#}
+	}
+	
+	option = {
+		name = "personality_options.5060.a"		# Fascinating!
+		ai_chance = {
+			factor = 1
+		}
+		highlight = yes
+		trigger = {
+			ruler_has_personality = scholar_personality
+		}
+		required_personality = scholar_personality
+		add_adm_power = 20
+		add_dip_power = 20
+		add_mil_power = 20
+	}
+}
+
+# Gift to the state - Noble in Western Tech - random event 5008
+country_event = {
+	id = vef_random.50003
+	title = "vef_random.50003.t"
+	desc = "vef_random.50003.d"
+	picture = VEF_ECONOMY_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		check_variable = { which = noble_holdings value = 40 }
+		stability = 1
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vef_random.50003.opta"		# Put into the treasury
+		ai_chance = { factor = 55 }
+		add_years_of_income = 0.2
+		change_variable = { which = aristocratic_privilege value = 2 }
+	}
+
+	option = {
+		name = "vef_random.50003.optb"		# Gain prestige
+		ai_chance = { factor = 25 }
+		add_prestige = 10
+		change_variable = { which = aristocratic_privilege value = 2 }
+	}
+
+	option = {
+		name = "vef_random.50003.optc"		# Refuse
+		ai_chance = { factor = 20 }
+		add_prestige = 10
+		change_variable = { which = aristocratic_privilege value = -1 }
+	}
+}
+
+# Our share of the profit - Plutocratic or Capitalist
+country_event = {
+	id = vef_random.50004
+	title = "vef_random.50004.t"
+	desc = "vef_random.50004.d"
+	picture = VEF_ECONOMY_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_idea_group = economic_ideas
+		is_bankrupt = no
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vef_random.50004.opta"		# Put into the treasury
+		ai_chance = { factor = 75 }
+		add_years_of_income = 0.33
+	}
+
+	option = {
+		name = "vef_random.50004.optb"		# Invest it
+		ai_chance = { factor = 25 }
+		add_prestige = 5
+		add_adm_power = 50
+		add_dip_power = 50
+		add_mil_power = 50
+	}
+}
+
+# Strong diplomacy (with diplomatic ideas)
+country_event = {
+	id = vef_random.50005
+	title = "vef_random.50005.t"
+	desc = "vef_random.50005.d"
+
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = { 
+		has_idea = benign_diplomats
+		is_at_war = no
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	# Improve our country's reputation
+	option = {
+		trigger = { has_idea = diplomatic_influence }
+		name = "vef_random.50005.opta"
+		add_country_modifier = { name = "enhanced_reputation" duration = 1825 }
+	}	
+
+	# Lasting Diplomacy
+	option = {
+		trigger = { has_idea = benign_diplomats }
+		name = "vef_random.50005.optb"
+		add_country_modifier = { name = "competent_diplomacy" duration = 1825 }
+	}
+
+	# Friendly Neighbors
+	option = {
+		trigger = { has_idea = cabinet }
+		name = "vef_random.50005.optb"
+		if = {
+			limit = { full_idea_group = diplomatic_ideas }
+			every_neighbor_country = {
+				add_opinion = { who = ROOT modifier = opinion_improved_relations }
+			}
+		}
+		if = {
+			limit = { NOT = { full_idea_group = diplomatic_ideas } }
+			random_neighbor_country = {
+				add_opinion = { who = ROOT modifier = opinion_improved_relations }
+			}
+		}
+	}
+}
+
+# Weak diplomacy (with diplomatic ideas)
+country_event = {
+	id = vef_random.50006
+	title = "vef_random.50006.t"
+	desc = "vef_random.50006.d"
+
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = { 
+		has_idea_group = diplomatic_ideas 
+		NOT = { diplomatic_ideas = 5 }
+		NOT = { has_country_modifier = reduced_dip_reputation }
+		NOT = { has_country_modifier = incompetent_diplomacy }
+		NOT = {
+			any_neighbor_country = {
+				has_opinion_modifier = { who = ROOT modifier = opinion_irritated }
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				50 = { set_country_flag = dip_bad_rep }
+				30 = { set_country_flag = dip_no_trust }
+				20 = { set_country_flag = dip_dislike }
+			}
+		}
+	}
+
+	option = {
+		name = "vef_random.50006.opta"
+		trigger_switch = {
+			on_trigger = has_country_flag
+			dip_bad_rep = { add_country_modifier = { name = "reduced_dip_reputation" duration = 1825 } }
+			dip_no_trust = { add_country_modifier = { name = "incompetent_diplomacy" duration = 1825 } }
+			dip_dislike = {
+				if = {
+					limit = { NOT = { has_idea_group = diplomatic_ideas } }
+					every_neighbor_country = {
+						add_opinion = { who = ROOT modifier = opinion_irritated }
+					}
+				}
+				if = {
+					limit = { has_idea_group = diplomatic_ideas }
+					random_neighbor_country = {
+						add_opinion = { who = ROOT modifier = opinion_irritated }
+					}
+				}
+			}
+		}
+		clr_country_flag = dip_bad_rep
+		clr_country_flag = dip_no_trust
+		clr_country_flag = dip_dislike
+	}
+}
+
+# Positive diplimatic events with those who do not hae diplomatic ideas and an ally
+country_event = {
+	id = vef_random.50007
+	title = "vef_random.50007.t"
+	desc = "vef_random.50007.d"
+
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		num_of_allies = 2
+		NOT = { has_idea_group = diplomatic_ideas  }
+		is_at_war = no
+		NOT = { has_country_modifier = enhanced_reputation }
+		NOT = { has_country_modifier = competent_diplomacy }
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				50 = { set_country_flag = dip_rep }
+				50 = { set_country_flag = dip_trust }
+			}
+		}
+	}
+
+	option = {
+		name = "vef_random.50007.opta"
+		trigger_switch = {
+			on_trigger = has_country_flag
+			dip_rep = { add_country_modifier = { name = "enhanced_reputation" duration = 1825 } }
+			dip_trust = { add_country_modifier = { name = "competent_diplomacy" duration = 1825 } }
+		}
+		clr_country_flag = dip_rep
+		clr_country_flag = dip_trust
+	}
+}
+
+# Weak diplomacy (without diplomatic ideas) and any neighbor country has a negative opinion
+# If you have 3 allies and 2 royal marraiges, it's clear you aren't a total fool. :-)
+country_event = {
+	id = vef_random.50008
+	title = "vef_random.50008.t"
+	desc = "vef_random.50008.d"
+
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = { 
+		any_neighbor_country = {
+			NOT = { has_opinion = { who = ROOT value = 0 } }
+		}
+		NOT = { has_idea_group = diplomatic_ideas }
+		NOT = { num_of_allies = 3 }
+		NOT = { num_of_royal_marriages = 2 }
+		NOT = { has_country_modifier = reduced_dip_reputation }
+		NOT = { has_country_modifier = incompetent_diplomacy }
+		NOT = {
+			any_neighbor_country = {
+				has_opinion_modifier = { who = ROOT modifier = opinion_irritated }
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				50 = { set_country_flag = dip_bad_rep }
+				30 = { set_country_flag = dip_no_trust }
+				20 = { set_country_flag = dip_dislike }
+			}
+		}
+	}
+
+	# Faux Pas creates a bad reputation
+	option = {
+		name = "vef_random.50008.opta"
+		trigger_switch = {
+			on_trigger = has_country_flag
+			dip_bad_rep = { add_country_modifier = { name = "reduced_dip_reputation" duration = 1825 } }
+			dip_no_trust = { add_country_modifier = { name = "incompetent_diplomacy" duration = 1825 } }
+			dip_dislike = {
+				if = {
+					limit = { has_idea_group = expansion_ideas }
+					every_neighbor_country = {
+						add_opinion = { who = ROOT modifier = opinion_irritated }
+					}
+				}
+				if = {
+					limit = { NOT = { has_idea_group = expansion_ideas } }
+					random_neighbor_country = {
+						add_opinion = { who = ROOT modifier = opinion_irritated }
+					}
+				}
+			}
+		}
+		clr_country_flag = dip_bad_rep
+		clr_country_flag = dip_no_trust
+		clr_country_flag = dip_dislike
+	}
+}
+
+# Noble PLot 
+country_event = {
+	id = vef_random.50009
+	title = "vef_random.50009.t"
+	desc = "vef_random.50009.d"
+
+	picture = VEF_DEBATE_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		check_variable = { which = noble_holdings value = 40 }
+		NOT = { has_regency_trigger = yes }
+		NOT = { has_country_modifier = noble_plot_timer }
+		OR = {
+			AND = {
+				government = republic
+				NOT = { republican_tradition = 75 }
+			}
+			AND = {
+				government = monarchy
+				NOT = { government = steppe_horde }
+				NOT = { legitimacy = 75 }
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = { name = "noble_plot_timer" duration = 3650 hidden = yes }
+		}
+	}
+
+	# Hunt them down!
+	option = {
+		name = "vef_random.50009.opta"
+		ai_chance = { factor = 45 }
+		change_variable = { which = "national_stability" value = -250 }
+		trigger_switch = {
+			on_trigger = government
+			republic = { add_republican_tradition = 3 }
+			monarchy = { add_legitimacy = 5 }
+		}
+		change_variable = { which = aristocratic_privilege value = -1 }
+		change_variable = { which = vef_rule_law value = -1 }
+		hidden_effect = {
+			random_list = {
+				5 = { country_event = { id = vef_aristocrats.60002 days = 33 } } # Assassination
+				10 = { country_event = { id = vef_aristocrats.60003 days = 19 } } # Assassin attempt
+				25 = { country_event = { id = vef_aristocrats.60004 days = 12 } } # Captured
+				10 = { country_event = { id = vef_aristocrats.60005 days = 17 } } # Captured + Revolt
+				50 = {} # Nothing more comes of this
+			}
+		}
+		change_variable = { which = vef_rule_law value = -1 }
+	}
+
+	# Restore some privileges (Monarchy)
+	option = {
+		name = "vef_random.50009.optb"
+		trigger = { government = monarchy }
+		ai_chance = { factor = 55 }
+		change_variable = { which = aristocratic_privilege value = 1 }
+		add_legitimacy = -2
+		hidden_effect = {
+			random_list = {
+				10 = { country_event = { id = vef_aristocrats.60006 days = 3 } } # People object
+				90 = {}
+			}
+		}
+	}
+	
+	# Add a representative to the council
+	option = {
+		name = "vef_random.50009.optc"
+		trigger = { government = republic }
+		ai_chance = { factor = 55 }
+		change_variable = { which = aristocratic_privilege value = 2 }
+		add_republican_tradition = -1
+	}
+}
+
+# Opposing Military Schools - if we haven't selected offenseive or defensive.
+country_event = {
+	id = vef_random.50011
+	title = "vef_random.50011.t"
+	desc = "vef_random.50011.d"
+
+	picture = VEF_MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_modifier = offensive_modifier }
+		NOT = { has_country_modifier = defensive_modifier }
+		NOT = { has_idea_group = offensive_ideas }
+		NOT = { has_idea_group = defensive_ideas }
+		NOT = { has_idea_group = mercenary_ideas }
+		is_at_war = no
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	# Offense is the way to go...
+	option = {
+		name = "vef_random.50011.opta"
+		ai_chance = { factor = 40 }
+		add_mil_power = -100
+		add_country_modifier = { name = "offensive_modifier" duration = 1865 }
+	}
+
+	# Defense is the way to go....
+	option = {
+		name = "vef_random.50011.optb"
+		ai_chance = { factor = 40 }
+		add_mil_power = -100
+		add_country_modifier = { name = "defensive_modifier" duration = 1865 }
+	}
+	
+	# I don't have time for petty squabbles!
+	option = {
+		name = "vef_random.50011.optc"
+		ai_chance = { factor = 20 }
+		add_country_modifier = {
+			name = "squabbling_generals"
+			duration = 365
+		}
+	}
+}
+
+# Opposing Military Schools - if we haven't selected quality or quantity. Doesn't fire if we
+# took standing army.
+country_event = {
+	id = vef_random.50012
+	title = "vef_random.50012.t"
+	desc = "vef_random.50012.d"
+
+	picture = VEF_MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_modifier = quality_modifier }
+		NOT = { has_country_modifier = quantity_modifier }
+		NOT = { has_idea_group = quantity_ideas }
+		NOT = { has_idea_group = quality_ideas }
+		NOT = { has_idea_group = standing_army_ideas }
+		NOT = { has_idea_group = mercenary_ideas }
+		is_at_war = no
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	# Quality matters
+	option = {
+		name = "vef_random.50012.opta"
+		ai_chance = { factor = 40 }
+		add_mil_power = -100
+		add_country_modifier = { name = "quality_modifier" duration = 1865 }
+	}
+
+	# Numbers matter
+	option = {
+		name = "vef_random.50012.optb"
+		ai_chance = { factor = 40 }
+		add_mil_power = -100
+		add_country_modifier = { name = "quantity_modifier" duration = 1865 }
+	}
+	
+	# I don't have time for petty squabbles!
+	option = {
+		name = "vef_random.50012.optc"
+		ai_chance = { factor = 20 }
+		add_country_modifier = { name = "squabbling_generals" duration = 365 }
+	}
+}
+
+# Lots of ports + any land idea and no navy idea leads to upset admirals
+country_event = {
+	id = vef_random.50013
+	title = "vef_random.50013.t"
+	desc = "vef_random.50013.d"
+
+	picture = VEF_SHIP_SAILING_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		dip_tech = 13
+		is_at_war = no
+		OR = {
+			has_idea_group = offensive_ideas
+			has_idea_group = defensive_ideas
+			has_idea_group = quality_ideas
+			has_idea_group = quantity_ideas
+			has_idea_group = standing_army_ideas
+			has_idea_group = mercenary_ideas
+		}
+		NOT = { has_idea_group = mm1_ideas }
+		NOT = { has_idea_group = gf1_ideas }
+		num_of_ports = 4
+		NOT = { navy_size_percentage = 0.95 }
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	# The Admirals are right
+	option = {
+		name = "vef_random.50013.opta"
+		ai_chance = { factor = 5 }
+		add_mil_power = -50
+		if = {
+			limit = { 
+				OR = {
+					NOT = { heavy_ship_fraction = 20 } 
+					NOT = { num_of_heavy_ship = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { has_port = yes }
+				add_unit_construction = {
+					amount = 4
+					type = galley
+					cost = 2
+					speed = 0.5
+				}
+			}
+		}
+		if = {
+			limit = { 
+				heavy_ship_fraction = 20 
+				num_of_heavy_ship = 1
+			}
+			random_owned_province = {
+				limit = { has_port = yes }
+				add_unit_construction = {
+					amount = 2
+					type = heavy_ship
+					cost = 2
+					speed = 0.5
+				}
+			}
+		}
+	}
+
+	# We know what we are doing!
+	option = {
+		name = "vef_random.50013.optb"
+		ai_chance = { factor = 95 }
+		add_navy_tradition = -20
+		add_country_modifier = { name = "upset_admirals" duration = 365 }
+		# Actually, we don't!
+		if = {
+			limit = { NOT = { mil = 3 } }
+			add_prestige = -5
+		}
+	}
+}
+
+# Shipbuilding issues
+country_event = {
+	id = vef_random.50016
+	title = "vef_random.50016.t"
+	desc = "vef_random.50016.d"
+
+	picture = VEF_SHIP_SAILING_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_idea_group = mm1_ideas
+			has_idea_group = gf1_ideas
+		}
+		OR = {
+			AND = {
+				NOT = { full_idea_group = gf1_ideas }
+				NOT = { full_idea_group = mm1_ideas }
+			}
+			NOT = { navy_size_percentage = 0.90 }
+		}
+		NOT = { has_country_modifier = timber_trade }
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	# Shipbuilding issues - insufficient raw materials
+	option = {
+		name = "vef_random.50016.opta"
+		add_country_modifier = { name = ship_building_problems duration = 1825 }
+	}
+}
+
+# Shipbuilding issues resolved
+country_event = {
+	id = vef_random.50017
+	title = "vef_random.50017.t"
+	desc = "vef_random.50017.d"
+
+	picture = VEF_SHIP_SAILING_eventPicture
+
+	trigger = {
+		has_country_modifier = ship_building_problems
+		has_country_modifier = timber_trade
+	}
+
+	# Shipbuilding issues - insufficient raw materials
+	option = {
+		name = "vef_random.50017.opta"
+		remove_country_modifier = ship_building_problems
+	}
+}
+
+# Winning a defensive war against at least a moderate-sized opponent
+#country_event = {
+#	id = vef_random.50018
+#	title = "vef_random.50018.t"
+#	desc = "vef_random.50018.d"
+#	picture = VEF_BATTLE_eventPicture
+
+#	trigger = {
+#		has_idea_group = defensive_ideas
+#		is_at_war = yes
+#		any_known_country = { 
+#			offensive_war_with = ROOT
+#			NOT = {
+#				war_score_against = {
+#					who = ROOT
+#					value = -25
+#				}
+#			}	#Losing to us by at least 25
+#			num_of_cities = 5
+#		}
+#		NOT = { has_country_modifier = defensive_genius_timer }
+#	}
+
+	# Tactial Genius
+#	option = {
+#		name = "vef_random.50018.opta"
+#		create_general = { tradition = 75 }
+#		hidden_effect = {
+#			add_country_modifier = { name = "defensive_genius_timer" duration = 7300 hidden = yes }
+#		}
+#	}
+#}
+
+# Winning an offensive war handily against a decent-sized nation
+#country_event = {
+#	id = vef_random.50019
+#	title = "vef_random.50019.t"
+#	desc = "vef_random.50019.d"
+#	picture = VEF_BATTLE_eventPicture
+
+#	trigger = {
+#		has_idea_group = offensive_ideas
+#		is_at_war = yes
+#		any_known_country = { 
+#			defensive_war_with = ROOT 
+#			NOT = {
+#				war_score_against = {
+#					who = ROOT
+#					value = -80
+#				}
+#			}	#Losing to us by at least 80
+#			num_of_cities = 12
+#		}
+#		NOT = { has_country_modifier = offensive_genius_timer }
+#	}
+
+	# Get a Great General
+#	option = {
+#		name = "vef_random.50019.opta"
+#		create_general = { tradition = 75 }
+#		hidden_effect = {
+#			add_country_modifier = { name = "offensive_genius_timer" duration = 7300 hidden = yes }
+#		}
+#	}
+#}
+
+# Losing a war badly while we are on offense, with our leader as a general. Destabilize the
+# realm and chance he dies.
+country_event = {
+	id = vef_random.50020
+	title = "vef_random.50020.t"
+	desc = "vef_random.50020.d"
+
+	picture = VEF_BATTLE_eventPicture
+
+	trigger = {
+		has_idea_group = offensive_ideas
+		is_monarch_leader = yes
+		NOT = { has_ruler_modifier = ruler_trait_poor_general }
+		any_known_country = {
+			defensive_war_with = ROOT
+			war_score_against = {
+				who = ROOT
+				value = 35
+			}	#Beating us by at least 35
+		}
+	}
+
+	mean_time_to_happen = { days = 45 }
+
+	# He really stinks as a general...
+	option = {
+		name = "vef_random.50020.opta"
+		add_country_modifier = { name = "poor_leadership" duration = 365 }
+		if = {
+			limit = {
+				has_dlc = "Rights of Man"
+				ruler_has_personality = tactical_genius_personality
+			}
+			remove_ruler_personality = tactical_genius_personality
+		}
+		add_ruler_modifier = { name = "ruler_trait_poor_general" }
+		#hidden_effect = {
+		#	# He supposedly knew what he was doing...
+		#	if = {
+		#		limit = { mil = 4 }
+		#		random = {
+		#			chance = 33
+		#			country_event = { id = vef_government.50047 days = 10 }
+		#		}
+		#	}
+		#	# It must have been desperation....
+		#	if = {
+		#		limit = { NOT = { mil = 4 } }
+		#		random = {
+		#			chance = 10
+		#			country_event = { id = vef_government.50047 days = 10 }
+		#		}
+		#	}
+		#}
+	}
+}
+
+# Losing a war badly while we are on offense, with our heir as a general. This could be very
+# embarrasing...
+country_event = {
+	id = vef_random.50021
+	title = "vef_random.50021.t"
+	desc = "vef_random.50021.d"
+
+	picture = VEF_BATTLE_eventPicture
+
+	trigger = {
+		has_idea_group = offensive_ideas
+		is_heir_leader = yes
+		NOT = { has_country_modifier = poor_heir_general }
+		any_known_country = {
+			defensive_war_with = ROOT
+			war_score_against = {
+				who = ROOT
+				value = 35
+			}	#Beating us by at least 35
+		}
+	}
+
+	mean_time_to_happen = { days = 20 }
+
+	# He really stinks as a general...
+	option = {
+		name = "vef_random.50021.opta"
+		add_country_modifier = { name = "poor_heir_general" duration = 365 }
+		if = {
+			limit = {
+				has_dlc = "Rights of Man"
+				heir_has_personality = tactical_genius_personality
+			}
+			remove_heir_personality = tactical_genius_personality
+		}
+		#hidden_effect = {
+		#	country_event = { id = vef_government.50048 days = 10 }
+		#}
+	}
+}
+
+# Winning a war handily with monarch as leader yields prestige and legitimacy
+#country_event = {
+#	id = vef_random.50022
+#	title = "vef_random.50022.t"
+#	desc = "vef_random.50022.d"
+
+#	picture = VEF_BATTLE_eventPicture
+
+#	trigger = {
+#		is_monarch_leader = yes
+#		NOT = { has_country_modifier = good_leadership }
+#		any_known_country = {
+#			war_with = ROOT
+#			NOT = {
+#				war_score_against = {
+#					who = ROOT
+#					value = -50
+#				}	#Losing to us by at least 50
+#			}
+#			num_of_cities = 6
+#		}
+#	}
+
+	# Damn he's good...
+#	option = {
+#		name = "vef_random.50022.opta"
+#		add_country_modifier = { name = "good_leadership" duration = 365 }
+#		add_ruler_modifier = { name = "ruler_trait_good_general" }
+#		add_prestige = 20
+#		add_legitimacy = 20
+#		add_horde_unity = 20
+#	}
+#}
+
+# Winning a war handily with heir as leader yields prestige, legitimacy and claim
+#country_event = {
+#	id = vef_random.50023
+#	title = "vef_random.50023.t"
+#	desc = "vef_random.50023.d"
+
+#	picture = VEF_BATTLE_eventPicture
+
+#	trigger = {
+#		is_heir_leader = yes
+#		is_monarch_leader = no
+#		NOT = { has_country_modifier = good_heir_general }
+#		any_known_country = {
+#			war_with = ROOT
+#			NOT = {
+#				war_score_against = {
+#					who = ROOT
+#					value = -50
+#				}	#Losing to us by at least 50
+#			}
+#			num_of_cities = 6
+#		}
+#	}
+
+	# Damn he's good...
+#	option = {
+#		name = "vef_random.50023.opta"
+#		add_country_modifier = { name = "good_heir_general" duration = 1095 }
+#		add_prestige = 5
+#		add_legitimacy = 10
+#		add_horde_unity = 10
+#		add_heir_claim = 25
+		#hidden_effect = {
+		#	if = { 
+		#		limit = { has_ruler_modifier = ruler_trait_renowned_heir }
+		#		random = {
+		#			chance = 20
+		#			country_event = { id = vef_government.50053 days = 90 }
+		#		}
+		#	}
+		#}
+#		add_ruler_modifier = { name = "ruler_trait_renowned_heir" }
+#	}
+#}
+
+# Not expanding? WTF, dude?
+country_event = {
+	id = vef_random.50026
+	title = "vef_random.50026.t"
+	desc = "vef_random.50026.d"
+
+	picture = VEF_BATTLE_eventPicture
+
+	trigger = {
+		has_idea_group = expansion_ideas
+		is_at_war = no
+		NOT = { war_exhaustion = 1 }
+		NOT = { overextension_percentage = 0.05 }
+		NOT = { has_country_modifier = unfulfilled_ambition }
+		OR = {
+			AND = {
+				NOT = { has_country_modifier = offensive_war_declared }
+				had_recent_war = 5
+			}
+			AND = {
+				has_factions = yes
+				OR = {
+					faction_in_power = byz_militarist
+					faction_in_power = per_arteshtaran
+				}
+				had_recent_war = 10
+			}
+		}
+	}
+
+	option = {
+		name = "vef_random.50026.opta"
+		add_country_modifier = { name = "unfulfilled_ambition" duration = 1085 } # 3 years
+	}
+}
+
+# Glut of Mercenaries - rewritten ideagroups.1604 (random event)
+country_event = {
+	id = vef_random.50027
+	title = "vef_random.50027.t"
+	desc = "vef_random.50027.d"
+
+	picture = VEF_MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_idea_group = mercenary_ideas
+		NOT = { has_country_modifier = "glut_of_mercs" }
+	 }
+
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vef_random.50027.opta"
+		add_country_modifier = { name = "glut_of_mercs" duration = 365 }
+	}
+}
+
+# Glut of Mercenaries - winning wars...
+country_event = {
+	id = vef_random.50028
+	title = "vef_random.50028.t"
+	desc = "vef_random.50028.d"
+
+	picture = VEF_MILITARY_CAMP_eventPicture
+
+	trigger = {
+		has_idea_group = mercenary_ideas
+		is_at_war = yes
+		war_score = 25
+		NOT = { has_country_modifier = "glut_of_mercs2" }
+	}
+
+	option = {
+		name = "vef_random.50028.opta"
+		add_country_modifier = { name = "glut_of_mercs2" duration = 1095 }
+	}
+}
+
+# Mercenaries like working for us...
+country_event = {
+	id = vef_random.50029
+	title = "vef_random.50029.t"
+	desc = "vef_random.50029.d"
+
+	picture = VEF_MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_idea_group = mercenary_ideas
+		num_of_mercenaries = 1
+		NOT = { has_country_modifier = "trust_from_mercs" }
+	}
+
+	option = {
+		name = "vef_random.50029.opta"
+		add_country_modifier = { name = "trust_from_mercs" duration = 720 }
+	}
+}
+
+# Dearth of Mercenaries - losing wars...
+country_event = {
+	id = vef_random.50030
+	title = "vef_random.50030.t"
+	desc = "vef_random.50030.d"
+
+	picture = VEF_MILITARY_CAMP_eventPicture
+
+	trigger = {
+		has_idea_group = mercenary_ideas
+		is_at_war = yes
+		NOT = { war_score = -20 }
+		NOT = { has_country_modifier = "dearth_of_mercs" }
+	}
+
+	option = {
+		name = "vef_random.50030.opta"
+		add_country_modifier = { name = "dearth_of_mercs" duration = 1095 }
+	}
+}
+
+country_event = {
+	id = vef_random.50031
+	title = "vef_random.50031.t"
+	desc = "vef_random.50031.d"
+
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_idea = debt_and_loans
+		NOT = { has_country_modifier = "generous_terms" }
+		NOT = { num_of_loans = 1 }
+	}
+
+	option = {
+		name = "vef_random.50031.opta"
+		add_country_modifier = { name = "generous_terms" duration = 365 }
+	}
+}
+
+country_event = {
+	id = vef_random.50032
+	title = "vef_random.50032.t"
+	desc = "vef_random.50032.d"
+
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_idea = debt_and_loans
+		NOT = { has_country_modifier = "too_many_loans" }
+		num_of_loans = 4
+	}
+
+	option = {
+		name = "vef_random.50032.opta"
+		add_country_modifier = { name = "too_many_loans" duration = 365 }
+	}
+}
+
+# Temporary Insanity of the Monarch - see government events for possible event chains - random event 5014
+country_event = {
+	id = vef_random.50033
+	title = "vef_random.50033.t"
+	desc = "vef_random.50033.d"
+
+	picture = VEF_COURT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		government = monarchy
+		NOT = { has_dlc = "Rights of Man" }
+		NOT = { adm = 4 }
+		NOT = { has_regency_trigger = yes }
+		is_lesser_in_union = no
+		NOT = { has_ruler_modifier = ruler_trait_insane }
+	}
+
+	option = {
+		name = "vef_random.50033.opta"
+		add_ruler_modifier = { name = ruler_trait_insane }
+		change_variable = { which = "national_stability" value = -500 }
+		if = {
+			limit = { adm = 1 }
+			change_adm = -1
+		}
+		if = {
+			limit = { is_monarch_leader = yes }
+			add_ruler_modifier = { name = "ruler_trait_lunatic_general" }
+		}
+		#hidden_effect = {
+		#	random = {
+		#		chance = 40
+		#		country_event = { id = vef_government.50049 days = 21 }
+		#		set_country_flag = event_50049_scheduled
+		#	}
+		#}
+	}
+}
+
+# Wave of obscurantavism - random event 5018
+country_event = {
+	id = vef_random.50034
+	title = "vef_random.50034.t"
+	desc = "vef_random.50034.d"
+
+	picture = VEF_COURT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_modifier = obscurantism }
+		NOT = { innovativeness_ideas = 2 }
+		NOT = { exploration_ideas = 4 }
+		NOT = { has_idea_group = democracy_ideas }
+	}
+
+	option = {
+		name = "vef_random.50034.opta"
+		ai_chance = { factor = 45 }
+		add_country_modifier = { name = "obscurantism" duration = 1825 }
+	}
+
+	option = {
+		name = "vef_random.50034.optb"
+		ai_chance = { factor = 55 }
+		add_prestige = -10
+	}
+	option = {
+		name = "personality_options.5018.c"		# We must divert state resources to counteract this dark trend
+		highlight = yes
+		trigger = {
+			OR = {
+				ruler_has_personality = free_thinker_personality
+				ruler_has_personality = scholar_personality
+				has_country_modifier = ruler_trait_scholar
+			}
+		}
+		required_personality = free_thinker_personality
+		required_personality = scholar_personality
+		add_adm_power = -5
+	}
+	option = {
+		name = "personality_options.5018.dd"	#Let us take advantage of their ignorance.
+		highlight = yes
+		trigger = {
+			ruler_has_personality = greedy_personality
+		}
+		required_personality = greedy_personality
+		add_years_of_income = 0.05
+	}
+	option = {
+		name = "personality_options.5018.f"	#
+		highlight = yes
+		trigger = {
+			ruler_has_personality = secretive_personality
+		}
+		required_personality = secretive_personality
+		add_prestige = 5
+	}
+}
+
+# Decadence - Random Event 713
+country_event = {
+	id = vef_random.50035
+	title = "vef_random.50035.t"
+	desc = "vef_random.50035.d"
+
+	picture = VEF_COURT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		stability = 2
+		is_at_war = no
+		NOT = { has_country_modifier = decadence }
+		OR = {
+			NOT = { full_idea_group = administrative_ideas }
+			NOT = { full_idea_group = innovativeness_ideas }
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vef_random.50035.opta"
+		add_country_modifier = { name = "decadence" duration = 1825 }
+	}
+}
+
+# Insanity Ends
+country_event = {
+	id = vef_random.50040
+	title = "vef_random.50040.t"
+	desc = "vef_random.50040.d"
+
+	picture = VEF_COURT_eventPicture
+
+	trigger = {
+		has_country_modifier = ruler_trait_insane
+		#NOT = { has_country_flag = event_50049_scheduled }
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	option = {
+		name = "vef_random.50040.opta"
+		remove_country_modifier = ruler_trait_insane
+		if = {
+			limit = { has_country_modifier = ruler_trait_lunatic_general }
+			remove_country_modifier = ruler_trait_lunatic_general
+		}
+	}
+}
+
+# Cardinal Seeks Title for Family Member
+country_event = {
+	id = vef_random.50041
+	title = "vef_random.50041.t"
+	desc = "vef_random.50041.d"
+	picture = VEF_COURT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		check_variable = { which = vef_our_cardinals value = 1 }
+		religion = catholic
+		government = monarchy
+		NOT = { government = steppe_horde }
+		has_global_flag = vef_papacy_final
+	}
+	
+	option = {	#Grant
+		name = "vef_random.50041.opta"
+		add_legitimacy = -5
+		add_years_of_income = -0.05
+		random_owned_province = {
+			limit = { has_province_modifier = cardinal_diocese }
+			custom_tooltip = gain_cardinal_relations
+			trigger_switch = {
+				on_trigger = has_province_flag
+				cardinal1 = { ROOT = { change_variable = { which = cardinal1_relation value = 10 }} }
+				cardinal2 = { ROOT = { change_variable = { which = cardinal2_relation value = 10 }} }
+				cardinal3 = { ROOT = { change_variable = { which = cardinal3_relation value = 10 }} }
+				cardinal4 = { ROOT = { change_variable = { which = cardinal4_relation value = 10 }} }
+				cardinal5 = { ROOT = { change_variable = { which = cardinal5_relation value = 10 }} }
+				cardinal6 = { ROOT = { change_variable = { which = cardinal6_relation value = 10 }} }
+				cardinal7 = { ROOT = { change_variable = { which = cardinal7_relation value = 10 }} }
+				cardinal8 = { ROOT = { change_variable = { which = cardinal8_relation value = 10 }} }
+				cardinal9 = { ROOT = { change_variable = { which = cardinal9_relation value = 10 }} }
+				cardinal10 = { ROOT = { change_variable = { which = cardinal10_relation value = 10 }} }
+				cardinal11 = { ROOT = { change_variable = { which = cardinal11_relation value = 10 }} }
+				cardinal12 = { ROOT = { change_variable = { which = cardinal12_relation value = 10 }} }
+				cardinal13 = { ROOT = { change_variable = { which = cardinal13_relation value = 10 }} }
+				cardinal14 = { ROOT = { change_variable = { which = cardinal14_relation value = 10 }} }
+				cardinal15 = { ROOT = { change_variable = { which = cardinal15_relation value = 10 }} }
+				cardinal16 = { ROOT = { change_variable = { which = cardinal16_relation value = 10 }} }
+				cardinal17 = { ROOT = { change_variable = { which = cardinal17_relation value = 10 }} }
+				cardinal18 = { ROOT = { change_variable = { which = cardinal18_relation value = 10 }} }
+				cardinal19 = { ROOT = { change_variable = { which = cardinal19_relation value = 10 }} }
+				cardinal20 = { ROOT = { change_variable = { which = cardinal20_relation value = 10 }} }
+				cardinal21 = { ROOT = { change_variable = { which = cardinal21_relation value = 10 }} }
+				cardinal22 = { ROOT = { change_variable = { which = cardinal22_relation value = 10 }} }
+				cardinal23 = { ROOT = { change_variable = { which = cardinal23_relation value = 10 }} }
+				cardinal24 = { ROOT = { change_variable = { which = cardinal24_relation value = 10 }} }
+				cardinal25 = { ROOT = { change_variable = { which = cardinal25_relation value = 10 }} }
+				cardinal26 = { ROOT = { change_variable = { which = cardinal26_relation value = 10 }} }
+				cardinal27 = { ROOT = { change_variable = { which = cardinal27_relation value = 10 }} }
+				cardinal28 = { ROOT = { change_variable = { which = cardinal28_relation value = 10 }} }
+				cardinal29 = { ROOT = { change_variable = { which = cardinal29_relation value = 10 }} }
+				cardinal30 = { ROOT = { change_variable = { which = cardinal30_relation value = 10 }} }
+			}
+		}
+	}
+	
+	option = {	#Refuse
+		name = "vef_random.50041.optb"
+		add_legitimacy = 5
+		random_owned_province = {
+			limit = { has_province_modifier = cardinal_diocese }
+			custom_tooltip = damage_cardinal_relations
+			trigger_switch = {
+				on_trigger = has_province_flag
+				cardinal1 = { ROOT = { change_variable = { which = cardinal1_relation value = -10 }} }
+				cardinal2 = { ROOT = { change_variable = { which = cardinal2_relation value = -10 }} }
+				cardinal3 = { ROOT = { change_variable = { which = cardinal3_relation value = -10 }} }
+				cardinal4 = { ROOT = { change_variable = { which = cardinal4_relation value = -10 }} }
+				cardinal5 = { ROOT = { change_variable = { which = cardinal5_relation value = -10 }} }
+				cardinal6 = { ROOT = { change_variable = { which = cardinal6_relation value = -10 }} }
+				cardinal7 = { ROOT = { change_variable = { which = cardinal7_relation value = -10 }} }
+				cardinal8 = { ROOT = { change_variable = { which = cardinal8_relation value = -10 }} }
+				cardinal9 = { ROOT = { change_variable = { which = cardinal9_relation value = -10 }} }
+				cardinal10 = { ROOT = { change_variable = { which = cardinal10_relation value = -10 }} }
+				cardinal11 = { ROOT = { change_variable = { which = cardinal11_relation value = -10 }} }
+				cardinal12 = { ROOT = { change_variable = { which = cardinal12_relation value = -10 }} }
+				cardinal13 = { ROOT = { change_variable = { which = cardinal13_relation value = -10 }} }
+				cardinal14 = { ROOT = { change_variable = { which = cardinal14_relation value = -10 }} }
+				cardinal15 = { ROOT = { change_variable = { which = cardinal15_relation value = -10 }} }
+				cardinal16 = { ROOT = { change_variable = { which = cardinal16_relation value = -10 }} }
+				cardinal17 = { ROOT = { change_variable = { which = cardinal17_relation value = -10 }} }
+				cardinal18 = { ROOT = { change_variable = { which = cardinal18_relation value = -10 }} }
+				cardinal19 = { ROOT = { change_variable = { which = cardinal19_relation value = -10 }} }
+				cardinal20 = { ROOT = { change_variable = { which = cardinal20_relation value = -10 }} }
+				cardinal21 = { ROOT = { change_variable = { which = cardinal21_relation value = -10 }} }
+				cardinal22 = { ROOT = { change_variable = { which = cardinal22_relation value = -10 }} }
+				cardinal23 = { ROOT = { change_variable = { which = cardinal23_relation value = -10 }} }
+				cardinal24 = { ROOT = { change_variable = { which = cardinal24_relation value = -10 }} }
+				cardinal25 = { ROOT = { change_variable = { which = cardinal25_relation value = -10 }} }
+				cardinal26 = { ROOT = { change_variable = { which = cardinal26_relation value = -10 }} }
+				cardinal27 = { ROOT = { change_variable = { which = cardinal27_relation value = -10 }} }
+				cardinal28 = { ROOT = { change_variable = { which = cardinal28_relation value = -10 }} }
+				cardinal29 = { ROOT = { change_variable = { which = cardinal29_relation value = -10 }} }
+				cardinal30 = { ROOT = { change_variable = { which = cardinal30_relation value = -10 }} }
+			}
+		}
+	}
+}
+
+# Cardinal Seeks Appointment for Family Member
+country_event = {
+	id = vef_random.50042
+	title = "vef_random.50042.t"
+	desc = "vef_random.50042.d"
+	picture = VEF_COURT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		check_variable = { which = vef_our_cardinals value = 1 }
+		religion = catholic
+		government = republic
+		NOT = { government = papal_government }
+		has_global_flag = vef_papacy_final
+	}
+	
+	option = {	#Grant
+		name = "vef_random.50041.opta"
+		add_republican_tradition = -5
+		add_years_of_income = -0.05
+		random_owned_province = {
+			limit = { has_province_modifier = cardinal_diocese }
+			custom_tooltip = gain_cardinal_relations
+			trigger_switch = {
+				on_trigger = has_province_flag
+				cardinal1 = { ROOT = { change_variable = { which = cardinal1_relation value = 10 }} }
+				cardinal2 = { ROOT = { change_variable = { which = cardinal2_relation value = 10 }} }
+				cardinal3 = { ROOT = { change_variable = { which = cardinal3_relation value = 10 }} }
+				cardinal4 = { ROOT = { change_variable = { which = cardinal4_relation value = 10 }} }
+				cardinal5 = { ROOT = { change_variable = { which = cardinal5_relation value = 10 }} }
+				cardinal6 = { ROOT = { change_variable = { which = cardinal6_relation value = 10 }} }
+				cardinal7 = { ROOT = { change_variable = { which = cardinal7_relation value = 10 }} }
+				cardinal8 = { ROOT = { change_variable = { which = cardinal8_relation value = 10 }} }
+				cardinal9 = { ROOT = { change_variable = { which = cardinal9_relation value = 10 }} }
+				cardinal10 = { ROOT = { change_variable = { which = cardinal10_relation value = 10 }} }
+				cardinal11 = { ROOT = { change_variable = { which = cardinal11_relation value = 10 }} }
+				cardinal12 = { ROOT = { change_variable = { which = cardinal12_relation value = 10 }} }
+				cardinal13 = { ROOT = { change_variable = { which = cardinal13_relation value = 10 }} }
+				cardinal14 = { ROOT = { change_variable = { which = cardinal14_relation value = 10 }} }
+				cardinal15 = { ROOT = { change_variable = { which = cardinal15_relation value = 10 }} }
+				cardinal16 = { ROOT = { change_variable = { which = cardinal16_relation value = 10 }} }
+				cardinal17 = { ROOT = { change_variable = { which = cardinal17_relation value = 10 }} }
+				cardinal18 = { ROOT = { change_variable = { which = cardinal18_relation value = 10 }} }
+				cardinal19 = { ROOT = { change_variable = { which = cardinal19_relation value = 10 }} }
+				cardinal20 = { ROOT = { change_variable = { which = cardinal20_relation value = 10 }} }
+				cardinal21 = { ROOT = { change_variable = { which = cardinal21_relation value = 10 }} }
+				cardinal22 = { ROOT = { change_variable = { which = cardinal22_relation value = 10 }} }
+				cardinal23 = { ROOT = { change_variable = { which = cardinal23_relation value = 10 }} }
+				cardinal24 = { ROOT = { change_variable = { which = cardinal24_relation value = 10 }} }
+				cardinal25 = { ROOT = { change_variable = { which = cardinal25_relation value = 10 }} }
+				cardinal26 = { ROOT = { change_variable = { which = cardinal26_relation value = 10 }} }
+				cardinal27 = { ROOT = { change_variable = { which = cardinal27_relation value = 10 }} }
+				cardinal28 = { ROOT = { change_variable = { which = cardinal28_relation value = 10 }} }
+				cardinal29 = { ROOT = { change_variable = { which = cardinal29_relation value = 10 }} }
+				cardinal30 = { ROOT = { change_variable = { which = cardinal30_relation value = 10 }} }
+			}
+		}
+	}
+	
+	option = {	#Refuse
+		name = "vef_random.50041.optb"
+		add_republican_tradition = 5
+		random_owned_province = {
+			limit = { has_province_modifier = cardinal_diocese }
+			custom_tooltip = damage_cardinal_relations
+			trigger_switch = {
+				on_trigger = has_province_flag
+				cardinal1 = { ROOT = { change_variable = { which = cardinal1_relation value = -10 }} }
+				cardinal2 = { ROOT = { change_variable = { which = cardinal2_relation value = -10 }} }
+				cardinal3 = { ROOT = { change_variable = { which = cardinal3_relation value = -10 }} }
+				cardinal4 = { ROOT = { change_variable = { which = cardinal4_relation value = -10 }} }
+				cardinal5 = { ROOT = { change_variable = { which = cardinal5_relation value = -10 }} }
+				cardinal6 = { ROOT = { change_variable = { which = cardinal6_relation value = -10 }} }
+				cardinal7 = { ROOT = { change_variable = { which = cardinal7_relation value = -10 }} }
+				cardinal8 = { ROOT = { change_variable = { which = cardinal8_relation value = -10 }} }
+				cardinal9 = { ROOT = { change_variable = { which = cardinal9_relation value = -10 }} }
+				cardinal10 = { ROOT = { change_variable = { which = cardinal10_relation value = -10 }} }
+				cardinal11 = { ROOT = { change_variable = { which = cardinal11_relation value = -10 }} }
+				cardinal12 = { ROOT = { change_variable = { which = cardinal12_relation value = -10 }} }
+				cardinal13 = { ROOT = { change_variable = { which = cardinal13_relation value = -10 }} }
+				cardinal14 = { ROOT = { change_variable = { which = cardinal14_relation value = -10 }} }
+				cardinal15 = { ROOT = { change_variable = { which = cardinal15_relation value = -10 }} }
+				cardinal16 = { ROOT = { change_variable = { which = cardinal16_relation value = -10 }} }
+				cardinal17 = { ROOT = { change_variable = { which = cardinal17_relation value = -10 }} }
+				cardinal18 = { ROOT = { change_variable = { which = cardinal18_relation value = -10 }} }
+				cardinal19 = { ROOT = { change_variable = { which = cardinal19_relation value = -10 }} }
+				cardinal20 = { ROOT = { change_variable = { which = cardinal20_relation value = -10 }} }
+				cardinal21 = { ROOT = { change_variable = { which = cardinal21_relation value = -10 }} }
+				cardinal22 = { ROOT = { change_variable = { which = cardinal22_relation value = -10 }} }
+				cardinal23 = { ROOT = { change_variable = { which = cardinal23_relation value = -10 }} }
+				cardinal24 = { ROOT = { change_variable = { which = cardinal24_relation value = -10 }} }
+				cardinal25 = { ROOT = { change_variable = { which = cardinal25_relation value = -10 }} }
+				cardinal26 = { ROOT = { change_variable = { which = cardinal26_relation value = -10 }} }
+				cardinal27 = { ROOT = { change_variable = { which = cardinal27_relation value = -10 }} }
+				cardinal28 = { ROOT = { change_variable = { which = cardinal28_relation value = -10 }} }
+				cardinal29 = { ROOT = { change_variable = { which = cardinal29_relation value = -10 }} }
+				cardinal30 = { ROOT = { change_variable = { which = cardinal30_relation value = -10 }} }
+			}
+		}
+	}
+}
+
+# Wardship
+country_event = {
+	id = vef_random.50043
+	title = "vef_random.50043.t"
+	desc = "vef_random.50043.d"
+	picture = VEF_GOOD_ARISTOCRATS_eventPicture
+
+	is_triggered_only = yes	#bi-yearly random
+
+	trigger = {
+		government = monarchy
+		NOT = { government = steppe_horde }
+		any_owned_province = {
+			OR = {
+				has_building = nobles_60
+				has_building = nobles_80
+			}
+		}
+	}
+
+	option = {	#Take some holdings
+		name = "vef_random.50043.opta"
+		random_owned_province = {
+			limit = {
+				OR = {
+					has_building = nobles_60
+					has_building = nobles_80
+				}
+			}
+			trigger_switch = {
+				on_trigger = has_building
+				nobles_60 = { remove_building = nobles_60 }
+				nobles_80 = { remove_building = nobles_80 }
+			}
+			add_building = nobles_40
+		}
+		change_variable = { which = vef_rule_law value = -1 }
+	}
+	
+	option = {	#Leave it be
+		name = "vef_random.50043.optb"
+		add_legitimacy = 5
+		change_variable = { which = vef_rule_law value = 1 }
+	}
+}

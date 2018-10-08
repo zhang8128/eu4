@@ -1,0 +1,247 @@
+######################################################################
+# Disgruntled nobles.
+######################################################################
+noble_rebels = {
+
+	color = { 179 75 75 }
+
+	area = nation 					# Stays within the nation
+	government = monarchy			# Likes monarchy
+	defection = none				# Does not defect
+	independence = none				# Does not strive for independence
+	unit_transfer = no
+	gfx_type = culture_owner	
+	will_relocate = yes	
+	
+	resilient = no
+	reinforcing = yes
+	general = yes
+	smart = yes
+	
+	artillery = 0.0
+	infantry = 0.6
+	cavalry = 0.4
+	
+	morale = 0.80
+	
+	# Possible handle actions
+	handle_action_negotiate = yes
+	handle_action_stability = no
+	handle_action_build_core = yes
+	handle_action_send_missionary = no		
+	
+	# The rebel type with the highest modifier for this province gets picked
+	spawn_chance = {
+		factor = 1
+		modifier = {
+			factor = 0.01
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 0
+			owner = { has_country_modifier = country_black_death } # Not during the Black Death
+		}
+		modifier = {
+			factor = 0
+			owner = { primary_culture = polish }
+		}
+		modifier = {
+			factor = 0.0
+			owner = {
+				is_colonial_nation = yes
+			}
+		}
+		modifier = {
+			factor = 0.0
+			owner = {
+				government = republic
+				republican_tradition = 80
+			}
+		}
+		modifier = {
+			factor = 20
+			owner = {
+				has_disaster = counts_feud
+				has_country_flag = pretender_flag
+			}
+		}	
+		#modifier = {
+		#	factor = 10
+		#	has_estate = estate_nobles
+		#}
+		modifier = {
+			factor = 10
+			owner = {
+				has_disaster = court_and_country
+			}
+		}
+		
+		modifier = {
+			factor = 20
+			owner = {
+				has_disaster = vef_electivemonarchy
+			}
+		}
+		modifier = {
+			factor = 15
+			has_province_modifier = rm_decrease_serfdom
+		}		
+		modifier = {
+			factor = 0.5
+			has_province_modifier = rm_increase_serfdom
+		}
+		modifier = {
+			factor = 5
+			owner = { has_country_modifier = terror_curb_nobles }
+		}
+		modifier = {
+			factor = 10
+			owner = { has_country_modifier = terror_end_nobles }
+		}
+		modifier = {
+			factor = 5
+			owner = { has_country_modifier = terror_land_nobles }
+		}
+		modifier = {
+			factor = 5
+			owner = { has_country_modifier = terror_freedom }
+		}
+		# No nobles, no noble rebels
+		modifier = {
+			factor = 0
+			NOT = { has_building = nobles_20 }
+			NOT = { has_building = nobles_40 }
+			NOT = { has_building = nobles_60 }
+			NOT = { has_building = nobles_80 }
+		}
+		modifier = {
+			factor = 25
+			has_province_flag = seizing_land_noble
+		}
+		modifier = {
+			factor = 2.5
+			owner = {
+				government = republic
+				NOT = { republican_tradition = 33 }
+			}
+		}
+		modifier = {
+			factor = 2.5
+			owner = {
+				government = republic
+				NOT = { republican_tradition = 66 }
+			}
+		}
+	}
+ 
+ 	# This is checked for EACH province in the Area of Operations
+	movement_evaluation = {
+		factor = 1
+		modifier = {
+			factor = 0.1
+			units_in_province = 1
+		}
+		modifier = {
+			factor = 0.001
+			controlled_by = REB
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 2
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 4
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 6
+		}
+	}
+ 
+ 	# Province Scope
+ 	siege_won_trigger = {
+		NOT = { local_autonomy = 50 }
+	}
+	siege_won_effect = {
+		add_local_autonomy = 10
+	}
+	
+	# Country scope
+	can_negotiate_trigger = {
+		always = yes
+	}
+	
+	# Country scope
+	can_enforce_trigger = {
+		always = yes
+	}
+	
+	# Localisation for their demands
+	demands_description = "noble_rebels_demand"
+	
+	# Country Scope	
+	demands_enforced_effect = {
+#		if = {
+#			limit = {
+#				has_dlc = "The Cossacks"
+#				has_estate = estate_nobles
+#				NOT = {
+#					has_estate_influence_modifier = {
+#						estate = estate_nobles
+#						modifier = EST_VAL_NOBLES_EXTORTED_RIGHTS
+#					}
+#				}
+#			}
+#			add_estate_influence_modifier = {
+#				estate = estate_nobles
+#				desc = EST_VAL_NOBLES_EXTORTED_RIGHTS
+#				influence = 15
+#				duration = 5475
+#			}
+#		}
+		every_owned_province = {
+			limit = {
+				has_rebel_faction = REB
+			}
+			add_local_autonomy = 10
+		}
+		every_owned_province = {
+			limit = { has_province_modifier = rm_decrease_serfdom }
+			remove_province_modifier = rm_decrease_serfdom
+			add_province_modifier = { name = neg_serfdom_lower duration = 3650 }
+		}
+		every_owned_province = {
+			limit = { has_province_flag = seizing_land_noble }
+			remove_province_modifier = rm_seize_land
+			add_province_modifier = { name = neg_land_seizure duration = 3650 }
+		}
+		add_prestige = -10
+		add_legitimacy = -10
+		add_horde_unity = -10
+		if = {
+			limit = { has_disaster = counts_feud }
+			end_disaster = counts_feud
+			clr_country_flag = pretender_flag
+			clr_country_flag = monarch_flag
+		}
+		if = {
+			limit = {
+				has_disaster = court_and_country
+			}
+			set_country_flag = court_and_country_surrendered_to_rebels
+			hidden_effect = { country_event = { id = court_and_country_events.100 } }
+			end_disaster = court_and_country
+		}
+		if = {
+			limit = { has_disaster = vef_electivemonarchy }
+			end_disaster = vef_electivemonarchy
+			change_government = elective_monarchy
+		}
+		change_variable = { which = aristocratic_privilege value = 5 }
+		if = {
+			limit = { has_active_policy = vef_reign_terror }
+			country_event = { id = vef_terror.203 }
+		}
+	}
+}

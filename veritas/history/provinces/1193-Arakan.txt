@@ -1,0 +1,23 @@
+# Arakan
+
+capital = "Launggyet"
+owner = ARK
+controller = ARK
+add_core = ARK
+culture = arakanese
+religion = buddhism
+trade_goods = cinnamon
+base_tax = 4
+base_production = 4
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = chinese
+discovered_by = indian
+
+1430.1.1 = { capital = "Mrauk U" }
+1500.1.1 = { religion = sunni discovered_by = POR }
+1784.12.31 = {	owner = TAU controller = TAU add_core = TAU } # Annexed by Burma
+1811.1.1  = { revolt = { type = nationalist_rebels size = 2 } controller = REB }
+1815.1.1  = { revolt = {} controller = TAU }
+1826.2.24 = { owner = GBR controller = GBR add_core = GBR capital = "Akyab" }

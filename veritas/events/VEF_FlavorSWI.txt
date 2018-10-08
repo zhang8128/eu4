@@ -1,0 +1,185 @@
+########################################
+# Swiss Events
+# VEF
+########################################
+
+namespace = flavor_swi
+normal_or_historical_nations = yes
+
+#Switch on Swiss Confederacy
+#1 Zurich
+#2 Bern
+#3 Neuchatel
+#4 Wallis
+#5 St. Gallen
+#6 Chur
+#7 Basel
+#8 Geneva
+
+# Zurich
+country_event = {
+	id = flavor_swi.1
+	title = "flavor_swi.1.t"
+	desc = "flavor_swi.1.d"
+	picture = VEF_CITY_DEVELOPMENT_eventPicture
+
+	trigger = {
+		tag = ZUR
+		ai = yes
+		SWI = { ai = yes }
+		is_year = 1351
+	}
+
+	option = {
+		name = "flavor_swi.1.opta"
+		set_country_flag = ai_swiss_league
+		add_trust = { who = SWI value = 90 mutual = yes }
+	}
+}
+
+# Bern
+country_event = {
+	id = flavor_swi.2
+	title = "flavor_swi.1.t"
+	desc = "flavor_swi.1.d"
+	picture = VEF_CITY_DEVELOPMENT_eventPicture
+
+	trigger = {
+		tag = BRN
+		ai = yes
+		SWI = { ai = yes }
+		is_year = 1353
+	}
+
+	option = {
+		name = "flavor_swi.1.opta"
+		set_country_flag = ai_swiss_league
+		add_trust = { who = SWI value = 90 mutual = yes }
+	}
+}
+
+# Neuchatel
+country_event = {
+	id = flavor_swi.3
+	title = "flavor_swi.1.t"
+	desc = "flavor_swi.1.d"
+	picture = VEF_CITY_DEVELOPMENT_eventPicture
+
+	trigger = {
+		tag = NEU
+		ai = yes
+		SWI = { ai = yes }
+		is_year = 1406
+	}
+
+	option = {
+		name = "flavor_swi.1.opta"
+		set_country_flag = ai_swiss_league
+		add_trust = { who = SWI value = 90 mutual = yes }
+	}
+}
+
+# Wallis
+country_event = {
+	id = flavor_swi.4
+	title = "flavor_swi.1.t"
+	desc = "flavor_swi.1.d"
+	picture = VEF_CITY_DEVELOPMENT_eventPicture
+
+	trigger = {
+		tag = VAL
+		ai = yes
+		SWI = { ai = yes }
+		is_year = 1416
+	}
+
+	option = {
+		name = "flavor_swi.1.opta"
+		set_country_flag = ai_swiss_league
+		add_trust = { who = SWI value = 90 mutual = yes }
+	}
+}
+
+# St. Gallen
+country_event = {
+	id = flavor_swi.5
+	title = "flavor_swi.1.t"
+	desc = "flavor_swi.1.d"
+	picture = VEF_CITY_DEVELOPMENT_eventPicture
+
+	trigger = {
+		tag = STG
+		ai = yes
+		SWI = { ai = yes }
+		is_year = 1454
+	}
+
+	option = {
+		name = "flavor_swi.1.opta"
+		set_country_flag = ai_swiss_league
+		add_trust = { who = SWI value = 90 mutual = yes }
+	}
+}
+
+# Chur
+country_event = {
+	id = flavor_swi.6
+	title = "flavor_swi.1.t"
+	desc = "flavor_swi.1.d"
+	picture = VEF_CITY_DEVELOPMENT_eventPicture
+
+	trigger = {
+		tag = CHU
+		ai = yes
+		SWI = { ai = yes }
+		is_year = 1497
+	}
+
+	option = {
+		name = "flavor_swi.1.opta"
+		set_country_flag = ai_swiss_league
+		add_trust = { who = SWI value = 90 mutual = yes }
+	}
+}
+
+# Basel
+country_event = {
+	id = flavor_swi.7
+	title = "flavor_swi.1.t"
+	desc = "flavor_swi.1.d"
+	picture = VEF_CITY_DEVELOPMENT_eventPicture
+
+	trigger = {
+		tag = BAS
+		ai = yes
+		SWI = { ai = yes }
+		is_year = 1501
+	}
+
+	option = {
+		name = "flavor_swi.1.opta"
+		set_country_flag = ai_swiss_league
+		add_trust = { who = SWI value = 90 mutual = yes }
+	}
+}
+
+# Geneva
+country_event = {
+	id = flavor_swi.8
+	title = "flavor_swi.1.t"
+	desc = "flavor_swi.1.d"
+	picture = VEF_CITY_DEVELOPMENT_eventPicture
+
+	trigger = {
+		tag = GNV
+		ai = yes
+		SWI = { ai = yes }
+		is_year = 1526
+	}
+
+	option = {
+		name = "flavor_swi.1.opta"
+		set_country_flag = ai_swiss_league
+		add_trust = { who = SWI value = 90 mutual = yes }
+	}
+}

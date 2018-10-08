@@ -1,0 +1,79 @@
+# Japanese Flavour Events
+
+namespace = flavor_jpn
+
+# A Monk Gains Notariety, by George Hall
+country_event = {
+	id = flavor_jpn.20000
+	title = "flavor_jpn.20000.t"
+	desc = "flavor_jpn.20000.d"
+
+	picture = VEF_SAMURAI_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		primary_culture = japanese
+		NOT = { tag = JAP } # Not the emperor
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "flavor_jpn.20000.opta"
+		add_adm_power = 75
+		add_mil_power = 75
+		add_legitimacy = 20
+		add_horde_unity = 20
+		add_republican_tradition = 20 # Council of Five Regents
+	}
+
+	option = {
+		name = "flavor_jpn.20000.optb"
+		create_advisor = quartermaster
+		capital_scope = { infantry = ROOT }
+		add_mil_power = -50
+		add_prestige = 10
+	}
+}
+
+# Japan Unification Event
+country_event = {
+	id = flavor_jpn.20001
+	title = "flavor_jpn.20001.t"
+	desc = "flavor_jpn.20001.d"
+
+	picture = VEF_SAMURAI_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "flavor_jpn.20001.opta"
+		add_adm_power = 250
+		add_dip_power = 250
+		add_mil_power = 250
+		add_legitimacy = 100
+		change_tag = JAP
+		if = {
+			limit = {
+				has_custom_ideas = no
+				NOT = { has_idea_group = JAP_ideas }
+			}
+			country_event = { id = "national_ideas.60000" days = 1 }
+		}
+	}
+}

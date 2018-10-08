@@ -1,0 +1,24 @@
+#Province IDs changed
+name = "Aragonese Conquest of Sardinia"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 208
+}
+
+# Starts on the submission of Sardinia to Aragon
+1323.4.11 = {
+	add_attacker = ARA
+	add_attacker = SAR
+	add_defender = PIS
+}
+
+1324.9.1 = { add_defender = GEN }
+
+#Pisa sues for peace; Genoa holds on to the Sassari region (though not the commune itself)
+1326.6.1 = {
+	rem_attacker = ARA
+	rem_attacker = SAR
+	rem_defender = PIS
+	rem_defender = GEN
+}

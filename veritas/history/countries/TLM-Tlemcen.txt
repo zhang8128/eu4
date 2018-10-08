@@ -1,0 +1,205 @@
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+technology_group = muslim
+religion = sunni
+primary_culture = zenata
+add_accepted_culture = maghreb_arabic
+capital = 1658 # Tlemcen
+
+1308.1.1 = {
+	monarch = {
+		name = "Abu Hammu I"
+		dynasty = "Zayyanid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	add_piety = 0.35
+}
+
+1318.1.1 = {
+	monarch = {
+		name = "Ibn Tashufin"
+		dynasty = "Zayyanid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1337.1.1 = {
+	monarch = {
+		name = "Abu Bakr"
+		dynasty = "Hafsid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 20.0 }
+}
+
+1347.1.1 = {
+	monarch = {
+		name = "Abu Inan Faris"
+		dynasty = "Hafsid"
+		adm = 2
+		dip = 2
+		mil = 4
+	}
+}
+
+1348.4.15 = {
+	monarch = {
+		name = "Abu Sa'id Uthman II"
+		dynasty = "Zayyanid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	clr_country_flag = starting_vassal 
+	clr_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 0 }
+}
+
+1352.1.1 = {
+	monarch = {
+		name = "Abu Inan Faris"
+		dynasty = "Hafsid"
+		adm = 2
+		dip = 2
+		mil = 4
+	}
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 20.0 }
+}
+
+1358.1.10 = {
+	monarch = {
+		name = "Abu Hammu Musa II"
+		dynasty = "Zayyanid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	clr_country_flag = starting_vassal 
+	clr_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 0 }
+}
+
+1389.1.1 = {
+	monarch = {
+		name = "Abu Tashfin II"
+		dynasty = "Zayyanid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1394.1.1 = {
+	monarch = {
+		name = "Muhammad III"
+		dynasty = "Zayyanid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1400.1.1 = {
+	monarch = {
+		name = "Abdallah I"
+		dynasty = "Zayyanid"
+		adm = 1
+		dip = 3
+		mil = 2
+	}
+}
+
+1402.1.1 = {
+	monarch = {
+		name = "Muhammad IV"
+		dynasty = "Zayyanid"
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1411.1.1 = {
+	monarch = {
+		name = "Abd al-Wahid"
+		dynasty = "Zayyanid"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1424.1.1 = {
+	monarch = {
+		name = "Muhammad V"
+		dynasty = "Zayyanid"
+		adm = 0
+		dip = 3
+		mil = 0
+	}
+}
+
+1430.7.27 = {
+	monarch = {
+		name = "Ahmad II"
+		dynasty = "Zayyanid"
+		adm = 4
+		dip = 1
+		mil = 2
+		leader = {	name = "Ahmad II"	type = general fire = 3	shock = 2	manuever = 3	siege = 0 }
+	}
+}
+
+1462.2.2 = {
+	monarch = {
+		name = "Muhammad V"
+		dynasty = "Zayyanid"
+		adm = 0
+		dip = 3
+		mil = 0
+	}
+}
+
+1468.1.1 = {
+	monarch = {
+		name = "Muhammad VI"
+		dynasty = "Zayyanid"
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1505.1.1 = {
+	monarch = {
+		name = "Muhammad VII"
+		dynasty = "Zayyanid"
+		adm = 2
+		dip = 0
+		mil = 1
+	}
+}
+
+1505.1.1 = { leader = {	name = "Barberus"	type = admiral fire = 4	shock = 5	manuever = 5	siege = 0	death_date = 1530.1.1 } }
+
+
+1516.1.1 = {
+	monarch = {
+		name = "Mûsa III"
+		dynasty = "Zayyanid"
+		adm = 2
+		dip = 1
+		mil = 0
+	}
+}

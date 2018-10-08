@@ -1,0 +1,81 @@
+country_decisions = {
+
+	wallonia_nation = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			primary_culture = wallonian
+			normal_or_historical_nations = yes
+			NOT = { exists = WLN }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = BEL }
+		}
+		allow = {
+			NOT = { tag = BEL }
+			stability = 1
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 196 	# Artois
+			196 = { NOT = { nationalism = 1 } }
+			owns_core_province = 197 	# Hainaut
+			197 = { NOT = { nationalism = 1 } }
+			owns_core_province = 198 	# Cambray
+			198 = { NOT = { nationalism = 1 } }
+			owns_core_province = 199 	# Rethel
+			199 = { NOT = { nationalism = 1 } }
+			owns_core_province = 200 	# Liege
+			200 = { NOT = { nationalism = 1 } }
+			owns_core_province = 201 	# Namur
+			201 = { NOT = { nationalism = 1 } }
+		}
+	 	effect = {
+	 		if = {
+	 			limit = { is_subject = yes }
+	 			overlord = {
+	 				clr_country_flag = overlord_flag_@ROOT
+	 				set_country_flag = overlord_flag_WLN
+	 			}
+	 		}
+			change_tag = WLN
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			add_prestige = 25
+			country_event = { id = flavor_bel.10001 }
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = WLN_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+}

@@ -1,0 +1,222 @@
+government = monarchy add_government_reform = iqta
+government_rank = 3
+technology_group = muslim
+religion = sunni
+primary_culture = bedouin_arabic
+add_accepted_culture = zenata
+add_accepted_culture = sanhaja
+capital = 1654
+
+
+1503.1.1 = {
+	capital = 1643
+	#government = barbary_pirates
+	monarch = {
+		name = "Oruc"
+		dynasty = "Reis"
+		adm = 2
+		dip = 0
+		mil = 5
+		leader = { name = "Oruc Barberossa" type = admiral fire = 4 shock = 5 manuever = 5 siege = 0 death_date = 1518.1.1 }
+	}
+}
+
+1516.1.23 = { capital = 1654 }
+
+1518.1.1 = {
+	monarch = {
+		name = "Hizir"
+		dynasty = "Reis"
+		adm = 2
+		dip = 1
+		mil = 3
+		leader = { name = "Hizir Barberossa" type = admiral fire = 4 shock = 5 manuever = 5 siege = 0 death_date = 1530.1.1 }
+	}
+}
+
+1520.1.1 = {
+	#government = ottoman_eyalet
+	government_rank = 2
+} # Hizir subjugates himself to the Ottomans
+
+1540.1.1 = {
+	monarch = {
+		name = "Ahmad III"
+		dynasty = "Zayyanid"
+		adm = 0
+		dip = 2
+		mil = 1
+	}
+}
+
+1550.1.1 = {
+	monarch = {
+		name = "al-Hasan"
+		dynasty = "Zayyanid"
+		adm = 0
+		dip = 3
+		mil = 1
+	}
+}
+
+1710.1.1 = {
+	monarch = {
+		name = "'Ali I"
+		dynasty = "Muhammadid"
+		adm = 3
+		dip = 4
+		mil = 5
+		leader = { name = "'Ali I" type = general fire = 3 shock = 3 manuever = 3 siege = 0 }
+	}
+}
+
+1718.4.5 = {
+	monarch = {
+		name = "Muhammad I"
+		dynasty = "Muhammadid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1724.5.19 = {
+	monarch = {
+		name = "'Abdi"
+		dynasty = "Muhammadid"
+		adm = 2
+		dip = 1
+		mil = 3
+	}
+}
+
+1731.1.1 = {
+	monarch = {
+		name = "Ibrâhîm I"
+		dynasty = "Muhammadid"
+		adm = 3
+		dip = 3
+		mil = 0
+	}
+}
+
+1745.11.3 = {
+	monarch = {
+		name = "Ibrâhîm II"
+		dynasty = "Muhammadid"
+		adm = 0
+		dip = 2
+		mil = 3
+	}
+}
+
+1748.2.2 = {
+	monarch = {
+		name = "Muhammad II"
+		dynasty = "Muhammadid"
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}
+
+1754.12.13 = {
+	monarch = {
+		name = "'Alî II"
+		dynasty = "Muhammadid"
+		adm = 2
+		dip = 1
+		mil = 1
+	}
+}
+
+1766.2.2 = {
+	monarch = {
+		name = "Muhammad III"
+		dynasty = "Muhammadid"
+		adm = 4
+		dip = 2
+		mil = 1
+	}
+}
+
+1791.7.23 = {
+	monarch = {
+		name = "Hasan"
+		dynasty = "Muhammadid"
+		adm = 0
+		dip = 1
+		mil = 3
+	}
+}
+
+1798.6.2 = {
+	monarch = {
+		name = "Mustafa"
+		dynasty = "Muhammadid"
+		adm = 1
+		dip = 0
+		mil = 1
+	}
+}
+
+1805.7.2 = {
+	monarch = {
+		name = "Ahmed"
+		dynasty = "Muhammadid"
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1808.11.16 = {
+	monarch = {
+		name = "'Alî III"
+		dynasty = "Muhammadid"
+		adm = 0
+		dip = 1
+		mil = 0
+	}
+}
+
+1815.4.4 = {
+	monarch = {
+		name = "'Umar"
+		dynasty = "Muhammadid"
+		adm = 2
+		dip = 1
+		mil = 1
+	}
+}
+
+1817.5.3 = {
+	monarch = {
+		name = "'Alî IV"
+		dynasty = "Muhammadid"
+		adm = 1
+		dip = 0
+		mil = 0
+	}
+}
+
+1818.3.3 = {
+	monarch = {
+		name = "Husain III"
+		dynasty = "Muhammadid"
+		adm = 2
+		dip = 0
+		mil = 1
+	}
+}
+
+1830.1.1 = {
+	#government = vassal_governorship
+	monarch = {
+		name = "French Governor"
+		regent = yes
+		adm = 2
+		dip = 0
+		mil = 1
+	}
+}

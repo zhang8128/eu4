@@ -1,0 +1,11 @@
+#Machuan
+#model = merchantman
+#tech_level = 38
+type = light_ship
+unit_type = chinese
+
+hull_size = 14
+base_cannons = 14
+sail_speed = 8
+trade_power = 4.75
+sailors = 40

@@ -1,0 +1,192 @@
+country_decisions = {
+
+	persian_nation = {
+		major = yes
+		potential = {
+			OR = {
+				culture_group = iranian
+				primary_culture = azerbadjani
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { religion = zoroastrianism }
+			OR = { 
+				ai = no
+				NOT = { exists = PER }
+			}
+			NOT = { tag = MUG }
+			NOT = { tag = PER }
+			NOT = { tag = ILK }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = TUR }
+			NOT = { tag = BYZ }
+			NOT = { tag = MZF }
+			NOT = { tag = INJ }
+			NOT = { tag = JAI }
+			NOT = { tag = CBN }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			NOT = { exists = PER }
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			is_tribal = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { region = persia_region }
+						AND = {
+							region = persia_region
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_persia
+			}
+			owns_core_province = 1515		# Sharvestan
+			owns_core_province = 1516		# Yazd
+			owns_core_province = 1521		# Mazandaran
+			owns_core_province = 1525		# Isfahan
+			owns_core_province = 1531		# Hamadan
+			owns_core_province = 1532		# Qazvin
+			owns_core_province = 1537		# Tabriz	
+		}
+		effect = {
+			change_tag = PER
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			persia_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = PER
+			}
+			add_prestige = 25
+			change_primary_culture = persian
+			if = {
+				limit = { technology_group = nomad_group }
+				change_technology_group = muslim
+				change_unit_type = muslim
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = PER_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 500
+	}
+
+	persian_nation_2 = {
+		major = yes
+		potential = {
+			OR = {
+				culture_group = iranian
+				primary_culture = azerbadjani
+			}
+			religion = zoroastrianism
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				ai = no
+				NOT = { exists = PER }
+			}
+			NOT = { tag = MUG }
+			NOT = { tag = PER }
+			NOT = { tag = ILK }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = TUR }
+			NOT = { tag = BYZ }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			NOT = { exists = PER }
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			is_tribal = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 1515		# Sharvestan
+			owns_core_province = 1516		# Yazd
+			owns_core_province = 1521		# Mazandaran
+			owns_core_province = 1525		# Isfahan
+			owns_core_province = 1531		# Hamadan
+			owns_core_province = 1532		# Qazvin
+			owns_core_province = 1537		# Tabriz	
+		}
+		effect = {
+			change_tag = PER
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 4 } }
+				set_government_rank = 4
+			}
+			persia_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = PER
+			}
+			add_prestige = 25
+			change_primary_culture = persian
+			if = {
+				limit = { technology_group = nomad_group }
+				change_technology_group = indopersian
+				change_unit_type = indopersian
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+}

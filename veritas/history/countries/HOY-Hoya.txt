@@ -1,0 +1,224 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+primary_culture = lowersaxon
+religion = catholic
+technology_group = western
+capital = 3978	# Hoya
+
+1290.1.1 = {
+	monarch = {
+		name = "Otto II"
+		dynasty = "von Hoya"
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+}
+
+1324.1.1 = {
+	monarch = {
+		name = "Gerhard III"
+		dynasty = "von Hoya"
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+}
+
+1428.1.1 = {
+	monarch = {
+		name = "Otto V"
+		dynasty = "von Hoya"
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+}
+
+1451.1.1 = {
+	monarch = {
+		name = "Otto VII"
+		dynasty = "von Hoya"
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+}
+
+1460.1.1 = {
+	heir = {
+		name = "Jobst"
+		monarch_name = "Jobst I"
+		dynasty = "von Hoya"
+		birth_date = 1460.1.1
+		death_date = 1507.1.6
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1497.1.1 = {
+	monarch = {
+		name = "Jobst I"
+		dynasty = "von Hoya"
+		birth_date = 1460.1.1
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = LIE
+		name = "Ermengarda"
+		dynasty = "von Lippe"
+		birth_date = 1470.1.1	# Made Up
+		death_date = 1510.1.1	# Made Up
+		female = yes
+		adm = 2 
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Jobst"
+		monarch_name = "Jobst II"
+		dynasty = "von Hoya"
+		birth_date = 1493.1.1
+		death_date = 1545.4.25
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1507.1.6 = {
+	monarch = {
+		name = "Jobst II"
+		dynasty = "von Hoya"
+		birth_date = 1493.1.1
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+	queen = {
+		name = "Anna"
+		dynasty = "von Gleichen"
+		birth_date = 1470.1.1	# Made Up
+		death_date = 1545.1.1
+		female = yes
+		adm = 2 
+		dip = 2
+		mil = 2
+	}
+}
+
+1525.1.1 = { religion = protestant }
+
+1526.1.1 = {
+	heir = {
+		name = "Albert"
+		monarch_name = "Albert II"
+		dynasty = "von Hoya"
+		birth_date = 1526.1.1
+		death_date = 1563.3.18
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1545.4.25 = {
+	monarch = {
+		name = "Albert II"
+		dynasty = "von Hoya"
+		birth_date = 1526.1.1
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+	heir = {
+		name = "Eric"
+		monarch_name = "Eric V"
+		dynasty = "von Hoya"
+		birth_date = 1535.1.1
+		death_date = 1575.3.12
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1561.1.1 = {
+	queen = {
+		country_of_origin = OLD
+		name = "Catherine"
+		dynasty = "von Oldenburg"
+		birth_date = 1530.1.1	# Made Up
+		death_date = 1620.1.1	
+		female = yes
+		adm = 2 
+		dip = 2
+		mil = 2
+	}
+}
+
+1563.3.18 = {
+	monarch = {
+		name = "Eric V"
+		dynasty = "von Hoya"
+		birth_date = 1535.1.1
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+	heir = {
+		name = "Otto"
+		monarch_name = "Otto VIII"
+		dynasty = "von Hoya"
+		birth_date = 1530.1.1
+		death_date = 1582.2.25
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1568.1.1 = {
+	queen = {
+		name = "Armgard"
+		dynasty = "von Bentheim"
+		birth_date = 1550.1.1	# Made Up
+		death_date = 1600.1.1	# Made Up
+		female = yes
+		adm = 2 
+		dip = 2
+		mil = 2
+	}
+}
+
+1575.3.12 = {
+	monarch = {
+		name = "Otto VIII"
+		dynasty = "von Hoya"
+		birth_date = 1530.1.1
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+	queen = {
+		name = "Agnes"
+		dynasty = "von Bentheim"
+		birth_date = 1530.1.1	# Made Up
+		death_date = 1600.1.1	# Made Up
+		female = yes
+		adm = 2 
+		dip = 2
+		mil = 2
+	}
+}
+
+# County absorbed to the Duchy of Brunswick-Luneburg

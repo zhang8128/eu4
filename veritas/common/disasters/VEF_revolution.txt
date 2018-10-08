@@ -1,0 +1,101 @@
+revolution = {
+	potential = {
+		current_age = age_of_revolutions
+		NOT = { has_country_flag = had_revolution }
+		NOT = { tag = PAP }
+		is_free_or_tributary_trigger = yes
+		capital_scope = { continent = europe }
+		NOT = { revolution_target_exists = yes }
+		government = monarchy
+		has_parliament = no
+		NOT = { government = celestial_empire }
+	}
+	
+	
+	can_start = {
+		current_age = age_of_revolutions
+		num_of_cities = 30
+		has_any_disaster = no
+		check_variable = { which = aristocratic_privilege value = 50 }
+		NOT = { check_variable = { which = vef_merit value = 40 }}
+		NOT = { check_variable = { which = citizen_holdings value = 50 }}
+	}
+	
+	can_stop = {
+		OR = {
+			has_any_disaster = yes
+			stability = 3
+		}
+	}
+	
+	
+	progress = {
+		modifier = {
+			factor = 0.1
+			NOT = { prestige = 0 }
+		}
+		modifier = {
+			factor = 0.1
+			war_exhaustion = 5
+		} 
+		modifier = {
+			factor = 0.05
+			num_of_loans = 10
+		}	
+		modifier = {
+			factor = 0.05
+			num_of_loans = 25
+		}	
+		modifier = {
+			factor = 0.2
+			is_bankrupt = yes
+		}		
+		modifier = {
+			factor = 0.1
+			NOT = { stability = 1 }
+		}
+		modifier = {
+			factor = 0.1
+			NOT = { check_variable = { which = vef_rule_law value = 25 }}
+		}
+		modifier = {
+			factor = 0.05
+			NOT = { check_variable = { which = free_subjects value = 3 }}
+		}
+		modifier = {
+			factor = 0.05
+			check_variable = { which = aristocratic_privilege value = 70 }
+		}
+	}
+	
+	can_end = {
+		OR = {
+			AND = {
+				stability = 3
+				NOT = { num_of_rebel_controlled_provinces = 1 }
+				government = monarchy
+			}
+			AND = {
+				government = revolutionary_republic
+				stability = 3
+				NOT = { num_of_rebel_controlled_provinces = 1 }
+			}
+		}
+	}
+	
+
+	modifier = {
+		global_unrest = 10
+		stability_cost_modifier = 0.1
+	}	
+	
+	
+	on_start = vef_revolution.1
+	on_end = vef_revolution.100
+	
+	on_monthly = {
+		random_events = {
+			1000 = 0
+		}
+	}
+}

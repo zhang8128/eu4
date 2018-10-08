@@ -1,0 +1,31 @@
+# Arcot
+
+capital = "Arcot"
+owner = ADH
+controller = ADH
+add_core = ADH
+culture = tamil
+religion = hinduism
+trade_goods = iron
+base_tax = 2
+base_production = 2
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = indian
+
+1323.1.1	= { owner = DLH controller = DLH } #Kakatiya dynasty conqured by Delhi Sultanate
+1346.1.1	= { owner = KRK controller = KRK add_core = KRK remove_core = ADH } #Sultanate of Arcot
+1374.1.1	= { owner = VIJ controller = VIJ add_core = VIJ } #Arcot defeated by Bukka Raya I
+1428.1.1 = { add_core = VIJ }
+1498.1.1 = { discovered_by = POR }
+1645.1.1 = { controller = GOC } # Conquered by Golconda
+1646.1.1 = { owner = GOC fort_15th = yes } # Conquered by Golconda
+1686.1.1 = { controller = MUG }
+1687.1.1 = { owner = MUG }
+1710.1.1 = { owner = KRK controller = KRK fort_16th = yes fort_15th = no } # Nawab of Arcot / Carnatic
+1740.5.1 = { controller = MAR } # Arcot falls to the Marathas
+1743.3.1 = { controller = KRK } # Arcot falls to the Nizam
+1751.9.1 = { controller = GBR } #Conquered by Clive
+1754.1.1 = { controller = KRK }
+1801.1.1 = { controller = GBR owner = GBR add_core = GBR }

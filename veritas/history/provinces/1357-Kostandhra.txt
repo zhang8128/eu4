@@ -1,0 +1,40 @@
+# Kostandhra
+
+capital = "Masulipatnam"
+owner = ADH
+controller = ADH
+add_core = ADH
+culture = telegu
+religion = hinduism
+trade_goods = cloth
+base_tax = 3
+base_production = 3
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = indian
+
+extra_cost = 10
+add_permanent_province_modifier = { name = krishna_estuary_modifier duration = -1 }
+
+1323.1.1	= { owner = DLH controller = DLH } #Kakatiya dynasty conqured by Delhi Sultanate
+1346.1.1	= { owner = ADH controller = ADH } #Resurgence under Reddy Dynasty
+1445.1.1	= { controller = ORI } # Conquered by Gajapatis
+1448.1.1	= { owner = ORI add_territorial_core = ORI } # Conquered by Gajapatis
+1466.1.1	= { revolt = { type = nationalist_rebels size = 1 } controller = REB } # Gajapati gains lost during civil war
+1468.1.1	= { revolt = {} owner = BAH controller = BAH } #Given to/taken by Bahmanis due to involvement in Gajapati civil war
+1476.1.1	= { controller = ORI }	#New Gajapati invasion started by Gajapati governor retaking Kondavidu fort
+1478.1.1	= { controller = BAH } #Kondavidu is beseiged and falls
+1482.3.26	= { owner = ORI controller = ORI } # Reconquered by Gajapatis during messy Bahmani sucession
+1514.6.1	= { controller = VIJ }
+1516.6.1	= { owner = VIJ add_core = VIJ } # Vijayanagar expansion
+1568.6.1	= { owner = GOC controller = GOC add_core = GOC remove_core = VIJ }
+1686.1.1	= { controller = MUG }
+1687.1.1	= { owner = MUG add_core = MUG }
+1712.1.1	= { add_core = DEC }	#Viceroyalty of the Deccan
+1724.1.1	= { owner = DEC controller = DEC remove_core = MUG } # Asif Jah declared himself Nizam-al-Mulk
+1751.3.1	= { owner = FRA controller = FRA add_core = FRA } # # To France in exchange for aid in succession war
+1759.1.1	= { controller = GBR } # Lally withdraws all forces from the northern Circars which are then promptly seized by col. Forde
+1763.2.10	= { owner = DEC controller = DEC remove_core = FRA } #Control returned to Nizam
+1766.11.12	= { owner = GBR controller = GBR add_core = GBR } # Northern Circars to Britain
+1823.1.1	= { remove_core = DEC } #Nizam withdraws his claims

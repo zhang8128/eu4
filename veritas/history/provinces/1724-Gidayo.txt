@@ -1,0 +1,16 @@
+# Gidayo
+
+owner = DAW
+controller = DAW
+add_core = DAW
+capital = "Gidayo"
+culture = oromo
+religion = sunni
+base_tax = 1
+base_production = 1
+base_manpower = 2
+trade_goods = millet
+hre = no
+is_city = yes
+discovered_by = sudanese_tech
+discovered_by = muslim

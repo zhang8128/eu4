@@ -1,0 +1,430 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+primary_culture = gallo
+add_accepted_culture = breton
+religion = catholic
+technology_group = western
+capital = 159	# Nantes
+
+1305.11.18 = {
+	monarch = {
+		name = "Arthur II"
+		dynasty = "de Dreux"
+		birth_date = 1261.7.25
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+	heir = {
+		name = "Jean"
+		monarch_name = "Jean III"
+		dynasty = "de Dreux"
+		birth_date = 1286.3.8
+		death_date = 1341.4.30
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+	queen = {
+		name = "Yolande"
+		dynasty = "de Dreux"
+		birth_date = 1263.1.1
+		death_date = 1322.8.2
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1312.8.27 = {
+	monarch = {
+		name = "Jean III"
+		dynasty = "de Dreux"
+		birth_date = 1286.3.8
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+	heir = {
+		name = "Jean"
+		monarch_name = "Jean IV"
+		dynasty = "de Dreux"
+		birth_date = 1294.1.1
+		death_date = 1345.9.26
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+	set_country_flag = breton_succession_question
+}
+
+# John of Montfort (John IV) was despised by his half-brother John III who arranged for the
+# King of France to make claims on behalf of his nephew who was married to John III's daughter
+# resulting in the war of Breton Succession
+
+1341.4.30 = {
+	monarch = {
+		name = "Jean IV"
+		dynasty = "de Dreux"
+		birth_date = 1294.1.1
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+	clr_country_flag = breton_succession_question
+	set_country_flag = war_breton_succession
+	heir = {
+		name = "Jean"
+		monarch_name = "Jean V"
+		dynasty = "de Dreux"
+		birth_date = 1339.4.12
+		death_date = 1399.11.1
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 5
+	}
+}
+
+1345.9.26 = {
+	monarch = {
+		name = "Jean V"
+		dynasty = "de Dreux"
+		birth_date = 1339.4.12
+		adm = 2
+		dip = 2
+		mil = 4
+	}
+}
+
+1361.7.3 = { # Elfryc
+	queen = {
+		country_of_origin = ENG
+		name = "Mary"
+		dynasty = "Lancaster"
+		birth_date = 1344.10.10
+		death_date = 1361.9.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1364.9.29 = { clr_country_flag = war_breton_succession } #Death of Chalres of Blois ends dispute
+
+1366.5.1 = {
+	queen = {
+		country_of_origin = ENG
+		name = "Joan"
+		dynasty = "Holland"
+		birth_date = 1350.1.1
+		death_date = 1384.10.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1386.9.11 = {
+	queen = {
+		country_of_origin = NAV
+		name = "Jeanne"
+		dynasty = "d'Évreux"
+		birth_date = 1370.1.1
+		death_date = 1437.7.9
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1389.12.24 = {
+	heir = {
+		name = "Jean"
+		monarch_name = "Jean VI"
+		dynasty = "de Dreux"
+		birth_date = 1389.12.24
+		death_date = 1442.8.29
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 2
+	}
+}
+
+1399.11.1 = {
+	monarch = {
+		name = "Jeanne"
+		dynasty = "d'Évreux"
+		birth_date = 1370.1.1
+		female = yes
+		regent = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1404.1.1 = {
+	monarch = {
+		name = "Jean VI"
+		dynasty = "de Dreux"
+		birth_date = 1389.12.24
+		adm = 1
+		dip = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = FRA
+		name = "Jeanne"
+		dynasty = "de Valois"
+		birth_date = 1391.1.24
+		death_date = 1433.9.27
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1414.5.11 = {
+	heir = {
+		name = "François"
+		monarch_name = "François I"
+		dynasty = "de Dreux"
+		birth_date = 1414.5.11
+		death_date = 1450.7.17
+		claim = 95
+		adm = 1
+		dip = 3
+		mil = 2
+	}
+}
+
+1442.8.29 = {
+	monarch = {
+		name = "François I"
+		dynasty = "de Dreux"
+		birth_date = 1414.5.11
+		adm = 1
+		dip = 3
+		mil = 2
+	}
+	heir = {
+		name = "Pierre"
+		monarch_name = "Pierre II"
+		dynasty = "de Dreux"
+		birth_date = 1418.7.7
+		death_date = 1457.9.22
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = charismatic_negotiator_personality 
+}
+
+1442.10.30 = {
+	queen = {
+		country_of_origin = SCO
+		name = "Isabel"
+		dynasty = "Stewart"
+		birth_date = 1426.1.1
+		death_date = 1494.10.13
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1450.7.17 = {
+	monarch = {
+		name = "Pierre II"
+		dynasty = "de Dreux"
+		birth_date = 1418.7.7
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+	queen = {
+		country_of_origin = FRA
+		name = "Françoise"
+		dynasty = "d'Amboise"
+		birth_date = 1427.5.29
+		death_date = 1485.11.4
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1450.7.20 = {
+	heir = {
+		name = "Arthur"
+		monarch_name = "Arthur III"
+		dynasty = "de Dreux"
+		birth_date = 1393.8.24
+		death_date = 1458.12.26
+		claim = 95
+		adm = 3
+		dip = 2
+		mil = 4
+	}
+}
+		
+1457.9.23 = {
+	monarch = {
+		name = "Arthur III"
+		dynasty = "de Dreux"
+		birth_date = 1393.8.24
+		adm = 3
+		dip = 2
+		mil = 4
+		leader = { name = "Arthur de Dreux"	type = general fire = 4	shock = 4	manuever = 4	siege = 1 }
+	}
+	#His nephew
+	heir = {
+		name = "François"
+		monarch_name = "François II"
+		dynasty = "de Dreux"
+		birth_date = 1433.6.23
+		death_date = 1488.9.9
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+	clear_scripted_personalities = yes
+	add_heir_personality = cruel_personality  
+}
+
+1458.12.27 = {
+	monarch = {
+		name = "François II"
+		dynasty = "de Dreux"
+		birth_date = 1433.6.23
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+	queen = {
+		country_of_origin = BRI
+		name = "Marguerite"
+		dynasty = "de Dreux"
+		birth_date = 1443.1.1
+		death_date = 1469.9.25
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = cruel_personality
+}
+
+1474.6.24 = {
+	queen = {
+		country_of_origin = FOI
+		name = "Marguerite"
+		dynasty = "de Foix"
+		birth_date = 1449.1.1
+		death_date = 1486.5.15
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1477.1.25 = {
+	heir = {
+		name = "Anne"
+		monarch_name = "Anne I"
+		dynasty = "de Dreux"
+		birth_date = 1477.1.25
+		death_date = 1514.1.9
+		female = yes
+		claim = 95
+		adm = 4
+        dip = 3
+        mil = 2
+	}
+}
+
+1488.9.10 = {
+	monarch = {
+		name = "Anne I"
+		dynasty = "de Dreux"
+		birth_date = 1477.1.25
+		female = yes
+		adm = 4
+        dip = 3
+        mil = 2
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = just_personality # Righteous would also be valid
+}
+
+1491.12.6 = {
+	queen = {
+		country_of_origin = FRA
+		name = "Charles VIII"
+		dynasty = "de Valois"
+		birth_date = 1470.6.30
+		death_date = 1498.4.7
+		female = no
+		adm = 4
+		dip = 2
+		mil = 6
+	}
+}
+
+1499.1.8 = {
+	queen = {
+		country_of_origin = FRA
+		name = "Louis XII"
+		birth_date = 1462.6.27
+		death_date = 1515.1.1
+		female = no
+		adm = 5
+		dip = 3
+		mil = 2
+	}
+}
+# Since Salic Law forbid her to inherit the throne of France, she was made heiress to the duchy
+1499.10.14 = {
+	heir = {
+		name = "Claude"
+		monarch_name = "Claude I"
+		dynasty = "de Valois"
+		birth_date = 1499.10.14
+		death_date = 1525.7.20
+		female = yes
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1514.1.10 = {
+	monarch = {
+		name = "Claude I"
+		dynasty = "de Valois"
+		birth_date = 1499.10.14
+		adm = 2
+		dip = 2
+		mil = 2
+		female = yes
+	}
+}
+# Marriage to Francis I of France in 1515 saw to the eventual annexation of the duchy

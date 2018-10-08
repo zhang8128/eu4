@@ -1,0 +1,205 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+primary_culture = umbrian
+religion = catholic
+technology_group = western
+capital = 234 # Forli (and Imola)
+fixed_capital = 234 # Cannot move capital away from this province & no power cost to move to it
+
+set_country_flag = guelphs_ghibellines_active
+set_country_flag = starting_vassal 
+set_country_flag = vassal_flag
+set_variable = { which = vassal_progress value = 1.0 }
+set_country_flag = romagna_vassal
+
+
+1302.1.1 = {
+	monarch = {
+		name = "Scarpetta"
+		dynasty = "Ordelaffi"
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+	heir = {
+		name = "Francesco"
+		monarch_name = "Francesco I"
+		dynasty = "Ordelaffi"
+		birth_date = 1300.1.1
+		death_date = 1332.1.1
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1315.1.1 = {
+	monarch = {
+		name = "Francesco I"
+		dynasty = "Ordelaffi"
+		birth_date = 1300.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1332.1.1 = {
+	monarch = {
+		name = "Francesco II"
+		dynasty = "Ordelaffi"
+		birth_date = 1300.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1376.1.1 = {
+	monarch = {
+		name = "Sinibaldo I"
+		dynasty = "Ordelaffi"
+		birth_date = 1336.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1386.10.28 = {
+	monarch = {
+		name = "Pino I"
+		dynasty = "Ordelaffi"
+		birth_date = 1356.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1402.7.1 = {
+	monarch = {
+		name = "Francesco III"
+		dynasty = "Ordelaffi"
+		birth_date = 1357.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+# Republic instated after the violent overthrow of Francesco III
+1405.9.8 = {
+	government = republic add_government_reform = administrative_republic
+	monarch = {
+		name = "Signoria"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+# Republic supressed
+1411.1.1 = {
+	government = monarchy add_government_reform = feudalism_reform
+	monarch = {
+		name = "Giorgio I"
+		dynasty = "Ordelaffi"
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1420.1.1 = {
+	monarch = {
+		name = "Lucrezia"
+		dynasty = "Alidosi"
+		regent = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+	heir = {
+		name = "Teobaldo"
+		monarch_name = "Teobaldo II"
+		dynasty = "Ordelaffi"
+		birth_date = 1413.1.1
+		death_date = 1426.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+# Driven from the city in 1425 by the Visconti of Milan who later ceded it to the Papal States
+1425.1.1 = {
+	#government = papal_vicarage
+	monarch = {
+		name = "Papal Vicar"
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+# Popular revolt ousts the papal governor in 1433 clearing the way for the Ordelaffi to return
+
+1433.1.1 = {
+	monarch = {
+		name = "Antonio I"
+		dynasty = "Ordelaffi"
+		birth_date = 1390.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1448.8.4 = {
+	monarch = {
+		name = "Francesco IV"
+		dynasty = "Ordelaffi"
+		birth_date = 1430.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1466.1.1 = {
+	monarch = {
+		name = "Pino III"
+		dynasty = "Ordelaffi"
+		birth_date = 1436.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1480.12.1 = {
+	monarch = {
+		name = "Girolamo"
+		dynasty = "Riaro"
+		birth_date = 1443.1.1
+		adm = 3
+		dip = 1
+		mil = 2
+	}
+}
+
+1488.4.14 = {
+	monarch = {
+		name = "Caterina"
+		dynasty = "Sforza"
+		birth_date = 1463.1.1
+		adm = 5
+		dip = 3
+		mil = 4
+		female = yes
+		leader = {	name = "Caterina Maria Sforza"             	type = general fire = 2	shock = 2	manuever = 1	siege = 1	death_date = 1509.5.28 }
+	}
+}
+1560.1.1 = { clr_country_flag = guelphs_ghibellines_active }

@@ -1,0 +1,239 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+technology_group = western
+primary_culture = schlesian
+religion = catholic
+capital = 478	# Legnica
+
+# Dukes of Legnica
+
+1296.1.1 = {
+	monarch = {
+		name = "Boleslaw III"
+		dynasty = "Piast"
+		adm = 2
+		dip = 2
+		mil = 2
+		}
+}
+
+1342.1.1 = {
+	monarch = {
+		name = "Waclaw I"
+		dynasty = "Piast"
+		adm = 0
+		dip = 1
+		mil = 3
+	}
+}
+
+1364.1.1 = {
+	monarch = {
+		name = "Rupert I"
+		dynasty = "Piast"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1409.1.1 = {
+	monarch = {
+		name = "Waclaw II"
+		dynasty = "Piast"
+		adm = 3
+		dip = 1
+		mil = 1
+	}
+}
+
+1413.1.1 = {
+	monarch = {
+		name = "Ludwik II"
+		dynasty = "Piast"
+		adm = 1
+		dip = 1
+		mil = 2
+	}
+}
+#Bohemia seizes Legnica, maternal line inherits 5 years later
+1454.1.1 = {
+	monarch = {
+		name = "Fryderyk"
+		dynasty = "Piast"
+		adm = 2
+		dip = 2
+		mil = 0
+	}
+}
+
+1488.1.1 = {
+	monarch = {
+		name = "Jan II"
+		dynasty = "Piast"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1495.1.1 = {
+	monarch = {
+		name = "Fryderyk II"
+		dynasty = "Piast"
+		adm = 3
+		dip = 1
+		mil = 2
+	}
+}
+
+1505.1.1 = {
+	monarch = {
+		name = "Jerzy I"
+		dynasty = "Piast"
+		adm = 1
+		dip = 1
+		mil = 0
+	}
+}
+
+1521.1.1 = {
+	monarch = {
+		name = "Fryderyk II"
+		dynasty = "Piast"
+		adm = 3
+		dip = 1
+		mil = 2
+	}
+}
+
+1547.1.1 = {
+	monarch = {
+		name = "Fryderyk III"
+		dynasty = "Piast"
+		adm = 0
+		dip = 0
+		mil = 1
+	}
+}
+
+1551.1.1 = {
+	monarch = {
+		name = "Jerzy II"
+		dynasty = "Piast"
+		adm = 1
+		dip = 3
+		mil = 0
+	}
+}
+
+1556.1.1 = {
+	monarch = {
+		name = "Fryderyk III"
+		dynasty = "Piast"
+		adm = 0
+		dip = 0
+		mil = 1
+	}
+}
+
+1559.1.1 = {
+	monarch = {
+		name = "Henry XI"
+		dynasty = "Piast"
+		adm = 0
+		dip = 3
+		mil = 0
+	}
+}
+
+1576.1.1 = {
+	monarch = {
+		name = "Frederick IV"
+		dynasty = "Piast"
+		adm = 1
+		dip = 3
+		mil = 0
+	}
+}
+
+1596.1.1 = {
+	monarch = {
+		name = "Joachim Fryderyk I"
+		dynasty = "Piast"
+		adm = 2
+		dip = 1
+		mil = 0
+	}
+}
+
+1602.3.25 = {
+	monarch = {
+		name = "Jan Chrystian I"
+		dynasty = "Piast"
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+
+1639.1.1 = {
+	monarch = {
+		name = "Jerzy Rudolf I"
+		dynasty = "Piast"
+		adm = 2
+		dip = 3
+		mil = 0
+	}
+}
+
+1653.1.1 = {
+	monarch = {
+		name = "Jerzy III"
+		dynasty = "Piast"
+		adm = 1
+		dip = 2
+		mil = 0
+	}
+}
+
+1654.1.1 = {
+	monarch = {
+		name = "Ludwik IV"
+		dynasty = "Piast"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1663.1.1 = {
+	monarch = {
+		name = "Jerzy Rudolf I"
+		dynasty = "Piast"
+		adm = 2
+		dip = 3
+		mil = 0
+	}
+}
+
+1664.1.1 = {
+	monarch = {
+		name = "Chrystian I"
+		dynasty = "Piast"
+		adm = 1
+		dip = 3
+		mil = 0
+	}
+}
+
+1672.1.1 = {
+	monarch = {
+		name = "Jerzy Wilhelm I"
+		dynasty = "Piast"
+		adm = 2
+		dip = 1
+		mil = 0
+	}
+}

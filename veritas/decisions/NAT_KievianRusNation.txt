@@ -1,0 +1,86 @@
+# Kievian Rus
+country_decisions = {
+
+	rus_nation = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			OR = {
+				primary_culture = ruthenian
+				primary_culture = byelorussian 
+			}
+			normal_or_historical_nations = yes
+			NOT = { exists = KRU }
+			NOT = { tag = PAP }
+			NOT = { tag = RUS }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			is_colonial_nation = no
+		}
+		allow = {
+			NOT = { exists = RUS }
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			num_of_owned_provinces_with = {
+				value = 25
+				province_group = rus_group
+				is_core = ROOT
+				NOT = { nationalism = 1 }
+			}
+			calc_true_if = {
+				owns_core_province = 656	# Severia
+				owns_core_province = 658 	# Chernigov
+				owns_core_province = 659	# Kiev
+				owns_core_province = 663 	# Lvov
+				owns_core_province = 667 	# Volhynia
+				owns_core_province = 690 	# Smolensk
+				dip = 5
+				amount = 4
+			}
+		}
+		effect = {
+			change_tag = KRU
+			rus_group = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = KRU
+			}
+			add_prestige = 25
+			set_capital = 659
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 4 } }
+				set_government_rank = 4
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = KRU_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+}

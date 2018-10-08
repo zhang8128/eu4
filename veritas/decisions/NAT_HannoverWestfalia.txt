@@ -1,0 +1,216 @@
+country_decisions = {
+
+	hannoverian_nation = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					owns_core_province = 374	# Lüneburg
+					owns_core_province = 378	# Stade
+					owns_core_province = 344	# Hannover
+					owns_core_province = 375	# Uelzen
+				}
+				ai = no
+			}
+			OR = { 
+				primary_culture = lowersaxon
+				primary_culture = eastphalian
+				primary_culture = westphalian
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = HAN }
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = GER }
+			NOT = { tag = PRU }
+			NOT = { tag = HSA }
+			NOT = { tag = SXN }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			NOT = { tag = GER }
+			NOT = { tag = PRU }
+			NOT = { tag = HSA }
+			NOT = { tag = SXN }
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			adm_tech = 28
+			OR = {
+				NOT = { is_part_of_hre = yes }
+				is_elector = yes
+			}
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 344	# Hannover
+			344 = { NOT = { nationalism = 1 } }
+			owns_core_province = 374	# Lüneburg
+			374 = { NOT = { nationalism = 1 } }
+			owns_core_province = 375	# Uelzen
+			375 = { NOT = { nationalism = 1 } }
+			owns_core_province = 378	# Stade
+			378 = { NOT = { nationalism = 1 } }
+		}
+		effect = {
+			change_tag = HAN			
+			344 = { add_base_tax = 1 }
+			every_province = {
+				limit = {
+					OR = {
+						province_id = 341 # Osnabruck
+						province_id = 343 # East Frisia
+						province_id = 345 # Wolfsburg
+						province_id = 346 # Brunswick
+						province_id = 376 # Oldenburg
+						province_id = 377 # Bremen
+					}
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = HAN
+			}
+			add_prestige = 25
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			set_capital = 344
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_part_of_hre = yes
+				is_elector = no	
+			}
+		}
+	}
+	
+	westfalian_nation = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					owns_core_province = 355	# Magdeburg
+					owns_core_province = 339	# Westfalen
+					owns_core_province = 340	# Bielefeld
+					owns_core_province = 344	# Hannover
+					owns_core_province = 347	# Kassel
+				}
+				ai = no
+			}
+			OR = {
+				primary_culture = westphalian
+				primary_culture = eastphalian
+				primary_culture = rhinefranconian
+				capital_scope = {
+					area = westphalia_area
+				}
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				is_playing_custom_nation = no
+				ai = no
+			}
+			NOT = { exists = WES }
+			NOT = { has_country_flag = formed_westphalia }
+			NOT = { tag = HLR }
+			NOT = { tag = HAN }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = GER }
+			NOT = { tag = PRU }
+			NOT = { tag = SWI }
+			NOT = { tag = FRC }
+			NOT = { tag = SXN }
+			NOT = { tag = SWA }
+			#has_country_modifier = peace_of_westphalia_enacted	
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			NOT = { tag = HAN }
+			NOT = { tag = GER }
+			NOT = { tag = PRU }
+			NOT = { tag = FRC }
+			NOT = { tag = SXN }
+			NOT = { tag = SWA }
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			adm_tech = 28
+			OR = {
+				NOT = { is_part_of_hre = yes }
+				is_elector = yes
+			}
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			capital_scope = { area = westphalia_area }			
+			owns_core_province = 355	# Magdeburg
+			355 = { NOT = { nationalism = 1 } }
+			owns_core_province = 339	# Westfalen
+			339 = { NOT = { nationalism = 1 } }
+			owns_core_province = 340	# Bielefeld
+			340 = { NOT = { nationalism = 1 } }
+			owns_core_province = 344	# Hannover
+			344 = { NOT = { nationalism = 1 } }
+			owns_core_province = 347	# Kassel
+			347 = { NOT = { nationalism = 1 } }
+		}
+		effect = {
+			change_tag = WES
+			hidden_effect = {
+				set_variable = { which = apcon_threshold_low which = aristocratic_privilege }
+				change_variable = { which = apcon_threshold_low value = -10 }
+				if = {
+					limit = { NOT = { check_variable = { which = apcon_threshold_low value = 0 }}}
+					set_variable = { which = apcon_threshold_low value = 0 }
+				}
+				set_variable = { which = apcon_threshold_high which = aristocratic_privilege }
+				change_variable = { which = apcon_threshold_high value = 10 }
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			random_owned_province = { add_base_tax = 1 }
+			westphalia_area = {
+				limit = { NOT = { owned_by = ROOT }	}
+				add_permanent_claim = WES
+			}
+			lower_saxony_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = WES
+			}
+			add_prestige = 25
+			set_capital = 347
+			set_country_flag = formed_westphalia
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_part_of_hre = yes
+				is_elector = no	
+			}
+		}
+	}
+
+}

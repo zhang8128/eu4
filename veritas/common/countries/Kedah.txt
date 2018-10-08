@@ -1,0 +1,99 @@
+#Country Name: Please see filename.
+
+graphical_culture = asiangfx
+
+color = { 13  47  60 }
+
+historical_idea_groups = {
+	free_trade_ideas
+	quantity_ideas
+	religious_ideas
+	gf1_ideas
+	offensive_ideas
+	cultural_unity_ideas
+	diplomatic_ideas
+	drafted_army_ideas
+}
+
+historical_units = {
+
+   chinese_artillery_0_1
+   chinese_artillery_8_1
+   chinese_artillery_15_1
+   chinese_artillery_22_1
+   chinese_artillery_29_1
+   chinese_artillery_35_1
+   chinese_artillery_40_1
+   chinese_artillery_44_1
+   chinese_cavalry_0_1
+   chinese_cavalry_16_1
+   chinese_cavalry_31_1
+   chinese_cavalry_36_1
+   chinese_cavalry_40_1
+   chinese_cavalry_44_1
+   chinese_infantry_0_1
+   chinese_infantry_6_1
+   chinese_infantry_17_1
+   chinese_infantry_21_1
+   chinese_infantry_25_1
+   chinese_infantry_34_1
+   chinese_infantry_42_1
+   chinese_infantry_48_1
+   chinese_infantry_50_1
+}
+
+
+
+
+monarch_names = {
+	"Inayat #0" = 20
+	"'Alî Mugâyat #0" = 20
+	"Iskandar Tanî #0" = 20
+	"Husayn 'Alî Ri'âyat #0" = 20
+	"Menradza #0" = 20
+	"Tsalenggathu #0" = 20
+	"Gadzabadi #0" = 20
+	"Tsau-Lha #0" = 20
+	"Mengtsekya #0" = 20
+
+	"Azura #0" = -1
+	"Dayang #0" = -1
+	"Fatimah #0" = -1
+	"Sulong #0" = -1
+	"Sembuk #0" = -1
+	"Cik Fatimah #0" = -1
+	"Mariam #0" = -1
+	"Sharifah #0" = -1
+	"Azizah #0" = -1
+	"Aminah #0" = -1
+	"Zabedah #0" = -1
+	"Maimunah #0" = -1
+	"Zaharah #0" = -1
+	"Ismailiah #0" = -1
+	"Iskandariah #0" = -1
+}
+
+leader_names = {
+	Abdulfatah Ahmad Amir Anwar Azmi 
+	Batuta 
+	Chairul 
+	Hamzah Hasanuddin 
+	Ibnu 
+	Kyai 
+	Mahat Mukhtar 
+	Najamuddin Natzar Nazmizan 
+	Roem 
+	Syarifuddin 
+	Zulkifli 
+}
+
+ship_names = {
+	Parameswara "Sultan Iskandar" Bendahara Laksamana
+	Temenggung "Penghulu bendahari" Shahbandar
+	"Hukum Kanun" "Undang-Undang" "Pulau Bakung"
+	"Pulau Lingga" Kepulauan "Pulau Singkep" "Kepulauan Riau"
+	"Pulau Rempang" "Pulau Kundur" "Pulau Padang"
+	"Pulau Bengkaus" "Pulau Tinggi" "Pulau Sibu"
+	"Pulau Tioman" "Pulau Aur" "Pulau Rupat"
+	"Pulau Rangsang" "Pulau Tebing Tinggi"
+}

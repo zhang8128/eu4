@@ -1,0 +1,6 @@
+# Mozambique Channel
+#Province IDs changed
+discovered_by = tribal_african_tech
+discovered_by = muslim
+
+1498.3.15 = { discovered_by = POR }

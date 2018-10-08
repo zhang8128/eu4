@@ -1,0 +1,82 @@
+# Do not change tags in here without changing every other reference to them.
+# Do not change tags in here without changing every other reference to them.
+# If adding new groups or ideas, make sure they are unique.
+
+GEL_ideas = {
+	start = {
+		discipline = 0.05
+		global_tax_modifier = 0.1
+	}
+
+	bonus = {
+		trade_efficiency = 0.10
+	}
+	
+	trigger = {
+		tag = GEL
+	}
+	free = yes		#will be added at load.
+
+	gel_loan_system = {
+		core_creation = -0.075
+	}
+	gel_persuasion = {
+		diplomatic_reputation = 1
+	}
+	gel_catholic = {
+		global_missionary_strength = 0.01
+	}
+	gel_surviving = {
+		prestige = 1.0
+	}
+	gel_legitimacy = {
+		legitimacy = 1
+	}
+	gel_dikes = {
+		hostile_attrition = 0.5
+	}
+	gel_harbour = {
+		global_trade_power = 0.2
+		production_efficiency = 0.1
+	}
+}
+
+RMV_ideas = {
+	start = {
+		global_manpower_modifier = 0.20
+		tolerance_heathen = 2
+	}
+	
+	bonus = {
+		army_tradition_decay = -0.005
+	}
+	
+	trigger = {
+		tag = RMV
+	}
+	free = yes		#will be added at load.
+	
+	rigan_diplomacy = {
+		improve_relation_modifier = 0.3
+	}
+	baltic_tribal_aid = {
+		defensiveness = 0.2
+		hostile_attrition = 0.5
+	}
+	ruthenian_culture = {
+		idea_cost = -0.1
+	}
+	support_germanic_settalers = {
+		build_cost = -0.10
+	}
+	grow_lithuanian_towns = {
+		global_prov_trade_power_modifier = 0.2
+	}
+	defeat_the_orders = {
+		land_morale = 0.15
+		recover_army_morale_speed = 0.03
+	}
+	 gediminas_legacy = {
+		core_creation = -0.05
+	}
+}

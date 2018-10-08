@@ -1,0 +1,30 @@
+# Fulda
+
+owner = WBG
+controller = WBG
+add_core = WBG
+culture = rhinefranconian
+religion = catholic
+base_tax = 3
+base_production = 3
+trade_goods = grain
+base_manpower = 3
+is_city = yes
+capital = "Fulda"
+hre = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1550.1.1  = { citysize = 12000 }
+1590.1.1  = { temple = yes }
+1600.1.1  = { citysize = 14000 }
+1650.1.1  = { citysize = 8000 }
+1700.1.1  = { citysize = 12000 }
+1720.1.1  = { courthouse = yes }
+1750.1.1  = { citysize = 14000 }
+1800.1.1  = { citysize = 15000 }

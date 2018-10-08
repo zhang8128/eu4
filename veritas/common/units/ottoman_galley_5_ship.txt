@@ -1,0 +1,10 @@
+#Kalyata
+#model = galleass
+#tech_level = 34
+type = galley
+unit_type = ottoman
+
+hull_size = 18
+base_cannons = 34
+sail_speed = 9
+sailors = 300

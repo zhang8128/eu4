@@ -1,0 +1,18 @@
+#Province IDs changed
+government = republic add_government_reform = oligarchic_republic
+government_rank = 3
+primary_culture = sulawesi
+technology_group = chinese
+religion = sunni
+capital = 1252	# Singaraja
+
+
+1268.1.1 = {
+	monarch = {
+		name = "Kertanegara"
+		dynasty = "Rajasa"
+		adm = 5
+		dip = 3
+		mil = 3
+	}
+}

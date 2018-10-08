@@ -1,0 +1,150 @@
+#########################
+# Starting Forts Events #
+#########################
+
+namespace = vef_forts
+
+#Actual Removal
+country_event = {
+	id = vef_forts.1
+	title = "vef_forts.1.t"
+	desc = "vef_forts.1.d"
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	trigger = {
+		NOT = { has_country_flag = forts_removed }
+		mil_tech = 28
+		is_at_war = no
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = forts_removed
+			every_owned_province = {
+				limit = { has_province_flag = starting_fort }
+				clr_province_flag = starting_fort
+				if = {
+					limit = { has_building = basic_fort }
+					remove_building = basic_fort
+				}
+				if = {
+					limit = { has_province_modifier = theodosian_walls }
+					remove_province_modifier = theodosian_walls
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_forts.1.opta"
+	}
+ }
+ 
+#Rebuild
+province_event = {
+	id = vef_forts.2
+	title = "vef_forts.2.t"
+	desc = "vef_forts.2.d"
+	picture = VEF_FORT_eventPicture
+	
+	trigger = {
+		has_province_flag = starting_fort
+		NOT = { has_building = basic_fort }
+		NOT = { has_construction = building }
+		has_influencing_fort = no
+		controlled_by = owner
+		has_siege = no
+		OR = {
+			has_building = civic_charter
+			has_building = nobles_60
+			has_building = nobles_80
+		}
+		NOT = { owner = { mil_tech = 28 }}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			development = 10
+			factor = 0.8
+		}
+		modifier = {
+			development = 15
+			factor = 0.66
+		}
+	}
+	
+	immediate = { add_building = basic_fort }
+	
+	option = {
+		name = "vef_forts.2.opta"
+	}
+ }
+ 
+#Fortifications destroyed
+province_event = {
+	id = vef_forts.3
+	title = "vef_forts.3.t"
+	desc = "vef_forts.3.d"
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	is_triggered_only = yes	# on_siege_lost_province
+	
+	trigger = {
+		has_building = basic_fort
+		OR = {
+			is_year = 1311
+			AND = {
+				NOT = { province_id = 602 }
+				NOT = { province_id = 611 }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			remove_building = basic_fort
+		}
+		if = {
+			limit = {
+				OR = {
+					has_building = nobles_60
+					has_building = nobles_80
+				}
+			}
+			custom_tooltip = "vef_forts.3.tt1"
+		}
+		if = {
+			limit = { has_building = civic_charter }
+			custom_tooltip = "vef_forts.3.tt2"
+		}
+		if = {
+			limit = {
+				OR = {
+					has_building = civic_charter
+					has_building = nobles_60
+					has_building = nobles_80
+				}
+			}
+			custom_tooltip = "vef_forts.3.tt3"
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_building = civic_charter
+					has_building = nobles_60
+					has_building = nobles_80
+				}
+			}
+			custom_tooltip = "vef_forts.3.tt4"
+		}
+	}
+	
+	option = {
+		name = "vef_forts.3.opta"
+	}
+ }

@@ -1,0 +1,17 @@
+#Frigate
+#model = frigate
+#tech_level = 36
+type = transport
+
+hull_size = 20
+base_cannons = 32
+sail_speed = 8
+sailors = 250
+
+trigger = {
+	OR = {
+		unit_type = western
+		technology_group = western
+		technology_group = high_american
+	}
+}

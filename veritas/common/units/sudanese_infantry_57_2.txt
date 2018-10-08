@@ -1,0 +1,12 @@
+# Napoleonic Riflemen
+
+unit_type = sudanese_tech
+type = infantry
+
+maneuver = 1
+offensive_morale = 10
+defensive_morale = 10
+offensive_fire = 14
+defensive_fire = 8
+offensive_shock = 4
+defensive_shock = 4

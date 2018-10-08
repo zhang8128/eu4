@@ -1,0 +1,27 @@
+# Pattani
+
+capital = "Pattani"
+owner = PAT
+controller = PAT
+add_core = PAT
+culture = malayan
+religion = buddhism
+trade_goods = palm
+hre = no
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+discovered_by = chinese
+discovered_by = indian
+
+1400.1.1  = { religion = sunni }
+1516.1.1 = { discovered_by = POR } # Godinho de Eredia
+1771.1.1 = { owner = AYU controller = AYU add_territorial_core = AYU } # The end of the Pattani kingdom
+1782.1.1  = { unrest = 2 } # The Chakri Dynasty is established by Rama I
+1789.1.1  = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Pattanese rebellion
+1790.1.1  = { revolt = {} controller = AYU }
+1791.1.1  = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Pattanese rebellion against Chakri rule
+1792.1.1  = { revolt = {} controller = AYU }
+1808.1.1  = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Pattani Rebellion
+1809.1.1  = { revolt = {} controller = AYU }

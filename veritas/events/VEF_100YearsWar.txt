@@ -1,0 +1,1001 @@
+# Events relating to the Hundred Years War between England and France
+namespace = vef_100war
+normal_or_historical_nations = yes
+
+#1 Tour De Nesle Affair
+#2 Death of Phillip IV
+#3 Death of Louis X
+#4 Death of Phillip V
+#5 Death of Charles IV
+#6 England Claims the Throne
+#7 Valois Inheritance
+#8 France Age Count
+
+#10000 Death of French Monarch
+#10001 Joan of Arc
+#10002 Black Prince of Wales
+#10003 Dauhpin's Resistance
+#10004 Dauphin's Resistance
+#10005 Dauhpin Takes Paris
+#10006 France free of union
+#10007 England Notified of Dauphin's resistance
+#10008 England Notified of France free
+#10009 England Homage Event
+#10010 France Homage Event
+
+#Breton Succession
+#20000 Claims on Death of John III
+#20001 French Support?
+#20002 English Support?
+#20003 Change of Duke
+#20004 Crisis Ends (historically with the death of Charles de Blois)
+
+# Tour De Nesle Affair
+country_event = {
+	id = vef_100war.1
+	title = "vef_100war.1.t"
+	desc = "vef_100war.1.d"
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = FRA
+		has_country_flag = vef_tour_de_nesle
+		is_year = 1314
+	}
+	
+	mean_time_to_happen = { days = 180 }
+	
+	option = {	# Convict
+		ai_chance = { factor = 100 }
+		name = "vef_100war.1.opta"
+		custom_tooltip = tt_heirs_unlikely
+		set_country_flag = vef_nesle_conviction
+		clr_country_flag = vef_tour_de_nesle
+	}
+	
+	option = {	# Acquit
+		ai_chance = { factor = 0 }
+		name = "vef_100war.1.optb"
+		custom_tooltip = tt_succession_challange
+		set_country_flag = vef_nesle_acquittal
+		clr_country_flag = vef_tour_de_nesle
+	}
+}
+
+# Death of Phillip IV
+country_event = {
+	id = vef_100war.2
+	title = "vef_100war.2.t"
+	desc = "vef_100war.2.d"
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	hidden = yes
+	
+	trigger = {
+		tag = FRA
+		has_ruler_flag = phillip_the_fair
+		NOT = { has_country_flag = vef_tour_de_nesle }
+		is_year = 1314
+		is_month = 10
+	}
+	
+	immediate = {
+		kill_ruler = yes
+	}
+	
+	option = {
+		name = "vef_100war.2.opta"
+	}
+}
+
+# Death of Louis X
+country_event = {
+	id = vef_100war.3
+	title = "vef_100war.3.t"
+	desc = "vef_100war.3.d"
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	hidden = yes
+	
+	trigger = {
+		tag = FRA
+		has_ruler_flag = louis_the_headstrong
+		has_country_flag = vef_nesle_conviction
+		is_year = 1316
+		is_month = 5
+	}
+	
+	immediate = {
+		kill_ruler = yes
+		set_ruler_flag = phillip_the_tall
+	}
+	
+	option = {
+		name = "vef_100war.3.opta"
+	}
+}
+
+# Death of Phillip V
+country_event = {
+	id = vef_100war.4
+	title = "vef_100war.4.t"
+	desc = "vef_100war.4.d"
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	hidden = yes
+	
+	trigger = {
+		tag = FRA
+		has_ruler_flag = phillip_the_tall
+		is_year = 1322
+	}
+	
+	immediate = {
+		kill_ruler = yes
+		set_ruler_flag = charles_the_fair
+	}
+	
+	option = {
+		name = "vef_100war.4.opta"
+	}
+}
+
+# Death of Charles IV
+country_event = {
+	id = vef_100war.5
+	title = "vef_100war.5.t"
+	desc = "vef_100war.5.d"
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	hidden = yes
+	
+	trigger = {
+		tag = FRA
+		has_ruler_flag = charles_the_fair
+		is_year = 1328
+		is_month = 1
+	}
+	
+	immediate = {
+		kill_ruler = yes
+		set_country_flag = 100war_succession_dispute
+		clr_country_flag = vef_nesle_conviction
+	}
+	
+	option = {
+		name = "vef_100war.5.opta"
+	}
+}
+
+# England Claims the Throne
+country_event = {
+	id = vef_100war.6
+	title = "vef_100war.6.t"
+	desc = "vef_100war.6.d"
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_100war.6.opta"
+	}
+}
+
+# Valois Inheritance
+country_event = {
+	id = vef_100war.7
+	title = "vef_100war.7.t"
+	desc = "vef_100war.7.d"
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	hidden = yes
+	
+	option = {
+		name = "vef_100war.7.opta"
+		inherit = ALE
+	}
+}
+
+# France Age Count
+country_event = {
+	id = vef_100war.8
+	title = "vef_100war.8.t"
+	desc = "vef_100war.8.d"
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		tag = FRA
+		OR = {
+			has_country_flag = vef_tour_de_nesle
+			has_country_flag = vef_nesle_conviction
+		}
+	}
+	
+	immediate = {
+		change_variable = { which = male_gen0_1_age value = 1 }
+		change_variable = { which = male_gen0_2_age value = 1 }
+		change_variable = { which = male_gen0_3_age value = 1 }
+		change_variable = { which = male_gen0_4_age value = 1 }
+		change_variable = { which = male_gen1_1_age value = 1 }
+		change_variable = { which = male_gen1_2_age value = 1 }
+		change_variable = { which = male_gen1_3_age value = 1 }
+		change_variable = { which = male_gen1_4_age value = 1 }
+		set_variable = { which = male_gen0_1_display_age which = male_gen0_1_age }
+		divide_variable = { which = male_gen0_1_display_age value = 12 }
+		set_variable = { which = male_gen0_2_display_age which = male_gen0_2_age }
+		divide_variable = { which = male_gen0_2_display_age value = 12 }
+		set_variable = { which = male_gen0_3_display_age which = male_gen0_3_age }
+		divide_variable = { which = male_gen0_3_display_age value = 12 }
+		set_variable = { which = male_gen0_4_display_age which = male_gen0_4_age }
+		divide_variable = { which = male_gen0_4_display_age value = 12 }
+		set_variable = { which = male_gen1_1_display_age which = male_gen1_1_age }
+		divide_variable = { which = male_gen1_1_display_age value = 12 }
+		set_variable = { which = male_gen1_2_display_age which = male_gen1_2_age }
+		divide_variable = { which = male_gen1_2_display_age value = 12 }
+		set_variable = { which = male_gen1_3_display_age which = male_gen1_3_age }
+		divide_variable = { which = male_gen1_3_display_age value = 12 }
+		set_variable = { which = male_gen1_4_display_age which = male_gen1_4_age }
+		divide_variable = { which = male_gen1_4_display_age value = 12 }
+	}
+	
+	option = {
+		name = "vef_100war.8.opta"
+	}
+}
+
+# Death of French monarch
+country_event = {
+	id = vef_100war.10000
+	title = "vef_100war.10000.t"
+	desc = "vef_100war.10000.d"
+	picture = VEF_CIVIL_WAR_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = FRA
+		has_country_flag = vef_nesle_acquittal
+		NOT = { has_ruler_flag = phillip_the_fair }
+		NOT = { has_country_flag = 100war_succession_dispute }
+		NOT = { has_country_flag = 100war_over }
+	}
+	
+	immediate = {
+		set_country_flag = 100war_succession_dispute
+		ALE = {
+			grant_independence = yes
+			add_casus_belli = {
+				target = FRA
+				type = cb_claim_throne
+				months = 240
+			}
+			add_historical_rival = FRA
+		}
+	}
+
+	option = {
+		name = "vef_100war.10000.opta"
+	}	
+}
+
+# Jeanne d' Arc
+country_event = {
+	id = vef_100war.10001
+	title = "vef_100war.10001.t"
+	desc = "vef_100war.10001.d"
+	picture = VEF_SIEGE_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = FRA
+				is_lesser_in_union = no
+			}
+			AND = {
+				tag = DAU
+				government = dauphin_government
+				OR = {
+					FRA = { is_lesser_in_union = yes }
+					FRA = { exists = no }
+				}
+			}
+		}	
+		is_year = 1420
+		NOT = { is_year = 1440 }
+		war_with = ENG
+		154 = {
+			OR = {
+				controller = { tag = ENG }
+				sieged_by = ENG
+			}
+		}
+		NOT = { has_country_flag = joan_of_arc }
+	}
+	
+	immediate = { 
+		add_country_modifier = { name = "joan_effect" duration = 3650 }
+		set_country_flag = joan_of_arc
+		if = { 
+			limit = { NOT = { check_variable = { which = vassal_boost value = 0 } } }
+			set_variable = { which = vassal_boost value = 0.00 } # Clear the negative
+		}
+	}
+
+	option = {
+		name = "vef_100war.10001.opta"
+		define_general = {
+			name = "Jeanne d'Arc"
+			female = yes
+			fire = 3
+			shock = 6
+			manuever = 4
+			siege = 1
+		}
+	}		
+}
+
+# Black Prince of Wales
+country_event = {
+	id = vef_100war.10002
+	title = "vef_100war.10002.t"
+	desc = "vef_100war.10002.d"
+	picture = VEF_BATTLE_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = ENG
+		OR = {
+			has_heir = no
+			AND = {
+				has_heir = yes
+				heir_age = 15
+				started_in = 1330.6.15
+			}
+		}
+		ENG = { war_with = FRA }
+		is_year = 1344
+		NOT = { is_year = 1376 }
+	}
+	
+	option = {
+		trigger = { has_heir = no }
+		name = "vef_100war.10002.opta"
+		define_heir = {
+			name = "Edward"
+			claim = 100
+			dynasty = ROOT
+			adm = 3
+			dip = 2
+			mil = 5
+		}
+		convert_heir_to_general = 80
+	}
+	option = {
+		trigger = { has_heir = yes }
+		name = "vef_100war.10002.opta"
+		convert_heir_to_general = 80
+	}	
+}
+
+# Dauphin's Resistance to the French (FRA)
+country_event = {
+	id = vef_100war.10003
+	title = "vef_100war.10003.t"
+	desc = "vef_100war.10003.d"
+	picture = VEF_BATTLE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = FRA
+		is_lesser_in_union = yes
+		is_subject_of = ENG
+		has_country_flag = 100war_succession_dispute
+		NOT = { has_country_flag = 100war_over }
+		NOT = { has_country_flag = 100war_subject }
+	}
+	
+	immediate = {
+		158 = { set_province_flag = 100war_subject_province }
+		165 = { set_province_flag = 100war_subject_province }
+		166 = { set_province_flag = 100war_subject_province }
+		167 = { set_province_flag = 100war_subject_province }
+		168 = { set_province_flag = 100war_subject_province }
+		169 = { set_province_flag = 100war_subject_province }
+		170 = { set_province_flag = 100war_subject_province }
+		171 = { set_province_flag = 100war_subject_province }
+		172 = { set_province_flag = 100war_subject_province }
+		173 = { set_province_flag = 100war_subject_province }
+		174 = { set_province_flag = 100war_subject_province }
+		175 = { set_province_flag = 100war_subject_province }
+		176 = { set_province_flag = 100war_subject_province }
+		177 = { set_province_flag = 100war_subject_province }
+		free_vassal = BUR
+		free_vassal = ALE
+		set_country_flag = 100war_subject
+		remove_historical_rival = ENG
+		ENG = { remove_historical_rival = FRA }
+		ENG = { country_event = { id = vef_100war.10007 }}
+	}
+	
+	option = {
+		trigger = { exists = DAU }
+		name = "vef_100war.10003.opta"
+		every_owned_province = {
+			limit = { NOT = { has_province_flag = 100war_subject_province } }
+			add_core = DAU
+			cede_province = DAU
+		}
+		if = { 
+			limit = { ORL = { OR = { is_subject_of = FRA is_subject_of = ENG }}}
+			ORL = { overlord = { free_vassal = ORL }}
+			DAU = { vassalize = ORL set_country_flag = overlord_flag_ORL }
+			ORL = { set_variable = { which = vassal_progress value = 20 }}
+		}
+		if = { 
+			limit = { AUV = { OR = { is_subject_of = FRA is_subject_of = ENG }}}
+			AUV = { overlord = { free_vassal = AUV }}
+			DAU = { inherit = AUV }
+		}
+		if = { 
+			limit = {AMG = { OR = { is_subject_of = FRA is_subject_of = ENG }}}
+			AMG = { overlord = { free_vassal = AMG }}
+			DAU = { inherit = AMG }
+		}
+		if = { 
+			limit = { FOI = { OR = { is_subject_of = FRA is_subject_of = ENG }}}
+			FOI = { overlord = { free_vassal = FOI }}
+			DAU = { vassalize = FOI set_country_flag = overlord_flag_FOI }
+			FOI = { set_variable = { which = vassal_progress value = 20 }}
+		}
+		if = { 
+			limit = { BER = { OR = { is_subject_of = FRA is_subject_of = ENG }}}
+			BER = { overlord = { break_union = BER }}
+			DAU = { vassalize = BER set_country_flag = overlord_flag_BER }
+			BER = { set_variable = { which = vassal_progress value = 20 }}
+		}
+		if = { 
+			limit = { BOU = { OR = { is_subject_of = FRA is_subject_of = ENG }}}
+			BOU = { overlord = { free_vassal = BOU }}
+			DAU = { vassalize = BOU set_country_flag = overlord_flag_BOU }
+			BOU = { set_variable = { which = vassal_progress value = 20 }}
+		}
+		DAU = { country_event = { id = vef_100war.10004 days = 7 } }
+	}
+	
+	option = {
+		trigger = { NOT = { exists = DAU } }
+		name = "vef_100war.10003.opta"
+		release = DAU
+		every_owned_province = { add_core = DAU }
+		every_owned_province = {
+			limit = { NOT = { has_province_flag = 100war_subject_province } }
+			cede_province = DAU
+		}
+		if = { 
+			limit = { ORL = { OR = { is_subject_of = FRA is_subject_of = ENG }}}
+			ORL = { overlord = { free_vassal = ORL }}
+			DAU = { vassalize = ORL set_country_flag = overlord_flag_ORL }
+			ORL = { set_variable = { which = vassal_progress value = 20 }}
+		}
+		if = { 
+			limit = { AUV = { OR = { is_subject_of = FRA is_subject_of = ENG }}}
+			AUV = { overlord = { free_vassal = AUV }}
+			DAU = { inherit = AUV }
+		}
+		if = { 
+			limit = {AMG = { OR = { is_subject_of = FRA is_subject_of = ENG }}}
+			AMG = { overlord = { free_vassal = AMG }}
+			DAU = { inherit = AMG }
+		}
+		if = { 
+			limit = { FOI = { OR = { is_subject_of = FRA is_subject_of = ENG }}}
+			FOI = { overlord = { free_vassal = FOI }}
+			DAU = { vassalize = FOI set_country_flag = overlord_flag_FOI }
+			FOI = { set_variable = { which = vassal_progress value = 20 }}
+		}
+		if = { 
+			limit = { BER = { OR = { is_subject_of = FRA is_subject_of = ENG }}}
+			BER = { overlord = { break_union = BER }}
+			DAU = { vassalize = BER set_country_flag = overlord_flag_BER }
+			BER = { set_variable = { which = vassal_progress value = 20 }}
+		}
+		if = { 
+			limit = { BOU = { OR = { is_subject_of = FRA is_subject_of = ENG }}}
+			BOU = { overlord = { free_vassal = BOU }}
+			DAU = { vassalize = BOU set_country_flag = overlord_flag_BOU }
+			BOU = { set_variable = { which = vassal_progress value = 20 }}
+		}
+		DAU = { country_event = { id = vef_100war.10004 days = 7 } }
+	}
+}
+
+# Dauphin's Resistance to the French (DAU)
+country_event = {
+	id = vef_100war.10004
+	title = "vef_100war.10004.t"
+	desc = "vef_100war.10004.d"
+	picture = VEF_BATTLE_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = DAU
+	}
+	
+	immediate = {
+		add_historical_rival = ENG
+		ENG = { add_historical_rival = DAU }
+	}
+	
+	option = {
+		name = "vef_100war.10004.opta"
+		add_manpower = 20
+		add_treasury = 250
+		add_government_reform = french_monarchy
+		every_owned_province = { set_in_empire = no }
+		if = {
+			limit = { is_subject = yes }
+			every_known_country = {
+				free_vassal = DAU
+				break_union = DAU
+			}
+		}
+	}
+}
+
+# Dauphin Retakes Paris
+country_event = {
+	id = vef_100war.10005
+	title = "vef_100war.10005.t"
+	desc = "vef_100war.10005.d"
+	picture = VEF_BATTLE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = DAU
+		government = dauphin_government
+		170 = { controller = { tag = DAU } }
+		OR = { 
+			war_with = ENG
+			war_with = GBR
+		}
+	}
+	
+	immediate = { ENG = { country_event = { id = vef_100war.10008 }}}
+	
+	option = {
+		name = "vef_100war.10005.opta"
+		inherit = FRA
+		change_tag = FRA
+		swap_non_generic_missions = yes
+		set_government_rank = 3
+		set_capital = 170
+		if = {
+			limit = {
+				has_custom_ideas = no
+				NOT = { has_idea_group = FRA_ideas }
+			}
+			country_event = { id = "national_ideas.60000" days = 1 }
+		}
+		change_primary_culture = cosmopolitan_french
+	}
+}
+
+# France freed from Union
+country_event = {
+	id = vef_100war.10006
+	title = "vef_100war.10006.t"
+	desc = "vef_100war.10006.d"
+	picture = VEF_BATTLE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = FRA
+		has_country_flag = 100war_subject
+		is_subject = no
+		NOT = { war_with = ENG }
+		NOT = { war_with = GBR }
+	}
+	
+	immediate = {
+		clr_country_flag = 100war_subject
+		ENG = { country_event = { id = vef_100war.10008 }}
+		add_historical_rival = ENG
+		ENG = { add_historical_rival = FRA }
+	}
+	
+	option = {
+		trigger = { DAU = { ai = yes }}
+		name = "vef_100war.10006.opta"
+		inherit = DAU
+		add_stability = 2
+	}
+	
+	option = {
+		trigger = { DAU = { ai = no }}
+		name = "vef_100war.10006.opta"
+		DAU = { inherit = FRA }
+		add_stability = 2
+		change_tag = FRA
+		set_capital = 170
+		if = {
+			limit = {
+				has_custom_ideas = no
+				NOT = { has_idea_group = FRA_ideas }
+			}
+			country_event = { id = "national_ideas.60000" days = 1 }
+		}
+		change_primary_culture = cosmopolitan_french
+	}
+}
+
+# England Notified of Dauphin's Resistance
+country_event = {
+	id = vef_100war.10007
+	title = "vef_100war.10007.t"
+	desc = "vef_100war.10007.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = vef_100war.10007.opta
+	}
+}
+	
+# England Notified of France being freed
+country_event = {
+	id = vef_100war.10008
+	title = "vef_100war.10008.t"
+	desc = "vef_100war.10008.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = vef_100war.10008.opta
+		add_prestige = -20
+		set_country_flag = lost_french_throne
+		remove_casus_belli = { type = cb_restore_personal_union target = FRA }
+		add_historical_rival = FRA
+		FRA = { add_historical_rival = ENG }
+	}
+}
+
+# Homage event - England
+country_event = {
+	id = vef_100war.10009
+	title = "vef_100war.10009.t"
+	desc = "vef_100war.10009.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = ENG
+		NOT = { has_country_flag = 100war_released_aquitaine }
+		NOT = { has_country_flag = 100war_over }
+		NOT = { has_country_flag = 100war_claim_throne }
+		NOT = { has_country_flag = 100war_refused_homage }
+		NOT = { has_regency_trigger = yes }
+		FRA = { NOT = { has_regency_trigger = yes } }
+	}
+	
+	immediate = { change_variable = { which = english_homage value = 1 }}
+	
+	option = {
+		trigger = {
+			NOT = { check_variable = { which = english_homage value = 1 }}
+			NOT = { war_with = FRA }
+		}
+		name = vef_100war.10009.opta
+		ai_chance = { factor = 70 }
+		add_prestige = -10
+		add_opinion = { who = FRA modifier = feudal_homage_paid }
+	}
+	
+	option = {
+		trigger = {
+			check_variable = { which = english_homage value = 1 }
+			NOT = { check_variable = { which = english_homage value = 2 }}
+			NOT = { war_with = FRA }
+		}
+		name = vef_100war.10009.opta
+		ai_chance = { factor = 60 }
+		add_prestige = -20
+		add_opinion = { who = FRA modifier = feudal_homage_paid }
+	}
+	
+	option = {
+		trigger = {
+			check_variable = { which = english_homage value = 2 }
+			NOT = { check_variable = { which = english_homage value = 3 }}
+			NOT = { war_with = FRA }
+		}
+		name = vef_100war.10009.opta
+		ai_chance = { factor = 30 }
+		add_prestige = -35
+		add_opinion = { who = FRA modifier = feudal_homage_paid }
+	}
+	
+	option = {
+		trigger = {
+			check_variable = { which = english_homage value = 3 }
+			NOT = { check_variable = { which = english_homage value = 4 }}
+			NOT = { war_with = FRA }
+		}
+		name = vef_100war.10009.opta
+		ai_chance = { factor = 10 }
+		add_prestige = -50
+		add_opinion = { who = FRA modifier = feudal_homage_paid }
+	}
+	
+	option = {
+		trigger = {
+			check_variable = { which = english_homage value = 4 }
+			NOT = { check_variable = { which = english_homage value = 5 }}
+			NOT = { war_with = FRA }
+		}
+		name = vef_100war.10009.opta
+		ai_chance = { factor = 0 }
+		add_prestige = -70
+		add_opinion = { who = FRA modifier = feudal_homage_paid }
+	}
+	
+	option = {
+		trigger = {
+			NOT = { war_with = FRA }
+			check_variable = { which = english_homage value = 5 }
+		}
+		name = vef_100war.10009.opta
+		ai_chance = { factor = 0 }
+		add_prestige = -75
+		add_opinion = { who = FRA modifier = feudal_homage_paid }
+	}
+	
+	option = {
+		name = vef_100war.10009.optb
+		ai_chance = { factor = 30 }
+		every_owned_province = {
+			limit = {
+				region = france_region
+				NOT = { is_core = FRA }
+			}
+			add_core = FRA
+		}
+		reverse_add_opinion = { who = FRA modifier = refused_feudal_homage }
+		set_country_flag = 100war_refused_homage
+	}
+}
+
+# Homage event - France
+country_event = {
+	id = vef_100war.10010
+	title = "vef_100war.10010.t"
+	desc = "vef_100war.10010.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = FRA
+		NOT = { has_regency_trigger = yes }
+		exists = ENG
+		ENG = {
+			NOT = { has_country_flag = 100war_released_aquitaine }
+			NOT = { has_country_flag = 100war_over }
+			NOT = { has_country_flag = 100war_claim_throne }
+			NOT = { has_country_flag = 100war_refused_homage }
+			NOT = { has_regency_trigger = yes }
+		}
+	}
+	
+	option = {
+		name = vef_100war.10010.opta
+		ENG = { country_event = { id = vef_100war.10009 days = 3 }}
+	}
+}
+
+
+############################
+# War of Breton Succession #
+############################
+
+# Death of John III
+country_event = {
+	id = vef_100war.20000
+	title = "vef_100war.20000.t"
+	desc = "vef_100war.20000.d"
+	picture = VEF_CIVIL_WAR_eventPicture
+	
+	is_triggered_only = yes	#on_actions/on_monarch_death
+	
+	trigger = {
+		has_country_flag = breton_succession_question
+		NOT = { ENG = { is_subject_of = FRA }}
+		NOT = { FRA = { is_subject_of = ENG }}
+	}
+	
+	immediate = {
+		clr_country_flag = breton_succession_question
+		set_country_flag = war_breton_succession
+	}
+	
+	option = {
+		name = "vef_100war.20000.opta"
+		FRA = { country_event = { id = vef_100war.20001 days = 7 }}
+	}
+}
+
+# Will France Contest?
+country_event = {
+	id = vef_100war.20001
+	title = "vef_100war.20001.t"
+	desc = "vef_100war.20001.d"
+	picture = VEF_CIVIL_WAR_eventPicture
+	
+	is_triggered_only = yes	#vef_100war.20000
+	
+	option = {
+		ai_chance = { factor = 100 }
+		name = vef_100war.20001.opta
+		set_country_flag = charles_of_blois
+		ENG = { country_event = { id = vef_100war.20002 days = 7 }}
+		BRI = { add_historical_rival = FRA }
+	}
+	
+	option = {
+		ai_chance = { factor = 0 }
+		name = vef_100war.20001.optb
+		BRI = { clr_country_flag = war_breton_succession }
+	}
+}
+
+# Will England Support?
+country_event = {
+	id = vef_100war.20002
+	title = "vef_100war.20002.t"
+	desc = "vef_100war.20002.d"
+	picture = VEF_CIVIL_WAR_eventPicture
+	
+	is_triggered_only = yes	#vef_100war.20001
+	
+	
+	option = {
+		ai_chance = { factor = 100 }
+		name = vef_100war.20001.opta
+		create_alliance = BRI
+		create_marriage = BRI
+		FRA = {
+			if = {
+				limit = { NOT = { war_with = ENG }}
+				declare_war = ENG
+			}
+		}
+	}
+	
+	option = {
+		ai_chance = { factor = 0 }
+		name = vef_100war.20001.optb
+		FRA = { declare_war = BRI }
+	}
+}
+
+# Capture of Brittany
+country_event = {
+	id = vef_100war.20003
+	title = "vef_100war.20003.t"
+	desc = "vef_100war.20003.d"
+	picture = VEF_CIVIL_WAR_eventPicture
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				has_country_flag = john_of_montfort
+			}
+			AND = {
+				tag = FRA
+				has_country_flag = charles_of_blois
+			}
+		}
+		159 = { controlled_by = ROOT }
+		war_score_against = { who = BRI value = 33 }
+	}
+	
+	immediate = {
+		white_peace = BRI
+		BRI = { create_alliance = ROOT }
+	}
+	
+	option = {
+		trigger = { tag = ENG }
+		name = "vef_100war.20003.opta"
+		BRI = {
+			remove_historical_rival = ENG
+			add_historical_rival = FRA
+			exile_heir_as = BRI_french_claimant
+			exile_ruler_as = BRI_french_claimant
+			set_ruler = BRI_english_claimaint
+			set_heir = BRI_english_heir
+			create_marriage = ROOT
+		}
+		FRA = { set_country_flag = charles_of_blois }
+	}
+	
+	option = {
+		trigger = { tag = FRA }
+		name = "vef_100war.20003.opta"
+		clr_country_flag = charles_of_blois
+		BRI = {
+			remove_historical_rival = FRA
+			add_historical_rival = ENG
+			exile_heir_as = BRI_english_heir
+			exile_ruler_as = BRI_english_claimant
+			if = {
+				limit = { has_country_flag = charles_defined }
+				set_ruler = BRI_french_claimant
+				set_heir = BRI_french_heir
+			}
+			if = {
+				limit = { NOT = { has_country_flag = charles_defined }}
+				set_country_flag = charles_defined
+				define_ruler = {
+					name = "Charles I"
+					dynasty = "de Blois"
+				}
+			}
+			create_marriage = ROOT
+		}
+		ENG = { set_country_flag = john_of_montfort }
+	}	
+}
+
+# Crisis Ends
+country_event = {
+	id = vef_100war.20004
+	title = "vef_100war.20004.t"
+	desc = "vef_100war.20004.d"
+	picture = VEF_CIVIL_WAR_eventPicture
+
+	trigger = {
+		tag = BRI
+		has_country_flag = war_breton_succession
+		is_year = 1363
+		NOT = { war_with = ENG }
+		NOT = { war_with = FRA }
+	}
+	
+	mean_time_to_happen = { months = 24 }
+	
+	immediate = {
+		clr_country_flag = war_breton_succession
+		remove_historical_rival = FRA
+		remove_historical_rival = ENG
+		add_historical_friend = FRA
+	}
+	
+	option = {
+		name = "vef_100war.20004"
+	}
+}

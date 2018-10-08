@@ -1,0 +1,18 @@
+# Lijiang
+
+capital = "Lijiang"
+owner = YUN
+controller = YUN
+add_core = YUN
+culture = cantonese
+religion = buddhism
+trade_goods = millet
+base_tax = 2
+base_production = 2
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1357.1.1	= { owner = DLI controller = DLI add_core = DLI remove_core = YUN } # Mongol holdouts in the kingdom of Dali
+1382.1.6	= { owner = MNG controller = MNG add_core = MNG } # Ming puts down Mongol remnants

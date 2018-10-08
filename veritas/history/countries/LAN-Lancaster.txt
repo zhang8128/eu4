@@ -1,0 +1,29 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+technology_group = western
+primary_culture = english
+religion = catholic
+capital = 23	# Chester
+historical_rival = FRA
+
+
+1459.1.1 = {
+	monarch = {
+		name = "Henry VI"
+		dynasty = "Lancaster"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1470.10.31 = {
+	monarch = {
+		name = "Henry VII"
+		dynasty = "Tudor"
+		adm = 2
+		dip = 4
+		mil = 2
+	}
+}

@@ -1,0 +1,19 @@
+#Province IDs changed
+government = republic add_government_reform = swiss_canton
+government_rank = 1
+technology_group = western
+religion = catholic
+primary_culture = alemannic
+capital = 312	# Ravensburg
+
+1309.1.1 = {
+	monarch = {
+		name = "Der Tagsatzung"
+		adm = 3
+		dip = 3
+		mil = 3
+		regent = yes
+	}
+}
+
+1528.1.1 = { religion = anabaptist }

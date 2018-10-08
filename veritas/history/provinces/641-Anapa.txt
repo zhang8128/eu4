@@ -1,0 +1,31 @@
+# Anapa
+
+capital = "Mapa"
+owner = GEN
+controller = GEN
+add_territorial_core = GEN
+add_core = CIR
+add_core = CRI
+culture = lombard
+religion = catholic
+trade_goods = grain
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+discovered_by = muslim
+
+1475.5.1   = { owner = TUR controller = TUR add_territorial_core = TUR }
+1781.6.24  = { capital = "Anapa" }
+1784.1.2   = { culture = nogai religion = sunni }
+1791.6.22  = { controller = RUS } # War
+1792.6.12  = { owner = RUS add_territorial_core = RUS culture = russian religion = orthodox }
+1838.1.1   = { capital = "Novorossiysk" }

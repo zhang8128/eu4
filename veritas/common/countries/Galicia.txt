@@ -1,0 +1,174 @@
+#Country Name: Galicia
+
+graphical_culture = westerngfx
+
+color = { 240  167  130 }
+
+historical_idea_groups = {
+	gf1_ideas
+	mercenary_ideas
+	economic_ideas
+	free_trade_ideas
+	quantity_ideas
+	exploration_ideas
+	diplomatic_ideas
+	defensive_ideas
+}
+
+historical_units = { 
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+
+
+
+
+monarch_names = {
+	"García #1" = 20
+	"Ordoño #2" = 20
+	"Afonso #5" = 15
+	"Sancho #1" = 15
+	"Ramiro #3" = 10
+	"Bermudo #2" = 10
+	"Froila #2" = 10
+	"Aleixo #0" = 0
+	"Alvaro #0" = 0
+	"Anxo #0" = 0
+	"Baltasar #0" = 0
+	"Bernaldo #0" = 0
+	"Brais #0" = 0
+	"Carlos #0" = 0
+	"Cristovo #0" = 0
+	"Domingos #0" = 0
+	"Estevo #0" = 0
+	"Felipe #0" = 0
+	"Fernán #0" = 0
+	"Francisco #0" = 0
+	"Frederico #0" = 0
+	"Gonzalo #0" = 0
+ 	"Guillerme #0" = 0
+	"Gumersindo #0" = 0
+	"Henrique #0" = 0
+	"Hermenexildo #0" = 0
+	"Hixinio #0" = 0
+	"Hugo #0" = 0
+	"Iago #0" = 0
+	"Ignacio #0" = 0
+	"Leandro #0" = 0
+	"Lope #0" = 0
+	"Miguel #0" = 0
+	"Nuno #0" = 0
+	"Odón #0" = 0
+	"Paulo #0" = 0
+	"Pedro #0" = 0
+	"Ramón #0" = 0
+	"Roi #0" = 0
+	"Tomé #0" = 0
+	"Vitor #0" = 0
+	"Xoan #0" = 0
+	"Xorxe #0" = 0
+	
+	"Branca #0" = -1
+	"Iria #0" = -1
+	"Sabela #0" = -1
+}
+
+leader_names = {
+	"de Aguirre" "de Alarcón" "de Toledo" "de Andrade" "de Ayala"
+	"de Bazán" "de Benavideas" Campomanes "de Castilla" "de la Cerda" Cienfuegos Colón Coronado Cortés
+	"de Toledo" "de Córdoba" "de la Cueva" "de Figueroa" Fonseca
+	Gálvez Gómez "de Guzmán" "Jiménez de Cisneros"
+	"de Leiva" "López de Haro" "de Luna"
+	"de Lara" "de Velasco" "de Villena" "de Mendoza"
+	Narváez "de Nebrija" "Nuñez de Balboa" "de Ojeda" Orellana Osorio 
+	Pimentel Pinzón Pizarro "Ponce de León" Portocarrero
+	"de Rojas" Tellez-Girón "de la Vega" "de Zúñiga"
+}
+
+ship_names = {
+	Galicia Argonauta Asturias Asunción Atrevido Azor
+	Cartagonova Castilla "Castillo Negro" Castor "Ciervo Volante"
+	Doncella Dragón 
+	"El Gran Grin" "El Retiro" Eneas Eolo Esperanza "Espíritu Santo" Extremadura
+	Furor "Gran Grifón" Halcón Hércules Isabela Júpiter
+	"La Concepción" "La Magdalena" "La Manuela" León Ligera "Lobo Marino"
+	Marte Mercurio Neptuno Niña Orión
+	"Paloma Blanca" Pegaso "Perro Marino" Pinta Plutón Pollux "Príncipe de Asturias"
+	Rayo "Real Alfonso" "Real Enrique" "Real Juan" "Rey Pelayo" "Rey Rodrigo"
+	"San Andrés" "San Antonio" "San Bartolomé" "San Bernabé" "San Cristobal" "San Enrique"
+	"San Esteban" "San Fernando" "San Francisco" "San Gabriel" "San Isidoro" "San Jerónimo"
+	"San José" "San Juan" "San Juan Bautista" "San Leandro" "San Miguel" "San Pedro"
+	"San Rafael" "San Salvador" "San Sebastian" "Santa Ana" "Santa Bárbara" "Santa Beatriz"
+	"Santa Catalina" "Santa Cruz" "Santa Fe" "Santa Isabel" "Santa Justa" "Santa María"
+	"Santa Marta" "Santa Rita" "Santa Teresa" Santiago "Santísima Trinidad" "Santo Domingo" Sirena
+	Terror Toledo Trinidad Tritón Unicornio
+	Vencedora Ventura Victoria Vigilante Vizcaya Vulcano Zúñiga
+}

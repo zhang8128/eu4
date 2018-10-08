@@ -1,0 +1,162 @@
+country_decisions = {
+
+	greek_nation = {
+		major = yes
+		potential = {
+			primary_culture = greek
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = LAE }
+			NOT = { tag = TUR }
+			NOT = { tag = BYZ }
+			NOT = { tag = ROM }
+			NOT = { exists = BYZ }
+			NOT = { exists = GRE }
+			is_colonial_nation = no
+			OR = {
+				ai = no
+				num_of_cities = 5
+			}	
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			stability = 1
+			is_nomad = no
+			is_at_war = no
+			adm_tech = 36
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { area = northern_greece_area }
+						AND = {
+							area = northern_greece_area
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				all_owned_province = {
+					OR = {
+						NOT = { area = macedonia_area }
+						AND = {
+							area = macedonia_area
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				all_owned_province = {
+					OR = {
+						NOT = { area = western_aegean_area }
+						AND = {
+							area = western_aegean_area
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				all_owned_province = {
+					OR = {
+						NOT = { area = morea_area }
+						AND = {
+							area = morea_area
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_greece
+			}
+			owns_core_province = 571	# Epirus
+			owns_core_province = 573	# Aetolia
+			owns_core_province = 574	# Achaea
+			owns_core_province = 575	# Messenia
+			owns_core_province = 576	# Laconia
+			owns_core_province = 578	# Cyclades
+			owns_core_province = 579	# Attica
+			owns_core_province = 580	# Euboea
+			owns_core_province = 581	# Thessaly
+		}
+		effect = {
+			if = {
+	 			limit = { is_subject = yes }
+	 			overlord = {
+	 				clr_country_flag = overlord_flag_@ROOT
+	 				set_country_flag = overlord_flag_GRE
+	 			}
+	 		}
+			change_tag = GRE
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			random_owned_province = {
+				limit = { culture = greek }
+				add_base_tax = 1
+			}
+			western_aegean_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = GRE
+			}
+			northern_greece_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = GRE
+			}
+			morea_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = GRE
+			}
+			macedonia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = GRE
+			}
+			add_prestige = 10
+			if = {
+				limit = {
+					NOT = {
+						capital_scope = { area = morea_area }
+						capital_scope = { area = northern_greece_area }
+						capital_scope = { area = macedonia_area }
+					}
+				}
+				set_capital = 579
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = greek_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+}

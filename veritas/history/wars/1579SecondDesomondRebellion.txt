@@ -1,0 +1,30 @@
+#Province IDs changed
+name = "Second Desmond Rebellion"
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+	tag = DMS
+}
+
+1579.8.1 = {
+	add_attacker = DMS
+	add_defender = IRE
+}
+
+#MacCarthy Mor sacks Kinsale
+1579.11.13 = {
+	add_attacker = MCM
+}
+
+#O'Byrne rises in Leinster
+1580.7.1 = {
+	add_defender = LEI
+}
+
+# Earl of Desmond is killed
+1583.11.11 = {
+	rem_attacker = DMS
+	rem_attacker = MCM
+	rem_defender = IRE
+	rem_defender = LEI
+}

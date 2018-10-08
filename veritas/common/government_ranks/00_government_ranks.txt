@@ -1,0 +1,15 @@
+2 = {
+	advisor_pool = 1
+}
+
+3 = {
+	advisor_pool = 1
+	diplomatic_upkeep = 1
+}
+
+4 = {
+	diplomatic_upkeep = 1
+	advisor_pool = 1
+	merchants = 1
+	max_absolutism = 5
+}

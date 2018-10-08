@@ -1,0 +1,21 @@
+# Dragoon Guard
+
+type = cavalry
+
+maneuver = 2
+offensive_morale = 9
+defensive_morale = 15
+offensive_fire = 1
+defensive_fire = 4
+offensive_shock = 6
+defensive_shock = 9
+
+trigger = {
+	OR = {
+		unit_type = western
+		technology_group = western
+		technology_group = scandinavian_tech
+		technology_group = byzantine
+		technology_group = high_american
+	}
+}

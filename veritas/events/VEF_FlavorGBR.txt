@@ -1,0 +1,865 @@
+# ENG/GBR events
+namespace = flavor_gbr
+normal_or_historical_nations = yes
+
+#Decision-Driven Events
+#1000 Crown of Ireland - Irish provinces
+
+#War of the Roses
+#20000 Disaster start
+#20001 War ends at 65% WS
+#20002 Opposing side occupies London - Crowned King
+#20003 Disaster End
+
+
+#Irish Provinces
+country_event = {
+	id = flavor_gbr.1000
+	title = "flavor_gbr.1000.t"
+	desc = "flavor_gbr.1000.d"
+	picture = VEF_ADVISOR_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			tag = ENG
+			tag = GBR
+		}
+		has_country_flag = vef_irish_crown
+		IRE = {
+			exists = yes
+			junior_union_with = ENG
+		}
+		any_owned_province = { province_group = ireland_group }
+	}
+	
+	option = {
+		every_owned_province = {
+			limit = { province_group = ireland_group }
+			cede_province = IRE
+			if = {
+				limit = { IRE = { has_parliament = yes }}
+				set_seat_in_parliament = yes
+			}
+		}
+	}
+}
+
+# An merchant is forced out by the London Company
+country_event = {
+	id = flavor_gbr.10002
+	title = "flavor_gbr.10002.t"
+	desc = "flavor_gbr.10002.d"
+	picture = VEF_MERCHANTS_TALKING_eventPicture
+
+	is_triggered_only = yes	#on_actions bi_yearly random
+	
+	trigger = {
+		has_country_modifier = london_company_of_merchant_adventurers
+	}
+
+	option = {
+		name = "flavor_gbr.10002.opta"
+		add_treasury = -10
+		add_dip_power = -10
+		random_active_trade_node = {
+			limit = { has_merchant = ROOT }
+			recall_merchant = ROOT
+		}
+	}
+
+	option = {
+		name = "flavor_gbr.10002.optb"
+		remove_country_modifier = london_company_of_merchant_adventurers
+		add_prestige = -10
+		add_adm_power = -25
+	}
+}
+
+country_event = {
+	id = flavor_gbr.10006
+	title = "flavor_gbr.10006.t"
+	desc = "flavor_gbr.10006.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = { 
+		tag = ENG
+		is_year = 1360 
+		NOT = { is_year = 1400 }
+		is_at_war = no
+		is_lesser_in_union = no
+		NOT = { has_regency_trigger = yes }
+	}
+
+	mean_time_to_happen = { months = 36 }
+	
+	option = {
+		name = "flavor_gbr.10006.opta"
+		add_country_modifier = { name = "hockey_ban" duration = 730 }
+	}
+	
+}
+
+##########################
+# Owain Glyndwr's Revolt #
+##########################
+
+# England
+country_event = {
+	id = flavor_gbr.10010
+	title = "flavor_gbr.10010.t"
+	desc = "flavor_gbr.10010.d"
+	picture = VEF_BATTLE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ENG
+		NOT = { has_country_flag = owain_welsh_revolt }
+		NOT = { accepted_culture = welsh }
+		is_year = 1400
+		45 = { owned_by = ROOT }
+		NOT = { exists = WLS }
+	}
+	
+	immediate = { set_country_flag = owain_welsh_revolt }
+	
+	option = {
+		name = "flavor_gbr.10010.opta"
+		release = WLS
+		WLS = { country_event = { id = flavor_gbr.10011 days = 1 }}
+	}
+}
+
+# Wales
+country_event = {
+	id = flavor_gbr.10011
+	title = "flavor_gbr.10011.t"
+	desc = "flavor_gbr.10011.d"
+	picture = VEF_BATTLE_eventPicture
+	
+	is_triggered_only = yes	#flavor_gbr.10010
+	
+	option = {
+		name = "flavor_gbr.10011.opta"
+		define_general = {	
+			name = "Owain Glyndwr" 	
+			fire = 2	
+			shock = 2	
+			manuever = 5	
+			siege = 0
+		}
+		define_ruler= {
+			name = "Owain"
+			dynasty = "Glyndwr"
+			adm = 3
+			dip = 3
+			mil = 5
+			attach_leader = "Owain Glyndwr"
+		}
+		45 = {
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			cavalry = ROOT
+			cavalry = ROOT
+			cavalry = ROOT
+		}
+		declare_war_with_cb = { who = ENG casus_belli = cb_independence_war }
+	}
+}
+
+######################
+# The Lollard Heresy #
+######################
+
+# Wycliffe
+country_event = {
+	id = flavor_gbr.10012
+	title = "flavor_gbr.10012.t"
+	desc = "flavor_gbr.10012.d"
+	picture = VEF_ADVISOR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = { 
+			tag = ENG
+			tag = GBR
+		}
+		NOT = { has_country_flag = wycliffe_teaching }
+		is_year = 1380
+		religion = catholic
+	}	
+	
+	mean_time_to_happen = { months = 16 }
+	
+	immediate = {
+		set_country_flag = wycliffe_teaching
+		hidden_effect = { country_event = { id = flavor_gbr.10013 days = 730 }}
+	}
+	
+	option = {
+		name = "flavor_gbr.10012.opta"
+		set_country_flag = wycliffe_spared
+		change_variable = { which = vef_papal_influence value = -10 }
+		add_country_modifier = { name = "tolerated_wycliffe" duration = 365 }
+		add_prestige = -10
+	}
+	
+	option = {
+		name = "flavor_gbr.10012.optb"
+		set_country_flag = wycliffe_excommunicated
+		change_variable = { which = vef_papal_influence value = 10 }
+		add_prestige = -5
+		
+	}
+	
+	option = { 
+		name = "flavor_gbr.10012.optc"
+		set_country_flag = wycliffe_executed
+		change_variable = { which = vef_papal_influence value = 20 }
+		add_country_modifier = { name = "executed_wycliffe" duration = 730 }
+		add_ruler_modifier = { name = vef_defender_faith duration = -1 }
+	}
+}
+
+# Problems with the Lollards
+country_event = {
+	id = flavor_gbr.10013
+	title = "flavor_gbr.10013.t"
+	desc = "flavor_gbr.10013.d"
+	picture = VEF_RELIGION_eventPicture
+	
+	is_triggered_only = yes	#flavor_gbr.10012
+
+	trigger = { NOT = { has_country_flag = wycliffe_excommunicated }}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = lollard_event
+			set_global_flag = lollard_heresy
+			random_owned_province = {
+				limit = { region = british_isles_region }
+				set_province_flag = lollards
+			}
+			random_owned_province = {
+				limit = {
+					region = british_isles_region
+					NOT = { has_province_flag = lollards }
+				}
+				set_province_flag = lollards
+			}
+			random_owned_province = {
+				limit = {
+					region = british_isles_region
+					NOT = { has_province_flag = lollards }
+				}
+				set_province_flag = lollards
+			}
+		}
+	}
+
+	option = {		# Trouble Over Wycliffe
+		name = "flavor_gbr.10013.opta"
+		trigger = { has_country_flag = wycliffe_executed }
+		change_variable = { which = vef_papal_influence value = 10 }
+		add_stability = -1
+		add_years_of_income = -0.1
+		every_owned_province = {
+			limit = { has_province_flag = lollards }
+			add_province_modifier = { name = "lollards" duration = 3650 }
+			clr_province_flag = lollards
+		}
+	}
+
+	option = {		# Let them be
+		name = "flavor_gbr.10013.optb"
+		trigger = { has_country_flag = wycliffe_spared }
+		PAP = { add_opinion = { who = ROOT modifier = eng_tolerates_lollards } }
+		if = {
+			limit = {
+				FRA = {
+					exists = yes
+					religion = catholic
+				}
+			}
+			FRA = { add_opinion = { who = ROOT modifier = eng_tolerates_lollards } }
+		}
+		if = {
+			limit = {
+				BUR = {
+					exists = yes
+					religion = catholic
+				}
+			}
+			BUR = { add_opinion = { who = ROOT modifier = eng_tolerates_lollards } }
+		}
+		if = {
+			limit = {
+				BRI = {
+					exists = yes
+					religion = catholic
+				}
+			}
+			BRI = { add_opinion = { who = ROOT modifier = eng_tolerates_lollards } }
+		}
+		hidden_effect = {
+			every_owned_province = {
+				limit = { has_province_flag = lollards }
+				clr_province_flag = lollards
+			}
+		}
+	}
+}
+
+# Pilgrimage of Grace
+country_event = {
+	id = flavor_gbr.10014
+	title = "flavor_gbr.10014.t"
+	desc = "flavor_gbr.10014.d"
+	picture = VEF_RELIGION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = ENG
+			tag = GBR
+		}
+		has_country_modifier = the_dissolution_of_the_monasteries
+		NOT = { has_country_flag = pilgrimage_of_grace }
+	}
+	
+	mean_time_to_happen = { months = 24 }
+	
+	immediate = { set_country_flag = pilgrimage_of_grace }
+	
+	option = { # Disperse Them
+		name = "flavor_gbr.10014.opta"
+		add_country_modifier = { name = "pilgrimage_of_grace" duration = 1460 }
+		add_stability = -1
+		random_owned_province = {
+			spawn_rebels = { type = catholic_rebels size = 4 }
+		}
+		every_owned_province = {
+			limit = { religion = catholic }
+			add_province_modifier = { name = "catholic_province_monastery_dissolution" duration = 730 }
+		}
+	}
+	
+	option = { # Negotiate
+		name = "flavor_gbr.10014.optb"
+		add_legitimacy = -20
+		add_prestige = -20
+		add_country_modifier = { name = "forced_monasteries_restored" duration = -1 }
+		remove_country_modifier = the_dissolution_of_the_monasteries
+	}
+}
+
+####################
+# Wars of the Roses
+#####################
+
+# War of the Roses
+country_event = {
+	id = flavor_gbr.20000
+	title = "flavor_eng.EVTNAME9255"
+	desc = "flavor_eng.EVTDESC9255"
+	picture = VEF_WAR_OF_THE_ROSES_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes	#disasters/war_of_the_roses start
+
+	trigger = {
+		NOT = { has_disaster = war_of_the_roses }
+	}
+	
+	immediate = {
+		every_known_country = {
+			limit = { war_with = ENG }
+			white_peace = ENG
+		}
+	}
+	
+	option = {		# Support the House of Lancaster
+		name = "flavor_eng.EVTOPTA9255"
+		ai_chance = { factor = 50 }
+		if = {
+			limit = { NOT = { has_global_flag = war_of_the_roses_ended }}
+			add_manpower = -0.25
+			if = {
+				limit = { NOT = { government = monarchy }}
+				change_government = monarchy
+			}
+			if = {
+				limit = { owns = 87 }
+				87 = { add_core = YOR remove_core = ENG }
+			}
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						region = france_region
+						NOT = { area = upper_brittany_area }
+						NOT = { area = lower_brittany_area }
+					}
+					add_territorial_core = YOR remove_core = ENG
+				}
+				every_owned_province = {
+					limit = { province_group = ireland_group }
+					add_territorial_core = YOR remove_core = ENG
+				}
+			}
+			if = {
+				limit = { owns = 36 }
+				36 = { add_core = YOR remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 22 }
+				22 = { add_core = YOR remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 20 }
+				20 = { add_core = YOR remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 26 }
+				26 = { add_core = YOR remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 32 }
+				32 = { add_core = YOR remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 33 }
+				33 = { add_core = YOR remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 37 }
+				37 = { add_core = YOR remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 38 }
+				38 = { add_core = YOR remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 21 }
+				21 = { add_core = YOR remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 31 }
+				31 = { add_core = YOR remove_core = ENG }
+			}
+			release = YOR
+			change_tag = LAN
+			every_owned_province = { remove_core = ENG }
+			define_ruler = {
+				dynasty = Lancaster
+				age = 31
+			}
+			if = {
+				limit = {
+					has_dlc = "Rights of Man" 
+				}
+				hidden_effect = { add_ruler_personality = well_connected_personality }
+			}
+			if = {
+				limit = { owns = 34 }
+				34 = { add_core = ENG remove_core = LAN }
+				release = ENG
+			}
+			declare_war = YOR
+			create_union = ENG
+			YOR = {
+				random_owned_province = { build_to_forcelimit = { infantry = 0.6 cavalry = 0.3 }}
+				add_government_reform = english_monarchy
+				define_ruler = { dynasty = "York" }
+				end_disaster = war_of_the_roses
+				set_country_flag = had_war_of_the_roses
+				every_owned_province = {
+					limit = { province_group = ireland_group }
+					if = {
+						limit = { province_id = 46 is_core = LEI }
+						remove_core = LEI
+					}
+					if = {
+						limit = { province_id = 48 }
+						add_core = LEI
+						owner = { release = LEI vassalize = LEI }
+					}
+					if = {
+						limit = { province_id = 49 }
+						add_core = DMS
+						owner = { release = DMS vassalize = DMS }
+					}
+					if = {
+						limit = { province_id = 50 }
+						add_core = MNS
+						owner = { release = MNS vassalize = MNS }
+					}
+					if = {
+						limit = { province_id = 51 }
+						add_core = GLW
+						owner = { release = GLW vassalize = GLW }
+					}
+					if = {
+						limit = { province_id = 3981 }
+						add_core = MYO
+						owner = { release = MYO vassalize = MYO }
+					}
+					if = {
+						limit = { province_id = 52 }
+						add_core = CNN
+						owner = { release = CNN vassalize = CNN }
+					}
+					if = {
+						limit = { province_id = 55 }
+						add_core = ULS
+						owner = { release = ULS vassalize = ULS }
+					}
+					if = {
+						limit = { province_id = 54 }
+						add_core = TYR
+						owner = { release = TYR vassalize = TYR }
+					}
+					if = {
+						limit = { province_id = 3980 }
+						add_core = MCM
+						owner = { release = MCM vassalize = MCM }
+					}
+					if = {
+						limit = { province_id = 3982 }
+						add_core = ORD
+						owner = { release = ORD vassalize = ORD }
+					}
+				}
+			}
+			LAN = {
+				end_disaster = war_of_the_roses 
+				set_country_flag = had_war_of_the_roses
+			}
+		}
+	}
+
+	option = {		# Support the House of York
+		name = "flavor_eng.EVTOPTB9255"
+		ai_chance = { factor = 50 }
+		if = {
+			limit = { NOT = { has_global_flag = war_of_the_roses_ended }}
+			add_manpower = -0.25
+			hidden_effect = {
+				every_owned_province = {
+					limit = { area = upper_brittany_area }
+					add_core = LAN remove_core = ENG
+				}
+				every_owned_province = {
+					limit = { area = lower_brittany_area }
+					add_core = LAN remove_core = ENG
+				}
+				every_owned_province = {
+					limit = { area = highlands_area }
+					add_core = LAN remove_core = ENG
+				}
+				every_owned_province = {
+					limit = { area = lowlands_area }
+					add_core = LAN remove_core = ENG
+				}
+				every_owned_province = {
+					limit = { area = wales_area }
+					add_core = LAN remove_core = ENG
+				}
+			}
+			if = {
+				limit = { owns = 39 }
+				39 = { add_core = LAN remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 41 }
+				41 = { add_core = LAN remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 40 }
+				40 = { add_core = LAN remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 35 }
+				35 = { add_core = LAN remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 29 }
+				29 = { add_core = LAN remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 27 }
+				27 = { add_core = LAN remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 30 }
+				30 = { add_core = LAN remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 18 }
+				18 = { add_core = LAN remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 19 }
+				19 = { add_core = LAN remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 21 }
+				21 = { add_core = LAN remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 23 }
+				23 = { add_core = LAN remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 25 }
+				25 = { add_core = LAN remove_core = ENG }
+			}
+			if = {
+				limit = { owns = 240 }
+				240 = { add_core = LAN remove_core = ENG }
+			}
+			release = LAN
+			change_tag = YOR
+			define_ruler = {
+				dynasty = York
+				age = 31
+			}
+			if = {
+				limit = {
+					has_dlc = "Rights of Man" 
+				}
+				hidden_effect = { add_ruler_personality = tactical_genius_personality }
+			}
+			every_owned_province = { remove_core = ENG }
+			every_owned_province = {
+				limit = { province_group = ireland_group }
+				if = {
+					limit = { province_id = 46 is_core = LEI }
+					remove_core = LEI
+				}
+				if = {
+					limit = { province_id = 48 }
+					add_core = LEI
+					owner = { release = LEI vassalize = LEI }
+				}
+				if = {
+					limit = { province_id = 49 }
+					add_core = DMS
+					owner = { release = DMS vassalize = DMS }
+				}
+				if = {
+					limit = { province_id = 50 }
+					add_core = MNS
+					owner = { release = MNS vassalize = MNS }
+				}
+				if = {
+					limit = { province_id = 51 }
+					add_core = GLW
+					owner = { release = GLW vassalize = GLW }
+				}
+				if = {
+					limit = { province_id = 3981 }
+					add_core = MYO
+					owner = { release = MYO vassalize = MYO }
+				}
+				if = {
+					limit = { province_id = 52 }
+					add_core = CNN
+					owner = { release = CNN vassalize = CNN }
+				}
+				if = {
+					limit = { province_id = 55 }
+					add_core = ULS
+					owner = { release = ULS vassalize = ULS }
+				}
+				if = {
+					limit = { province_id = 54 }
+					add_core = TYR
+					owner = { release = TYR vassalize = TYR }
+				}
+				if = {
+					limit = { province_id = 3980 }
+					add_core = MCM
+					owner = { release = MCM vassalize = MCM }
+				}
+				if = {
+					limit = { province_id = 3982 }
+					add_core = ORD
+					owner = { release = ORD vassalize = ORD }
+				}
+			}
+			if = {
+				limit = { owns = 34 }
+				34 = { add_core = ENG remove_core = YOR }
+				release = ENG
+			}
+			declare_war = LAN
+			LAN = {
+				random_owned_province = { build_to_forcelimit = { infantry = 0.6 cavalry = 0.3 }}
+				every_owned_province = { add_core = LAN }
+				add_government_reform = english_monarchy
+				define_ruler = { dynasty = "Lancaster" }
+				create_union = ENG
+				end_disaster = war_of_the_roses
+				set_country_flag = had_war_of_the_roses
+			}
+			YOR = { 
+				end_disaster = war_of_the_roses 
+				set_country_flag = had_war_of_the_roses
+			}
+		}
+	}
+}
+
+# War ends at 65% warscore
+country_event = {
+	id = flavor_gbr.20001
+	title = "flavor_gbr.20001.t"
+	desc = "flavor_gbr.20001.d"
+	picture = VEF_WAR_OF_THE_ROSES_eventPicture
+	
+	trigger = {
+		NOT = { has_global_flag = war_of_the_roses_ended }
+		OR = {
+			AND = {
+				tag = YOR
+				war_score_against = {
+					who = LAN
+					value = 65
+				}
+			}
+			AND = {
+				tag = LAN
+				war_score_against = {
+					who = YOR
+					value = 65
+				}
+			}
+			AND = {
+				tag = YOR
+				LAN = { is_subject_of = YOR }
+			}
+			AND = {
+				tag = LAN
+				YOR = { is_subject_of = LAN }
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				LAN = {
+					war_score_against = {
+						who = YOR
+						value = 65
+					}
+				}
+			}
+			LAN = {
+				inherit = ENG
+				inherit = YOR
+				change_tag = ENG
+			}
+		}
+		if = {
+			limit = {
+				YOR = {
+					war_score_against = {
+						who = LAN
+						value = 65
+					}
+				}
+			}
+			YOR = {
+				inherit = ENG
+				inherit = LAN
+				change_tag = ENG
+			}
+		}
+		ENG = {
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = ENG_ideas }
+				}
+				country_event = { id = "national_ideas.60000" days = 1 }
+			}
+			add_stability_or_adm_power = yes
+			set_capital = 34
+			every_owned_province = {
+				remove_core = YOR
+				remove_core = LAN
+				add_core = ENG
+			}
+			set_country_flag = had_war_of_the_roses
+			set_global_flag = war_of_the_roses_ended
+		}
+		every_country = {
+			limit = { has_disaster = war_of_the_roses }
+			end_disaster = war_of_the_roses
+		}
+	}
+	
+	option = {
+		name = flavor_gbr.20001.opta
+	}
+}
+
+# Opposing side occupies London - Crowned King
+country_event = {
+	id = flavor_gbr.20002
+	title = "flavor_gbr.20002.t"
+	desc = "flavor_gbr.20002.d"
+	picture = VEF_WAR_OF_THE_ROSES_eventPicture
+
+	trigger = {
+		OR = { 
+			tag = LAN
+			tag = YOR
+		}
+		NOT = { ENG = { is_subject_of = ROOT } }
+		34 = { controlled_by = ROOT }
+	}
+	
+	mean_time_to_happen = { months = 24 }
+
+	option = {
+		name = "flavor_gbr.10016.opta"
+		trigger = { tag = LAN }
+		YOR = { break_union = ENG }
+		create_union = ENG
+	}
+	
+	option = {
+		name = "flavor_gbr.10016.opta"
+		trigger = { tag = YOR }
+		LAN = { break_union = ENG }
+		create_union = ENG
+	}
+}
+
+# Disaster Ends
+country_event = {
+	id = flavor_gbr.20003
+	title = "flavor_gbr.20003.t"
+	desc = "flavor_gbr.20003.d"
+	picture = VEF_WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes	#disasters/war_of_the_roses end
+	
+	option = {
+		name = "flavor_gbr.20003.opta"
+		add_stability_or_adm_power = yes
+	}
+}

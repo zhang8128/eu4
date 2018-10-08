@@ -1,0 +1,42 @@
+# Seleucia
+
+owner = CIL
+controller = CIL
+culture = armenian
+religion = nestorian
+capital = "Silifke"
+trade_goods = naval_supplies
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 5
+is_city = yes
+fort_15th = yes
+add_core = CIL
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = scandinavian_tech
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+add_province_modifier = { name = orthodox_crusader_province duration = -1 }
+add_province_modifier = { name = "nestorian_fidelity" duration = 7300 }
+
+1347.1.1	= { base_manpower = 4 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1	= { owner = RAM controller = RAM add_core = RAM remove_province_modifier = orthodox_crusader_province remove_province_modifier = province_black_death } 
+1419.1.1	= { culture = turkish religion = sunni }
+1483.1.1	= { owner = TUR add_core = TUR controller = TUR } # Incorporated into the Ottoman Empire
+1500.1.1	= { base_manpower = 5 }
+1509.1.1	= { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Civil war
+1513.1.1	= { revolt = {} controller = TUR }
+1600.1.1	= { base_manpower = 1 }
+1650.1.1	= { base_manpower = 1 }
+1658.1.1	= { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Revolt of Abaza Hasan Pasha, centered on Aleppo, extending into Anatolia
+1659.1.1	= { revolt = {} controller = TUR }
+1700.1.1	= { base_manpower = 1 }
+1740.1.1	= { base_tax = 1 base_production = 1 } # The decentralizing effect of the provincial system
+1750.1.1	= { base_manpower = 1 }
+1800.1.1	= { base_manpower = 1.25 }

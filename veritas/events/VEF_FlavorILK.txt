@@ -1,0 +1,680 @@
+# Ilkhanate
+namespace = flavor_ilk
+normal_or_historical_nations = yes
+
+# ILK Colapse Begins
+country_event = {
+	id = flavor_ilk.1
+	title = "flavor_ilk.1.t"
+	desc = "flavor_ilk.1.d"
+
+	picture = "VEF_RELIGIOUS_TURMOIL_eventPicture"
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = ILK
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = "flavor_ilk.1.opta"
+	}
+}
+
+# ILK stabilizes
+country_event = {
+	id = flavor_ilk.2
+	title = "flavor_ilk.2.t"
+	desc = "flavor_ilk.2.d"
+
+	picture = "VEF_RELIGIOUS_TURMOIL_eventPicture"
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = ILK
+	}
+
+	immediate = {
+		clr_country_flag = horde_collapse
+		set_country_flag = ilk_collapsed
+	}
+
+	option = {
+		name = "flavor_ilk.2.opta"
+		if = {
+			limit = { NOT = { stability = 0 } }
+			add_stability = 2
+		}
+		every_owned_province = { add_unrest = -35 }
+	}
+}
+
+# AI Vassals of ILK are freed when it collapses (if ILK is AI) or declare war (if ILK is human)
+country_event = {
+	id = flavor_ilk.3
+	title = "flavor_ilk.3.t"
+	desc = "flavor_ilk.3.d"
+
+	picture = "VEF_ISLAM_BATTLE_eventPicture"
+
+	trigger = {
+		is_subject_of = ILK
+		ILK = { has_disaster = ilkhanate_collapse }
+		ai = yes
+	}
+
+	mean_time_to_happen = {
+		months = 24
+	}
+
+	option = {
+		name = "flavor_ilk.3.opta"
+		trigger = { ILK = { ai = yes } }
+		ILK = { release_all_subjects = yes }
+	}
+
+	option = {
+		name = "flavor_ilk.3.optb"
+		trigger = { ILK = { ai = no } }
+		declare_war_with_cb = { who = ILK casus_belli = "cb_independence_war" }
+	}
+}
+
+# Various Provinces and Nations defect or break free - provinces near MAM defect,
+# JAI, INJ, DUL, MZF, SRB, KHI, BAL, QAR, AKK all possible releases.
+#
+# Provinces adjacent to the Mamlukes may defect if unrest is > 20
+province_event = {
+	id = flavor_ilk.4
+	title = "flavor_ilk.4.t"
+	desc = "flavor_ilk.4.d"
+
+	picture = "VEF_ISLAM_BATTLE_eventPicture"
+
+	trigger = {
+		owned_by = ILK
+		OR = {
+			unrest = 20
+			controlled_by = REB
+		}
+		ILK = { has_disaster = ilkhanate_collapse }
+		any_neighbor_province = { owned_by = MAM }
+	}
+
+	is_mtth_scaled_to_size = 1
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	immediate = {
+		add_core = MAM
+		cede_province = MAM
+		add_unrest = -25
+	}
+
+	option = {
+		name = "flavor_ilk.4.opta"
+		owner = {
+			add_legitimacy = -2
+			add_horde_unity = -2
+		}
+	}
+}
+
+# JAI
+country_event = {
+	id = flavor_ilk.5
+	title = "flavor_ilk.5.t"
+	desc = "flavor_ilk.5.d"
+
+	picture = "VEF_ISLAM_BATTLE_eventPicture"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ILK
+		has_disaster = ilkhanate_collapse
+		NOT = { has_country_modifier = recent_horde_breakaway }
+		any_owned_province = { is_core = JAI }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	immediate = {
+		release = JAI
+		add_country_modifier = { name = "recent_horde_breakaway" duration = 730 }
+		JAI = { every_owned_province = { add_unrest = -25 }}
+	}
+
+	option = {
+		name = "flavor_ilk.5.opta"
+		trigger = { ai = no }
+		declare_war_with_cb = { who = JAI casus_belli = cb_tribal_feud }
+		add_prestige = 10
+		add_legitimacy = 5
+		add_horde_unity = 5
+	}
+
+	option = {
+		name = "flavor_ilk.5.optb"
+		add_prestige = -20
+		add_legitimacy = -5
+		add_horde_unity = -5
+		change_variable = { which = national_stability value = -250 }
+	}
+}
+
+# INJ
+country_event = {
+	id = flavor_ilk.6
+	title = "flavor_ilk.6.t"
+	desc = "flavor_ilk.6.d"
+
+	picture = "VEF_ISLAM_BATTLE_eventPicture"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ILK
+		has_disaster = ilkhanate_collapse
+		NOT = { has_country_modifier = recent_horde_breakaway }
+		any_owned_province = { is_core = INJ }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	immediate = {
+		release = INJ
+		add_country_modifier = { name = "recent_horde_breakaway" duration = 730 }
+		INJ = { every_owned_province = { add_unrest = -25 }}
+	}
+
+	option = {
+		name = "flavor_ilk.6.opta"
+		trigger = { ai = no }
+		declare_war_with_cb = { who = INJ casus_belli = cb_tribal_feud }
+		add_prestige = 10
+		add_legitimacy = 5
+		add_horde_unity = 5
+	}
+
+	option = {
+		name = "flavor_ilk.6.optb"
+		add_prestige = -20
+		add_legitimacy = -5
+		add_horde_unity = -5
+		change_variable = { which = national_stability value = -250 }
+	}
+}
+
+# DUL
+country_event = {
+	id = flavor_ilk.7
+	title = "flavor_ilk.7.t"
+	desc = "flavor_ilk.7.d"
+
+	picture = "VEF_ISLAM_BATTLE_eventPicture"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ILK
+		has_disaster = ilkhanate_collapse
+		NOT = { has_country_modifier = recent_horde_breakaway }
+		any_owned_province = { is_core = DUL }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	immediate = {
+		release = DUL
+		add_country_modifier = { name = "recent_horde_breakaway" duration = 730 }
+		DUL = { every_owned_province = { add_unrest = -25 }}
+	}
+
+	option = {
+		name = "flavor_ilk.7.opta"
+		trigger = { ai = no }
+		declare_war_with_cb = { who = DUL casus_belli = cb_tribal_feud }
+		add_prestige = 10
+		add_legitimacy = 5
+		add_horde_unity = 5
+	}
+
+	option = {
+		name = "flavor_ilk.7.optb"
+		add_prestige = -20
+		add_legitimacy = -5
+		add_horde_unity = -5
+		change_variable = { which = national_stability value = -250 }
+	}
+}
+
+# MZF
+country_event = {
+	id = flavor_ilk.8
+	title = "flavor_ilk.8.t"
+	desc = "flavor_ilk.8.d"
+
+	picture = "VEF_ISLAM_BATTLE_eventPicture"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ILK
+		has_disaster = ilkhanate_collapse
+		NOT = { has_country_modifier = recent_horde_breakaway }
+		any_owned_province = { is_core = MZF }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	immediate = {
+		release = MZF
+		add_country_modifier = { name = "recent_horde_breakaway" duration = 730 }
+		MZF = { every_owned_province = { add_unrest = -25 }}
+	}
+
+	option = {
+		name = "flavor_ilk.8.opta"
+		trigger = { ai = no }
+		declare_war_with_cb = { who = MZF casus_belli = cb_tribal_feud }
+		add_prestige = 10
+		add_legitimacy = 5
+		add_horde_unity = 5
+	}
+
+	option = {
+		name = "flavor_ilk.8.optb"
+		add_prestige = -20
+		add_legitimacy = -5
+		add_horde_unity = -5
+		change_variable = { which = national_stability value = -250 }
+	}
+}
+
+# SRB
+country_event = {
+	id = flavor_ilk.9
+	title = "flavor_ilk.9.t"
+	desc = "flavor_ilk.9.d"
+
+	picture = "VEF_ISLAM_BATTLE_eventPicture"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ILK
+		has_disaster = ilkhanate_collapse
+		NOT = { has_country_modifier = recent_horde_breakaway }
+		any_owned_province = { is_core = SRB }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	immediate = {
+		release = SRB
+		add_country_modifier = { name = "recent_horde_breakaway" duration = 730 }
+		SRB = { every_owned_province = { add_unrest = -25 }}
+	}
+
+	option = {
+		name = "flavor_ilk.9.opta"
+		trigger = { ai = no }
+		declare_war_with_cb = { who = SRB casus_belli = cb_tribal_feud }
+		add_prestige = 10
+		add_legitimacy = 5
+		add_horde_unity = 5
+	}
+
+	option = {
+		name = "flavor_ilk.9.optb"
+		add_prestige = -20
+		add_legitimacy = -5
+		add_horde_unity = -5
+		change_variable = { which = national_stability value = -250 }
+	}
+}
+
+# KHI
+country_event = {
+	id = flavor_ilk.10
+	title = "flavor_ilk.10.t"
+	desc = "flavor_ilk.10.d"
+
+	picture = "VEF_ISLAM_BATTLE_eventPicture"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ILK
+		has_disaster = ilkhanate_collapse
+		NOT = { has_country_modifier = recent_horde_breakaway }
+		any_owned_province = { is_core = KHI }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	immediate = {
+		release = KHI
+		add_country_modifier = { name = "recent_horde_breakaway" duration = 730 }
+		KHI = { every_owned_province = { add_unrest = -25 }}
+	}
+
+	option = {
+		name = "flavor_ilk.10.opta"
+		trigger = { ai = no }
+		declare_war_with_cb = { who = KHI casus_belli = cb_tribal_feud }
+		add_prestige = 10
+		add_legitimacy = 5
+		add_horde_unity = 5
+	}
+
+	option = {
+		name = "flavor_ilk.10.optb"
+		add_prestige = -20
+		add_legitimacy = -5
+		add_horde_unity = -5
+		change_variable = { which = national_stability value = -250 }
+	}
+}
+
+# BAL
+country_event = {
+	id = flavor_ilk.11
+	title = "flavor_ilk.11.t"
+	desc = "flavor_ilk.11.d"
+
+	picture = "VEF_ISLAM_BATTLE_eventPicture"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ILK
+		has_disaster = ilkhanate_collapse
+		NOT = { has_country_modifier = recent_horde_breakaway }
+		any_owned_province = { is_core = BAL }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	immediate = {
+		release = BAL
+		add_country_modifier = { name = "recent_horde_breakaway" duration = 730 }
+		BAL = { every_owned_province = { add_unrest = -25 }}
+	}
+
+	option = {
+		name = "flavor_ilk.11.opta"
+		trigger = { ai = no }
+		declare_war_with_cb = { who = BAL casus_belli = cb_tribal_feud }
+		add_prestige = 10
+		add_legitimacy = 5
+		add_horde_unity = 5
+	}
+
+	option = {
+		name = "flavor_ilk.11.optb"
+		add_prestige = -20
+		add_legitimacy = -5
+		add_horde_unity = -5
+		change_variable = { which = national_stability value = -250 }
+	}
+}
+
+# QAR
+country_event = {
+	id = flavor_ilk.12
+	title = "flavor_ilk.12.t"
+	desc = "flavor_ilk.12.d"
+
+	picture = "VEF_ISLAM_BATTLE_eventPicture"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ILK
+		has_disaster = ilkhanate_collapse
+		NOT = { has_country_modifier = recent_horde_breakaway }
+		any_owned_province = { is_core = QAR }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	immediate = {
+		release = QAR
+		add_country_modifier = { name = "recent_horde_breakaway" duration = 730 }
+		QAR = { every_owned_province = { add_unrest = -25 }}
+	}
+
+	option = {
+		name = "flavor_ilk.12.opta"
+		trigger = { ai = no }
+		declare_war_with_cb = { who = QAR casus_belli = cb_tribal_feud }
+		add_prestige = 10
+		add_legitimacy = 5
+		add_horde_unity = 5
+	}
+
+	option = {
+		name = "flavor_ilk.12.optb"
+		add_prestige = -20
+		add_legitimacy = -5
+		add_horde_unity = -5
+		change_variable = { which = national_stability value = -250 }
+	}
+}
+
+# Rum collapse event - no longer ILK Vassal
+country_event = {
+	id = flavor_ilk.13
+	title = "flavor_ilk.13.t"
+	desc = "flavor_ilk.13.d"
+
+	picture = "VEF_RELIGIOUS_TURMOIL_eventPicture"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = RUM
+		NOT = { vassal_of = ILK }
+		NOT = { is_year = 1340 }
+	}
+
+	mean_time_to_happen = {
+		months = 36
+	}
+
+	immediate = {
+		every_owned_province = { add_unrest = 25 }
+		hidden_effect = {
+			random_owned_province = {
+				limit = { is_capital = no }
+				nationalist_rebels = 2
+			}
+			random_owned_province = {
+				limit = { is_capital = no }
+				nationalist_rebels = 2
+			}
+			capital_scope = { nationalist_rebels = 2 }
+		}
+	}
+
+	option = {
+		name = "flavor_ilk.13.opta"
+	}
+}
+
+# If ILK gets into a war while having the disaster, they get additional uprisings on a
+# random basis
+country_event = {
+	id = flavor_ilk.14
+	title = "flavor_ilk.14.t"
+	desc = "flavor_ilk.14.d"
+
+	picture = "VEF_RELIGIOUS_TURMOIL_eventPicture"
+
+	is_triggered_only = yes
+
+	hidden = yes
+
+	trigger = {
+		is_at_war = yes
+	}
+
+	immediate = {
+		random_owned_province = {
+			limit = { 
+				is_capital = no 
+				controlled_by = ILK
+			}
+			nationalist_rebels = 5
+		}
+	}
+
+	option = {
+		name = "flavor_ilk.14.opta"
+	}
+}
+
+# ILK loses cores when they lose territory.
+country_event = {
+	id = flavor_ilk.15
+	title = "flavor_ilk.15.t"
+	desc = "flavor_ilk.15.d"
+
+	picture = "VEF_RELIGIOUS_TURMOIL_eventPicture"
+
+	is_triggered_only = yes
+
+	hidden = yes
+
+	immediate = {
+		every_province = { 
+			limit = {
+				is_core = ILK
+				NOT = { owned_by = ILK }
+			}
+			remove_core = ILK
+			add_unrest = -25 # Drop unrest as well
+		}
+	}
+
+	option = {
+		name = "flavor_ilk.15.opta"
+	}
+}
+
+# AKK
+country_event = {
+	id = flavor_ilk.16
+	title = "flavor_ilk.16.t"
+	desc = "flavor_ilk.16.d"
+
+	picture = "VEF_ISLAM_BATTLE_eventPicture"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ILK
+		has_disaster = ilkhanate_collapse
+		NOT = { has_country_modifier = recent_horde_breakaway }
+		any_owned_province = { is_core = AKK }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	immediate = {
+		release = AKK
+		add_country_modifier = { name = "recent_horde_breakaway" duration = 730 }
+		AKK = { every_owned_province = { add_unrest = -25 }}
+	}
+
+	option = {
+		name = "flavor_ilk.16.opta"
+		trigger = { ai = no }
+		declare_war_with_cb = { who = AKK casus_belli = cb_tribal_feud }
+		add_prestige = 10
+		add_legitimacy = 5
+		add_horde_unity = 5
+	}
+
+	option = {
+		name = "flavor_ilk.16.optb"
+		add_prestige = -20
+		add_legitimacy = -5
+		add_horde_unity = -5
+		change_variable = { which = national_stability value = -250 }
+	}
+}
+
+# CBN
+country_event = {
+	id = flavor_ilk.17
+	title = "flavor_ilk.17.t"
+	desc = "flavor_ilk.17.d"
+
+	picture = "VEF_ISLAM_BATTLE_eventPicture"
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ILK
+		has_disaster = ilkhanate_collapse
+		any_owned_province = { is_core = CBN }
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	immediate = {
+		release = CBN
+		add_country_modifier = { name = "recent_horde_breakaway" duration = 730 }
+		CBN = { every_owned_province = { add_unrest = -25 }}
+	}
+
+	option = {
+		name = "flavor_ilk.8.opta"
+		trigger = { ai = no }
+		declare_war_with_cb = { who = CBN casus_belli = cb_tribal_feud }
+		add_prestige = 10
+		add_legitimacy = 5
+		add_horde_unity = 5
+	}
+
+	option = {
+		name = "flavor_ilk.8.optb"
+		add_prestige = -20
+		add_legitimacy = -5
+		add_horde_unity = -5
+		change_variable = { which = national_stability value = -250 }
+	}
+}

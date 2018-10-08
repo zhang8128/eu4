@@ -1,0 +1,22 @@
+# Vassals of Poland
+#vassal = {
+#	first = POL
+#	second = KUJ
+#	start_date = 1306.1.1
+#	end_date = 1331.12.30
+#}
+
+#vassal = {
+#	first = POL
+#	second = KRA
+#	start_date = 1267.1.1
+#	end_date = 1385.1.1
+#}
+
+#vassal = {
+#	first = POL
+#	second = SAN
+#	start_date = 1267.1.1
+#	end_date = 1333.1.1
+#}
+

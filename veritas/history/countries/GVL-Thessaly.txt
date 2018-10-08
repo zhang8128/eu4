@@ -1,0 +1,16 @@
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 2
+primary_culture = greek
+religion = orthodox
+technology_group = byzantine
+capital = 581	# Thessaly
+
+1303.1.1 = {
+	monarch = {
+		name = "Ioannes II"
+		dynasty = "Doukas"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}

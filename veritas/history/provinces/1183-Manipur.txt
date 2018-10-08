@@ -1,0 +1,16 @@
+# Manipur
+#Province IDs changed
+
+owner = KAC
+controller = KAC
+culture = meitei
+religion = buddhism
+capital = "Imphal"
+trade_goods = ivory
+hre = no
+base_tax = 6
+base_production = 6
+base_manpower = 4
+is_city = yes
+add_core = KAC
+discovered_by = chinese

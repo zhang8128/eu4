@@ -1,0 +1,11 @@
+#Baghlah
+#model = eastindiaman
+#tech_level = 42
+type = light_ship
+unit_type = muslim
+
+hull_size = 14
+base_cannons = 8
+sail_speed = 10
+trade_power = 5.0
+sailors = 50

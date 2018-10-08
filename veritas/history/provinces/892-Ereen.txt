@@ -1,0 +1,18 @@
+# Ereen
+
+capital = "Ereen"
+owner = YUN
+controller = YUN
+add_core = YUN
+add_core = KHA
+culture = khitan
+religion = confucianism
+trade_goods = cloth	#Silk
+base_tax = 2
+base_production = 2
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1368.1.1 = { owner = KHA controller = KHA remove_core = YUN }

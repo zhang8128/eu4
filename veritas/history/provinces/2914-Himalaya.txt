@@ -1,0 +1,5 @@
+# Himalaya
+#Province IDs changed
+
+discovered_by = nomad_group
+discovered_by = chinese

@@ -1,0 +1,297 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+primary_culture = oriya
+religion = hinduism
+technology_group = indian
+capital = 1350	# Cuttack
+
+# Predecessors, Eastern Ganga Dynasty
+
+1279.1.1 = {
+	monarch = {
+		name = "Narasimha II"
+		dynasty = "Ganga"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1306.1.1 = {
+	monarch = {
+		name = "Bhanu II"
+		dynasty = "Ganga"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1328.1.1 = {
+	monarch = {
+		name = "Narasimha III"
+		dynasty = "Ganga"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1352.1.1 = {
+	monarch = {
+		name = "Bhanu III"
+		dynasty = "Ganga"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1378.1.1 = {
+	monarch = {
+		name = "Narasimha IV"
+		dynasty = "Ganga"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1424.1.1 = {
+	monarch = {
+		name = "Bhanu IV"
+		dynasty = "Ganga"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+#Rajas of Orissa
+
+1434.1.1 = {
+	set_country_flag = vef_gajapati_rise
+	monarch = {
+		name = "Kapilendra"
+		dynasty = "Gajapati" #Suryavamshi
+		ADM = 4
+		DIP = 5
+		MIL = 6
+		leader = { name = "Kapilendra" type = general fire = 3 shock = 5 manuever = 2 siege = 1 }
+	}
+	heir = {
+		name = "Hamvira"
+		monarch_name = "Hamvira"
+		dynasty = "Gajapati"
+		birth_date = 1418.1.1
+		death_Date = 1476.1.1
+		claim = 95
+		ADM = 3
+		DIP = 2
+		MIL = 2
+	}
+}
+
+1465.1.1 = {	#Heir changed by Kapilendra
+	heir = {
+		name = "Purushottama"
+		monarch_name = "Purushottama"
+		dynasty = "Gajapati"
+		birth_date = 1420.1.1
+		death_Date = 1497.4.2
+		claim = 95
+		ADM = 3
+		DIP = 2
+		MIL = 5
+	}
+}
+
+1466.1.1 = {
+	monarch = {
+		name = "Purushottama"
+		dynasty = "Gajapati"
+		ADM = 3
+		DIP = 2
+		MIL = 5
+	}
+}
+
+1472.1.1 = {	#Usurper, former heir
+	monarch = {
+		name = "Hamvira"
+		dynasty = "Gajapati"
+		ADM = 3
+		DIP = 2
+		MIL = 2
+	}
+}
+
+1476.1.1 = {	#Retaken by Purushottoma with Bahmanid aid
+	monarch = {
+		name = "Purushottama"
+		dynasty = "Gajapati"
+		ADM = 3
+		DIP = 2
+		MIL = 6
+	}
+	heir = {
+		name = "Pratâprudra"
+		monarch_name = "Pratâprudra"
+		dynasty = "Gajapati"
+		birth_date = 1470.1.1
+		death_date = 1540.1.1
+		claim = 95
+		ADM = 1
+		DIP = 3
+		MIL = 1
+	}
+}
+
+1497.4.2 = {
+	monarch = {
+		name = "Pratâprudra"
+		dynasty = "Gajapati"
+		ADM = 1
+		DIP = 3
+		MIL = 1
+	}
+	heir = {
+		name = "Kaluadeva"
+		monarch_name = "Kaluadeva"
+		dynasty = "Gajapati"
+		birth_date = 1490.1.1
+		death_date = 1541.1.1
+		claim = 95
+		ADM = 3
+		DIP = 1
+		MIL = 2
+	}
+}
+
+1540.1.1 = {
+	monarch = {
+		name = "Kaluadeva"
+		dynasty = "Gajapati"
+		ADM = 3
+		DIP = 1
+		MIL = 2
+	}
+}
+
+1541.1.1 = {
+	monarch = {
+		name = "Govindaraja Vidyadhara"
+		dynasty = "Bhoi"
+		ADM = 2
+		DIP = 2
+		MIL = 2
+	}
+	heir = {
+		name = "Chakrapretâpa"
+		monarch_name = "Chakrapretâpa"
+		dynasty = "Bhoi"
+		birth_date = 1520.1.1
+		death_date = 1557.1.1
+		claim = 95
+		ADM = 0
+		DIP = 1
+		MIL = 1
+	}
+}
+
+1549.1.1 = {
+	monarch = {
+		name = "Chakrapretâpa"
+		dynasty = "Bhoi"
+		ADM = 0
+		DIP = 1
+		MIL = 1
+	}
+	heir = {
+		name = "Nârashima Jana"
+		monarch_name = "Nârashima Jana"
+		dynasty = "Bhoi"
+		birth_date = 1540.1.1
+		death_date = 1558.1.1
+		claim = 95
+		ADM = 0
+		DIP = 0
+		MIL = 1
+	}
+}
+
+1557.1.1 = {
+	monarch = {
+		name = "Nârashima Jana"
+		dynasty = "Bhoi"
+		ADM = 0
+		DIP = 0
+		MIL = 1
+	}
+	heir = {
+		name = "Raghurâma Chhotra"
+		monarch_name = "Raghurâma Chhotra"
+		dynasty = "Bhoi"
+		birth_date = 1530.1.1
+		death_date = 1560.1.1
+		claim = 95
+		ADM = 0
+		DIP = 1
+		MIL = 0
+	}
+}
+
+1558.1.1 = {
+	monarch = {
+		name = "Raghurâma Chhotra"
+		dynasty = "Bhoi"
+		ADM = 0
+		DIP = 1
+		MIL = 0
+	}
+}
+
+1560.1.1 = {
+	monarch = {
+		name = "Mukundadeva Harishandra"
+		dynasty = "Chalukya"
+		ADM = 0
+		DIP = 0
+		MIL = 0
+	}
+	heir = {
+		name = "Râmchandra Deva"
+		monarch_name = "Râmchandra Deva I"
+		dynasty = "Chalukya"
+		birth_date = 1540.1.1
+		death_date = 1607.1.1
+		claim = 95
+		ADM = 4
+		DIP = 3
+		MIL = 3
+	}
+}
+
+1567.1.1 = {
+	monarch = {
+		name = "Râmchandra Deva I"
+		dynasty = "Chalukya"
+		ADM = 4
+		DIP = 3
+		MIL = 3
+	}
+}
+
+#Conquered by the Karrani sultans of Bengal in 1568
+#Remains under Karrani rule as Bengal falls to the Mughals until eventually annexed
+
+1572.1.1 = {
+	monarch = {
+		name = "Da'ud"
+		dynasty = "Karrani"
+		ADM = 0
+		DIP = 0
+		MIL = 0
+	}
+}

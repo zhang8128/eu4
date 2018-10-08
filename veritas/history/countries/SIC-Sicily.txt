@@ -1,0 +1,212 @@
+# Sicily
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+technology_group = western
+religion = catholic
+primary_culture = sicilian
+capital = 212	# Palermo
+historical_rival = NAP
+historical_friend = ARA
+
+
+1296.12.11 = {
+	monarch = { 
+		name = "Frederico III"
+		dynasty = "d'Barcelona"
+		birth_date = 1272.12.13
+		dip = 3
+		mil = 4
+		adm = 4
+	}
+	set_country_flag = peace_of_caltabellotta
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 10.0 }
+}
+
+1302.5.17 = {
+	queen = {
+		country_of_origin = NAP
+		name = "Eleanor"
+		dynasty = "de Anjou"
+		birth_date = 1289.8.1
+		death_date = 1341.8.9
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1304.1.1 = {
+	heir = {
+		name = "Pedro"
+		monarch_name = "Pedro II"
+		dynasty = "d'Barcelona"
+		birth_date = 1304.1.1
+		death_date = 1342.8.15
+		adm = 2
+		dip = 1
+		mil = 1
+		claim = 70
+	}
+}
+
+1337.6.25 = {
+	monarch = { 
+		name = "Pedro II"
+		dynasty = "d'Barcelona"
+		birth_date = 1304.1.1
+		dip = 1
+		mil = 1
+		adm = 2
+	}
+	queen = {
+		country_of_origin = HAB
+		name = "Elisabeth"
+		dynasty = "Gorizia"
+		birth_date = 1298.1.1
+		death_date = 1352.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	clr_country_flag = peace_of_caltabellotta
+}
+
+1338.2.4 = {
+	heir = {
+		name = "Louis"
+		monarch_name = "Louis I"
+		dynasty = "d'Barcelona"
+		birth_date = 1304.1.1
+		death_date = 1342.8.15
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1342.8.15 = {
+	monarch = { 
+		name = "Louis I"
+		dynasty = "d'Barcelona"
+		birth_date = 1338.2.4
+		dip = 3
+		mil = 3
+		adm = 3
+	}
+	heir = {
+		name = "Frederico"
+		monarch_name = "Frederico IV"
+		dynasty = "d'Barcelona"
+		birth_date = 1341.9.1
+		death_date = 1377.1.27
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1355.10.16 = {
+	monarch = { 
+		name = "Frederico IV"
+		dynasty = "d'Barcelona"
+		birth_date = 1341.9.1
+		dip = 3
+		mil = 3
+		adm = 3
+	}
+}
+
+1361.4.11 = {
+	queen = {
+		country_of_origin = ARA
+		name = "Constance"
+		dynasty = "d'Aragó"
+		birth_date = 1343.1.1
+		death_date = 1363.7.2
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1363.7.2 = {
+	heir = {
+		name = "Maria"
+		monarch_name = "Maria I"
+		dynasty = "d'Barcelona"
+		birth_date = 1363.7.2
+		death_date = 1401.5.25
+		female = yes
+		claim = 95
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+}
+
+1377.1.28 = {
+	monarch = { 
+		name = "Maria I"
+		dynasty = "d'Aragó"
+		birth_date = 1363.7.12
+		female = yes
+		dip = 3
+		mil = 4
+		adm = 2
+	}
+}
+
+1392.1.1 = {
+	monarch = { 
+		name = "Martin I"
+		dynasty = "d'Aragó"
+		birth_date = 1374.1.1
+		dip = 2
+		mil = 3
+		adm = 2
+	}
+	queen = { 
+		name = "Maria I"
+		dynasty = "d'Aragó"
+		birth_date = 1363.7.12
+		death_date = 1401.5.25
+		female = yes
+		dip = 3
+		mil = 4
+		adm = 2
+	}
+}
+
+# 1409.7.25 Martin's death passes Sicily to Aragon
+
+1713.4.12 = {
+	monarch = {
+		name = "Vittorio Amedeo II"
+		dynasty = "di Savoia"
+		adm = 4
+		dip = 6
+		mil = 5
+		leader = { name = "Vittorio Amedeo II" type = general fire = 4 shock = 4 manuever = 2 siege = 2 }
+	}
+}
+
+# 1720.1.1 Vittorio Amedeo II becomes king of Sardinia-Piemont
+
+# Ferdinand/Ferrante flees to Sicily
+1806.3.11 = {
+	monarch = {
+		name = "Ferrante IV"
+		dynasty = "de Bourbon"
+		dip = 0
+		mil = 0
+		adm = 0
+	}		
+}

@@ -1,0 +1,17 @@
+# Chaubisi Rajya
+#Province IDs changed
+
+owner = NPL
+controller = NPL
+culture = nepali
+religion = hinduism
+capital = "Ghurka"
+trade_goods = wool
+hre = no
+base_tax = 4
+base_production = 4
+base_manpower = 7
+add_core = NPL
+is_city = yes
+discovered_by = indian
+discovered_by = nomad_group

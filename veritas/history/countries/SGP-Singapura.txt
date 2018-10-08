@@ -1,0 +1,75 @@
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+primary_culture = malayan
+religion = buddhism
+technology_group = chinese
+capital = 1215	# Singapora
+historical_friend = MAJ
+
+
+# Kingdom of Singhapura
+
+1299.1.1 = {
+	monarch = {
+		name = "Sang Nila Utama"
+		dynasty = "Sang Sapurba"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1347.1.1 = {
+	monarch = {
+		name = "Sri Wikrama Wira"
+		dynasty = "Sang Sapurba"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1362.1.1 = {
+	monarch = {
+		name = "Sri Rana Wikrama"
+		dynasty = "Sang Sapurba"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1375.1.1 = {
+	monarch = {
+		name = "Sri Maharaja"
+		dynasty = "Sang Sapurba"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+# Retreats to the island after deposition from Palembang; kills Sri Maharaja
+1389.1.1 = {
+	religion = sunni
+	monarch = {
+		name = "Parameswara"
+		dynasty = "Srivijaya"
+		birth_date = 1344.1.1
+		adm = 1
+		dip = 0
+		mil = 1
+	}
+	heir = {
+		name = "Megat Iskandar Shâh"
+		monarch_name = "Megat Iskandar Shâh"
+		dynasty = "Srivijaya"
+		birth_date = 1380.1.1
+		death_date = 1424.1.1
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}

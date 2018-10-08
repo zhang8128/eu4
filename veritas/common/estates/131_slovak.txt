@@ -1,0 +1,503 @@
+vef_slovak_estate = {
+	icon = 12
+	
+	color = { 100 10 50 }
+	
+	# Is estate kept in control of province on conquest?
+	keep_on_conquest = no	
+	
+	# They want to control at least this % of the country's non-overseas development, if # of home provinecs is above set amount
+	min_territory = 0
+	min_provinces_to_want_territory = 0	
+	
+	# If true, country will get estate
+	trigger = {
+		OR = {
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 3
+					is_state = no
+					culture = slovak
+				}
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 3
+						is_state = yes
+						culture = slovak
+					}
+				}
+			}
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 3
+					is_state = yes
+					culture = slovak
+				}
+			}
+		}
+		NOT = { primary_culture = slovak }
+		is_nomad = no
+		is_colonial_nation = no
+	}
+	
+	# If true, province can be granted to estate
+	province_trigger = {
+		culture = slovak
+	}	
+	
+	# Is used to weigh importance compared to other estates
+	start_territory_weight = 0
+	
+	# Min autonomy in estate provinces
+	min_autonomy = 30
+	
+	
+	#Only exceptional instances where a culture gives country benefits
+	country_modifier_happy = {
+		
+	}
+	country_modifier_neutral = {
+		
+	}	
+	country_modifier_angry = {
+		
+	}
+	
+	# These do not scale, but only applied in provinces owned by the estate
+	province_modifier_happy = {
+		local_defensiveness = 0.15
+		local_manpower_modifier = 0.2
+	}
+	province_modifier_neutral = {
+		local_manpower_modifier = 0.2
+	}	
+	province_modifier_angry = {
+		local_unrest = 5
+	}		
+	
+	# Influence modifiers
+	base_influence = 0
+	influence_modifier = {
+		desc = EST_RULER_CULTURE
+		trigger = { ruler_culture = slovak }
+		influence = 25
+	}
+	
+	# Loyalty modifiers
+	loyalty_modifier = {
+		desc = EST_NOT_ACCEPTED
+		trigger = {
+			NOT = { accepted_culture = slovak }
+			num_of_owned_provinces_with = {
+				value = 3
+				culture = slovak
+			}
+		}
+		loyalty = -40
+	}
+	
+	loyalty_modifier = {
+		desc = EST_NOT_OWNING
+		trigger = {
+			any_owned_province = {
+				culture = slovak
+				is_state = yes
+				NOT = { has_estate = vef_slovak_estate }
+			}
+		}
+		loyalty = -20
+	}
+	
+	loyalty_modifier = {
+		desc = EST_UNREST
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				culture = slovak
+				unrest = 2
+			}
+		}
+		loyalty = -20
+	}
+	
+	loyalty_modifier = {
+		desc = EST_HIGH_UNREST
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				culture = slovak
+				unrest = 5
+			}
+		}
+		loyalty = -20
+	}
+	
+	
+	#Alternative naming of estates
+	
+		
+	# For province assignment
+	ai_grant_province = {
+		factor = 0			
+	}	
+	
+	# Special interactions
+	interaction = {
+		name = "RAISE_FEUDAL_LEVIES"
+		icon = 12
+		
+		years_between_use = 5
+		
+		potential = {
+			num_of_owned_provinces_with = {
+				value = 3
+				culture = slovak
+			}
+			any_owned_province = {
+				culture = slovak
+				OR = {
+					has_building = light_serfdom
+					has_building = moderate_serfdom
+					has_building = heavy_serfdom
+				}
+			}
+		}
+		
+		trigger = {
+			is_at_war = yes
+			estate_loyalty = {
+				estate = vef_slovak_estate
+				loyalty = 30
+			}
+			NOT = {
+				any_owned_province = {
+					culture = slovak
+					has_province_modifier = rm_light_levies
+				}
+			}
+		}
+		
+		effect = {
+			custom_tooltip = tt_feudal_levies
+			hidden_effect = {
+				every_owned_province = {
+					limit = { culture = slovak }
+					owner = { add_army_professionalism = -0.025 }
+					trigger_switch = {
+						on_trigger = has_building
+						nobles_80 = { random = { chance = 40 cavalry = ROOT }}
+						nobles_60 = { random = { chance = 20 cavalry = ROOT }}
+						nobles_40 = { random = { chance = 10 cavalry = ROOT }}
+					}
+					trigger_switch = {
+						on_trigger = has_building
+						heavy_serfdom = { infantry = ROOT random = { chance = 50 infantry = ROOT }}
+						moderate_serfdom = { infantry = ROOT }
+						light_serfdom = { random = { chance = 50 infantry = ROOT }}
+					}
+				}
+			}
+			add_estate_loyalty = {
+				estate = vef_slovak_estate
+				loyalty = -25
+			}
+			if = {
+				limit = { any_country = { defensive_war_with = ROOT }}
+				add_estate_loyalty = {
+					estate = vef_slovak_estate
+					loyalty = -10
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0			
+		}
+	}
+	
+	interaction = {
+		name = "RAISE_ADDITIONAL_CONSCRIPTS"
+		icon = 12
+		
+		years_between_use = 5
+		
+		potential = {
+			num_of_owned_provinces_with = {
+				value = 3
+				culture = slovak
+			}
+			NOT = {
+				any_owned_province = {
+					culture = slovak
+					OR = {
+					has_building = light_serfdom
+					has_building = moderate_serfdom
+					has_building = heavy_serfdom
+				}
+				}
+			}
+		}
+		
+		trigger = {
+			is_at_war = yes
+			estate_loyalty = {
+				estate = vef_slovak_estate
+				loyalty = 30
+			}
+			NOT = {
+				any_owned_province = {
+					culture = slovak
+					has_province_modifier = rm_light_levies
+				}
+			}
+		}
+		
+		effect = {
+			every_owned_province = {
+				limit = { culture = slovak }
+				if = {
+					limit = { base_manpower = 8 }
+					ROOT = { add_manpower = 2 }
+				}
+				else_if = {
+					limit = { base_manpower = 6 }
+					ROOT = { add_manpower = 1.5 }
+				}
+				else_if = {
+					limit = { base_manpower = 4 }
+					ROOT = { add_manpower = 1 }
+				}
+				else = { ROOT = { add_manpower = 0.5 }}
+			}
+			add_estate_loyalty = {
+				estate = vef_slovak_estate
+				loyalty = -25
+			}
+			if = {
+				limit = { any_country = { defensive_war_with = ROOT }}
+				add_estate_loyalty = {
+					estate = vef_slovak_estate
+					loyalty = -10
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_at_war = no
+			}
+			modifier = {
+				factor = 0
+				manpower_percentage = 0.10
+			}
+		}
+	}
+	
+	interaction = {
+		name = "SPECIAL_TAX"
+		icon = 6
+		
+		years_between_use = 5
+		
+		potential = {
+			num_of_owned_provinces_with = {
+				value = 3
+				culture = slovak
+			}
+		}
+		
+		trigger = {
+			estate_loyalty = {
+				estate = vef_slovak_estate
+				loyalty = 30
+			}
+			NOT = {
+				any_owned_province = {
+					culture = slovak
+					has_province_modifier = rm_light_taxes
+				}
+			}
+		}
+		
+		effect = {
+			every_owned_province = {
+				limit = {
+					culture = slovak
+				}
+				if = {
+					limit = { NOT = { development = 10 }}
+					ROOT = { add_treasury = 10 }
+				}
+				else_if = {
+					limit = { NOT = { development = 20 }}
+					ROOT = { add_treasury = 15 }
+				}
+				else_if = {
+					limit = { NOT = { development = 30 }}
+					ROOT = { add_treasury = 20 }
+				}
+				else = { ROOT = { add_treasury = 25 }}
+			}
+			add_estate_loyalty = {
+				estate = vef_slovak_estate
+				loyalty = -25
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0	
+		}
+	}
+	
+	interaction = {
+		name = "GRANT_AUTONOMY"
+		icon = 2
+		
+		years_between_use = 15
+		
+		potential = {
+			
+		}
+		
+		effect = {
+			every_owned_province = {
+				limit = { culture = slovak }
+				add_local_autonomy = 20
+			}
+			add_estate_loyalty = {
+				estate = vef_slovak_estate
+				loyalty = 10
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0		
+		}
+	}
+	
+	interaction = {
+		name = "DISPLACE_NOBLES"
+		icon = 1
+		
+		years_between_use = 20
+		
+		potential = {
+			NOT = { accepted_culture = slovak }
+		}
+		
+		trigger = {
+			has_estate = estate_nobles
+		}
+		
+		effect = {
+			add_estate_loyalty = {
+				estate = vef_slovak_estate
+				loyalty = -15
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 10
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0		
+		}
+	}
+	
+	interaction = {
+		name = "LIMIT_TRADE_RIGHTS"
+		icon = 10
+		
+		years_between_use = 25
+		
+		potential = {
+			NOT = { accepted_culture = slovak }
+		}
+		
+		trigger = {
+			has_estate = estate_burghers
+		}
+		
+		effect = {
+			add_estate_loyalty = {
+				estate = vef_slovak_estate
+				loyalty = -15
+			}
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 10
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0		
+		}
+	}
+	
+	interaction = {
+		name = "ACCEPT_CULTURE"
+		icon = 3
+		
+		years_between_use = 50
+		
+		potential = {
+			NOT = { accepted_culture = slovak }
+		}
+		
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 4
+				culture = slovak
+			}
+		}
+		
+		effect = {
+			add_accepted_culture = slovak
+			add_estate_loyalty = {
+				estate = vef_slovak_estate
+				loyalty = 20
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0		
+		}
+	}
+	
+	interaction = {
+		name = "EMBRACE_CULTURE"
+		icon = 3
+		
+		years_between_use = 50
+		
+		potential = {
+			accepted_culture = slovak
+			estate_influence = {
+				estate = vef_slovak_estate
+				influence = 60
+			}
+		}
+		
+		trigger = {
+			estate_influence = {
+				estate = vef_slovak_estate
+				influence = 72
+			}
+		}
+		
+		effect = {
+			change_primary_culture = slovak
+			if = {
+				limit = { culture_group  = iberian }
+				capital_scope = { change_culture = slovak }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0		
+		}
+	}
+}

@@ -1,0 +1,140 @@
+#VeF policies for New Government mechanics
+
+vef_sale_offices = {
+
+	monarch_power = ADM
+
+	potential = {
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = economic_ideas
+			has_idea_group = religious_ideas
+			has_idea_group = innovativeness_ideas
+		}
+		adm_tech = 20
+	}
+	
+	global_tax_modifier = 0.15
+	yearly_corruption = 0.35
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			NOT = { tag = FRA }
+			factor = 0
+		}
+	}
+}
+
+vef_suppress_janissaries = {
+
+	monarch_power = ADM
+
+	potential = {
+		has_country_flag = janissary_troubles
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = economic_ideas
+			has_idea_group = religious_ideas
+			has_idea_group = innovativeness_ideas
+		}
+		check_variable = { which = janissary_strength value = 20 }
+	}
+	
+	global_unrest = 4
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_reign_terror = {
+
+	monarch_power = ADM
+
+	potential = {
+		OR = {
+			NOT = { check_variable = { which = vef_rule_law value = 20 }}
+			is_revolution_target = yes
+		}
+		NOT = { government = elective_monarchy }
+		is_nomad = no
+		NOT = { has_country_flag = had_reign_terror }
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = economic_ideas
+			has_idea_group = religious_ideas
+			has_idea_group = innovativeness_ideas
+		}
+		OR = {
+			NOT = { check_variable = { which = vef_rule_law value = 15 }}
+			is_revolution_target = yes
+		}
+	}
+	
+	global_unrest = 3
+	global_autonomy = -0.1
+	
+	ai_will_do = { factor = 0 }
+}
+
+
+vef_decentralisation = {
+	
+	monarch_power = ADM
+	
+	potential = {
+		NOT = { is_nomad = yes }
+		NOT = { has_country_modifier = byzantine_decline1 }
+		NOT = { has_country_modifier = byzantine_decline2 }
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = economic_ideas
+			has_idea_group = religious_ideas
+			has_idea_group = innovativeness_ideas
+		}
+		check_variable = { which = vef_governance which = central_management }
+	}
+	
+	global_unrest = -3
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+vef_vassal_freedom = {
+	
+	monarch_power = ADM
+	
+	potential = {
+		ai = no	#just humans for now
+		OR = {
+			is_subject_of_type = suzerainty
+			is_subject_of_type = dependency
+			is_subject_of_type = dominion
+			is_subject_of_type = vassal
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = economic_ideas
+			has_idea_group = religious_ideas
+			has_idea_group = innovativeness_ideas
+		}
+	}
+	
+	global_unrest = -2
+	liberty_desire = 100
+	
+	ai_will_do = {
+		factor = 0
+	}
+}

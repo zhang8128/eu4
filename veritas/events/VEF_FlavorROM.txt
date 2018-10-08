@@ -1,0 +1,293 @@
+########################################
+# Events for the Roman Empire
+#
+# written by Jonathan Davis
+########################################
+
+namespace =  flavor_rom
+
+# The Western Roman Empire has great plans.
+country_event = {
+	id = flavor_rom.1000
+	title = "flavor_rom.1000.t"
+	desc = "flavor_rom.1000.d"
+	picture = VEF_HRE_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = { is_part_of_hre = yes }
+				form_coalition_against = ROOT
+			}
+		}
+	}
+	
+	option = { # Player wants full restoration
+		name = "flavor_rom.1000.opta"
+		set_country_flag = wreversushre
+		custom_tooltip = "flavor_rom.1000.tip1"
+		declare_war_with_cb = {
+			who = emperor
+			casus_belli = cb_wre_v_hre
+		}
+		country_event = { id = "flavor_rom.1001" days = 3 }
+		hidden_effect = {
+			italy_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			romandie_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			switzerland_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			inner_austria_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			carinthia_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			austria_proper_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			balkan_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			carpathia_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			anatolia_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			france_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			iberia_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			low_countries_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			home_counties_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			northern_england_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			east_anglia_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			wessex_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			wales_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			maghreb_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			mashriq_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			caucasia_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			azerbaijan_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			egypt_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	option = { # Player declines greatness
+		name = "flavor_rom.1000.optb"
+		add_prestige = -25
+	}	
+}
+
+country_event = {
+	id = flavor_rom.1001
+	title = "flavor_rom.1001.t"
+	desc = "flavor_rom.1001.d"
+	picture = VEF_MILITARY_CAMP_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { # RtFM
+		name = "flavor_rom.1001.opta"
+	}
+}
+
+country_event = {
+	id = flavor_rom.1002
+	title = "flavor_rom.1002.t"
+	desc = "flavor_rom.1002.d"
+	picture = VEF_HRE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = wreversushre
+		tag = ROM
+		emperor = {
+			capital_scope = {
+				controlled_by = ROM
+			}
+		}
+		war_score_against = {
+			who = emperor
+			value = 75
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+		modifier = {
+			factor = 0.5
+			war_score_against = {
+				who = emperor
+				value = 90
+			}
+		}
+		modifier = {
+			factor = 0.1
+			war_score_against = {
+				who = emperor
+				value = 100
+			}
+		}
+	}
+	
+	option = { # The end of the HRE
+		name = "flavor_rom.1002.opta"
+		if = {
+			limit = { hre_size = 1 }
+			dismantle_hre = yes
+			add_prestige = 100
+		}
+		add_adm_power = 250
+		add_legitimacy = 100
+		add_treasury = 3000
+		add_national_stability_or_adm_power = yes
+		clr_country_flag = wreversushre
+	}
+}
+
+country_event = {
+	id = flavor_rom.1003
+	title = "flavor_rom.1003.t"
+	desc = "flavor_rom.1003.d"
+	picture = VEF_HRE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = wreversushre
+		tag = ROM
+		NOT = { war_with = emperor }
+	}
+	
+	option = { # The end of ambition
+		name = "flavor_rom.1003.opta"
+		clr_country_flag = wreversushre
+		change_tag = PQR
+		change_government = republic
+		set_government_rank = 3
+		release_all_subjects = yes
+		add_prestige = -100
+		add_mil_power = -250
+		change_variable = { which = national_stability value = -1000 }
+		custom_tooltip = "flavor_rom.1003.tip1"
+		custom_tooltip = "flavor_rom.1003.tip2"
+		hidden_effect = {
+			every_owned_province = {
+				limit = { owned_by = ROOT }
+				add_unrest = 15
+			}
+			every_province = {
+				limit = { NOT = { owned_by = ROOT } }
+				remove_claim = ROOT
+			}
+		}
+	}
+}
+
+# If both Constantinople and Rome are held, decide on capital - but only for BYZ and ROM
+country_event = {
+	id = flavor_rom.1004
+	title = "flavor_rom.1004.t"
+	desc = "flavor_rom.1004.d"
+
+	picture = VEF_ADMIN_CAPACITY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ROM
+		ai = no
+		owns_core_province = 227	# Rome
+		owns_core_province = 588	# Constantinople
+	}
+
+	# Capital is Rome
+	option = {
+		name = "flavor_rom.1004.opta"
+		if = {
+			limit = { NOT = { capital = 227 } }
+			set_capital = 227
+			add_prestige = 25
+			change_variable = { which = national_stability value = -500 }
+		}
+		227 = { add_base_tax = 1 }
+	}
+
+	# Capital is Constantnople
+	option = {	
+		name = "flavor_rom.1004.optb"
+		if = {
+			limit = { NOT = { capital = 588 } }
+			set_capital = 588
+			588 = { change_culture = greek }
+			change_primary_culture = greek
+			add_prestige = 25
+			change_variable = { which = national_stability value = -500 }
+		}
+		588 = { add_base_tax = 1 }
+	}
+
+	# Capital is elsewhere
+	option = {
+		trigger = {
+			NOT = { capital = 227 }
+			NOT = { capital = 588 }
+		}
+		name = "flavor_rom.1004.optc"
+		capital_scope = { add_base_tax = 2 }
+	}
+}

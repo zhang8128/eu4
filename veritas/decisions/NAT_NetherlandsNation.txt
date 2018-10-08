@@ -1,0 +1,160 @@
+country_decisions = {
+
+	netherlands_nation = {
+		major = yes
+		potential = {
+			OR = {
+				primary_culture = dutch
+				primary_culture = flemish
+				tag = BUR
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				NOT = { exists = NED }
+				ai = no
+			}
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = NED }
+			NOT = { tag = HLR }
+			NOT = { tag = BEL }
+			OR = {
+				num_of_cities = 3
+				ai = no
+			}
+		}
+		allow = {
+			NOT = { exists = NED }
+			NOT = { tag = BEL }
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			adm_tech = 25
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { region = low_countries_region }
+						AND = {
+							region = low_countries_region
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_low_countries
+			}
+			owns_core_province = 181 	# Friesland
+			owns_core_province = 182	# Oversticht
+			owns_core_province = 183 	# Gelre
+			owns_core_province = 184 	# Utrecht
+			owns_core_province = 185 	# Holland
+			owns_core_province = 186 	# Zeeland
+			owns_core_province = 187 	# Breda
+			owns_core_province = 190 	# Limbourg
+			owns_core_province = 191 	# Loon
+		}
+	 	effect = {
+	  		if = {
+	  			limit = { tag = BUR }
+	  			change_primary_culture = dutch
+	  			set_capital = 185	# Holland
+			}
+			if = {
+				limit = {
+					government = theocracy
+					religion = catholic
+				}
+				change_government = monarchy
+				hidden_effect = {
+					set_variable = { which = apcon_threshold_low which = aristocratic_privilege }
+					change_variable = { which = apcon_threshold_low value = -10 }
+					if = {
+						limit = { NOT = { check_variable = { which = apcon_threshold_low value = 0 }}}
+						set_variable = { which = apcon_threshold_low value = 0 }
+					}
+					set_variable = { which = apcon_threshold_high which = aristocratic_privilege }
+					change_variable = { which = apcon_threshold_high value = 10 }
+				}
+				PAP = {
+					add_opinion = {
+						who = ROOT
+						modifier = opinion_displeased
+					}
+				}
+			}
+			if = {
+				limit = {
+					government = theocracy
+					NOT = { religion = catholic }
+				}
+				change_government = monarchy
+				set_legacy_government = hereditary_monarchy
+				hidden_effect = {
+					set_variable = { which = apcon_threshold_low which = aristocratic_privilege }
+					change_variable = { which = apcon_threshold_low value = -10 }
+					if = {
+						limit = { NOT = { check_variable = { which = apcon_threshold_low value = 0 }}}
+						set_variable = { which = apcon_threshold_low value = 0 }
+					}
+					set_variable = { which = apcon_threshold_high which = aristocratic_privilege }
+					change_variable = { which = apcon_threshold_high value = 10 }
+				}
+			}
+			change_tag = NED
+			low_countries_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { province_id = 199 }	# Rethel
+				}
+				add_permanent_claim = NED
+			}
+			picardy_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { province_id = 176 }	# Picardie
+					NOT = { province_id = 177 }	# Calais
+				}
+				add_permanent_claim = NED
+			}
+			if = {
+				limit = {
+					any_owned_province = { is_part_of_hre = yes }
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = NED_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				tag = BUR
+			}
+		}
+		ai_importance = 1000
+	}
+
+}

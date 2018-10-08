@@ -1,0 +1,34 @@
+# Bingo
+
+capital = "Fuchu"
+owner = KIK
+controller = KIK
+add_core = KIK
+add_core = HSK
+culture = japanese
+religion = shinto
+trade_goods = wine
+base_tax = 5
+base_production = 5
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = chinese
+discovered_by = niitaka
+
+1400.1.1	= { base_manpower = 2.5 }
+1468.1.1	= { owner = HSK controller = HSK }
+1488.1.1	= { remove_core = KIK}
+1500.1.1	= { base_manpower = 3.5 }
+1520.1.1	= { add_core = AMA }
+1532.1.1	= { owner = AMA controller = AMA }
+1542.1.1	= { discovered_by = POR }
+1566.11.28  = { owner = HSK controller = HSK } # Amago destroyed by Mori
+1578.5.1	= { add_core = JAP owner = JAP controller = JAP }
+1600.1.1	= { base_manpower = 4.5 }
+1600.9.15	= { add_core = IKE owner = IKE controller = IKE remove_core = JAP }
+1603.3.24	= { owner = JAP controller = JAP add_core = JAP remove_core = IKE } # Tokugawa shogunate founded
+1650.1.1	= { base_manpower = 5 }
+1700.1.1	= { base_manpower = 6 }
+1750.1.1	= { base_manpower = 6 }
+1800.1.1	= { base_manpower = 5.75 }

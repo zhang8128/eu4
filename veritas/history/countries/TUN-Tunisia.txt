@@ -1,0 +1,345 @@
+#Province IDs changed
+government = monarchy add_government_reform = iqta
+government_rank = 3
+primary_culture = bedouin_arabic
+add_accepted_culture = zenata
+add_accepted_culture = tuareg
+religion = sunni
+technology_group = muslim
+capital = 1648	# Tunis
+
+1100.1.1 = { add_piety = 1.0 }
+
+1309.1.1 = {
+	monarch = {
+		name = "Abu Bakr I"
+		dynasty = "Hafsid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1309.10.1 = {
+	monarch = {
+		name = "Aba al-Baqa Khalid an-Nasir"
+		dynasty = "Hafsid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1311.1.1 = {
+	monarch = {
+		name = "Aba Yahya Zakariya al-Lihyani"
+		dynasty = "Hafsid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1317.1.1 = {
+	monarch = {
+		name = "Muhammad II"
+		dynasty = "Hafsid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1318.1.1 = {
+	monarch = {
+		name = "Abu Bakr II"
+		dynasty = "Hafsid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1346.1.1 = {
+	monarch = {
+		name = "Abu Hafs Umar II"
+		dynasty = "Hafsid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1349.1.1 = {
+	monarch = {
+		name = "Ahmad I"
+		dynasty = "Hafsid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1350.1.1 = {
+	monarch = {
+		name = "Ibrahim II"
+		dynasty = "Hafsid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1369.1.1 = {
+	monarch = {
+		name = "Abu al-Baqa Khalid"
+		dynasty = "Hafsid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1371.1.1 = {
+	monarch = {
+		name = "Ahmad II"
+		dynasty = "Hafsid"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1393.1.1 = {
+	monarch = {
+		name = "Abd al-Aziz"
+		dynasty = "Hafsid"
+		adm = 3
+		dip = 1
+		mil = 0
+		leader = { name = "Abd al-Aziz"	type = general fire = 2	shock = 3	manuever = 3	siege = 0 }
+	}
+	heir = {
+		name = "Muhammad"
+		monarch_name = "Muhammad III"
+		dynasty = "Hafsid"
+		birth_date = 1393.1.1
+		death_date = 1435.9.18
+		claim = 95
+		adm = 2
+		dip = 0
+		mil = 1
+	}
+	add_piety = 0.15
+}
+
+1434.7.18 = {
+	monarch = {
+		name = "Muhammad III"
+		dynasty = "Hafsid"
+		adm = 2
+		dip = 0
+		mil = 1
+	}
+}
+
+1434.7.18 = {
+	heir = {
+		name = "'Uthman"
+		monarch_name = "'Uthman"
+		dynasty = "Hafsid"
+		birth_date = 1410.1.1
+		death_date = 1488.1.1
+		claim = 95
+		adm = 1
+		dip = 3
+		mil = 3
+	}
+}
+
+1435.9.18 = {
+	monarch = {
+		name = "'Uthman"
+		dynasty = "Hafsid"
+		adm = 1
+		dip = 3
+		mil = 3
+	}
+}
+
+1435.9.18 = {
+	heir = {
+		name = "Yahyâ"
+		monarch_name = "Yahyâ III"
+		dynasty = "Hafsid"
+		birth_date = 1435.9.18
+		death_date = 1489.1.1
+		claim = 95
+		adm = 2
+		dip = 0
+		mil = 1
+	}
+}
+
+1488.1.1 = {
+	monarch = {
+		name = "Yahyâ III"
+		dynasty = "Hafsid"
+		adm = 2
+		dip = 0
+		mil = 1
+	}
+}
+
+1488.1.1 = {
+	heir = {
+		name = "'Abd al-Mu'min"
+		monarch_name = "'Abd al-Mu'min"
+		dynasty = "Hafsid"
+		birth_date = 1468.1.1
+		death_date = 1490.10.15
+		claim = 95
+		adm = 0
+		dip = 1
+		mil = 1
+	}
+}
+
+1489.1.1 = {
+	monarch = {
+		name = "'Abd al-Mu'min"
+		dynasty = "Hafsid"
+		adm = 0
+		dip = 1
+		mil = 1
+	}
+}
+
+1489.1.1 = {
+	heir = {
+		name = "Zakariyâ'"
+		monarch_name = "Zakariyâ II"
+		dynasty = "Hafsid"
+		birth_date = 1470.1.1
+		death_date = 1494.5.17
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+
+1490.10.15 = {
+	heir = {
+		name = "Muhammad"
+		monarch_name = "Muhammad V"
+		dynasty = "Hafsid"
+		birth_date = 1470.1.1
+		death_date = 1526.1.1
+		claim = 95
+		adm = 3
+		dip = 0
+		mil = 1
+	}
+}
+
+1494.5.17 = {
+	monarch = {
+		name = "Muhammad V"
+		dynasty = "Hafsid"
+		adm = 3
+		dip = 0
+		mil = 1
+	}
+}
+
+1494.5.17 = {
+	heir = {
+		name = "Muhammad"
+		monarch_name = "Muhammad V"
+		dynasty = "Hafsid"
+		birth_date = 1494.5.17
+		death_date = 1525.1.1
+		claim = 95
+		adm = 0
+		dip = 1
+		mil = 0
+	}
+}
+
+1526.1.1 = {
+	monarch = {
+		name = "Muhammad VI"
+		dynasty = "Hafsid"
+		adm = 0
+		dip = 1
+		mil = 0
+	}
+}
+
+1526.1.1 = {
+	heir = {
+		name = "Ahmad"
+		monarch_name = "Ahmad III"
+		dynasty = "Hafsid"
+		birth_date = 1420.1.1
+		death_date = 1573.1.1
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+		leader = { 
+			name = "Ahmad III"	
+			type = general		
+			fire = 3	
+			shock = 2	
+			manuever = 3	
+			siege = 0 
+		}
+	}
+}
+
+1542.1.1 = {
+	monarch = {
+		name = "Ahmad III"
+		dynasty = "Hafsid"
+		adm = 2
+		dip = 2
+		mil = 2
+		leader = { name = "Ahmad III"	type = general fire = 3	shock = 2	manuever = 3	siege = 0 }
+	}
+}
+
+1542.1.1 = {
+	heir = {
+		name = "Muhammad"
+		monarch_name = "Muhammad VII"
+		dynasty = "Hafsid"
+		birth_date = 1542.1.1
+		death_date = 1574.1.1
+		claim = 95
+		adm = 3
+		dip = 2
+		mil = 1
+	}
+}
+
+1573.1.1 = {
+	monarch = {
+		name = "Muhammad VII"
+		dynasty = "Hafsid"
+		adm = 3
+		dip = 2
+		mil = 1
+	}
+}
+
+1574.9.13 = {
+	#government = ottoman_eyalet
+	monarch = {
+		name = "Ottoman Bey"
+		adm = 3
+		dip = 2
+		mil = 1
+	}
+}

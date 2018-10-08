@@ -1,0 +1,11 @@
+#Kalam
+#model = cog
+#tech_level = 18
+type = light_ship
+unit_type = indian
+
+hull_size = 8
+base_cannons = 4
+sail_speed = 8
+trade_power = 1.25
+sailors = 30

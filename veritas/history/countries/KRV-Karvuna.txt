@@ -1,0 +1,28 @@
+# Karvuna
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 2
+primary_culture = bulgarian
+religion = orthodox
+technology_group = byzantine
+capital = 559
+
+historical_rival = WAL
+historical_rival = MOL
+historical_rival = TUR
+historical_rival = OSM
+historical_friend = BYZ
+historical_friend = GOL
+historical_friend = VEN
+historical_friend = GEN
+historical_friend = BUL
+
+1309.1.1 = {
+	monarch = {
+		name = "Balik"
+		dynasty = "Terter"
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+} #becomes independent in 1340

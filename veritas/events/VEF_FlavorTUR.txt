@@ -1,0 +1,54 @@
+# Turkey/Osman
+
+namespace = flavor_tur
+normal_or_historical_nations = yes
+
+# Release Egypt as Eyalet
+country_event = {
+	id = flavor_tur.10000
+	title = "flavor_tur.10000.t"
+	desc = "flavor_tur.10000.d"
+	picture = VEF_COURT_eventPicture
+
+	is_triggered_only = yes
+   
+	option = { 
+		name = "flavor_tur.10000.opta"
+		ai_chance = { factor = 100 }
+		create_vassal = EGM
+		EGM = { 
+			add_government_reform = ottoman_eyalet 
+			set_country_flag = starting_vassal 
+		}
+	}
+   
+	option = { 
+		name = "flavor_tur.10000.optb"
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Release Tunis as Eyalet
+country_event = {
+	id = flavor_tur.10001
+	title = "flavor_tur.10001.t"
+	desc = "flavor_tur.10001.d"
+	picture = VEF_COURT_eventPicture
+
+	is_triggered_only = yes
+   
+	option = { 
+		name = "flavor_tur.10001.opta"
+		ai_chance = { factor = 100 }
+		create_vassal = TUN
+		TUN = { 
+			add_government_reform = ottoman_eyalet 
+			set_country_flag = starting_vassal 
+		}
+	}
+   
+	option = { 
+		name = "flavor_tur.10001.optb"
+		ai_chance = { factor = 0 }
+	}
+}

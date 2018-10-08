@@ -1,0 +1,53 @@
+# Barrois
+
+capital = "Bar-le-Duc"
+owner = BAR
+controller = BAR
+add_core = BAR
+culture = champenois
+religion = catholic
+trade_goods = livestock
+base_tax = 6
+base_production = 6
+base_manpower = 7
+is_city = yes
+hre = yes
+fort_15th = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1348.1.1   = { base_tax = 5 base_production = 5 base_manpower = 6 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death set_variable = { which = tax_growth value = 75 } set_variable = { which = prod_growth value = 75 } } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1400.1.1   = { base_tax = 6 base_production = 6 set_variable = { which = tax_growth value = 0 } set_variable = { which = prod_growth value = 0 } }
+1442.6.2   = { owner = ALE controller = ALE add_core = ALE } # Anjou domains are limited to France once Alfonso V of Aragon takes the throne of Naples
+1467.6.15  = { add_core = BUR } # Charles the Bold ascends and lays claims on Bar
+1475.11.30 = { owner = BUR controller = BUR unrest = 5 } # Charles the Bold annexes Bar
+1476.1.1   = { unrest = 0 revolt = { type = nationalist_rebels size = 2 } controller = REB } # Bar revolts against Charles the Bold during the Burgundian-Swiss War
+1477.1.5   = { revolt = {} owner = PRO controller = PRO remove_core = BUR } # Charles the Bold dies and Lorraine is re-established
+1480.7.10  = { owner = BAR controller = BAR }
+1483.3.23  = { owner = LOR controller = LOR add_core = LOR remove_core = BAR }
+1500.1.1   = { base_manpower = 7 }
+1551.3.20  = { controller = FRA } # Franco-Habsburg War (1551-1559): France takes Toul & Verdun
+1559.4.3   = { owner = FRA add_core = FRA capital = "Verdun" } # Peace of Cateau-Cambrésis, France annexes Barrois
+1583.1.1   = { fort_15th = no fort_16th = yes }
+1588.12.1  = { unrest = 5 } # Henri de Guise assassinated at Blois, Ultra-Catholics into a frenzy
+1594.1.1   = { unrest = 0 } # 'Paris vaut bien une messe!', Henri converts to Catholicism
+1600.1.1   = { base_manpower = 6 }
+1636.7.30  = { controller = HAB } # Habsburg forces ravage North Eastern France
+1636.10.10 = { controller = FRA } # Bernhard of Saxe-Weimar defeats the invaders and gradually pushes them back
+1650.1.1   = { base_manpower = 6 }
+1650.1.14  = { unrest = 7 } # Mazarin arrests the Princes Condé, Conti & Longueville, the beginning of the Second Fronde
+1648.1.1   = { fort_16th = no fort_17th = yes }
+1650.3.1   = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Fronde rebels take control
+1650.12.13 = { revolt = {} controller = FRA } # Plessis-Praslin takes Rethel & surrounding lands
+1651.4.1   = { unrest = 4 } # An unstable peace is concluded
+1651.12.1  = { unrest = 7 } # Mazarin returns from exile, Condé sides with Spain, situation heats up again
+1652.10.21 = { unrest = 0 } # The King is allowed to enter Paris again, Mazarin leaves France for good. Second Fronde over.
+1700.1.1   = { base_manpower = 6 }
+1715.1.1   = { fort_17th = no fort_18th = yes }
+1750.1.1   = { base_manpower = 6 }
+1800.1.1   = { base_manpower = 6.5 }
+1806.7.12  = { hre = no } # The Holy Roman Empire is dissolved

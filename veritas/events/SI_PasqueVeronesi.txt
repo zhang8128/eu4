@@ -1,0 +1,64 @@
+namespace = pasque_veronesi
+normal_or_historical_nations = yes
+
+#French counter
+country_event = {
+	id = pasque_veronesi.1
+	title = "pasque_veronesi.EVTNAME1"
+	desc = "pasque_veronesi.EVTDESC1"
+	picture = VEF_ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = FRA
+		is_revolution_target = yes
+		is_year = 1797
+		war_with = VEN
+		controls = 270
+		controls = 268
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "pasque_veronesi.EVTOPTA1"
+		FRA = {
+		    infantry = 270
+			infantry = 270
+			infantry = 270
+			infantry = 270
+			infantry = 270
+			infantry = 270
+			infantry = 270
+			infantry = 270
+			infantry = 270
+			infantry = 270
+			infantry = 270
+			infantry = 270
+			infantry = 270
+			infantry = 270
+			infantry = 270
+			cavalry = 270
+			cavalry = 270
+			artillery = 270
+			artillery = 270
+			artillery = 270
+		}
+		VEN = { country_event = { id = pasque_veronesi.2 } }
+	}
+}
+
+#venetian notifiation
+country_event = {
+	id = pasque_veronesi.2
+	title = "pasque_veronesi.EVTNAME1"
+	desc = "pasque_veronesi.EVTDESC1"
+	picture = VEF_ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "pasque_veronesi.EVTOPTA2"
+	}
+}

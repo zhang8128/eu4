@@ -1,0 +1,7 @@
+#Province IDs changed
+government = tribal add_government_reform = tribal_federation 
+government_rank = 3
+primary_culture = khitan
+religion = shamanism
+technology_group = chinese
+capital = 1090	# Bairin

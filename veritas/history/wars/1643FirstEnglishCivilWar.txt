@@ -1,0 +1,164 @@
+name = "English Civil War"
+war_goal = {
+	type = take_capital_personal_union
+	casus_belli = cb_restore_personal_union
+	tag = SCO
+}
+
+1643.9.25 = {
+	add_attacker = ENG
+	add_defender = SCO
+}
+
+1644.7.2 = {
+	battle = {
+		name = "Marston Moor"
+		location = 12
+		attacker = {
+			commander = "Alexander, Earl of Levan"	
+			infantry = 17000
+			cavalry = 7500
+			losses = 2	# percent	
+			country = SCO
+		}
+		defender = {
+			commander = "Prince Rupert"
+			infantry = 11000
+			cavalry = 6500
+			losses = 31	# percent
+			country = ENG
+		}
+		result = no
+	}
+}
+
+1644.9.1 = {
+	battle = {
+		name = "Tippermuir"
+		location = 13
+		attacker = {
+			commander = "James, Marquis of Montrose"	
+			infantry = 3000
+			losses = 1	# percent	
+			country = ENG
+		}
+		defender = {
+			commander = "John, Lord Elcho"
+			infantry = 3000
+			losses = 20	# percent
+			country = SCO
+		}
+		result = yes
+	}
+}
+
+1644.9.13 = {
+	battle = {
+		name = "Justice Mills"
+		location = 12
+		attacker = {
+			commander = "James, Marquis of Montrose"	
+			infantry = 2000
+			losses = 1	# percent	
+			country = ENG
+		}
+		defender = {
+			commander = "Lord Balfour of Burleigh"
+			infantry = 2000
+			losses = 25	# percent
+			country = SCO
+		}
+		result = yes
+	}
+}
+
+1645.2.2 = {
+	battle = {
+		name = "Inverlochy"
+		location = 11
+		attacker = {
+			commander = "James, Marquis of Montrose"	
+			infantry = 1500
+			losses = 1	# percent	
+			country = ENG
+		}
+		defender = {
+			commander = "Sir Duncan Campbell"
+			infantry = 3000
+			losses = 50	# percent
+			country = SCO
+		}
+		result = yes
+	}
+}
+
+1645.7.2 = {
+	battle = {
+		name = "Alford"
+		location = 12
+		attacker = {
+			commander = "James, Marquis of Montrose"	
+			infantry = 2000
+			cavalry = 300
+			losses = 15	# percent	
+			country = ENG
+		}
+		defender = {
+			commander = "William Baillie"
+			infantry = 2000
+			cavalry = 500
+			losses = 60	# percent
+			country = SCO
+		}
+		result = yes
+	}
+}
+
+1645.8.15 = {
+	battle = {
+		name = "Kilsyth"
+		location = 14
+		attacker = {
+			commander = "James, Marquis of Montrose"	
+			infantry = 3000
+			cavalry = 500
+			losses = 8	# percent	
+			country = ENG
+		}
+		defender = {
+			commander = "William Baillie"
+			infantry = 7000
+			cavalry = 800
+			losses = 48	# percent
+			country = SCO
+		}
+		result = yes
+	}
+}
+
+1645.9.13 = {
+	battle = {
+		name = "Philiphaugh"
+		location = 14
+		attacker = {
+			commander = "David Leslie"
+			infantry = 1000
+			cavalry = 6000
+			losses = 5	# percent
+			country = SCO
+		}
+		defender = {
+			commander = "James, Marquis of Montrose"	
+			infantry = 700
+			cavalry = 100
+			losses = 63	# percent	
+			country = ENG
+		}
+		result = no
+	}
+}
+
+1646.5.5 = {
+	rem_attacker = ENG
+	rem_defender = SCO
+}

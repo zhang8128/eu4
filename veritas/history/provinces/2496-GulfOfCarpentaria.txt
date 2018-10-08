@@ -1,0 +1,4 @@
+# Gulf Of Carpentaria
+#Province IDs changed
+discovered_by = pacific_islander
+1526.1.1 = { discovered_by = POR }

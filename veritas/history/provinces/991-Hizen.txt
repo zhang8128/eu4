@@ -1,0 +1,34 @@
+# Hizen
+
+owner = SHN
+controller = SHN
+culture = japanese
+religion = shinto
+capital = "Nagasaki"
+trade_goods = silk
+hre = no
+base_tax = 4
+base_production = 4
+base_manpower = 4
+add_core = SHN
+is_city = yes
+discovered_by = chinese
+discovered_by = niitaka
+discovered_by = pacific_islander
+
+extra_cost = 15
+center_of_trade = 1
+
+1400.1.1	= { base_manpower = 2.5 }
+1500.1.1	= { base_manpower = 3.5 }
+1550.1.1	= { add_core = OTM }
+1557.4.3	= { owner = OTM controller = OTM }
+1584.3.1	= { add_core = SMZ owner = SMZ controller = SMZ } #Battle of Okitanawate
+1587.5.15	= { add_core = MRI owner = MRI controller = MRI remove_core = SMZ } #Hideyoshi's conquest of Kyushu
+1600.1.1	= { base_manpower = 4.5 }
+1600.10.21	= { add_core = TKG owner = TKG controller = TKG remove_core = MRI } #Battle of Sekigahara - Kobayakawa changes sides
+1603.3.24	= { owner = JAP controller = JAP add_core = JAP remove_core = TKG } # Tokugawa shogunate founded
+1650.1.1	= { base_manpower = 5 }
+1700.1.1	= { base_manpower = 6 }
+1750.1.1	= { base_manpower = 6 }
+1800.1.1	= { base_manpower = 5.75 }

@@ -1,0 +1,10 @@
+#Uc Ambarli
+#model = threedecker
+#tech_level = 45
+type = heavy_ship
+unit_type = ottoman
+
+hull_size = 64
+base_cannons = 116
+sail_speed = 4
+sailors = 850

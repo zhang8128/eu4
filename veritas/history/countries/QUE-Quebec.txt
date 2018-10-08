@@ -1,0 +1,7 @@
+#Province IDs changed
+government = republic
+government_rank = 3
+religion = catholic
+primary_culture = cosmopolitan_french
+technology_group = western
+capital = 2262	# Quebec city

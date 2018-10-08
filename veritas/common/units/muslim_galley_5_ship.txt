@@ -1,0 +1,10 @@
+#Berber Galleass
+#model = galleass
+#tech_level = 36
+type = galley
+unit_type = muslim
+
+hull_size = 20
+base_cannons = 32
+sail_speed = 8
+sailors = 250

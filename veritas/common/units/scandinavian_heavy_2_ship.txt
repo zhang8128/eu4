@@ -1,0 +1,10 @@
+#Galeon
+#model = galleon
+#tech_level = 24
+type = heavy_ship
+unit_type = scandinavian_tech
+
+hull_size = 25
+base_cannons = 40
+sail_speed = 4
+sailors = 550

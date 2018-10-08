@@ -1,0 +1,10 @@
+#Atakebune
+#model = carrack
+#tech_level = 14
+type = heavy_ship
+unit_type = niitaka
+
+hull_size = 20
+base_cannons = 20
+sail_speed = 4
+sailors = 300

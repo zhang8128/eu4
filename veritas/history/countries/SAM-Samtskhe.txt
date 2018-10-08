@@ -1,0 +1,30 @@
+# Samtskhe
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 2
+primary_culture = turkish
+religion = sunni
+technology_group = ottoman
+capital = 639	# Samtskhe
+
+1300.1.1 = {
+	monarch = {
+		name = "Sargis II"
+		dynasty = Jaqeli
+		adm = 4
+		dip = 1
+		mil = 2
+	}
+	add_piety = 0.1
+}
+
+1334.1.1 = {
+	monarch = {
+		name = "Qvarqvare"
+		dynasty = Jaqeli
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+	add_piety = 0.1
+}

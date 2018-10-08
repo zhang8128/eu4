@@ -1,0 +1,49 @@
+# Bergslagen
+
+capital = "Västerås"
+owner = SWE
+controller = SWE
+add_core = SWE
+culture = swedish
+religion = catholic
+trade_goods = iron
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+hre = no
+basic_fort = yes
+temple = yes #"Domkyrkan i Västerås"
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+set_province_flag = starting_fort
+set_local_autonomy = 10
+
+1353.1.1   = { base_manpower = 1 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1400.1.1   = { base_manpower = 1 }
+1434.6.1   = { revolt = { type = anti_tax_rebels size = 2 name = "Engelbrekt" } controller = REB } # Engelbrekt rebellion
+1436.4.27  = { revolt = {} controller = SWE } # Engelbrekt was murdered by Måns Bengtsson Natt och Dag
+1436.4.28  = { revolt = { type = anti_tax_rebels size = 1 } controller = REB } # Karl Knutsson Bonde elected leader
+1438.3.1   = { revolt = {} controller = SWE } # Unclear date
+1438.10.1  = { revolt = { type = anti_tax_rebels size = 1 } controller = REB } # Karl Knutsson Bonde, unclear date
+1440.9.1   = { revolt = {} controller = SWE } # Christopher III elected Union King
+1448.6.20  = { revolt = {} controller = SWE } # Karl VIII is elected king of Sweden
+1497.3.13  = { controller = DAN } # Danish loyalists at Danish DoW
+1497.10.6  = { controller = SWE } # Hans I become King and Sweden a Danish Vassal
+1500.1.1   = { base_manpower = 2 }
+1501.8.1   = { controller = DAN } # Danish loyalists at Swedish DoW and breaking of vassalage
+1503.6.1   = { controller = SWE } # Retaken by Sweden
+# 1520.3.6  = { owner = DAN controller = DAN } # The Council accept Christian II as King
+# 1521.5.20 = { owner = SWE controller = SWE } # Liberated by Gustav Eriksson Wasa
+1527.6.1   = { religion = protestant}
+1600.1.1   = { base_manpower = 1 }
+1601.1.1   = { weapons = yes } # Several weapon factories in this region
+1635.1.1   = { courthouse = yes } # Minor court belonging to Svea Hovrätt
+1650.1.1   = { base_manpower = 1.25 }
+1700.1.1   = { base_manpower = 1.1 }
+1750.1.1   = { base_manpower = 1.4 } # Castle renovated after fire
+1800.1.1   = { base_manpower = 1.5 }

@@ -1,0 +1,45 @@
+# Beothuk
+
+capital = "Beothuk" 
+native_size = 5 
+native_ferocity = 1 
+native_hostileness = 4
+culture = cree
+religion = totemism
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+
+1623.1.1  = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	capital = "St. John"
+	religion = protestant
+	culture = english
+	is_city = yes
+	trade_goods = fish
+} # A new colony is established by George Calvert
+1663.1.1  = { unrest = 4 } # Conflicts between the French rulers
+1664.6.1  = {
+	owner = NED
+	controller = NED
+	add_core = NED
+	remove_core = GBR
+	culture = dutch
+	religion = anabaptist
+} # Seized by Michiel de Ruyter
+1673.1.1  = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	remove_core = NED
+	culture = english
+	religion = protestant
+} # The Dutch are chased away 
+1696.1.1  = { controller = FRA } # Seized by the French during King William's war
+1697.9.20 = { controller = GBR }
+1705.1.1  = { unrest = 5 } # St John is attacked by the French
+1706.1.1  = { unrest = 0 }

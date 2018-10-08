@@ -1,0 +1,28 @@
+# Iga
+#1020 - Iga
+# Manpower revision complete
+#Province IDs changed
+
+owner = HTT
+controller = HTT
+culture = japanese
+religion = shinto
+capital = "Iga"
+trade_goods = iron
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 5
+add_core = HTT
+is_city = yes
+discovered_by = chinese
+discovered_by = niitaka
+
+1400.1.1	= { base_manpower = 4 }
+1500.1.1	= { base_manpower = 5 }
+1600.1.1	= { base_manpower = 6 }
+1603.3.24	= { owner = JAP controller = JAP add_core = JAP remove_core = HTT } # Tokugawa shogunate founded
+1650.1.1	= { base_manpower = 7 }
+1700.1.1	= { base_manpower = 8 }
+1750.1.1	= { base_manpower = 8 }
+1800.1.1	= { base_manpower = 7.5 }

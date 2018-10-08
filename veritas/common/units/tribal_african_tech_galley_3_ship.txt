@@ -1,0 +1,10 @@
+#Large Makoro
+#model = galleass
+#tech_level = 18
+type = galley
+unit_type = tribal_african_tech
+
+hull_size = 8
+base_cannons = 6
+sail_speed = 8
+sailors = 150

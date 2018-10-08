@@ -1,0 +1,10 @@
+#Thirisadai
+#model = carrack
+#tech_level = 0
+type = heavy_ship
+unit_type = indian
+
+hull_size = 10
+base_cannons = 12
+sail_speed = 5
+sailors = 300

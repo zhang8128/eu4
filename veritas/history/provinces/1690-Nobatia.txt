@@ -1,0 +1,16 @@
+# Nobatia
+
+capital = "Nobatia"
+owner = MAK
+controller = MAK
+add_core = MAK
+culture = nubian
+religion = coptic
+trade_goods = unknown
+base_tax = 3
+base_production = 4
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = sudanese_tech
+discovered_by = muslim 

@@ -1,0 +1,36 @@
+#Province IDs changed
+government = republic add_government_reform = oligarchic_republic
+government_rank = 2
+primary_culture = emilian
+religion = catholic
+technology_group = western
+capital = 243 # Lucca
+fixed_capital = 243
+
+1200.1.1 = { set_country_flag = guelphs_ghibellines_active }
+1300.1.1 = {
+	monarch = {
+		name = "Francesco Ridolfi"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1316.6.12 = {
+	monarch = {
+		name = "Castruccio Castracani"
+		adm = 5
+		dip = 4
+		mil = 5
+		leader = {
+			name = "Castruccio Castracani"
+			type = general
+			fire = 3
+			shock = 4
+			manuever = 4
+			siege = 1
+		}
+	}
+}
+1560.1.1 = { clr_country_flag = guelphs_ghibellines_active }

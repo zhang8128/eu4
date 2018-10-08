@@ -1,0 +1,310 @@
+country_decisions = {
+
+	# For Brandenburg
+	form_kingdom_of_prussia = {
+		major = yes
+		potential = {
+			tag = BRA
+			normal_or_historical_nations = yes
+			NOT = { tag = PRU }
+			OR = {
+				NOT = { exists = PRU }
+				ai = no
+			}
+			OR = {
+				is_religion_enabled = protestant
+				is_religion_enabled = reformed
+				ai = no
+			}
+		}
+		allow = {
+			NOT = { exists = PRU }
+			stability = 1
+			adm_tech = 28
+			is_subject = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			OR = {
+				religion = protestant
+				religion = reformed
+			}
+			owns_core_province = 457	# Ostpreussen
+			457 = { NOT = { nationalism = 1 } }
+			OR = {
+				AND = {
+					owns_core_province = 367	# Danzig
+					367 = { NOT = { nationalism = 1 } }
+				}
+				AND = {
+					owns_core_province = 365	# Stolp
+					365 = { NOT = { nationalism = 1 } }
+				}
+			}
+		}
+		effect = {
+			change_tag = PRU
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { has_dlc = "Rights of Man" }
+				add_government_reform = prussian_monarchy
+			}
+			if = {
+				limit = { NOT = { has_dlc = "Rights of Man" } }
+				change_government = monarchy
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			random_owned_province = {
+				limit = {
+					OR = {
+						culture = pommeranian
+						culture = saxon
+						culture = prussian
+					}
+				}
+				add_base_tax = 1
+			}
+			add_prestige = 5
+			change_primary_culture = prussian
+			random_owned_province = {
+				limit = { 
+					is_capital = no 
+					OR = {
+						culture = saxon
+						culture = pommeranian
+					}
+				} 
+				change_culture = prussian
+			}
+			west_prussia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = PRU
+			}
+			east_prussia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = PRU
+			}
+			capital_scope = { change_culture = prussian }
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = PRU_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 400
+	}
+
+	# For the Teutonic Order
+	prussian_nation = {
+		major = yes
+		potential = {
+			tag = TEU
+			normal_or_historical_nations = yes
+			government = theocracy
+			NOT = { tag = PRU }
+			OR = {
+				NOT = { exists = PRU }
+				ai = no
+			}
+			OR = {
+				is_religion_enabled = protestant
+				is_religion_enabled = reformed
+				ai = no
+			}
+		}
+		allow = {
+			NOT = { exists = PRU }
+			government = theocracy
+			stability = 1
+			is_at_war = no
+			is_subject = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			OR = {
+				religion = protestant
+				religion = reformed
+			}
+			owns_core_province = 457	# Ostpreussen
+		}
+		effect = {
+			change_tag = PRU
+			east_prussia_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = PRU
+			}
+			west_prussia_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = PRU
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_dlc = "Rights of Man" }
+				add_government_reform = prussian_monarchy
+			}
+			if = {
+				limit = { NOT = { has_dlc = "Rights of Man" } }
+				change_government = monarchy
+			}
+			every_neighbor_country = {
+				limit = { government = monarchy }
+				add_opinion = { who = ROOT modifier = secularized_monastic_order }
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			set_capital = 457	# Ostpreussen
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = PRU_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+	
+	# Everybody else
+	prussian_nation_general = {
+		major = yes
+		potential = {
+			OR = {
+				primary_culture = pommeranian
+				primary_culture = saxon
+				primary_culture = prussian
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				is_playing_custom_nation = no
+				ai = no
+			}
+			OR = {
+				is_religion_enabled = protestant
+				is_religion_enabled = reformed
+				ai = no
+			}
+			NOT = { tag = PRU }
+			OR = {
+				NOT = { exists = PRU }
+				ai = no
+			}
+			NOT = { tag = GER }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = BRA }
+			NOT = {
+				AND = {
+					tag = TEU
+					government = theocracy
+				}
+			}
+		}
+
+		allow = {
+			NOT = { exists = PRU }
+			stability = 1
+			adm_tech = 28
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			OR = {
+				religion = protestant
+				religion = reformed
+			}
+			owns_core_province = 367	# Danzig
+			367 = { NOT = { nationalism = 1 } }
+			owns_core_province = 457	# Ostpreussen
+			457 = { NOT = { nationalism = 1 } }
+			owns_core_province = 458	# Warmia
+			458 = { NOT = { nationalism = 1 } }
+		}
+
+		effect = {
+			change_tag = PRU
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { has_dlc = "Rights of Man" }
+				add_government_reform = prussian_monarchy
+			}
+			if = {
+				limit = { NOT = { has_dlc = "Rights of Man" } }
+				change_government = monarchy
+				set_legacy_government = hereditary_monarchy
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			east_prussia_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = PRU
+			}
+			west_prussia_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = PRU
+			}
+			add_prestige = 25
+			change_primary_culture = prussian
+			capital_scope = { change_culture = prussian }
+			random_owned_province = {
+				limit = { 
+					is_capital = no 
+					OR = {
+						culture = saxon
+						culture = pommeranian
+					}
+				} 
+				change_culture = prussian
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = PRU_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+}

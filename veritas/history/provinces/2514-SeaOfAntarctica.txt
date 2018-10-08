@@ -1,0 +1,4 @@
+# Sea Of Antarctica
+#Province IDs changed
+discovered_by = pacific_islander
+1773.1.17 = { discovered_by = GBR }

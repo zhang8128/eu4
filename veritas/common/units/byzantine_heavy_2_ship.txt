@@ -1,0 +1,10 @@
+#Galeone
+#model = galleon
+#tech_level = 24
+type = heavy_ship
+unit_type = byzantine
+
+hull_size = 25
+base_cannons = 40
+sail_speed = 4
+sailors = 550

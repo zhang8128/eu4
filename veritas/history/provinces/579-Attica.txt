@@ -1,0 +1,45 @@
+# Attica
+
+capital = "Athens"
+owner = ATH
+controller = ATH
+add_core = ATH
+add_core = BYZ
+culture = greek
+religion = orthodox
+trade_goods = marble
+base_tax = 4
+base_production = 4
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = scandinavian_tech
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+add_province_modifier = { name = orthodox_crusader_province duration = -1 }
+
+1347.1.1   = { base_manpower = 3 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1381.1.1 = { owner = SIC controller = SIC add_territorial_core = SIC } # Ruled by Kings of Sicily
+1388.1.1 = { owner = ATH controller = ATH remove_territorial_core = SIC } # Captured by Acciaioli family of Florence
+1395.1.1 = { owner = VEN controller = VEN add_territorial_core = VEN } # Venetian control of the Duchy
+1402.1.1 = { owner = ATH controller = ATH remove_territorial_core = VEN }
+1453.5.30 = { add_territorial_core = TUR } # The fall of the Byzantine Empire
+1458.1.1 = { owner = TUR controller = TUR remove_province_modifier = orthodox_crusader_province }
+1502.1.1 = { remove_core = BYZ }
+1555.1.1 = { unrest = 5 } # General discontent with the Janissaries' dominance
+1556.1.1 = { unrest = 0 }
+1620.1.1 = { unrest = 5 } # General discontent and occasional rebellions
+1640.1.1 = { unrest = 2 }
+1660.1.1 = { unrest = 0 }
+1690.1.1 = { base_tax = 3 base_production = 3 } #The Decentralizing Effect of the Provincial System
+1750.1.1 = { add_core = GRE }
+1821.3.17 = { owner = GRE controller = GRE } # Revolts in Danubian principalities in early March spark Greek War of Independence
+1826.4.1 = { controller = TUR } # Egyptian expeditionary force occupies Athens
+1828.1.1 = { controller = GRE } # Liberated with help of French expeditionary force
+1832.5.1 = { remove_territorial_core = TUR } # Greece recognized as independent

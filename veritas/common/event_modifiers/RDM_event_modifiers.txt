@@ -1,0 +1,713 @@
+##########
+# Papacy #
+##########
+
+under_interdict = {
+	global_unrest = 5
+	land_morale = -0.2
+	naval_morale = -0.1
+}
+
+ruler_excommunicated = {
+	global_unrest = 5
+	land_morale = -0.15
+	naval_morale = -0.1
+}
+
+cardinal_seat = {
+	local_unrest = -1
+	local_production_efficiency = 0.05
+	picture = "cardinal_icon"
+}
+
+cardinal_present = {
+	tolerance_own = 0.1
+	tolerance_heretic = -0.1
+	tolerance_heathen = -0.1
+	legitimacy = 0.1
+	#global_heretic_missionary_strength = 0.0006
+	#monthly_fervor_increase = 0.1
+	local_tax_modifier = -0.025
+	picture = "cardinal_icon"
+}
+
+cardinal_diocese = {
+	local_tax_modifier = -0.05
+	picture = "cardinal_icon"
+}
+
+cardinal_court = {
+	advisor_cost = -0.02
+	global_heretic_missionary_strength = 0.01
+	religious_unity = 0.02
+	picture = "cardinal_icon"
+}
+
+pap_local_strength1 = {
+	local_tax_modifier = -0.2
+	local_production_efficiency = -0.2
+	local_manpower_modifier = -0.2
+}
+
+pap_local_strength2 = {
+	local_tax_modifier = -0.4
+	local_production_efficiency = -0.4
+	local_manpower_modifier = -0.4
+}
+
+pap_local_strength3 = {
+	local_tax_modifier = -0.6
+	local_production_efficiency = -0.6
+	local_manpower_modifier = -0.6
+}
+
+caterina_sforza = {
+	global_unrest = -2
+	production_efficiency = 0.2
+}
+
+orthodox_crusader_province = {
+	local_missionary_strength = -0.05
+	local_unrest = -4
+}
+
+orthodox_crusader_province1 = {
+	local_unrest = 6
+}
+
+crusader_conversion_policy = {
+	global_unrest = 2
+	tolerance_heretic = -3
+	global_missionary_strength = 0.01
+}
+
+vef_defender_faith = {
+	land_morale = 0.1
+	naval_morale = 0.1
+	war_exhaustion = -0.01
+	missionaries = 1
+	picture = "defender_icon"
+}
+
+virtus_post_solium = {
+	prestige = 0.25
+	advisor_pool = 1
+	global_unrest = -1
+	diplomatic_upkeep = 1
+	religion = yes
+	picture = "defender_icon"
+}
+
+papal_home_town = {
+	picture = papal_influence
+	local_unrest = -1
+}
+
+papal_sponsor = {
+	prestige = 0.1
+	picture = "defender_icon"
+}
+
+vatican_city = {
+	prestige = 0.1
+	legitimacy = 0.1
+	picture = "defender_icon"
+}
+
+papal_core_conquest = {
+	enemy_core_creation = 1.25
+}
+
+pope_in_exile = {
+	prestige = 0.1
+	legitimacy = 0.1
+	picture = "defender_icon"
+}
+
+papacy_missionaries = {
+	global_missionary_strength = 0.01
+}
+
+pap_dip_bonus = {
+	diplomatic_reputation = 1
+}
+
+pi_unrest = {
+	local_unrest = -2
+}
+
+cardinals_aged = {}
+pope_trait_militant = {}
+cardinal_loyal = {}
+
+
+#####################
+# Mission Modifiers #
+#####################
+
+#Lithuania Conversion
+lit_romuva_revival = {
+	global_missionary_strength = 0.01	
+}
+
+lit_orthodox_convert = {
+	global_missionary_strength = 0.02	
+}
+
+lit_catholic_convert = {
+	global_missionary_strength = 0.02	
+}
+
+#The Knights
+successful_crusade = {
+	global_missionary_strength = 0.02
+}
+
+
+###########
+# Regency #
+###########
+
+queen_leads_regency = {
+	land_forcelimit_modifier = -0.1
+	legitimacy = 1
+}
+
+uncle_leads_regency = {
+	global_manpower_modifier = -0.1
+	global_tax_modifier = 0.1
+}
+
+noble_leads_regency = {
+	global_tax_modifier = -0.1
+	cavalry_cost = -0.20
+}
+
+bureaucrat_leads_regency = {
+	global_unrest = 2
+	production_efficiency = 0.15
+}
+
+church_leads_regency = {
+	tolerance_heretic = -2
+	land_morale = 0.1
+}
+
+regent_inquisition = {
+	tolerance_heretic = -2
+	tolerance_own = 1
+}
+
+
+##############
+# Government #
+##############
+
+newgov_had_rights = {
+	local_tax_modifier = -0.05
+	local_unrest = 1
+}
+
+rm_light_garrison = {
+	local_defensiveness = -0.1
+	local_tax_modifier = 0.1
+	local_unrest = 1
+}
+
+rm_heavy_garrison = {
+	local_defensiveness = 0.1
+	local_tax_modifier = -0.1
+	local_unrest = -1
+}
+
+rm_skirmishers = {
+	local_hostile_attrition = 1
+	local_tax_modifier = -0.1
+}
+
+rm_supplies = {
+	supply_limit_modifier = 0.5
+	garrison_growth = 0.25
+	local_hostile_attrition = -1
+}
+
+rm_light_taxes = {
+	local_tax_modifier = -0.25
+	cs_only_local_development_cost = -0.1
+	local_unrest = -2
+	province_trade_power_modifier = 0.1
+}
+
+rm_harsh_taxes = {
+	local_tax_modifier = 0.25
+	cs_only_local_development_cost = 0.1
+	local_unrest = 2
+	province_trade_power_modifier = -0.1
+}
+rm_harsh_levies = {
+	local_manpower_modifier = 0.5
+	cs_only_local_development_cost = 0.1
+	local_unrest = 3
+	local_production_efficiency = -0.1
+}
+
+rm_light_levies = {
+	local_manpower_modifier = -0.5
+	cs_only_local_development_cost = -0.1
+	local_unrest = -3
+	local_production_efficiency = 0.1
+}
+
+rm_promote_culture = {
+	local_unrest = 4
+	picture = "promote_culture_icon"
+}
+
+rm_encourage_accepted = {
+	local_unrest = 2
+	picture = "encourage_accepted_icon"
+}
+
+rm_deportation = {
+	local_unrest = 6
+}
+
+rm_genocide = {
+	local_unrest = 10
+}
+
+rm_decrease_serfdom = {
+	local_unrest = 6
+	local_manpower_modifier = -0.1
+}
+
+rm_increase_serfdom = {
+	local_unrest = 6
+	local_manpower_modifier = 0.1
+}
+
+rm_seize_land = {
+	local_unrest = 10
+}
+
+# Rebel Negotiation #
+
+neg_betrayed = {
+	local_unrest = 10
+}
+
+neg_serfdom_lower = {
+	local_unrest = 1
+}
+
+neg_taxes_lower = {
+	local_unrest = 1
+}
+
+neg_land_seizure = {
+	local_unrest = 1
+}
+# Janissaries #
+
+vef_janissaries_1 = {
+	global_unrest = -1
+	yearly_corruption = -0.1
+	land_morale = 0.05
+	discipline = 0.05
+	infantry_power = 0.05
+}
+
+coc_janissaries_1 = {
+	global_unrest = -1
+	yearly_corruption = -0.1
+}
+
+vef_janissaries_2 = {
+	global_unrest = -2
+	yearly_corruption = -0.2
+	land_morale = 0.075
+	discipline = 0.05
+	infantry_power = 0.075
+}
+
+coc_janissaries_2 = {
+	global_unrest = -2
+	yearly_corruption = -0.2
+}
+
+vef_janissaries_3 = {
+	global_unrest = -3
+	yearly_corruption = -0.3
+	land_morale = 0.1
+	discipline = 0.075
+	infantry_power = 0.075
+	global_tax_modifier = -0.1
+}
+
+coc_janissaries_3 = {
+	global_unrest = -3
+	yearly_corruption = -0.3
+}
+
+vef_janissaries_4 = {
+	global_unrest = -1
+	land_morale = 0.05
+	discipline = 0.05
+	infantry_power = 0.05
+	global_tax_modifier = -0.1
+}
+
+coc_janissaries_4 = {
+	global_unrest = -1
+}
+
+vef_janissaries_5 = {
+	global_unrest = 1
+	yearly_corruption = 0.25
+	global_tax_modifier = -0.1
+}
+
+vef_janissaries_6 = {
+	global_unrest = 2
+	yearly_corruption = 0.5
+	discipline = -0.05
+	infantry_power = -0.05
+	global_tax_modifier = -0.1
+}
+
+janissaries_angered = {
+	global_unrest = 2
+	discipline = -0.05
+	infantry_power = -0.05
+	global_tax_modifier = -0.1
+	global_manpower_modifier = -0.1
+}
+
+# Hereditary Monarchy #
+
+hm_ap_0 = {
+	cavalry_power = -0.1
+	development_cost = 0.1
+}
+
+hm_ap_20 = {
+	cavalry_power = -0.05
+	development_cost = 0.05
+}
+
+hm_ap_60 = {
+	free_leader_pool = 1
+	cavalry_power = 0.1
+}
+
+hm_ap_80 = {
+	free_leader_pool = 1
+	cavalry_power = 0.1
+	legitimacy = -1
+}
+
+hm_rl_0 = {
+	stability_cost_modifier = 0.1
+	global_unrest = 3
+}
+
+hm_rl_20 = {
+	stability_cost_modifier = 0.075
+	global_unrest = 2
+}
+
+hm_rl_60 = {
+	years_of_nationalism = -3
+	global_unrest = -1
+}
+
+hm_rl_80 = {
+	years_of_nationalism = -5
+	global_unrest = -2
+}
+
+hm_mer_0 = {
+	fabricate_claims_cost = 0.2
+	discipline = -0.1
+}
+
+hm_mer_10 = {
+	fabricate_claims_cost = 0.15
+	discipline = -0.075
+}
+	
+hm_mer_20 = {
+	fabricate_claims_cost = 0.1
+	discipline = -0.05
+}
+
+hm_mer_30 = {
+	fabricate_claims_cost = 0.05
+	discipline = -0.025
+}
+
+hm_mer_80 = {
+	spy_offence = 0.2
+	advisor_cost = 0.1
+}
+
+#Elective Monarchy#
+
+em_noble_resistance = {
+	local_unrest = 8
+}
+
+em_noble_neutrality = {
+	local_unrest = 2
+}
+
+em_noble_support = {
+	local_unrest = -2
+}
+
+#Horde Reform#
+
+vef_horde_rebellion = {
+	local_unrest = 5
+	local_tax_modifier = -0.1
+	local_manpower_modifier = -0.1
+}
+
+vef_hordesubject_rebellion = {
+	liberty_desire = 0.5
+}
+
+#Terror#
+
+terror_freedom = {
+	global_unrest = 1
+}
+
+terror_serfdom = {
+	global_unrest = 1
+}
+
+terror_end_nobles = {
+	global_unrest = 2
+}
+
+terror_curb_nobles = {
+	global_unrest = 1
+}
+
+terror_land_nobles = {
+	global_unrest = 2
+}
+
+terror_land_citizens = {
+	global_unrest = 2
+}
+
+terror_demesne = {
+	global_unrest = 2
+}
+
+#Revolution#
+
+rev_moderates = {
+	cavalry_cost = 0.2
+	cavalry_power = -0.1
+	infantry_cost = -0.1
+	artillery_cost = -0.1
+}
+
+rev_harsh_treatment = {
+	stability_cost_modifier = -0.2
+	all_power_cost = 0.2
+}
+
+rev_moderate_treatment = {
+	stability_cost_modifier = -0.1
+	all_power_cost = 0.1
+}
+
+rev_light_treatment = {
+	stability_cost_modifier = 0.05
+	all_power_cost = -0.05
+}
+
+#Vassals#
+
+vassal_integrated = {
+	liberty_desire = -25
+}
+
+vassal_hedjaz = {
+	liberty_desire = -100
+}
+
+vassal_rebellious = {
+	liberty_desire = 50
+}
+
+############
+# Jousting #
+############
+
+jousting_injury = {
+}
+
+hired_herald = {
+	prestige_decay = -0.005
+}
+
+watching_daughter = {
+	global_spy_defence = -0.05
+}
+
+
+#######################
+# Spanish Inquisition #
+#######################
+
+decree_of_alhambra = {
+	religious_unity = 0.20
+	global_unrest = -1
+}
+
+moriscos = {
+	local_unrest = 2
+	local_tax_modifier = -0.1
+}
+
+the_morisco_revolt = {
+	global_unrest = 3
+}
+
+moriscos_revolting = {
+	global_tax_modifier = -0.10
+}
+
+tolerate_moriscos_and_jews = {
+	global_heretic_missionary_strength = -0.03
+	tolerance_heretic = 2
+}
+
+
+#########
+# Other #
+#########
+
+joan_effect = {
+	land_morale = 0.1
+	discipline = 0.1
+	global_manpower_modifier = 0.2
+}
+
+english_longbows = {
+	leader_land_shock = 2
+}
+
+arbroath_declaration = {
+	global_tax_modifier = 0.1
+	global_manpower_modifier = 0.1
+}
+
+highland_armies = {
+	land_maintenance_modifier = -0.75
+	infantry_power = 0.10
+	land_morale = 0.10
+	global_manpower_modifier = 0.25
+	land_forcelimit_modifier = 1.0
+	war_exhaustion = -0.25
+	global_tax_modifier = 0.1
+}
+
+vef_highland_rebels = {
+	local_unrest = 5
+	local_manpower_modifier = -0.5
+}
+
+black_trade_war_victor = {
+	global_trade_power = 0.1
+	trade_efficiency = 0.05
+}
+
+med_trade_war_victor = {
+	global_trade_power = 0.1
+	trade_efficiency = 0.05
+}
+
+chios_maona = {
+	province_trade_power_modifier = 0.25
+	min_local_autonomy = 40
+}
+
+successor_order = {
+	land_morale = 0.02
+	prestige_decay = -0.005
+}
+
+byzantine_army_1 = {
+	land_forcelimit = -3
+}
+
+byzantine_army_2 = {
+	land_forcelimit = -3
+}
+
+estate_public_works = {
+	local_development_cost = -0.25
+}
+
+special_colonial_cooldown = {
+	colonist_placement_chance = 0.01
+}
+
+vef_slave_labour = {
+	local_manpower_modifier = -0.2
+	trade_goods_size_modifier = 0.5
+	local_colonial_growth = 5
+}
+
+vef_festival_refused = {
+	local_unrest = 3
+}
+
+vef_schmalkaldic_defeat = {
+	religious_conversion_resistance = 0.50
+}
+
+# Mission Modifiers
+
+vef_merchant_mission = {
+	merchants = 1
+}
+
+vef_naval_construction = {
+	global_ship_recruit_speed = -0.1
+	global_ship_cost = -0.1
+}
+
+##################
+# Timers/Markers #
+##################
+
+crusade_goal = {}
+knights_priory_cooldown = {}
+roman_expansion_cooldown1 = {}
+ruler_sought_investiture = {}
+cardinal_request_cooldown = {}
+excommunication_cooldown = {}
+vps_request_cooldown = {}
+vps_calculator_run = {}
+not_eligible_vps = {}
+papal_aid_cooldown = {}
+vps_guarantee_timer = {}
+silesian_cooldown = {}
+no_bohemian_election = {}
+lib_building_cooldown = {}
+deportation_cooldown = {}
+fort_notice = {}
+population_event = {}
+em_disaster_trigger = {}
+terror_tick = {}
+subjugate_cooldown = {}
+newgov_yearly_timer = {}
+hansa_request_cooldown = {}
+vef_festival_cooldown = {}

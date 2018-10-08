@@ -1,0 +1,10 @@
+# Vladimir-Suzdal
+#Province IDs changed
+government = monarchy add_government_reform = principality
+government_rank = 2
+primary_culture = russian
+religion = orthodox
+technology_group = eastern
+historical_friend = MOS
+capital = 722 # Vladimir
+

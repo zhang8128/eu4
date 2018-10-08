@@ -1,0 +1,30 @@
+# Judea
+
+capital = "Jerusalem"
+owner = MAM
+controller = MAM
+add_territorial_core = MAM
+culture = al_suryah_arabic
+religion = sunni
+trade_goods = grain
+base_tax = 4
+base_production = 4
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = scandinavian_tech
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1400.1.1   = { base_manpower = 1 }
+1500.1.1   = { base_manpower = 1 }
+1517.1.1   = { owner = TUR controller = TUR add_territorial_core = TUR } # Part of the Ottoman empire
+1600.1.1   = { base_manpower = 1 }
+1650.1.1   = { base_manpower = 1 }
+1700.1.1   = { base_manpower = 1 }
+1750.1.1   = { base_manpower = 1 }
+1800.1.1   = { base_manpower = 1 }

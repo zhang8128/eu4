@@ -1,0 +1,174 @@
+# Fallback defaults
+# Will pick the first valid one it finds in list
+
+default_monarchy = {
+	rank = {
+		1 = COUNTY
+		2 = DUCHY
+		3 = KINGDOM
+		4 = EMPIRE
+	}	
+	
+	ruler_male = {
+		1 = COUNT
+		2 = DUKE
+		3 = KING
+		4 = EMPEROR
+	}
+	
+	ruler_female = {
+		1 = COUNTESS
+		2 = DUCHESS	
+		3 = QUEEN
+		4 = EMPRESS
+	}
+	
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+		4 = PRINCE_CONSORT
+	}
+	
+	consort_female = {
+		1 = CONSORT
+		2 = CONSORT
+		3 = QUEEN_CONSORT
+		4 = EMPRESS_CONSORT
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+	}
+	
+	heir_female = {
+		1 = HEIR
+		2 = HEIR	
+		3 = HEIR
+		4 = HEIR
+	}
+	
+	government_reform = monarchy_mechanic
+
+	trigger = {
+		has_reform = monarchy_mechanic
+	}
+}
+
+default_republic = {
+	rank = {
+		1 = REPUBLIC
+		2 = REPUBLIC
+		3 = GRAND_REPUBLIC
+		4 = GREAT_REPUBLIC
+	}
+	
+	ruler_male = {
+		1 = CONSUL
+		2 = CONSUL
+		3 = GRAND_CONSUL
+		4 = GREAT_CONSUL
+	}
+	
+	ruler_female = {
+		1 = CONSULESS
+		2 = CONSULESS
+		3 = GRAND_CONSULESS
+		4 = GREAT_CONSULESS
+	}
+	
+	government_reform = republic_mechanic
+	
+	trigger = {
+		government = republic
+	}
+}
+
+default_theocracy = {
+	rank = {
+		1 = BISHOPRIC
+		2 = BISHOPRIC
+		3 = ARCHBISHOPRIC
+		4 = PATRIARCHATE
+	}
+	
+	ruler_male = {
+		1 = BISHOP
+		2 = BISHOP
+		3 = ARCHBISHOP
+		4 = PATRIARCH
+	}
+	
+	ruler_female = {
+		1 = BISHOP
+		2 = BISHOP
+		3 = ARCHBISHOP
+		4 = MATRIARCH
+	}
+	
+	government_reform = theocracy_mechanic
+	
+	trigger = {
+		government = theocracy
+	}
+}
+
+default_tribal = {
+	rank = {
+		1 = CHIEFDOM
+		2 = CHIEFDOM
+		3 = TRIBAL_KINGDOM
+		4 = TRIBAL_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = CHIEF
+		2 = CHIEF
+		3 = KING
+		4 = EMPEROR
+	}
+	
+	ruler_female = {
+		1 = CHIEFTESS
+		2 = CHIEFTESS
+		3 = QUEEN
+		4 = EMPRESS
+	}
+	
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+		4 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = CONSORT
+		2 = CONSORT
+		3 = QUEEN_CONSORT
+		4 = EMPRESS_CONSORT
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+	}
+
+	government_reform = tribe_mechanic
+
+	trigger = {
+		government = tribal
+	}
+}

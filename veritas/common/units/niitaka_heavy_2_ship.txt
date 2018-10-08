@@ -1,0 +1,10 @@
+#Ou-atakebune
+#model = galleon
+#tech_level = 22
+type = heavy_ship
+unit_type = niitaka
+
+hull_size = 24
+base_cannons = 40
+sail_speed = 5
+sailors = 400

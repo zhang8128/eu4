@@ -1,0 +1,27 @@
+# East Berar
+
+capital = "Wairagarh"
+owner = AHM
+controller = AHM
+add_core = AHM
+add_core = BRR
+culture = gondi
+religion = hinduism
+trade_goods = rice
+base_tax = 2
+base_production = 2
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = indian
+
+1317.1.1	= { owner = GDW controller = GDW add_core = GDW remove_core = AHM } # Last Yadava sultan killed in rebellion against Delhi; Delhi does not occupy this area
+1347.1.1	= { controller = BAH owner = BAH add_core = BAH remove_core = GDW } #Bahmani Sultanate
+1490.1.1	= { owner = BRR controller = BRR remove_core = BAH } # The Breakup of the Bahmani sultanate
+1498.1.1	= { discovered_by = POR }
+1572.1.1	= { controller = AHM } # captured by Ahmednagar
+1574.1.1	= { owner = AHM add_core = AHM } # captured by Ahmednagar
+1672.1.1	= { owner = GDW controller = GDW add_core = GDW capital = "Nagpur" }
+1724.1.1	= { owner = NAG controller = NAG add_core = NAG }	#Formation of the kingdom of Nagpur
+1741.1.1	= { culture = marathi }	#Maratha expansion
+#1743 Marathas take control over Nagpur kingdom

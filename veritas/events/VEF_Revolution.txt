@@ -1,0 +1,410 @@
+##############
+# Revolution #
+##############
+
+namespace = vef_revolution
+
+# Revolution Begins
+country_event = {
+	id = vef_revolution.1
+	title = "vef_revolution.1.t"
+	desc = "vef_revolution.1.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #disasters/vef_revolution start
+	
+	immediate = {
+		set_country_flag = had_revolution
+		add_stability = -3
+	}
+	
+	option = {	#The Crown
+		name = "vef_revolution.1.opta"
+		custom_tooltip = revolution_crown
+		country_event = { id = vef_revolution.2 }
+	}
+	
+	option = {	#The People
+		name = "vef_revolution.1.optb"
+		trigger = { ai = no }
+		custom_tooltip = revolution_people
+		country_event = { id = vef_revolution.3 }
+		if = {
+			limit = { has_country_flag = had_reign_terror }
+			clr_country_flag = had_reign_terror
+		}
+	}
+}
+
+#Revolution Begins - Side with the crown
+country_event = {
+	id = vef_revolution.2
+	title = "vef_revolution.2.t"
+	desc = "vef_revolution.2.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #vef_revolution.1
+	
+	immediate = {
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				development = 10
+				has_owner_culture = yes
+			}
+			spawn_rebels = {
+				type = revolutionary_rebels
+				size = 2
+				win = yes
+				unrest = 10
+			}
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				development = 10
+				has_owner_culture = yes
+			}
+			spawn_rebels = {
+				type = revolutionary_rebels
+				size = 2
+				win = yes
+				unrest = 10
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_revolution.2.opta"
+		hidden_effect = { country_event = { id = vef_revolution.10 days = 60 }}
+	}
+}
+
+#Revolution Begins - Side with the people
+country_event = {
+	id = vef_revolution.3
+	title = "vef_revolution.3.t"
+	desc = "vef_revolution.3.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #vef_revolution.1
+
+	immediate = {
+		every_province = {
+			kill_units = { who = ROOT amount = 100 }
+		}
+		set_revolution_target = ROOT
+		exile_heir_as = revolution_heir_@ROOT
+		change_government = republic
+		add_government_reform = revolutionary_republic
+		exile_ruler_as = revolution_monarch_@ROOT
+		every_owned_province = {
+			limit = {
+				is_capital = no
+				has_influencing_fort = yes
+			}
+			spawn_rebels = {
+				type = counterrevolutionary_rebels
+				size = 1
+				win = yes
+			}
+		}
+		random_owned_province = {
+			limit = { is_capital = yes }
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			cavalry = ROOT
+			artillery = ROOT
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				has_influencing_fort = no
+			}
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			artillery = ROOT
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				has_influencing_fort = no
+			}
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			artillery = ROOT
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				has_influencing_fort = no
+			}
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			artillery = ROOT
+		}
+	}
+	
+	option = {
+		name = "vef_revolution.3.opta"
+	}
+}
+
+
+############
+# Monarchy #
+############
+
+#What to do with Monarchy?
+country_event = {
+	id = vef_revolution.10
+	title = "vef_revolution.10.t"
+	desc = "vef_revolution.10.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #vef_revolution.2
+	
+	option = {
+		ai_chance = { factor = 90 }
+		name = "vef_revolution.10.opta"
+	}
+	
+	option = {
+		ai_chance = { factor = 10 }
+		name = "vef_revolution.10.optb"
+		change_government = monarchy
+		add_government_reform = egional_representation_reform
+		hidden_effect = {
+			set_variable = { which = apcon_threshold_low which = aristocratic_privilege }
+			change_variable = { which = apcon_threshold_low value = -10 }
+			if = {
+				limit = { NOT = { check_variable = { which = apcon_threshold_low value = 0 }}}
+				set_variable = { which = apcon_threshold_low value = 0 }
+			}
+			set_variable = { which = apcon_threshold_high which = aristocratic_privilege }
+			change_variable = { which = apcon_threshold_high value = 10 }
+		}
+		add_country_modifier = { name = rev_moderates duration = -1 }
+		add_stability = 1
+	}
+}
+
+#How to treat rebels
+country_event = {
+	id = vef_revolution.11
+	title = "vef_revolution.11.t"
+	desc = "vef_revolution.11.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #on_action/on_battle_won
+	
+	fire_only_once = yes
+	
+	option = {	#Mass Execution
+		ai_chance = { factor = 10 }
+		name = "vef_revolution.11.opta"
+		every_owned_province = { add_unrest = 5 }
+		add_country_modifier = { name = rev_harsh_treatment duration = 7300 }
+	}
+	option = {	#Moderation
+		ai_chance = { factor = 75 }
+		name = "vef_revolution.11.optb"
+		every_owned_province = { add_unrest = 2 }
+		add_country_modifier = { name = rev_moderate_treatment duration = 7300 }
+	}
+	option = {	#Pardons
+		ai_chance = { factor = 15 }
+		name = "vef_revolution.11.optc"
+		every_owned_province = { add_unrest = 1 }
+		add_country_modifier = { name = rev_light_treatment duration = 7300 }
+	}
+}
+
+
+##########
+# People #
+##########
+
+#Nature of the Revolution - Religious Ideas
+country_event = {
+	id = vef_revolution.20
+	title = "vef_revolution.20.t"
+	desc = "vef_revolution.20.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	trigger = {
+		government = revolutionary_republic
+		has_idea_group = religious_ideas
+		NOT = { has_country_flag = vef_revevents_religion1 }
+	}
+	
+	mean_time_to_happen = { months = 6 }
+	
+	immediate = { set_country_flag = vef_revevents_religion1 }
+	
+	option = {	#Hold to the true faith
+		ai_chance = { factor = 0 }
+		name = "vef_revolution.20.opta"
+		every_owned_province = {
+			limit = { NOT = { has_owner_religion = yes }}
+			add_unrest = 3
+		}
+	}
+	
+	option = {	#The revolution must shatter such notions
+		ai_chance = { factor = 100 }
+		name = "vef_revolution.20.optb"
+		remove_idea_group = religious_ideas
+		add_idea_group = innovativeness_ideas
+		add_idea = patron_of_art
+		add_idea = resilient_state
+		add_idea = dynamic_court
+		add_idea = scientific_revolution
+	}
+}
+
+#What to do with King?
+country_event = {
+	id = vef_revolution.25
+	title = "vef_revolution.25.t"
+	desc = "vef_revolution.25.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	trigger = {
+		is_revolution_target = yes
+		NOT = { has_country_flag = monarchexecution_event }
+		has_active_policy = vef_reign_terror
+	}
+	
+	mean_time_to_happen = { months = 12 }
+	
+	immediate = { set_country_flag = monarchexecution_event }
+	
+	option = {	#To the Guillotine
+		ai_chance = { factor = 90 }
+		name = "vef_revolution.25.opta"
+		add_stability = 1
+		set_country_flag = executed_monarch
+	}
+	
+	option = {	#Imprison
+		ai_chance = { factor = 10 }
+		name = "vef_revolution.25.optb"
+		set_country_flag = imprisoned_monarch
+	}
+	
+	option = {	#Exile
+		ai_chance = { factor = 0 }
+		name = "vef_revolution.25.optc"
+		set_country_flag = exiled_monarch
+	}
+}
+
+##########
+# Ending #
+##########
+
+#Background
+country_event = {
+	id = vef_revolution.100
+	title = "vef_revolution.100.t"
+	desc = "vef_revolution.100.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes
+	
+	hidden = yes
+	
+	immediate = {
+		if = {
+			limit = { government = monarchy }
+			country_event = { id = vef_revolution.101 }
+		}
+		if = {
+			limit = { government = revolutionary_republic }
+			country_event = { id = vef_revolution.102 }
+		}
+	}
+	
+	option = {
+		name = "vef_revolution.100.opta"
+	}
+}
+
+#Monarchy
+country_event = {
+	id = vef_revolution.101
+	title = "vef_revolution.101.t"
+	desc = "vef_revolution.101.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #vef_revolution.100
+	
+	
+	option = {
+		name = "vef_revolution.101.opta"
+		if = {
+			limit = { has_country_modifier = rev_moderates }
+			remove_country_modifier = rev_moderates
+		}
+	}
+}
+
+#People
+country_event = {
+	id = vef_revolution.102
+	title = "vef_revolution.102.t"
+	desc = "vef_revolution.102.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #vef_revolution.100
+	
+	
+	option = {
+		name = "vef_revolution.102.opta"
+	}
+}
+
+
+#############################
+# Various Triggered Actions #
+#############################
+
+#Capital seized while monarch imprisoned
+province_event = {
+	id = vef_revolution.200
+	title = "vef_revolution.200.t"
+	desc = "vef_revolution.200.d"
+	picture = VEF_FRENCH_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #on_action/on_siege_lost
+	
+	trigger = {
+		is_capital = yes
+		owner = { has_country_flag = imprisoned_monarch }
+	}
+	
+	immediate = {
+		owner = {
+			clr_country_flag = imprisoned_monarch
+			set_country_flag = exiled_monarch
+		}
+	}
+	
+	option = {
+		name = "vef_revolution.200.opta"
+	#	FROM = { country_event = { id = XXX }} #Monarch arrives in court
+	}
+}
+
+
+#neighbors
+#war_score_against

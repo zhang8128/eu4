@@ -1,0 +1,33 @@
+# Mato Grosso
+#Province IDs changed
+
+culture = amazonian
+religion = animism
+capital = "Mato Grosso"
+trade_goods = unknown
+hre = no
+base_tax = 1
+base_production = 1
+base_manpower = 1
+native_size = 10
+native_ferocity = 1
+native_hostileness = 5
+
+1709.1.1 = { 	discovered_by = POR
+		owner = POR
+		controller = POR
+		culture = portugese
+		religion = catholic
+		citysize = 450
+		trade_goods = tobacco
+	   } # Colonized by Paulistas, the first settlers
+1719.1.1 = { capital = "Cuiabá" citysize = 1200 }
+1734.1.1 = { add_core = POR }
+1750.1.1 = { citysize = 1400 }
+1800.1.1 = { citysize = 4960 }
+1822.9.7 = {
+	owner = BRZ
+	controller = BRZ
+	add_core = BRZ
+	remove_core = POR
+	} # Pedro I declares independence for Brazil

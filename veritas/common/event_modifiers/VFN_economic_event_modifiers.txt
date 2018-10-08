@@ -1,0 +1,242 @@
+#################################################################################################
+# For events concerning the economy and industrial revolution														#
+#################################################################################################
+
+deflation = {
+	inflation_reduction = 0.15
+}
+
+inflation1 = {
+	inflation_reduction = -0.15
+}
+
+population_small = { 
+	local_manpower_modifier = 0.5
+	local_tax_modifier = 0.1
+	trade_goods_size = 0.5
+}
+
+population_medium = { 
+	local_manpower_modifier = 1
+	local_tax_modifier = 0.2
+	trade_goods_size = 1
+}
+
+population_large = { 
+	local_manpower_modifier = 1.5
+	local_tax_modifier = 0.3
+	trade_goods_size = 1.5
+}
+
+population_huge = { 
+	local_manpower_modifier = 2
+	local_tax_modifier = 0.4
+	trade_goods_size = 2
+}
+
+enclosure_act = {
+	global_unrest = 2
+	global_tax_modifier = -0.05
+	production_efficiency = 0.05
+}
+
+deregulation_act = {
+	production_efficiency = 0.1
+	global_tax_modifier = -0.1
+	global_prov_trade_power_modifier = -0.25
+}
+
+cotton_beginning = {
+	local_production_efficiency = 0.05
+	trade_goods_size = 0.25
+} 
+
+cotton_booming = {
+	local_production_efficiency = 0.1
+	trade_goods_size = 0.5
+} 
+
+cotton_established = {
+	local_production_efficiency = 0.15
+	trade_goods_size = 1
+} 
+
+chinaware_beginning = {
+	local_production_efficiency = 0.05
+	trade_goods_size = 0.25
+} 
+
+chinaware_booming = {
+	local_production_efficiency = 0.1
+	trade_goods_size = 0.5
+} 
+
+chinaware_established = {
+	local_production_efficiency = 0.15
+	trade_goods_size = 1
+} 
+
+lead_beginning = {
+	local_production_efficiency = 0.05
+	trade_goods_size = 0.25
+} 
+
+lead_booming = {
+	local_production_efficiency = 0.1
+	trade_goods_size = 0.5
+} 
+
+lead_established = {
+	local_production_efficiency = 0.15
+	trade_goods_size = 1
+} 
+
+iron_beginning = {
+	local_production_efficiency = 0.05
+	trade_goods_size = 0.25
+} 
+
+iron_booming = {
+	local_production_efficiency = 0.1
+	trade_goods_size = 0.5
+} 
+
+iron_established = {
+	local_production_efficiency = 0.15
+	trade_goods_size = 1
+} 
+
+coal_beginning = {
+	local_production_efficiency = 0.05
+	trade_goods_size = 0.25
+} 
+
+coal_booming = {
+	local_production_efficiency = 0.1
+	trade_goods_size = 0.5
+} 
+
+coal_established = {
+	local_production_efficiency = 0.15
+	trade_goods_size = 1
+} 
+
+cloth_beginning = {
+	local_production_efficiency = 0.05
+	trade_goods_size = 0.25
+} 
+
+cloth_booming = {
+	local_production_efficiency = 0.1
+	trade_goods_size = 0.5
+} 
+
+cloth_established = {
+	local_production_efficiency = 0.15
+	trade_goods_size = 1
+} 
+
+navalsupplies_beginning = {
+	local_production_efficiency = 0.05
+	trade_goods_size = 0.25
+} 
+
+navalsupplies_booming = {
+	local_production_efficiency = 0.1
+	trade_goods_size = 0.5
+} 
+
+navalsupplies_established = {
+	local_production_efficiency = 0.15
+	trade_goods_size = 1
+} 
+
+silk_beginning = {
+	local_production_efficiency = 0.05
+	trade_goods_size = 0.25
+} 
+
+silk_booming = {
+	local_production_efficiency = 0.1
+	trade_goods_size = 0.5
+} 
+
+silk_established = {
+	local_production_efficiency = 0.15
+	trade_goods_size = 1
+} 
+
+wax_beginning = {
+	local_production_efficiency = 0.05
+	trade_goods_size = 0.25
+} 
+
+wax_booming = {
+	local_production_efficiency = 0.1
+	trade_goods_size = 0.5
+} 
+
+wax_established = {
+	local_production_efficiency = 0.15
+	trade_goods_size = 1
+} 
+
+silver_beginning = {
+	local_production_efficiency = 0.05
+	trade_goods_size = 0.25
+} 
+
+silver_booming = {
+	local_production_efficiency = 0.1
+	trade_goods_size = 0.5
+} 
+
+silver_established = {
+	local_production_efficiency = 0.15
+	trade_goods_size = 1
+} 
+
+copper_beginning = {
+	local_production_efficiency = 0.05
+	trade_goods_size = 0.25
+} 
+
+copper_booming = {
+	local_production_efficiency = 0.1
+	trade_goods_size = 0.5
+} 
+
+copper_established = {
+	local_production_efficiency = 0.15
+	trade_goods_size = 1
+} 
+
+glassware_beginning = {
+	local_production_efficiency = 0.05
+	trade_goods_size = 0.25
+} 
+
+glassware_booming = {
+	local_production_efficiency = 0.1
+	trade_goods_size = 0.5
+} 
+
+glassware_established = {
+	local_production_efficiency = 0.15
+	trade_goods_size = 1
+} 
+
+agriculture_beginning = {
+	trade_goods_size = 0.25
+	local_production_efficiency = 0.05
+} 
+
+agriculture_booming = {
+	trade_goods_size = 0.5
+	local_production_efficiency = 0.1
+} 
+
+agriculture_established = {
+	trade_goods_size = 1
+	local_production_efficiency = 0.15
+} 

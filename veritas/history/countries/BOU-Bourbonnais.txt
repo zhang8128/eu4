@@ -1,0 +1,465 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+primary_culture = aquitaine
+religion = catholic
+technology_group = western
+capital = 146	# Bourges
+fixed_capital = 146 # Cannot move capital away from this province & no power cost to move to it
+
+set_country_flag = starting_vassal 
+set_country_flag = vassal_flag
+set_variable = { which = vassal_progress value = 20.0 }
+
+1268.1.1 = {
+	monarch = {
+		name = "Robert I"
+		dynasty = "de Bourbon"
+		birth_date = 1256.1.1
+		adm = 2
+		dip = 3
+		mil = 3
+	}
+} # Count of Clermont
+
+1272.1.1 = {
+	queen = {
+		country_of_origin = BUR
+		name = "Béatrice"
+		dynasty = "de Bourgogne"
+		birth_date = 1257.1.1
+		death_date = 1310.10.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1279.1.1 = {
+	heir = {
+		name = "Louis"
+		monarch_name = "Louis I"
+		dynasty = "de Bourbon"
+		birth_date = 1279.1.1
+		death_date = 1341.1.22
+		adm = 2
+		dip = 3
+		mil = 3
+		claim = 75
+	}
+}
+
+1317.1.1 = {
+	monarch = {
+		name = "Louis I"
+		dynasty = "de Bourbon"
+		birth_date = 1279.1.1
+		adm = 2
+		dip = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = HAI
+		name = "Mary"
+		dynasty = "d'Avesnes"
+		birth_date = 1280.1.1
+		death_date = 1354.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Pierre"
+		monarch_name = "Pierre I"
+		dynasty = "de Bourbon"
+		birth_date = 1311.1.1
+		death_date = 1359.9.19
+		adm = 2
+		dip = 3
+		mil = 3
+		claim = 95
+	}
+}
+
+1327.1.1 = { government_rank = 2 }
+
+1341.1.22 = {
+	monarch = {
+		name = "Pierre I"
+		dynasty = "de Bourbon"
+		birth_date = 1311.1.1
+		adm = 2
+		dip = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = FRA
+		name = "Isabella"
+		dynasty = "de Valois"
+		birth_date = 1313.1.1
+		death_date = 1383.7.26
+		female = yes
+		adm = 3
+		dip = 4
+		mil = 1
+	}
+	heir = {
+		name = "Louis"
+		monarch_name = "Louis II"
+		dynasty = "de Bourbon"
+		birth_date = 1337.2.4
+		death_date = 1410.8.10
+		adm = 2
+		dip = 1
+		mil = 2
+		claim = 95
+	}
+}
+1356.9.19 = {
+	monarch = {
+		name = "Louis II"
+		dynasty = "de Bourbon"
+		birth_date = 1337.2.4
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1371.8.19 = {
+	queen = {
+		country_of_origin = FRA
+		name = "Anne"
+		dynasty = "d'Auvergne"
+		birth_date = 1358.1.1
+		death_date = 1417.9.22
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1381.1.1 = {
+	heir = {
+		name = "Jean"
+		monarch_name = "Jean I"
+		dynasty = "de Bourbon"
+		birth_date = 1381.1.1
+		death_date = 1434.2.5
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1410.8.10 = {
+	monarch = {
+		name = "Jean I"
+		dynasty = "de Bourbon"
+		birth_date = 1381.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = AUV
+		name = "Marie"
+		dynasty = "d'Auvergne"
+		birth_date = 1375.1.1
+		death_date = 1434.6.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Charles"
+		monarch_name = "Charles I"
+		dynasty = "de Bourbon"
+		birth_date = 1401.1.1
+		death_date = 1456.12.4
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1434.2.5 = {
+	monarch = {
+		name = "Charles I"
+		dynasty = "de Bourbon"
+		birth_date = 1401.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = BUR
+		name = "Agnes"
+		dynasty = "de Bourgogne"
+		birth_date = 1307.1.1
+		death_date = 1476.12.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Jean"
+		monarch_name = "Jean II"	
+		dynasty = "de Bourbon"
+		birth_date = 1426.1.1
+		death_date = 1488.4.1
+		claim = 95
+		adm = 3
+		dip = 2
+		mil = 1
+	}
+}
+
+1456.12.5 = {
+	monarch = {
+		name = "Jean II"
+		dynasty = "de Bourbon"
+		birth_date = 1426.1.1
+		adm = 3
+		dip = 2
+		mil = 1
+	}
+}
+
+1456.12.5 = {
+	heir = {
+		name = "Charles"
+		monarch_name = "Charles II"
+		dynasty = "de Bourbon"
+		birth_date = 1434.1.1
+		death_date = 1488.9.13
+		claim = 95
+		adm = 2
+		dip = 4
+		mil = 1
+	}
+}
+
+1488.4.2 = {
+	monarch = {
+		name = "Charles II"
+		dynasty = "de Bourbon"
+		birth_date = 1434.1.1
+		adm = 2
+		dip = 4
+		mil = 1
+	}
+}
+
+1488.4.2 = {
+	heir = {
+		name = "Pierre"
+		monarch_name = "Pierre II"
+		dynasty = "de Bourbon"
+		birth_date = 1438.12.1
+		death_date = 1503.10.10
+		claim = 80
+		adm = 4
+		dip = 4
+		mil = 3
+	}
+}
+
+1488.4.24 = {
+	monarch = {
+		name = "Pierre II"
+		dynasty = "de Bourbon"
+		birth_date = 1438.12.1
+		adm = 4
+		dip = 4
+		mil = 3
+	}
+}
+
+1491.5.10 = {
+	heir = {
+		name = "Suzanne"
+		monarch_name = "Suzanne I"
+		dynasty = "de Bourbon"
+		birth_date = 1491.5.10
+		death_date = 1521.4.28
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 1
+		female = yes
+	}
+}
+
+1503.10.11 = {
+	monarch = {
+		name = "Suzanne I"
+		dynasty = "de Bourbon"
+		birth_date = 1491.5.10
+		adm = 3
+		dip = 3
+		mil = 1
+		female = yes
+	}
+}
+
+1503.10.11 = {
+	heir = {
+		name = "Charles"
+		monarch_name = "Charles III"
+		dynasty = "de Bourbon"
+		birth_date = 1490.2.17
+		death_date = 1527.5.6
+		claim = 95
+		adm = 4
+		dip = 1
+		mil = 1
+		leader = {	name = "Charles de Bourbon"   	type = general fire = 2	shock = 3	manuever = 3	siege = 0 }
+	}
+}
+
+1521.4.29 = {
+	monarch = {
+		name = "Charles III"
+		dynasty = "de Bourbon"
+		birth_date = 1490.2.17
+		adm = 4
+		dip = 1
+		mil = 1
+		leader = {	name = "Charles III"   	type = general fire = 2	shock = 3	manuever = 3	siege = 0 }
+	}
+}
+
+1521.4.29 = {
+	heir = {
+		name = "Charles"
+		monarch_name = "Charles IV"
+		dynasty = "de Bourbon"
+		birth_date = 1489.6.2
+		death_date = 1537.3.25
+		claim = 75
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+
+1527.5.7 = {
+	monarch = {
+		name = "Charles IV"
+		dynasty = "de Bourbon"
+		birth_date = 1489.6.2
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1527.5.7 = {
+	heir = {
+		name = "Antoine"
+		monarch_name = "Antoine I"
+		dynasty = "de Bourbon"
+		birth_date = 1518.4.22
+		death_date = 1562.11.17
+		claim = 95
+		adm = 3
+		dip = 2
+		mil = 1
+	}
+}
+
+# Bourbon To France 1537		
+
+1537.3.26 = {
+	monarch = {
+		name = "Antoine I"
+		dynasty = "de Bourbon"
+		birth_date = 1518.4.22
+		adm = 3
+		dip = 2
+		mil = 1
+	}
+}
+
+1562.11.18 = { religion = reformed }
+
+1562.11.18 = {
+	monarch = {
+		name = "Henri I"
+		dynasty = "de Bourbon"
+		birth_date = 1553.12.13
+		adm = 5
+		dip = 5
+		mil = 5
+		leader = {	name = "Henri I"              	type = general fire = 4	shock = 4	manuever = 2	siege = 0 }
+	}
+}
+
+1610.5.15 = {
+	monarch = {
+		name = "César"
+		dynasty = "de Bourbon"
+		birth_date = 1594.6.3
+		adm = 3
+		dip = 2
+		mil = 1
+	}
+}
+
+1612.12.1 = {
+	heir = {
+		name = "Louis"
+		monarch_name = "Louis II"
+		dynasty = "de Bourbon"
+		birth_date = 1612.12.1
+		death_date = 1669.8.6
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1665.10.23 = {
+	monarch = {
+		name = "Louis II"
+		dynasty = "de Bourbon"
+		birth_date = 1612.12.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1665.10.23 = {
+	heir = {
+		name = "Louis-Joseph"
+		monarch_name = "Louis-Joseph"
+		dynasty = "de Bourbon"
+		birth_date = 1654.7.1
+		death_date = 1712.6.11
+		claim = 95
+		adm = 1
+		dip = 4
+		mil = 1
+	}
+}
+
+1669.8.7 = {
+	monarch = {
+		name = "Louis-Joseph"
+		dynasty = "de Bourbon"
+		birth_date = 1654.7.1
+		adm = 1
+		dip = 4
+		mil = 1
+	}
+}

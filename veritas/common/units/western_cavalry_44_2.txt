@@ -1,0 +1,19 @@
+# Harquebusier Cavalry
+
+type = cavalry
+
+maneuver = 2
+offensive_morale = 5
+defensive_morale = 5
+offensive_fire = 2
+defensive_fire = 0
+offensive_shock = 3
+defensive_shock = 3
+
+trigger = {
+	OR = {
+		unit_type = western
+		technology_group = western
+		technology_group = high_american
+	}
+}

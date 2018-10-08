@@ -1,0 +1,28 @@
+bookmark =
+{
+	name = "GRAND_CAMPAIGN_NAME"
+	desc = "GRAND_CAMPAIGN_DESC"
+	date = 1309.3.9
+
+	center = 135
+	default = yes
+	
+	country = BYZ
+	country = OSM
+	country = VEN
+	country = SWE
+	country = LUB
+	country = MOS
+	country = CAS
+	country = HAB
+	country = MAJ
+	country = KNI
+	country = LIT
+	country = OMA
+	country = ODA
+
+	easy_country = KNI
+	easy_country = LIT
+	easy_country = OMA
+	easy_country = ODA	
+}

@@ -1,0 +1,20 @@
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+primary_culture = nubian
+religion = coptic
+technology_group = sudanese_tech
+capital = 1692
+historical_rival = MAM
+historical_friend = BYZ
+historical_friend = ALW
+
+1304.1.1 = {
+	monarch = {
+		name= "Ayay"
+		dynasty = "Azim"
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+}

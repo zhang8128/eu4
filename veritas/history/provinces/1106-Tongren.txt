@@ -1,0 +1,28 @@
+# Tongren
+#Province IDs changed
+
+owner = YUN
+controller = YUN
+culture = cantonese
+religion = confucianism
+capital = "Bozhou"
+trade_goods = opium
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 2
+add_core = YUN
+is_city = yes
+discovered_by = chinese
+
+1355.1.1 = { owner = CXI controller = CXI add_core = CXI remove_core = YUN } #Red Turban Rebellion
+1371.1.1 = { owner = MNG controller = MNG add_core = MNG } # Destruction of Xia
+1594.1.1 = { unrest = 6 } # Rebels
+1599.1.1 = { unrest = 0 }
+1661.6.1 = {	owner = QNG
+		controller = QNG
+		add_core = QNG
+		remove_core = MNG
+} # The Qing Dynasty
+1674.1.1 = { controller = CZH }
+1680.1.1 = { controller = QNG }

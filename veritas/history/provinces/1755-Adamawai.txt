@@ -1,0 +1,16 @@
+# Adamawai
+
+capital = "Gwari"
+owner = ZZZ
+controller = ZZZ
+add_core = ZZZ
+culture = hausa
+religion = maguzawa
+trade_goods = iron
+base_tax = 1
+base_production = 1
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = sudanese_tech
+discovered_by = sub_saharan

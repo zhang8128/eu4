@@ -1,0 +1,10 @@
+#Loola
+#model = barque
+#tech_level = 0
+type = transport
+unit_type = indian
+
+hull_size = 8
+base_cannons = 8
+sail_speed = 10
+sailors = 100

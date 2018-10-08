@@ -1,0 +1,4 @@
+# Guayaguil Bay
+#Province IDs changed
+discovered_by = INC
+1528.1.1 = { discovered_by = SPA }

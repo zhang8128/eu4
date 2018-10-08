@@ -1,0 +1,3 @@
+# Great Salt Lake
+#Province IDs changed
+discovered_by = north_american

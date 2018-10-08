@@ -1,0 +1,63 @@
+country_decisions = {
+
+	make_constantinople_capital = {
+		potential = {
+			tag = TUR
+			normal_or_historical_nations = yes
+			NOT = { has_global_flag = ottoman_empire_formed }
+			NOT = { capital = 588 }
+			NOT = { has_country_flag = relocated_capital_constantinople }
+		}
+		allow = {
+			is_at_war = no
+			primary_culture = turkish
+			religion = sunni
+			num_of_cities = 35
+			owns = 588	# Constantinople
+			controls = 588
+			owns = 562		# Burgas	
+			owns = 587		# Thrace
+			owns = 602		# Bithynia
+			owns = 611		# Optimaton		
+		}
+		effect = {
+			set_country_flag = relocated_capital_constantinople
+			add_stability = 1
+			set_capital = 588
+			add_core = 588
+			588 = {
+				change_culture = turkish 
+				change_religion = sunni
+				rename_capital = Kostantiniyye
+				remove_province_modifier = "religious_center"
+				remove_province_modifier = "theodosian_walls"
+			}
+			if = {
+				limit = { NOT = { has_global_flag = constantinople_restored } }
+				588 = {
+					add_base_tax = 2
+					add_base_production = 2
+					add_base_manpower = 2
+				}
+				set_global_flag = constantinople_restored
+			}
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 4 } }
+				set_government_rank = 4
+			}
+			set_global_flag = ottoman_empire_formed
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		do_not_core = 588 # Constantinople
+		ai_importance = 2000
+	}
+}

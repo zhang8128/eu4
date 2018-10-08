@@ -1,0 +1,1980 @@
+# For regencies
+
+dauphin_regency_government = {
+	rank = {
+		1 = DAUPHIN
+	}
+	
+	ruler_male = {
+		1 = VEF_REGENT
+	}
+	
+	ruler_female  ={
+		1 = VEF_REGENT
+	}
+	
+	trigger = {
+		government = dauphin_government
+		has_country_flag = vef_regency
+	}
+}
+
+ottoman_regency_eyalet = {
+	rank = {
+		2 = PASHALIK
+	}	
+
+	ruler_male = {
+		2 = VEF_REGENT
+	}
+
+	ruler_female = {
+		2 = VEF_REGENT
+	}
+	
+	heir_male = {
+		2 = PASHAZADE
+	}
+
+	heir_female = {
+		2 = PASHAZADE
+	}
+	
+	trigger = {
+		government = ottoman_eyalet
+	}
+}
+
+ottoman_regency_ethnarchy = {
+	rank = {
+		2 = ETHNARCHY
+	}	
+
+	ruler_male = {
+		2 = VEF_REGENT
+	}
+
+	ruler_female = {
+		2 = VEF_REGENT
+	}
+	
+	trigger = {
+		government = ottoman_ethnarchy
+	}
+}
+
+ottoman_regency_marches = {
+	rank = {
+		1 = PASHALIK
+		2 = PASHALIK
+	}	
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+	}
+	
+	heir_male = {
+		1 = PASHAZADE
+		2 = PASHAZADE
+	}
+
+	heir_female = {
+		1 = PASHAZADE
+		2 = PASHAZADE
+	}
+	
+	trigger = {
+		has_country_flag = vef_regency
+		overlord = { primary_culture = turkish }
+		is_march = yes
+		religion_group = muslim
+	}
+}
+
+ottoman_regency_vassals = {
+	rank = {
+		1 = BEYLIK
+		2 = BEYLIK
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+	}
+	
+	heir_male = {
+		1 = BEYSADE
+		2 = BEYSADE
+	}
+
+	heir_female = {
+		1 = BEYSADI
+		2 = BEYSADI
+	}
+
+	trigger = {
+		has_country_flag = vef_regency
+		overlord = { primary_culture = turkish }
+		religion_group = muslim
+		government = monarchy
+		NOT = { is_march = yes }
+	}
+}
+
+march_christian_regency_monarchy = {
+	rank = {
+		1 = MARCH
+		2 = MARCH
+		3 = VICEROYALTY
+		4 = EMPIRE
+	}
+	
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		is_march = yes
+		has_country_flag = vef_regency
+		government = monarchy
+		religion_group = christian
+		NOT = { religion = orthodox }
+		NOT = { religion = coptic }
+		NOT = { religion = nestorian }
+	}
+}
+
+march_eastern_christian_regency_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+	}
+	
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+	}
+
+	trigger = {
+		is_march = yes
+		has_country_flag = vef_regency
+		government = monarchy
+		OR = {
+			religion = orthodox
+			religion = coptic
+			religion = nestorian
+		}
+	}
+}
+
+holy_roman_electors_regency_monarchy = {
+	rank = {
+		1 = COUNTY
+		2 = DUCHY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		is_elector = yes
+		has_country_flag = vef_regency
+		government = monarchy
+		is_emperor = no
+		NOT = { tag = HAB } #Archdukes
+	}
+}
+
+regency_sharifs_of_mecca = {
+	rank = {
+		1 = SHARIFATE
+		2 = SHARIFATE
+		3 = GREAT_SHARIFATE
+		4 = GRAND_SHARIFATE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		tag = HED
+		has_country_flag = vef_regency
+		religion_group = muslim
+	}
+}
+
+malian_regency_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		tag = MAL
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+#More Specific Monarchies
+persian_regency_monarchy = {
+	rank = {
+		1 = SHEIKHDOM
+		2 = SHEIKHDOM
+		3 = SHAHDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		culture_group = iranian
+		has_country_flag = vef_regency
+		NOT = { government = steppe_horde }
+		government = monarchy
+	}
+}
+
+somali_regency_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = PRINCEDOM
+		3 = SULTANATE
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+	
+	heir_male = {
+		1 = AMIR
+		2 = AMIR
+		3 = AMIR
+		4 = AMIR
+	}
+
+	heir_female = {
+		1 = AMIRAD
+		2 = AMIRAD
+		3 = AMIRAD
+		4 = AMIRAD
+	}
+
+	trigger = {
+		primary_culture = somali
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+lithuanian_regency_monarchy = {
+	rank = {
+		1 = GRAND_DUCHY
+		2 = GRAND_DUCHY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		tag = LIT
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+austrian_regency_monarchy = {
+	rank = {
+		1 = ARCHDUCHY
+		2 = ARCHDUCHY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		tag = HAB
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+turkish_regency_monarchy = {
+	rank = {
+		1 = BEYLIK
+		2 = BEYLIK
+		3 = SULTANATE
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+	
+	heir_male = {
+		1 = VALI_AHAD
+		2 = VALI_AHAD
+		3 = VALI_AHAD
+		4 = VALI_AHAD
+	}
+	heir_female = {
+		1 = VALI_AHAD
+		2 = VALI_AHAD
+		3 = VALI_AHAD
+		4 = VALI_AHAD
+	}
+
+	trigger = {
+		primary_culture = turkish
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+#theodoro_regency_monarchy = {
+#	rank = {
+#		1 = PRINCIPALITY
+#		2 = PRINCIPALITY
+#		3 = KINGDOM
+#		4 = EMPIRE
+#	}
+#
+#	ruler_male = {
+#		1 = VEF_REGENT
+#		2 = VEF_REGENT
+#		3 = VEF_REGENT
+#		4 = VEF_REGENT
+#	}
+#
+#	ruler_female = {
+#		1 = VEF_REGENT
+#		2 = VEF_REGENT
+#		3 = VEF_QUEEN_REGENT
+#		4 = VEF_REGENT
+#	}
+#
+#	trigger = {
+#		tag = FEO
+#		has_country_flag = vef_regency
+#		government = monarchy
+#	}
+#}
+
+croatian_regency_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		primary_culture = croatian
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+finnish_regency_monarchy = {
+	rank = {
+		1 = GRAND_DUCHY
+		2 = GRAND_DUCHY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		primary_culture = finnish
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+regency_grand_duchy_of_tuscany = {
+	rank = {
+		1 = GRAND_DUCHY
+		2 = GRAND_DUCHY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		tag = TUS
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+regency_grand_duchy_of_baden = {
+	rank = {
+		1 = COUNTY
+		2 = GRAND_DUCHY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		tag = BAD
+		has_country_flag = vef_regency
+		has_idea = bad_grand_duchy
+		government = monarchy
+	}
+}
+
+regency_grand_duchy_of_luxembourg = {
+	rank = {
+		1 = COUNTY
+		2 = GRAND_DUCHY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		tag = LUX
+		has_country_flag = vef_regency
+		government = monarchy
+		has_idea = lux_grand_duchy_of_luxembourg
+	}
+}
+
+serbian_feudal_regency_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+		3 = DESPOTATE
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		primary_culture = serbian
+		has_country_flag = vef_regency
+		OR = {
+			government = hereditary_monarchy
+			government = despotic_monarchy
+		}
+		religion = orthodox
+	}
+}
+
+serbian_regency_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		primary_culture = serbian
+		has_country_flag = vef_regency
+		government = monarchy #All later monarchies
+	}
+}
+
+byzantine_regency_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT 
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		has_country_flag = vef_regency
+		OR = {
+			tag = BYZ
+			tag = TRE
+			tag = EPI
+			tag = MOE
+		}
+		government = monarchy
+	}
+}
+
+greek_regency_monarchy = {	#Greeks without Byzantine Ties
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT 
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		has_country_flag = vef_regency
+		OR = {
+			primary_culture = greek
+			primary_culture = pontian
+		}
+		government = monarchy
+	}
+}
+
+arakanese_regency_monarchy = { #Buddhist state that used Muslim titles.
+	rank = {
+		1 = EMIRATE
+		2 = EMIRATE
+		3 = SULTANATE
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		tag = ARK
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+albanian_regency_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		tag = ALB
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+qing_regency_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+		3 = KHANATE
+		4 = KHAGANATE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		tag = QNG
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+egyptian_regency_monarchy = {
+	rank = {
+		1 = KHEDIVATE
+		2 = KHEDIVATE
+		3 = SULTANATE
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		primary_culture = al_misr_arabic #Egyptian
+		has_country_flag = vef_regency
+		government = enlightened_despotism
+		religion_group = muslim
+	}
+}
+
+pagan_egyptian_regency_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		has_country_flag = vef_regency
+		government = monarchy
+		OR = {
+			AND = {
+				primary_culture = al_misr_arabic #Egyptian
+				religion = animism
+			}
+			primary_culture = old_egyptian
+		}
+	}
+}
+
+pagan_greek_regency_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		has_country_flag = vef_regency
+		OR = {
+			AND = {
+				primary_culture = greek
+				religion = hellenic
+			}
+			primary_culture = athenian
+			primary_culture = spartan
+			primary_culture = atlantean
+		}
+	}
+}
+
+pagan_roman_regency_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		has_country_flag = vef_regency
+		government = monarchy
+		OR = {
+			AND = {
+				primary_culture = umbrian
+				religion = hellenic
+			}
+			primary_culture = roman
+		}
+	}
+}
+
+romanian_regency_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		primary_culture = romanian
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+hyderabad_state_regency_monarchy = {
+	rank = {
+		1 = NAWABATE
+		2 = NAWABATE
+		3 = NIZAMATE
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+	
+	heir_male = {
+		1 = NAWABZADA
+		2 = NAWABZADA
+		3 = NIZAMZADA
+		4 = SHAHZADE
+	}
+	
+	heir_female = {
+		1 = NAWAB_BEGUM
+		2 = NAWAB_BEGUM
+		3 = NIZAM_BEGUM
+		4 = PADISHAH_BEGUM
+	}
+
+	trigger = {
+		tag = DEC
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+muslim_indian_regency_monarchy = {
+	rank = {
+		1 = NAWABATE
+		2 = NAWABATE
+		3 = SULTANATE
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+	
+	heir_male = {
+		1 = NAWABZADA
+		2 = NAWABZADA
+		3 = MIRZA
+		4 = SHAHZADE
+	}
+	
+	heir_female = {
+		1 = NAWAB_BEGUM
+		2 = NAWAB_BEGUM
+		3 = NIZAM_BEGUM
+		4 = PADISHAH_BEGUM
+	}
+
+	trigger = {
+		religion_group = muslim
+		has_country_flag = vef_regency
+		government = monarchy
+		OR = {
+			culture_group = dravidian
+			culture_group = western_aryan
+			culture_group = hindusthani
+			culture_group = eastern_aryan
+		}
+	}
+}
+
+bharat_regency_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = PRINCEDOM
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+	
+	heir_male = {
+		1 = RAJKUMAR
+		2 = RAJKUMAR
+		3 = RAJKUMAR
+		4 = RAJKUMAR
+	}
+	
+	heir_female = {
+		1 = RAJKUMARI
+		2 = RAJKUMARI
+		3 = RAJKUMARI
+		4 = RAJKUMARI
+	}
+
+	trigger = {
+		tag = BHR
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+hindu_rajput_regency_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = PRINCEDOM
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+	
+	heir_male = {
+		1 = RAJKUMAR
+		2 = RAJKUMAR
+		3 = RAJKUMAR
+		4 = RAJKUMAR
+	}
+	
+	heir_female = {
+		1 = RAJKUMARI
+		2 = RAJKUMARI
+		3 = RAJKUMARI
+		4 = RAJKUMARI
+	}
+
+	trigger = {
+		primary_culture = rajput
+		has_country_flag = vef_regency
+		religion = hinduism
+		government = monarchy
+	}
+}
+
+#maratha_regency_peshwas = {
+#	rank = {
+#		1 = PRINCEDOM
+#		2 = PRINCEDOM
+#		3 = KINGDOM
+#		4 = EMPIRE
+#	}
+#
+#	ruler_male = {
+#		1 = VEF_REGENT
+#		2 = VEF_REGENT
+#		3 = VEF_REGENT
+#		4 = VEF_REGENT
+#	}
+#
+#	ruler_female = {
+#		1 = VEF_REGENT
+#		2 = VEF_REGENT
+#		3 = VEF_QUEEN_REGENT
+#		4 = VEF_REGENT
+#	}
+#	
+#	heir_male = {
+#		1 = RAJKUMAR
+#		2 = RAJKUMAR
+#		3 = RAJKUMAR
+#		4 = RAJKUMAR
+#	}
+#	
+#	heir_female = {
+#		1 = RAJKUMARI
+#		2 = RAJKUMARI
+#		3 = RAJKUMARI
+#		4 = RAJKUMARI
+#	}
+#
+#	trigger = {
+#		primary_culture = marathi
+#		has_country_flag = vef_regency
+#		religion = hinduism
+#		government = administrative_monarchy
+#	}
+#}
+
+hindu_maratha_regency_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = PRINCEDOM
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+	
+	heir_male = {
+		1 = RAJKUMAR
+		2 = RAJKUMAR
+		3 = RAJKUMAR
+		4 = RAJKUMAR
+	}
+	
+	heir_female = {
+		1 = RAJKUMARI
+		2 = RAJKUMARI
+		3 = RAJKUMARI
+		4 = RAJKUMARI
+	}
+
+	trigger = {
+		primary_culture = marathi
+		has_country_flag = vef_regency
+		religion = hinduism
+		government = monarchy
+	}
+}
+
+#kaffa_regency_monarchy = {
+#	rank = {
+#		1 = PRINCEDOM
+#		2 = PRINCEDOM
+#		3 = KINGDOM
+#		4 = EMPIRE
+#	}
+#
+#	ruler_male = {
+#		1 = VEF_REGENT
+#		2 = VEF_REGENT
+#		3 = VEF_REGENT
+#		4 = VEF_REGENT
+#	}
+#
+#	ruler_female = {
+#		1 = VEF_REGENT
+#		2 = VEF_REGENT
+#		3 = VEF_QUEEN_REGENT
+#		4 = VEF_REGENT
+#	}
+#
+#	trigger = {
+#		tag = KAF
+#		government = monarchy
+#	}
+#}
+
+ethiopian_regency_monarchies = {
+	rank = {
+		1 = PRINCEDOM
+		2 = PRINCEDOM
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+	
+	heir_male = {
+		1 = ABETO
+		2 = ABETO
+		3 = ABETO
+		4 = ABETO
+	}
+	
+	heir_female = {
+		1 = LE_ELT
+		2 = LE_ELT
+		3 = LE_ELT
+		4 = LE_ELT
+	}
+
+	trigger = {
+		has_country_flag = vef_regency
+		OR = {
+			primary_culture = amharic
+			primary_culture = tigray
+		}
+		religion_group = christian
+		government = monarchy
+	}
+}
+
+lunda_regency_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = PRINCEDOM
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		has_country_flag = vef_regency
+		government = monarchy
+		OR = {
+			primary_culture = balunda
+			primary_culture = baluba
+		}
+	}
+}
+
+mutapa_regency_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = PRINCEDOM
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		tag = ZIM
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+#Less Specific Monarchies
+
+south_slavic_regency_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		culture_group = south_slavic
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+irish_regency_monarchy = {
+	rank = {
+		1 = EARLDOM
+		2 = EARLDOM
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		primary_culture = irish
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+vol_hal_regency_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = GRAND_PRINCIPALITY
+		3 = GRAND_PRINCIPALITY
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT	
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		has_country_flag = vef_regency
+		OR = {
+			tag = KAL
+			tag = VOL
+		}
+		government = monarchy
+	}
+}
+
+russian_regency_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = GRAND_PRINCIPALITY
+		3 = TSARDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		has_country_flag = vef_regency
+		OR = {
+			culture_group = east_slavic
+			tag = PRM
+		}
+		government = monarchy
+	}
+}
+
+inti_regency_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		religion = incan
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+mayan_regency_monarchy = {
+	rank = {
+		1 = CAH
+		2 = CAH
+		3 = KUCHKABAL
+		4 = GREAT_LEAGUE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		religion = popol
+		has_country_flag = vef_regency
+		OR = {
+			government = monarchy
+			government = tribal_democracy
+		}
+	}
+}
+
+nahuatl_regency_monarchy = {
+	rank = {
+		1 = ALTEPETL
+		2 = ALTEPETL
+		3 = ALTEPETL_FEDERATION
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		religion = xochiyaoyotl
+		has_country_flag = vef_regency
+		OR = {
+			government = monarchy
+			government = tribal_democracy
+		}
+	}
+}
+
+chinese_regency_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = PRINCEDOM
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		culture_group = east_asian #Chinese
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+hindu_regency_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = PRINCEDOM
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+	
+	heir_male = {
+		1 = RAJKUMAR
+		2 = RAJKUMAR
+		3 = RAJKUMAR
+		4 = RAJKUMAR
+	}
+	
+	heir_female = {
+		1 = RAJKUMARI
+		2 = RAJKUMARI
+		3 = RAJKUMARI
+		4 = RAJKUMARI
+	}
+
+	trigger = {
+		religion = hinduism
+		has_country_flag = vef_regency
+		government = monarchy
+	}
+}
+
+buddhist_regency_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = PRINCEDOM
+		3 = KINGDOM
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		has_country_flag = vef_regency
+		OR = {
+			religion = buddhism #Theravada
+			religion = vajrayana
+			religion = mahayana
+		}
+		government = monarchy
+		NOT = { government = steppe_horde }
+		NOT = { government = tribal_democracy }
+		NOT = { government = tribal_despotism }
+		NOT = { government = tribal_federation }
+	}
+}
+
+muslim_regency_monarchy = {
+	rank = {
+		1 = EMIRATE
+		2 = EMIRATE
+		3 = SULTANATE
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = SHAHZADE
+		4 = SHAHZADE
+	}
+	
+	heir_female = {
+		1 = HEIR
+		2 = HEIR
+		3 = SHAHZADE
+		4 = SHAHZADE
+	}
+
+	trigger = {
+		religion_group = muslim
+		has_country_flag = vef_regency
+		government = monarchy
+		NOT = { government = steppe_horde }
+	}
+}
+
+buddhist_regency_noble_republic = {
+	rank = {
+		1 = PRINCEDOM
+		2 = PRINCEDOM
+		3 = GRAND_PRINCEDOM
+		4 = GREAT_PRINCEDOM
+	}
+
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+
+	trigger = {
+		has_country_flag = vef_regency
+		OR = {
+			religion = buddhism #Theravada
+			religion = vajrayana
+			religion = mahayana
+		}
+		government = noble_republic
+	}
+}
+
+regency_noble_republic = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+		3 = GRAND_PRINCIPALITY
+		4 = GREAT_PRINCIPALITY
+	}
+	
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+	
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+	
+	trigger = {
+		government = noble_republic
+		has_country_flag = vef_regency
+	}
+}
+
+regency_gov_united_japan = {
+	rank = {
+		3 = EMPIRE
+		4 = EMPIRE
+	}
+
+	ruler_male = {
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+	
+	ruler_female = {
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+	
+	trigger = {
+		has_country_flag = vef_regency
+		OR = {
+			government = united_japan
+		}
+	}
+}
+
+regency_gov_shogunate = {
+	rank = {
+		2 = SHOGUNATE
+	}
+
+	ruler_male = {
+		2 = VEF_REGENT
+	}
+	
+	ruler_female = {
+		2 = VEF_REGENT
+	}
+	
+	trigger = {
+		is_papal_controller = yes
+		has_country_flag = vef_regency
+		government = daimyo
+	}
+}
+
+regency_gov_daimyo = {
+	rank = {
+		2 = DAIMYO
+	}
+	
+	ruler_male = {
+		2 = VEF_REGENT
+	}
+	
+	ruler_female = {
+		2 = VEF_REGENT
+	}
+	
+	trigger = {
+		government = daimyo
+		has_country_flag = vef_regency
+	}
+}
+
+regency_gov_indep_daimyo = {
+	rank = {
+		1 = INDEP_DAIMYO
+		2 = INDEP_DAIMYO
+		3 = GRAND_INDEP_DAIMYO
+		4 = GREAT_INDEP_DAIMYO
+	}
+	
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+	
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+	
+	trigger = {
+		government = indep_daimyo
+		has_country_flag = vef_regency
+	}
+}
+
+default_regency_monarchy = {
+	rank = {
+		1 = COUNTY
+		2 = DUCHY
+		3 = KINGDOM
+		4 = EMPIRE
+	}	
+	
+	ruler_male = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT
+		3 = VEF_REGENT
+		4 = VEF_REGENT
+	}
+	
+	ruler_female = {
+		1 = VEF_REGENT
+		2 = VEF_REGENT	
+		3 = VEF_QUEEN_REGENT
+		4 = VEF_REGENT
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+	}
+	
+	heir_female = {
+		1 = HEIR
+		2 = HEIR	
+		3 = HEIR
+		4 = HEIR
+	}
+	
+	trigger = {
+		government = monarchy
+		has_country_flag = vef_regency
+	}
+}

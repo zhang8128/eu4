@@ -1,0 +1,21 @@
+# Metztitlan
+
+capital = "Metztitlan"
+owner = TOT
+controller = TOT
+add_core = TOT
+culture = totonac
+religion = xochiyaoyotl
+trade_goods = maize
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+hre = no
+
+discovered_by = mesoamerican
+add_local_autonomy = 25
+
+1521.8.13  = { owner = SPA controller = SPA citysize = 2150 culture = castillian religion = catholic } # Fall of Tenochtitlan
+1546.1.1  = { add_core = SPA }
+1810.9.16 = { owner = MEX add_core = MEX controller = MEX } # Mexican War of Independence

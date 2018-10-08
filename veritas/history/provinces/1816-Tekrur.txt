@@ -1,0 +1,15 @@
+# Tekrur
+
+capital = "Tekrur"
+owner = JOL
+controller = JOL
+add_core = JOL
+culture = wolof
+religion = serer
+trade_goods = cloth
+base_tax = 1
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = sudanese_tech

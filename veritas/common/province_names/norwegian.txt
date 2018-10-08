@@ -1,0 +1,10 @@
+#Province IDs changed
+1 = "Vesterbygd"
+2 = "Austerbygd"
+5 = "Færøyene"
+6 = "Hjaltland"
+7 = "Orknøyene"
+400 = "Båhuslen"
+410 = "Jemtland"
+425 = "Finnmark"
+426 = "Finske Sameland"

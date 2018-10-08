@@ -1,0 +1,107 @@
+# Modified for VeF by Penguintopia
+
+war_of_the_roses = {
+	potential = {
+		tag = ENG
+		normal_or_historical_nations = yes
+		government = monarchy
+		is_free_or_tributary_trigger = yes
+		uses_doom = no
+		NOT = { has_country_flag = had_war_of_the_roses  }
+		OR = {
+			has_country_flag = 100war_succession_dispute
+			has_country_flag = 100war_over
+		}
+	}
+
+	can_start = {
+		current_age = age_of_discovery
+		has_any_disaster = no
+		has_heir = no
+		custom_trigger_tooltip = {
+			NOT = { has_regency_trigger = yes }
+			tooltip = no_regency
+		}
+		is_lesser_in_union = no
+		has_country_flag = 100war_over
+	}
+	
+	can_stop = { 
+		OR = {
+			has_any_disaster = yes
+			has_heir = yes
+			custom_trigger_tooltip = {
+				has_regency_trigger = yes
+				tooltip = yes_regency
+			}
+			is_lesser_in_union = yes
+		}
+	}
+	
+	progress = {
+		modifier = {
+			factor = 1
+			NOT = { legitimacy = 90 }
+		}
+		modifier = {
+			factor = 3
+			has_ruler_modifier = low_fertility
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { dynasty = York }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { dynasty = Lancaster }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { stability = 1 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { ADM = 2 }
+		}		
+		modifier = {
+			factor = 0.5
+			NOT = { DIP = 2 }
+		}		
+		modifier = {
+			factor = 0.5
+			NOT = { MIL = 2 }
+		}		
+		
+	}
+	
+	can_end = {
+		OR = {
+			YOR = {
+				war_with = LAN
+				war_score = 65
+			}
+			LAN = {
+				war_with = YOR
+				war_score = 65
+			}
+		}
+	}
+
+	modifier = {
+		possible_mercenaries = 0.125
+		global_trade_goods_size_modifier = -0.10
+	}	
+
+
+	on_start = flavor_gbr.20000
+	on_end = flavor_gbr.20003
+	
+	on_monthly = {
+		events = {
+		}
+		random_events = { 
+			1000 = 0	
+		}
+	}
+}
+

@@ -1,0 +1,4 @@
+# Sea Of Ternete
+#Province IDs changed
+discovered_by = chinese
+1512.1.1 = { discovered_by = POR }

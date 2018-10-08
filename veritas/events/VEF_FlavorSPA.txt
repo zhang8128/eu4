@@ -1,0 +1,1555 @@
+namespace = flavor_spa
+normal_or_historical_nations = yes
+
+#Generic Historical Events
+#1 Reconciliation of Toledo
+#2 Reconciliation - Inform Castile
+#3 Iberian Wedding
+#4 Conquest of Melilla
+#5 Conquest of Oran
+#6 Move the Court?
+
+#Spanish Inquisition
+#100 Inquisition Ends
+#101 Morisco Revolt
+
+#Castilian Civil War Events
+#200 Henry into Toledo
+#201 Castile Responds?
+#202 Henry stages revolt
+#203 Henry succeeds
+#204 Henry fails
+
+#Galicia Changes Hands (Response to Henry's victory)
+#210 Galicia Changes Union
+#211 Option for England, Aragon, Portugal to express interest
+#212 Galicia Decides
+#213 Inform new overlord
+#214 CAS - Galicia declared independence
+#215 CAS - Galicia under new overlord
+#216 ENG/POR/ARA - Galicia turned us down
+#217 Portugal Return Galicia?
+#218 CAS - Portugal Returns Galicia
+#219 CAS - Portugal Refuses
+
+#Castilian/Spanish Exploration
+#300 Conquista Senorial (Canary Islands)
+#301 Conquista Realenga (Canary Islands )
+#302 First Voyage of Columbus
+#303 Second Voyage of Columbus
+
+#Habsburgs in Spain
+#400 Spain Inherits Low Countries
+#401 Habsburgs in Spain (for non-AI in HAB or doesn't inherit from BUR )
+
+#####################
+# HISTORICAL EVENTS #
+#####################
+
+#Reconciliation of Toledo
+country_event = {
+	id = flavor_spa.1
+	title = "flavor_spa.1.t"
+	desc = "flavor_spa.1.d"
+	picture = VEF_RELIGION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TOL
+		is_subject = no
+		NOT = { started_in = 1340.1.1 }
+		started_in = 1328.1.1
+		is_at_war = no
+		exists = CAS
+	}
+	
+	mean_time_to_happen = { months = 24 }
+	
+	option = {
+		name = "flavor_spa.1.opta"
+		ai_chance = { factor = 95 }
+		kill_ruler = yes
+		CAS = {
+			create_subject = { who = TOL subject_type = suzerainty }
+			country_event = { id = flavor_spa.2 days = 1 }
+		}
+	}
+	
+	option = {
+		name = "flavor_spa.1.optb"
+		ai_chance = { factor = 5 }
+		change_variable = { which = national_stability value = -500 }
+	}
+}
+
+#Reconciliation of Toledo - Inform Castile
+country_event = {
+	id = flavor_spa.2
+	title = "flavor_spa.2.t"
+	desc = "flavor_spa.2.d"
+	picture = VEF_RELIGION_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_spa.2.opta"
+	}
+}
+
+# The Iberian Wedding
+country_event = {
+	id = flavor_spa.3
+	title = "flavor_spa.3.t"
+	desc = "flavor_spa.3.d"
+	picture = VEF_DIPLOMACY_eventPicture
+
+	major = yes
+	
+	fire_only_once = yes	
+	
+	trigger = {
+		NOT = { exists = SPA }
+		OR = {
+			AND = {
+				tag = CAS
+				NOT = { war_with = ARA }
+				ARA = {
+					exists = yes
+					ai = yes
+					was_player = no
+					is_subject = no
+					is_neighbor_of = ROOT
+				}
+			}
+			AND = {
+				tag = ARA
+				NOT = { war_with = CAS }
+				ai = no
+				CAS = {
+					exists = yes
+					ai = yes
+					was_player = no
+					is_subject = no
+					is_neighbor_of = ROOT
+				}
+			}
+		}
+		is_year = 1450
+		NOT = { is_year = 1530 }
+		NOT = { has_regency_trigger = yes }
+		is_subject = no
+		num_of_cities = 14
+		OR = {
+			AND = {
+				CAS = { is_female = yes }
+				ARA = { is_female = no }
+			}
+			AND = {
+				CAS = { is_female = no }
+				ARA = { is_female = yes }
+			}
+			ARA = {
+				has_regency_trigger = yes
+			}
+			CAS = {
+				has_regency_trigger = yes
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.1
+			OR = {
+				AND = {
+					tag = CAS
+					ARA = {
+						NOT = { has_regency_trigger = yes }
+					}
+				}
+				AND = {
+					tag = ARA
+					CAS = { 
+						NOT = { has_regency_trigger = yes }
+					}
+				}
+			}
+		}
+	}
+	
+	
+	option = {		# Let us bind their Dynasty to ours
+		name = "flavor_spa.3.opta"
+		ai_chance = { factor = 95 }
+		if = {
+			limit = { tag = CAS }
+			create_union = ARA
+			add_opinion = {
+				who = ARA
+				modifier = spa_iberian_wedding
+			}
+			ARA = {
+				add_opinion = {
+					who = ROOT
+					modifier = spa_iberian_wedding
+				}
+				add_liberty_desire = -50
+			}
+			every_known_country = {
+				limit = {
+					marriage_with = ARA
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = spa_iberian_wedding_negative
+				}
+			}
+		}
+		if = {
+			limit = { tag = ARA }
+			create_union = CAS
+			add_opinion = {
+				who = CAS
+				modifier = spa_iberian_wedding
+			}
+			CAS = {
+				add_opinion = {
+					who = ROOT
+					modifier = spa_iberian_wedding
+				}
+				add_liberty_desire = -50
+			}
+			every_known_country = {
+				limit = {
+					marriage_with = CAS
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = spa_iberian_wedding_negative
+				}
+			}
+		}
+		if = {
+			limit = {
+				GRA = {
+					is_subject_of_type = taifa_subject
+					OR = {
+						is_subject_of = CAS
+						is_subject_of = ARA
+					}
+				}
+			}
+			GRA = { grant_independence = yes }
+		}
+		random_owned_province = {
+			limit = { is_capital = no }
+			spawn_rebels = {
+				type = noble_rebels
+				size = 3
+			}
+		}
+	}
+	option = {		# No let us marry a local talent instead
+		name = "flavor_spa.3.optb"
+		ai_chance = { factor = 5 }
+		add_national_stability_or_adm_power = yes
+		if = {
+			limit = { has_consort = no }
+			define_consort = {
+				ADM = 2
+				MIL = 2
+				DIP = 2
+			}
+		}
+	}
+}
+
+# Conquest of Melilla
+country_event = {
+	id = flavor_spa.4
+	title = "flavor_spa.4.d"
+	desc = "flavor_spa.4.d"
+	picture = VEF_BATTLE_eventPicture
+
+	is_triggered_only = yes #on_actions/on_war_won
+	
+	fire_only_once = yes	
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = CAS
+				NOT = { exists = SPA }
+			}
+			tag = SPA
+		}
+		1660 = { owned_by = ROOT }
+		NOT = { is_year = 1497 }
+	}
+
+	option = {	
+		name = "flavor_spa.4.opta"
+		add_prestige = 5
+		add_years_of_income = 0.05
+	}
+}
+
+# Conquest of Oran
+country_event = {
+	id = flavor_spa.5
+	title = "flavor_spa.5.d"
+	desc = "flavor_spa.5.d"
+	picture = VEF_BATTLE_eventPicture
+
+	is_triggered_only = yes #on_actions/on_war_won
+	
+	fire_only_once = yes	
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = CAS
+				NOT = { exists = SPA }
+			}
+			tag = SPA
+		}
+		1657 = { owned_by = ROOT }
+		NOT = { is_year = 1509 }
+	}
+
+	option = {	
+		name = "flavor_spa.5.opta"
+		add_prestige = 10
+		add_years_of_income = 0.075
+	}
+}
+
+# New Spanish Court?
+country_event = {
+	id = flavor_spa.6
+	title = "flavor_spa.6.t"
+	desc = "flavor_spa.6.d"
+	picture = VEF_CITY_DEVELOPMENT_eventPicture
+	
+	fire_only_once = yes
+	
+	
+	trigger = {
+		tag = SPA
+		NOT = { capital = 85 } #Madrid
+		is_year = 1520
+		owns_core_province = 85 #Madrid
+		NOT = { is_year = 1580 }
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+	}
+	
+
+	option = {		# Move the Court to Madrid
+		name = "flavor_spa.6.opta"
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0
+				NOT = { primary_culture = castillian }
+			}
+		}
+		set_capital = 85
+	}
+	
+	option = {		# Move the Court to Sevilla
+		trigger = { owns_core_province = 96 NOT = { capital = 96 }}
+		name = "flavor_spa.6.optb"
+		ai_chance = { factor = 0 }
+		set_capital = 96
+		if = {
+			limit = { owns_core_province = 82 }
+			82 = {
+				add_province_modifier = {
+					name = "court_in_sevilla"
+					duration = 7300
+				}
+			}
+		}
+		if = {
+			limit = { owns_core_province = 85 }
+			85 = {
+				add_province_modifier = {
+					name = "court_in_sevilla"
+					duration = 7300
+				}
+			}
+		}
+		if = {
+			limit = { owns_core_province = 107 }
+			107 = {
+				add_province_modifier = {
+					name = "court_in_sevilla"
+					duration = 7300
+				}
+			}
+		}
+	}
+	
+	option = {		# Move the Court to Castile
+		trigger = { owns_core_province = 82 NOT = { capital = 82 }}
+		name = "flavor_spa.6.optc"
+		ai_chance = { factor = 0 }
+		set_capital = 82
+	}
+	
+	option = {		# Move the Court to Barcelona
+		trigger = { owns_core_province = 107 NOT = { capital = 107 }}
+		name = "flavor_spa.6.optd"
+		ai_chance = { factor = 0 }
+		set_capital = 107
+	}
+	
+	option = {		# Move the Court to Toledo
+		trigger = { owns_core_province = 87 NOT = { capital = 87 }}
+		name = "flavor_spa.6.opte"
+		ai_chance = { factor = 0 }
+		set_capital = 87
+	}
+	
+	option = {		# Keep the capital
+		name = "flavor_spa.6.optf"
+		ai_chance = { factor = 10 }
+		add_national_stability_or_adm_power = yes
+	}
+}
+
+#######################
+# SPANISH INQUISITION #
+#######################
+
+# Involuntary end of the Inquisition
+country_event = {
+	id = flavor_spa.100
+	title = "flavor_spa.100.t"
+	desc = "flavor_spa.100.d"
+	
+	picture = VEF_RELIGION_eventPicture
+	
+	trigger = {
+		has_country_modifier = the_spanish_inquisition
+		OR = {
+			NOT = { religion = catholic }
+			is_subject = yes
+			government = republic
+		}
+	}
+	
+	option = {
+		name = "flavor_spa.100.opta"
+		remove_country_modifier = the_spanish_inquisition
+	}
+}
+
+# Morisco Revolt 1568 to 1570
+country_event = {
+	id = flavor_spa.101
+	title = "flavor_spa.101.t"
+	desc = "flavor_spa.101.d"
+	
+	picture = VEF_ANGRY_MOB_eventPicture
+	
+	trigger = {
+		has_country_modifier = the_spanish_inquisition
+		has_country_modifier = religious_turmoil
+		NOT = { has_country_modifier = moriscos_revolting }
+		NOT = { has_country_flag = morisco_revolt_event }
+		any_owned_province = { has_province_modifier = moriscos }
+	}
+	
+	mean_time_to_happen = { months = 180 }
+	
+	immediate = { set_country_flag = morisco_revolt_event }
+	
+	option = {
+		name = "flavor_spa.101.opta"
+		if = {
+			limit = { NOT = { has_country_modifier = the_morisco_revolt }}
+			add_country_modifier = { name = "the_morisco_revolt" duration = -1 }
+		}
+		add_country_modifier = { name = "moriscos_revolting" duration = 730 }
+		# Aragon
+		if = {
+			limit = { owns_or_vassal_of = 106 }
+			106 = { 
+				add_unrest = 4
+				random = {
+					chance = 33
+					spawn_rebels = { type = moorish_rebels size = 1 }
+				}
+			}
+		}
+		# Valencia
+		if = {
+			limit = { owns_or_vassal_of = 103 }
+			103 = { 
+				add_unrest = 4
+				random = {
+					chance = 33
+					spawn_rebels = { type = moorish_rebels size = 1 }
+				}
+			}
+		}
+		# Cordoba
+		if = {
+			limit = { owns_or_vassal_of = 92 }
+			92 = { 
+				add_unrest = 4
+				random = {
+					chance = 33
+					spawn_rebels = { type = moorish_rebels size = 1 }
+				}
+			}
+		}
+		# Murcia
+		if = {
+			limit = { owns_or_vassal_of = 89 }
+			89 = { 
+				add_unrest = 4
+				random = {
+					chance = 33
+					spawn_rebels = { type = moorish_rebels size = 1 }
+				}
+			}
+		}
+		every_owned_province = {
+			limit = { has_province_modifier = moriscos }
+			add_unrest = 8
+			spawn_rebels = { type = moorish_rebels size = 1 }
+		}
+	}
+}
+
+
+#######################
+# CASTILIAN CIVIL WAR #
+#######################
+
+# Henry gains Toledo
+country_event = {
+	id = flavor_spa.200
+	title = "flavor_spa.200.t"
+	desc = "flavor_spa.200.d"
+	picture = VEF_COURT_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TOL
+		CAS = { has_country_flag = henry_trastamara }
+		is_year = 1350
+	}
+	
+	mean_time_to_happen = { months = 12 }
+	
+	immediate = {
+		if = {
+			limit = { TOL = { is_subject_of = CAS }}
+			CAS = {
+				create_subject = { who = TOL subject_type = suzerainty }
+				clr_country_flag = henry_trastamara
+			}
+		}
+		define_ruler = {
+			name = "Enrique II"
+			dynasty = "de Trastámara"
+			adm = 3
+			dip = 2
+			mil = 2
+			fixed = yes
+		}
+		hidden_effect = { clear_existing_royals = yes kill_heir = yes }
+		set_ruler_flag = ambitious_vassal
+		set_ruler_flag = henry_trastamara
+		add_casus_belli = {
+			type = cb_claim_throne
+			target = CAS
+			months = 2400
+		}
+		add_historical_friend = FRA
+		FRA = { add_historical_friend = TOL }
+	}
+	
+	option = {
+		name = "flavor_spa.200.opta"
+		CAS = { country_event = { id = flavor_spa.201 days = 7 }}
+	}
+}
+
+# Henry gains Toledo - Should Castile respond?
+country_event = {
+	id = flavor_spa.201
+	title = "flavor_spa.201.t"
+	desc = "flavor_spa.201.d"
+	picture = VEF_COURT_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_spa.201.opta"
+		ai_chance = { factor = 95 }
+	}
+	
+	option = {
+		name = "flavor_spa.201.optb"
+		ai_chance = { factor = 5 }
+		free_vassal = TOL
+		declare_war = TOL
+	}
+}
+
+# Henry stages revolt
+# Mostly this is to help the AI figure out that it should be declaring war
+country_event = {
+	id = flavor_spa.202
+	title = "flavor_spa.202.t"
+	desc = "flavor_spa.202.d"
+	picture = VEF_COURT_eventPicture
+
+	major = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = TOL
+		has_ruler_flag = henry_trastamara
+	}
+	
+	mean_time_to_happen = { months = 180 }
+	
+	option = {
+		name = "flavor_spa.202.opta"
+		ai_chance = { factor = 100 }
+		declare_war_with_cb = {
+			who = CAS
+			casus_belli = cb_claim_throne
+		}
+	}
+	
+	option = {
+		name = "flavor_spa.202.optb"
+		ai_chance = { factor = 0 }
+		add_prestige = -10
+	}
+}
+
+# Henry victorious
+country_event = {
+	id = flavor_spa.203
+	title = "flavor_spa.203.t"
+	desc = "flavor_spa.203.d"
+	picture = VEF_COURT_eventPicture
+
+	major = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = TOL
+		has_ruler_flag = henry_trastamara
+		war_score_against = { who = CAS value = 60 }
+	}
+	
+	option = {
+		name = "flavor_spa.203.opta"
+		clr_ruler_flag = henry_trastamara
+		hidden_effect = {
+			GAL = { country_event = { id = flavor_spa.210 days = 30 }}
+			remove_historical_friend = FRA
+			FRA = { remove_historical_friend = TOL }
+			create_marriage = ARA
+			create_alliance = ARA
+		}
+		white_peace = CAS
+		every_province = { limit = { is_core = CAS } add_core = ROOT }
+		inherit = CAS
+		change_tag = CAS
+		swap_non_generic_missions = yes
+		create_union = LEO
+	}
+}
+
+# Henry defeated
+country_event = {
+	id = flavor_spa.204
+	title = "flavor_spa.204.t"
+	desc = "flavor_spa.204.d"
+	picture = VEF_COURT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = CAS
+		TOL = { has_ruler_flag = henry_trastamara }
+		war_score_against = { who = TOL value = 60 }
+	}
+	
+	option = {
+		name = "flavor_spa.204.opta"
+		TOL = { clr_ruler_flag = henry_trastamara }
+		inherit = TOL
+		hidden_effect = {
+			create_marriage = ARA
+			create_alliance = ARA
+		}
+	}
+}
+
+
+##################
+# GALICIAN CROWN #
+##################
+
+# Galicia shifts allegiance
+country_event = {
+	id = flavor_spa.210
+	title = "flavor_spa.210.t"
+	desc = "flavor_spa.210.d"
+	picture = VEF_COURT_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = { set_country_flag = galician_independence_option }
+	
+	option = {
+		name = "flavor_spa.210.opta"
+		ai_chance = { factor = 10 }
+		CAS = { country_event = { id = flavor_spa.214 }}
+		GAL = { break_union = CAS }
+	}
+	
+	option = {
+		name = "flavor_spa.210.optb"
+		ai_chance = { factor = 90 }
+		POR = { country_event = { id = flavor_spa.211 }}
+		ENG = { country_event = { id = flavor_spa.211 }}
+		ARA = { country_event = { id = flavor_spa.211 }}
+	}
+}
+
+# Option for England, Aragon, and Portugal to express interest
+country_event = {
+	id = flavor_spa.211
+	title = "flavor_spa.211.t"
+	desc = "flavor_spa.211.d"
+	picture = VEF_COURT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		trigger = {
+			tag = ENG
+			NOT = { alliance_with = CAS }
+		}
+		ai_chance = { factor = 75 }
+		name = "flavor_spa.211.opta"
+		GAL = {
+			set_country_flag = eng_decided_galicia
+			set_country_flag = eng_will_accept_crown
+		}
+		reverse_add_opinion = { who = CAS modifier = meddled_in_galicia }
+	}
+	
+	option = {
+		trigger = {
+			tag = ENG
+			alliance_with = CAS
+		}
+		ai_chance = { factor = 5 }
+		name = "flavor_spa.211.opta"
+		GAL = {
+			set_country_flag = eng_decided_galicia
+			set_country_flag = eng_will_accept_crown
+		}
+		reverse_add_opinion = { who = CAS modifier = meddled_in_galicia }
+	}
+	
+	option = { 
+		trigger = { tag = ENG }
+		ai_chance = { factor = 25 }
+		name = "flavor_spa.211.optb"
+		GAL = {
+			set_country_flag = eng_decided_galicia
+			set_country_flag = eng_will_decline_crown
+		}
+	}
+	
+	option = {
+		trigger = {
+			tag = ARA
+			NOT = { alliance_with = CAS }
+		}
+		ai_chance = { factor = 75 }
+		name = "flavor_spa.211.opta"
+		GAL = {
+			set_country_flag = ara_decided_galicia
+			set_country_flag = ara_will_accept_crown
+		}
+		reverse_add_opinion = { who = CAS modifier = meddled_in_galicia }
+	}
+	
+	option = {
+		trigger = {
+			tag = ARA
+			alliance_with = CAS
+		}
+		ai_chance = { factor = 5 }
+		name = "flavor_spa.211.opta"
+		GAL = {
+			set_country_flag = ara_decided_galicia
+			set_country_flag = ara_will_accept_crown
+		}
+		reverse_add_opinion = { who = CAS modifier = meddled_in_galicia }
+	}
+	
+	option = { 
+		trigger = { tag = ARA }
+		ai_chance = { factor = 25 }
+		name = "flavor_spa.211.optb"
+		GAL = {
+			set_country_flag = ara_decided_galicia
+			set_country_flag = ara_will_decline_crown
+		}
+	}
+	
+	option = {
+		trigger = {
+			tag = POR
+			NOT = { alliance_with = CAS }
+		}
+		ai_chance = { factor = 90 }
+		name = "flavor_spa.211.opta"
+		GAL = {
+			set_country_flag = por_decided_galicia
+			set_country_flag = por_will_accept_crown
+		}
+		reverse_add_opinion = { who = CAS modifier = meddled_in_galicia }
+	}
+	
+	option = {
+		trigger = {
+			tag = POR
+			alliance_with = CAS
+		}
+		ai_chance = { factor = 40 }
+		name = "flavor_spa.211.opta"
+		GAL = {
+			set_country_flag = por_decided_galicia
+			set_country_flag = por_will_accept_crown
+		}
+		reverse_add_opinion = { who = CAS modifier = meddled_in_galicia }
+	}
+	
+	option = { 
+		trigger = { tag = POR }
+		ai_chance = { factor = 10 }
+		name = "flavor_spa.211.optb"
+		GAL = {
+			set_country_flag = por_decided_galicia
+			set_country_flag = por_will_decline_crown
+		}
+	}
+}
+
+# Galicia Decides
+country_event = {
+	id = flavor_spa.212
+	title = "flavor_spa.212.t"
+	desc = "flavor_spa.212.d"
+	picture = VEF_COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = GAL
+		NOT = { has_country_flag = left_castillian_crown }
+		OR = {
+			has_country_flag = eng_decided_galicia
+			NOT = { exists = ENG }
+		}
+		OR = {
+			has_country_flag = ara_decided_galicia
+			NOT = { exists = ARA }
+		}
+		OR = {
+			has_country_flag = por_decided_galicia
+			NOT = { exists = POR }
+		}
+	}
+	
+	immediate = { set_country_flag = left_castillian_crown }
+	
+	option = { 	# Portuguese Union
+		trigger = { has_country_flag = por_will_accept_crown }
+		ai_chance = { factor = 70 }
+		name = "flavor_spa.212.opta"
+		GAL = { break_union = CAS }
+		POR = {
+			create_union = GAL
+			country_event = { id = flavor_spa.213 }
+		}
+		ENG = { country_event = { id = flavor_spa.216 }}
+		ARA = { country_event = { id = flavor_spa.216 }}
+	}
+	
+	option = { 	# English Union
+		trigger = { has_country_flag = eng_will_accept_crown }
+		name = "flavor_spa.212.optb"
+		ai_chance = { factor = 20 }
+		GAL = { break_union = CAS }
+		ENG = {
+			create_union = GAL
+			country_event = { id = flavor_spa.213 }
+		}
+		POR = { country_event = { id = flavor_spa.216 }}
+		ARA = { country_event = { id = flavor_spa.216 }}
+	}
+	
+	option = { 	# Aragonese Union
+		trigger = { has_country_flag = ara_will_accept_crown }
+		name = "flavor_spa.212.optc"
+		ai_chance = { factor = 10 }
+		GAL = { break_union = CAS }
+		ARA = {
+			create_union = GAL
+			country_event = { id = flavor_spa.213 }
+		}
+		ENG = { country_event = { id = flavor_spa.216 }}
+		POR = { country_event = { id = flavor_spa.216 }}
+	}
+	
+	option = {	# Independence
+		name = "flavor_spa.212.optd"
+		ai_chance = { factor = 5 }
+		CAS = { country_event = { id = flavor_spa.214 }}
+		GAL = { break_union = CAS }
+	}
+	
+	option = {	# Remain with Castille
+		name = "flavor_spa.212.opte"
+		ai_chance = { factor = 5 }	
+		add_national_stability_or_adm_power = yes
+	}
+}
+
+# Inform new Overlord
+country_event = {
+	id = flavor_spa.213
+	title = "flavor_spa.213.t"
+	desc = "flavor_spa.213.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_spa.213.opta"
+		add_prestige = 5
+		CAS = { country_event = { id = flavor_spa.215 }}
+		if = {
+			limit = { tag = POR }
+			hidden_effect = { country_event = { id = flavor_spa.217 days = 730 }}
+		}
+	}		
+}
+
+# Galicia Declares Independence - CAS
+country_event = {
+	id = flavor_spa.214
+	title = "flavor_spa.214.t"
+	desc = "flavor_spa.214.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {	# Fight
+		name = "flavor_spa.214.opta"
+		ai_chance = {
+			factor = 90 
+			modifier = {
+				FROM = { tag = POR }
+				factor = 0
+			}
+		}
+		declare_war_with_cb = {
+			who = GAL
+			casus_belli = cb_restore_personal_union
+		}		
+	}	
+	
+	option = {	# Let them go
+		name = "flavor_spa.214.optb"
+		ai_chance = { factor = 10 }
+		add_prestige = -10
+	}		
+}
+
+# Galicia in new Union - CAS
+country_event = {
+	id = flavor_spa.215
+	title = "flavor_spa.215.t"
+	desc = "flavor_spa.215.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+
+
+	option = { 
+		trigger = { alliance_with = FROM }
+		ai_chance = { factor = 30 }
+		name = "flavor_spa.215.opta"
+		declare_war_with_cb = {
+			who = GAL
+			casus_belli = cb_claim_throne
+		}
+	}
+	
+	option = { 
+		trigger = { NOT = { alliance_with = FROM }}
+		ai_chance = { factor = 80 }
+		name = "flavor_spa.215.opta"
+		declare_war_with_cb = {
+			who = GAL
+			casus_belli = cb_claim_throne
+		}
+	}
+	
+	option = {
+		name = "flavor_spa.215.optb"
+		ai_chance = { factor = 20 }
+		add_prestige = -10
+	}
+}
+
+# Galicia turned us down POR/ENG/ARA
+country_event = {
+	id = flavor_spa.216
+	title = "flavor_spa.216.t"
+	desc = "flavor_spa.216.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_spa.216.opta"
+		add_prestige = -2
+	}
+}
+
+# Portugal Returns Galicia?
+country_event = {
+	id = flavor_spa.217
+	title = "flavor_spa.217.t"
+	desc = "flavor_spa.217.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = { 
+		ai_chance = { factor = 95 }
+		name = "flavor_spa.217.opta"
+		break_union = GAL
+		CAS = {
+			create_union = GAL
+			country_event = { id = flavor_spa.218 }
+		}
+	}
+	
+	option = { 
+		ai_chance = { factor = 5 }
+		name = "flavor_spa.217.optb"
+		CAS = { country_event = { id = flavor_spa.219 }}
+	}
+}
+
+# CAS - Portugal Returns Galicia
+country_event = {
+	id = flavor_spa.218
+	title = "flavor_spa.218.t"
+	desc = "flavor_spa.218.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = { 
+		name = "flavor_spa.218.opta"
+	}
+}
+
+# CAS - Galicia Not Returned
+country_event = {
+	id = flavor_spa.219
+	title = "flavor_spa.219.t"
+	desc = "flavor_spa.219.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+
+
+	option = { 
+		trigger = { alliance_with = FROM }
+		ai_chance = { factor = 30 }
+		name = "flavor_spa.219.opta"
+		declare_war_with_cb = {
+			who = GAL
+			casus_belli = cb_claim_throne
+		}
+	}
+	
+	option = { 
+		trigger = { NOT = { alliance_with = FROM }}
+		ai_chance = { factor = 80 }
+		name = "flavor_spa.219.opta"
+		declare_war_with_cb = {
+			who = GAL
+			casus_belli = cb_claim_throne
+		}
+	}
+	
+	option = {
+		name = "flavor_spa.219.optb"
+		ai_chance = { factor = 10 }
+		add_prestige = -10
+	}
+}
+
+
+###############
+# EXPLORATION #
+###############
+
+# Conquista Senorial
+country_event = {
+	id = flavor_spa.300
+	title = "flavor_spa.300.t"
+	desc = "flavor_spa.300.d"
+	picture = VEF_MERCHANTS_TALKING_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = CAS
+				NOT = { exists = SPA }
+			}
+			tag = SPA
+		}
+		is_year = 1400
+		58 = { is_empty = yes }
+	}
+	
+	mean_time_to_happen = { months = 24 }
+	
+	option = {
+		name = "flavor_spa.300.opta"
+		58 = {
+			clr_province_flag = libbuild_initialise
+			change_trade_goods = dyes
+			cede_province = ROOT
+			hidden_effect = {
+				add_building = encomienda
+				add_building = nobles_80
+				add_building = church_20
+				set_local_autonomy = 100
+			}
+		}
+	}
+}
+
+# Conquista Realenga
+country_event = {
+	id = flavor_spa.301
+	title = "flavor_spa.301.t"
+	desc = "flavor_spa.301.d"
+	picture = VEF_MERCHANTS_TALKING_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = CAS
+				NOT = { exists = SPA }
+			}
+			tag = SPA
+		}
+		is_year = 1478
+		NOT = { is_year = 1496 }
+		58 = {
+			owned_by = ROOT
+			NOT = { is_core = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = { months = 24 }
+	
+	option = {
+		name = "flavor_spa.300.opta"
+		58 = {
+			add_core = ROOT
+			set_local_autonomy = 0
+			hidden_effect = {
+				if = {
+					limit = { has_building = nobles_80 }
+					remove_building = nobles_80
+					add_building = nobles_40
+				}
+			}
+		}
+	}
+}
+
+# If Columbus is employed, reveal the New World
+country_event = {
+   id = flavor_spa.302
+   title = "flavor_spa.302.t"
+   desc = "flavor_spa.302.d"
+   picture = VEF_EXPLORERS_eventPicture
+
+	fire_only_once = yes
+
+   trigger = {
+   		OR = {
+			tag = CAS
+			tag = SPA
+		}
+		OR = {
+			advisor = cristobol_colon
+			has_country_modifier = ai_cristobol_colon
+		}
+   }
+
+	mean_time_to_happen = { months = 6 }
+
+	option = {
+		name = "flavor_spa.302.opta"
+		add_prestige = 10
+		set_country_flag = voyages_of_columbus
+		discover_province = 2318 # Las Cayes
+		discover_province = 2319 # Tortuga
+		discover_province = 2320 # Barhonas
+		discover_province = 2607 # Eastern Caribbean
+		discover_province = 2610 # Turks & Caicos Sea
+		discover_province = 2612 # Coast of Hispanola
+		discover_province = 2661 # Northern Guiana Basin
+		discover_province = 2669 # Sargasso Sea
+		discover_province = 2666 # Central North Atlantic
+		discover_province = 2653 # Sea of Azores
+		if = {
+			limit = { 2319 = { is_empty = yes }}
+			capital_scope = { 2319 = { create_colony = 10 }}
+		}
+	}
+}
+
+# Second journey (1496 return)
+country_event = {
+   id = flavor_spa.303
+   title = "flavor_spa.303.t"
+   desc = "flavor_spa.303.d"
+   picture = VEF_EXPLORERS_eventPicture
+
+	fire_only_once = yes
+
+   trigger = {
+   		OR = {
+			tag = CAS
+			tag = SPA
+		}
+		has_country_flag = voyages_of_columbus
+		is_year = 1496
+   }
+
+	mean_time_to_happen = { months = 3 }
+
+	option = {
+		name = "flavor_spa.303.opta"
+		add_prestige = 10
+		discover_province = 2604 # Northwestern Caribbean
+		discover_province = 2609 # Lesser Antilles
+		if = {
+			limit = { 2322 = { is_empty = yes }}
+			2322 = {
+				clr_province_flag = libbuild_initialise
+				change_trade_goods = sugar
+				cede_province = ROOT
+				add_building = encomienda
+				add_building = nobles_80
+			}
+			if = {
+				limit = { 2319 = { owned_by = ROOT }}
+				2319 = { create_native = 5 }
+			}
+		}
+	}
+}
+
+# Low Native Manpower
+country_event = {
+   id = flavor_spa.304
+   title = "flavor_spa.304.t"
+   desc = "flavor_spa.304.d"
+   picture = VEF_EXPLORERS_eventPicture
+
+	fire_only_once = yes
+
+   trigger = {
+   		OR = {
+			tag = CAS
+			tag = SPA
+		}
+		has_country_flag = voyages_of_columbus
+		is_year = 1510
+		owns = 2322
+   }
+
+	mean_time_to_happen = { months = 3 }
+
+	option = {
+		name = "flavor_spa.304.opta"
+		2308 = { change_native_size = -10 }
+		2309 = { change_native_size = -10 }
+		2318 = { change_native_size = -10 }
+		2319 = { change_native_size = -10 }
+	}
+	
+	option = {
+		name = "flavor_spa.304.optb"
+		2322 = { add_base_manpower = -1 }
+	}
+}
+
+
+######################
+# Habsburgs in Spain #
+######################
+
+#Spain Inherits Low Countries
+country_event = {
+	id = flavor_spa.400
+	title = flavor_spa.400.t
+	desc = flavor_spa.400.d
+	picture = VEF_NEW_HEIR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = SPA
+			AND = {
+				tag = CAS
+				NOT = {
+					exists = SPA
+				}
+			}
+		}
+		marriage_with = HAB
+		has_heir = no
+		HAB = {
+			dynasty = "von Habsburg"
+			ai = yes
+			has_country_flag = inherits_burgundy
+		}
+		FRA = {
+			is_rival = HAB
+			is_rival = ROOT
+		}
+		NOT = { dynasty = FRA }
+	}
+	
+	mean_time_to_happen = { months = 6 }
+	
+	option = {
+		name = flavor_spa.400.opta
+		ai_chance = { factor = 85 }
+		define_heir = {
+			claim = 100
+			dynasty = "von Habsburg"
+			age = 15
+		}
+		HAB = {
+			every_owned_province = {
+				limit = {
+					has_province_flag = bur_succession_province
+					OR = {
+						region = low_countries_region
+						area = picardy_area
+					}
+					NOT = { culture = austrian }
+				}
+				add_core = ROOT
+				remove_core = HAB
+				cede_province = ROOT
+			}
+		}
+	}
+
+	option = {
+		name = flavor_spa.400.optb
+		ai_chance = { factor = 15 }
+		define_heir = {
+			claim = 100
+			dynasty = "von Habsburg"
+			age = 15
+		}
+	}
+}
+
+#Habsburgs in Spain
+country_event = {
+	id = flavor_spa.401
+	title = flavor_spa.401.t
+	desc = flavor_spa.401.d
+	picture = NEW_HEIR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = SPA
+			AND = {
+				tag = CAS
+				NOT = {
+					exists = SPA
+				}
+			}
+		}
+		is_year = 1440
+		marriage_with = HAB
+		has_heir = no
+		HAB = {
+			dynasty = "von Habsburg"
+			OR = {
+				NOT = { has_country_flag = bur_marriage_successor }
+				ai = no
+			}
+		}
+		NOT = { dynasty = HAB }
+		FRA = {
+			is_rival = HAB
+			is_rival = ROOT
+		}
+		NOT = { dynasty = FRA }
+	}
+	
+	mean_time_to_happen = { months = 6 }
+	
+	option = {
+		name = flavor_spa.401.opta
+		define_heir = {
+			claim = 100
+			dynasty = "von Habsburg"
+		}
+	}
+}
+
+
+#####################
+# EVENTS FOR REVIEW #
+#####################
+
+# Genoese Bankers
+country_event = {
+	id = flavor_spa.10008
+	title = "flavor_spa.10008.t"
+	desc = "flavor_spa.10008.d"
+	picture = VEF_MERCHANTS_TALKING_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = CAS
+				NOT = { exists = SPA }
+			}
+			tag = SPA
+		}
+		NOT = { has_country_modifier = genoese_bankers }
+		NOT = { has_country_flag = lost_genoese_bankers }
+		NOT = { is_year = 1600 }
+		is_year = 1530
+		is_at_war = no
+		OR = {
+			AND = {
+				exists = GEN
+				GEN = { is_at_war = no }
+				OR = {
+					GEN = { is_subject = no }
+					GEN = { is_subject_of = ROOT }
+				}
+			}
+			253 = { owned_by = ROOT }
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	option = {		# Embrace Genoese Bankers
+		name = "flavor_spa.10008.opta"
+		ai_chance = { factor = 90 }
+		add_country_modifier = { name = "genoese_bankers" duration = -1 }
+		if = {
+			limit = { 96 = { owned_by = ROOT }}
+			96 = { add_province_modifier = { name = "genoese_bank" duration = -1 } }
+		}
+	}
+	
+	option = {		# Take Loans, but keep our distance
+		name = "flavor_spa.10008.optb"
+		loan_size = 12
+	}
+	
+	option = {		# We have no interest
+		name = "flavor_spa.10008.optc"
+		add_prestige = 5
+	}
+}
+
+# Lose Genoese Bankers
+country_event = {
+	id = flavor_spa.10009
+	title = "flavor_spa.10009.t"
+	desc = "flavor_spa.10009.d"
+	picture = VEF_MERCHANTS_TALKING_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = CAS
+				NOT = { exists = SPA }
+			}
+			tag = SPA
+		}
+		has_country_modifier = genoese_bankers
+		OR = {
+			NOT = { exists = GEN }
+			war_with = GEN
+		}
+		NOT = { 253 = { owned_by = ROOT }}
+	}
+	
+	immediate = { set_country_flag = lost_genoese_bankers }
+	
+	option = {
+		name = "flavor_spa.10009.opta"
+		remove_country_modifier = genoese_bankers
+		96 = {
+			if = {
+				limit = { has_province_modifier = genoese_bank }
+				remove_province_modifier = genoese_bank
+			}
+		}
+	}
+}

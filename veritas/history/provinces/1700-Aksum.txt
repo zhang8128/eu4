@@ -1,0 +1,17 @@
+# Aksum
+#Province IDs changed
+
+capital = "Aksum"
+owner = ETH
+controller = ETH
+add_core = ETH
+culture = tigray
+religion = coptic
+base_tax = 2
+base_production = 2
+base_manpower = 3
+trade_goods = wool
+discovered_by = sudanese_tech
+discovered_by = muslim
+hre = no
+is_city = yes

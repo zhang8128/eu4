@@ -1,0 +1,340 @@
+#by Marco Dandolo
+#Modified for VeF
+country_decisions = {
+
+	arsenale_expansion_1_ven = {
+		potential = {
+			tag = VEN
+			owns = 269
+			269 = { has_building = arsenale_base }
+			NOT = { has_country_flag = venetian_arsenale_occupied }
+		}
+		allow = {
+			owns = 269		# Venezia
+			controls = 269
+			is_at_war = no
+			treasury = 50
+			dip_power = 25
+		}
+		effect = {
+			add_treasury = -50
+			add_dip_power = -25
+			add_prestige = 5
+			269 = {
+				remove_building = arsenale_base
+				add_building = arsenale_first
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 100 }
+			}
+		}
+	}
+
+	arsenale_expansion_1_all = {
+		potential = {
+			owns = 269
+			NOT = { tag = VEN }
+			269 = { has_building = arsenale_base }
+			NOT = { has_country_flag = venetian_arsenale_occupied }
+		}
+		allow = {
+		    owns = 269		# Venezia
+			controls = 269
+			is_at_war = no
+			treasury = 100
+			dip_power = 25
+		}
+		effect = {
+			add_treasury = -100
+			add_dip_power = -25
+			add_prestige = 5
+			269 = {
+				remove_building = arsenale_base
+				add_building = arsenale_first
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+		}
+	}
+
+	arsenale_expansion_2_ven = {
+		potential = {
+			tag = VEN
+			owns = 269
+			NOT = { has_country_flag = venetian_arsenale_occupied }
+			269 = { has_building = arsenale_first }
+		}
+		allow = {
+			owns = 269		# Venezia
+			controls = 269
+			is_at_war = no
+			custom_trigger_tooltip = {
+				has_idea = venetian_arsenal
+				tooltip = venetian_arsenal_idea
+			}
+			dip_power = 25
+		}
+		effect = {
+			add_dip_power = -25
+			add_prestige = 5
+			269 = {
+				remove_building = arsenale_first
+				add_building = arsenale_second
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	arsenale_expansion_2_all = {
+		potential = {
+			owns = 269
+			NOT = { tag = VEN }
+			NOT = { has_country_flag = venetian_arsenale_occupied }
+			269 = { has_building = arsenale_first }
+		}
+		allow = {
+			owns = 269		# Venezia
+			controls = 269
+			is_at_war = no
+			total_development = 100
+			treasury = 100
+			dip_power = 25
+		}
+		effect = {
+			add_treasury = -100
+			add_dip_power = -25
+			add_prestige = 5
+			269 = {
+				remove_building = arsenale_first
+				add_building = arsenale_second
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+		}
+	}
+
+	arsenale_expansion_3 = {
+		potential = {
+			owns = 269
+			NOT = { has_country_flag = venetian_arsenale_occupied }
+			269 = { has_building = arsenale_second }
+		}
+		allow = {
+			owns = 269		# Venezia
+			controls = 269
+			is_at_war = no
+			total_development = 125
+			treasury = 100
+			dip_power = 25
+		}
+		effect = {
+			add_treasury = -100
+			add_dip_power = -25
+			add_prestige = 5
+			269 = {
+				remove_building = arsenale_second
+				add_building = arsenale_third
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+		}
+	}
+
+	arsenale_expansion_4 = {
+		potential = {
+			owns = 269
+			OR = {
+				tag = VEN
+				has_country_flag = ven_formed_italy
+			}
+			NOT = { has_country_flag = venetian_arsenale_occupied }
+			269 = { has_building = arsenale_third }
+		}
+		allow = {
+			owns = 269		# Venezia
+			controls = 269
+			is_at_war = no
+			total_development = 150
+			OR = {
+				num_of_owned_provinces_with = {
+					value = 2
+					trade_goods = wool
+				}
+				num_of_owned_provinces_with = {
+					value = 2
+					trade_goods = cloth
+				}
+				trading_bonus = {
+					trade_goods = wool
+					value = yes
+				}
+				trading_bonus = {
+					trade_goods = cloth
+					value = yes
+				}
+			}
+			dip_tech = 30
+			navy_tradition = 35
+			treasury = 100
+			dip_power = 25
+		}
+		effect = {
+			add_treasury = -100
+			add_dip_power = -25
+			add_prestige = 5
+			269 = {
+				remove_building = arsenale_third
+				add_building = arsenale_fourth
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+		}
+	}
+
+	arsenale_expansion_5 = {
+		potential = {
+			owns = 269
+			OR = {
+				tag = VEN
+				has_country_flag = ven_formed_italy
+			}
+			NOT = { has_country_flag = venetian_arsenale_occupied }
+			269 = { has_building = arsenale_fourth }
+		}
+		allow = {
+			owns = 269		# Venezia
+			controls = 269
+			is_at_war = no
+			total_development = 175
+			calc_true_if = {
+				num_of_owned_provinces_with = {
+					value = 3
+					trade_goods = cloth
+				}
+				num_of_owned_provinces_with = {
+					value = 3
+					trade_goods = wool
+				}
+				num_of_owned_provinces_with = {
+					value = 2
+					trade_goods = naval_supplies
+				}
+				trading_bonus = {
+					trade_goods = wool
+					value = yes
+				}
+				trading_bonus = {
+					trade_goods = cloth
+					value = yes
+				}
+				trading_bonus = {
+					trade_goods = naval_supplies
+					value = yes
+				}
+				amount = 3
+			}
+			dip_tech = 33
+			navy_tradition = 45
+			treasury = 100
+			dip_power = 25
+		}
+		effect = {
+			add_treasury = -100
+			add_dip_power = -25
+			add_prestige = 5
+			269 = {
+				remove_building = arsenale_fourth
+				add_building = arsenale_fifth
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+		}
+	}
+
+	arsenale_expansion_6 = {
+		potential = {
+			owns = 269
+			OR = {
+				tag = VEN
+				has_country_flag = ven_formed_italy
+			}
+			NOT = { has_country_flag = venetian_arsenale_occupied }
+			269 = { has_building = arsenale_fifth }
+		}
+		allow = {
+			owns = 269		# Venezia
+			controls = 269
+			is_at_war = no
+			total_development = 200
+			calc_true_if = {
+				any_owned_province = {
+					trade_goods = hemp
+				}
+				num_of_owned_provinces_with = {
+					value = 3
+					trade_goods = naval_supplies
+				}
+				trading_bonus = {
+					trade_goods = hemp
+					value = yes
+				}
+				amount = 2
+			}
+			OR = {
+				advisor = architect
+				advisor = naval_reformer
+			}
+			dip_tech = 46
+			navy_tradition = 50
+			treasury = 100
+			dip_power = 25
+		}
+		effect = {
+			add_treasury = -100
+			add_dip_power = -25
+			add_prestige = 10
+			269 = {
+				remove_building = arsenale_fifth
+				add_building = arsenale_sixth
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+		}
+	}
+}

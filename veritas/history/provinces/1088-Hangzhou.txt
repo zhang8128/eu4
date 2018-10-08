@@ -1,0 +1,26 @@
+# Hangzhou
+
+capital = "Hangzhou"
+owner = YUN
+controller = YUN
+add_core = YUN
+culture = chihan
+religion = confucianism
+trade_goods = silk
+base_tax = 5
+base_production = 5
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = chinese
+discovered_by = niitaka
+discovered_by = nomad_group
+
+extra_cost = 15
+center_of_trade = 1
+
+1356.8.1 = { owner = CZH controller = CZH add_core = CZH remove_core = YUN add_core = MNG }
+1366.1.1 = { owner = MNG controller = MNG }
+1645.6.14 = { owner = QNG controller = QNG add_core = QNG }
+1675.1.1  = { controller = MNG }
+1680.1.1  = { controller = QNG }

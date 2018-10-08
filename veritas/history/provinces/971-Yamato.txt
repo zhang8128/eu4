@@ -1,0 +1,21 @@
+# Yamato
+
+owner = HTK
+controller = HTK
+culture = japanese
+religion = shinto
+capital = "Nara"
+trade_goods = tea
+hre = no
+base_tax = 4
+base_production = 2
+base_manpower = 3
+add_core = HTK
+is_city = yes
+discovered_by = chinese
+discovered_by = niitaka
+
+1542.1.1 = { discovered_by = POR }
+
+1585.8.1 = { owner = ODA controller = ODA add_core = ODA remove_core = HTK } #The Tsutsui clan moved to Iga
+1600.10.21 = { owner = TKG controller = TKG add_core = TKG remove_core = ODA }

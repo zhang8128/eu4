@@ -1,0 +1,50 @@
+name = "Saluzzo Succession War"
+war_goal = {
+	type = superiority_insult_mutual
+	casus_belli = cb_insult
+}
+
+# Naples invades to restore Manfred V in place of Thomas II in order to counter the influence
+# of the Visconti (tied to Thomas by marriage). Although they succeed in capturing the city
+# their defeat at Gamenario hastens the ultimate end of their rule in Provence
+1336.1.1 = {
+	add_attacker = NAP
+	add_attacker = PRO
+	add_defender = SAL
+	add_defender = MFT
+	add_defender = MLO
+}
+
+#No Details available on the battle; all estimated
+1345.4.22 = {
+	battle = {
+		name = "Battle of Gamenario"
+		location = 256
+		attacker = {
+			infantry = 12000
+			cavalry = 3000
+			losses = 35	# percent
+			country = NAP
+		}
+
+		defender = {
+			infantry = 15000
+			cavalry = 4000
+			losses = 7	# percent
+			country = MFT
+		}
+
+		result = no
+	}
+}
+
+1347.8.1 = { add_attacker = SAV }
+
+1349.1.1 = {
+	rem_attacker = NAP
+	rem_attacker = PRO
+	rem_attacker = SAV
+	rem_defender = SAL
+	rem_defender = MFT
+	rem_defender = MLO
+}

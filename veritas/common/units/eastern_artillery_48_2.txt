@@ -1,0 +1,12 @@
+# Eastern Flying Battery
+
+unit_type = eastern
+type = artillery
+
+maneuver = 2
+offensive_morale = 0
+defensive_morale = 6
+offensive_fire = 25
+defensive_fire = 5
+offensive_shock = 0
+defensive_shock = 0

@@ -1,0 +1,4 @@
+# Niger River
+#Province IDs changed
+
+discovered_by = sub_saharan

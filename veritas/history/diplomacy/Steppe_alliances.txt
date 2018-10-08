@@ -1,0 +1,128 @@
+# Ilkhanate
+vassal = {
+	first = ILK
+	second = GEO
+	start_date = 1251.1.1
+	end_date = 1327.1.1
+}
+
+vassal = {
+	first = ILK
+	second = SRV
+	start_date = 1294.1.1
+	end_date = 1317.1.1
+}
+
+#Kipchak Russian Tributaries
+
+dependency = {
+	subject_type = russian_enforcer
+	first = GOL
+	second = MOS
+	start_date = 1240.1.1
+	end_date = 1472.1.1
+}
+
+dependency = {
+	subject_type = russian_tribute
+	first = GOL
+	second = TVE	#Refused to recognise Moscow's authority
+	start_date = 1240.1.1
+	end_date = 1472.1.1
+}
+
+dependency = {
+	subject_type = russian_tribute
+	first = GOL
+	second = SMO	#Refused to recognise Moscow's authority
+	start_date = 1240.1.1
+	end_date = 1472.1.1
+}
+
+dependency = {
+	subject_type = russian_tribute
+	first = GOL
+	second = NOV	#Never subjected to Moscow
+	start_date = 1240.1.1
+	end_date = 1472.1.1
+}
+
+dependency = {
+	subject_type = russian_tribute
+	first = GOL
+	second = KIV	#Never subjected to Moscow
+	start_date = 1241.1.1
+	end_date = 1472.1.1
+}
+
+dependency = {
+	subject_type = russian_tribute
+	first = GOL
+	second = KAL
+	start_date = 1241.1.1
+	end_date = 1456.1.1
+}
+
+dependency = {
+	subject_type = russian_tribute
+	first = GOL
+	second = PRM
+	start_date = 1303.1.1
+	end_date = 1444.11.11
+}
+
+dependency = {
+	subject_type = russian_tribute
+	first = GOL
+	second = CHR
+	start_date = 1303.1.1
+	end_date = 1460.1.1
+}
+
+
+#Kipchak Tributaries (outside Russia)
+dependency = {
+	subject_type = tributary_state
+	first = GOL
+	second = CIR
+	start_date = 1239.1.1
+	end_date = 1329.1.1
+}
+
+dependency = {
+	subject_type = tributary_state
+	first = GOL
+	second = IMR
+	start_date = 1239.1.1
+	end_date = 1329.1.1
+}
+
+alliance = {
+	first = CRI
+	second = KAZ
+	start_date = 1521.5.1
+	end_date = 1532.1.1
+}
+
+alliance = {
+	first = CRI
+	second = KAZ
+	start_date = 1535.5.1
+	end_date = 1551.8.1
+}
+
+# Nogais enter service of Russian tsars
+vassal = {
+	first = RUS
+	second = NOG
+	start_date = 1557.1.1
+	end_date = 1634.1.1
+}
+
+# Khiva subjugated by Nadir Shah
+vassal = {
+	first = PER
+	second = KHI
+	start_date = 1740.1.1
+	end_date = 1747.6.19
+}

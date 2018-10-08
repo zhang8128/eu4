@@ -1,0 +1,10 @@
+#Boum
+#model = frigate
+#tech_level = 36
+type = transport
+unit_type = muslim
+
+hull_size = 12
+base_cannons = 12
+sail_speed = 10
+sailors = 250

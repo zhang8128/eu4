@@ -1,0 +1,199 @@
+government = monarchy
+add_government_reform = ottoman_government
+government_rank = 2
+primary_culture = turkish
+add_accepted_culture = bulgarian
+add_accepted_culture = greek
+religion = sunni
+technology_group = ottoman
+historical_rival = KAR
+historical_rival = GOL
+historical_rival = MAM
+historical_rival = BYZ
+historical_rival = CND
+historical_rival = SYR
+historical_rival = SRU
+historical_rival = KNI
+historical_rival = HAB
+historical_rival = HUN
+capital = 603 # Eskisehr
+national_focus = MIL
+
+set_country_flag = vef_newgov_start
+set_variable = { which = aristocratic_privilege value = 40 }
+set_variable = { which = vef_merit value = 10 }
+set_variable = { which = vef_rule_law value = 10 }
+set_variable = { which = vef_bureaucratic_power value = 15 }
+
+1299.1.1 = {
+	monarch = {
+		name = "Osman I"
+		dynasty = "Osmanoglu"
+		birth_date = 1258.1.1
+		adm = 4
+		dip = 3
+		mil = 5
+		leader = { 
+			name = "Osman Gazi"
+			type = general
+			fire = 4
+			shock = 5
+			manuever = 5
+			siege = 2
+			death_date = 1326.1.1
+			personality = inspirational_leader_general_personality
+		}
+	}
+	queen = {
+		country_of_origin = OSM
+		name = "Malhun"
+		birth_date = 1280.1.1	#Made up
+		death_date = 1324.11.1
+		female = yes
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+	heir = {
+		name = "Orhan"
+		monarch_name = "Orhan I"
+		dynasty = "Osmanoglu"
+		birth_date = 1281.1.1
+		death_date = 1362.1.1
+		claim = 95
+		adm = 4
+		dip = 3
+		mil = 5
+		leader = { 
+			name = "Orhan Osmanoglu"
+			type = general
+			fire = 3
+			shock = 4
+			manuever = 3
+			siege = 1
+			death_date = 1362.1.1
+			personality = inspirational_leader_general_personality
+		}
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = conqueror_personality
+	add_ruler_personality = bold_fighter_personality
+	add_heir_personality = conqueror_personality
+}
+
+1309.1.1 = { 
+	add_treasury = 400
+	set_variable = { which = vassal_boost value = 0.33 }
+	set_country_flag = vassal_boost_set
+	set_variable = { which = national_stability value = 300 }
+	add_manpower = 12
+	define_advisor = { type = quartermaster skill = 1 } 
+	define_advisor = { type = imam skill = 1 } 
+}
+
+1326.1.1 = {
+	monarch = {
+		name = "Orhan I"
+		dynasty = "Osmanoglu"
+		birth_date = 1281.1.1
+		adm = 5
+		dip = 3
+		mil = 5
+	}
+	queen = {
+		country_of_origin = BYZ
+		name = "Nilufer"
+		birth_date = 1285.1.1	#Made up
+		death_date = 1360.11.1	#Made up
+		female = yes
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = conqueror_personality
+	add_ruler_personality = bold_fighter_personality
+}
+
+1362.3.1 = {
+	monarch = {
+		name = "Murad I"
+		dynasty = "Osmanoglu"
+		birth_date = 1326.6.29
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+	clear_scripted_personalities = yes
+}
+
+1389.1.1 = {
+	monarch = {
+		name = "Bayezid I"
+		dynasty = "Osmanoglu"
+		adm = 2
+		dip = 3
+		mil = 2
+		leader = { name = "Bayezid I Yildirim"	type = general fire = 3	shock = 3	manuever = 4	siege = 1	death_date = 1402.1.1 }
+	}
+}
+
+1389.1.1 = {
+	heir = {
+		name = "Mehmet Celebi"
+		monarch_name = "Mehmet I"
+		dynasty = "Osmanoglu"
+		birth_date = 1389.1.1
+		death_date = 1421.5.26
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+# Actually Ottoman interregnum between 1402-1413
+
+1402.1.1 = { capital = 614 } # Angora
+
+1402.1.1 = {
+	monarch = {
+		name = "Mehmet I"
+		dynasty = "Osmanoglu"
+		birth_date = 1389.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+		leader = { name = "Mehmet I "		type = general fire = 3	shock = 4	manuever = 4	siege = 0 }
+	}
+}
+
+1404.1.1 = { capital = 602 } # Bursa
+
+1404.6.1 = {
+	heir = {
+		name = "Murad"
+		monarch_name = "Murad II"
+		dynasty = "Osmanoglu"
+		birth_date = 1404.6.1
+		death_date = 1451.2.3
+		claim = 95
+		adm = 3
+		dip = 2
+		mil = 1
+	}
+}
+
+1413.1.1 = { capital = 587 } # Edirne
+
+1421.1.1 = {
+	monarch = {
+		name = "Murad II"
+		dynasty = "Osmanoglu"
+		birth_date = 1404.6.1
+		adm = 3
+		dip = 2
+		mil = 1
+		leader = { name = "Murad II"		type = general fire = 3	shock = 3	manuever = 4 siege = 1	death_date = 1451.2.3 }
+	}
+}

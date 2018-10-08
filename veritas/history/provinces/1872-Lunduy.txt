@@ -1,0 +1,16 @@
+# Lunduy
+#Province IDs changed
+
+capital = "Lunduy"
+owner = MRV
+controller = MRV
+add_core = MRV
+is_city = yes
+culture = chewa
+religion = bantu
+base_tax = 1
+base_production = 1
+base_manpower = 2
+trade_goods = millet
+hre = no
+discovered_by = tribal_african_tech

@@ -1,0 +1,846 @@
+# Revised Reformation Events
+namespace = vef_reformation
+
+# Option to change...Human player only
+country_event = {
+	id = vef_reformation.1
+	title = "vef_reformation.1.t"
+	desc = "vef_reformation.1.t"
+	picture = VEF_RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		if = {
+			limit = { has_country_modifier = called_for_general_council }
+			remove_country_modifier = called_for_general_council
+		}
+		if = { 
+			limit = { has_country_modifier = suppress_reform }
+			remove_country_modifier = suppress_reform
+		}
+	}
+
+	# Can always become Lutheran no matter what, but if Calvinist or Hussite is the 
+	# dominant religion, can select that as well. If any province is Anabaptist, that
+	# may be selected. AI will only ever be Lutheran or Calvinist, except by event.
+	option = {
+		trigger = { is_religion_enabled = protestant }
+		name = "vef_reformation.1.opta"
+		change_religion = protestant
+		every_owned_province = {
+			limit = { NOT = { religion = protestant } }
+			add_unrest = 1
+			hidden_effect = {
+				random = {
+					chance = 15
+					catholic_rebels = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		trigger = { dominant_religion = reformed }
+		name = "vef_reformation.1.optb"
+		change_religion = reformed
+		every_owned_province = {
+			limit = { NOT = { religion = reformed } }
+			add_unrest = 1
+			hidden_effect = {
+				random = {
+					chance = 15
+					catholic_rebels = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		trigger = { 
+			NOT = { religion = hussite }
+			dominant_religion = hussite 
+		}
+		name = "vef_reformation.1.optc"
+		change_religion = hussite
+		every_owned_province = {
+			limit = { NOT = { religion = hussite } }
+			add_unrest = 1
+			hidden_effect = {
+				random = {
+					chance = 10
+					catholic_rebels = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		trigger = { any_owned_province = { religion = anabaptist } }
+		name = "vef_reformation.1.optd"
+		change_religion = anabaptist
+		every_owned_province = {
+			limit = { NOT = { religion = anabaptist } }
+			add_unrest = 1
+			hidden_effect = {
+				random = {
+					chance = 15
+					catholic_rebels = 1
+				}
+			}
+		}
+	}
+}
+
+# After 20 year...can suppress or convert
+country_event = {
+	id = vef_reformation.2
+	title = "vef_reformation.2.t"
+	desc = "vef_reformation.2.t"
+	picture = VEF_RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		ai = no
+		religion = catholic
+		any_owned_province = { NOT = { religion = catholic } }
+		NOT = { has_country_modifier = peace_of_westphalia_enacted }
+		is_religion_enabled = protestant
+		religion_years = { protestant = 20 }
+		NOT = { has_country_modifier = counter_reformation }
+		NOT = { has_country_modifier = suppress_reform }
+		NOT = { government = archbishopric }
+		NOT = { capital_scope = { region = british_isles_region } } # Event sequence
+		NOT = { capital_scope = { region = iberia_region } }
+		NOT = { capital_scope = { region = italy_region } }
+		NOT = { capital_scope = { region = france_region } }
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	# Convert
+	option = {
+		name = "vef_reformation.2.opta"
+		country_event = { id = vef_reformation.1 }
+		hidden_effect = {
+			every_owned_province = {
+				limit = { NOT = { religion = owner } }
+				random_list = {
+					7 = { catholic_rebels = 1 }
+					4 = { protestant_rebels = 1 }
+					2 = { reformed_rebels = 1 }
+					1 = { anabaptist_rebels = 1 }
+				}
+			}
+		}
+	}
+
+	# Status Quo
+	option = {
+		name = "vef_reformation.2.optb"
+		add_country_modifier = { name = "civil_turmoil" duration = 365 }
+	}
+
+	# Repress
+	option = {
+		name = "vef_reformation.2.optc"
+		add_adm_power = -25
+		hidden_effect = {
+			every_owned_province = {
+				limit = { NOT = { religion = catholic } } # Only in non-Catholic provinces
+				add_unrest = 2
+				hidden_effect = {
+					random = {
+						chance = 15
+						protestant_rebels = 1
+					}
+				}
+			}
+		}
+		add_country_modifier = { name = "reformation_desire_unrest" duration = 1865 }
+	}
+}
+
+# Council of Trent
+country_event = {
+	id = vef_reformation.3
+	title = "vef_reformation.3.t"
+	desc = "vef_reformation.3.d"
+	picture = VEF_POPE_PREACHING_eventPicture
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	trigger = {
+		PAP = { exists = yes }
+		NOT = { has_country_modifier = peace_of_westphalia_enacted }
+	}
+	
+	# Attend the Council
+	option = {
+		trigger = { NOT =  {capital_scope = { region = scandinavia_region } } }
+		name = "vef_reformation.3.opta"
+		ai_chance = { factor = 25 }
+		PAP = { add_opinion = { who = ROOT modifier = opinion_good_relations years = 10 } }
+		set_country_flag = attended_council_of_trent
+		add_reform_desire = -2
+	}
+	
+	# No thanks (historically, attendance was very poor)
+	option = {
+		name = "vef_reformation.3.optb"
+		ai_chance = { factor = 75 }
+		PAP = { add_opinion = { who = ROOT modifier = opinion_displeased years = 10 } }
+		set_country_flag = refused_council_of_trent
+		hidden_effect = {
+			every_owned_province = {
+				limit = { 
+					religion = catholic 
+					NOT = { region = iberia_region }
+					NOT = { region = italy_region }
+				}
+				add_unrest = 1
+			}
+		}
+	}
+}
+
+# Hus convicted of heresy
+country_event = {
+	id = vef_reformation.4
+	title = "vef_reformation.4.t"
+	desc = "vef_reformation.4.t"
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = PAP
+		is_religion_enabled = hussite
+		NOT = { has_country_modifier = peace_of_westphalia_enacted }
+		religion_years = { hussite = 5 }
+	}
+
+	immediate = { set_country_flag = hus_convicted }
+	
+	option = {
+		name = "vef_reformation.4.opta"
+		BOH = { kill_advisor = jan_hus }
+		reverse_add_opinion = { who = BOH modifier = hus_executed }
+		add_casus_belli = { target = BOH type = cb_heretic months = 60 }
+	}
+
+	option = {
+		name = "vef_reformation.4.optb"
+		reverse_add_opinion = { who = BOH modifier = hus_spared }
+		BOH = { kill_advisor = jan_hus }
+	}
+}
+
+# Vesterås Riksdag
+country_event = {
+	id = vef_reformation.5
+	title = "vef_reformation.5.t"
+	desc = "vef_reformation.5.d"
+	picture = VEF_MARTIN_LUTHER_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			tag = SWE
+			tag = SCA
+		}
+		is_religion_enabled = protestant
+		owns = 403
+		NOT = { has_country_modifier = peace_of_westphalia_enacted }
+		religion_group = christian
+		is_year = 1521
+		NOT = { has_country_flag = vesteras_riksdag }
+	}
+
+	mean_time_to_happen = { months = 24 }
+
+	immediate = { set_country_flag = vesteras_riksdag }
+
+	option = {
+		name = "vef_reformation.5.opta"
+		ai_chance = { factor = 90 }
+		add_prestige = 10
+		
+		# section largely copied from 00_religion.txt on_convert for protestant
+		change_religion = protestant
+		remove_country_modifier = counter_reformation
+		remove_country_modifier = the_statue_in_restraint_of_appeals
+		remove_country_modifier = bavarian_jesuits
+		remove_country_modifier = the_societas_jesu
+		remove_country_modifier = the_declaration_of_indulgence
+		remove_country_modifier = de_heretico_comburendo
+		remove_country_modifier = the_conventicle_act
+		add_country_modifier = { name = "conversion_zeal" duration = 3650 }
+		every_known_country = {
+			limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_demote_pope } }
+			reverse_remove_opinion = { who = ROOT modifier = opinion_demote_pope }
+		}
+		
+		# added so that this option can't be abused (by the AI, too) by immediately converting back
+		force_converted = yes
+		
+		403 = { 
+			change_religion = protestant
+			if = { 
+				limit = { is_reformation_center = no }
+				add_reform_center = protestant
+			}
+			add_province_modifier = { name = religious_zeal_at_conv duration = 7300 }
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { religion = protestant }
+				is_reformation_center = no
+			}
+			change_religion = protestant
+		}
+		add_stability = 1
+	}
+
+	option = {
+		name = "vef_reformation.5.optb"
+		ai_chance = { factor = 10 }
+		if = {
+			limit = { religion = catholic }
+			change_variable = { which = vef_papal_influence value = 50 }
+		}
+		add_stability = -1
+		if = {
+			limit = { NOT = { 403 = { religion = catholic } } }
+			change_religion = catholic
+		}
+	}
+}
+
+# Poland/Lithuania revert to Catholicism
+country_event = {
+	id = vef_reformation.6
+	title = "vef_reformation.6.t"
+	desc = "vef_reformation.6.d"
+	picture = VEF_PIOTR_SKARGA_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		had_country_flag = { flag = piotr_skarga_arrived days = 730 }
+		NOT = { religion = catholic }
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	option = {
+		name = "vef_reformation.6.opta"
+		ai_chance = { factor = 10 }
+		change_religion = catholic
+		remove_country_modifier = warsaw_confederation
+		remove_country_modifier = statute_of_kalisz
+		every_core_province = {
+			limit = { is_reformation_center = no }
+			change_religion = catholic
+		}
+	}
+
+	option = {
+		name = "vef_reformation.6.optb"
+		ai_chance = { factor = 90 }
+		kill_advisor = piotr_skarga
+		if = { 
+			limit = { has_country_modifier = jesuit_influence }
+			remove_country_modifier = jesuit_influence
+		}
+		add_country_modifier = { name = "civil_turmoil" duration = 365 }
+	}
+}
+
+# Zwickau Prophets
+country_event = {
+	id = vef_reformation.7
+	title = "vef_reformation.7.t"
+	desc = "vef_reformation.7.d"
+	picture = VEF_RELIGION_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		is_year = 1522
+		is_religion_enabled = protestant # Luther has to come first!
+		NOT = { is_religion_enabled = anabaptist }
+		any_owned_province = { 
+			province_group = anabaptist_group 
+			is_reformation_center = no
+		}
+	}
+
+	mean_time_to_happen = { months = 6 }
+
+
+	option = {
+		name = "vef_reformation.7.opta"
+		enable_religion = anabaptist
+		random_owned_province = {
+			limit = { 
+				province_group = anabaptist_group 
+				is_reformation_center = no
+				NOT = { province_id = 319 }	#Will prevent calvinism from forming
+				NOT = { any_neighbor_province = { province_id = 319 }}
+			}
+			change_religion = anabaptist
+			add_reform_center = anabaptist
+			add_province_modifier = { name = "religious_zeal_at_conv" duration = 9000 }
+			every_neighbor_province = {
+				limit = { religion = catholic }
+				random = {
+					chance = 33
+					anabaptist_rebels = 2
+				}
+			}
+		}
+	}
+}
+
+# Peace of Westphalia Events: NED, SWI get option to leave the # HRE (see VEF_flavor_events_l_english.yml).
+#
+# Sweden gets Pomeranian Territory with the remainder going to Brandenburg, but only if POM
+# is played by the AI. But only if Sweden has 12 provinves or more (i.e. is a major power).
+country_event = {
+	id = vef_reformation.8
+	title = "vef_reformation.8.t"
+	desc = "vef_reformation.8.d"
+
+	fire_only_once = yes
+
+	picture = VEF_DIPLOMACY_eventPicture
+
+	trigger = {
+		OR = { 
+			tag = SWE
+			tag = SCA
+		}
+		has_global_flag = peace_of_westphalia_offered
+		num_of_cities = 12
+		NOT = { has_country_flag = westphalia }
+	}
+
+	immediate = { set_country_flag = westphalia }
+
+	option = {
+		name = "vef_reformation.8.opta"
+		ai_chance = { factor = 100 }
+		set_hre_religion_treaty = yes
+		set_global_flag = peace_of_westphalia
+		add_years_of_income = 2.0
+		add_prestige = 25
+		if = {
+			limit = { 
+				370 = { owned_by = POM } 
+				POM = { ai = yes }
+			}
+			370 = { 
+				cede_province = ROOT 
+				add_core = ROOT
+			}
+		}
+		if = {
+			limit = { 
+				364 = { owned_by = POM } 
+				POM = { ai = yes }
+			}
+			364 = { 
+				cede_province = ROOT 
+				add_core = ROOT
+			}
+		}
+		if = { 
+			limit = { owns = 377 }
+			add_claim = 377 # Claims on Bremen from Swedish understanding of treaty
+		}
+		if = {
+			limit = { 
+				exists = BRA
+				POM = { ai = yes }
+			}
+			BRA = { inherit = POM }
+		}
+		every_country = {
+			limit = { 
+				war_with = ROOT 
+				religion_group = christian
+				NOT = { religion = orthodox }
+				NOT = { religion = coptic }
+				NOT = { has_country_flag = rejected_westphalia } # Can only be the human
+			}
+			white_peace = ROOT
+		}
+	}
+
+	option = {
+		name = "vef_reformation.8.optb"
+		ai_chance = { factor = 0 }
+		set_country_flag = rejected_westphalia
+		if = {
+			limit = { 
+				exists = BRA
+				POM = { ai = yes }
+			}
+			BRA = { inherit = POM }
+		}
+	}
+}
+
+# Other major parties, including the emperor. Since the pope rejected this, any catholic
+# nations get a negative relationship with thr Pope for 10 years. Since we don't know 
+# who the major players will be, base it on number of provinces. 8 seems a resonable
+# number.
+country_event = {
+	id = vef_reformation.9
+	title = "vef_reformation.9.t"
+	desc = "vef_reformation.9.d"
+	picture = VEF_RELIGION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_global_flag = peace_of_westphalia_offered
+		NOT = { has_country_flag = westphalia }
+		OR = {
+			is_emperor = yes
+			AND = {
+				religion_group = christian
+				NOT = { religion = orthodox }
+				NOT = { religion = coptic }
+				capital_scope = { continent = europe }
+				num_of_cities = 7
+			}
+		}
+	}
+
+	immediate = { set_country_flag = westphalia }
+
+	option = {
+		name = "vef_reformation.9.opta"
+		ai_chance = { factor = 100 }
+		set_hre_religion_treaty = yes
+		add_years_of_income = 0.25
+		add_prestige = 50
+		every_country = {
+			limit = { 
+				war_with = ROOT 
+				NOT = { has_country_flag = rejected_westphalia } # Can only be the human
+				religion_group = christian
+				NOT = { religion = orthodox }
+				NOT = { religion = coptic }
+			}
+			white_peace = ROOT
+		}
+		if = {
+			limit = { religion  = catholic }
+			reverse_add_opinion = { who = PAP modifier = accepted_westphalia }
+		}
+	}
+
+	option = {
+		name = "vef_reformation.9.optb"
+		ai_chance = { factor = 0 }
+		set_country_flag = rejected_westphalia
+		if = {
+			limit = { religion  = catholic }
+			reverse_add_opinion = { who = PAP modifier = refused_westphalia }
+		}
+	}
+}
+
+# Huguenot refugees
+country_event = {
+	id = vef_reformation.10
+	title = "vef_reformation.10.t"
+	desc = "vef_reformation.10.d"
+	picture = VEF_RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	trigger = { NOT = { religion = catholic } }
+
+	option = {
+		name = "vef_reformation.10.opta"
+		random_core_province = { add_base_manpower = 1 }
+		random_core_province = { add_base_manpower = 1 }
+	}
+}
+
+# Random event - resistance to conversion in a province
+province_event = {
+	id = vef_reformation.11 
+	title = "vef_reformation.11.t"
+	desc = "vef_reformation.11.d"
+
+   picture = VEF_RELIGION_eventPicture
+
+	trigger = {
+		is_religion_enabled = protestant
+		continent = europe
+		religion_group = christian
+		has_owner_religion = no
+		NOT = { owner = { has_country_modifier = peace_of_westphalia_enacted } }
+		NOT = { has_province_modifier = religious_tradition }
+		NOT = { owner = { religion_group = muslim }}
+	}
+
+	mean_time_to_happen = { months = 1200 }
+
+	option = {
+		name = "vef_reformation.11.opta"
+		add_unrest = 2
+		add_province_modifier = { name = "religious_tradition" duration = 720 }
+	}
+}
+
+# Random event - Radical Preacher
+province_event = {
+	id = vef_reformation.12 
+	title = "vef_reformation.12.t"
+	desc = "vef_reformation.12.d"
+
+	trigger = {
+		continent = europe
+		is_religion_enabled = hussite
+		NOT = { owner = { has_country_modifier = peace_of_westphalia_enacted } }
+		religion = catholic
+		owner = {
+			NOT = { tag = PAP }
+			NOT = { government = archbishopric }
+			NOT = { government = theocracy }
+		}
+	}
+
+	is_mtth_scaled_to_size = 1
+
+	mean_time_to_happen = { 
+		months = 600 
+		modifier = {
+			factor = 0.90
+			is_religion_enabled = hussite
+		}
+		modifier = {
+			factor = 0.80
+			is_religion_enabled = protestant
+		}
+		modifier = {
+			factor = 1.25
+			owner = { is_defender_of_faith = yes }
+		}
+		modifier = {
+			factor = 2.0
+			owner = { has_country_flag = the_inquisition }
+		}
+		modifier = {
+			factor = 2.0
+			region = iberia_region
+		}
+	}
+
+   picture = VEF_RELIGION_eventPicture
+
+	option = {
+		name = "vef_reformation.12.opta"
+		add_province_modifier = { name = "radical_preacher" duration = 365 }
+		add_reform_desire = 0.25
+		add_unrest = 1
+	}
+}
+
+# Random event - indulgence peddler
+province_event = {
+	id = vef_reformation.13 
+	title = "vef_reformation.13.t"
+	desc = "vef_reformation.13.d"
+
+	is_mtth_scaled_to_size = 1
+
+	mean_time_to_happen = { 
+		months = 600 
+		modifier = { 
+			owner = { num_of_cities = 30 }
+			factor = 1.35
+		}
+		modifier = { 
+			owner = { num_of_cities = 60 }
+			factor = 1.35
+		}
+		modifier = { 
+			owner = { num_of_cities = 90 }
+			factor = 1.35
+		}
+	}
+
+	picture = VEF_RELIGION_eventPicture
+
+	trigger = {
+		continent = europe
+		is_religion_enabled = hussite
+		NOT = { owner = { has_country_modifier = peace_of_westphalia_enacted } }
+		religion = catholic
+		owner = {
+			NOT = { tag = PAP }
+			NOT = { government = archbishopric }
+			NOT = { government = theocracy }
+		}
+		NOT = { region = italy_region }
+		NOT = { province_group = ireland_group }
+		NOT = { region = iberia_region }
+	}
+
+	option = {
+		name = "vef_reformation.13.opta"
+		add_province_modifier = { name = "indulgence_peddler" duration = 365 }
+		add_reform_desire = 0.25
+		add_unrest = 2
+	}
+}
+
+country_event = {
+	id = vef_reformation.14 
+	title = "vef_reformation.14.t"
+	desc = "vef_reformation.14.d"
+
+	picture = VEF_RELIGION_eventPicture
+
+	hidden = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_modifier = peace_of_westphalia_enacted
+	}
+
+	option = {
+		name = "vef_reformation.14.opta"
+		every_country = { 
+			remove_country_modifier = called_for_general_council
+			remove_country_modifier = suppress_reform
+		}
+	}
+}
+
+# Catholic provinces unhappy with monastery dissolution
+country_event = {
+   id = vef_reformation.15
+   title = "vef_reformation.15.t"
+   desc = "vef_reformation.15.d"
+   picture = VEF_RELIGION_eventPicture
+   
+   trigger = {
+   		any_owned_province = { religion = catholic }
+   		has_country_modifier = the_dissolution_of_the_monasteries
+   		NOT = { has_country_flag = catholic_reaction_dissolution }
+   		NOT = { tag = SWE } # Dacke Wars
+   		NOT = { tag = SCA }
+   		NOT = { tag = ENG }	# Pilgrimage of Grace
+   		NOT = { tag = GBR }
+   	}
+   	
+   	immediate = { set_country_flag = catholic_reaction_dissolution }
+   	
+   	option = { # Disperse Them
+		name = "vef_reformation.15.opta"
+		add_country_modifier = { name = "unrest_over_monasteries" duration = 1460 }
+		add_stability = -1
+		random_owned_province = {
+			limit = { religion = catholic }
+			spawn_rebels = {
+				type = catholic_rebels
+				size = 2
+			}
+		}
+		every_owned_province = {
+			limit = { religion = catholic }
+			add_province_modifier = { name = "catholic_province_monastery_dissolution" duration = 730 }
+			add_unrest = 2
+		}
+	}
+	
+	option = { # Negotiate
+		name = "vef_reformation.15.optb"
+		add_legitimacy = -20
+		add_prestige = -20
+		add_country_modifier = { name = "forced_monasteries_restored" duration = -1 }
+		remove_country_modifier = the_dissolution_of_the_monasteries
+	}
+}
+
+# England become Anglican - provinces in England/Wales randomly convert to Anglican
+# MTTH is 60 months. This does not apply to Scotish Provinces (they randomly become
+# reformed by another event).
+province_event = {
+   id = vef_reformation.16
+   title = "vef_reformation.16.t"
+   desc = "vef_reformation.16.d"
+   picture = VEF_RELIGION_eventPicture
+
+   trigger = {
+		is_religion_enabled = anglican
+		is_reformation_center = no
+		OR = {
+			owner = { is_colonial_nation_of = ENG }
+			owner = { is_colonial_nation_of = GBR }
+			owner = { is_colonial_nation_of = YOR } # In case the WotR has not ended
+			owner = { is_colonial_nation_of = LAN } # In case the WotR has not ended
+		}
+		OR = {
+			ENG = { religion = anglican }
+			GBR = { religion = anglican }
+		}
+		NOT = { owner = { has_country_modifier = peace_of_westphalia_enacted } }
+		NOT = { religion = anglican }
+		OR = {
+			owner = { ai = no }
+			owner = { NOT = { has_country_flag = ai_no_anglican } }
+		}
+	}
+
+	mean_time_to_happen = { months = 48 }
+
+	option = {
+		name = "vef_reformation.16.opta"
+		change_religion = anglican
+	}
+}
+
+# Reformation cleanup event
+country_event = {
+	id = 	vef_reformation.17
+	title = "vef_reformation.17.t"
+	desc = "vef_reformation.17.d"
+
+	fire_only_once = yes
+
+	hidden = yes
+
+	picture = VEF_MARTIN_LUTHER_eventPicture
+
+	trigger = { 
+		tag = PAP
+		has_country_modifier = peace_of_westphalia_enacted
+	}
+
+	immediate = {
+		add_country_modifier = { name = "pap_peace_of_westphalia" duration = -1 }
+	}
+
+	option = {
+		name = "vef_reformation.17.opta"
+	}
+}

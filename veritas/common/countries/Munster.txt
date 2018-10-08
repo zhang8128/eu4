@@ -1,0 +1,154 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 205  103  80 }
+
+historical_idea_groups = {
+	diplomatic_ideas
+	mercenary_ideas
+	religious_ideas
+	mercantilist_ideas
+	defensive_ideas
+	administrative_ideas
+	gf1_ideas
+	quantity_ideas
+}
+
+historical_units = { 
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+
+
+
+
+#For use only when Munster is ruled by a bishop
+monarch_names = {
+	"Johann #2" = 40
+	"Erich #0" = 40
+	"Ferdinand #0" = 40
+	"Heinrich #0" = 40
+	"Otto #3" = 20
+	"Friedrich #2" = 20
+	"Konrad #1" = 20
+	"Wilhelm #1" = 20
+	"Bernhard #0" = 20
+	"Bernhard Christoph #0" = 20
+	"Franz #0" = 20
+	"Franz Arnold #0" = 20
+	"Friedrich Christian #0" = 20
+	"Johann Wilhelm #0" = 20
+	"Ludwig #2" = 15
+	"Adolf #1" = 15
+	"Ludwig #1" = 10
+	"Alexander #0" = 0
+	"Andreas #0" = 0
+	"Baldur #0" = 0
+	"Bruno #0" = 0
+	"Clemens #0" = 0
+	"Dedrick #0" = 0
+	"Denis #0" = 0
+	"Ernst #0" = 20
+	"Florian #0" = 0
+	"Gregor #0" = 0
+	"Guntram #0" = 0
+	"Helmfried #0" = 0
+	"Helmut #0" = 0
+	"Isaak #0" = 0
+	"Jan #0" = 0
+	"Joachim #0" = 0
+	"Martin #0" = 0
+	"Michael #0" = 0
+	"Rainer #0" = 0
+	"Rudolf #0" = 0
+	"Siegmund #0" = 0
+	
+	"Ciara #0" = -1
+	"Onóra #0" = -1
+	"Treasa #0" = -1
+}
+
+leader_names = {
+	Enste Dönhoff "von Cossel" "de Turckheim"
+	"de Dornach" "de Kircheim" Kempf Wachsmuth
+	Helff Krefting Köhne Engels Boelken Meyer
+}
+
+ship_names = {
+	Liudger "St. Lamberti" Liebfrauenkirche
+	"Graf von Hoya" Greven Hiltrup Mauritz
+	Wolbeck Roxel Senden
+}
+
+army_names = {
+	"Armee von $PROVINCE$" 
+}

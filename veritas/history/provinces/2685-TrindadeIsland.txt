@@ -1,0 +1,3 @@
+# Trindade Island
+#Province IDs changed
+1502.5.21 = { discovered_by = POR }

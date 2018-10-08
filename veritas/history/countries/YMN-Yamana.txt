@@ -1,0 +1,19 @@
+# Factions moved to government
+#Province IDs changed
+government = monarchy add_government_reform = daimyo
+government_rank = 2
+primary_culture = japanese
+religion = shinto
+technology_group = niitaka
+capital = 974
+historical_friend = JAP
+
+1308.1.9 = {
+	monarch = {
+		name = "Atsushi"
+		dynasty = "Yamana"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}

@@ -1,0 +1,518 @@
+# MOS/RUS will always have a CB on the nomadic tribes
+cb_russia_v_hordes = {
+	valid_for_subject = no
+
+	prerequisites = {
+		culture_group = east_slavic
+		FROM = {
+			has_reform = steppe_horde
+			is_neighbor_of = ROOT
+			NOT = { tag = ILK }
+			NOT = { tag = TIM }
+		}
+		is_revolution_target = no
+	}
+
+	war_goal = suppress_hordes
+}
+
+cb_hundred_years_war = {
+	valid_for_subject = no
+
+	is_triggered_only = yes
+
+	war_goal = hyw_force_pu
+}
+
+cb_boh_hussite = {
+	valid_for_subject = no
+
+	prerequisites = {
+		religion = catholic
+		NOT = { PAP = { has_country_flag = had_compact_of_prague } }
+		OR = {
+			hre_religion_treaty = no
+			has_country_flag = rejected_westphalia
+		}
+		FROM = { 
+			tag = BOH
+			religion = hussite
+		}
+		is_revolution_target = no
+	}
+
+	war_goal = force_convert_heretics
+}
+
+# For the Reformation Wars. All Christians except Orthodox and Coptic
+cb_30_years_war_catholic = {
+	valid_for_subject = no
+
+	prerequisites = {
+		NOT = { has_dlc = "Art of War" }
+		is_religion_enabled = protestant
+		hre_religion_treaty = no
+		religion = catholic
+		is_neighbor_of = FROM
+		FROM = { 
+			religion_group = christian
+			NOT = { religion = orthodox }
+			NOT = { religion = coptic }
+			NOT = { religion = catholic }
+		}
+		is_revolution_target = no
+	}
+
+	war_goal = force_convert_heretics
+}
+
+# European nations hate each other during the 1517 to 1648 period. We'll call this 30-years
+# war, but it's more like 120.
+cb_30_years_war_protestant = {
+	valid_for_subject = no
+
+	prerequisites = {
+		NOT = { has_dlc = "Art of War" }
+		is_religion_enabled = protestant
+		religion_years = { protestant = 5 }
+		hre_religion_treaty = no
+		religion_group = christian
+		NOT = { religion = orthodox }
+		NOT = { religion = coptic }
+		NOT = { religion = catholic }
+
+		is_neighbor_of = FROM
+		FROM = { religion = catholic }
+		is_revolution_target = no
+	}
+
+	war_goal = force_convert_heretics
+}
+
+# Release the Pope as a vasal - but only if he has holdings in Italy.
+cb_release_rome = {
+	valid_for_subject = no
+
+	prerequisites = {
+		religion = catholic
+		PAP = { 
+			is_subject_of = FROM 
+			any_owned_province = { region = italy_region }
+		}
+		NOT = { tag = PAP }
+		NOT = { alliance_with = FROM }
+		NOT = { junior_union_with = FROM }
+		NOT = { senior_union_with = FROM }
+		is_revolution_target = no
+	}
+
+	war_goal = release_rome
+}
+
+cb_venice_vs_genoa = {
+	valid_for_subject = no
+
+	prerequisites = {
+		OR = {
+			AND = {
+				ROOT = { tag =  VEN }
+				FROM = { tag = GEN }
+			}
+			AND = { 
+				ROOT = { tag =  GEN }
+				FROM = { tag = VEN }
+			}
+		}
+		
+		NOT = { has_global_flag = trade_wars_over }
+		is_revolution_target = no
+	}
+
+	war_goal = superiority_trade_mutual
+}
+
+cb_byz_trade_centers = {
+
+	is_triggered_only = yes
+	months = 12
+
+	war_goal = byz_take_border
+}
+
+# Overlord holds a core on subject province
+cb_overlord_core = {
+	valid_for_subject = no
+
+	prerequisites = {
+		NOT = { has_dlc = "Art of War" }
+		any_subject_country = { core_claim = FROM }
+		ROOT = { NOT = { overlord_of = FROM } }
+	}
+
+   war_goal = reclaim_core
+}
+
+# Timurids get free reign to crush IlKhanate and successor states
+cb_timur_v_persia = {
+	valid_for_subject = no
+
+	prerequisites = {
+		tag = TIM
+		OR = {
+			FROM = { tag = ILK }
+			FROM = { tag = MZF }
+			FROM = { tag = SRB }
+			FROM = { tag = CBN }
+			FROM = { tag = JAI }
+			FROM = { tag = KHI }
+		}
+		is_revolution_target = no
+	}
+
+	war_goal = take_border
+}
+
+cb_spices = {
+	prerequisites = {
+		capital_scope = { continent = europe }
+		OR = {
+			AND = {
+				religion_group = christian
+				OR = {
+					full_idea_group = mm1_ideas
+					full_idea_group = gf1_ideas
+				}
+				full_idea_group = exploration_ideas
+				has_idea_group = religious_ideas
+			}
+			AND = {
+				OR = {
+					full_idea_group = mm1_ideas
+					full_idea_group = gf1_ideas
+				}
+				OR = {
+					has_idea_group = land_trade_ideas 
+					has_idea_group = free_trade_ideas 
+					has_idea_group = mercantilist_ideas 
+				}
+			}
+			full_idea_group = expansion_ideas
+		}
+
+		FROM = {
+			any_owned_province = { 
+				NOT = { continent = europe }
+				OR = {
+					trade_goods = cinnamon
+					trade_goods = cloves 
+					trade_goods = nutmeg
+					trade_goods = spices
+					trade_goods = sandalwood
+					trade_goods = dyes
+					trade_goods = tea
+				}
+				has_port = yes
+			}
+		}
+		is_revolution_target = no
+	}
+
+	war_goal = capture_spices
+}
+
+cb_rival = {
+	valid_for_subject = no
+
+	prerequisites = {
+		ai = no
+		is_rival = FROM
+		is_enemy = FROM
+		is_revolution_target = no
+	}
+
+	war_goal = anti_rival
+}
+
+cb_tribute = {
+	is_triggered_only = yes
+	months = 36
+	war_goal = superiority_tribute
+}
+
+cb_ghazi = {
+	valid_for_subject = no
+
+	prerequisites = {
+		tag = OSM
+		FROM = {
+			primary_culture = turkish
+			NOT = { is_subject_of = ROOT }
+		}
+		is_revolution_target = no
+	}
+
+	war_goal = ghazi_dominance
+}
+
+# New Crusade - Crusade mechanics
+cb_vefcrusade = {
+	valid_for_subject = no
+
+	prerequisites = {
+		religion = catholic
+		has_country_flag = crusade_member
+		FROM = { has_country_flag = crusade_target }
+		is_revolution_target = no
+	}
+
+	war_goal = superiority_vef_crusade
+}
+
+cb_vefschism = {
+	valid_for_subject = no
+
+	prerequisites = {
+		has_global_flag = vef_papacy_schism
+		religion = catholic
+		is_neighbor_of = FROM
+		OR = {
+			AND = {
+				OR = {
+					has_country_flag = vef_supports_avignon
+					tag = AVI
+				}
+				FROM = { 
+					OR = {
+						has_country_flag = vef_supports_rome
+						tag = PAP
+					}
+					religion = catholic
+				}
+			}
+			AND = {
+				OR = {
+					has_country_flag = vef_supports_rome
+					tag = PAP
+				}
+				FROM = { 
+					OR = {
+						has_country_flag = vef_supports_avignon
+						tag = AVI
+					}
+					religion = catholic
+				}
+			}
+		}
+		is_revolution_target = no
+	}
+
+	war_goal = superiority_heretic
+}
+# Assassination Attempt
+cb_assassination = {
+	valid_for_subject = no
+
+	is_triggered_only = yes
+	months = 60
+	war_goal = anti_rival
+}
+
+# Russian Enforcer
+cb_enforcer = {
+	valid_for_subject = no
+
+	is_triggered_only = yes
+
+	months = 24
+
+	war_goal = rus_enforcer
+}
+
+#Kalmar union
+cb_enforce_union = {
+	valid_for_subject = no
+
+    is_triggered_only = yes
+
+    months = 24
+
+    war_goal = take_capital_kalmar_union
+}
+
+#Kalmar union
+cb_hansa_bully = {
+	valid_for_subject = no
+
+    is_triggered_only = yes
+
+    months = 12
+
+    war_goal = blockade_ports
+}
+
+#Kalmar union
+cb_hansa_refused = {
+	valid_for_subject = no
+
+    is_triggered_only = yes
+
+    months = 12
+
+    war_goal = blockade_ports
+}
+
+cb_kalmar_union_independence = {
+	valid_for_subject = no
+	independence = yes
+
+    is_triggered_only = yes
+
+    months = 24
+
+    war_goal = kalmar_union_independence
+}
+
+cb_restore_kalmar_union = {
+	valid_for_subject = no
+
+	is_triggered_only = yes
+
+	months = 24
+
+	war_goal = take_capital_kalmar_union
+}
+
+# Spied Upon
+cb_enemy_spies_active = {
+	valid_for_subject = no
+
+	prerequisites = {
+		ROOT = { has_opinion_modifier = { modifier = discovery_of_evil who = FROM value = -18 }}
+		is_revolution_target = no
+	}
+
+    war_goal = superiority_spy
+}
+
+# Virtus Post Solium
+cb_virtus_post_solium = {
+	valid_for_subject = no
+
+    prerequisites = {
+    	has_country_modifier = virtus_post_solium
+		FROM = { war_with = PAP }
+		is_revolution_target = no
+	}
+
+    war_goal = vef_superiority_punitive
+}
+
+# Hansa city state that broke free
+cb_disloyal_city_state = {
+
+   is_triggered_only = yes
+   months = 120
+
+   war_goal = take_capital_disloyal
+}
+
+# Luxembourg claims to Polish throne
+cb_luxembourg_claims = {
+	valid_for_subject = no
+
+	is_triggered_only = yes
+
+	war_goal = take_capital_fabricated_claims
+}
+
+# Holy War - From Religious Ideas
+cb_vef_crusade = {
+	valid_for_subject = no
+
+	prerequisites = {
+		OR = {
+			is_neighbor_of = FROM
+			any_subject_country = { is_neighbor_of = FROM }
+		}
+		NOT = { religion_group = FROM }
+		NOT = {	has_matching_religion = FROM }
+		cb_on_religious_enemies = yes
+		OR = {
+			NOT = { religion_group = christian }
+			OR = {
+				hre_religion_treaty = no
+				NOT = { FROM = { religion_group = christian } }
+				has_country_flag = rejected_westphalia
+			}
+		}
+		is_revolution_target = no
+	}
+
+	war_goal = superiority_vef_crusade
+}
+
+cb_imperial_conquest = {
+	valid_for_subject = no
+
+	prerequisites = {
+		is_neighbor_of = FROM
+		cb_on_government_enemies = yes
+		government_rank = 4
+		FROM = { NOT = { government_rank = 4 } }
+		is_revolution_target = no
+	}
+
+	war_goal = take_capital_imperial
+}
+
+cb_imperial_superiority = {
+	valid_for_subject = no
+
+	prerequisites = {
+		cb_on_government_enemies = yes
+		government_rank = 4
+		is_neighbor_of = FROM
+		FROM = { government_rank = 4 }
+		is_revolution_target = no
+	}
+
+	war_goal = vef_superiority_punitive
+}
+
+cb_alliance_war = {
+	valid_for_subject = no
+
+	prerequisites = {
+		ai = no
+		any_known_country = {
+			alliance_with = ROOT
+			war_with = FROM
+		}
+		NOT = { war_with = FROM }
+		is_revolution_target = no
+	}
+
+	war_goal = alliance_superiority
+}
+
+# WRE CB for establishing dominance of the Western empire
+cb_wre_v_hre = {
+	valid_for_subject = no
+
+	is_triggered_only = yes
+
+	prerequisites = {
+		tag = ROM
+		has_country_flag = wreversushre
+	}
+
+	war_goal = wre_v_hre
+}
+
+# For country reuniting. Events only.
+cb_reunite_breakaway = {
+
+	is_triggered_only = yes
+
+	war_goal = vef_reunite_breakaway
+}

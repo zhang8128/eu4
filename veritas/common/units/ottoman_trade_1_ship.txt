@@ -1,0 +1,10 @@
+#Göke
+#model = cog
+#tech_level = 0
+type = light_ship
+unit_type = ottoman
+
+hull_size = 6
+base_cannons = 3
+sail_speed = 6
+trade_power = 0.75

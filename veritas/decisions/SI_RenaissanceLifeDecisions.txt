@@ -1,0 +1,125 @@
+#by Marco Dandolo
+
+country_decisions = {
+	build_jeu_paume_hall = {
+		potential = {
+			OR = {
+            	ai = no
+            	any_neighbor_country = {
+            		ai = no
+            		NOT = { has_country_flag = jeu_de_paume_boycott }
+            	}
+            }
+			NOT = { has_country_flag = cultural_decision_off }
+			NOT = { has_country_flag = jeu_de_paume_boycott }
+			technology_group = western
+			OR = { 
+				culture_group = french
+				any_neighbor_country = { has_country_flag = jeu_paume_hall }
+				dip_tech = 17
+			} 
+			NOT = { 
+			    has_country_flag = jeu_paume_hall 
+			}
+            europe = { country_or_vassal_holds = ROOT }
+		}
+		allow = {
+			treasury = 110 
+		}
+		effect = {
+			set_country_flag = jeu_paume_hall
+			capital_scope = {
+				add_province_modifier = { name = "jeu_paume_hall" duration = -1 }
+			}
+			add_treasury = -100
+			add_prestige = 5
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	organise_jeu_de_paume = {
+		potential = {
+			OR = {
+            	ai = no
+            	any_neighbor_country = {
+            		ai = no
+            		NOT = { has_country_flag = jeu_de_paume_boycott }
+            	}
+            }
+			NOT = { has_country_flag = cultural_decision_off }
+			government = monarchy
+			technology_group = western
+			capital_scope = { continent = europe }
+			has_country_flag = jeu_paume_hall
+			NOT = {
+				OR = {
+					has_country_modifier = preparing_jeu_de_paume
+					has_country_modifier = festivating_jeu_de_paume
+					has_country_modifier = glorious_jeu_de_paume
+					has_country_modifier = won_jeu_de_paume
+					has_country_modifier = lost_jeu_de_paume
+					has_country_flag = jeu_de_paume
+					has_country_flag = jeu_de_paume_boycott
+				}
+			}
+            europe = { country_or_vassal_holds = ROOT }
+            NOT = { has_regency_trigger = yes }
+		}
+		allow = {
+			is_at_war = no
+			years_of_income = 0.2
+			prestige = 5
+		}
+		effect = {
+			add_years_of_income = -0.15
+			country_event = { id = jeu_paume.1 }
+			set_country_flag = jeu_de_paume
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	boycott_jeu_de_paume = {
+		potential = {
+			ai = no
+			NOT = { has_country_flag = cultural_decision_off }
+			technology_group = western
+			NOT = { has_country_flag = jeu_de_paume_boycott }
+			europe = { country_or_vassal_holds = ROOT }
+		}
+		allow = {
+		}
+		effect = {
+			set_country_flag = jeu_de_paume_boycott
+			custom_tooltip = boycotting_jeudepaume
+		}
+		
+		ai_will_do = { factor = 0 } # Not AI
+	}
+	
+	lift_boycott_jeu_de_paume = {
+		potential = {
+			ai = no
+			NOT = { has_country_flag = cultural_decision_off }
+		    has_country_flag = jeu_de_paume_boycott			
+		}
+		allow = {
+		}
+		effect = {
+			clr_country_flag = jeu_de_paume_boycott
+			custom_tooltip = lift_jeudepaume_boycott
+			hidden_effect = {
+				remove_country_modifier = preparing_jeu_de_paume
+				remove_country_modifier = festivating_jeu_de_paume
+				remove_country_modifier = glorious_jeu_de_paume
+				clr_country_flag = jeu_de_paume
+			}
+		}
+		
+		ai_will_do = { factor = 0 } # Disable for AI
+	}
+}

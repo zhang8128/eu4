@@ -1,0 +1,35 @@
+# Protect our trading partners
+alliance = {
+	first = BYZ
+	second = GEN
+	start_date = 1399.1.1
+	end_date = 1415.1.12
+}
+
+alliance = {
+	first = BYZ
+	second = VEN
+	start_date = 1399.1.1
+	end_date = 1415.1.12
+}
+
+vassal = { 
+	first = BYZ
+	second = WAL
+	start_date = 1490.10.1
+	end_date = 1820.12.31
+}
+
+vassal = { 
+	first = BYZ
+	second = SER
+	start_date = 1519.5.28
+	end_date = 1531.9.30
+}
+
+vassal = { 
+	first = BYZ
+	second = BOS
+	start_date = 1519.5.29
+	end_date = 1538.1.1
+}

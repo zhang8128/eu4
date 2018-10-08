@@ -1,0 +1,38 @@
+# Bohuslän
+
+capital = "Kungahälla"
+owner = SWE
+controller = SWE
+add_territorial_core = SWE
+culture = norwegian
+religion = catholic
+trade_goods = fish
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1307.1.1   = { revolt = { type = pretender_rebels size = 2 name = "Erik Magnusson Bjälbo" leader = "Valdemar Magnusson Bjälbo"} controller = REB }
+1318.12.1   = { revolt = {} controller = SWE }
+1319.1.1   = { owner = NOR controller = NOR add_core = NOR remove_core = SWE capital = "Konghelle" }
+1350.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1448.1.1   = { capital = "Uddevalla" temple = yes }
+1523.3.15  = { owner = SWE controller = SWE capital = "Kungahälla" } # Gustav Wasas invasion of Norway
+1532.5.17  = { owner = NOR controller = NOR capital = "Konghelle" } # Malmö Recess & the Meeting in Varberg
+1536.1.1   = { religion = protestant owner = DAN controller = DAN add_core = DAN dock = yes } # 'Handfästningen'(Unknown date)
+1600.1.1   = { base_manpower = 0.8 }
+1650.1.1   = { base_manpower = 0.9 }
+1658.2.26  = {	owner = SWE controller = SWE add_core = SWE courthouse = yes capital = "Kungahälla" } # The Peace of Roskilde. Minor court belonging to Göta Hovrätt
+1677.11.1  = { controller = DAN } # 1st Pommeranian War-Captured by Gyldenlöwe
+1679.8.23  = { controller = SWE } # The Peace of Fontainbleau
+1680.1.1   = { culture = swedish } # The population had adapted to Swedish custom
+1700.1.1   = { base_manpower = 1.1 }
+1720.1.1   = { barracks = yes } # Bohusläns kavalleri- och dragonregemente
+1750.1.1   = { base_manpower = 1.25 marketplace = yes } # Heeringboom of the 1750s
+1800.1.1   = { base_manpower = 1.5 }

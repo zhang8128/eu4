@@ -1,0 +1,29 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+primary_culture = eastfranconian
+religion = catholic
+technology_group = western
+capital = 323	# Vogtland
+
+1309.1.1 = {
+	monarch = {
+		name = "Heinrich I"
+		dynasty = "von Plauen"
+		dip = 2
+		adm = 3
+		mil = 1
+	}
+}
+
+1349.1.1 = {
+	monarch = {
+		name = "Heinrich II"
+		dynasty = "von Plauen"
+		dip = 1
+		adm = 1
+		mil = 3
+	}
+}
+
+#1357 Conquered by Bohemia following the Vogtland War

@@ -1,0 +1,1328 @@
+monarch_power = MIL
+
+# applied when a country is ahead of time in this technology
+# no bonus for MIL currently
+# ahead_of_time = {
+# }
+
+technology = {
+	# Tech 0
+	year = 1198
+	
+	sprite_level = 1
+
+	infantry_fire = 0.05
+	infantry_shock = 0.1
+	cavalry_shock = 0.3
+	artillery_shock = 0.05
+	land_morale = 1.0
+	
+	basic_fort = yes
+	fort_15th = yes
+
+	enable = chinese_artillery_0_1
+	enable = nomad_artillery_0_1
+	enable = nomad_cavalry_0_1
+	enable = nomad_infantry_0_1
+	
+	enable = mesoamerican_infantry_0_1
+	enable = north_american_infantry_0_1
+	enable = pacific_islander_infantry_0_1
+	enable = south_american_infantry_0_1
+	enable = tribal_african_tech_infantry_0_1
+	
+	enable = western_infantry_0_1
+	enable = western_infantry_0_2
+	enable = western_cavalry_0_1
+	enable = western_cavalry_0_2
+	enable = eastern_infantry_0_1
+	enable = eastern_infantry_0_2
+	enable = eastern_cavalry_0_1
+	enable = eastern_cavalry_0_2
+	enable = byzantine_infantry_0_1
+	enable = byzantine_infantry_0_2
+	enable = byzantine_cavalry_0_1
+	enable = byzantine_cavalry_0_2
+	enable = scandinavian_infantry_0_1
+	enable = scandinavian_cavalry_0_1
+	enable = scandinavian_cavalry_0_2
+	enable = ottoman_infantry_0_1
+	enable = ottoman_infantry_0_2
+	enable = ottoman_cavalry_0_1
+	enable = ottoman_cavalry_0_2
+	enable = muslim_infantry_0_1
+	enable = muslim_infantry_0_2
+	enable = muslim_cavalry_0_1
+	enable = muslim_cavalry_0_2
+	enable = niitaka_infantry_0_1
+	enable = niitaka_infantry_0_2
+	enable = niitaka_cavalry_0_1
+	enable = niitaka_cavalry_0_2
+	enable = chinese_infantry_0_1
+	enable = chinese_infantry_0_2
+	enable = chinese_cavalry_0_1
+	enable = chinese_cavalry_0_2
+	enable = indian_infantry_0_1
+	enable = indian_infantry_0_2
+	enable = indian_cavalry_0_1
+	enable = indian_cavalry_0_2
+	enable = sudanese_infantry_0_1
+	enable = sudanese_infantry_0_2
+	enable = sudanese_cavalry_0_1
+	enable = sudanese_cavalry_0_2
+	enable = sub_saharan_infantry_0_1
+	enable = sub_saharan_infantry_0_2
+	enable = sub_saharan_cavalry_0_1
+	enable = sub_saharan_cavalry_0_2
+}
+
+technology = {
+	# Tech 1
+	year = 1209
+	
+}
+
+technology = {
+	# Tech 2
+	year = 1220
+	
+}
+
+technology = {
+	# Tech 3
+	year = 1231
+	
+}
+
+technology = {
+	# Tech 4
+	year = 1242
+	
+}
+
+technology = {
+	# Tech 5
+	year = 1253
+	
+}
+
+technology = {
+	# Tech 6
+	year = 1264
+	
+	enable = western_infantry_6_1
+	enable = western_infantry_6_2
+	enable = eastern_infantry_6_1
+	enable = eastern_infantry_6_2
+	enable = byzantine_infantry_6_1
+	enable = byzantine_infantry_6_2
+	enable = scandinavian_infantry_6_1
+	enable = ottoman_infantry_6_1
+	enable = ottoman_infantry_6_2
+	enable = muslim_infantry_6_1
+	enable = muslim_infantry_6_2
+	enable = niitaka_infantry_6_1
+	enable = niitaka_infantry_6_2
+	enable = chinese_infantry_6_1
+	enable = chinese_infantry_6_2
+	enable = indian_infantry_6_1
+	enable = indian_infantry_6_2
+	enable = sudanese_infantry_6_1
+	enable = sudanese_infantry_6_2
+	enable = sub_saharan_infantry_6_1
+	enable = sub_saharan_infantry_6_2
+}
+
+technology = {
+	# Tech 7
+	year = 1275
+	
+}
+
+technology = {
+	# Tech 8
+	year = 1286
+	
+}
+
+technology = {
+	# Tech 9
+	year = 1297
+	
+}
+
+technology = {
+	# Tech 10
+	year = 1308
+
+}
+
+technology = {
+	# Tech 11
+	year = 1320
+	
+	infantry_shock = 0.05	
+	cavalry_shock = 0.05
+	land_morale = 0.1
+}
+
+technology = {
+	# Tech 12
+	year = 1331
+
+	infantry_fire = 0.1
+	cavalry_shock = 0.05
+	land_morale = 0.1
+	
+	enable = tribal_african_tech_cavalry_2_1
+}
+
+technology = {
+	# Tech 13
+	year = 1342
+	
+	infantry_shock = 0.05
+	cavalry_shock = 0.1
+	land_morale = 0.1
+}
+
+technology = {
+	# Tech 14
+	year = 1353
+
+	land_morale = 0.25
+	combat_width = 1
+	
+	barracks = yes
+	
+	enable = western_infantry_14_1
+	enable = western_infantry_14_2
+	enable = eastern_infantry_14_1
+	enable = eastern_infantry_14_2
+	enable = byzantine_infantry_14_1
+	enable = byzantine_infantry_14_2
+	enable = scandinavian_infantry_14_1
+	enable = ottoman_infantry_14_1
+	enable = ottoman_infantry_14_2
+	enable = muslim_infantry_14_1
+	enable = muslim_infantry_14_2
+	enable = niitaka_infantry_14_1
+	enable = niitaka_infantry_14_2
+	enable = chinese_infantry_14_1
+	enable = chinese_infantry_14_2
+	enable = indian_infantry_14_1
+	enable = indian_infantry_14_2
+	enable = sudanese_infantry_14_1
+	enable = sudanese_infantry_14_2
+	enable = sub_saharan_infantry_14_1
+	enable = sub_saharan_infantry_14_2
+}
+
+technology = {
+	# Tech 15
+	year = 1364
+
+	land_morale = 0.1
+	
+	textile = yes
+	
+	enable = nomad_cavalry_5_1
+}
+
+technology = {
+	# Tech 16
+	year = 1375
+
+	cavalry_shock = 0.05
+	land_morale = 0.1
+	
+	combat_width = 1
+	
+	enable = mesoamerican_infantry_6_1
+	enable = north_american_infantry_6_1
+	enable = pacific_islander_infantry_6_1
+	enable = south_american_infantry_6_1
+	
+	enable = western_cavalry_16_1
+	enable = western_cavalry_16_2
+	enable = eastern_cavalry_16_1
+	enable = eastern_cavalry_16_2
+	enable = byzantine_cavalry_16_1
+	enable = byzantine_cavalry_16_2
+	enable = scandinavian_cavalry_16_1
+	enable = ottoman_cavalry_16_1
+	enable = ottoman_cavalry_16_2
+	enable = muslim_cavalry_16_1
+	enable = muslim_cavalry_16_2
+	enable = niitaka_cavalry_16_1
+	enable = niitaka_cavalry_16_2
+	enable = chinese_cavalry_16_1
+	enable = chinese_cavalry_16_2
+	enable = indian_cavalry_16_1
+	enable = indian_cavalry_16_2
+	enable = sudanese_cavalry_16_1
+	enable = sudanese_cavalry_16_2
+	enable = sub_saharan_cavalry_16_1
+	enable = sub_saharan_cavalry_16_2
+}
+
+technology = {
+	# Tech 17
+	year = 1386
+	
+	infantry_shock = 0.1
+	cavalry_shock = 0.05
+	land_morale = 0.1
+
+	enable = chinese_artillery_8_1
+	enable = byzantine_artillery_8_1
+	enable = indian_artillery_8_1
+	enable = ottoman_artillery_8_1
+	enable = western_artillery_8_1
+	enable = tribal_african_tech_infantry_8_1
+	
+	enable = western_infantry_17_1
+	enable = western_infantry_17_2
+	enable = eastern_infantry_17_1
+	enable = eastern_infantry_17_2
+	enable = byzantine_infantry_17_1
+	enable = byzantine_infantry_17_2
+	enable = scandinavian_infantry_17_1
+	enable = ottoman_infantry_17_1
+	enable = ottoman_infantry_17_2
+	enable = muslim_infantry_17_1
+	enable = muslim_infantry_17_2
+	enable = niitaka_infantry_17_1
+	enable = niitaka_infantry_17_2
+	enable = chinese_infantry_17_1
+	enable = chinese_infantry_17_2
+	enable = indian_infantry_17_1
+	enable = indian_infantry_17_2
+	enable = sudanese_infantry_17_1
+	enable = sudanese_infantry_17_2
+	enable = sub_saharan_infantry_17_1
+	enable = sub_saharan_infantry_17_2
+}
+
+technology = {
+	# Tech 18
+	year = 1397
+	
+	infantry_fire = 0.1
+	cavalry_shock = 0.15
+
+	combat_width = 1
+	
+	regimental_camp = yes
+
+	enable = eastern_artillery_9_1
+}
+
+technology = {
+	# Tech 19	
+	year = 1408
+	
+	infantry_shock = 0.1
+	cavalry_shock = 0.1
+	land_morale = 0.1
+
+	enable = muslim_artillery_10_1
+	enable = scandinavian_artillery_10_1
+	enable = tribal_african_tech_cavalry_10_1
+	enable = nomad_cavalry_10_1
+	enable = nomad_infantry_10_1
+}
+
+technology = {
+	# Tech 20
+	year = 1419
+
+	infantry_shock = 0.1
+	cavalry_shock = 0.1
+	land_morale = 0.1
+	
+	combat_width = 2
+}
+
+technology = {
+	# Tech 21
+	year = 1430
+
+	cavalry_shock = 0.1
+	land_morale = 0.1
+	
+	enable = south_american_infantry_12_1
+	enable = pacific_islander_infantry_12_1
+	enable = north_american_infantry_12_1
+	enable = mesoamerican_infantry_12_1
+	
+	enable = western_infantry_21_1
+	enable = western_infantry_21_2
+	enable = western_cavalry_21_1
+	enable = western_cavalry_21_2
+	enable = eastern_infantry_21_1
+	enable = eastern_infantry_21_2
+	enable = eastern_cavalry_21_1
+	enable = eastern_cavalry_21_2
+	enable = byzantine_infantry_21_1
+	enable = byzantine_infantry_21_2
+	enable = byzantine_cavalry_21_1
+	enable = byzantine_cavalry_21_2
+	enable = scandinavian_infantry_21_1
+	enable = scandinavian_cavalry_21_1
+	enable = ottoman_infantry_21_1
+	enable = ottoman_infantry_21_2
+	enable = ottoman_cavalry_21_1
+	enable = ottoman_cavalry_21_2
+	enable = muslim_infantry_21_1
+	enable = muslim_infantry_21_2
+	enable = muslim_cavalry_21_1
+	enable = muslim_cavalry_21_2
+	enable = niitaka_infantry_21_1
+	enable = niitaka_infantry_21_2
+	enable = niitaka_cavalry_21_1
+	enable = niitaka_cavalry_21_2
+	enable = chinese_infantry_21_1
+	enable = chinese_infantry_21_2
+	enable = chinese_cavalry_21_1
+	enable = chinese_cavalry_21_2
+	enable = indian_infantry_21_1
+	enable = indian_infantry_21_2
+	enable = indian_cavalry_21_1
+	enable = indian_cavalry_21_2
+	enable = sudanese_infantry_21_1
+	enable = sudanese_infantry_21_2
+	enable = sudanese_cavalry_21_1
+	enable = sudanese_cavalry_21_2
+	enable = sub_saharan_infantry_21_1
+	enable = sub_saharan_infantry_21_2
+	enable = sub_saharan_cavalry_21_1
+	enable = sub_saharan_cavalry_21_2
+}
+	
+technology = {
+	# Tech 22
+	year = 1441
+
+	land_morale = 0.35
+
+}
+
+technology = {
+	# Tech 23
+	year = 1452
+	
+	land_morale = 0.2
+	military_tactics = 0.25
+}
+
+technology = {
+	# Tech 24
+	year = 1463
+	
+	supply_limit = 0.5
+	infantry_shock = 0.1
+	artillery_fire = 1
+	cavalry_shock = 0.2
+
+	enable = byzantine_artillery_15_1
+	enable = chinese_artillery_15_1
+	enable = ottoman_artillery_15_1
+	enable = western_artillery_15_1
+	enable = nomad_cavalry_15_1
+
+}
+
+technology = {
+	# Tech 25
+	year = 1473
+
+	infantry_shock = 0.05
+	land_morale = 0.1
+	
+	weapons = yes
+
+	enable = eastern_artillery_16_1
+	enable = indian_artillery_16_1
+	enable = muslim_artillery_16_1
+	enable = scandinavian_artillery_16_1
+	enable = tribal_african_tech_infantry_16_1
+	
+	
+	enable = western_infantry_25_1
+	enable = western_infantry_25_2
+	enable = eastern_infantry_25_1
+	enable = eastern_infantry_25_2
+	enable = byzantine_infantry_25_1
+	enable = byzantine_infantry_25_2
+	enable = scandinavian_infantry_25_1
+	enable = scandinavian_infantry_25_2
+	enable = ottoman_infantry_25_1
+	enable = ottoman_infantry_25_2
+	enable = muslim_infantry_25_1
+	enable = muslim_infantry_25_2
+	enable = niitaka_infantry_25_1
+	enable = niitaka_infantry_25_2
+	enable = chinese_infantry_25_1
+	enable = chinese_infantry_25_2
+	enable = indian_infantry_25_1
+	enable = indian_infantry_25_2
+	enable = sudanese_infantry_25_1
+	enable = sudanese_infantry_25_2
+	enable = sub_saharan_infantry_25_1
+	enable = sub_saharan_infantry_25_2
+}
+
+technology = {
+	# Tech 26
+	year = 1483
+	
+	military_tactics = 0.25
+	infantry_shock = 0.3
+	infantry_fire = 0.20
+	land_morale = 0.1
+	
+}
+
+technology = {
+	# Tech 27
+	year = 1492
+
+	infantry_fire = 0.10
+	military_tactics = 0.25
+	
+	enable = pacific_islander_infantry_18_1
+	enable = south_american_infantry_18_1
+	enable = north_american_infantry_18_1
+	enable = mesoamerican_infantry_18_1
+	
+	enable = western_cavalry_27_1
+	enable = eastern_cavalry_27_1
+	enable = byzantine_cavalry_27_1
+	enable = ottoman_cavalry_27_1
+	enable = muslim_cavalry_27_1
+	enable = niitaka_cavalry_27_1
+	enable = chinese_cavalry_27_1
+	enable = indian_cavalry_27_1
+	enable = sudanese_cavalry_27_1
+	enable = sub_saharan_cavalry_27_1
+}
+
+technology = {
+	# Tech 28
+	year = 1505
+
+	infantry_fire		= 	0.25
+	cavalry_shock		=	0.8
+
+	fort_16th = yes
+
+	enable = nomad_artillery_20_1
+	enable = nomad_cavalry_20_1
+	enable = nomad_infantry_20_1
+	enable = tribal_african_tech_cavalry_20_1
+	
+	enable = western_infantry_28_1
+	enable = western_infantry_28_2
+	enable = eastern_infantry_28_1
+	enable = eastern_infantry_28_2
+	enable = byzantine_infantry_28_1
+	enable = byzantine_infantry_28_2
+	enable = ottoman_infantry_28_1
+	enable = ottoman_infantry_28_2
+	enable = muslim_infantry_28_1
+	enable = muslim_infantry_28_2
+	enable = niitaka_infantry_28_1
+	enable = niitaka_infantry_28_2
+	enable = chinese_infantry_28_1
+	enable = chinese_infantry_28_2
+	enable = indian_infantry_28_1
+	enable = indian_infantry_28_2
+	enable = sudanese_infantry_28_1
+	enable = sudanese_infantry_28_2
+	enable = sub_saharan_infantry_28_1
+	enable = sub_saharan_infantry_28_2
+}
+
+technology = {
+	# Tech 29
+	year = 1517
+
+	military_tactics = 0.25
+	combat_width = 1
+}
+
+technology = {
+	# Tech 30
+	year = 1529
+
+	maneuver_value = 0.25
+	land_morale = 0.1
+
+	enable = byzantine_artillery_22_1
+	enable = chinese_artillery_22_1
+	enable = eastern_artillery_22_1
+	enable = ottoman_artillery_22_1
+	enable = scandinavian_artillery_22_1
+	enable = western_artillery_22_1
+}
+
+technology = {
+	# Tech 31
+	year = 1540
+
+	infantry_shock = 0.20
+	cavalry_fire = 0.5
+	combat_width = 2
+
+	enable = muslim_artillery_23_1
+	enable = niitaka_artillery_23_1
+	
+	enable = western_infantry_31_1
+	enable = western_infantry_31_2
+	enable = western_cavalry_31_1
+	enable = eastern_infantry_31_1
+	enable = eastern_infantry_31_2
+	enable = eastern_cavalry_31_1
+	enable = byzantine_infantry_31_1
+	enable = byzantine_infantry_31_2
+	enable = byzantine_cavalry_31_1
+	enable = scandinavian_infantry_31_1
+	enable = scandinavian_infantry_31_2
+	enable = scandinavian_cavalry_31_1
+	enable = ottoman_infantry_31_1
+	enable = ottoman_infantry_31_2
+	enable = ottoman_cavalry_31_1
+	enable = muslim_infantry_31_1
+	enable = muslim_infantry_31_2
+	enable = muslim_cavalry_31_1
+	enable = niitaka_infantry_31_1
+	enable = niitaka_infantry_31_2
+	enable = niitaka_cavalry_31_1
+	enable = chinese_infantry_31_1
+	enable = chinese_infantry_31_2
+	enable = chinese_cavalry_31_1
+	enable = indian_infantry_31_1
+	enable = indian_infantry_31_2
+	enable = indian_cavalry_31_1
+	enable = sudanese_infantry_31_1
+	enable = sudanese_infantry_31_2
+	enable = sudanese_cavalry_31_1
+	enable = sub_saharan_infantry_31_1
+	enable = sub_saharan_infantry_31_2
+	enable = sub_saharan_cavalry_31_1
+}
+
+technology = {
+	# Tech 32
+	year = 1551
+	
+	training_fields = yes
+	
+	enable = indian_artillery_24_1
+	enable = tribal_african_tech_infantry_24_1
+	enable = mesoamerican_infantry_24_1
+	enable = north_american_infantry_24_1
+	enable = pacific_islander_infantry_24_1
+	enable = south_american_infantry_24_1
+}
+
+technology = {
+	# Tech 33
+	year = 1562
+	
+	supply_limit = 0.5
+	military_tactics = 0.25
+	enable = nomad_cavalry_25_1
+}
+
+technology = {
+	# Tech 34
+	year = 1573
+	
+	#Spanish Square
+	sprite_level = 2
+
+	artillery_shock = 0.1
+	artillery_fire = 0.4
+	
+	war_college = yes
+	
+	enable = western_infantry_34_1
+	enable = western_infantry_34_2
+	enable = eastern_infantry_34_1
+	enable = eastern_infantry_34_2
+	enable = byzantine_infantry_34_1
+	enable = byzantine_infantry_34_2
+	enable = scandinavian_infantry_34_1
+	enable = scandinavian_infantry_34_2
+	enable = ottoman_infantry_34_1
+	enable = ottoman_infantry_34_2
+	enable = muslim_infantry_34_1
+	enable = muslim_infantry_34_2
+	enable = niitaka_infantry_34_1
+	enable = niitaka_infantry_34_2
+	enable = chinese_infantry_34_1
+	enable = chinese_infantry_34_2
+	enable = indian_infantry_34_1
+	enable = indian_infantry_34_2
+	enable = sudanese_infantry_34_1
+	enable = sudanese_infantry_34_2
+	enable = sub_saharan_infantry_34_1
+	enable = sub_saharan_infantry_34_2
+}
+
+technology = {
+	# Tech 35
+	year = 1584
+
+	infantry_fire = 0.3
+	
+	refinery = yes
+	
+}
+
+technology = {
+	# Tech 36
+	year = 1595
+
+	land_morale = 1.0
+	military_tactics = 0.25
+	
+	enable = nomad_infantry_28_1
+	
+	enable = western_cavalry_36_1
+	enable = eastern_cavalry_36_1
+	enable = byzantine_cavalry_36_1
+	enable = scandinavian_cavalry_36_1
+	enable = ottoman_cavalry_36_1
+	enable = muslim_cavalry_36_1
+	enable = niitaka_cavalry_36_1
+	enable = chinese_cavalry_36_1
+	enable = indian_cavalry_36_1
+	enable = sudanese_cavalry_36_1
+	enable = sub_saharan_cavalry_36_1
+}
+
+technology = {
+	# Tech 37
+	year = 1606
+
+	artillery_shock = 0.1
+	artillery_fire = 1.0
+
+	combat_width = 1
+	
+	enable = byzantine_artillery_29_1
+	enable = chinese_artillery_29_1
+	enable = eastern_artillery_29_1
+	enable = muslim_artillery_29_1
+	enable = niitaka_artillery_29_1
+	enable = ottoman_artillery_29_1
+	enable = scandinavian_artillery_29_1
+	enable = western_artillery_29_1
+	enable = mesoamerican_infantry_30_1
+	enable = nomad_cavalry_30_1
+	enable = north_american_infantry_30_1
+	enable = pacific_islander_infantry_30_1
+	enable = south_american_infantry_30_1
+}
+
+technology = {
+	# Tech 38
+	year = 1617
+	
+	conscription_center = yes	
+	fort_17th = yes
+}
+
+technology = {
+	# Tech 39
+	year = 1628
+	
+	cavalry_shock = 1.0
+	supply_limit = 0.5
+
+	enable = indian_artillery_32_1
+	enable = nomad_artillery_32_1
+	enable = tribal_african_tech_infantry_32_1
+	
+	enable = western_infantry_39_1
+	enable = western_infantry_39_2
+	enable = eastern_infantry_39_1
+	enable = eastern_infantry_39_2
+	enable = byzantine_infantry_39_1
+	enable = byzantine_infantry_39_2
+	enable = scandinavian_infantry_39_1
+	enable = scandinavian_infantry_39_2
+	enable = ottoman_infantry_39_1
+	enable = ottoman_infantry_39_2
+	enable = muslim_infantry_39_1
+	enable = muslim_infantry_39_2
+	enable = niitaka_infantry_39_1
+	enable = niitaka_infantry_39_2
+	enable = chinese_infantry_39_1
+	enable = chinese_infantry_39_2
+	enable = indian_infantry_39_1
+	enable = indian_infantry_39_2
+	enable = sudanese_infantry_39_1
+	enable = sudanese_infantry_39_2
+	enable = sub_saharan_infantry_39_1
+	enable = sub_saharan_infantry_39_2
+}
+
+
+technology = {
+	# Tech 40
+	year = 1639
+
+	maneuver_value = 0.25
+
+	combat_width = 2
+	
+	enable = western_cavalry_40_1
+	enable = eastern_cavalry_40_1
+	enable = byzantine_cavalry_40_1
+	enable = scandinavian_cavalry_40_1
+	enable = ottoman_cavalry_40_1
+	enable = muslim_cavalry_40_1
+	enable = niitaka_cavalry_40_1
+	enable = chinese_cavalry_40_1
+	enable = indian_cavalry_40_1
+	enable = sudanese_cavalry_40_1
+	enable = sub_saharan_cavalry_40_1
+}
+
+technology = {
+	# Tech 41
+	year = 1650
+
+	military_tactics = 0.25
+	supply_limit = 0.5
+
+}
+
+technology = {
+	# Tech 42
+	year = 1661
+	
+	infantry_fire = 0.5
+
+	combat_width = 2
+	
+	enable = byzantine_artillery_35_1
+	enable = chinese_artillery_35_1
+	enable = eastern_artillery_35_1
+	enable = muslim_artillery_35_1
+	enable = niitaka_artillery_35_1
+	enable = ottoman_artillery_35_1
+	enable = scandinavian_artillery_35_1
+	enable = western_artillery_35_1
+	enable = nomad_cavalry_35_1
+	
+	enable = western_infantry_42_1
+	enable = western_infantry_42_2
+	enable = eastern_infantry_42_1
+	enable = eastern_infantry_42_2
+	enable = byzantine_infantry_42_1
+	enable = byzantine_infantry_42_2
+	enable = scandinavian_infantry_42_1
+	enable = scandinavian_infantry_42_2
+	enable = ottoman_infantry_42_1
+	enable = ottoman_infantry_42_2
+	enable = muslim_infantry_42_1
+	enable = muslim_infantry_42_2
+	enable = niitaka_infantry_42_1
+	enable = niitaka_infantry_42_2
+	enable = chinese_infantry_42_1
+	enable = chinese_infantry_42_2
+	enable = indian_infantry_42_1
+	enable = indian_infantry_42_2
+	enable = sudanese_infantry_42_1
+	enable = sudanese_infantry_42_2
+	enable = sub_saharan_infantry_42_1
+	enable = sub_saharan_infantry_42_2
+}
+
+technology = {
+	# Tech 43
+	year = 1672
+	
+	infantry_shock = 0.5
+	
+	enable = mesoamerican_infantry_36_1
+	enable = nomad_infantry_36_1
+	enable = north_american_infantry_36_1
+	enable = pacific_islander_infantry_36_1
+	enable = south_american_infantry_36_1
+}
+
+technology = {
+	# Tech 44
+	year = 1682
+
+	cavalry_fire = 0.5
+	artillery_shock = 0.1
+	military_tactics = 0.25
+
+	enable = western_cavalry_44_1
+	enable = western_cavalry_44_2
+	enable = eastern_cavalry_44_1
+	enable = eastern_cavalry_44_2
+	enable = byzantine_cavalry_44_1
+	enable = byzantine_cavalry_44_2
+	enable = scandinavian_cavalry_44_1
+	enable = scandinavian_cavalry_44_2
+	enable = ottoman_cavalry_44_1
+	enable = muslim_cavalry_44_1
+	enable = niitaka_cavalry_44_1
+	enable = niitaka_cavalry_44_2
+	enable = chinese_cavalry_44_1
+	enable = chinese_cavalry_44_2
+	enable = indian_cavalry_44_1
+	enable = indian_cavalry_44_2
+	enable = sudanese_cavalry_44_1
+	enable = sudanese_cavalry_44_2
+	enable = sub_saharan_cavalry_44_1
+	enable = sub_saharan_cavalry_44_2
+}
+
+technology = {
+	# Tech 45
+	year = 1691
+	
+	#Line Infantry
+	sprite_level = 3
+
+	artillery_fire = 2.0
+
+	combat_width = 2
+
+	enable = indian_artillery_38_1
+	
+	enable = western_infantry_45_1
+	enable = western_infantry_45_2
+	enable = eastern_infantry_45_1
+	enable = eastern_infantry_45_2
+	enable = byzantine_infantry_45_1
+	enable = byzantine_infantry_45_2
+	enable = scandinavian_infantry_45_1
+	enable = scandinavian_infantry_45_2
+	enable = ottoman_infantry_45_1
+	enable = ottoman_infantry_45_2
+	enable = muslim_infantry_45_1
+	enable = muslim_infantry_45_2
+	enable = niitaka_infantry_45_1
+	enable = niitaka_infantry_45_2
+	enable = chinese_infantry_45_1
+	enable = chinese_infantry_45_2
+	enable = indian_infantry_45_1
+	enable = indian_infantry_45_2
+	enable = sudanese_infantry_45_1
+	enable = sudanese_infantry_45_2
+	enable = sub_saharan_infantry_45_1
+	enable = sub_saharan_infantry_45_2
+}
+
+technology = {
+	# Tech 46
+	year = 1700
+	
+	cavalry_shock = 1.0
+	military_tactics = 0.25
+	maneuver_value = 0.5
+	
+}
+
+technology = {
+	# Tech 47
+	year = 1712
+	
+	fort_18th = yes
+	
+	enable = chinese_artillery_40_1
+	enable = eastern_artillery_40_1
+	enable = muslim_artillery_40_1
+	enable = niitaka_artillery_40_1
+	enable = ottoman_artillery_40_1
+	enable = western_artillery_40_1
+	enable = nomad_cavalry_40_1
+}
+
+technology = {
+	# Tech 48
+	year = 1725
+
+	artillery_shock = 0.1
+	artillery_fire = 2.0
+	military_tactics = 0.25
+	
+	enable = western_infantry_48_1
+	enable = western_infantry_48_2
+	enable = western_cavalry_48_1
+	enable = western_cavalry_48_2
+	enable = eastern_infantry_48_1
+	enable = eastern_infantry_48_2
+	enable = eastern_cavalry_48_1
+	enable = eastern_cavalry_48_2
+	enable = ottoman_infantry_48_1
+	enable = ottoman_infantry_48_2
+	enable = ottoman_cavalry_48_1
+	enable = ottoman_cavalry_48_2
+	enable = muslim_infantry_48_1
+	enable = muslim_infantry_48_2
+	enable = muslim_cavalry_48_1
+	enable = muslim_cavalry_48_2
+	enable = niitaka_infantry_48_1
+	enable = niitaka_infantry_48_2
+	enable = niitaka_cavalry_48_1
+	enable = niitaka_cavalry_48_2
+	enable = chinese_infantry_48_1
+	enable = chinese_infantry_48_2
+	enable = chinese_cavalry_48_1
+	enable = chinese_cavalry_48_2
+	enable = indian_infantry_48_1
+	enable = indian_infantry_48_2
+	enable = indian_cavalry_48_1
+	enable = indian_cavalry_48_2
+	enable = sudanese_infantry_48_1
+	enable = sudanese_infantry_48_2
+	enable = sudanese_cavalry_48_1
+	enable = sudanese_cavalry_48_2
+	enable = sub_saharan_infantry_48_1
+	enable = sub_saharan_infantry_48_2
+	enable = sub_saharan_cavalry_48_1
+	enable = sub_saharan_cavalry_48_2
+}
+
+technology = {
+	# Tech 49
+	year = 1737
+
+	land_morale = 1.0
+
+	enable = indian_artillery_42_1
+	enable = nomad_infantry_42_1
+}
+
+technology = {
+	# Tech 50
+	year = 1749
+	
+	#Light Infantry Companies
+	sprite_level = 4
+	
+	combat_width = 2
+	
+	enable = chinese_artillery_44_1
+	enable = eastern_artillery_44_1
+	enable = muslim_artillery_44_1
+	enable = niitaka_artillery_44_1
+	enable = nomad_artillery_44_1
+	enable = ottoman_artillery_44_1
+	enable = western_artillery_44_1
+	
+	enable = western_infantry_50_1
+	enable = western_infantry_50_2
+	enable = eastern_infantry_50_1
+	enable = eastern_infantry_50_2
+	enable = ottoman_infantry_50_1
+	enable = ottoman_infantry_50_2
+	enable = muslim_infantry_50_1
+	enable = muslim_infantry_50_2
+	enable = niitaka_infantry_50_1
+	enable = niitaka_infantry_50_2
+	enable = chinese_infantry_50_1
+	enable = chinese_infantry_50_2
+	enable = indian_infantry_50_1
+	enable = indian_infantry_50_2
+	enable = sudanese_infantry_50_1
+	enable = sudanese_infantry_50_2
+	enable = sub_saharan_infantry_50_1
+	enable = sub_saharan_infantry_50_2
+}
+
+technology = {
+	# Tech 51
+	year = 1760
+
+	supply_limit = 0.5
+	infantry_fire = 0.5	
+	
+	enable = western_cavalry_51_1
+	enable = western_cavalry_51_2
+	enable = eastern_cavalry_51_1
+	enable = eastern_cavalry_51_2
+	enable = ottoman_cavalry_51_1
+	enable = ottoman_cavalry_51_2
+	enable = muslim_cavalry_51_1
+	enable = muslim_cavalry_51_2
+	enable = niitaka_cavalry_51_1
+	enable = niitaka_cavalry_51_2
+	enable = chinese_cavalry_51_1
+	enable = chinese_cavalry_51_2
+	enable = indian_cavalry_51_1
+	enable = indian_cavalry_51_2
+	enable = sudanese_cavalry_51_1
+	enable = sudanese_cavalry_51_2
+	enable = sub_saharan_cavalry_51_1
+	enable = sub_saharan_cavalry_51_2
+}
+
+technology = {
+	# Tech 52
+	year = 1771
+
+	maneuver_value = 0.25
+	infantry_shock = 0.25
+}
+
+technology = {
+	# Tech 53
+	year = 1782
+
+	infantry_shock = 0.25
+	
+	enable = western_infantry_53_1
+	enable = western_infantry_53_2
+	enable = eastern_infantry_53_1
+	enable = eastern_infantry_53_2
+	enable = ottoman_infantry_53_1
+	enable = ottoman_infantry_53_2
+	enable = muslim_infantry_53_1
+	enable = muslim_infantry_53_2
+	enable = niitaka_infantry_53_1
+	enable = niitaka_infantry_53_2
+	enable = chinese_infantry_53_1
+	enable = chinese_infantry_53_2
+	enable = indian_infantry_53_1
+	enable = indian_infantry_53_2
+	enable = sudanese_infantry_53_1
+	enable = sudanese_infantry_53_2
+	enable = sub_saharan_infantry_53_1
+	enable = sub_saharan_infantry_53_2
+}
+
+technology = {
+	# Tech 54
+	year = 1793
+
+	land_morale = 1.0
+	
+	enable = eastern_artillery_48_1
+	enable = eastern_artillery_48_2
+	enable = muslim_artillery_48_1
+	enable = ottoman_artillery_48_1
+	enable = western_artillery_48_1
+}
+
+technology = {
+	# Tech 55
+	year = 1804
+	
+	#Impulse Warfare
+	sprite_level = 5
+	
+	military_tactics = 0.25
+	maneuver_value = 0.25
+	
+	enable = western_infantry_55_1
+	enable = western_infantry_55_2
+	enable = western_cavalry_55_1
+	enable = western_cavalry_55_2
+	enable = eastern_infantry_55_1
+	enable = eastern_infantry_55_2
+	enable = eastern_cavalry_55_1
+	enable = eastern_cavalry_55_2
+	enable = ottoman_infantry_55_1
+	enable = ottoman_infantry_55_2
+	enable = ottoman_cavalry_55_1
+	enable = ottoman_cavalry_55_2
+	enable = muslim_infantry_55_1
+	enable = muslim_infantry_55_2
+	enable = muslim_cavalry_55_1
+	enable = muslim_cavalry_55_2
+	enable = niitaka_infantry_55_1
+	enable = niitaka_infantry_55_2
+	enable = niitaka_cavalry_55_1
+	enable = niitaka_cavalry_55_2
+	enable = chinese_infantry_55_1
+	enable = chinese_infantry_55_2
+	enable = chinese_cavalry_55_1
+	enable = chinese_cavalry_55_2
+	enable = indian_infantry_55_1
+	enable = indian_infantry_55_2
+	enable = indian_cavalry_55_1
+	enable = indian_cavalry_55_2
+	enable = sudanese_infantry_55_1
+	enable = sudanese_infantry_55_2
+	enable = sudanese_cavalry_55_1
+	enable = sudanese_cavalry_55_2
+	enable = sub_saharan_infantry_55_1
+	enable = sub_saharan_infantry_55_2
+	enable = sub_saharan_cavalry_55_1
+	enable = sub_saharan_cavalry_55_2
+}
+
+technology = {
+	# Tech 56
+	year = 1815
+
+	cavalry_shock = 1.0
+	supply_limit = 0.5
+}
+
+technology = {
+	# Tech 57
+	year = 1825
+
+	infantry_fire = 1.0
+	
+	enable = western_infantry_57_1
+	enable = western_infantry_57_2
+	enable = eastern_infantry_57_1
+	enable = eastern_infantry_57_2
+	enable = ottoman_infantry_57_1
+	enable = ottoman_infantry_57_2
+	enable = muslim_infantry_57_1
+	enable = muslim_infantry_57_2
+	enable = niitaka_infantry_57_1
+	enable = niitaka_infantry_57_2
+	enable = chinese_infantry_57_1
+	enable = chinese_infantry_57_2
+	enable = indian_infantry_57_1
+	enable = indian_infantry_57_2
+	enable = sudanese_infantry_57_1
+	enable = sudanese_infantry_57_2
+	enable = sub_saharan_infantry_57_1
+	enable = sub_saharan_infantry_57_2
+}
+
+technology = {
+	# Tech 58	
+	year = 1835
+
+	artillery_shock = 0.1
+	artillery_fire = 1.0	
+
+	enable = eastern_artillery_52_1
+	enable = muslim_artillery_52_1
+	enable = ottoman_artillery_52_1
+	enable = western_artillery_52_1
+	
+	enable = western_cavalry_58_1
+	enable = western_cavalry_58_2
+	enable = eastern_cavalry_58_1
+	enable = eastern_cavalry_58_2
+	enable = ottoman_cavalry_58_1
+	enable = ottoman_cavalry_58_2
+	enable = muslim_cavalry_58_1
+	enable = muslim_cavalry_58_2
+	enable = niitaka_cavalry_58_1
+	enable = niitaka_cavalry_58_2
+	enable = chinese_cavalry_58_1
+	enable = chinese_cavalry_58_2
+	enable = indian_cavalry_58_1
+	enable = indian_cavalry_58_2
+	enable = sudanese_cavalry_58_1
+	enable = sudanese_cavalry_58_2
+	enable = sub_saharan_cavalry_58_1
+	enable = sub_saharan_cavalry_58_2
+}
+
+technology = {
+	# Tech 59
+	year = 1840
+
+	artillery_fire = 1.0
+	military_tactics = 0.25
+	
+	enable = western_infantry_59_1
+	enable = western_infantry_59_2
+	enable = eastern_infantry_59_1
+	enable = eastern_infantry_59_2
+	enable = ottoman_infantry_59_1
+	enable = ottoman_infantry_59_2
+	enable = muslim_infantry_59_1
+	enable = muslim_infantry_59_2
+	enable = niitaka_infantry_59_1
+	enable = niitaka_infantry_59_2
+	enable = chinese_infantry_59_1
+	enable = chinese_infantry_59_2
+	enable = indian_infantry_59_1
+	enable = indian_infantry_59_2
+	enable = sudanese_infantry_59_1
+	enable = sudanese_infantry_59_2
+	enable = sub_saharan_infantry_59_1
+	enable = sub_saharan_infantry_59_2
+}
+
+technology = {
+	# Tech 60
+	year = 1845
+	
+	land_morale = 0.1
+}
+
+technology = {
+	# Tech 61
+	year = 1850
+	
+	land_morale = 0.1
+}
+
+technology = {
+	# Tech 62
+	year = 1855
+	
+	land_morale = 0.1
+}
+
+technology = {
+	# Tech 63
+	year = 1860
+	
+	land_morale = 0.1
+
+	enable = eastern_artillery_55_1
+	enable = eastern_artillery_55_2
+	enable = muslim_artillery_55_1
+	enable = muslim_artillery_55_2
+	enable = ottoman_artillery_55_1
+	enable = ottoman_artillery_55_2
+	enable = western_artillery_55_1
+	enable = western_artillery_55_2
+	
+	enable = western_infantry_63_1
+	enable = western_infantry_63_2
+	enable = eastern_infantry_63_1
+	enable = eastern_infantry_63_2
+	enable = ottoman_infantry_63_1
+	enable = ottoman_infantry_63_2
+	enable = muslim_infantry_63_1
+	enable = muslim_infantry_63_2
+	enable = niitaka_infantry_63_1
+	enable = niitaka_infantry_63_2
+	enable = chinese_infantry_63_1
+	enable = chinese_infantry_63_2
+	enable = indian_infantry_63_1
+	enable = indian_infantry_63_2
+	enable = sudanese_infantry_63_1
+	enable = sudanese_infantry_63_2
+	enable = sub_saharan_infantry_63_1
+	enable = sub_saharan_infantry_63_2
+}
+
+technology = {
+	# Tech 64
+	year = 1865
+	
+	land_morale = 0.1
+}
+
+technology = {
+	# Tech 65
+	year = 1870
+	
+	land_morale = 0.1
+}

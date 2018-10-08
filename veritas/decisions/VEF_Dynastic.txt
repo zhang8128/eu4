@@ -1,0 +1,96 @@
+country_decisions = {
+	transfer_the_crown = {
+	
+		potential = {
+			personal_union = 1
+			NOT = { tag = MOS } #Keep Moscow from swapping with Vladimir-Suzdal
+			is_at_war = no
+			ai = yes
+		}
+		
+		allow = {
+			any_subject_country = {
+				junior_union_with = ROOT
+				NOT = { is_subject_of_type = bohemian_union }
+				num_of_cities = ROOT
+				NOT = { ROOT = { num_of_cities = PREV }}
+				ai = yes
+			}
+		}
+		
+		effect = {
+			random_subject_country = {
+				limit = {
+					junior_union_with = ROOT
+					NOT = { is_subject_of_type = bohemian_union }
+					num_of_cities = ROOT
+					NOT = { ROOT = { num_of_cities = PREV }}
+					ai = yes
+				}
+				hidden_effect = { transfer_royal_family = yes }
+				ROOT = { hidden_effect = { exile_ruler_as = transfer_monarch_@ROOT }}
+				overlord = { break_union = PREV }
+				set_ruler = transfer_monarch_@ROOT
+				create_union = ROOT
+				hidden_effect = {
+					if = {
+						limit = { tag = FRA ROOT = { tag = ALE }}
+						FRA = { country_event = { id = vef_100war.7 days = 1 }}
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { tag = ALE }
+				total_development = 50
+			}
+		}
+	}
+	
+	send_wife_away = {
+	
+		potential = {
+			has_ruler_flag = dynasty_200_decided
+			government = monarchy
+			is_lesser_in_union = no
+			has_consort = yes
+			has_foreign_consort = no
+			ruler_consort_marriage_length = 5 # At least five years
+		}
+		
+		allow = {
+			OR = {
+				has_heir = no
+				has_heir = "Cadet Branch"
+				NOT = { check_variable = { which = vef_heir_gen value = 1 }}
+				AND = {
+					has_country_flag = vef_malepref_primo
+					has_female_heir = yes
+				}
+			}
+		}
+		
+		effect = {
+			remove_consort = yes
+			clr_ruler_flag = dynasty_200_decided
+			if = {
+				limit = {
+					OR = { 
+						NOT = { check_variable = { which = male_illeg_1_age value = 1080 }}
+						NOT = { check_variable = { which = female_illeg_1_age value = 1080 }}
+					}
+				}
+				set_country_flag = dynasty_201_decided
+				country_event = { id = vef_dynasty.201 days = 14 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

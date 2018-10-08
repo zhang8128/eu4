@@ -1,0 +1,460 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+primary_culture = moselfranconian
+religion = catholic
+technology_group = western
+capital = 3974	# Julich
+
+1297.1.1 = {
+	monarch = {
+		name = "Gerhard V"
+		dynasty = "von Julich"
+		birth_date = 1250.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+# Exact date is unsure but before William's birth
+1299.1.1 = {
+	queen = {
+		country_of_origin = BRB
+		name = "Elisabeth"
+		dynasty = "de Reginar"
+		birth_date = 1280.1.1
+		death_date = 1350.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1299.12.13 = {
+	heir = {
+		name = "Wilhelm"
+		monarch_name = "Wilhelm V"
+		dynasty = "von Julich"
+		birth_date = 1299.12.13
+		death_date = 1361.2.25
+		claim = 100
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1328.7.29 = {
+	monarch = {
+		name = "Wilhelm V"
+		dynasty = "von Julich"
+		birth_date = 1299.12.13
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = HAI
+		name = "Joanna"
+		dynasty = "d'Avesnes"
+		birth_date = 1315.1.1
+		death_date = 1374.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Wilhelm"
+		monarch_name = "Wilhelm VI"
+		dynasty = "von Julich"
+		birth_date = 1327.1.1
+		death_date = 1393.12.13
+		claim = 100
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+# Changed the regnal number when they were elevated to dukes
+1356.1.1 = {
+	government_rank = 2
+	monarch = {
+		name = "Wilhelm I"
+		dynasty = "von Julich"
+		birth_date = 1299.12.13
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = HAI
+		name = "Joanna"
+		dynasty = "d'Avesnes"
+		birth_date = 1315.1.1
+		death_date = 1374.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Wilhelm"
+		monarch_name = "Wilhelm II"
+		dynasty = "von Julich"
+		birth_date = 1327.1.1
+		death_date = 1393.12.13
+		claim = 100
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1361.2.25 = {
+	monarch = {
+		name = "Wilhelm II"
+		dynasty = "von Julich"
+		birth_date = 1327.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1362.12.1 = {
+	queen = {
+		country_of_origin = GEL
+		name = "Marie"
+		dynasty = "van Wassenberg"
+		birth_date = 1328.1.1
+		death_date = 1397.11.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1364.3.5 = {
+	heir = {
+		name = "Wilhelm"
+		monarch_name = "Wilhelm III"
+		dynasty = "von Julich"
+		birth_date = 1364.3.5
+		death_date = 1402.2.16
+		claim = 100
+		adm = 5
+		dip = 4
+		mil = 5
+	}
+}
+
+1393.12.13 = {
+	monarch = {
+		name = "Wilhelm III"
+		dynasty = "von Julich"
+		birth_date = 1364.3.5
+		adm = 5
+		dip = 4
+		mil = 5
+	}
+	queen = {
+		country_of_origin = GEL
+		name = "Catherine"
+		dynasty = "von Wittelsbach"
+		birth_date = 1361.1.1
+		death_date = 1400.11.11
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+# William's brother
+1402.2.16 = {
+	monarch = {
+		name = "Reinald"
+		dynasty = "von Julich"
+		birth_date = 1365.6.1
+		adm = 5
+		dip = 4
+		mil = 5
+	}
+}
+
+1405.5.5 = {
+	queen = {
+		country_of_origin = FRA
+		name = "Marie"
+		dynasty = "von Harcourt"
+		birth_date = 1374.1.1	# Estimated
+		death_date = 1431.1.1	# Made Up
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1423.6.25 = {
+	monarch = {
+		name = "Adolf I"
+		dynasty = "von Julich"
+		birth_date = 1370.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	heir = {
+		name = "Rupert"
+		monarch_name = "Rupert I"
+		dynasty = "von Julich"
+		birth_date = 1405.1.1	# Made Up
+		death_date = 1431.8.2
+		claim = 100
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1430.2.14 = {
+	queen = {
+		country_of_origin = BAV
+		name = "Elisabeth"
+		dynasty = "von Wittelsbach"
+		birth_date = 1406.1.1
+		death_date = 1468.3.5
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1437.7.14 = {
+	monarch = {
+		name = "Gerhard VII"
+		dynasty = "von Julich"
+		birth_date = 1416.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1444.1.1 = {
+	queen = {
+		country_of_origin = LAU
+		name = "Sophie"
+		dynasty = "von Ascania"
+		birth_date = 1428.1.1
+		death_date = 1473.9.9
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1455.1.9 = {
+	heir = {
+		name = "Wilhelm"
+		monarch_name = "Wilhelm IV"
+		dynasty = "von Julich"
+		birth_date = 1455.1.9
+		death_date = 1511.9.6
+		claim = 100
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1475.8.19 = {
+	monarch = {
+		name = "Wilhelm IV"
+		dynasty = "von Julich"
+		birth_date = 1455.1.9
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = HES
+		name = "Elisabeth"
+		dynasty = "von Nassau"
+		birth_date = 1456.1.1	# Made Up
+		death_date = 1479.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1481.1.1 = {
+	queen = {
+		country_of_origin = BRA
+		name = "Sibylle"
+		dynasty = "von Hohenzollern"
+		birth_date = 1467.5.31
+		death_date = 1524.7.9
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+# Arranges for his only daughter to marry the heir to Cleves
+1511.9.6 = {
+	monarch = {
+		name = "Johann III"
+		dynasty = "von der Mark"
+		birth_date = 1490.11.10
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = BRG
+		name = "Maria"
+		dynasty = "von Julich"
+		birth_date = 1491.8.3
+		death_date = 1543.8.29
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1516.7.28 = {
+	heir = {
+		name = "Wilhelm"
+		monarch_name = "Wilhelm der Reiche"
+		dynasty = "von der Mark"
+		birth_date = 1516.7.28
+		death_date = 1592.1.5
+		claim = 95
+		adm = 4
+		dip = 0
+		mil = 1
+	}
+}
+
+# Johann & heirs holds both Kleves and Julich in union from 1521.3.16 - 1609.3.25
+
+1609.3.25 = {
+	monarch = {
+		name = "Wolfgang Wilhelm"
+		dynasty = "von Wittelsbach"
+		birth_date = 1578.11.4
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1613.11.11 = {
+	queen = {
+		country_of_origin = BAV
+		name = "Magdalene"
+		dynasty = "von Wittelsbach"
+		birth_date = 1587.7.4
+		death_date = 1628.11.25
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1614.5.15 = { religion = catholic }	# Converts at the behest of his wife; remains neutral in TYW
+
+1615.11.24 = {
+	heir = {
+		name = "Philipp Wilhelm"
+		monarch_name = "Philipp Wilhelm"
+		dynasty = "von Wittelsbach"
+		birth_date = 1615.11.24
+		death_date = 1690.9.2
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1631.1.1 = {
+	queen = {
+		country_of_origin = PAL
+		name = "Catharina Charlotte"
+		dynasty = "von Wittelsbach"
+		birth_date = 1615.1.11
+		death_date = 1651.3.21
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1651.6.1 = {
+	queen = {
+		country_of_origin = BAV
+		name = "Maria"
+		dynasty = "von Furstenberg"
+		birth_date = 1633.1.1
+		death_date = 1702.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+
+1653.9.14 = {
+	monarch = {
+		name = "Philipp Wilhelm"
+		dynasty = "von Wittelsbach"
+		birth_date = 1615.11.24
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = HES
+		name = "Elisabeth Amalie"
+		dynasty = "von Hessen"
+		birth_date = 1635.3.20
+		death_date = 1709.8.4
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1658.4.19 = {
+	heir = {
+		name = "Johann Wilhelm"
+		monarch_name = "Johann Wilhelm"
+		dynasty = "von Wittelsbach"
+		birth_date = 1658.4.19
+		death_date = 1716.6.8
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+# Phillip Wilhelm inherits the Palatine electorate; he and heirs rule in union 1685.5.26 - 1799.2.16

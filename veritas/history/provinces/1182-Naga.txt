@@ -1,0 +1,17 @@
+# Naga
+#Province IDs changed
+
+owner = KAC
+controller = KAC
+culture = meitei
+religion = buddhism
+capital = "Dimapur"
+trade_goods = iron
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 2
+add_core = KAC
+is_city = yes
+discovered_by = chinese
+discovered_by = indian

@@ -1,0 +1,9 @@
+#Dugout Canoe
+#model = galley
+#tech_level = 0
+type = galley
+unit_type = north_american
+
+hull_size = 1
+base_cannons = 2
+sail_speed = 2

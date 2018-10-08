@@ -1,0 +1,133 @@
+country_decisions = {
+
+	form_mongols = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			government = steppe_horde
+			normal_or_historical_nations = yes
+			NOT = { exists = X01 }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			is_colonial_nation = no
+		}		
+		allow = {
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			government = steppe_horde
+			NOT = { has_ruler_modifier = tribal_succession_crisis }
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			mongolia_region = {
+				type = all 
+				owned_by = ROOT 
+			}
+			north_china_region = {
+				type = all 
+				owned_by = ROOT 
+			}
+			central_asia_region = {
+				type = all 
+				owned_by = ROOT 
+			}
+			tibet_region = {
+				type = all 
+				owned_by = ROOT 
+			}
+			khorasan_region = {
+				type = all 
+				owned_by = ROOT 
+			}
+			persia_region = {
+				type = all 
+				owned_by = ROOT 
+			}
+		}		
+		effect = {
+			change_tag = X01
+			add_prestige = 25
+			add_country_modifier = { name = "pax_mongolica" duration = -1 }
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 4 } }
+				set_government_rank = 4
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = mongol_empire_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+			xinan_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = X01
+			}
+			south_china_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = X01
+			}
+			indo_china_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = X01
+			}
+			burma_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = X01
+			}
+			manchuria_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = X01
+			}
+			japan_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = X01
+			}
+			caucasia_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = X01
+			}
+			russia_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = X01
+			}
+			ural_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = X01
+			}
+			west_siberia_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = X01
+			}
+			east_siberia_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = X01
+			}
+			hindusthan_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = X01
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+}

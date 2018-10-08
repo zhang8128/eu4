@@ -1,0 +1,54 @@
+# Beograd
+
+capital = "Belgrade"
+owner = SRE
+controller = SRE
+add_core = SRE
+add_core = SER
+culture = serbian
+religion = orthodox
+trade_goods = livestock
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = scandinavian_tech
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1316.10.29 = { owner = SER controller = SER } # Occupied after Dragutin's death
+1319.6.1   = { owner = SRE controller = SRE } # Charles I of Hungary restores Dragutin's son 
+1337.1.1   = { owner = SER controller = SER remove_core = SRE }	#Stefan IV occupies the region after defeating Charles I of Hungary in 1336; Syrmia is never reconstituted
+1347.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1402.1.1 = { capital = "Beograd" }
+1430.1.1 = { capital = "Smederevo" }
+1450.1.1 = { citysize = 6563 }
+1459.6.20 = { owner = TUR controller = TUR add_territorial_core = TUR capital = "Beograd" }
+1500.1.1 = { citysize = 6788 }
+1550.1.1 = { citysize = 7560 }
+1688.11.7 = { unrest = 12 } # Serb rebellion under D. Brankovic
+1691.1.1 = { courthouse = yes }
+1700.1.1 = { citysize = 10260 }
+1717.8.22 = {
+	unrest = 0
+	owner = HAB
+	controller = HAB
+} # Austrian occupation
+1718.8.22 = {
+	owner = TUR
+	controller = TUR
+}
+1788.3.1 = { controller = HAB } # Occupied by Austrian forces
+1791.1.1 = { controller = TUR }
+1800.1.1 = { citysize = 16350 }
+1806.1.8 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Belgrade is occupied by Serbian rebels
+1813.1.1 = { revolt = {} controller = TUR }
+1815.4.23 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # The Second Serbian uprising
+1817.1.1 = { revolt = {} owner = SER controller = SER remove_territorial_core = TUR } # Serbian revolution establishes semi-independent state
+1818.1.1 = { capital = "Kragujevac" }

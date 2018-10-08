@@ -1,0 +1,21 @@
+# Taadjuura
+
+capital = "Baylul"
+owner = ETH
+controller = ETH
+add_core = ETH
+culture = somali #Afar
+religion = sunni
+trade_goods = livestock
+base_tax = 1
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = sudanese_tech
+discovered_by = muslim
+
+#1559.1.1 = { owner = HAR controller = HAR add_core = HAR}
+#1573.1.1 = { owner = AFA controller = AFA add_core = AFA remove_core = HAR}
+1648.1.1 = { unrest = 7 } # Oromo Raids
+1649.1.1 = { unrest = 0 }

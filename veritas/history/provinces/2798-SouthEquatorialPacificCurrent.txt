@@ -1,0 +1,3 @@
+# South Equatorial Pacific Current
+#Province IDs changed
+1534.1.1 = { discovered_by = SPA }

@@ -1,0 +1,277 @@
+government = theocracy add_government_reform = leading_clergy_reform
+primary_culture = lowersaxon
+religion = catholic
+technology_group = western
+capital = 338	# Münster
+
+1267.1.1 = { add_country_modifier = { name = "hanseatic_league_member" duration = -1 } }
+
+1306.1.1 = {
+	monarch = {
+		name = "Conrad I"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1310.1.1 = {
+	monarch = {
+		name = "Ludwig II"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1357.1.1 = {
+	monarch = {
+		name = "Adolf III"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1363.1.1 = {
+	monarch = {
+		name = "John I"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1364.1.1 = {
+	monarch = {
+		name = "Floris"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1379.1.1 = {
+	monarch = {
+		name = "Portho"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1382.1.1 = {
+	monarch = {
+		name = "Heidenreich Wolf"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1392.4.9 = {
+	monarch = {
+		name = "Otto IV"
+		adm = 3
+		dip = 4
+		mil = 1
+	}
+}
+
+1425.1.1 = {
+	monarch = {
+		name = "Heinrich II"
+		adm = 1
+		dip = 1
+		mil = 2
+	}
+}
+
+1450.6.3 = {
+	monarch = {
+		name = "Walram I"
+		adm = 2
+		dip = 3
+		mil = 3
+	}
+}
+
+1456.10.4 = {
+	monarch = {
+		name = "Johann I"
+		adm = 2
+		dip = 1
+		mil = 4
+	}
+}
+
+1466.2.1 = {
+	monarch = {
+		name = "Heinrich III"
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1496.12.25 = {
+	monarch = {
+		name = "Konrad I"
+		adm = 2
+		dip = 1
+		mil = 4
+	}
+}
+
+1508.2.9 = {
+	monarch = {
+		name = "Erich I"
+		adm = 1
+		dip = 1
+		mil = 2
+	}
+}
+
+1522.10.23 = {
+	monarch = {
+		name = "Friedrich II"
+		adm = 4
+		dip = 3
+		mil = 2
+	}
+}
+
+1532.3.23 = {
+	monarch = {
+		name = "Franz I"
+		adm = 3
+		dip = 0
+		mil = 0
+	}
+}
+
+1553.7.16 = {
+	monarch = {
+		name = "Wilhelm I"
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+}
+
+1557.12.3 = {
+	monarch = {
+		name = "Bernhard I"
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1566.10.26 = {
+	monarch = {
+		name = "Johann II"
+		adm = 1
+		dip = 3
+		mil = 3
+	}
+}
+
+1573.4.6 = {
+	monarch = {
+		name = "Johann Wilhelm"
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+}
+
+1585.5.9 = {
+	monarch = {
+		name = "Ernst I"
+		adm = 3
+		dip = 1
+		mil = 0
+	}
+}
+
+1612.2.16 = {
+	monarch = {
+		name = "Ferdinand I"
+		adm = 4
+		dip = 3
+		mil = 2
+	}
+}
+
+1650.9.14 = {
+	monarch = {
+		name = "Cristoph Bernhard"
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1678.9.20 = {
+	monarch = {
+		name = "Ferdinand II"
+		adm = 2
+		dip = 1
+		mil = 0
+	}
+}
+
+1683.6.27 = {
+	monarch = {
+		name = "Maximilian Heinrich"
+		adm = 4
+		dip = 3
+		mil = 3
+	}
+}
+
+1688.6.4 = {
+	monarch = {
+		name = "Friedrich Christian"
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1706.5.6 = {
+	monarch = {
+		name = "Franz Arnold Wolff"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1718.12.26 = {
+	monarch = {
+		name = "Klemens August"
+		adm = 4
+		dip = 4
+		mil = 3
+	}
+}
+
+1761.2.6 = {
+	monarch = {
+		name = "Maximilian Friedrich"
+		adm = 3
+		dip = 3
+		mil = 0
+	}
+}
+
+1784.4.16 = {
+	monarch = {
+		name = "Maximilian Franz"
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}

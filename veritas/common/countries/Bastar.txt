@@ -1,0 +1,117 @@
+#Country Name: See the Name of this File.
+
+graphical_culture = indiangfx
+
+color = { 21  50  212 }
+
+historical_idea_groups = {
+	quantity_ideas
+	spy_ideas
+	religious_ideas
+	defensive_ideas
+	mercantilist_ideas
+	cultural_unity_ideas
+	drafted_army_ideas
+	gf1_ideas
+}
+
+historical_units = {
+   indian_artillery_8_1
+   indian_artillery_16_1
+   indian_artillery_24_1
+   indian_artillery_32_1
+   indian_artillery_38_1
+   indian_artillery_42_1
+   indian_cavalry_0_1
+   indian_cavalry_16_1
+   indian_cavalry_21_1
+   indian_cavalry_27_1
+   indian_cavalry_31_1
+   indian_cavalry_36_1
+   indian_cavalry_48_1
+   indian_infantry_0_1
+   indian_infantry_6_1
+   indian_infantry_17_1
+   indian_infantry_21_1
+   indian_infantry_25_1
+   indian_infantry_34_1
+   indian_infantry_42_1
+   indian_infantry_45_1
+   indian_infantry_48_1
+   indian_infantry_50_1
+}
+
+
+
+
+monarch_names = {
+	"Hamir Deo #0" = 20
+	"Bhaitai Deo #0" = 20
+	"Purushottam Deo #0" = 20
+	"Raj Deo #0" = 20
+	"Digpal Deo #0" = 30
+	"Rajpal Deo #0" = 20
+	"Dakhin Singh #0" = 20
+	"Dalpat Deo #0" = 20
+	"Ajmer #0" = 0
+	"Mahipal #0" = 0
+	"Kalendra #0" = 0
+	"Pratap #0" = 0
+	"Chandra #0" = 0
+	"Ghana  #0" = 0
+	"Baijnath Shekhar #0" = 0
+	"Indra Shekhar #0" = 0
+	"Parsharam Shekhar #0" = 0
+	"Yuvaraj #0" = 0
+	"Birabar #0" = 0
+	"Harichandra #0" = 0
+	"Gopinath #0" = 0
+	"Raghuraj #0" = 0
+	"Haria #0" = 0
+	"Bishwanath #0" = 0
+	"Rai #0" = 0
+	"Sunder #0" = 0
+	"Krishna #0" = 0
+	"Barman #0" = 0
+	"Biwarta #0" = 0
+	"Jagannath #0" = 0
+	"Narayana #0" = 0
+	"Bebarta #0" = 0
+	"Damodar #0" = 0
+	"Jadunath #0" = 0
+	"Subra #0" = -1
+	"Padmalaya Devi #0" = -1
+	"Kusumlata Devi #0" = -1
+	"Prafulla Kumari Devi #0" = -1
+}
+
+leader_names = {
+	Singh
+	Deo
+	Gangabansi
+	Pusapati
+	Ghumsur
+	Parmar
+	Patnaik
+	Samant
+	Rawat
+	Deb
+	Bhanja
+	Vidyadhar
+	Mangraj
+	Mahapatra
+	Pal
+	Janamuni
+	Narendra
+}
+
+ship_names = {
+	Agni Bhim Brahma Devi Durga
+	Ganesh Gayatri Hanumaun
+	Indra Jalsena "Kala Jahazi"
+	Kali Kubera Krishna Lakshmi
+	"Lal Jahazi" Nausena "Nav ka Yudh"
+	"Nila Jahazi" Parvati Radha Ratri
+	Sagar Sarasvati Shiva Sita Soma
+	Surya Varuna Vayu Vishnu Yama
+}

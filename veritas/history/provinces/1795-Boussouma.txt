@@ -1,0 +1,16 @@
+# Boussouma
+
+capital = "Boussouma"
+owner = MSK
+controller = MSK
+add_core = MSK
+culture = mossi
+religion = vodun
+trade_goods = livestock
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = sudanese_tech
+discovered_by = sub_saharan

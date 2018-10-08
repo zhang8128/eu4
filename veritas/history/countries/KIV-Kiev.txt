@@ -1,0 +1,170 @@
+#Province IDs changed
+government = republic add_government_reform = merchants_reform
+government_rank = 2
+mercantilism = 25
+primary_culture = ruthenian
+religion = orthodox
+technology_group = eastern
+capital = 659 # Kiev
+historical_rival = MOS
+historical_friend = BYZ
+
+
+set_country_flag = russian_horde_tribute
+
+1301.1.1 = {
+	monarch = {
+		name = "Volodymyr-Ivan Ivanovich"
+		dynasty = "Olgovichi"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1314.1.1 = {
+	monarch = {
+		name = "Stanislav Ivanovich"
+		dynasty = "Olgovichi"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1321.1.1 = {
+	monarch = {
+		name = "Mindaugas Holshanski"
+		dynasty = "Olshanski"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1324.1.1 = {
+	monarch = {
+		name = "Algimantas-Michael"
+		dynasty = "Olshanski"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1362.1.1 = {
+	monarch = {
+		name = "Vladimir VI"
+		dynasty = "Gediminid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1395.1.1 = {
+	monarch = {
+		name = "Casimir"
+		dynasty = "Gediminid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1397.1.1 = {
+	monarch = {
+		name = "Ivan"
+		dynasty = "Olshanski"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1397.5.1  = {
+	heir = {
+		name = "Andrew"
+		monarch_name = "Andrew"
+		dynasty = "Olshanski"
+		birth_date = 1397.5.1
+		death_date = 1422.12.31
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1402.1.1 = {
+	monarch = {
+		name = "Jurgis Gedgaudas"
+		dynasty = "Olshanski"
+		adm = 2
+		dip = 2
+		mil = 2
+		regent = yes
+	}
+}
+
+1412.1.1 = {
+	monarch = {
+		name = "Andrew"
+		dynasty = "Olshanski"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1422.1.1 = {
+	monarch = {
+		name = "Michael IV"
+		dynasty = "Olshanski"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1433.1.1 = {
+	monarch = {
+		name = "Michael V"
+		dynasty = "Olshanski"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1435.1.1 = {
+	monarch = {
+		name = "Boleslav"
+		dynasty = "Gediminid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1443.1.1 = {
+	monarch = {
+		name = "Alexander-Olelko"
+		dynasty = "Gediminid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1454.1.1 = {
+	monarch = {
+		name = "Simonas"
+		dynasty = "Gediminid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+# 1470 - No longer independent

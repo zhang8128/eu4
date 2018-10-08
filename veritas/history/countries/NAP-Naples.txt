@@ -1,0 +1,436 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+technology_group = western
+religion = catholic
+primary_culture = neapolitan
+historical_friend = ACH
+historical_friend = ATH
+historical_rival = SIC
+historical_friend = PAP
+capital = 222 # Napoli
+
+1285.1.7 = {
+	monarch = {
+		name = "Charles II"
+		dynasty = "de Anjou"
+		birth_date = 1248.1.1
+		adm = 2
+		dip = 2
+		mil = 0
+	}
+	queen = {
+		country_of_origin = HUN
+		name = "Mary"
+		dynasty = "Arpad"
+		birth_date = 1257.1.1
+		death_date = 1323.3.25
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Robert"
+		monarch_name = "Robert I"
+		dynasty = "de Anjou"
+		birth_date = 1277.1.1
+		death_date = 1343.1.20
+		claim = 95
+		adm = 2
+		mil = 3
+		dip = 1
+	}
+}
+
+1309.5.5 = {
+	monarch = {
+		name = "Robert I"
+		dynasty = "de Anjou"
+		adm = 2
+		dip = 1
+		mil = 3
+	}
+	heir = {
+		name = "Charles"
+		monarch_name = "Charles III"
+		dynasty = "de Anjou"
+		birth_date = 1298.1.1
+		death_date = 1328.11.9
+		claim = 95
+		adm = 1
+		mil = 1
+		dip = 1
+	}
+}
+
+1328.11.9 = {
+	heir = {
+		name = "Giovanna"
+		monarch_name = "Giovanna I"
+		dynasty = "de Anjou"
+		birth_date = 1328.3.1
+		death_date = 1382.7.27
+		female = yes
+		claim = 80
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+	set_country_flag = fathers_favorite
+	set_heir_flag = giovanna
+	set_ruler_flag = charles_de_anjou
+}
+
+1343.1.20 = {
+	monarch = {
+		name = "Giovanna I"
+		dynasty = "de Anjou"
+		birth_date = 1326.1.1
+		female = yes
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+	queen = {
+		country_of_origin = HUN
+		name = "Andrew"
+		dynasty = "de Anjou"
+		birth_date = 1327.10.30
+		death_date = 1345.9.18
+		female = no
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	set_consort_flag = andrew_de_anjou
+}
+
+1347.3.1 = {
+	clr_country_flag = fathers_favorite
+}
+
+1348.8.1 = {
+	queen = {
+		country_of_origin = NAP
+		name = "Louis"
+		dynasty = "de Anjou"
+		birth_date = 1320.1.1
+		death_date = 1362.5.26
+		female = no
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1363.9.26 = {
+	queen = {
+		country_of_origin = MJC
+		name = "James"
+		dynasty = "d'Barcelona"
+		birth_date = 1320.1.1
+		death_date = 1375.1.20
+		female = no
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1382.5.12 = {
+	monarch = {
+		name = "Charles III"
+		dynasty = "de Anjou"
+		adm = 1
+		dip = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = NAP
+		name = "Margaret"
+		dynasty = "de Anjou"
+		birth_date = 1347.7.28
+		death_date = 1412.8.6
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Ladislao"
+		monarch_name = "Ladislao I"
+		dynasty = "de Anjou"
+		birth_date = 1377.2.11
+		death_date = 1414.8.6
+		claim = 90
+		adm = 2
+		dip = 1
+		mil = 3
+	}
+}
+
+
+1386.2.24 = {
+	monarch = { 
+		name = "Margaret"
+		dynasty = "de Anjou"
+		birth_date = 1347.7.28
+		female = yes
+		regent = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Ladislao"
+		monarch_name = "Ladislao I"
+		dynasty = "de Anjou"
+		birth_date = 1377.2.11
+		death_date = 1414.8.6
+		claim = 90
+		adm = 2
+		dip = 1
+		mil = 3
+	}
+}
+
+1392.2.11 = {
+	monarch = {
+		name = "Ladislao I"
+		dynasty = "de Anjou"
+		birth_date = 1377.2.11
+		adm = 2
+		dip = 1
+		mil = 3
+	}
+	heir = {
+		name = "Giovanna"
+		monarch_name = "Giovanna II"
+		dynasty = "de Valois"
+		birth_date = 1373.6.23
+		death_date = 1435.2.2
+		female = yes
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1403.2.12 = {
+	queen = {
+		country_of_origin = CYP
+		name = "Mary"
+		dynasty = "de Lusignan"
+		birth_date = 1381.1.1
+		death_date = 1404.9.4
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1406.1.1 = {
+	queen = {
+		country_of_origin = NAP
+		name = "Mary"
+		dynasty = "d'Enghien"
+		birth_date = 1370.1.1
+		death_date = 1446.5.9
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1414.8.6 = {
+	monarch = { 
+		name = "Giovanna II"
+		dynasty = "de Valois"
+		birth_date = 1373.6.23
+		female = yes
+		dip = 2
+		mil = 1
+		adm = 2
+	}
+	heir = {
+		name = "Renato"
+		monarch_name = "Renato I"
+		dynasty = "de Valois"
+		birth_date = 1409.1.16
+		death_date = 1480.7.10
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+# 1435.2.2 - 1442.6.2 Personal Union with Anjou
+# 1442.6.2 - 1458.6.27 Personal Union with Aragon
+
+1458.6.27 = {
+	monarch = {
+		name = "Ferrante I"
+		dynasty = "de Trastámara"
+		dip = 4
+		mil = 4
+		adm = 2
+	}		
+}
+
+1458.6.27 = {
+	heir = {
+		name = "Alfonso"
+		monarch_name = "Alfonso II"
+		dynasty = "de Trastámara"
+		birth_date = 1448.11.4
+		death_date = 1495.12.18
+		claim = 95
+		adm = 0
+		dip = 1
+		mil = 0
+	}
+}
+
+1494.1.26 = {
+	monarch = {
+		name = "Alfonso II"
+		dynasty = "de Trastámara"
+		dip = 1
+		mil = 0
+		adm = 0
+	}		
+}
+
+1494.1.26 = {
+	heir = {
+		name = "Ferrante"
+		monarch_name = "Ferrante II"
+		dynasty = "de Trastámara"
+		birth_date = 1469.8.26
+		death_date = 1496.9.7
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+
+1495.1.23 = {
+	monarch = {
+		name = "Ferrante II"
+		dynasty = "de Trastámara"
+		dip = 2
+		mil = 1
+		adm = 1
+	}		
+}
+
+1495.1.23 = {
+	heir = {
+		name = "Federigo"
+		monarch_name = "Federigo IV"
+		dynasty = "de Trastámara"
+		birth_date = 1452.4.19
+		death_date = 1504.11.9
+		claim = 95
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1496.10.8 = {
+	monarch = {
+		name = "Federigo IV"
+		dynasty = "de Trastámara"
+		dip = 0
+		mil = 0
+		adm = 0
+	}		
+}
+
+1713.9.22 = {
+	monarch = {
+		name = "Vittorio Amedeo I"
+		dynasty ="di Savoia"
+		adm = 4
+		dip = 6
+		mil = 5
+		leader = {	name = "Vittorio Amedeo II"       	type = general fire = 4	shock = 4	manuever = 2	siege = 2 }
+	}
+}
+
+
+1734.6.2 = {
+	monarch = {
+		name = "Carlo VII"
+		dynasty = "de Bourbon"
+		dip = 4
+		mil = 2
+		adm = 3
+	}		
+}
+
+1751.1.12 = {
+	heir = {
+		name = "Ferrante"
+		monarch_name = "Ferrante IV"
+		dynasty = "de Bourbon"
+		birth_date = 1751.1.12
+		death_date = 1825.1.4
+		claim = 95
+		adm = 0
+		mil = 0
+		dip = 0
+	}
+}
+
+1759.10.7 = {
+	monarch = {
+		name = "Ferrante IV"
+		dynasty = "de Bourbon"
+		dip = 0
+		mil = 0
+		adm = 0
+	}
+}
+
+1800.1.1 = { capital = 212 } # Palermo
+
+1806.3.11 = {
+	monarch = { 
+		name = "Giuseppe I"
+		dynasty = "Bonaparte"
+		dip = 3
+		mil = 2
+		adm = 2
+	}
+}
+
+1808.8.1 = {
+	monarch = { 
+		name = "Gioacchino I Murat"
+		dynasty = "Bonaparte"
+		dip = 3
+		mil = 2
+		adm = 2
+		leader = {	name = "Gioacchino I Murat"	type = general fire = 4	shock = 4	manuever = 6	siege = 2 }
+	}
+}
+
+1815.5.3 = { capital = 222 } # Napoli
+
+1815.5.3 = {
+	monarch = {
+		name = "Ferrante IV"
+		dynasty = "de Bourbon"
+		dip = 0
+		mil = 0
+		adm = 0
+	}
+}

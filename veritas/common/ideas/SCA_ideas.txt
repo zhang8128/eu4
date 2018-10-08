@@ -1,0 +1,82 @@
+# Scandinavian ideas by Wallain/Sotof  =D
+
+SCA_ideas = {
+	start = {
+		infantry_power = 0.10
+		light_ship_power = 0.20
+	}
+	
+	bonus = {
+		merchants = 1
+	}
+	
+	trigger = {
+		tag = SCA
+	}
+	free = yes
+	
+	freemen_sca = {
+		production_efficiency = 0.1
+	}
+	call_of_the_sea = {
+		naval_morale = 0.15
+	}
+	nordic_steel = {
+		discipline = 0.1
+	}
+	fara_i_viking = {
+		colonists = 1
+	}
+	dominium_maris = {
+		naval_forcelimit_modifier = 0.5
+	}
+	hakkapelitta_sca = {
+ 		leader_land_shock = 1
+		cavalry_power = 0.1
+	}
+	write_new_sagas_sca = {
+		prestige = 1
+	}
+}
+
+jomsvikings_ideas = {
+	start = {
+		leader_land_shock = 1
+		discipline = 0.05
+	}
+	bonus = {
+		infantry_power = 0.10
+	}
+	trigger = {
+		tag = JOM
+		religion = norse_pagan_reformed
+		government = theocracy
+	}
+	free = yes
+	
+	jomsviking_code = {
+		land_morale = 0.1
+	}
+	legend_of_jomsborg = {
+		land_forcelimit_modifier = 0.15
+		naval_forcelimit_modifier = 0.05
+	}
+	glory_of_the_allfather = {
+		manpower_recovery_speed = 0.10
+	}
+	name_of_thor = {
+		#Same as VIN_ideas
+		cb_on_religious_enemies = yes
+		may_explore = yes
+	}
+	adopt_feudal_system = {
+		production_efficiency = 0.10
+	}
+	implement_hogting = {
+		stability_cost_modifier = -0.10
+	}
+	valhalla_awaits = {
+		#Same as ICE_ideas and VIN_ideas
+		prestige = 1
+	}
+}

@@ -1,0 +1,10 @@
+# Penguintopia - Easter Egg Country
+#Province IDs changed
+government = monarchy
+government_rank = 4
+technology_group = western
+primary_culture = american
+religion = orthodox
+capital = 1993
+
+# Never shows up in history - only created by event

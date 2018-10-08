@@ -1,0 +1,38 @@
+# Vienan Karjala
+
+capital = "Kem"
+owner = NOV
+controller = NOV
+add_territorial_core = NOV
+culture = karelian
+religion = orthodox
+hre = no
+base_tax = 2
+base_production = 2
+base_manpower = 2
+trade_goods = copper
+is_city = yes
+hre = no
+discovered_by = SWE
+discovered_by = TVE
+discovered_by = PSK
+discovered_by = FIN
+discovered_by = YAR
+discovered_by = NOR
+discovered_by = DAN
+discovered_by = SCA
+discovered_by = MOS
+discovered_by = RUS
+discovered_by = NOV
+discovered_by = SMO
+discovered_by = SHL
+discovered_by = PLT
+discovered_by = RYA
+discovered_by = NZH
+set_local_autonomy = 90
+
+1450.1.1 = { is_city = yes }
+1478.1.15 = {	owner = MOS controller = MOS add_core = MOS remove_core = NOV }
+1503.4.1 = {	owner = RUS controller = RUS add_core = RUS remove_core = MOS }
+1700.1.1  = { citysize = 2000 }
+1750.1.1  = { citysize = 4000 }

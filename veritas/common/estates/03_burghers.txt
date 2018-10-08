@@ -1,0 +1,687 @@
+estate_burghers =
+{
+	icon = 3
+	
+	color = { 35 35 150 }
+	
+	# Is estate kept in control of province on conquest?
+	keep_on_conquest = yes	
+	min_territory = 0
+	min_provinces_to_want_territory = 0	
+
+	# If true, country will get estate
+	trigger = {	
+		NOT = { has_estate = estate_vaisyas }
+		NOT = { has_estate = estate_jains }
+		NOT = { has_reform = merchants_reform }
+		NOT = { has_reform = veche_republic }
+		NOT = { has_reform = trading_city }
+		NOT = { has_reform = revolutionary_republic_reform }
+		NOT = { has_reform = cossacks_reform }
+		NOT = { government = native }
+		NOT = { has_reform = siberian_tribe }
+		OR = {
+			NOT = { has_reform = celestial_empire }
+			has_dlc = "Mandate of Heaven"
+		}
+		is_nomad = no
+		is_colonial_nation = no
+	}
+	
+	# If true, province can be granted to estate
+	province_trigger = {
+		always = no
+	}
+	
+	# Is used to weigh importance compared to other estates
+	start_territory_weight = 0
+	
+	# Min autonomy in estate provinces
+	min_autonomy = 25
+	
+	# Estate cancels out the following multiplicative local autonomy effects:
+	autonomy_does_not_affect = local_production_efficiency
+	autonomy_does_not_affect = province_trade_power_modifier
+	autonomy_does_not_affect = naval_forcelimit_modifier
+	autonomy_does_not_affect = local_sailors_modifier
+
+	# These scale with loyalty & power
+	country_modifier_happy = {
+		trade_efficiency = 0.2
+		development_cost = -0.1
+	}
+	country_modifier_neutral = {
+		trade_efficiency = 0.2
+	}	
+	country_modifier_angry = {
+		trade_efficiency = -0.1
+		development_cost = 0.1
+	}
+	
+	# These do not scale, but only applied in provinces owned by the estate
+	province_modifier_happy = {
+		trade_goods_size_modifier = 0.1
+		province_trade_power_modifier = 0.5
+	}
+	province_modifier_neutral = {
+		province_trade_power_modifier = 0.5
+	}		
+	province_modifier_angry = {
+		local_unrest = 5
+	}	
+	
+	# Influence modifiers
+	base_influence = 10
+	influence_modifier = {	
+		desc = EST_HIGH_DEVELOPMENT_PROVINCE
+		trigger = {
+			any_owned_province = {
+				development = 30
+			}
+		}
+		influence = 5
+	}	
+	influence_modifier = {	
+		desc = EST_VAL_IMPERIAL_CITY
+		trigger = {
+			has_reform = free_city
+		}
+		influence = 30
+	}
+	influence_modifier = {	
+		desc = EST_VAL_COT
+		trigger = {
+			NOT = { has_reform = free_city }
+			any_owned_province = {
+				OR = {
+					has_province_modifier = inland_center_of_trade_modifier
+					has_province_modifier = center_of_trade_modifier
+				}
+			}
+		}
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_PLUTOCRATIC_REFORM
+		trigger = {
+			has_reform = plutocratic_reform
+		}
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_HANSEATIC_CITY
+		trigger = {
+			NOT = { has_reform = free_city }
+			OR = {
+				capital = 32  #Bishop's Lynn - Norfolk
+				capital = 34  #London
+				capital = 181 #Groningen - Friesland
+				capital = 192 #Antwerp
+				capital = 194 #Burges - Vlaanderen
+				capital = 238 #Ipswich
+				capital = 336 #Köln
+				capital = 338 #Munster
+				capital = 341 #Osnabruck
+				capital = 346 #Brunswick
+				capital = 355 #Magdeburg
+				capital = 362 #Stettin
+				capital = 365 #Stolp
+				capital = 367 #Danzig
+				capital = 370 #Stralsund
+				capital = 372 #Rostock
+				capital = 374 #Luneburg
+				capital = 377 #Bremen
+				capital = 378 #Stade
+				capital = 379 #Hamburg
+				capital = 381 #Lubeck
+				capital = 392 #Skåne
+				capital = 403 #Stockholm
+				capital = 420 #Bergen
+				capital = 440 #Reval
+				capital = 441 #Dorpat
+				capital = 447 #Riga
+				capital = 453 #Kaunas
+				capital = 457 #Königsberg
+				capital = 460 #Torun
+				capital = 678 #Polotsk
+				capital = 680 #Pskov
+				capital = 686 #Novgorod
+			}
+		}	
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_EAST_AFRICAN_TRADE_CITIES
+		trigger = {
+			capital_scope = {
+				OR = {
+					area = central_swahili_coast_area
+					area = mozambique_area
+					area = northern_swahili_coast_area
+					area = mogadishu_area
+				}
+			}
+		}
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_NAHUATL
+		trigger = {
+			religion = xochiyaoyotl
+		}	
+		influence = -5
+	}
+	influence_modifier = {
+		desc = EST_VAL_LOW_TRADE_INCOME
+		trigger = {
+			NOT = { trade_income_percentage = 0.25 }
+		}	
+		influence = -5
+	}
+	influence_modifier = {
+		desc = EST_VAL_HIGH_TRADE_INCOME
+		trigger = {
+			trade_income_percentage = 0.5
+			NOT = { trade_income_percentage = 0.75 }
+		}	
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_VERY_HIGH_TRADE_INCOME
+		trigger = {
+			trade_income_percentage = 0.75
+		}	
+		influence = 10
+	}
+	influence_modifier = {
+		desc = EST_VAL_CELESTIAL_EMPIRE
+		trigger = {
+			has_reform = celestial_empire
+		}		
+		influence = -10
+	}
+	influence_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER
+		trigger = {
+			OR = {
+			#	has_disaster = estate_nobility_disaster
+			#	has_disaster = estate_church_disaster
+				has_disaster = estate_brahmins_disaster
+				has_disaster = estate_jains_disaster
+			}
+		}	
+		influence = -40
+	}
+	influence_modifier = {
+		desc = VEF_EST_LANDS_20
+		trigger = {
+			check_variable = { which = citizen_holdings value = 10 }
+			NOT = { check_variable = { which = citizen_holdings value = 30 }}
+		}
+		influence = 20
+	}
+	influence_modifier = {
+		desc = VEF_EST_LANDS_40
+		trigger = {
+			check_variable = { which = citizen_holdings value = 30 }
+			NOT = { check_variable = { which = citizen_holdings value = 50 }}
+		}
+		influence = 40
+	}
+	influence_modifier = {
+		desc = VEF_EST_LANDS_50
+		trigger = {
+			check_variable = { which = citizen_holdings value = 50 }
+			NOT = { check_variable = { which = citizen_holdings value = 70 }}
+		}
+		influence = 50
+	}
+	influence_modifier = {
+		desc = VEF_EST_LANDS_60
+		trigger = {
+			check_variable = { which = citizen_holdings value = 70 }
+			NOT = { check_variable = { which = citizen_holdings value = 90 }}
+		}
+		influence = 60
+	}
+	influence_modifier = {
+		desc = VEF_EST_LANDS_80
+		trigger = {
+			check_variable = { which = citizen_holdings value = 90 }
+		}
+		influence = 80
+	}
+
+	loyalty_modifier = {
+		desc = EST_VAL_FULL_PLUTOCRATIC
+		trigger = {
+			full_idea_group = plutocracy_ideas
+		}
+		loyalty = 10
+	}
+	
+	#Custom Names
+	custom_name = {
+		desc = estate_bourgeoisie
+		trigger = {
+			culture_group = french
+		}
+	}
+	custom_name = {
+		desc = estate_shangbang
+		trigger = {
+			culture_group = east_asian
+		}
+	}
+	custom_name = {
+		desc = estate_merchant_guilds
+		trigger = {
+			NOT = { religion_group = christian } #Diversify a bit more.
+		}
+	}
+	
+	# For province assignment
+	ai_grant_province = {
+		factor = 0	
+	}	
+		
+
+	# Special interactions
+	interaction = {
+		name = "ASK_FOR_CONTRIBUTION"
+		icon = 6
+		
+		years_between_use = 10
+		
+		potential = {
+			#NOT = { has_disaster = estate_church_disaster }
+			#NOT = { has_disaster = estate_nobility_disaster }
+		}
+		
+		trigger = {
+			estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 30
+			}				
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						estate_influence = {
+							estate = estate_burghers
+							influence = 50
+						}	
+					}
+				}
+				add_years_of_income = 0.25
+			}
+			if = {
+				limit = {
+					estate_influence = {
+						estate = estate_burghers
+						influence = 50
+					}
+					NOT = {
+						estate_influence = {
+							estate = estate_burghers
+							influence = 75
+						}	
+					}
+				}
+				add_years_of_income = 0.5
+			}
+			if = {
+				limit = {
+					estate_influence = {
+						estate = estate_burghers
+						influence = 75
+					}
+					NOT = {
+						estate_influence = {
+							estate = estate_burghers
+							influence = 100
+						}	
+					}
+				}
+				add_years_of_income = 0.75
+			}
+			if = {
+				limit = {
+					estate_influence = {
+						estate = estate_burghers
+						influence = 100
+					}
+				}
+				add_years_of_income = 1
+			}				
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = -10
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					estate_loyalty = {
+						estate = estate_burghers
+						loyalty = 50
+					}	
+				}
+			}
+			modifier = {
+				factor = 0
+				treasury = 1
+			}
+		}
+	}
+	interaction = {
+		name = "DEMAND_SUPPORT_BURGHERS"
+		icon = 3
+		
+		years_between_use = 20
+		
+		potential = {
+			#NOT = { has_disaster = estate_church_disaster }
+			#NOT = { has_disaster = estate_nobility_disaster }
+		}
+		
+		trigger = {		
+			estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 30
+			}	
+			estate_influence = {
+				estate = estate_burghers
+				influence = 25
+			}			
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						estate_influence = {
+							estate = estate_burghers
+							influence = 50
+						}	
+					}
+				}
+				add_dip_power = 50
+			}
+			if = {
+				limit = {
+					estate_influence = {
+						estate = estate_burghers
+						influence = 50
+					}
+					NOT = {
+						estate_influence = {
+							estate = estate_burghers
+							influence = 75
+						}	
+					}
+				}
+				add_dip_power = 100
+			}
+			if = {
+				limit = {
+					estate_influence = {
+						estate = estate_burghers
+						influence = 75
+					}
+					NOT = {
+						estate_influence = {
+							estate = estate_burghers
+							influence = 100
+						}	
+					}
+				}
+				add_dip_power = 150
+			}
+			if = {
+				limit = {
+					estate_influence = {
+						estate = estate_burghers
+						influence = 100
+					}
+				}
+				add_dip_power = 200
+			}				
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = -20
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	interaction = {
+		name = "GRANT_MONOPOLY_CHARTER"
+		icon = 17
+		
+		years_between_use = 20
+		
+		trigger = {
+			always = yes
+		}
+		
+		effect = {
+			add_prestige = -5
+			add_estate_influence_modifier = {
+				estate = estate_burghers
+				desc = EST_VAL_GRANTED_MONOPOLIES
+				influence = 10
+				duration = 7300
+			}
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_burghers
+					influence = 60
+				}				
+			}
+			modifier = {
+				factor = 0
+				estate_loyalty = {
+					estate = estate_burghers
+					loyalty = 30
+				}				
+			}			
+		}
+	}
+	interaction = {
+		name = "RECRUIT_MINISTER"
+		icon = 10
+		
+		years_between_use = 30
+		
+		potential = {
+			#NOT = { has_disaster = estate_church_disaster }
+			#NOT = { has_disaster = estate_nobility_disaster }
+		}
+		
+		trigger = {
+			estate_influence = {
+				estate = estate_burghers
+				influence = 40
+			}
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					monthly_income = 25
+				}
+				define_advisor = {
+					type = master_of_mint
+					skill = 3
+					discount = yes
+				}
+			}
+			if = {
+				limit = { NOT = { monthly_income = 25 } }
+				define_advisor = {
+					type = master_of_mint
+					skill = 2
+					discount = yes
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_burghers
+				desc = EST_VAL_BURGHER_MINISTER
+				influence = 15
+				duration = 10950
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	interaction = {
+		name = "GRANT_ADMIRALSHIP"
+		icon = 5
+		
+		years_between_use = 10
+		
+		potential = {
+			#NOT = { has_disaster = estate_church_disaster }
+			#NOT = { has_disaster = estate_nobility_disaster }
+			num_of_ports = 1
+		}
+		
+		trigger = {
+			estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 30
+			}	
+			estate_influence = {
+				estate = estate_burghers
+				influence = 40
+			}			
+		}
+		
+		effect = {
+			create_admiral = 40		
+			add_estate_influence_modifier = {
+				estate = estate_burghers
+				desc = EST_VAL_GRANTED_ADMIRALSHIP
+				influence = 20
+				duration = 3650
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	interaction = {
+		name = "GRANT_NEW_WORLD_CHARTER"
+		icon = 16
+		
+		years_between_use = 10
+		
+		potential = {
+			#NOT = { has_disaster = estate_church_disaster }
+			#NOT = { has_disaster = estate_nobility_disaster }
+			has_idea_group = exploration_ideas
+		}
+		
+		trigger = {
+			estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 30
+			}	
+			estate_influence = {
+				estate = estate_burghers
+				influence = 40
+			}			
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "new_world_company"
+				duration = 3650
+			}
+			add_estate_influence_modifier = {
+				estate = estate_burghers
+				desc = EST_VAL_NEW_WORLD_CHARTER
+				influence = 15
+				duration = 3650
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	interaction = {
+		name = "COMISSION_MERCHANT_SHIPS_FOR_WAR"
+		icon = 18
+		
+		years_between_use = 30
+		
+		potential = {
+			#NOT = { has_disaster = estate_church_disaster }
+			#NOT = { has_disaster = estate_nobility_disaster }
+			num_of_ports = 1
+			primitives = no
+		}
+		
+		trigger = {
+			estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 30
+			}	
+			estate_influence = {
+				estate = estate_burghers
+				influence = 40
+			}
+			num_of_ports = 10
+			any_owned_province = {
+				has_port = yes
+				has_estate = estate_burghers
+			}
+		}
+		
+		effect = {
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = -15
+			}
+			random_owned_province = {
+				limit = {
+					has_estate = estate_burghers
+					has_port = yes
+				}
+				add_unit_construction = {
+					amount = 5
+					type = heavy_ship
+					speed = 0.5
+					cost = 0
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

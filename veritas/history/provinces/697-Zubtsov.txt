@@ -1,0 +1,41 @@
+# Zubtsov
+#Province IDs changed
+
+owner = TVE
+controller = TVE   
+culture = russian
+religion = orthodox
+hre = no
+base_tax = 3
+base_production = 3
+base_manpower = 3
+trade_goods = grain
+capital = "Zubtsov"
+citysize = 5870
+is_city = yes
+add_core = TVE
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = KAZ
+discovered_by = western
+discovered_by = byzantine
+
+1450.1.1  = { citysize = 6420 discovered_by = SIB }
+1485.9.11 = {	owner = MOS controller = MOS add_core = MOS remove_core = TVE } # Muscovite conquest
+1500.1.1  = { citysize = 7543 }
+1503.4.1 = {	owner = RUS controller = RUS add_core = RUS remove_core = MOS }
+1550.1.1  = { citysize = 8874 }
+1560.1.1  = { base_tax = 6
+base_production = 6 } # Treasury reforms
+1598.1.1  = { unrest = 5 } # "Time of troubles"
+1600.1.1  = { citysize = 10440 }
+1613.1.1  = { unrest = 0 } # Order returned, Romanov dynasty
+1650.1.1  = { citysize = 12283 }
+1700.1.1  = { citysize = 14450 }
+1711.1.1  = { base_tax = 7
+base_production = 7 } # Governmental reforms and the absolutism
+1750.1.1  = { citysize = 17000 }
+1767.1.1  = { base_tax = 8
+base_production = 8 } # Legislative reform
+1800.1.1  = { citysize = 20000 }

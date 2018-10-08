@@ -1,0 +1,42 @@
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+technology_group = muslim
+primary_culture = persian
+religion = sunni
+capital = 1515 # Fars
+
+set_country_flag = vef_newgov_start
+set_variable = { which = aristocratic_privilege value = 20 }
+set_variable = { which = vef_merit value = 30 }
+set_variable = { which = vef_rule_law value = 20 }
+set_variable = { which = vef_governance value = 20 }
+
+1335.1.1 = {
+ 	monarch = {
+		name = "Kai-Khusrau"
+		dynasty = "Injuid"
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1339.1.1 = {
+ 	monarch = {
+		name = "Mas'ud Shah"
+		dynasty = "Injuid"
+		adm = 4
+		dip = 2
+		mil = 2
+	}
+}
+
+1343.1.1 = {
+ 	monarch={
+		name= "Abu Ishaq"
+		dynasty= "Injuid"
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}

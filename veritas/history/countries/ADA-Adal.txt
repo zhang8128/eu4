@@ -1,0 +1,515 @@
+government = monarchy add_government_reform = iqta
+government_rank = 3
+technology_group = muslim
+unit_type = sudanese_tech
+religion = sunni
+primary_culture = somali
+capital = 1707	# IFat
+
+1280.1.1 = { 
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 20.0 }
+}
+
+#Sultanate of Ifat
+1303.1.1 = {
+	monarch = {
+		name= "Layla"
+		dynasty = "Walashma"
+		adm = 2
+		dip = 2
+		mil = 2
+		female = yes
+	}
+	heir = {
+		name = "Haqq"
+		monarch_name = "Haqq II"
+		dynasty = "Walashma"
+		birth_date = 1280.1.1
+		death_date = 1328.1.1
+		claim = 95
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1310.1.1 = {
+	monarch = {
+		name= "Haqq II"
+		dynasty = "Walashma"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+# Rebellion
+1322.1.1 = { 
+	clr_country_flag = starting_vassal 
+	clr_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 0 }
+}
+
+1328.1.1 = {
+	monarch = {
+		name= "Sabr"
+		dynasty = "Walashma"
+		adm = 2
+		dip = 1
+		mil = 0
+	}
+}
+
+1333.1.1 = {
+	monarch = {
+		name= "Jamal II"
+		dynasty = "Walashma"
+		adm = 2
+		dip = 0
+		mil = 2
+	}
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 20.0 }
+}
+
+1340.1.1 = {
+	monarch = {
+		name = "Nasr II"
+		dynasty = "Walashma"
+		adm = 2
+		dip = 1
+		mil = 3
+	}
+}
+
+1350.1.1 = {
+	monarch = {
+		name= "Ali II"
+		dynasty = "Walashma"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1360.1.1 = {
+	monarch = {
+		name= "Ahmed II"
+		dynasty = "Walashma"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1370.1.1 = {
+	monarch = {
+		name = "Haqq III"
+		dynasty = "Walashma"
+		adm = 0
+		dip = 0
+		mil = 1
+	}
+}
+
+1374.1.1 = {
+	monarch = {
+		name= "Sa'ad I"
+		dynasty = "Walashma"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1403.1.1 = {
+	monarch = {
+		name = "Sabr II"
+		dynasty = "Walashma"
+		dip = 0
+		mil = 0
+		adm = 1
+	}
+}
+
+#1415 Sultanate of Adal
+1415.1.1 = { capital = 1709 } #Zeila
+1422.1.1 = {
+	monarch = {
+		name = "Mansur"
+		dynasty = "Walashma"
+		adm = 2
+		dip = 1
+		mil = 0
+	}
+}
+
+1424.1.1 = {
+	monarch = {
+		name = "Jamal"
+		dynasty = "Walashma"
+		adm = 2
+		dip = 0
+		mil = 2
+	}
+}
+
+1433.1.1 = {
+	monarch = {
+		name = "Badlay"
+		dynasty = "Walashma"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1445.1.1 = {
+	monarch = {
+		name = "Mohammed"
+		dynasty = "Walashma"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1472.1.1 = {
+	monarch = {
+		name = "Shams"
+		dynasty = "Walashma"
+		adm = 0
+		dip = 0
+		mil = 1
+	}
+}
+
+1488.1.1 = {
+	monarch = {
+		name = "Mohammed"
+		dynasty = "Walashma"
+		adm = 0
+		dip = 0
+		mil = 1
+	}
+}
+
+1518.1.1 = {
+	monarch = {
+		name = "Mahfuz"
+		dynasty = "Karanle"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1519.1.1 = {
+	monarch = {
+		name = "'Abu Bakr"
+		dynasty = "Walashma"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1527.1.1 = {
+	monarch = {
+		name = "Ahmad Gran"
+		dynasty = "Karanle"
+		adm = 1
+		dip = 2
+		mil = 5
+	}
+}
+
+1543.2.21 = {
+	monarch = {
+		name = "Bat'iah"
+		dynasty = "Karanle"
+		adm = 1
+		dip = 2
+		mil = 1
+		female = yes
+	}
+}
+
+
+#Sultanate of Harar
+1552.1.1 = {
+	monarch = {
+		name = "Nur"
+		dynasty = "Karanle"
+		adm = 0
+		dip = 1
+		mil = 3
+	}
+}
+
+1567.1.1 = {
+	monarch = {
+		name = "Isman"
+		dynasty = "Karanle"
+		adm = 0
+		dip = 1
+		mil = 1
+	}
+}
+
+1569.1.1 = {
+	monarch = {
+		name = "Talha"
+		dynasty = "Karanle"
+		adm = 1
+		dip = 0
+		mil = 1
+	}
+}
+
+1571.1.1 = {
+	monarch = {
+		name = "Nassir"
+		dynasty = "Karanle"
+		adm = 0
+		dip = 0
+		mil = 1
+	}
+}
+
+1572.1.1 = {
+	monarch = {
+		name = "Mohammed"
+		dynasty = "Karanle"
+		adm = 1
+		dip = 0
+		mil = 0
+	}
+}
+
+
+#Imamate of Aussa
+1573.1.1 = {
+	monarch = {
+		name = "Mansur"
+		dynasty = "Karanle"
+		adm = 2
+		dip = 1
+		mil = 1
+	}
+}
+
+1583.1.1 = {
+	monarch = {
+		name = "Adan"
+		dynasty = "Karanle"
+		adm = 0
+		dip = 1
+		mil = 0
+	}
+}
+
+1585.1.1 = {
+	monarch = {
+		name = "Sabraddin"
+		dynasty = "Karanle"
+		adm = 2
+		dip = 1
+		mil = 0
+	}
+}
+
+1613.1.1 = {
+	monarch = {
+		name = "Sadiq"
+		dynasty = "Karanle"
+		adm = 2
+		dip = 1
+		mil = 1
+	}
+}
+
+1632.1.1 = {
+	monarch = {
+		name = "Adan"
+		dynasty = "Karanle"
+		adm = 1
+		dip = 1
+		mil = 0
+	}
+}
+
+1646.1.1 = {
+	monarch = {
+		name = "Ahmed"
+		dynasty = "Karanle"
+		adm = 0
+		dip = 1
+		mil = 0
+	}
+}
+
+
+#Emirate of Harar
+1647.1.1 = {
+	monarch = {
+		name = "Ali"
+		dynasty = "Harari"
+		adm = 0
+		dip = 2
+		mil = 1
+	}
+}
+
+1662.1.1 = {
+	monarch = {
+		name = "Hashim"
+		dynasty = "Harari"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1671.1.1 = {
+	monarch = {
+		name = "Abdullah"
+		dynasty = "Harari"
+		adm = 1
+		dip = 1
+		mil = 0
+	}
+}
+
+1700.1.1 = {
+	monarch = {
+		name = "Talha"
+		dynasty = "Harari"
+		adm = 1
+		dip = 1
+		mil = 0
+	}
+}
+
+1721.1.1 = {
+	monarch = {
+		name = "Abubakar"
+		dynasty = "Harari"
+		adm = 1
+		dip = 1
+		mil = 0
+	}
+}
+
+1732.1.1 = {
+	monarch = {
+		name = "Khalaf"
+		dynasty = "Harari"
+		adm = 1
+		dip = 0
+		mil = 0
+	}
+}
+
+1733.1.1 = {
+	monarch = {
+		name = "Hamid"
+		dynasty = "Harari"
+		adm = 0
+		dip = 1
+		mil = 1
+	}
+}
+
+1747.1.1 = {
+	monarch = {
+		name = "Yusuf"
+		dynasty = "Harari"
+		adm = 0
+		dip = 2
+		mil = 0
+	}
+}
+
+1755.1.1 = {
+	monarch = {
+		name = "Ahmed"
+		dynasty = "Harari"
+		adm = 1
+		dip = 0
+		mil = 0
+	}
+}
+
+1782.1.1 = {
+	monarch = {
+		name = "Mahamed"
+		dynasty = "Harari"
+		adm = 1
+		dip = 1
+		mil = 0
+	}
+}
+
+1783.1.1 = {
+	monarch = {
+		name = "Abdalshakur"
+		dynasty = "Harari"
+		adm = 1
+		dip = 1
+		mil = 0
+	}
+}
+
+1794.1.1 = {
+	monarch = {
+		name = "Ahmed"
+		dynasty = "Harari"
+		adm = 1
+		dip = 1
+		mil = 0
+	}
+}
+
+1821.1.1 = {
+	monarch = {
+		name = "Abdulrahman"
+		dynasty = "Harari"
+		adm = 0
+		dip = 1
+		mil = 2
+	}
+}
+
+1825.1.1 = {
+	monarch = {
+		name = "Abdulkarim"
+		dynasty = "Harari"
+		adm = 0
+		dip = 1
+		mil = 2
+	}
+}
+
+1834.1.1 = {
+	monarch = {
+		name = "'Abu Bakr"
+		dynasty = "Harari"
+		adm = 0
+		dip = 1
+		mil = 2
+	}
+}
+
+1852.1.1 = {
+	monarch = {
+		name = "Ahmed"
+		dynasty = "Harari"
+		adm = 0
+		dip = 1
+		mil = 2
+	}
+}

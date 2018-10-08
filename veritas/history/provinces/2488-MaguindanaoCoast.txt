@@ -1,0 +1,4 @@
+# Maguindanao Coast
+#Province IDs changed
+discovered_by = chinese
+1527.1.1 = { discovered_by = SPA }

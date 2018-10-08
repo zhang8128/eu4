@@ -1,0 +1,61 @@
+# Inherit Bohemia
+
+country_decisions = {
+	fully_integrate_bohemia = {
+
+		major = yes 
+
+		potential = {
+			normal_or_historical_nations = yes
+			is_playing_custom_nation = no
+			BOH = { junior_union_with = ROOT }
+			check_variable = { which = bohemian_elections value = 6 }
+		}
+
+		allow = {
+			BOH = { junior_union_with = ROOT }
+			check_variable = { which = bohemian_elections value = 7 }
+			is_at_war = no
+		}
+
+		effect = {
+			inherit = BOH
+			add_prestige = 25
+			hidden_effect = {
+				change_variable = { which = bohemian_elections value = -7 }
+			}
+		}
+
+		ai_will_do = { factor = 1 }
+		ai_importance = 1000
+		do_not_integrate = BOH
+	}
+	
+	declare_bohemian_empire = {
+	
+		major = yes
+		
+		potential = {
+			tag = BOH
+			normal_or_historical_nations = yes
+			is_playing_custom_nation = no
+			has_reform = elective_monarchy
+		}
+		
+		allow = {
+			owns_core_province = 352	# Lausitz
+			owns_core_province = 478	# Legnica
+			owns_core_province = 479	# Wroclaw
+			owns_core_province = 480	# Opole
+			owns_core_province = 481	# Ratibor
+			owns_core_province = 488	# Cechy
+		}
+		
+		effect = {
+			add_government_reform = feudalism_reform
+		}
+		
+		ai_will_do = { factor = 1 }
+		ai_importance = 1000
+	}
+}

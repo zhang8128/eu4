@@ -1,0 +1,72 @@
+# Hausa - Formable nation
+country_decisions = {
+	unite_hausa_bakwai = {	
+		major = yes		
+		potential = {
+			primary_culture = hausa
+			normal_or_historical_nations = yes
+			OR = {
+				tag = KSN
+				tag = KAN
+				tag = ZZZ
+			}
+			NOT = { exists = HAU }
+		}	
+		allow = {
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { region = sahel_region }
+						AND = {
+							region = sahel_region
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_sahel
+			}
+			owns_core_province = 1760	# Daura
+			owns_core_province = 1774	# Gobir
+			owns_core_province = 1773	# Katsina
+			owns_core_province = 1772	# Zazzau
+			owns_core_province = 1762	# Kano
+			owns_core_province = 1761	# Rano
+		}	
+		effect = {
+			change_tag = HAU
+			add_prestige = 25
+			every_province = {
+				limit = {
+					OR = {
+						province_id = 1758
+						province_id = 1767
+						province_id = 1777
+						province_id = 1755
+						province_id = 1775
+						province_id = 1776
+						province_id = 1763
+						province_id = 1759
+					}
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = 1758	#Zinder
+				add_permanent_claim = 1767	#Gwari
+				add_permanent_claim = 1777	#Kebbi
+				add_permanent_claim = 1755	#Adamawai
+				add_permanent_claim = 1775	#Zamfara
+				add_permanent_claim = 1776	#Sokoto
+				add_permanent_claim = 1763	#Bauchi
+				add_permanent_claim = 1759	#Biram
+			}
+		}		
+		ai_will_do = { factor = 1 }
+ 	}
+
+}

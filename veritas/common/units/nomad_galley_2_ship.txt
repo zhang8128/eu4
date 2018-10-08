@@ -1,0 +1,10 @@
+#Mongol Junk
+#model = barque
+#tech_level = 10
+type = transport
+unit_type = nomad_group
+
+hull_size = 6
+base_cannons = 4
+sail_speed = 8
+sailors = 150

@@ -1,0 +1,168 @@
+###############################################################
+# Flavor Events for Greece
+#
+# written by Henrik Lohmander
+###############################################################
+
+namespace = flavor_gre
+normal_or_historical_nations = yes
+
+# Greek Cores
+country_event = {
+	id = flavor_gre.1
+	title = "flavor_gre.1.t"
+	desc = "flavor_gre.1.d"
+	picture = VEF_ANGRY_MOB_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger ={
+		has_institution = nationalism_inst
+		any_owned_province = {
+			culture = greek
+			OR = {
+				area = morea_area
+				area = northern_greece_area
+				area = macedonia_area
+			}
+		}
+		NOT = { exists = GRE }
+		NOT = { exists = BYZ }
+		NOT = { primary_culture = greek }
+		NOT = { primary_culture = pontian }
+   	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {		#Ok
+		name = "flavor_gre.1.a"
+		every_province = {
+			limit = {
+				OR = {
+					area = macedonia_area
+					area = morea_area
+					area = northern_greece_area
+				}
+			}
+			add_core = GRE
+		}
+		if = {
+			limit = {
+				582 = {
+					NOT = { culture = greek }
+				}
+			}
+			582 = {
+				change_culture = greek
+			}
+		}
+		if = {
+			limit = {
+				582 = {
+					owner = {
+						NOT = { primary_culture = greek }
+						NOT = { primary_culture = pontian }
+					}
+				}
+			}
+			582 = {
+				add_unrest = 4
+			}
+		}
+		every_province = {
+			limit = {
+				is_core = BYZ
+			}
+			remove_core = BYZ
+		}
+		hidden_effect = {
+			every_known_country = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							area = northern_greece_area
+							area = morea_area
+							area = macedonia_area
+						}
+					}
+				}
+				set_country_flag = greek_information
+				country_event = { id = flavor_gre.2 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = flavor_gre.2
+	title = "flavor_gre.1.t"
+	desc = "flavor_gre.1.d"
+	picture = VEF_ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes # flavor_gre.1
+	
+	trigger ={
+		has_country_flag = greek_information
+		any_owned_province = {
+			OR = {
+				area = morea_area
+				area = northern_greece_area
+				area = macedonia_area
+			}
+		}
+   	}
+
+	option = {		#Ok
+		name = "flavor_gre.1.a"
+		trigger = {
+			has_country_flag = greek_information
+			NOT = { primary_culture = greek }
+			NOT = { primary_culture = pontian }
+		}
+		tooltip = {
+			every_province = {
+				limit = {
+					OR = {
+						area = macedonia_area
+						area = northern_greece_area
+						area = morea_area
+					}
+				}
+				add_core = GRE
+			}
+		}
+		if = {
+			limit = { owns = 582 }
+			tooltip = {
+				582 = {
+					add_unrest = 4
+					change_culture = greek
+				}
+			}
+		}
+	}
+	option = {		#Ok
+		name = "flavor_gre.1.a"
+		trigger = {
+			has_country_flag = greek_information
+			OR = {
+				primary_culture = greek
+				primary_culture = pontian
+			}
+		}
+		tooltip = {
+			every_province = {
+				limit = {
+					OR = {
+						area = morea_area
+						area = macedonia_area
+						area = northern_greece_area
+					}
+				}
+				add_core = GRE
+			}
+		}
+	}
+}

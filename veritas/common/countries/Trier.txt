@@ -1,0 +1,155 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 208  104  44 }
+
+historical_idea_groups = {
+	diplomatic_ideas
+	mercenary_ideas
+	religious_ideas
+	mercantilist_ideas
+	defensive_ideas
+	administrative_ideas
+	land_ideas
+	quantity_ideas
+}
+
+historical_units = { 
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+
+
+
+
+monarch_names = {
+	"Johann #1" = 100
+	"Jakob #0" = 60
+	"Clemens Wenzel #0" = 20
+	"Franz Georg #0" = 20
+	"Franz Ludwig #0" = 20
+	"Johann Hugo #0" = 20
+	"Johann Ludwig #0" = 20
+	"Johann Philipp #0" = 20
+	"Karl Joseph #0" = 20
+	"Karl Kaspar #0" = 20
+	"Lothar #0" = 20
+	"Otto #0" = 20
+	"Philipp Christoph #0" = 20
+	"Rhaban #0" = 20
+	"Richard #0" = 20
+	"Werner #0" = 20
+	"Bohemond #2" = 15
+	"Kuno #2" = 15
+	"Heinrich #3" = 10
+	"Arnold #2" = 10
+	"Dieter #1" = 10
+	"Alexander #0" = 0
+	"Andreas #0" = 0
+	"Baldur #0" = 0
+	"Bruno #0" = 0
+	"Clemens #0" = 0
+	"Denis #0" = 0
+	"Eckhard #0" = 0
+	"Ernst #0" = 0
+	"Florian #0" = 0
+	"Gregor #0" = 0
+	"Guntram #0" = 0
+	"Helmfried #0" = 0
+	"Jürgen #0" = 0
+	"Martin #0" = 0
+	"Maximilian #0" = 0
+	"Michael #0" = 0
+	"Rainer #0" = 0
+	"Siegert #0" = 0
+	"Siegmund #0" = 0
+	
+	"Kasimira #0" = -1
+	"Lydia #0" = -1
+	"Nicola #0" = -1
+}
+
+leader_names = {
+	Backes Corgell Dahnfels Feltes Haerig Hecker Herrich
+	Kettler Lohmann Longnich Pinkernell Schmitt Tristant
+	Wellner Zimmer	
+}
+
+ship_names = {
+	Schweich Kenn Longuich Mertesdorf Kasel
+	Waldrach Morscheid Korlingen Gusterath
+	Hockweiler Igel Aach Newel Kordel Zemmer
+}
+
+army_names = {
+	"Erzbischofliche Garde" "Armee von $PROVINCE$" 
+}

@@ -1,0 +1,31 @@
+# Principality of Nizhny Novgorod-Suzdal
+#Province IDs changed
+government = monarchy add_government_reform = principality
+government_rank = 1
+primary_culture = russian
+religion = orthodox
+technology_group = eastern
+capital = 725	# Nizhny Novgorod
+
+1309.1.1 = {
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 45.0 }
+	monarch = {
+		name = "Yuri I"
+		dynasty = "Rurikovich"
+		adm = 4
+		dip = 2
+		mil = 4
+	}
+}
+
+1323.1.1 = {
+	monarch = {
+		name = "Dmitry I"
+		dynasty = "Konstantinovich"
+		adm = 4
+		dip = 2
+		mil = 4
+	}
+}

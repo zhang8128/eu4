@@ -1,0 +1,4013 @@
+########################################
+# Culture Disasters
+########################################
+
+
+#1 Culture Disaster Starts - Intermediate
+#2 Culture Disaster Ends - Intermediate
+#3 Disaster Starts
+#4 Disaster Ends
+
+
+namespace = vef_culturedisasters
+
+# Hidden event; needed to delay the immediate check so the disaster is "live"
+country_event = {
+	id = vef_culturedisasters.1
+	title = "vef_culturedisasters.1.t"
+	desc = "vef_culturedisasters.1.d"
+	picture = VEF_ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes #estate disasters/ on_start
+	
+	hidden = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		
+	}
+	
+	option = {
+		country_event = { id = vef_culturedisasters.3 }
+	}
+}
+
+# Hidden event; delay the immediate check so the disaster is "dead"
+country_event = {
+	id = vef_culturedisasters.2
+	title = "vef_culturedisasters.2.t"
+	desc = "vef_culturedisasters.2.d"
+	picture = VEF_ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes #estate disasters/ on_end
+	
+	hidden = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		
+	}
+	
+	option = {
+		country_event = { id = vef_culturedisasters.4 }
+	}
+}
+
+
+country_event = {
+	id = vef_culturedisasters.3
+	title = "vef_culturedisasters.3.t"
+	desc = "vef_culturedisasters.3.d"
+	picture = VEF_ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes #estate disasters/ on_start
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				has_disaster = estate_irish_disaster
+				NOT = { has_country_flag = irish_disaster_happening }
+			}
+			set_country_flag = irish_disaster_happening
+			set_country_flag = irish_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_irish_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_scottish_disaster
+				NOT = { has_country_flag = scottish_disaster_happening }
+			}
+			set_country_flag = scottish_disaster_happening
+			set_country_flag = scottish_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_scottish_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_welsh_disaster
+				NOT = { has_country_flag = welsh_disaster_happening }
+			}
+			set_country_flag = welsh_disaster_happening
+			set_country_flag = welsh_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_welsh_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_breton_disaster
+				NOT = { has_country_flag = breton_disaster_happening }
+			}
+			set_country_flag = breton_disaster_happening
+			set_country_flag = breton_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_breton_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_english_disaster
+				NOT = { has_country_flag = english_disaster_happening }
+			}
+			set_country_flag = english_disaster_happening
+			set_country_flag = english_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_english_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_portuguese_disaster
+				NOT = { has_country_flag = portuguese_disaster_happening }
+			}
+			set_country_flag = portuguese_disaster_happening
+			set_country_flag = portuguese_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_portuguese_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_galician_disaster
+				NOT = { has_country_flag = galician_disaster_happening }
+			}
+			set_country_flag = galician_disaster_happening
+			set_country_flag = galician_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_galician_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_leonese_disaster
+				NOT = { has_country_flag = leonese_disaster_happening }
+			}
+			set_country_flag = leonese_disaster_happening
+			set_country_flag = leonese_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_leonese_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_castillian_disaster
+				NOT = { has_country_flag = castillian_disaster_happening }
+			}
+			set_country_flag = castillian_disaster_happening
+			set_country_flag = castillian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_castillian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_andalucian_disaster
+				NOT = { has_country_flag = andalucian_disaster_happening }
+			}
+			set_country_flag = andalucian_disaster_happening
+			set_country_flag = andalucian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_andalucian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_aragonese_disaster
+				NOT = { has_country_flag = aragonese_disaster_happening }
+			}
+			set_country_flag = aragonese_disaster_happening
+			set_country_flag = aragonese_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_aragonese_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_catalan_disaster
+				NOT = { has_country_flag = catalan_disaster_happening }
+			}
+			set_country_flag = catalan_disaster_happening
+			set_country_flag = catalan_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_catalan_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_gascon_disaster
+				NOT = { has_country_flag = gascon_disaster_happening }
+			}
+			set_country_flag = gascon_disaster_happening
+			set_country_flag = gascon_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_gascon_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_normand_disaster
+				NOT = { has_country_flag = normand_disaster_happening }
+			}
+			set_country_flag = normand_disaster_happening
+			set_country_flag = normand_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_normand_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_arpitian_disaster
+				NOT = { has_country_flag = arpitian_disaster_happening }
+			}
+			set_country_flag = arpitian_disaster_happening
+			set_country_flag = arpitian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_arpitian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_picard_disaster
+				NOT = { has_country_flag = picard_disaster_happening }
+			}
+			set_country_flag = picard_disaster_happening
+			set_country_flag = picard_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_picard_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_orleanais_disaster
+				NOT = { has_country_flag = orleanais_disaster_happening }
+			}
+			set_country_flag = orleanais_disaster_happening
+			set_country_flag = orleanais_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_orleanais_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_champenois_disaster
+				NOT = { has_country_flag = champenois_disaster_happening }
+			}
+			set_country_flag = champenois_disaster_happening
+			set_country_flag = champenois_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_champenois_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_aquitaine_disaster
+				NOT = { has_country_flag = aquitaine_disaster_happening }
+			}
+			set_country_flag = aquitaine_disaster_happening
+			set_country_flag = aquitaine_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_aquitaine_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_burgundian_disaster
+				NOT = { has_country_flag = burgundian_disaster_happening }
+			}
+			set_country_flag = burgundian_disaster_happening
+			set_country_flag = burgundian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_burgundian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_occitian_disaster
+				NOT = { has_country_flag = occitian_disaster_happening }
+			}
+			set_country_flag = occitian_disaster_happening
+			set_country_flag = occitian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_occitian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_wallonian_disaster
+				NOT = { has_country_flag = wallonian_disaster_happening }
+			}
+			set_country_flag = wallonian_disaster_happening
+			set_country_flag = wallonian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_wallonian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_swedish_disaster
+				NOT = { has_country_flag = swedish_disaster_happening }
+			}
+			set_country_flag = swedish_disaster_happening
+			set_country_flag = swedish_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_swedish_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_danish_disaster
+				NOT = { has_country_flag = danish_disaster_happening }
+			}
+			set_country_flag = danish_disaster_happening
+			set_country_flag = danish_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_danish_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_norwegian_disaster
+				NOT = { has_country_flag = norwegian_disaster_happening }
+			}
+			set_country_flag = norwegian_disaster_happening
+			set_country_flag = norwegian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_norwegian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_greek_disaster
+				NOT = { has_country_flag = greek_disaster_happening }
+			}
+			set_country_flag = greek_disaster_happening
+			set_country_flag = greek_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_greek_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_pontian_disaster
+				NOT = { has_country_flag = pontian_disaster_happening }
+			}
+			set_country_flag = pontian_disaster_happening
+			set_country_flag = pontian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_pontian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_polish_disaster
+				NOT = { has_country_flag = polish_disaster_happening }
+			}
+			set_country_flag = polish_disaster_happening
+			set_country_flag = polish_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_polish_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_czech_disaster
+				NOT = { has_country_flag = czech_disaster_happening }
+			}
+			set_country_flag = czech_disaster_happening
+			set_country_flag = czech_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_czech_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_schlesian_disaster
+				NOT = { has_country_flag = schlesian_disaster_happening }
+			}
+			set_country_flag = schlesian_disaster_happening
+			set_country_flag = schlesian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_schlesian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_slovak_disaster
+				NOT = { has_country_flag = slovak_disaster_happening }
+			}
+			set_country_flag = slovak_disaster_happening
+			set_country_flag = slovak_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_slovak_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_hungarian_disaster
+				NOT = { has_country_flag = hungarian_disaster_happening }
+			}
+			set_country_flag = hungarian_disaster_happening
+			set_country_flag = hungarian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_hungarian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_transylvanian_disaster
+				NOT = { has_country_flag = transylvanian_disaster_happening }
+			}
+			set_country_flag = transylvanian_disaster_happening
+			set_country_flag = transylvanian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_transylvanian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_moldavian_disaster
+				NOT = { has_country_flag = moldavian_disaster_happening }
+			}
+			set_country_flag = moldavian_disaster_happening
+			set_country_flag = moldavian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_moldavian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_wallachian_disaster
+				NOT = { has_country_flag = wallachian_disaster_happening }
+			}
+			set_country_flag = wallachian_disaster_happening
+			set_country_flag = wallachian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_wallachian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_slovene_disaster
+				NOT = { has_country_flag = slovene_disaster_happening }
+			}
+			set_country_flag = slovene_disaster_happening
+			set_country_flag = slovene_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_slovene_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_croatian_disaster
+				NOT = { has_country_flag = croatian_disaster_happening }
+			}
+			set_country_flag = croatian_disaster_happening
+			set_country_flag = croatian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_croatian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_bosnian_disaster
+				NOT = { has_country_flag = bosnian_disaster_happening }
+			}
+			set_country_flag = bosnian_disaster_happening
+			set_country_flag = bosnian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_bosnian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_serbian_disaster
+				NOT = { has_country_flag = serbian_disaster_happening }
+			}
+			set_country_flag = serbian_disaster_happening
+			set_country_flag = serbian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_serbian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_bulgarian_disaster
+				NOT = { has_country_flag = bulgarian_disaster_happening }
+			}
+			set_country_flag = bulgarian_disaster_happening
+			set_country_flag = bulgarian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_bulgarian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_latvian_disaster
+				NOT = { has_country_flag = latvian_disaster_happening }
+			}
+			set_country_flag = latvian_disaster_happening
+			set_country_flag = latvian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_latvian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_lithuanian_disaster
+				NOT = { has_country_flag = lithuanian_disaster_happening }
+			}
+			set_country_flag = lithuanian_disaster_happening
+			set_country_flag = lithuanian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_lithuanian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_yotvingian_disaster
+				NOT = { has_country_flag = yotvingian_disaster_happening }
+			}
+			set_country_flag = yotvingian_disaster_happening
+			set_country_flag = yotvingian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_yotvingian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_russian_disaster
+				NOT = { has_country_flag = russian_disaster_happening }
+			}
+			set_country_flag = russian_disaster_happening
+			set_country_flag = russian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_russian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_byelorussian_disaster
+				NOT = { has_country_flag = byelorussian_disaster_happening }
+			}
+			set_country_flag = byelorussian_disaster_happening
+			set_country_flag = byelorussian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_byelorussian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_ruthenian_disaster
+				NOT = { has_country_flag = ruthenian_disaster_happening }
+			}
+			set_country_flag = ruthenian_disaster_happening
+			set_country_flag = ruthenian_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_ruthenian_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_maghreb_arabic_disaster
+				NOT = { has_country_flag = maghreb_arabic_disaster_happening }
+			}
+			set_country_flag = maghreb_arabic_disaster_happening
+			set_country_flag = maghreb_arabic_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_maghreb_arabic_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_masmuda_disaster
+				NOT = { has_country_flag = masmuda_disaster_happening }
+			}
+			set_country_flag = masmuda_disaster_happening
+			set_country_flag = masmuda_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_masmuda_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_zenata_disaster
+				NOT = { has_country_flag = zenata_disaster_happening }
+			}
+			set_country_flag = zenata_disaster_happening
+			set_country_flag = zenata_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_zenata_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+		if = {
+			limit = {
+				has_disaster = estate_sanhaja_disaster
+				NOT = { has_country_flag = sanhaja_disaster_happening }
+			}
+			set_country_flag = sanhaja_disaster_happening
+			set_country_flag = sanhaja_deploy_troops
+			if = {
+				limit = {
+					estate_influence = {
+						estate = vef_sanhaja_estate
+						influence = 30
+					}
+				}
+				set_country_flag = vef_civilwar_culture
+			}
+		}
+	}
+	
+	option = {		# Uprising
+		trigger = { NOT = { has_country_flag = vef_civilwar_culture }}
+		name = "vef_culturedisasters.1.opta"
+		change_variable = { which = national_stability value = -500 }
+		if = {
+			limit = { has_country_flag = irish_deploy_troops }
+			clr_country_flag = irish_deploy_troops
+			every_owned_province = {
+				limit = { culture = irish }
+				if = {
+					limit = { has_estate = vef_irish_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_irish_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = scottish_deploy_troops }
+			clr_country_flag = scottish_deploy_troops
+			every_owned_province = {
+				limit = { culture = scottish }
+				if = {
+					limit = { has_estate = vef_scottish_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_scottish_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = welsh_deploy_troops }
+			clr_country_flag = welsh_deploy_troops
+			every_owned_province = {
+				limit = { culture = welsh }
+				if = {
+					limit = { has_estate = vef_welsh_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_welsh_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = breton_deploy_troops }
+			clr_country_flag = breton_deploy_troops
+			every_owned_province = {
+				limit = { culture = breton }
+				if = {
+					limit = { has_estate = vef_breton_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_breton_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = english_deploy_troops }
+			clr_country_flag = english_deploy_troops
+			every_owned_province = {
+				limit = { culture = english }
+				if = {
+					limit = { has_estate = vef_english_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_english_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = portuguese_deploy_troops }
+			clr_country_flag = portuguese_deploy_troops
+			every_owned_province = {
+				limit = { culture = portugese }
+				if = {
+					limit = { has_estate = vef_portuguese_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_portuguese_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = galician_deploy_troops }
+			clr_country_flag = galician_deploy_troops
+			every_owned_province = {
+				limit = { culture = galician }
+				if = {
+					limit = { has_estate = vef_galician_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_galician_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = leonese_deploy_troops }
+			clr_country_flag = leonese_deploy_troops
+			every_owned_province = {
+				limit = { culture = leonese }
+				if = {
+					limit = { has_estate = vef_leonese_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_leonese_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = castillian_deploy_troops }
+			clr_country_flag = castillian_deploy_troops
+			every_owned_province = {
+				limit = { culture = castillian }
+				if = {
+					limit = { has_estate = vef_castillian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_castillian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = andalucian_deploy_troops }
+			clr_country_flag = andalucian_deploy_troops
+			every_owned_province = {
+				limit = { culture = andalucian }
+				if = {
+					limit = { has_estate = vef_andalucian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_andalucian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = aragonese_deploy_troops }
+			clr_country_flag = aragonese_deploy_troops
+			every_owned_province = {
+				limit = { culture = aragonese }
+				if = {
+					limit = { has_estate = vef_aragonese_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_aragonese_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = catalan_deploy_troops }
+			clr_country_flag = catalan_deploy_troops
+			every_owned_province = {
+				limit = { culture = catalan }
+				if = {
+					limit = { has_estate = vef_catalan_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_catalan_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = gascon_deploy_troops }
+			clr_country_flag = gascon_deploy_troops
+			every_owned_province = {
+				limit = { culture = gascon }
+				if = {
+					limit = { has_estate = vef_gascon_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_gascon_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = normand_deploy_troops }
+			clr_country_flag = normand_deploy_troops
+			every_owned_province = {
+				limit = { culture = normand }
+				if = {
+					limit = { has_estate = vef_normand_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_normand_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = arpitian_deploy_troops }
+			clr_country_flag = arpitian_deploy_troops
+			every_owned_province = {
+				limit = { culture = arpitian }
+				if = {
+					limit = { has_estate = vef_arpitian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_arpitian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = picard_deploy_troops }
+			clr_country_flag = picard_deploy_troops
+			every_owned_province = {
+				limit = { culture = picard }
+				if = {
+					limit = { has_estate = vef_picard_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_picard_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = orleanais_deploy_troops }
+			clr_country_flag = orleanais_deploy_troops
+			every_owned_province = {
+				limit = { culture = orleanais }
+				if = {
+					limit = { has_estate = vef_orleanais_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_orleanais_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = champenois_deploy_troops }
+			clr_country_flag = champenois_deploy_troops
+			every_owned_province = {
+				limit = { culture = champenois }
+				if = {
+					limit = { has_estate = vef_champenois_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_champenois_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = aquitaine_deploy_troops }
+			clr_country_flag = aquitaine_deploy_troops
+			every_owned_province = {
+				limit = { culture = aquitaine }
+				if = {
+					limit = { has_estate = vef_aquitaine_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_aquitaine_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = burgundian_deploy_troops }
+			clr_country_flag = burgundian_deploy_troops
+			every_owned_province = {
+				limit = { culture = burgundian }
+				if = {
+					limit = { has_estate = vef_burgundian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_burgundian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = occitian_deploy_troops }
+			clr_country_flag = occitian_deploy_troops
+			every_owned_province = {
+				limit = { culture = occitian }
+				if = {
+					limit = { has_estate = vef_occitian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_occitian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = wallonian_deploy_troops }
+			clr_country_flag = wallonian_deploy_troops
+			every_owned_province = {
+				limit = { culture = wallonian }
+				if = {
+					limit = { has_estate = vef_wallonian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_wallonian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = swedish_deploy_troops }
+			clr_country_flag = swedish_deploy_troops
+			every_owned_province = {
+				limit = { culture = swedish }
+				if = {
+					limit = { has_estate = vef_swedish_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_swedish_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = danish_deploy_troops }
+			clr_country_flag = danish_deploy_troops
+			every_owned_province = {
+				limit = { culture = danish }
+				if = {
+					limit = { has_estate = vef_danish_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_danish_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = norwegian_deploy_troops }
+			clr_country_flag = norwegian_deploy_troops
+			every_owned_province = {
+				limit = { culture = norwegian }
+				if = {
+					limit = { has_estate = vef_norwegian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_norwegian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = greek_deploy_troops }
+			clr_country_flag = greek_deploy_troops
+			every_owned_province = {
+				limit = { culture = greek }
+				if = {
+					limit = { has_estate = vef_greek_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_greek_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = pontian_deploy_troops }
+			clr_country_flag = pontian_deploy_troops
+			every_owned_province = {
+				limit = { culture = pontian }
+				if = {
+					limit = { has_estate = vef_pontian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_pontian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = polish_deploy_troops }
+			clr_country_flag = polish_deploy_troops
+			every_owned_province = {
+				limit = { culture = polish }
+				if = {
+					limit = { has_estate = vef_polish_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_polish_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = czech_deploy_troops }
+			clr_country_flag = czech_deploy_troops
+			every_owned_province = {
+				limit = { culture = czech }
+				if = {
+					limit = { has_estate = vef_czech_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_czech_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = schlesian_deploy_troops }
+			clr_country_flag = schlesian_deploy_troops
+			every_owned_province = {
+				limit = { culture = schlesian }
+				if = {
+					limit = { has_estate = vef_schlesian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_schlesian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = slovak_deploy_troops }
+			clr_country_flag = slovak_deploy_troops
+			every_owned_province = {
+				limit = { culture = slovak }
+				if = {
+					limit = { has_estate = vef_slovak_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_slovak_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = hungarian_deploy_troops }
+			clr_country_flag = hungarian_deploy_troops
+			every_owned_province = {
+				limit = { culture = hungarian }
+				if = {
+					limit = { has_estate = vef_hungarian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_hungarian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = transylvanian_deploy_troops }
+			clr_country_flag = transylvanian_deploy_troops
+			every_owned_province = {
+				limit = { culture = transylvanian }
+				if = {
+					limit = { has_estate = vef_transylvanian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_transylvanian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = moldavian_deploy_troops }
+			clr_country_flag = moldavian_deploy_troops
+			every_owned_province = {
+				limit = { culture = moldavian }
+				if = {
+					limit = { has_estate = vef_moldavian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_moldavian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = wallachian_deploy_troops }
+			clr_country_flag = wallachian_deploy_troops
+			every_owned_province = {
+				limit = { culture = wallachian }
+				if = {
+					limit = { has_estate = vef_wallachian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_wallachian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = slovene_deploy_troops }
+			clr_country_flag = slovene_deploy_troops
+			every_owned_province = {
+				limit = { culture = slovene }
+				if = {
+					limit = { has_estate = vef_slovene_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_slovene_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = croatian_deploy_troops }
+			clr_country_flag = croatian_deploy_troops
+			every_owned_province = {
+				limit = { culture = croatian }
+				if = {
+					limit = { has_estate = vef_croatian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_croatian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = bosnian_deploy_troops }
+			clr_country_flag = bosnian_deploy_troops
+			every_owned_province = {
+				limit = { culture = bosnian }
+				if = {
+					limit = { has_estate = vef_bosnian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_bosnian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = serbian_deploy_troops }
+			clr_country_flag = serbian_deploy_troops
+			every_owned_province = {
+				limit = { culture = serbian }
+				if = {
+					limit = { has_estate = vef_serbian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_serbian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = bulgarian_deploy_troops }
+			clr_country_flag = bulgarian_deploy_troops
+			every_owned_province = {
+				limit = { culture = bulgarian }
+				if = {
+					limit = { has_estate = vef_bulgarian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_bulgarian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = latvian_deploy_troops }
+			clr_country_flag = latvian_deploy_troops
+			every_owned_province = {
+				limit = { culture = latvian }
+				if = {
+					limit = { has_estate = vef_latvian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_latvian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = lithuanian_deploy_troops }
+			clr_country_flag = lithuanian_deploy_troops
+			every_owned_province = {
+				limit = { culture = lithuanian }
+				if = {
+					limit = { has_estate = vef_lithuanian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_lithuanian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = yotvingian_deploy_troops }
+			clr_country_flag = yotvingian_deploy_troops
+			every_owned_province = {
+				limit = { culture = yotvingian }
+				if = {
+					limit = { has_estate = vef_yotvingian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_yotvingian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = russian_deploy_troops }
+			clr_country_flag = russian_deploy_troops
+			every_owned_province = {
+				limit = { culture = russian }
+				if = {
+					limit = { has_estate = vef_russian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_russian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = byelorussian_deploy_troops }
+			clr_country_flag = byelorussian_deploy_troops
+			every_owned_province = {
+				limit = { culture = byelorussian }
+				if = {
+					limit = { has_estate = vef_byelorussian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_byelorussian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = ruthenian_deploy_troops }
+			clr_country_flag = ruthenian_deploy_troops
+			every_owned_province = {
+				limit = { culture = ruthenian }
+				if = {
+					limit = { has_estate = vef_ruthenian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_ruthenian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = maghreb_arabic_deploy_troops }
+			clr_country_flag = maghreb_arabic_deploy_troops
+			every_owned_province = {
+				limit = { culture = maghreb_arabic }
+				if = {
+					limit = { has_estate = vef_maghreb_arabic_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_maghreb_arabic_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = masmuda_deploy_troops }
+			clr_country_flag = masmuda_deploy_troops
+			every_owned_province = {
+				limit = { culture = masmuda }
+				if = {
+					limit = { has_estate = vef_masmuda_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_masmuda_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = zenata_deploy_troops }
+			clr_country_flag = zenata_deploy_troops
+			every_owned_province = {
+				limit = { culture = zenata }
+				if = {
+					limit = { has_estate = vef_zenata_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_zenata_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = sanhaja_deploy_troops }
+			clr_country_flag = sanhaja_deploy_troops
+			every_owned_province = {
+				limit = { culture = sanhaja }
+				if = {
+					limit = { has_estate = vef_sanhaja_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = nationalist_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_sanhaja_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = nationalist_rebels size = 1 }}
+					}
+				}
+				else = { nationalist_rebels = 1 }
+			}
+		}
+	}
+	
+	option = {		# Civil War
+		trigger = { has_country_flag = vef_civilwar_culture }
+		name = "vef_culturedisasters.1.optb"
+		change_variable = { which = national_stability value = -500 }
+		clr_country_flag = vef_civilwar_culture
+		if = {
+			limit = { has_country_flag = irish_deploy_troops }
+			clr_country_flag = irish_deploy_troops
+			every_owned_province = {
+				limit = { culture = irish }
+				if = {
+					limit = { has_estate = vef_irish_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_irish_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = scottish_deploy_troops }
+			clr_country_flag = scottish_deploy_troops
+			every_owned_province = {
+				limit = { culture = scottish }
+				if = {
+					limit = { has_estate = vef_scottish_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_scottish_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = welsh_deploy_troops }
+			clr_country_flag = welsh_deploy_troops
+			every_owned_province = {
+				limit = { culture = welsh }
+				if = {
+					limit = { has_estate = vef_welsh_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_welsh_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = breton_deploy_troops }
+			clr_country_flag = breton_deploy_troops
+			every_owned_province = {
+				limit = { culture = breton }
+				if = {
+					limit = { has_estate = vef_breton_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_breton_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = english_deploy_troops }
+			clr_country_flag = english_deploy_troops
+			every_owned_province = {
+				limit = { culture = english }
+				if = {
+					limit = { has_estate = vef_english_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_english_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = portuguese_deploy_troops }
+			clr_country_flag = portuguese_deploy_troops
+			every_owned_province = {
+				limit = { culture = portugese }
+				if = {
+					limit = { has_estate = vef_portuguese_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_portuguese_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = galician_deploy_troops }
+			clr_country_flag = galician_deploy_troops
+			every_owned_province = {
+				limit = { culture = galician }
+				if = {
+					limit = { has_estate = vef_galician_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_galician_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = leonese_deploy_troops }
+			clr_country_flag = leonese_deploy_troops
+			every_owned_province = {
+				limit = { culture = leonese }
+				if = {
+					limit = { has_estate = vef_leonese_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_leonese_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = castillian_deploy_troops }
+			clr_country_flag = castillian_deploy_troops
+			every_owned_province = {
+				limit = { culture = castillian }
+				if = {
+					limit = { has_estate = vef_castillian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_castillian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = andalucian_deploy_troops }
+			clr_country_flag = andalucian_deploy_troops
+			every_owned_province = {
+				limit = { culture = andalucian }
+				if = {
+					limit = { has_estate = vef_andalucian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_andalucian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = aragonese_deploy_troops }
+			clr_country_flag = aragonese_deploy_troops
+			every_owned_province = {
+				limit = { culture = aragonese }
+				if = {
+					limit = { has_estate = vef_aragonese_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_aragonese_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = catalan_deploy_troops }
+			clr_country_flag = catalan_deploy_troops
+			every_owned_province = {
+				limit = { culture = catalan }
+				if = {
+					limit = { has_estate = vef_catalan_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_catalan_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = gascon_deploy_troops }
+			clr_country_flag = gascon_deploy_troops
+			every_owned_province = {
+				limit = { culture = gascon }
+				if = {
+					limit = { has_estate = vef_gascon_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_gascon_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = normand_deploy_troops }
+			clr_country_flag = normand_deploy_troops
+			every_owned_province = {
+				limit = { culture = normand }
+				if = {
+					limit = { has_estate = vef_normand_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_normand_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = arpitian_deploy_troops }
+			clr_country_flag = arpitian_deploy_troops
+			every_owned_province = {
+				limit = { culture = arpitian }
+				if = {
+					limit = { has_estate = vef_arpitian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_arpitian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = picard_deploy_troops }
+			clr_country_flag = picard_deploy_troops
+			every_owned_province = {
+				limit = { culture = picard }
+				if = {
+					limit = { has_estate = vef_picard_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_picard_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = orleanais_deploy_troops }
+			clr_country_flag = orleanais_deploy_troops
+			every_owned_province = {
+				limit = { culture = orleanais }
+				if = {
+					limit = { has_estate = vef_orleanais_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_orleanais_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = champenois_deploy_troops }
+			clr_country_flag = champenois_deploy_troops
+			every_owned_province = {
+				limit = { culture = champenois }
+				if = {
+					limit = { has_estate = vef_champenois_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_champenois_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = aquitaine_deploy_troops }
+			clr_country_flag = aquitaine_deploy_troops
+			every_owned_province = {
+				limit = { culture = aquitaine }
+				if = {
+					limit = { has_estate = vef_aquitaine_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_aquitaine_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = burgundian_deploy_troops }
+			clr_country_flag = burgundian_deploy_troops
+			every_owned_province = {
+				limit = { culture = burgundian }
+				if = {
+					limit = { has_estate = vef_burgundian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_burgundian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = occitian_deploy_troops }
+			clr_country_flag = occitian_deploy_troops
+			every_owned_province = {
+				limit = { culture = occitian }
+				if = {
+					limit = { has_estate = vef_occitian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_occitian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = wallonian_deploy_troops }
+			clr_country_flag = wallonian_deploy_troops
+			every_owned_province = {
+				limit = { culture = wallonian }
+				if = {
+					limit = { has_estate = vef_wallonian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_wallonian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = swedish_deploy_troops }
+			clr_country_flag = swedish_deploy_troops
+			every_owned_province = {
+				limit = { culture = swedish }
+				if = {
+					limit = { has_estate = vef_swedish_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_swedish_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = danish_deploy_troops }
+			clr_country_flag = danish_deploy_troops
+			every_owned_province = {
+				limit = { culture = danish }
+				if = {
+					limit = { has_estate = vef_danish_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_danish_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = norwegian_deploy_troops }
+			clr_country_flag = norwegian_deploy_troops
+			every_owned_province = {
+				limit = { culture = norwegian }
+				if = {
+					limit = { has_estate = vef_norwegian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_norwegian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = greek_deploy_troops }
+			clr_country_flag = greek_deploy_troops
+			every_owned_province = {
+				limit = { culture = greek }
+				if = {
+					limit = { has_estate = vef_greek_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_greek_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = pontian_deploy_troops }
+			clr_country_flag = pontian_deploy_troops
+			every_owned_province = {
+				limit = { culture = pontian }
+				if = {
+					limit = { has_estate = vef_pontian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_pontian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = polish_deploy_troops }
+			clr_country_flag = polish_deploy_troops
+			every_owned_province = {
+				limit = { culture = polish }
+				if = {
+					limit = { has_estate = vef_polish_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_polish_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = czech_deploy_troops }
+			clr_country_flag = czech_deploy_troops
+			every_owned_province = {
+				limit = { culture = czech }
+				if = {
+					limit = { has_estate = vef_czech_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_czech_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = schlesian_deploy_troops }
+			clr_country_flag = schlesian_deploy_troops
+			every_owned_province = {
+				limit = { culture = schlesian }
+				if = {
+					limit = { has_estate = vef_schlesian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_schlesian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = slovak_deploy_troops }
+			clr_country_flag = slovak_deploy_troops
+			every_owned_province = {
+				limit = { culture = slovak }
+				if = {
+					limit = { has_estate = vef_slovak_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_slovak_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = hungarian_deploy_troops }
+			clr_country_flag = hungarian_deploy_troops
+			every_owned_province = {
+				limit = { culture = hungarian }
+				if = {
+					limit = { has_estate = vef_hungarian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_hungarian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = transylvanian_deploy_troops }
+			clr_country_flag = transylvanian_deploy_troops
+			every_owned_province = {
+				limit = { culture = transylvanian }
+				if = {
+					limit = { has_estate = vef_transylvanian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_transylvanian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = moldavian_deploy_troops }
+			clr_country_flag = moldavian_deploy_troops
+			every_owned_province = {
+				limit = { culture = moldavian }
+				if = {
+					limit = { has_estate = vef_moldavian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_moldavian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = wallachian_deploy_troops }
+			clr_country_flag = wallachian_deploy_troops
+			every_owned_province = {
+				limit = { culture = wallachian }
+				if = {
+					limit = { has_estate = vef_wallachian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_wallachian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = slovene_deploy_troops }
+			clr_country_flag = slovene_deploy_troops
+			every_owned_province = {
+				limit = { culture = slovene }
+				if = {
+					limit = { has_estate = vef_slovene_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_slovene_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = croatian_deploy_troops }
+			clr_country_flag = croatian_deploy_troops
+			every_owned_province = {
+				limit = { culture = croatian }
+				if = {
+					limit = { has_estate = vef_croatian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_croatian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = bosnian_deploy_troops }
+			clr_country_flag = bosnian_deploy_troops
+			every_owned_province = {
+				limit = { culture = bosnian }
+				if = {
+					limit = { has_estate = vef_bosnian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_bosnian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = serbian_deploy_troops }
+			clr_country_flag = serbian_deploy_troops
+			every_owned_province = {
+				limit = { culture = serbian }
+				if = {
+					limit = { has_estate = vef_serbian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_serbian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = bulgarian_deploy_troops }
+			clr_country_flag = bulgarian_deploy_troops
+			every_owned_province = {
+				limit = { culture = bulgarian }
+				if = {
+					limit = { has_estate = vef_bulgarian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_bulgarian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = latvian_deploy_troops }
+			clr_country_flag = latvian_deploy_troops
+			every_owned_province = {
+				limit = { culture = latvian }
+				if = {
+					limit = { has_estate = vef_latvian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_latvian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = lithuanian_deploy_troops }
+			clr_country_flag = lithuanian_deploy_troops
+			every_owned_province = {
+				limit = { culture = lithuanian }
+				if = {
+					limit = { has_estate = vef_lithuanian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_lithuanian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = yotvingian_deploy_troops }
+			clr_country_flag = yotvingian_deploy_troops
+			every_owned_province = {
+				limit = { culture = yotvingian }
+				if = {
+					limit = { has_estate = vef_yotvingian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_yotvingian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = russian_deploy_troops }
+			clr_country_flag = russian_deploy_troops
+			every_owned_province = {
+				limit = { culture = russian }
+				if = {
+					limit = { has_estate = vef_russian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_russian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = byelorussian_deploy_troops }
+			clr_country_flag = byelorussian_deploy_troops
+			every_owned_province = {
+				limit = { culture = byelorussian }
+				if = {
+					limit = { has_estate = vef_byelorussian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_byelorussian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = ruthenian_deploy_troops }
+			clr_country_flag = ruthenian_deploy_troops
+			every_owned_province = {
+				limit = { culture = ruthenian }
+				if = {
+					limit = { has_estate = vef_ruthenian_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_ruthenian_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = maghreb_arabic_deploy_troops }
+			clr_country_flag = maghreb_arabic_deploy_troops
+			every_owned_province = {
+				limit = { culture = maghreb_arabic }
+				if = {
+					limit = { has_estate = vef_maghreb_arabic_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_maghreb_arabic_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = masmuda_deploy_troops }
+			clr_country_flag = masmuda_deploy_troops
+			every_owned_province = {
+				limit = { culture = masmuda }
+				if = {
+					limit = { has_estate = vef_masmuda_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_masmuda_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = zenata_deploy_troops }
+			clr_country_flag = zenata_deploy_troops
+			every_owned_province = {
+				limit = { culture = zenata }
+				if = {
+					limit = { has_estate = vef_zenata_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_zenata_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = sanhaja_deploy_troops }
+			clr_country_flag = sanhaja_deploy_troops
+			every_owned_province = {
+				limit = { culture = sanhaja }
+				if = {
+					limit = { has_estate = vef_sanhaja_estate NOT = { fort_level = 2 }}
+					spawn_rebels = { type = pretender_rebels size = 1 win = yes }
+				}
+				else_if = {
+					limit = { has_estate = vef_sanhaja_estate }
+					random_list = {
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 win = yes }}
+						50 = { spawn_rebels = { type = pretender_rebels size = 1 }}
+					}
+				}
+				else = { pretender_rebels = 1 }
+			}
+		}
+	}
+}
+
+# End of Disaster
+country_event = {
+	id = vef_culturedisasters.4
+	title = "vef_culturedisasters.4.t"
+	desc = "vef_culturedisasters.4.d"
+	picture = VEF_ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes #estate disasters/ on_end
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		
+	}
+	
+	option = {
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = irish_disaster_happening
+					NOT = { has_disaster = estate_irish_disaster }
+				}
+				clr_country_flag = irish_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_irish_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_irish_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_irish_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_irish_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_irish_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_irish_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_irish_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_irish_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = scottish_disaster_happening
+					NOT = { has_disaster = estate_scottish_disaster }
+				}
+				clr_country_flag = scottish_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_scottish_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_scottish_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_scottish_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_scottish_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_scottish_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_scottish_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_scottish_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_scottish_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = welsh_disaster_happening
+					NOT = { has_disaster = estate_welsh_disaster }
+				}
+				clr_country_flag = welsh_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_welsh_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_welsh_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_welsh_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_welsh_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_welsh_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_welsh_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_welsh_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_welsh_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = breton_disaster_happening
+					NOT = { has_disaster = estate_breton_disaster }
+				}
+				clr_country_flag = breton_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_breton_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_breton_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_breton_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_breton_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_breton_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_breton_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_breton_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_breton_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = english_disaster_happening
+					NOT = { has_disaster = estate_english_disaster }
+				}
+				clr_country_flag = english_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_english_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_english_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_english_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_english_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_english_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_english_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_english_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_english_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = portuguese_disaster_happening
+					NOT = { has_disaster = estate_portuguese_disaster }
+				}
+				clr_country_flag = portuguese_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_portuguese_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_portuguese_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_portuguese_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_portuguese_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_portuguese_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_portuguese_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_portuguese_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_portuguese_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = galician_disaster_happening
+					NOT = { has_disaster = estate_galician_disaster }
+				}
+				clr_country_flag = galician_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_galician_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_galician_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_galician_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_galician_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_galician_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_galician_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_galician_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_galician_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = leonese_disaster_happening
+					NOT = { has_disaster = estate_leonese_disaster }
+				}
+				clr_country_flag = leonese_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_leonese_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_leonese_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_leonese_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_leonese_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_leonese_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_leonese_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_leonese_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_leonese_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = castillian_disaster_happening
+					NOT = { has_disaster = estate_castillian_disaster }
+				}
+				clr_country_flag = castillian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_castillian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_castillian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_castillian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_castillian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_castillian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_castillian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_castillian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_castillian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = andalucian_disaster_happening
+					NOT = { has_disaster = estate_andalucian_disaster }
+				}
+				clr_country_flag = andalucian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_andalucian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_andalucian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_andalucian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_andalucian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_andalucian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_andalucian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_andalucian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_andalucian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = aragonese_disaster_happening
+					NOT = { has_disaster = estate_aragonese_disaster }
+				}
+				clr_country_flag = aragonese_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_aragonese_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_aragonese_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_aragonese_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_aragonese_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_aragonese_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_aragonese_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_aragonese_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_aragonese_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = catalan_disaster_happening
+					NOT = { has_disaster = estate_catalan_disaster }
+				}
+				clr_country_flag = catalan_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_catalan_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_catalan_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_catalan_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_catalan_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_catalan_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_catalan_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_catalan_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_catalan_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = gascon_disaster_happening
+					NOT = { has_disaster = estate_gascon_disaster }
+				}
+				clr_country_flag = gascon_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_gascon_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_gascon_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_gascon_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_gascon_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_gascon_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_gascon_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_gascon_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_gascon_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = normand_disaster_happening
+					NOT = { has_disaster = estate_normand_disaster }
+				}
+				clr_country_flag = normand_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_normand_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_normand_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_normand_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_normand_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_normand_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_normand_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_normand_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_normand_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = arpitian_disaster_happening
+					NOT = { has_disaster = estate_arpitian_disaster }
+				}
+				clr_country_flag = arpitian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_arpitian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_arpitian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_arpitian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_arpitian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_arpitian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_arpitian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_arpitian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_arpitian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = picard_disaster_happening
+					NOT = { has_disaster = estate_picard_disaster }
+				}
+				clr_country_flag = picard_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_picard_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_picard_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_picard_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_picard_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_picard_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_picard_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_picard_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_picard_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = orleanais_disaster_happening
+					NOT = { has_disaster = estate_orleanais_disaster }
+				}
+				clr_country_flag = orleanais_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_orleanais_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_orleanais_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_orleanais_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_orleanais_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_orleanais_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_orleanais_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_orleanais_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_orleanais_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = champenois_disaster_happening
+					NOT = { has_disaster = estate_champenois_disaster }
+				}
+				clr_country_flag = champenois_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_champenois_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_champenois_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_champenois_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_champenois_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_champenois_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_champenois_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_champenois_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_champenois_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = aquitaine_disaster_happening
+					NOT = { has_disaster = estate_aquitaine_disaster }
+				}
+				clr_country_flag = aquitaine_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_aquitaine_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_aquitaine_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_aquitaine_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_aquitaine_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_aquitaine_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_aquitaine_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_aquitaine_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_aquitaine_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = burgundian_disaster_happening
+					NOT = { has_disaster = estate_burgundian_disaster }
+				}
+				clr_country_flag = burgundian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_burgundian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_burgundian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_burgundian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_burgundian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_burgundian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_burgundian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_burgundian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_burgundian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = occitian_disaster_happening
+					NOT = { has_disaster = estate_occitian_disaster }
+				}
+				clr_country_flag = occitian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_occitian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_occitian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_occitian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_occitian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_occitian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_occitian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_occitian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_occitian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = wallonian_disaster_happening
+					NOT = { has_disaster = estate_wallonian_disaster }
+				}
+				clr_country_flag = wallonian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_wallonian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_wallonian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_wallonian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_wallonian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_wallonian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_wallonian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_wallonian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_wallonian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = swedish_disaster_happening
+					NOT = { has_disaster = estate_swedish_disaster }
+				}
+				clr_country_flag = swedish_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_swedish_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_swedish_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_swedish_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_swedish_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_swedish_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_swedish_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_swedish_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_swedish_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = danish_disaster_happening
+					NOT = { has_disaster = estate_danish_disaster }
+				}
+				clr_country_flag = danish_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_danish_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_danish_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_danish_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_danish_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_danish_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_danish_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_danish_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_danish_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = norwegian_disaster_happening
+					NOT = { has_disaster = estate_norwegian_disaster }
+				}
+				clr_country_flag = norwegian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_norwegian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_norwegian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_norwegian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_norwegian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_norwegian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_norwegian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_norwegian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_norwegian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = greek_disaster_happening
+					NOT = { has_disaster = estate_greek_disaster }
+				}
+				clr_country_flag = greek_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_greek_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_greek_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_greek_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_greek_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_greek_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_greek_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_greek_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_greek_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = pontian_disaster_happening
+					NOT = { has_disaster = estate_pontian_disaster }
+				}
+				clr_country_flag = pontian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_pontian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_pontian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_pontian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_pontian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_pontian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_pontian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_pontian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_pontian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = polish_disaster_happening
+					NOT = { has_disaster = estate_polish_disaster }
+				}
+				clr_country_flag = polish_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_polish_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_polish_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_polish_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_polish_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_polish_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_polish_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_polish_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_polish_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = czech_disaster_happening
+					NOT = { has_disaster = estate_czech_disaster }
+				}
+				clr_country_flag = czech_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_czech_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_czech_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_czech_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_czech_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_czech_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_czech_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_czech_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_czech_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = schlesian_disaster_happening
+					NOT = { has_disaster = estate_schlesian_disaster }
+				}
+				clr_country_flag = schlesian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_schlesian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_schlesian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_schlesian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_schlesian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_schlesian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_schlesian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_schlesian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_schlesian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = slovak_disaster_happening
+					NOT = { has_disaster = estate_slovak_disaster }
+				}
+				clr_country_flag = slovak_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_slovak_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_slovak_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_slovak_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_slovak_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_slovak_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_slovak_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_slovak_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_slovak_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = hungarian_disaster_happening
+					NOT = { has_disaster = estate_hungarian_disaster }
+				}
+				clr_country_flag = hungarian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_hungarian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_hungarian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_hungarian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_hungarian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_hungarian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_hungarian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_hungarian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_hungarian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = transylvanian_disaster_happening
+					NOT = { has_disaster = estate_transylvanian_disaster }
+				}
+				clr_country_flag = transylvanian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_transylvanian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_transylvanian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_transylvanian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_transylvanian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_transylvanian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_transylvanian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_transylvanian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_transylvanian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = moldavian_disaster_happening
+					NOT = { has_disaster = estate_moldavian_disaster }
+				}
+				clr_country_flag = moldavian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_moldavian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_moldavian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_moldavian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_moldavian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_moldavian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_moldavian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_moldavian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_moldavian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = wallachian_disaster_happening
+					NOT = { has_disaster = estate_wallachian_disaster }
+				}
+				clr_country_flag = wallachian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_wallachian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_wallachian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_wallachian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_wallachian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_wallachian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_wallachian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_wallachian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_wallachian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = slovene_disaster_happening
+					NOT = { has_disaster = estate_slovene_disaster }
+				}
+				clr_country_flag = slovene_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_slovene_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_slovene_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_slovene_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_slovene_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_slovene_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_slovene_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_slovene_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_slovene_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = croatian_disaster_happening
+					NOT = { has_disaster = estate_croatian_disaster }
+				}
+				clr_country_flag = croatian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_croatian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_croatian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_croatian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_croatian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_croatian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_croatian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_croatian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_croatian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = bosnian_disaster_happening
+					NOT = { has_disaster = estate_bosnian_disaster }
+				}
+				clr_country_flag = bosnian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_bosnian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_bosnian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_bosnian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_bosnian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_bosnian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_bosnian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_bosnian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_bosnian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = serbian_disaster_happening
+					NOT = { has_disaster = estate_serbian_disaster }
+				}
+				clr_country_flag = serbian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_serbian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_serbian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_serbian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_serbian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_serbian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_serbian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_serbian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_serbian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = bulgarian_disaster_happening
+					NOT = { has_disaster = estate_bulgarian_disaster }
+				}
+				clr_country_flag = bulgarian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_bulgarian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_bulgarian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_bulgarian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_bulgarian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_bulgarian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_bulgarian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_bulgarian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_bulgarian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = latvian_disaster_happening
+					NOT = { has_disaster = estate_latvian_disaster }
+				}
+				clr_country_flag = latvian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_latvian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_latvian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_latvian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_latvian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_latvian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_latvian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_latvian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_latvian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = lithuanian_disaster_happening
+					NOT = { has_disaster = estate_lithuanian_disaster }
+				}
+				clr_country_flag = lithuanian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_lithuanian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_lithuanian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_lithuanian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_lithuanian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_lithuanian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_lithuanian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_lithuanian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_lithuanian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = yotvingian_disaster_happening
+					NOT = { has_disaster = estate_yotvingian_disaster }
+				}
+				clr_country_flag = yotvingian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_yotvingian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_yotvingian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_yotvingian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_yotvingian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_yotvingian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_yotvingian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_yotvingian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_yotvingian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = russian_disaster_happening
+					NOT = { has_disaster = estate_russian_disaster }
+				}
+				clr_country_flag = russian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_russian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_russian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_russian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_russian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_russian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_russian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_russian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_russian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = byelorussian_disaster_happening
+					NOT = { has_disaster = estate_byelorussian_disaster }
+				}
+				clr_country_flag = byelorussian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_byelorussian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_byelorussian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_byelorussian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_byelorussian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_byelorussian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_byelorussian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_byelorussian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_byelorussian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = ruthenian_disaster_happening
+					NOT = { has_disaster = estate_ruthenian_disaster }
+				}
+				clr_country_flag = ruthenian_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_ruthenian_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_ruthenian_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_ruthenian_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_ruthenian_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_ruthenian_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_ruthenian_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_ruthenian_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_ruthenian_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = maghreb_arabic_disaster_happening
+					NOT = { has_disaster = estate_maghreb_arabic_disaster }
+				}
+				clr_country_flag = maghreb_arabic_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_maghreb_arabic_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_maghreb_arabic_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_maghreb_arabic_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_maghreb_arabic_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_maghreb_arabic_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_maghreb_arabic_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_maghreb_arabic_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_maghreb_arabic_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = masmuda_disaster_happening
+					NOT = { has_disaster = estate_masmuda_disaster }
+				}
+				clr_country_flag = masmuda_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_masmuda_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_masmuda_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_masmuda_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_masmuda_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_masmuda_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_masmuda_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_masmuda_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_masmuda_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = zenata_disaster_happening
+					NOT = { has_disaster = estate_zenata_disaster }
+				}
+				clr_country_flag = zenata_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_zenata_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_zenata_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_zenata_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_zenata_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_zenata_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_zenata_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_zenata_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_zenata_estate loyalty = 10 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = sanhaja_disaster_happening
+					NOT = { has_disaster = estate_sanhaja_disaster }
+				}
+				clr_country_flag = sanhaja_disaster_happening
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_sanhaja_estate loyalty = 10 }}}
+					add_estate_loyalty = { estate = vef_sanhaja_estate loyalty = 40 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_sanhaja_estate loyalty = 20 }}}
+					add_estate_loyalty = { estate = vef_sanhaja_estate loyalty = 30 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_sanhaja_estate loyalty = 30 }}}
+					add_estate_loyalty = { estate = vef_sanhaja_estate loyalty = 20 }
+				}
+				if = {
+					limit = { NOT = { estate_loyalty = { estate = vef_sanhaja_estate loyalty = 40 }}}
+					add_estate_loyalty = { estate = vef_sanhaja_estate loyalty = 10 }
+				}
+			}
+		}
+	}
+}

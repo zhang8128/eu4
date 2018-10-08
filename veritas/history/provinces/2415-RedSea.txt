@@ -1,0 +1,12 @@
+# Red Sea
+#Province IDs changed
+discovered_by = ottoman
+discovered_by = muslim
+discovered_by = indopersian
+discovered_by = byzantine
+discovered_by = sudanese_tech
+
+1453.1.1 = { 
+	discovered_by = western 
+	discovered_by = scandinavian_tech
+}

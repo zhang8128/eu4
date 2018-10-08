@@ -1,0 +1,3 @@
+# Lake Victoria
+#Province IDs changed
+discovered_by = tribal_african_tech

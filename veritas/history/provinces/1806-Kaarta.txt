@@ -1,0 +1,15 @@
+# Kaarta
+
+capital = "Kaarta"
+owner = MAL
+controller = MAL
+add_core = MAL
+culture = malinke
+religion = sunni
+trade_goods = millet
+base_tax = 1
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = sudanese_tech

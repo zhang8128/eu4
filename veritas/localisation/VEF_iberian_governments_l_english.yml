@@ -1,0 +1,34 @@
+﻿l_english:
+
+ ###Localisation file for Iberian governments###
+
+ ###Castille###
+ castile_kingdom: "Kingdom of Castile"
+ castile_kingdom_desc: "The historical kingdom of Castile ruled over many vassals."
+ castile_kingdom_ruler: "King"
+ castile_kingdom_ruler_female: "Queen"
+ 
+ ###Portugal###
+ portugal_kingdom: "Kingdom of Portugal"
+ portugal_kingdom_desc: "The historical kingdom of Portugal lasted for centuries."
+ portugal_kingdom_ruler: "King"
+ portugal_kingdom_ruler_female: "Queen"
+ 
+ ###Aragom###
+ aragon_kingdom: "Kingdom of Aragon"
+ aragon_kingdom_desc: "The historical kingdom of Aragon ruled over the Mediterranean."
+ aragon_kingdom_ruler: "King"
+ aragon_kingdom_ruler_female: "Queen"
+
+ ###spanish empire###
+ spanish_empire: "Empire of Spain"
+ spanish_empire_desc: "The historical empire of Spain was established by force."
+ spanish_empire_ruler: "King"
+ spanish_empire_ruler_female: "Queen"
+ 
+ ###iberian union###
+ iberian_union: "Iberian Union"
+ iberian_union_desc: "The historical Iberian Union was established to unite Iberia peacefully."
+ iberian_union_ruler: "King"
+ iberian_union_ruler_female: "Queen"
+ 

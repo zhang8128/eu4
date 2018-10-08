@@ -1,0 +1,15 @@
+# Toutswe
+
+capital = "Toutswe"
+owner = ZIM
+controller = ZIM
+add_core = ZIM
+culture = shona
+religion = bantu
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = tribal_african_tech

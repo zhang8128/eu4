@@ -1,0 +1,43 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+technology_group = indian
+primary_culture = panjabi
+religion = sikhism
+capital = 1447	# Multan
+
+1758.1.1 = {
+	add_country_modifier = { name = "sikh_confederacy" duration = -1 }
+	monarch = {
+		name = "Baba Singh"
+		dynasty = "Ohlu"
+		ADM = 5
+		DIP = 2
+		MIL = 1
+	}
+	religion = sikhism
+}
+
+1774.1.1 = {
+	monarch = {
+		name = "Deep Singh"
+		dynasty = "Ohlu"
+		ADM = 3
+		DIP = 4
+		MIL = 2
+	}
+}
+
+1780.11.13 = {
+	heir = {
+		name = "Jassa"
+		monarch_name = "Jassa Singh"
+		dynasty = "Ohlu"
+		birth_date = 1780.11.13
+		death_date = 1839.6.20
+		claim = 95
+		ADM = 6
+		DIP = 1
+		MIL = 2
+	}
+}

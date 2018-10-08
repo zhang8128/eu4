@@ -1,0 +1,10 @@
+#Firkateyn
+#model = frigate
+#tech_level = 38
+type = transport
+unit_type = ottoman
+
+hull_size = 24
+base_cannons = 26
+sail_speed = 10
+sailors = 250

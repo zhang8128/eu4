@@ -1,0 +1,5 @@
+1143 = "Chiang Taeng"
+1159 = "Chiang Tung"
+1174 = "Saen Wi"
+1200 = "Thawai"
+1202 = "Marit"

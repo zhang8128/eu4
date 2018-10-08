@@ -1,0 +1,5 @@
+# Gulf Of Aden
+#Province IDs changed
+discovered_by = sudanese_tech
+discovered_by = indopersian
+discovered_by = muslim

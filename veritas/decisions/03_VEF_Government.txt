@@ -1,0 +1,455 @@
+# VEF Governmental decisions
+country_decisions = {	
+	realm_management = {
+		major = yes
+		potential = {
+			OR = {
+				is_nomad = no
+				has_country_flag = nomad_nobility_reform
+			}
+		}
+		
+		allow = {
+			NOT = { has_country_flag = realm_management_active }
+		}
+		
+		effect = {
+			set_country_flag = realm_management_active
+			country_event = { id = vef_realm.999 }
+		}
+		
+		ai_will_do = { factor = 0 }
+	}
+	
+	forced_abdication_heir = {
+		
+		potential = {
+			ai = no
+			NOT = { has_dlc = "Rights of Man" }
+			government = monarchy
+			has_heir = yes
+			has_regency = no
+			NOT = { has_country_flag = vef_regency }
+			is_lesser_in_union = no
+		}
+		
+		allow = {
+			NOT = { dip = 2 }
+			NOT = { mil = 2 }
+			NOT = { adm = 2 }
+			has_regency = no
+		}
+		
+		effect = {
+			kill_ruler = yes
+			add_adm_power = -50
+			add_dip_power = -75
+		}
+		
+		ai_will_do = { factor = 0 }
+	}
+	
+	forced_abdication_no_heir = {
+		
+		potential = {
+			ai = no
+			NOT = { has_dlc = "Rights of Man" }
+			government = monarchy
+			has_heir = no
+			has_regency = no
+			NOT = { has_country_flag = vef_regency }
+			is_lesser_in_union = no
+		}
+		
+		allow = {
+			NOT = { dip = 2 }
+			NOT = { mil = 2 }
+			NOT = { adm = 2 }
+			has_regency = no
+		}
+		
+		effect = {
+			kill_ruler = yes
+			add_stability = -1
+			add_adm_power = -100
+			add_dip_power = -100
+		}
+		
+		ai_will_do = { factor = 0 }
+	}
+	
+	willing_abdication = {
+		
+		potential = {
+			NOT = { has_dlc = "Rights of Man" }
+			government = monarchy
+			has_heir = yes
+			NOT = { has_country_flag = vef_regency }
+			is_lesser_in_union = no
+		}
+		
+		allow = {
+			ruler_age = 70
+			heir_age = 20
+		}
+		
+		effect = {
+			kill_ruler = yes
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+
+	wartime_conscription = {
+
+		potential = {
+			is_at_war = yes
+			NOT = { has_country_modifier = wartime_conscription_cooldown }
+			NOT = { has_idea_group = mercenary_ideas } # If you rely on mercenaries, no way!
+		}
+
+		allow = {
+			NOT = { manpower_percentage = 0.10 }
+		}
+
+		effect = {
+			add_yearly_manpower = 3
+			add_years_of_income = -0.20
+			add_country_modifier = { name = "wartime_conscription_cooldown" duration = 3650 }
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+	
+	enact_mamluk_reform = {
+		potential = {
+			tag = MAM
+			has_disaster = mamluk_reforms
+			normal_or_historical_nations = yes
+		}
+		
+		allow = {
+			has_disaster = mamluk_reforms
+		}
+		
+		effect = {
+			change_variable = { which = mamluk_strength value = 5 }
+			if = {
+				limit = { has_country_flag = mamluk_reform_3 }
+				set_country_flag = mamluk_reforms_over
+			}
+			if = {
+				limit = { has_country_flag = mamluk_reform_2 }
+				set_country_flag = mamluk_reform_3
+			}
+			if = {
+				limit = { has_country_flag = mamluk_reform_1 }
+				set_country_flag = mamluk_reform_2
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = mamluk_reform_1 }
+					NOT = { has_country_flag = mamluk_reform_2 }
+					NOT = { has_country_flag = mamluk_reform_3 }
+					NOT = { has_country_flag = mamluk_reforms_over }
+				}
+				set_country_flag = mamluk_reform_1
+			}
+			end_disaster = mamluk_reforms
+			add_corruption = 30
+			add_piety -0.5
+		}
+	}
+	
+	establish_janissaries = {
+		potential = {
+			OR = {
+				tag = TUR
+				tag = OSM
+			}
+			is_year = 1360
+			NOT = { has_global_flag = janissaries_established }
+			normal_or_historical_nations = yes
+		}
+		
+		allow = {
+			nicea_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			hidden_effect = {
+				set_variable = { which = janissary_strength value = 20 }
+				set_global_flag = janissaries_established
+				set_country_flag = janissary_corps_active
+				set_country_flag = janissary_corps_rising
+			}
+			if = {
+				limit = { NOT = { has_reform = janissary_government } }
+				add_government_reform = janissary_government
+			}
+			if = {
+				limit = { has_dlc = "Cradle of Civilization" }
+				add_country_modifier = {
+					name = coc_janissaries_1
+					duration = -1
+				}
+			}
+			else = {
+				add_country_modifier = {
+					name = vef_janissaries_1
+					duration = -1
+				}
+			}
+			change_variable = { which = vef_merit value = 10 }
+		}
+		
+		ai_will_do = { factor = 1 }
+		ai_importance = 2000
+	}
+	
+	concede_janissaries_children = {
+		potential = {
+			OR = {
+				tag = TUR
+				tag = OSM
+			}
+			has_disaster = janissary_children
+			normal_or_historical_nations = yes
+		}
+		
+		allow = {
+			NOT = { has_country_modifier = vef_janissaries_4 }
+			NOT = { has_country_modifier = coc_janissaries_4 }
+		}
+		
+		effect = {
+			add_country_modifier = { name = vef_janissaries_5 duration = -1 }
+			end_disaster = janissary_children
+		}
+		
+		ai_will_do = { factor = 1 }
+		ai_importance = 2000
+	}
+	
+	end_elective_monarchy = {
+		major = yes
+		potential = {
+			has_reform = elective_monarchy
+			is_subject = no
+		}
+		
+		allow = {
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			check_variable = { which = monarch_stats value = 10 }
+			prestige = 40
+			legitimacy = 90
+			NOT = { check_variable = { which = noble_holdings value = 70 }}
+		}
+		
+		effect = {
+			remove_government_reform = elective_monarchy
+			hidden_effect = { add_country_modifier = { name = em_disaster_trigger duration = 90 hidden = yes }}
+		}
+		
+		ai_will_do = { factor = 0 }
+	}
+	
+	nomad_reform_block_chagatai = {
+		major = yes
+		
+		potential = {
+			tag = CHG
+			NOT = { is_year = 1361 }
+		}
+		
+		allow = {
+			OR = {
+				NOT = { tag = CHG }
+				is_year = 1361
+			}
+		}
+		
+		effect = { }
+	}
+	
+	nomad_reform_start = {
+		major = yes
+		potential = {
+			is_nomad = yes
+			NOT = { has_country_flag = nomad_reform_decision }
+			OR = {
+				AND = {
+					NOT = { tag = CHG }
+					normal_or_historical_nations = yes
+				}
+				is_year = 1361
+			}
+		}
+		
+		allow = {
+			capital_scope = {
+				development = 9
+				has_influencing_fort = yes
+				NOT = { has_building = nomad_palace }
+			}
+		}
+		
+		effect = {
+			set_country_flag = nomad_reform_decision 
+			capital_scope = {
+				add_building_construction = { 
+					building = nomad_palace 
+					cost = 0
+					speed = 1
+				}
+			}
+			country_event = { id = vef_newgov.10000 days = 365 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { tag = KAZ }
+				NOT = { tag = CRI }
+				NOT = { tag = AST }
+				NOT = { tag = MZF }
+				NOT = { tag = INJ }
+				NOT = { tag = CBN }
+				NOT = { tag = SRB }
+				NOT = { tag = PER }
+				NOT = { has_country_flag = golden_horde_collapse } #GOL will take if surviving collapse
+				OR = {
+					is_subject = no
+					overlord = { is_nomad = yes }
+				}
+			}
+		}
+	}
+	
+	steppe_horde_reform = {
+		major = yes
+		potential = {
+			government = steppe_horde
+			has_country_flag = nomads_reforming
+		}
+		allow = {
+			adm_power = 200
+			stability = 0
+			NOT = { has_ruler_modifier = tribal_succession_crisis }
+			custom_trigger_tooltip = {
+				had_country_flag = { flag = nomads_reforming days = 10950 }
+				tooltip = nomad_reform_years
+			}
+			capital_scope = {
+				has_owner_culture = yes
+				has_owner_religion = yes
+			}
+		}
+		effect = {
+			add_adm_power = -200
+			add_stability = -1
+			clr_country_flag = nomads_reforming
+			if = {
+				limit = {
+					technology_group = nomad_group
+					OR = {
+						religion_group = muslim
+						secondary_religion = sunni
+						secondary_religion = shiite
+						secondary_religion = ibadi
+					}
+				}
+				change_technology_group = muslim
+				change_unit_type = muslim
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				set_legacy_government = despotic_monarchy
+			}
+			if = {
+				limit = {
+					technology_group = nomad_group
+					religion_group = christian
+				}
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+				set_legacy_government = hereditary_monarchy
+				change_technology_group = eastern
+				change_unit_type = eastern
+			}
+			if = {
+				limit = {
+					technology_group = nomad_group
+					NOT = { religion_group = muslim }
+					NOT = { religion_group = christian }
+					NOT = { secondary_religion = sunni }
+					NOT = { secondary_religion = shiite }
+					NOT = { secondary_religion = ibadi }
+				}
+				change_technology_group = chinese
+				change_unit_type = chinese
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				set_legacy_government = despotic_monarchy
+			}
+			if = {
+				limit = { is_nomad = yes }
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				set_legacy_government = despotic_monarchy
+			}
+			if = {
+				limit = {
+					tag = GOL
+					normal_or_historical_nations = yes
+				}
+				if = {
+					limit = {
+						capital_scope = { is_core = AST }
+						NOT = { exists = AST }
+					}
+					change_tag = AST
+				}
+			}
+			if = {
+				limit = {
+					tag = GOL
+					normal_or_historical_nations = yes
+				}
+				if = {
+					limit = {
+						capital_scope = { is_core = KAZ }
+						NOT = { exists = KAZ }
+					}
+					change_tag = KAZ
+				}
+			}
+			if = {
+				limit = {
+					tag = GOL
+					normal_or_historical_nations = yes
+				}
+				if = {
+					limit = {
+						capital_scope = { is_core = CRI }
+						NOT = { exists = CRI }
+					}
+					change_tag = CRI
+				}
+			}	
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { check_variable = { which = vef_governance which = vef_central_management }}
+			}
+		}
+	}
+}

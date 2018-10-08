@@ -1,0 +1,215 @@
+###########################
+# kniGHTS OF SAINT JOHN MODIFIERS
+# SharpAlignment
+# 08/09/2008
+###########################
+
+stjohn_grandpriory = {
+	local_tax_modifier = -0.02
+	local_manpower_modifier = -0.02
+	dip_tech_cost_modifier = -0.01
+	naval_morale = 0.02
+	picture = "maltese_cross"
+}
+
+legendary_fort = {
+	local_defensiveness = 1
+	picture = "maltese_fort"
+}
+
+defendable_position = {
+    local_defensiveness = 0.5
+}
+
+kosj_fort1 = {
+	tax_income = 1
+	local_tax_modifier = 0.50
+	naval_maintenance_modifier = -0.10
+	naval_forcelimit = 2
+	local_manpower_modifier = 0.20
+	discipline = 0.04
+	defensiveness = 0.04
+	 picture = "maltese_fort"
+}
+
+kosj_fort2 = {
+ 	tax_income = 2
+	local_tax_modifier = 0.50
+	naval_maintenance_modifier = -0.15
+	naval_forcelimit = 3
+	local_manpower_modifier = 0.40
+	discipline = 0.06
+	defensiveness = 0.06
+	free_leader_pool = 1
+	 picture = "maltese_fort"
+}
+
+kosj_fort3 = {
+	tax_income = 3
+	local_tax_modifier = 0.50
+	naval_forcelimit = 4
+	land_forcelimit = 1
+	local_manpower_modifier = 0.60
+	discipline = 0.08
+	defensiveness = 0.08
+	free_leader_pool = 1
+	 picture = "maltese_fort"
+}
+
+kosj_fort4 = {
+	tax_income = 4
+	local_tax_modifier = 0.50
+	naval_forcelimit = 5
+	land_forcelimit = 1
+	local_manpower_modifier = 0.80
+	discipline = 0.10
+	defensiveness = 0.10
+	free_leader_pool = 2
+	 picture = "maltese_fort"
+}
+
+kosj_fort5 = {
+	tax_income = 5
+	local_tax_modifier = 0.50
+	naval_forcelimit = 6
+	land_forcelimit = 2
+	local_manpower_modifier = 1.00
+	discipline = 0.12
+	defensiveness = 0.12
+	free_leader_pool = 2
+	 picture = "maltese_fort"
+}
+
+kosj_fort6 = {
+	tax_income = 6
+	local_tax_modifier = 0.50
+	naval_forcelimit = 7
+	land_forcelimit = 2
+	local_manpower_modifier = 1.20
+	discipline = 0.14
+	defensiveness = 0.14
+	free_leader_pool = 2
+	 picture = "maltese_fort"
+}
+
+kosj_fort7 = {
+	tax_income = 7
+	local_tax_modifier = 0.50
+	naval_forcelimit = 8
+	land_forcelimit = 3
+	local_manpower_modifier = 1.40
+	discipline = 0.16
+	defensiveness = 0.16
+	free_leader_pool = 3
+	 picture = "maltese_fort"
+}
+
+kosj_fort8 = {
+	tax_income = 8
+	local_tax_modifier = 0.50
+	naval_forcelimit = 9
+	land_forcelimit = 3
+	local_manpower_modifier = 1.60
+	discipline = 0.18
+	defensiveness = 0.18
+	free_leader_pool = 3
+	 picture = "maltese_fort"
+}
+
+kosj_fort9 = {
+	tax_income = 9
+	local_tax_modifier = 0.50
+	naval_forcelimit = 10
+	land_forcelimit = 4
+	local_manpower_modifier = 1.80
+	discipline = 0.20
+	defensiveness = 0.20
+	free_leader_pool = 3
+	 picture = "maltese_fort"
+}
+
+kosj_Priory_Founded = {
+	diplomatic_reputation = 1
+}
+
+kosj_Give_Human_Chance = {
+}
+
+kosj_operation_alg = {
+    war_exhaustion = 0.05
+    global_manpower_modifier = 0.20
+    blockade_efficiency = 0.20
+}
+
+kosj_operation_tun = {
+    war_exhaustion = 0.05
+    global_manpower_modifier = 0.20
+    blockade_efficiency = 0.20
+}
+kosj_operation_mor = {
+    war_exhaustion = 0.05
+    global_manpower_modifier = 0.20
+    blockade_efficiency = 0.20
+}
+kosj_operation_mam = {
+    war_exhaustion = 0.05
+    global_manpower_modifier = 0.20
+    blockade_efficiency = 0.20
+}
+kosj_operation_tur = {
+    war_exhaustion = 0.05
+    global_manpower_modifier = 0.20
+    blockade_efficiency = 0.20
+}
+kosj_raid_ports = {
+	navy_tradition = 0.01
+	trade_efficiency = 0.05
+	blockade_efficiency = 0.20
+}
+kosj_golden_age = {
+	discipline = 0.10
+	defensiveness = 0.10
+	naval_maintenance_modifier = -0.10
+	land_maintenance_modifier = -0.10
+    naval_forcelimit = 10
+	land_forcelimit = 10
+    mil_tech_cost_modifier = -0.25
+}
+privateers_sponsorship = {
+	prestige = -3
+	navy_tradition = 0.002
+	trade_efficiency = 0.05
+	trade_steering = 0.1
+}
+
+support_for_the_knights = {
+	global_manpower_modifier = -0.15
+	land_forcelimit = -2
+	global_tax_modifier = -0.05
+	prestige = 0.5
+}
+
+diplomacy_timer = {
+}
+
+crusade_timer = {
+}
+
+kosj_garrison_fort = {
+	local_tax_modifier = -0.02
+	local_manpower_modifier = -0.02
+	dip_tech_cost_modifier = -0.01
+	local_unrest = -3
+	 picture = "maltese_fort"
+}
+
+kni_reichfurst = {
+	diplomatic_upkeep = 1
+}
+
+kni_cardinal = {
+	#papal_influence = 2
+}
+
+kni_no_new_home = {
+}

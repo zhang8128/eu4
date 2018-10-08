@@ -1,0 +1,143 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+primary_culture = uppersaxon
+religion = catholic
+technology_group = western
+capital = 351	# Meissen
+
+
+1292.1.1 = {
+	monarch = {
+		name = "Friedrich I"
+		dynasty = "von Wettin"
+		birth_date = 1257.1.1
+		dip = 2
+		adm = 3
+		mil = 1
+	}
+}
+
+1300.8.24 = {
+	queen = {
+		country_of_origin = MEI
+		name = "Elizabeth"
+		dynasty = "von Lobdeburg"
+		birth_date = 1286.1.1
+		death_date = 1359.8.22
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1310.11.30 = {
+	heir = {
+		name = "Friedrich"
+		monarch_name = "Friedrich II"
+		dynasty = "von Wettin"
+		birth_date = 1310.11.30
+		death_date = 1349.11.18
+		claim = 95
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+}
+
+1323.11.16 = {
+	monarch = {
+		name = "Friedrich II"
+		dynasty = "von Wettin"
+		birth_date = 1310.11.30
+		dip = 2
+		adm = 3
+		mil = 1
+	}
+	queen = {
+		country_of_origin = UBV
+		name = "Mathilde"
+		dynasty = "von Wittelsbach"
+		birth_date = 1313.6.21
+		death_date = 1346.7.2
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1332.12.14 = {
+	heir = {
+		name = "Friedrich"
+		monarch_name = "Friedrich III"
+		dynasty = "von Wettin"
+		birth_date = 1332.12.14
+		death_date = 1381.5.21
+		claim = 95
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+}
+
+1349.11.18 = {
+	monarch = {
+		name = "Friedrich III"
+		dynasty = "von Wettin"
+		birth_date = 1332.12.14
+		dip = 2
+		adm = 3
+		mil = 1
+	}
+	queen = {
+		country_of_origin = MEI
+		name = "Catherine"
+		dynasty = "von Henneberg"
+		birth_date = 1334.1.1
+		death_date = 1397.7.15
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+
+
+1381.5.21 = {
+	monarch = {
+		name = "Wilhelm I"
+		dynasty = "von Wettin"
+		dip = 2
+		adm = 3
+		mil = 1
+	}
+}
+
+1382.1.1 = {
+	heir = {
+		name = "Friedrich"
+		monarch_name = "Friedrich IV"
+		dynasty = "von Wettin"
+		birth_date = 1370.4.11
+		death_date = 1428.1.4
+		claim = 95
+		adm = 2
+		dip = 1
+		mil = 1
+	}
+}
+
+1407.2.11 = {
+	monarch = {
+		name = "Friedrich IV"
+		dynasty = "von Wettin"
+		dip = 1
+		adm = 2
+		mil = 1
+	}
+}
+
+#Do not confuse the guy above with Friedrich IV of Thüringen, his cousin.

@@ -1,0 +1,115 @@
+country_decisions = {
+
+	mughal_nation = {
+		major = yes
+		potential = {
+			OR = {
+				culture_group = iranian
+				primary_culture = turkmeni
+				primary_culture = uzbehk
+				primary_culture = kirgiz
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				NOT = { exists = MUG }
+				ai = no
+			}
+			NOT = { tag = PER }
+			NOT = { tag = TUR }
+			NOT = { tag = MUG }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = ILK }
+			OR = {
+				num_of_cities = 5
+				ai = no
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			NOT = { exists = MUG }
+			total_development = 600
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 1432	# Central Doab
+			1432 = { NOT = { nationalism = 1 } }
+			owns_core_province = 1433	# Delhi
+			1433 = { NOT = { nationalism = 1 } }
+			owns_core_province = 1450	# Amritsar
+			1450 = { NOT = { nationalism = 1 } }
+			owns_core_province = 1452	# Lahore
+			1452 = { NOT = { nationalism = 1 } }
+			owns_core_province = 1455	# Peshawar
+			1455 = { NOT = { nationalism = 1 } }
+		}
+
+		effect = {
+			change_tag = MUG
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government = celestial_empire } }
+				add_government_reform = iqta
+			}
+			set_government_rank = 4
+			bengal_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = MUG
+			}
+			hindusthan_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = MUG
+			}
+			west_india_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = MUG
+			}
+			deccan_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = MUG
+			}
+			coromandel_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = MUG
+			}
+			add_prestige = 25
+			if = {
+				limit = { technology_group = nomad_group }
+				change_technology_group = muslim
+			}
+			change_unit_type = indian
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = MUG_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }		
+		ai_importance = 1000
+	}
+
+}

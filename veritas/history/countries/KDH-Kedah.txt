@@ -1,0 +1,144 @@
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+primary_culture = malayan
+religion = sunni
+technology_group = chinese
+capital = 1208
+
+1280.1.1 = {
+	monarch = {
+		name = "Mahmud Shah I"
+		dynasty = "Kedah"
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1422.1.1 = {
+	monarch = {
+		name = "Ataullah Muhammad Shah"
+		dynasty = "Kedah"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+1472.1.1 = {
+	monarch = {
+		name = "Muhammad Jiwa Zainal Adilin"
+		dynasty = "Kedah"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+1506.1.1 = {
+	monarch = {
+		name = "Mahmud Shah II"
+		dynasty = "Kedah"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+1546.1.1 = {
+	monarch = {
+		name = "Mudzaffar Shah III"
+		dynasty = "Kedah"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+1602.1.1 = {
+	monarch = {
+		name = "Sulaiman Shah II"
+		dynasty = "Kedah"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+1625.1.1 = {
+	monarch = {
+		name = "Rijaluddin Muhammad Shah"
+		dynasty = "Kedah"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+1651.1.1 = {
+	monarch = {
+		name = "Muhyiddin Mansur Shah"
+		dynasty = "Kedah"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+1661.1.1 = {
+	monarch = {
+		name = "Dziaddin Mukarram Shah"
+		dynasty = "Kedah"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+1687.1.1 = {
+	monarch = {
+		name = "Ataullah Muhammad Shah II"
+		dynasty = "Kedah"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+1698.1.1 = {
+	monarch = {
+		name = "Abdullah Mu'adzam Shah"
+		dynasty = "Kedah"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+1706.1.1 = {
+	monarch = {
+		name = "Ahmad Tajuddin Halim Shah"
+		dynasty = "Kedah"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+1710.1.1 = {
+	monarch = {
+		name = "Muhammad Jiqa Zainal Adilin II"
+		dynasty = "Kedah"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+1778.1.1 = {
+	monarch = {
+		name = "Abdullah Mukarram Shah"
+		dynasty = "Kedah"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+1797.1.1 = {
+	monarch = {
+		name = "Ahmad Tajuddin Halim Shah II"
+		dynasty = "Kedah"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}

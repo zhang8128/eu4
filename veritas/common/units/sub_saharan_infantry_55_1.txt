@@ -1,0 +1,12 @@
+# Professional Infantry
+
+unit_type = sub_saharan
+type = infantry
+
+maneuver = 1
+offensive_morale = 9
+defensive_morale = 9
+offensive_fire = 9
+defensive_fire = 9
+offensive_shock = 4
+defensive_shock = 4

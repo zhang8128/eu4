@@ -1,0 +1,10 @@
+# Scandinavia
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+technology_group = scandinavian_tech
+primary_culture = swedish
+religion = protestant
+add_accepted_culture = finnish
+culture_group_union = scandinavian
+capital = 403	#Stockholm

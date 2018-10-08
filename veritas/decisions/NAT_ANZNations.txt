@@ -1,0 +1,140 @@
+country_decisions = {
+
+	australian_nation = {
+		major = yes
+		potential = {
+			colonial_australia = { owned_by = ROOT }
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+			}
+			NOT = { exists = AUS }
+			OR = {
+				ai = no
+				num_of_cities = 3	
+			}
+			NOT = { has_country_flag = changed_from_colonial_nation }
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			is_former_colonial_nation = yes
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			capital_scope = {
+				colonial_region = colonial_australia
+				is_core = ROOT
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { colonial_region = colonial_australia }
+						AND = {
+							colonial_region = colonial_australia
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_australia
+			}
+		}
+		effect = {
+			change_tag = AUS
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			australia_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = AUS
+			}
+			add_prestige = 25
+			set_country_flag = changed_from_colonial_nation
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	nz_nation = {
+		major = yes
+		potential = {
+			new_zeeland_area = { owned_by = ROOT }
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+			}
+			NOT = { exists = NWZ }
+			OR = {
+				ai = no
+				num_of_cities = 3	
+			}
+			NOT = { has_country_flag = changed_from_colonial_nation }
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			is_former_colonial_nation = yes
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			capital_scope = {
+				area = new_zeeland_area
+				is_core = ROOT
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { area = new_zeeland_area }
+						AND = {
+							area = new_zeeland_area
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_zealand
+			}
+			num_of_owned_provinces_with = {
+				area = new_zeeland_area
+				value = 3
+			}
+		}
+		effect = {
+			change_tag = NWZ
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			new_zeeland_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = NWZ
+			}
+			add_prestige = 25
+			set_country_flag = changed_from_colonial_nation
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+}

@@ -1,0 +1,205 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 12  64  255 } 
+
+historical_idea_groups = {
+	spy_ideas
+	mercenary_ideas
+	innovativeness_ideas
+	mercantilist_ideas
+	quantity_ideas
+	administrative_ideas
+	mm1_ideas
+	defensive_ideas
+}
+
+historical_units = { 
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+
+
+historical_score = 75
+
+
+monarch_names = {
+	"Cosimo #0" = 60
+	"Ferdinando #0" = 60
+	"Alessandro #0" = 20
+	"Francesco #0" = 20
+	"Francesco Stefano #0" = 20
+	"Gian Gastone #0" = 20
+	"Pietro Leopoldo #0" = 20
+	"Antonio #0" = 15
+	"Carlo #0" = 15
+	"Filippo #0" = 15
+	"Gian Carlo #0" = 15
+	"Pietro #0" = 15
+	"Alberto #0" = 10
+	"Giovanni #0" = 10
+	"Giuseppe #0" = 10
+	"Leopoldo #0" = 10
+	"Luigi #0" = 10
+	"Massimiliano #0" = 10
+	"Matteo #0" = 10
+	"Raniero #0" = 10
+	"Rodolfo #0" = 10
+	"Adriano #0" = 0
+	"Biagio #0" = 0
+	"Bonaventura #0" = 0
+	"Constantino #0" = 0
+	"Danilo #0" = 0
+	"Eustachio #0" = 0
+	"Evangelista #0" = 0
+	"Giancarlo #0" = 0
+	"Girolamo #0" = 0
+	"Giuliano #0" = 0
+	"Innocenzo #0" = 0
+	"Ippolito #0" = 0
+	"Lorenzo #0" = 0
+	"Piero #0" = 0
+	"Salvestro #0" = 0
+	"Marco #0" = 0
+	"Pasquale #0" = 0
+	"Sergio #0" = 0
+	"Vitale #0" = 0
+	
+	"Luisella #0" = -1
+	"Milena #0" = -1
+	"Paolina #0" = -1
+}
+
+leader_names = {
+	"degli Albizzi" Aldobrandini Acciaiuoli Alamani Alberti
+	Alessandri Alidosi Altoviti Antinori
+	Barberini Bartolini Benciveni Bini Boni Bonsi Buondelmonti
+	Capponi Carnesecchi Catellini "de Cherci" Carretani Corsi
+	Dini Doni
+	"Ercolani Onesti"
+	Fenzi Filicaja Frescobaldi
+	Gaetani "della Gherardesca" Gherardini Guicciardini Ginori Guadagni
+	Mannelli Mari Martelli "de Medici"
+	Nerli
+	Obizzi
+	Pasquali Peruzzi Pitti Pucci Pazzi
+	Quaratesi
+	Rucellai Ricasoli Rinuccini Rosselli Rospigliosi
+	Salviati Strozzi Setticelli
+	Taddei "del Turco" Tornabuoni
+	Ulivelli
+	Vecchietti Vespucci Vasari
+}
+
+ship_names = {
+	Albizzi Arcetri Arezzo
+	Bellosguardo Bisenzio Boccaccio
+	Careggi "Corso Donati" "Cosimo de Medici"
+	"Dante Alighieri" "Dino Compagni"
+	Fiesole "Filippo Brunelleschi" "Fiume Arno"
+	"Fiume Greve" "Francesco Petrarca"
+	Galluzzo "Giano della Bella" Giotto
+	Impruneta
+	Medici Mugnone
+	Orsanmichele
+	Pistoia Prato
+	Ripoli
+	"San Frediano" "San Giovanni Battista" "San Lorenzo"
+	"San Marco" "Santa Maria del Fiore" "Santa Trinita"
+	Scandicci Settignano "Sesto Fiorentino" "Santa Croce"
+	Terzolle
+	"Vieri de Cerchi"
+	
+	#Historical Ships at Lepanto
+	Toscana Pisana Firenze
+	
+	#Action of 29 April 1616
+	"San Francesco" 
+	
+	#Historical ships in 1766
+	Aquila Etruria Rondinella Austria
+	
+	#Thorntons expedition
+	"Santa Lucia"
+}
+
+army_names = {
+    "Reggimento Real Toscano" #historical
+    "Guardia Nobile" #historical
+    "Guardie Reali a cavallo e piedi" #historical
+    "Reggimento di $PROVINCE$"
+}
+
+fleet_names = {
+    "Militia Marittima" #historical
+	"Squadra di Santo Stefano"
+}

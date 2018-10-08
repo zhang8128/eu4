@@ -1,0 +1,206 @@
+########################################
+# Flavor Events for Delhi for VeF
+########################################
+
+namespace = flavor_dlh
+normal_or_historical_nations = yes
+
+# Death of Ala-ud-din
+country_event = {
+	id = flavor_dlh.1001
+	title = "flavor_dlh.1001.t"
+	desc = "flavor_dlh.1001.d"
+	picture = VEF_KING_SICK_IN_BED_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = DLH
+		NOT = { is_year = 1317 }
+		has_ruler = "Ala-ud-din"
+		dynasty = "Khilji"
+		has_leader = "Malik Kafur"
+		has_heir = "Khizr"
+		is_year = 1316
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	option = {
+		name = "flavor_dlh.1001.opta"
+		define_ruler = {
+			name = "Malik Kafur"
+			dynasty = "Kafurid"
+			claim = 50
+			age = 40
+			adm = 2
+			dip = 2
+			mil = 4
+			fixed = yes
+			attach_leader = "Malik Kafur"
+		}
+		define_heir = {
+			name = "Shihab-ud-din"
+			dynasty = "Khilji"
+			claim = 95
+			adm = 0
+			dip = 0
+			mil = 0
+			age = 6
+			male = yes
+			hidden = yes
+		}
+		change_variable = { which = national_stability value = -100 }
+		set_ruler_flag = DLH_regency
+		hidden_effect = { country_event = { id = flavor_dlh.1002 days = 32 } }
+	}
+}
+
+# A Failed Attempt
+country_event = {
+	id = flavor_dlh.1002
+	title = "flavor_dlh.1002.t"
+	desc = "flavor_dlh.1002.d"
+	picture = VEF_ASSASSINATION_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes # flavor_dlh.1001
+	
+	trigger = {
+		tag = DLH
+		has_ruler = "Malik Kafur"
+		has_heir = "Shihab-ud-din"
+	}
+	
+	option = {
+		name = "flavor_dlh.1002.opta"
+		define_ruler = {
+			name = "Qutb-ud-din"
+			dynasty = "Khilji"
+			claim = 90
+			age = 18
+			adm = 1
+			dip = 1
+			mil = 0
+			fixed = yes
+		}
+		set_ruler_flag = DLH_regency
+		change_variable = { which = national_stability value = -100 }
+		hidden_effect = { country_event = { id = flavor_dlh.1003 days = 60 } }
+	}
+}
+
+# The Usurper
+country_event = {
+	id = flavor_dlh.1003
+	title = "flavor_dlh.1003.t"
+	desc = "flavor_dlh.1003.d"
+	picture = VEF_ASSASSINATION_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes # flavor_dlh.1002
+	
+	trigger = {
+		tag = DLH
+		has_ruler = "Qutb-ud-din"
+		has_heir = "Shihab-ud-din"
+	}
+	
+	option = {
+		name = "flavor_dlh.1003.opta"
+		vef_kill_heir = yes
+		clr_ruler_flag = DLH_regency
+	}
+}
+
+# End of the Khiljis
+country_event = {
+	id = flavor_dlh.1004
+	title = "flavor_dlh.1004.t"
+	desc = "flavor_dlh.1004.d"
+	picture = VEF_ASSASSINATION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = DLH
+		NOT = { is_year = 1321 }
+		has_ruler = "Qutb-ud-din"
+		dynasty = "Khilji"
+		is_year = 1320
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	option = {
+		name = "flavor_dlh.1004.opta"
+		define_ruler = {
+			name = "Nasir-ud-din"
+			dynasty = "Khusrau"
+			claim = 50
+			age = 35
+			adm = 0
+			dip = 0
+			mil = 1
+			fixed = yes
+		}
+		clear_existing_royals = yes
+		if = {
+			limit = { has_heir = yes }
+			clr_country_flag = vef_regency
+			kill_heir = yes
+		}
+		custom_tooltip = owned_provinces_unrest5
+		hidden_effect = {
+			every_owned_province = { add_unrest = 5 }
+		}
+		change_variable = { which = national_stability value = -100 }
+		hidden_effect = { country_event = { id = flavor_dlh.1005 days = 90 } }
+	}
+}
+
+# The Tughluq Dynasty
+country_event = {
+	id = flavor_dlh.1005
+	title = "flavor_dlh.1005.t"
+	desc = "flavor_dlh.1005.d"
+	picture = VEF_ASSASSINATION_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes # flavor_dlh.1004
+	
+	trigger = {
+		tag = DLH
+		has_ruler = "Nasir-ud-din"
+	}
+	
+	option = {
+		name = "flavor_dlh.1005.opta"
+		change_variable = { which = national_stability value = -100 }
+		define_ruler = {
+			name = "Ghiyas-ud-din"
+			dynasty = "Tughluq"
+			claim = 80
+			age = 40
+			adm = 4
+			dip = 2
+			mil = 3
+			fixed = yes
+		}
+		define_heir = {
+			name = "Mohammed"
+			dynasty = "Tughluq"
+			claim = 95
+			adm = 2
+			dip = 1
+			mil = 4
+			age = 20
+			male = yes
+			hidden = yes
+		}
+	}
+}

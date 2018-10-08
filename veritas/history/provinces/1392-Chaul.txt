@@ -1,0 +1,31 @@
+# Chaul
+
+capital = "Chaul"
+owner = AHM
+controller = AHM
+add_core = AHM
+culture = marathi
+religion = hinduism
+trade_goods = tea
+base_tax = 2
+base_production = 2
+base_manpower = 1
+is_city = yes
+hre = no
+center_of_trade = 1
+
+discovered_by = indian
+discovered_by = muslim
+
+1317.1.1	= { owner = DLH controller = DLH add_core = BAH remove_core = AHM } # Last Yadava sultan killed in rebellion against Delhi
+1347.1.1	= { controller = BAH owner = BAH } #Bahmani Sultanate
+1380.1.1	= { owner = VIJ controller = VIJ } # Taken by Harihara II
+1469.1.1	= { controller = BAH } # Taken by Bahmanis
+1470.1.1	= { owner = BAH } # Taken by Bahmanis
+1490.1.1	= { owner = AHM controller = AHM remove_core = BAH } # The Breakup of the Bahmani sultanate
+1498.1.1	= { discovered_by = POR }
+1558.1.1	= { owner = POR controller = POR } #Portugese are the dominant power here
+1650.1.1	= { add_core = MAR }
+1736.1.1	= { owner = MAR controller = MAR capital = "Kolaba" }
+1740.9.18	= { capital = "Chaul" }
+1818.6.3	= { owner = GBR controller = GBR remove_core = MAR }

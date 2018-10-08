@@ -1,0 +1,24 @@
+# Qingyuan
+
+owner = YUN
+controller = YUN
+culture = manchu
+religion = confucianism
+capital = "Girin"
+trade_goods = millet
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 5
+add_core = YUN
+add_core = MCH
+is_city = yes
+discovered_by = chinese
+
+extra_cost = 15
+center_of_trade = 1
+
+1368.4.1 = { owner = MCH controller = MCH remove_core = YUN }
+#1613.2.1 = { owner = MJZ controller = MJZ add_core = MJZ } # Jianzhou conquest Hada, Hoifa and Oula
+#1616.1.1 = { owner = MCH controller = MCH add_core = MCH remove_core = MJZ } # The Later Jin Khanate
+1636.5.15 = { owner = QNG controller = QNG add_core = QNG remove_core = MCH } # The Qing Dynasty

@@ -1,0 +1,115 @@
+country_decisions = {
+
+	frisian_nation = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			primary_culture = frysk
+			normal_or_historical_nations = yes
+			NOT = { exists = FRY }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+		}
+		allow = {
+			NOT = { exists = NED }
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { region = low_countries_region }
+						AND = {
+							region = low_countries_region
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_low_countries
+			}
+			owns_core_province = 181	# Friesland
+			owns_core_province = 183	# Gelre
+			owns_core_province = 184	# Utrecht
+			owns_core_province = 185	# Holland
+			owns_core_province = 186	# Zeeland
+			owns_core_province = 192	# Antwerpen
+			owns_core_province = 343	# Ostfriesland
+			343 = { NOT = { nationalism = 1 } }
+			owns_core_province = 376	# Oldenburg
+			376 = { NOT = { nationalism = 1 } }
+			owns_core_province = 377	# Bremen
+			377 = { NOT = { nationalism = 1 } }
+		}
+		effect = {
+			change_tag = FRY
+			add_prestige = 25
+			if = {
+				limit = { government = monastic_order_government }
+				every_neighbor_country = {
+					limit = { government = monarchy }
+					add_opinion = { who = ROOT modifier = secularized_monastic_order }
+				}
+			}
+			if = {
+				limit = { government = theocracy }
+				every_neighbor_country = {
+					limit = { government = monarchy }
+					add_opinion = { who = ROOT modifier = secularized_bishopric }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						government = theocracy
+						government = republic
+					}
+				}
+				change_government = monarchy
+				set_legacy_government = hereditary_monarchy
+			}
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			set_capital = 181
+			181 = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = FRI_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+}

@@ -1,0 +1,38 @@
+# Lübeck
+government = republic
+add_government_reform = hanseatic_union
+government_rank = 1
+mercantilism = 25
+technology_group = western
+unit_type = western
+religion = catholic
+primary_culture = lowersaxon
+historical_friend = TEU
+historical_friend = KOL
+historical_friend = RIG
+historical_friend = BRM
+historical_friend = HAM
+capital = 381	# Lübeck
+fixed_capital = 381	# Lübeck
+
+1267.1.1 = {
+	set_variable = { which = hansa_consecutive_votes value = 1 } 
+	add_country_modifier = { name = "hanseatic_league_member" duration = -1 }
+	add_country_modifier = { name = "hansa_leader_modifier" duration = -1 }
+	add_country_modifier = { name = "hansa_city_state_modifier" duration = -1 }
+	set_country_flag = hansa_leader
+	save_global_event_target_as = hansa_leader_tag
+	set_country_flag = hansa_city_state
+	add_treasury = 10
+}
+
+1309.1.1 = {
+	monarch = {
+		name = "Karl"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1529.1.1 = { religion = protestant }

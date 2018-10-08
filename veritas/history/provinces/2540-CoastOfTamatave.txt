@@ -1,0 +1,3 @@
+# Coast Of Tamatave
+#Province IDs changed
+1505.1.1 = { discovered_by = POR }

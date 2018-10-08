@@ -1,0 +1,3 @@
+# Central South Atlantic
+#Province IDs changed
+1500.4.23 = { discovered_by = POR }

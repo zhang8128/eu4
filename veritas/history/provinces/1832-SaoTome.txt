@@ -1,0 +1,27 @@
+# São Tomé
+
+capital = "São Tomé"
+native_size = 0
+native_ferocity = 0
+native_hostileness = 0
+trade_goods = unknown
+religion = bantu
+culture = fang
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+
+
+1472.1.1 = { discovered_by = POR } # Frenão do Pó
+1492.1.1 = {
+	owner = POR
+	controller = POR
+	add_territorial_core = POR
+	culture = portuguese_creole
+	religion = catholic
+	trade_goods = sugar
+	is_city = yes
+	slavery = yes
+	nobles_80 = yes
+}

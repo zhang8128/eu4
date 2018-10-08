@@ -1,0 +1,45 @@
+# Hungary
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+primary_culture = hungarian
+religion = catholic
+technology_group = eastern
+capital = 527 # Zala
+historical_friend = HAB
+historical_friend = BOH
+historical_rival = HUN
+historical_rival = HCS
+historical_rival = UGC
+historical_rival = ABA
+historical_rival = CRO
+historical_rival = KBA
+historical_rival = TRA
+
+
+1301.8.27 = {
+	monarch = {
+		name = "Henrik"
+		dynasty = "Koszegi"
+		birth_date = 1260.1.1
+		adm = 4
+		dip = 2
+		mil = 4
+	}
+	set_ruler_flag = ambitious_vassal
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 10.0 }
+}
+
+1310.1.1 = {
+	monarch = {
+		name = "Peter II"
+		dynasty = "Koszegi"
+		birth_date = 1290.1.1	#Made Up
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+	set_variable = { which = vassal_progress value = 30.0 }
+}

@@ -1,0 +1,17 @@
+# Tete
+#Province IDs changed
+
+capital = "Tete"
+owner = MRV
+controller = MRV
+add_core = MRV
+is_city = yes
+culture = chewa
+religion = bantu
+base_tax = 1
+base_production = 1
+base_manpower = 2
+trade_goods = ivory
+hre = no
+discovered_by = tribal_african_tech
+discovered_by = muslim 

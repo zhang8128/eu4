@@ -1,0 +1,21 @@
+# Pahang
+
+capital = "Pahang"
+owner = PAH
+controller = PAH
+add_core = PAH
+culture = malayan
+religion = buddhism
+trade_goods = sandalwood
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1400.1.1	= { religion = sunni }
+1454.1.1	= { owner = MLC controller = MLC add_core = MLC } # Conquest by Malacca
+1511.9.10	= { owner = JOH controller = JOH add_core = JOH remove_core = MLC } # Malacca occupied; sultanate collapses in short order
+1516.1.1	= { discovered_by = POR }
+1851.1.1	= { capital = "Kuantan" }

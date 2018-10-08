@@ -1,0 +1,11 @@
+#Baidak
+#model = cog
+#tech_level = 0
+type = light_ship
+unit_type = nomad_group
+
+hull_size = 4
+base_cannons = 1
+sail_speed = 6
+trade_power = 0.375
+sailors = 20

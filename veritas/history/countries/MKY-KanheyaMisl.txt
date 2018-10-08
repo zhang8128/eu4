@@ -1,0 +1,21 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+technology_group = indian
+primary_culture = panjabi
+religion = sikhism
+capital = 1122	# Mardan
+
+1760.1.1 = {
+	add_country_modifier = { name = "sikh_confederacy" duration = -1 }
+	monarch = {
+		name = "Rawal Singh"
+		dynasty = "Kanhaiya"
+		ADM = 1
+		DIP = 3
+		MIL = 6
+	}
+	religion = sikhism
+}
+
+# Personal Union with Superchackia Misl

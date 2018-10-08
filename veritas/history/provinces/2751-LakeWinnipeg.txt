@@ -1,0 +1,3 @@
+# Lake Winnipeg
+#Province IDs changed
+1732.1.1 = { discovered_by = FRA }

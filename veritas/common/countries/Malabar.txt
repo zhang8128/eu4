@@ -1,0 +1,84 @@
+#Country Name: See the Name of this File.
+
+graphical_culture = indiangfx
+
+color = {  61  155  32  }
+
+historical_idea_groups = {
+	quantity_ideas
+	spy_ideas
+	religious_ideas
+	defensive_ideas
+	mercantilist_ideas
+	cultural_unity_ideas
+	drafted_army_ideas
+	gf1_ideas
+}
+
+historical_units = {
+   indian_artillery_8_1
+   indian_artillery_16_1
+   indian_artillery_24_1
+   indian_artillery_32_1
+   indian_artillery_38_1
+   indian_artillery_42_1
+   indian_cavalry_0_1
+   indian_cavalry_16_1
+   indian_cavalry_21_1
+   indian_cavalry_27_1
+   indian_cavalry_31_1
+   indian_cavalry_36_1
+   indian_cavalry_48_1
+   indian_infantry_0_1
+   indian_infantry_6_1
+   indian_infantry_17_1
+   indian_infantry_21_1
+   indian_infantry_25_1
+   indian_infantry_34_1
+   indian_infantry_42_1
+   indian_infantry_45_1
+   indian_infantry_48_1
+   indian_infantry_50_1
+}
+
+
+
+
+monarch_names = {
+	"Manavikraman #0" = 30
+	"Manaveda #1" = 30
+	"Viraraya #0" = 20
+	"Utrattati Tirunal #0" = 2
+	"Manavikraman #3 Bharani Tirunal" = 2
+	"Nileswaram #3" = 2
+	"Muhammadutti #0" = 0
+	"Madhava #0" = 0
+	"Kesavadas #0" = 0
+	"Sri #0" = 0
+	"Raja #0" = 0
+	"Marthanda #0" = 0
+	"Seema #0" = -1
+	"Lalitha #0" = -1
+	"Krishna Kumari #0" = -1
+}
+
+leader_names = {
+	Putiya
+	Eradi
+	Nambiar
+	Nayanar
+	Kitavu
+	Unnithiri
+	Nedungadi
+	Vellodi
+	Keyi
+	Cheraman
+	Naduvazhi
+	Kurup
+}
+
+ship_names = {
+	"Rama Varma" "Aditya Varma" "Ravi Varma" "Balarama Varma" "Swathi Thirunal" "Uthram Thirunal" "Visakham Thirunal"
+	Abhay Akhilesh Baldev Chandresh Duranjaya Gaurav Jayant Parindra Prabir Shatrunjay Vipan Viraj Yudhisthir
+	Anupam Arihant Bhanu Dhananjay Hemendra Jawahar Kaushal Makarand Manindra Narhari Nidhish Ratnakar Shashwat Srikant
+}

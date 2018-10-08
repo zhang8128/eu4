@@ -1,0 +1,26 @@
+# Markazi
+
+capital = "Emba"
+owner = ILK
+controller = ILK
+add_core = ILK
+add_core = JAI
+culture = persian
+religion = shiite
+trade_goods = wool
+base_tax = 1
+base_production = 1
+base_manpower = 2
+hre = no
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = indopersian
+discovered_by = ottoman
+discovered_by = byzantine
+
+1336.1.1	= { unrest = 0 owner = JAI controller = JAI remove_core = ILK } # collapse of Ilkhanate
+1386.1.1	= { owner = TIM controller = TIM add_core = TIM } # The Timurid Empire
+1449.1.1	= { owner = QAR controller = QAR add_core = QAR remove_core = TIM } # Fars and surroundings to Qara Quyunlu
+1469.2.4	= { controller = AKK owner = AKK add_core = AKK remove_core = QAR } #Battle of Qarabagh
+1504.1.1	= { owner = PER controller = PER remove_core = AKK } # The Safavids took over

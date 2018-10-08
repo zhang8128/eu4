@@ -1,0 +1,16 @@
+# Malindi
+#Province IDs changed
+
+capital = "Malindi"
+owner = MLI
+controller = MLI
+add_core = MLI
+is_city = yes
+culture = kiswahili
+religion = sunni
+base_tax = 2
+base_production = 2
+base_manpower = 4
+trade_goods = salt
+hre = no
+discovered_by = muslim 

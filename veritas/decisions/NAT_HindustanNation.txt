@@ -1,0 +1,514 @@
+country_decisions = {
+
+	hindustan_nation_dravidian = {
+		major = yes
+		potential = {
+			culture_group = dravidian
+			religion_group = muslim
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = HIN }
+			NOT = { tag = MUG }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			has_institution = animals
+			NOT = { government = steppe_horde }
+			OR = {
+				ai = no
+				num_of_cities = 15
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			stability = 3
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { culture_group = dravidian }
+						AND = {
+							culture_group = dravidian
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_dravidian
+			}
+			owns_core_province = 1353	# Bastar
+			owns_core_province = 1354	# Kalingandhra
+			owns_core_province = 1357	# Velanadu
+			owns_core_province = 1358	# Golconda
+			owns_core_province = 1364	# Tondainadu
+			owns_core_province = 1365	# Coromandel
+			owns_core_province = 1367	# Kongu
+			owns_core_province = 1370	# Madurai
+			owns_core_province = 1374	# Kotte
+			owns_core_province = 1375	# Venad
+			owns_core_province = 1376	# Kochin
+			owns_core_province = 1379	# Malabar
+			owns_core_province = 1381	# Mysore
+			owns_core_province = 1385	# Vijayanagar
+			owns_core_province = 1386	# Raichur Doab
+		}
+		effect = {
+			change_tag = HIN
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 4 } }
+				set_government_rank = 4
+			}
+			bengal_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			hindusthan_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			west_india_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			deccan_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			coromandel_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			add_prestige = 10
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 50
+	}
+
+	hindustan_nation_western_aryan = {
+		major = yes
+		potential = {
+			culture_group = western_aryan
+			religion_group = muslim
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = HIN }
+			NOT = { tag = MUG }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			has_institution = animals
+			NOT = { government = steppe_horde }
+			OR = {
+				ai = no
+				num_of_cities = 15
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			stability = 3
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { culture_group = western_aryan }
+						AND = {
+							culture_group = western_aryan
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_western_aryan
+			}
+			owns_core_province = 1383	# North Kanara
+			owns_core_province = 1390	# South Konkan
+			owns_core_province = 1393	# North Konkan
+			owns_core_province = 1395	# Ahmadnagar
+			owns_core_province = 1399	# East Berar
+			owns_core_province = 1401	# Marathwada
+			owns_core_province = 1403	# Surat
+			owns_core_province = 1404	# Khandesh
+			owns_core_province = 1419	# Baroda
+			owns_core_province = 1422	# Girnar
+			owns_core_province = 1425	# Kutch
+			owns_core_province = 1429	# Chittor
+			owns_core_province = 1430	# Hadoti
+			owns_core_province = 1431	# Gird
+			owns_core_province = 1434	# Mewat
+			owns_core_province = 1435	# Dhundar
+			owns_core_province = 1437	# Jangladesh
+			owns_core_province = 1440	# Marwar
+			owns_core_province = 1441	# Jaisalmer
+			owns_core_province = 1443	# Thatta
+			owns_core_province = 1444	# Sehwan
+		}
+		effect = {
+			change_tag = HIN
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 4 } }
+				set_government_rank = 4
+			}
+			bengal_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			hindusthan_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			west_india_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			deccan_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			coromandel_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			add_prestige = 10
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 50
+	}
+
+	hindustan_nation_hindusthani = {
+		major = yes
+		potential = {
+			culture_group = hindusthani
+			religion_group = muslim
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = HIN }
+			NOT = { tag = MUG }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			has_institution = animals
+			NOT = { government = steppe_horde }
+			OR = {
+				ai = no
+				num_of_cities = 15
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			stability = 3
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { culture_group = hindusthani }
+						AND = {
+							culture_group = hindusthani
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_hindusthani
+			}
+			owns_core_province = 1405	# Mandu
+			owns_core_province = 1408	# Mandla
+			owns_core_province = 1409	# Mahakoshal
+			owns_core_province = 1412	# Lower Doab
+			owns_core_province = 1416	# Chanderi
+			owns_core_province = 1424	# Kathiawar
+			owns_core_province = 1432	# Central Doab
+			owns_core_province = 1433	# Delhi
+			owns_core_province = 1447	# Multan
+			owns_core_province = 1450	# Sirhind
+			owns_core_province = 1452	# Lahore
+			owns_core_province = 1455	# Roh
+			owns_core_province = 1461	# Garhwal
+			owns_core_province = 1467	# Lucknow
+			owns_core_province = 1468	# Jaunpur
+		}
+		effect = {
+			change_tag = HIN
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 4 } }
+				set_government_rank = 4
+			}
+			bengal_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			hindusthan_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			west_india_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			deccan_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			coromandel_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			add_prestige = 10
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 50
+	}
+
+	hindustan_nation_eastern_aryan = {
+		major = yes
+		potential = {
+			culture_group = eastern_aryan
+			religion_group = muslim
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = HIN }
+			NOT = { tag = MUG }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			has_institution = animals
+			NOT = { government = steppe_horde }
+			OR = {
+				ai = no
+				num_of_cities = 15
+			}		
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			stability = 3
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { culture_group = eastern_aryan }
+						AND = {
+							culture_group = eastern_aryan
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_eastern_aryan
+			}
+			owns_core_province = 1344	# Jharkand
+			owns_core_province = 1341	# Bengal Delta
+			owns_core_province = 1338	# Dacca
+			owns_core_province = 1342	# Gauda
+			owns_core_province = 1334	# Koch
+			owns_core_province = 1339	# Chittagong
+			owns_core_province = 1475	# Patna
+			owns_core_province = 1415	# Bundelkhand
+			owns_core_province = 1350	# Cuttack
+			owns_core_province = 1347	# Sambalpur
+		}
+		effect = {
+			change_tag = HIN
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 4 } }
+				set_government_rank = 4
+			}
+			bengal_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			hindusthan_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			west_india_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			deccan_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			coromandel_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			add_prestige = 10
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 50
+	}
+	
+	hindustan_nation_central_indic = {
+		major = yes
+		potential = {
+			culture_group = central_indic
+			religion_group = muslim
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = HIN }
+			NOT = { tag = MUG }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			has_institution = animals
+			NOT = { government = steppe_horde }
+			OR = {
+				ai = no
+				num_of_cities = 15
+			}		
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			stability = 3
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { culture_group = central_indic }
+						AND = {
+							culture_group = central_indic
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_central_indic
+			}
+			owns_core_province = 1341	# Bengal Delta
+			owns_core_province = 1344	# Jharkand
+			owns_core_province = 1347	# Sambalpur
+			owns_core_province = 1350	# Cuttack
+			owns_core_province = 1361	# Tirupati
+			owns_core_province = 1398	# Chanda
+			owns_core_province = 1399	# Nagpur
+			owns_core_province = 1405	# Uijjain
+			owns_core_province = 1415	# Bundelkhand
+			owns_core_province = 1432	# Mathura
+			owns_core_province = 1475	# Patna
+		}
+		effect = {
+			change_tag = HIN
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 4 } }
+				set_government_rank = 4
+			}
+			bengal_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			hindusthan_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			west_india_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			deccan_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			coromandel_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = HIN
+			}
+			add_prestige = 10
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 50
+	}
+}

@@ -1,0 +1,5 @@
+# Coast Of Sakhalin
+#Province IDs changed
+discovered_by = JAP
+discovered_by = niitaka
+1647.1.1 = { discovered_by = RUS }

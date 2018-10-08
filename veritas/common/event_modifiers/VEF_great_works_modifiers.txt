@@ -1,0 +1,344 @@
+###
+# Great Works
+###
+kremlin = {
+	picture = defensiveness
+	prestige = 0.25
+	local_defensiveness = 0.50
+}
+
+annunciation_cathedral = {
+	picture = religious_unity
+	global_missionary_strength = 0.015
+	prestige = 0.5
+}
+
+the_huolongjing = {
+	picture = leader_land_fire
+	prestige = 0.25
+	leader_land_fire = 1
+	infantry_power = 0.10
+}
+
+canterbury_tales = {
+	picture = prestige
+	prestige = 0.25
+	technology_cost = -0.025
+}
+
+giotto_fresco = {
+	prestige = 0.25
+	local_tax_modifier = 0.05
+	local_missionary_strength = 0.01
+}
+
+the_divine_comedy = {
+	prestige = 0.25
+	technology_cost = -0.025
+}
+
+florence_cathedral = {
+	local_production_efficiency = 0.05
+	local_missionary_strength = 0.01
+	prestige = 0.25
+}
+
+ghent_altarpiece = {
+	prestige = 0.25
+	local_production_efficiency = 0.05
+	local_missionary_strength = 0.01
+}
+
+gutenberg_bible = {
+	prestige = 0.25
+	technology_cost = -0.05
+	global_missionary_strength = 0.01
+}
+
+zhu_chen_zou_yi = {
+	prestige = 0.25
+	technology_cost = -0.05
+}
+
+diwan_of_hafez = {
+	prestige = 0.25
+	technology_cost = -0.025
+}
+
+le_voir_dit = {
+	prestige = 0.25
+	technology_cost = -0.025
+}
+
+il_canzoniere = {
+	prestige = 0.25
+	global_unrest = -0.5
+	religious_unity = 0.10
+}
+
+de_revolutionibus = {
+	prestige = 0.25
+	technology_cost = -0.025
+}
+
+water_margin = {
+	prestige = 0.25
+	global_unrest = -0.5
+}
+
+romance_of_the_three_kingdoms = {
+	prestige = 0.25
+	global_unrest = -0.5
+	army_tradition = 0.1
+}
+
+botticelli_painting = {
+	prestige = 0.25
+	local_tax_modifier = 0.05
+}
+
+utopia_published = {
+	prestige = 0.25
+	global_unrest = -0.5
+}
+
+nova_scientia = {
+	prestige = 0.25
+	artillery_power = 0.1
+}
+
+school_of_athens_painting = {
+	prestige = 0.25
+	local_tax_modifier = 0.05
+}
+
+shakespeare_histories = {
+	republican_tradition = 0.25
+	legitimacy = 0.25
+	devotion = 0.25
+	horde_unity = 0.25
+}
+
+shakespeare_tragedies = {
+	prestige = 0.25
+	stability_cost_modifier = -0.1
+}
+
+shakespeare_comedies = {
+	prestige = 0.25
+	global_unrest = -0.5
+}
+
+book_of_five_rings = {
+	prestige = 0.25
+	discipline = 0.1
+}
+
+mercator_atlas = {
+	prestige = 0.5
+	range = 0.1
+}
+
+hussite_radicals = {
+	global_heretic_missionary_strength = 0.015
+	global_manpower_modifier = 0.2
+}
+
+holbein_portrait = {
+	prestige = 0.25
+	local_tax_modifier = 0.05
+}
+
+machiavelli_prince = {
+	prestige = 0.25
+	republican_tradition = 0.25
+	legitimacy = 0.25
+	devotion = 0.25
+	horde_unity = 0.25
+}
+
+michelangelo_david = {
+	prestige = 0.25
+	local_tax_modifier = 0.05
+}
+
+astronomia_nova = {
+	prestige = 0.25
+	technology_cost = -0.025
+}
+
+dialogue_world_systems = {
+	prestige = 0.25
+	technology_cost = -0.025
+}
+
+scientific_method = {
+	prestige = 0.25
+	technology_cost = -0.05
+}
+
+de_nova_stella = {
+	prestige = 0.25
+	technology_cost = -0.025
+}
+
+brahe_observatory = {
+	prestige = 0.25
+	technology_cost = -0.025
+}
+
+titian_painting = {
+	prestige = 0.25
+	local_tax_modifier = 0.05
+}
+
+sistine_chapel = {
+	prestige = 0.25
+	global_missionary_strength = 0.01
+	local_tax_modifier = 0.05
+}
+
+gongbi_painting = {
+	prestige = 0.25
+	local_tax_modifier = 0.05
+}
+
+el_espolio = {
+	prestige = 0.25
+	local_tax_modifier = 0.05
+}
+
+palladian_villas = {
+	prestige = 0.5
+	local_production_efficiency = 0.1
+}
+
+nostradamus_prophecies = {
+	prestige = 0.25
+	stability_cost_modifier = -0.1
+}
+
+peri_opera = {
+	prestige = 0.25
+	local_tax_modifier = 0.05
+}
+
+mazarin_library = {
+	prestige = 0.25
+	technology_cost = -0.025
+}
+
+###
+# AI replacement benefits
+###
+
+ai_henry_the_navigator = {
+	range = 0.5
+	colonists = 1
+}
+
+ai_cristobol_colon = {
+	range = 0.5
+	colonists = 1
+}
+
+ai_afanasy_nikitin = {
+	trade_range_modifier = 1.0
+}
+
+ai_walter_raleigh = {
+	range = 0.5
+	colonists = 1
+}
+
+ai_jacques_cartier = {
+	range = 0.5
+	colonists = 1
+}
+
+ai_vasco_da_gama = {
+	range = 0.5
+	colonists = 1
+}
+
+ai_pedro_cabral = {
+	colonists = 1
+}
+
+ai_zheng_he = {
+	range = 0.5
+	colonists = 1
+}
+
+ai_da_vinci = {
+	technology_cost = -0.10
+}
+
+ai_francis_drake = {
+	global_foreign_trade_power = 0.15
+}
+
+ai_magellan = {
+	range = 0.5
+	colonists = 1
+}
+
+ai_reformer = {
+	global_heretic_missionary_strength = 0.015
+}
+
+ai_counter_reformer = {
+	global_heretic_missionary_strength = 0.015
+	tolerance_own = 1
+	tolerance_heretic = -3
+}
+
+ai_great_scientist = {
+	technology_cost = -0.1
+}
+
+ai_admiral_yi = {
+	naval_morale = 0.25
+}
+
+ai_machiavelli = {
+	stability_cost_modifier = -0.2
+	production_efficiency = 0.1
+}
+
+ai_balboa = {
+	range = 0.2
+	colonists = 1
+}
+
+ai_joao_rodrigues = {
+	adm_tech_cost_modifier = -0.25
+}
+
+ai_william_adams = {
+	dip_tech_cost_modifier = -0.25
+}
+
+ai_richelieu = {
+	spy_offence = 0.50
+}
+
+ai_mazarin = {
+	core_creation = -0.15
+}
+
+ai_semyon_dezhnyov = {
+	range = 1.0
+}
+
+ai_admiral_ruyter = {
+	naval_morale = 0.2
+}
+
+ai_composer = {
+	stability_cost_modifier = -0.15
+}
+
+griffo_typeface = {
+	production_efficiency = 0.10
+}

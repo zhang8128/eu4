@@ -1,0 +1,26 @@
+# Martinique
+
+capital = "Martinique"
+native_size = 25
+native_ferocity = 2 
+native_hostileness = 4
+culture = carib
+religion = animism
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+
+1493.11.3	= {	discovered_by = CAS } # Christopher Columbus
+1516.1.23	= { discovered_by = SPA }
+1635.9.1	= { owner = FRA controller = FRA culture = cosmopolitan_french religion = catholic trade_goods = dyes slavery = yes }
+1640.1.1	= { add_core = FRA }
+1654.1.1	= { trade_goods = sugar } # Change in focus under the DuParquets
+1762.2.12	= {	controller = GBR } # Seven Years War
+1763.2.10	= { controller = FRA } # Treaty of Paris
+1794.3.24	= { controller = GBR } # Captured again
+1802.3.24 	= { controller = FRA } # Treaty of Amiens
+1809.2.24	= { controller = GBR } # Napoleonic Wars
+1814.4.6 	= { controller = FRA } # Napoleon Abdicates
+1848.5.20	= { slavery = no freedom = yes } # Slavery abolished on Martinique

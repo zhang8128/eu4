@@ -1,0 +1,5 @@
+# Lake Bajkal
+#Province IDs changed
+discovered_by = nomad_group
+
+1652.1.1 = { discovered_by = RUS }

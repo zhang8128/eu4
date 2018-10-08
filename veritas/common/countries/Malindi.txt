@@ -1,0 +1,90 @@
+#Country Name: Please seefilename.
+
+graphical_culture = africangfx
+
+color = { 153  210  135 }
+
+historical_idea_groups = {
+	diplomatic_ideas
+	quantity_ideas
+	economic_ideas
+	gf1_ideas
+	defensive_ideas
+	cultural_unity_ideas
+	mercantilist_ideas
+	drafted_army_ideas
+}
+
+historical_units = {
+	sudanese_cavalry_0_1
+	sudanese_cavalry_21_1
+	sudanese_cavalry_27_1
+	sudanese_cavalry_31_1
+	sudanese_cavalry_36_1
+	sudanese_cavalry_16_1
+	sudanese_infantry_0_1
+	sudanese_infantry_17_1
+	sudanese_infantry_25_1
+	sudanese_infantry_28_1
+	sudanese_infantry_34_1
+	sudanese_infantry_42_1
+	sudanese_infantry_6_1
+}
+
+
+monarch_names = {
+	"Muhammad #3" = 70
+	"Abubakar #0" = 40
+	"Sulaymân #0" = 30
+	"Bwana Mkuu #0" = 40
+	"Bwana Bakari #0" = 40
+	"Abubakar Bwana Gogo #0" = 20
+	"Bwana Tamu Mkuu #0" = 20
+	"Bwana Fumo Madi #0" = 20
+	"Ahmad #0" = 50
+	"Bwana Tamu Mtoto #0" = 20
+	"Mwana Khadija #0" = 20
+	"Fumo Luti Kipanga #0" = 20
+	"Sa'if #0" = 0  
+	"Nasr #0" = 0  
+	"Salih #0" = 0  
+	"Fumo Luti #0" = 0
+	"Bwana Waziri #0" = 0
+	"Bwana Shaykh #0" = 0
+	"Fumo Bakari #0" = 0
+	"Fumo Umar #0" = 0
+	"Khamis #0" = 0
+	"Rashid #0" = 0
+	"Mwinyi Hasan #0" = 0
+	"Kombo #0" = 0
+	"Ngwale #0" = 0
+	"Ngwacani #0" = 0
+	"Athmani #0" = 0
+	"'Alawi #0" = 0
+	"Twakali #0" = 0
+	"Janfar #0" = 0
+	"Muksedi #0" = 0
+	
+	"Abiria #0" = -1
+	"Fanikia #0" = -1
+	"Aiesha #0" = -1
+}
+
+leader_names = {
+	Wakil
+	Yomba
+	Salim
+	Setia
+	Jumbe
+	Semid
+	Kawawe
+	Dato
+	Sokoine
+	Suja
+}
+
+ship_names = {
+	Mlima moto moshi homu ukungu nyota
+	jua maji mwezi mnyama samaki ndege
+	mbwa nyoka ua damu
+}

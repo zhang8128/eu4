@@ -1,0 +1,115 @@
+country_decisions = {
+
+	hanseatic_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			government = hanseatic_union
+			NOT = { exists = HSA }
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = GER }
+			NOT = { tag = PRU }
+			NOT = { tag = FRC }
+			NOT = { tag = SXN }
+		}
+		allow = {
+			stability = 1
+			is_at_war = no
+			is_subject = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 381	# Lubeck
+			owns_core_province = 379	# Hamburg
+			owns_core_province = 377	# Bremen
+		}
+		effect = {
+			change_tag = HSA
+			set_capital = 381
+			381 = {
+				add_base_tax = 1
+				add_base_production = 1
+			}
+			add_prestige = 25
+			add_government_reform = hanseatic_league
+			save_global_event_target_as = hansa_leader_tag
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = HSA_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+	
+	hanseatic_nation_diplomatic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			government = hanseatic_union
+			is_subject = no
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = GER }
+			NOT = { tag = PRU }
+			NOT = { tag = FRC }
+			NOT = { tag = SXN }
+			NOT = { exists = HSA }
+    		has_country_flag = hansa_leader
+		}
+
+		allow = {
+		    custom_trigger_tooltip = {
+		        tooltip = "HANSA_TOOLTIP_LEADER"
+		    	has_country_flag = hansa_leader
+		    }
+		    custom_trigger_tooltip = {
+		        tooltip = "HANSA_TOOLTIP_NOT_CITYSTATE"
+                all_subject_country = {
+                    OR = {
+                       AND = {
+                            has_country_flag = hansa_city_state
+                            has_opinion = { who = ROOT value = 190 }
+                       }
+                        NOT = { has_country_flag = hansa_city_state }
+                    }
+                }
+			}
+			stability = 1
+			has_regency = no
+			is_at_war = no
+			all_owned_province = { NOT = { unrest = 10 } }
+			check_variable = { which = hansa_consecutive_votes value = 10 }
+		}
+		effect = {
+			381 = { add_base_tax = 1 }
+			add_prestige = 25
+            custom_tooltip = "HANSA_TOOLTIP_INTEGRATE"
+			hidden_effect = {
+                every_subject_country = {
+                    limit = { has_country_flag = hansa_city_state }
+                    set_country_flag = no_integrate_event
+                    clr_country_flag = hansa_city_state
+                    remove_country_modifier = hansa_city_state_modifier
+                    ROOT = { inherit = PREV }
+                }
+			}
+			change_tag = HSA
+			HSA = { set_capital = 381 } # Lubeck
+			add_country_modifier = { name = "hansa_nation" duration = -1 }
+			add_government_reform = hanseatic_league
+			hidden_effect = {
+                clr_country_flag = hansa_leader
+                clr_country_flag = hansa_city_state
+                remove_country_modifier = hansa_leader_modifier
+                remove_country_modifier = hansa_city_state_modifier
+			}
+		}
+
+		ai_will_do = { factor = 1 }
+	}
+}

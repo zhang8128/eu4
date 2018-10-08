@@ -1,0 +1,24 @@
+name = "Portuguese Interregnum Crisis of 1383-1385" 
+
+war_goal = {
+	type = take_capital_throne
+	casus_belli = cb_claim_throne
+	tag = POR
+}
+
+1383.10.22 = {
+	add_attacker = CAS
+	add_defender = POR
+}
+
+#Contigent of english troops join the war, as a spillover from the HYW.
+1384.6.1 = {
+	add_defender = ENG
+}
+
+#Battle of Aljubarrota
+1385.8.14 = {
+	rem_attacker = CAS
+	rem_defender = POR
+	rem_defender = ENG
+}

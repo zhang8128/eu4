@@ -1,0 +1,95 @@
+country_decisions = {
+
+	saxonian_nation = {
+		major = yes		
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			OR = {
+				primary_culture = westphalian
+				primary_culture = eastphalian
+				primary_culture = lowersaxon
+				primary_culture = uppersaxon
+			}
+			normal_or_historical_nations = yes
+			NOT = { exists = SXN }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = GER }
+			NOT = { tag = HSA }
+			NOT = { tag = WES }
+			NOT = { tag = HAN }
+		}		
+		allow = {
+			NOT = { tag = GER }
+			NOT = { tag = HSA }
+			NOT = { tag = WES }
+			NOT = { tag = HAN }
+			stability = 1
+			is_subject = no 
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}			
+			owns_core_province = 338 	# Münster
+			338 = { NOT = { nationalism = 1 } }
+			owns_core_province = 344 	# Hannover
+			344 = { NOT = { nationalism = 1 } }
+			owns_core_province = 373 	# Schwerin
+			373 = { NOT = { nationalism = 1 } }
+			owns_core_province = 379	# Hamburg	
+			379 = { NOT = { nationalism = 1 } }		
+		}			
+		effect = {
+			change_tag = SXN
+			add_prestige = 25
+			if = {
+				limit = { government = monastic_order_government }
+				every_neighbor_country = {
+					limit = { government = monarchy }
+					add_opinion = { who = ROOT modifier = secularized_monastic_order }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						government = theocratic_government
+						government = archbishopric
+					}
+				}
+				every_neighbor_country = {
+					limit = { government = monarchy }
+					add_opinion = { who = ROOT modifier = secularized_bishopric }
+				}
+			}
+			if = {
+				limit = { government = theocracy }
+				change_government = monarchy
+				set_legacy_government = hereditary_monarchy
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = SXN_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+}

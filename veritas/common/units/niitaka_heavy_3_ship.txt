@@ -1,0 +1,10 @@
+#Tekkousen
+#model = wargalleon
+#tech_level = 26
+type = heavy_ship
+unit_type = niitaka
+
+hull_size = 34
+base_cannons = 50
+sail_speed = 4
+sailors = 500

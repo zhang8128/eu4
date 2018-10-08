@@ -1,0 +1,15 @@
+﻿l_english:
+ 
+ #From aow_l_english
+ CS_NO_TECH: "You need diplomatic tech level 46 to create Client States."
+ CALC_TRUE_IF: "At least $VAL|Y$ are true"
+ LIBERTY_DESIRE_FROM_ROYAL_MARRIAGE: "State Marriage with §Y$OVERLORD$§!: $VAL$"
+ LEDGER_TC_LIGHT_SHIPS:0 "Trade Ships"
+ CANNOT_EXPLORE_NOT_ENOUGH_SHIPS:0 "You must have a total of at least 3 Trade ships and Heavy warships in this fleet to be able to explore with it."
+ MOVE_WITH_TRANSPORT:0 "\nIt's possible to move here with help from light warships."
+ AUTO_TRANSPORT_NO_COG:1 "\nYou need light warships in order to transport troops with this fleet."
+ STABHIT_FROM_OUR_SUBJECT:0 "They are our Subject; this stability will be restored by §G+1§! for every §Y25%§! of liberty desire up to §Y75%§!"
+ STABHIT_FROM_SUBJECT:0 "They are our Liege; this stability will be restored by §G+1§! for every §Y25%§! of liberty desire up to §Y75%§!"
+
+ LOCAL_AUTONOMY_EFFECTS: "Autonomy will increase over time to reach minimum values that depend on the state of the province and your nation's corruption. Autonomy will slowly decrease as long as you do not have §YInsufficient Bureaucracy§! and do not run §YDecentralisation§! policy. Cannot ignore the minimum autonomy values of the province.\nThe minimum values are as follow (highest is used):\n•No minimum with influencing fort\n•Minimum based on Realm Management option\n•§Y75%§! Not a core\n•§Y20%§! Civic Charter\n•§Y40%§! Local Assembly\n•Majority Noble and Church ownership with Serfdom:\n     •§Y20%§! Culture is primary\n     •§Y30%§! Culture is accepted or culture group union\n     •§Y40%§! Culture is neither primary nor accepted nor culture group union\n     • Courthouse in the province will reduce these values by §Y10%§!\n     • Governor's Palace in the state will reduce these values by §Y10%§!\n•No Serfdom or no majority Noble and Church ownership:\n     •§Y10%§! Culture is accepted or culture group union\n     •§Y20%§! Culture is neither primary nor accepted nor culture group union\n     • Courthouse in the province will reduce these values by §Y10%§!\n     • Governor's Palace in the state will reduce these values by §Y10%§!\n--------------\nThe current local autonomy has the following effects on $NAME$:\n$EFFECT$"
+

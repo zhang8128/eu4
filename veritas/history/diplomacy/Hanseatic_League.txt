@@ -1,0 +1,46 @@
+# Hanseatic League Members
+
+alliance = {
+	first = LUB
+	second = RIG
+	start_date = 1267.1.1
+	end_date = 1581.1.1
+}
+
+dependency = {
+	subject_type = hansa_union
+	first = LUB
+	second = HAM
+	start_date = 1241.1.1
+	end_date = 1719.9.30
+}
+
+dependency = {
+	subject_type = hansa_union
+	first = LUB
+	second = BRM
+	start_date = 1260.1.1
+	end_date = 1563.1.1
+}
+# Bremen kicked out of the Hansa due to religious conflicts for a few years
+dependency = {
+	subject_type = hansa_union
+	first = LUB
+	second = BRM
+	start_date = 1576.1.1
+	end_date = 1719.9.30
+}
+
+alliance = {
+	first = LUB
+	second = MAG
+	start_date = 1267.1.1
+	end_date = 1680.10.4
+}
+
+alliance = {
+	first = LUB
+	second = BRE
+	start_date = 1260.1.1
+	end_date = 1680.10.4
+}

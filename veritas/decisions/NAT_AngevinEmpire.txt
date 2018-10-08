@@ -1,0 +1,140 @@
+# Angevin Empire - VeF Fantasy Formable
+country_decisions = {
+
+	Angevin_Empire = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				culture_group = british
+				culture_group = french
+			}
+			OR = {
+				capital_scope = { region = france_region }
+				capital_scope = { region = british_isles_region }
+			}
+			OR = {
+				dynasty = "Plantagenet"
+				dynasty = "Capet"
+				dynasty = "de Capet"
+				dynasty = "de Valois"
+				dynasty = "de Anjou"
+			}
+			NOT = { exists = ANV }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			is_colonial_nation = no
+		}
+		allow = {
+			NOT = { exists = GBR }
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { region = france_region }
+						AND = {
+							region = france_region
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_france
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { region = british_isles_region }
+						AND = {
+							region = british_isles_region
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_britain
+			}
+			upper_brittany_area = {
+				type = all
+				country_or_vassal_holds = ROOT
+			}
+			lower_brittany_area = {
+				type = all
+				country_or_vassal_holds = ROOT
+			}
+			guyenne_area = {
+				type = all
+				country_or_vassal_holds = ROOT
+			}
+			normandy_area = {
+				type = all
+				country_or_vassal_holds = ROOT
+			}
+			34  = { country_or_vassal_holds = ROOT }	# Middlesex
+			43  = { country_or_vassal_holds = ROOT }	# Deheubarth
+			45  = { country_or_vassal_holds = ROOT }	# Gwynedd
+			118 = { country_or_vassal_holds = ROOT }	# Bearn
+			124 = { country_or_vassal_holds = ROOT }	# Armagnac
+			125 = { country_or_vassal_holds = ROOT }	# Perigord
+			142 = { country_or_vassal_holds = ROOT }	# Auvergne
+			143 = { country_or_vassal_holds = ROOT }	# Limousin
+			156 = { country_or_vassal_holds = ROOT }	# Anjou
+			157 = { country_or_vassal_holds = ROOT }	# Maine
+		}
+		effect = {
+			change_tag = ANV
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			add_prestige = 25
+			if = { 
+				limit = { any_core_province = { culture = scottish } }
+				add_accepted_culture = scottish 
+			}
+			france_region = {
+				limit = { NOT = { is_core = ROOT } }
+				add_permanent_claim = ANV
+			}
+			random_owned_province = { add_base_tax = 1 }
+			if = {
+				limit = { culture_group = british }
+				add_accepted_culture = gascon
+				add_accepted_culture = normand
+				add_accepted_culture = picard
+			}
+			if = {
+				limit = { culture_group = french }
+				add_accepted_culture = english
+			}
+			add_accepted_culture = breton
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = ANV_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+			#country_event = { id = flavor_anv.10000 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+}

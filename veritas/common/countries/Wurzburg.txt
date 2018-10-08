@@ -1,0 +1,157 @@
+# Würzburg
+
+graphical_culture = westerngfx
+
+color = { 147  146  106 }
+
+revolutionary_colors = { 5  13  8 }
+
+historical_idea_groups = {
+	diplomatic_ideas
+	mercenary_ideas
+	religious_ideas
+	mercantilist_ideas
+	defensive_ideas
+	administrative_ideas
+	land_ideas
+	quantity_ideas
+}
+
+historical_units = { 
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+
+
+
+
+monarch_names = {
+	"Johann #0" = 60
+	"Konrad #1" = 40
+	"Johann Gottfried #0" = 40
+	"Johann Philipp #0" = 40
+	"Gottfried #3" = 20
+	"Rudolf #1" = 20
+	"Adam Friedrich #0" = 20
+	"Anselm Franz #0" = 20
+	"Christoph Franz #0" = 20
+	"Ferdinand #0" = 20
+	"Franz #0" = 20
+	"Franz Ludwig #0" = 20
+	"Friedrich #0" = 20
+	"Friedrich Karl #0" = 20
+	"Georg Karl #0" = 20
+	"Johann Hartmann #0" = 20
+	"Julius Echter #0" = 20
+	"Karl Philipp #0" = 20
+	"Konrad Wilhelm #0" = 20
+	"Lorenz #0" = 20
+	"Melchior #0" = 20
+	"Peter Philipp #0" = 20
+	"Philipp Adolf #0" = 20
+	"Philipp Franz #0" = 20
+	"Siegmund #0" = 20
+	"Albrecht #3" = 15
+	"Hermann #2" = 15
+	"Otto #2" = 15
+	"Gerhard #1" = 15
+	"Wolfram #1" = 15
+	"Leopold #0" = 15
+	"Heinrich #5" = 10
+	"Poppo #3" = 10
+	"Berthold #2" = 10
+	"Andreas #1" = 10
+	"Dietrich #1" = 10
+	"Friedrich #1" = 10
+	"Alfred #0" = 0
+	"Christian #0" = 0
+	"Jürgen #0" = 0
+	
+	"Regine #0" = -1
+	"Salome #0" = -1
+	"Thora #0" = -1
+}
+
+leader_names = {
+	Dick Sell Söll Schwager Fichtelmann Höhrer Rank
+	Gäbelein Bär Degen Färber Simon Wirth Sack
+	Blochberger Födisch Egelkraut Hager Hofmann
+}
+
+ship_names = {
+	Marienberg "Julius Echter" Main Höchberg
+	Rimpar Biebelried Eigelstadt Uettingen
+	Gramschatz Wern Bergtheim Kietzingen Ochsenfurth
+}
+
+army_names = {
+	"Armee von $PROVINCE$" 
+}

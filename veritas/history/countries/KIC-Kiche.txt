@@ -1,0 +1,87 @@
+#Province IDs changed
+government = tribal add_government_reform = tribal_despotism
+government_rank = 3
+primary_culture = yucatec
+religion = popol
+technology_group = mesoamerican
+capital = 2081
+
+1300.1.1 = {
+	monarch = {
+		name = "Ajkan"
+		dynasty = "K'iche'"
+		adm = 1
+		dip = 2
+		mil = 4
+	}
+}
+
+1325.1.1 = {
+	monarch = {
+		name = "K'okaib'"
+		dynasty = "K'iche'"
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1350.1.1 = {
+	monarch = {
+		name = "K'onache"
+		dynasty = "K'iche'"
+		adm = 2
+		dip = 3
+		mil = 3
+	}
+}
+
+1375.1.1 = {
+	monarch = {
+		name = "K'otuja"
+		dynasty = "K'iche'"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1400.1.1 = {
+	monarch = {
+		name = "Quq'kumatz"
+		dynasty = "K'iche'"
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1435.1.1 = {
+	monarch = {
+		name = "K'iq'ab'"
+		dynasty = "K'iche'"
+		adm = 3
+		dip = 1
+		mil = 2
+	}
+}
+
+1475.1.1 = {
+	monarch = {
+		name = "Vahxak i-Kaam"
+		dynasty = "K'iche'"
+		adm = 3
+		dip = 1
+		mil = 2
+	}
+}
+
+1500.1.1 = {
+	monarch = {
+		name = "Oxib Keh"
+		dynasty = "K'iche'"
+		adm = 3
+		dip = 1
+		mil = 2
+	}
+}

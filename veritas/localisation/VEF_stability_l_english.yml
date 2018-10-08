@@ -1,0 +1,10 @@
+﻿l_english:
+ vef_stability.1.t: "National Stability"
+ vef_stability.1.d: "This is a hidden event. If you see this, please report error §Rvef_stability.1§!"
+ vef_stability.1.opta: "OK"
+ vef_stability.2.t: "Stability Increase"
+ vef_stability.2.d: "Our solid management of the realm has led to an increase in national stability."
+ vef_stability.2.opta: "Excellent News!"
+ vef_stability.3.t: "Stability Decrease"
+ vef_stability.3.d: "Our poor management of the realm and serious stability issues in our provinces has led to a decrease in national stability"
+ vef_stability.3.opta: "Terrible News!"

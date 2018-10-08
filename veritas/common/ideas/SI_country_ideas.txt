@@ -1,0 +1,558 @@
+### Nation specific idea groups
+#KIT ideas by Hargrave, modified by Marco Dandolo
+KIT_ideas = {
+	start = {
+		advisor_cost = -0.25
+		advisor_pool = 1
+	}
+	
+	bonus = {
+		trade_efficiency = 0.10
+	}
+	
+	trigger = {
+		has_country_flag = borgia_italy
+	}
+	free = yes
+	
+	italian_universities = {
+		global_institution_spread = 0.1
+	}
+	rinascimento_italiano = {
+		prestige = 1
+	}
+	banca_de_medici = {
+		inflation_reduction = 0.02
+		interest = -1
+	}
+	home_of_condottieri = {
+		merc_maintenance_modifier = -0.25
+	}
+	italia_sacra = {
+		global_tax_modifier = 0.1
+	}
+	crossroads_of_the_mediterranean = {
+		trade_steering = 0.10
+	}
+	repubbliche_marinare = {
+		naval_maintenance_modifier = -0.15
+	}
+}
+
+#SPI ideas by Marco Dandolo
+SPI_ideas = {
+	start = {
+		diplomatic_upkeep = 1
+		improve_relation_modifier = 0.25
+	}
+	
+	bonus = {
+		land_morale = 0.15
+	}
+	
+	trigger = {
+		tag = SPI
+	}
+	free = yes		#will be added at load.
+	
+	an_italian_king = {
+		prestige = 1
+	}
+	pie_mercenary_tradition = {
+		merc_maintenance_modifier = -0.25
+	}
+	piemontese_legitimacy = {
+		legitimacy = 1   
+	}
+	the_fortress_of_turin = {
+		defensiveness = 0.2
+	}
+	piemontese_carabinieri = {
+		discipline = 0.05
+	}
+	piemontese_gianduia = {
+		production_efficiency = 0.1
+	}
+	piemontese_agrarian_reform = {
+		global_tax_modifier = 0.1
+	}
+}
+
+#BLG ideas by Checco, modified by Marco Dandolo
+BLG_ideas = {
+	start = {
+		infantry_power = 0.10
+		infantry_cost = -0.1
+	}
+	
+	bonus = {
+		prestige = 1
+	}
+	
+	trigger = {
+		tag = BLG #only Bologna
+	}
+	free = yes
+	
+	bol_alma_mater = {
+		idea_cost = -0.05
+	}
+	bol_legge_paradiso = {
+		stability_cost_modifier = -0.1
+	}
+	bol_canal_network = {
+		production_efficiency = 0.1
+	}
+	bol_diplomatic_ties = {
+		diplomatic_upkeep = 1
+	}
+	bol_oligarchic_system = {
+		war_exhaustion = -0.01
+	}
+	bol_bentivoglio = {
+		legitimacy = 1
+		republican_tradition = 1
+	}
+	bol_large_militias = {
+		global_manpower_modifier = 0.15
+	}
+}
+
+#COR ideas Werwolf, edited by Marco Dandolo
+COR_ideas = {
+	start = {
+		enemy_core_creation = 0.5
+		global_unrest = -1
+	}
+	
+	bonus = {
+		leader_land_fire = 1
+	}
+	
+	trigger = {
+		tag = COR #only Corsica
+	}
+	free = yes
+	
+	cor_mercenaries = {
+		merc_maintenance_modifier = -0.25
+	}
+	cor_papal_guards = {
+		land_maintenance_modifier = -0.1
+	}
+	cor_spirit = {
+		hostile_attrition = 0.5
+	}
+	cor_chant = {
+		stability_cost_modifier = -0.1
+	}
+	cor_rebels = {
+		rebel_support_efficiency = 0.25
+	}
+	cor_defense = {
+		defensiveness = 0.15
+	}
+	cor_constitution = {
+		prestige = 1
+	}
+}
+
+#FER ideas  by Marco Dandolo
+FER_ideas = {
+	start = {
+		leader_land_manuever = 1 #Este generals
+		leader_land_shock = 1
+	}
+	
+	bonus = {
+		stability_cost_modifier = -0.15 #this and the MAM best in game
+	}
+	
+	trigger = {
+		tag = FER #only Ferrara
+	}
+	free = yes
+	
+	noble_este_dynasty = {
+		#Also used in MOD_ideas
+		legitimacy = 1
+		republican_tradition = 0.5
+	}
+	delta_del_po = {
+		trade_efficiency = 0.10
+	}
+	ferrarese_splendour = {
+		prestige = 1
+	}
+	addizione_erculea = {
+		defensiveness = 0.2
+	}
+	orlando_furioso = {
+		idea_cost = -0.1
+	}
+	papal_ties = {
+		global_unrest = -1
+	}
+	in_foreign_service = {
+		#Also used in MOD_ideas
+		leader_land_fire = 1
+	}
+}
+
+#FLO ideas by neondt, modified by Marco Dandolo
+FLO_ideas = {
+	start = {
+		diplomatic_upkeep = 1
+		diplomats = 1
+	}
+	
+	bonus = {
+		diplomatic_reputation = 1
+	}
+	
+	trigger = {
+		tag = FLR
+	}
+	free = yes
+	
+	florentine_guilds = {
+		global_tax_modifier = 0.10
+	}
+	il_duomo = {
+		global_unrest = -1
+	}
+	florentine_banks = {
+		inflation_reduction = 0.01
+		interest = -1
+	}
+	academia_platonica = {
+		idea_cost = -0.1
+	}
+	heart_of_the_renaissance = {
+		global_institution_spread = 0.1
+	}
+	mercanti_fiorentini = {
+		global_trade_power = 0.1
+	}
+	ambitions_of_an_prince = {
+		merc_maintenance_modifier = -0.25
+	}
+}
+
+#LUC ideas by Marco Dandolo
+LUC_ideas = {
+	start = {
+		diplomatic_reputation = 1
+		diplomatic_upkeep = 1
+	}
+	
+	bonus = {
+		global_institution_spread = 0.1
+	}
+	
+	trigger = {
+		tag = LUC #only Lucca
+	}
+	free = yes
+	
+	my_name_is_lucca = {
+		republican_tradition = 0.5
+	}
+	silk_weavers = {
+		production_efficiency = 0.1
+	}
+	mercanti_lucchesi = {
+		global_trade_power = 0.1
+	}
+	walls_of_lucca = {
+		defensiveness = 0.3 #famous! like Vauban
+	}
+	serene_republic = {
+		prestige = 1
+	}
+	volto_santo = {
+		global_unrest = -2
+	}
+	castruccios_legacy = {
+		land_morale = 0.15
+	}
+}
+
+#MAN ideas by Galaahd, modified by Marco Dandolo
+MAN_ideas = {
+	start = {
+		global_unrest = -1 #padan lifestyle
+		leader_siege = 1
+	}
+	
+	bonus = {
+		leader_land_shock = 1
+		leader_land_manuever = 1 #the Gonzaga generals were superb
+	}
+	
+	trigger = {
+		tag = MAN #only Mantua
+	}
+	free = yes
+	
+	rule_gonzaga = {
+		stability_cost_modifier = -0.1
+	}
+	casa_gioiosa = {
+		idea_cost = -0.10
+	}
+	il_melodramma = {
+		prestige = 1
+	}
+	celeste_galeria = {
+		legitimacy = 1
+	}
+	walls_of_mantua = {
+		defensiveness = 0.25 #only Vauban is better
+	}
+	roman_vacation = {
+		global_tax_modifier = 0.1
+	}
+	scientific_theatre = {
+		global_institution_spread = 0.1
+	}
+}
+
+#MFT ideas by Galaahd, modified by Marco Dandolo
+MFT_ideas = {
+	start = {
+		leader_land_shock = 1
+		leader_siege = 1
+	}
+	
+	bonus = {
+		land_morale = 0.15
+	}
+	
+	trigger = {
+		tag = MFT #only Montferrat
+	}
+	free = yes
+
+	mft_feudal_army = {
+		discipline = 0.05
+	}
+	mft_crusader_kings = {
+		global_missionary_strength = 0.01
+		prestige_from_land = 0.5
+	}
+	mft_ghibelline_tradition = {
+		enemy_core_creation = 0.5
+		recover_army_morale_speed = 0.05
+	}
+	mft_military_education = {
+		leader_land_manuever = 1
+	}
+	mft_aleramici_legacy = {
+		legitimacy = 1
+	}
+	mft_fortified_hills = {
+		defensiveness = 0.20 
+	}
+	mft_barbera = {
+		global_tax_modifier = 0.1
+	}
+}
+
+#MOD ideas  by Marco Dandolo (similar to Ferrara!)
+MOD_ideas = {
+	start = {
+		leader_land_manuever = 1 #Este generals
+		leader_land_shock = 1
+	}
+	
+	bonus = {
+		prestige = 1
+	}
+	
+	trigger = {
+		tag = MOD #only Modena
+	}
+	free = yes
+	
+	noble_este_dynasty = {
+		#Same as FER_ideas
+	}
+	cuisine_of_the_bassa = {
+		global_unrest = -1
+	}
+	mod_diplomatic_reputation = {
+		diplomatic_reputation = 1
+	}
+	modena_citadel = {
+		defensiveness = 0.2
+	}
+	modena_university = {
+		global_institution_spread = 0.1
+	}
+	palazzo_di_modena = {
+		stability_cost_modifier = -0.1
+	}
+	in_foreign_service = {
+		#Same as FER_ideas
+	}
+}
+
+#PIS ideas by Galaahd, modified by Marco Dandolo
+PIS_ideas = {
+	start = {
+		trade_steering = 0.10 
+		naval_morale = 0.1
+	}
+	
+	bonus = {
+		merchants = 1 #overkill, but there are reasons why Pisa was hated so much
+	}
+	
+	trigger = {
+		tag = PIS #only Pisa
+	}
+	free = yes
+	
+	free_pisa_idea = {
+		diplomatic_reputation = 1
+		merc_maintenance_modifier = -0.25
+	}
+	remember_meloria = {
+		naval_forcelimit_modifier = 0.33
+	}
+	port_of_pisa = {
+		global_trade_power = 0.1
+	}
+	seafearing_tradition = {
+		galley_power = 0.15
+		navy_tradition = 0.25
+	}
+	pisa_university = {
+		global_institution_spread = 0.1
+	}
+	piazza_del_duomo = {
+		prestige = 1
+	}
+	reestablish_pisan_traderoutes = {
+		trade_efficiency = 0.10
+	}
+}
+
+#SIC ideas by Marco Dandolo
+SIC_ideas = {
+	start = {
+		tolerance_heretic = 1
+	 	tolerance_heathen = 2 #famous sicilian tolerance in all centuries
+	}
+	
+	bonus = {
+		naval_forcelimit_modifier = 0.33 #an island wants a huge navy
+	}
+	
+	trigger = {
+		tag = SIC #only Sishilia
+	}
+	free = yes
+
+	centre_of_mediteranean = {
+		trade_efficiency = 0.1
+	}
+	sicilian_parliament = {
+		stability_cost_modifier = -0.1
+	}
+	sicilian_school = {
+		advisor_pool = 1
+	}
+	sicilian_vesper = {
+		land_morale = 0.15
+	}
+	sicilian_baroque = {
+		prestige = 1
+	}
+	sicilian_piety = {
+		tolerance_own = 1
+	}
+	against_barbary_pirates = {
+		naval_morale = 0.15
+	}
+}
+
+#SIE ideas by Marco Dandolo
+SIE_ideas = {
+	start = {
+		production_efficiency = 0.1 #famed artisan and merchant city
+		trade_efficiency = 0.1
+	}
+	
+	bonus = {
+		global_unrest = -1 #reformed Governo Nove
+	}
+	
+	trigger = {
+		tag = SIE #only Siena
+	}
+	free = yes
+	
+	famous_palio = {
+		prestige = 1
+	}
+	florentine_rivalry = {
+		land_morale = 0.15
+	}
+	mercanti_senesi = {
+		global_trade_power = 0.1
+	}
+	siena_university = {
+		idea_cost = -0.05
+	}
+	montalcino_republic = {
+		enemy_core_creation = 0.5
+		recover_army_morale_speed = 0.05
+	}
+	buon_governo = {
+		global_tax_modifier = 0.1
+	}
+	ambitions_of_an_prince2 = {
+		merc_maintenance_modifier = -0.25
+	}
+}
+
+#URB ideas by Galaahd, modified by Marco Dandolo
+URB_ideas = {
+	start = {
+		leader_land_shock = 1 #no lousy "italian" generals
+		leader_siege = 1
+	}
+	
+	bonus = {
+		discipline = 0.05
+	}
+	
+	trigger = {
+		tag = URB #only Urbino
+	}
+	free = yes
+	
+	palazzo_montefeltro = {
+		prestige = 1
+	}
+	splendid_court = {
+		advisor_pool = 1
+	}
+	condottieri_tradition = {
+		infantry_power = 0.10
+	}
+	il_cortegiano = {
+		diplomatic_reputation = 1
+	}
+	walls_of_urbino = {
+		defensiveness = 0.2
+	}
+	roman_aristocracy = {
+		legitimacy = 1
+	}
+	ideal_city = {
+		global_unrest = -1
+	}
+}

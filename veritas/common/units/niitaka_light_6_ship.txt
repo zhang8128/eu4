@@ -1,0 +1,10 @@
+#Daifurigeeto
+#model = heavy_frigate
+#tech_level = 46
+type = transport
+unit_type = niitaka
+
+hull_size = 24
+base_cannons = 32
+sail_speed = 8
+sailors = 350

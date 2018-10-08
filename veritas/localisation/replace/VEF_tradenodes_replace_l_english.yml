@@ -1,0 +1,12 @@
+﻿l_english:
+
+ #Replacement for vanilla tradenodes_l_english.yml
+ 
+ ON_TRADE_MISSION_IRO: "Protecting our trading interests in §Y$WHERE$§! with §Y$COUNT$§! trade ships."
+ ON_PRIVATEER_MISSION_IRO: "Harassing our enemies' trading interests in §Y$WHERE$§! with §Y$COUNT$§! trade ships."
+ TP_SHIP_POWER: "From Trade Ships: $VAL$"
+ TRADE_NAVY_NO_SHIPS: "You must have Trade Ships to Protect Trade or Privateer."
+ TRADE_NAVY_MISSION_DESC: "Your fleet will patrol the area protecting and assisting your merchants. Only Trade Ships will give Trade Power, but other ships can assist with extra protection."
+ TRADE_NUM_SHIPS: "Number of Trade Ships: $VAL$"
+ SHIP_POWER: "Trade Power from Trade Ships: §Y$VAL$§W"
+ TRADE_SHIPS_SORT: "Sort by Trade Power from Trade Ships and Merchants."

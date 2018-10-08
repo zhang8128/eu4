@@ -1,0 +1,33 @@
+# Tajima
+# Manpower revision complete
+#Province IDs changed
+
+owner = YMN
+controller = YMN
+culture = japanese
+religion = shinto
+capital = "Tottori"
+trade_goods = naval_supplies
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 5
+add_core = YMN
+is_city = yes
+discovered_by = chinese
+discovered_by = niitaka
+
+1400.1.1	= { base_manpower = 3 }
+1500.1.1	= { base_manpower = 4 }
+1569.1.1	= { add_core = ODA }
+1573.7.3	= { add_core = JAP remove_core = ODA } # Nobunaga ousts Yoshiaki
+1580.5.21	= { owner = JAP controller = JAP }
+1580.7.2	= { remove_core = YMN }
+1582.9.8	= { add_core = HSK owner = HSK controller = HSK remove_core = JAP }
+1600.1.1	= { base_manpower = 6 }
+1600.10.21	= { add_core = JAP owner = JAP controller = JAP remove_core = HSK } # Battle of Sekigahara
+1603.3.24	= { owner = JAP controller = JAP add_core = JAP remove_core = TKG } # Tokugawa shogunate founded
+1650.1.1	= { base_manpower = 7 }
+1700.1.1	= { base_manpower = 8 }
+1750.1.1	= { base_manpower = 8 }
+1800.1.1	= { base_manpower = 7.5 }

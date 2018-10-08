@@ -1,0 +1,19 @@
+# Chulym
+
+capital = "Chulym"
+native_size = 10
+native_ferocity = 1
+native_hostileness = 3
+culture = yakut
+religion = tengri
+trade_goods = unknown
+hre = no
+discovered_by = nomad_group
+
+1618.1.1   = { base_manpower = 0.1 base_tax = 1 base_production = 1 discovered_by = RUS }
+1632.1.1   = { owner = RUS controller = RUS religion = orthodox culture = russian citysize = 400 trade_goods = fur base_tax = 3 base_production = 3 }
+1650.1.1   = { base_manpower = 0.1 }
+1657.1.1   = { add_core = RUS citysize = 1100 }
+1700.1.1   = { base_manpower = 0.1 }
+1750.1.1   = { base_manpower = 0.1 }
+1800.1.1   = { base_manpower = 0.1 }

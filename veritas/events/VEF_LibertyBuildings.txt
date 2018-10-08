@@ -1,0 +1,3658 @@
+#####################
+# Liberty Buildings #
+#####################
+
+namespace = vef_libbuild
+
+
+#1 Starter Buildings
+
+#100 Background, Monarchy; Non-nomad
+#101 Decide fate of conquered provinces
+#102 Give lands to local lords
+#103 Provincial governor
+#200 Background, Republics
+#201 Decide fate of conquered provinces
+#202 Give lands to local lords
+#203 Provincial governor
+#300 Background, Nomads
+#400 Background, Theocracies
+
+#1000 New Province
+
+#Dynamic Drivers
+#2000 Freedom raising citizen land ownership
+#2001 H. Serfdom reducing citizen land ownership
+#2002 Very Low AP reduces serfdom
+
+
+# Starter buildings
+country_event = {
+	id = vef_libbuild.1
+	title = "vef_libbuild.1.t"
+	desc = "vef_libbuild.1.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes	#on_actions on_startup
+	
+	hidden = yes
+	
+	immediate = {
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					is_capital = yes
+					NOT = { has_building = slavery }
+					NOT = { has_building = encomienda }
+					NOT = { has_building = heavy_serfdom }
+					NOT = { has_building = moderate_serfdom }
+					NOT = { has_building = light_serfdom }
+					NOT = { has_building = freedom }
+					NOT = { has_building = civic_charter }
+					NOT = { has_building = local_assembly }
+					NOT = { has_building = republic_city }
+				}
+				if = {
+					limit = {
+						owner = {
+							OR = {
+								technology_group = western
+								technology_group = eastern
+								technology_group = scandinavian_tech
+							}
+							government = monarchy
+							NOT = { is_subject_of = FRA }
+						}
+					}
+					add_building = civic_charter
+					if = {
+						limit = { religion = catholic }
+						add_building = citizens_40
+						add_building = church_20
+					}
+					if = {
+						limit = { NOT = { religion = catholic }}
+						add_building = citizens_60
+					}
+				}
+				if = {
+					limit = {
+						owner = { government = republic }
+					}
+					add_building = republic_city
+					add_building = citizens_80
+				}
+				if = {
+					limit = { owner = { is_subject_of = FRA }}
+					add_building = moderate_serfdom
+					add_building = church_20
+					add_building = nobles_40
+				}
+				if = {
+					limit = {
+						NOT = { has_building = slavery }
+						NOT = { has_building = encomienda }
+						NOT = { has_building = heavy_serfdom }
+						NOT = { has_building = moderate_serfdom }
+						NOT = { has_building = light_serfdom }
+						NOT = { has_building = freedom }
+						NOT = { has_building = civic_charter }
+						NOT = { has_building = local_assembly }
+						NOT = { has_building = republic_city }
+						OR = {
+							culture_group = byzantine_group
+							culture_group = south_slavic
+						}
+					}
+					add_building = freedom
+					add_building = citizens_40
+					add_building = nobles_40
+					if = {
+						limit = { religion = catholic }
+						add_building = church_20
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_building = slavery }
+						NOT = { has_building = encomienda }
+						NOT = { has_building = heavy_serfdom }
+						NOT = { has_building = moderate_serfdom }
+						NOT = { has_building = light_serfdom }
+						NOT = { has_building = freedom }
+						NOT = { has_building = civic_charter }
+						NOT = { has_building = local_assembly }
+						NOT = { has_building = republic_city }
+						culture = japanese
+					}
+					add_building = moderate_serfdom
+					add_building = nobles_60
+					if = {
+						limit = { religion = catholic }
+						add_building = church_20
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_building = slavery }
+						NOT = { has_building = encomienda }
+						NOT = { has_building = heavy_serfdom }
+						NOT = { has_building = moderate_serfdom }
+						NOT = { has_building = light_serfdom }
+						NOT = { has_building = freedom }
+						NOT = { has_building = civic_charter }
+						NOT = { has_building = local_assembly }
+						NOT = { has_building = republic_city }
+						owner = { government = native }
+					}
+					add_building = freedom
+					add_building = citizens_80
+				}
+				if = {
+					limit = {
+						NOT = { has_building = slavery }
+						NOT = { has_building = encomienda }
+						NOT = { has_building = heavy_serfdom }
+						NOT = { has_building = moderate_serfdom }
+						NOT = { has_building = light_serfdom }
+						NOT = { has_building = freedom }
+						NOT = { has_building = civic_charter }
+						NOT = { has_building = local_assembly }
+						NOT = { has_building = republic_city }
+					}
+					add_building = freedom
+					add_building = citizens_60
+					if = {
+						limit = { religion = catholic }
+						add_building = church_20
+					}
+				}	
+			}
+			every_owned_province = {
+				limit = {
+					NOT = { has_building = slavery }
+					NOT = { has_building = encomienda }
+					NOT = { has_building = heavy_serfdom }
+					NOT = { has_building = moderate_serfdom }
+					NOT = { has_building = light_serfdom }
+					NOT = { has_building = freedom }
+					NOT = { has_building = civic_charter }
+					NOT = { has_building = local_assembly }
+					NOT = { has_building = republic_city }
+				}
+				if = {
+					limit = { owner = { technology_group = western }}
+					if = {
+						limit = { NOT = { base_tax = 6 }}
+						add_building = moderate_serfdom
+						add_building = church_20
+						random_list = {
+							50 = { add_building = nobles_80 }
+							50 = { add_building = nobles_60 }
+						}
+					}
+					if = {
+						limit = { base_tax = 6 }
+						add_building = civic_charter
+						add_building = church_20
+						add_building = citizens_60
+					}
+				}
+				if = {
+					limit = { owner = { technology_group = scandinavian_tech }}
+					if = {
+						limit = { NOT = { base_tax = 6 }}
+						add_building = light_serfdom
+						add_building = nobles_60
+						add_building = citizens_20
+					}
+					if = {
+						limit = { base_tax = 6 }
+						add_building = civic_charter
+						add_building = citizens_80
+					}
+				}
+				if = {
+					limit = {
+						owner = {
+							OR = {
+								religion = confucianism
+								primary_culture = japanese
+								religion_group = muslim
+							}
+						}
+					}
+					add_building = light_serfdom
+					add_building = nobles_60
+					add_building = citizens_20
+				}
+				if = {
+					limit = {
+						owner = {
+							OR = {
+								has_reform = principality
+								tag = NOV
+							}
+						}
+					}
+					add_building = light_serfdom
+					add_building = nobles_80
+				}
+				if = {
+					limit = {
+						NOT = { owner = { technology_group = western }}
+						OR = {
+							owner = { has_reform = elective_monarchy }
+							owner = { tag = POL }
+							owner = { tag = MAZ }
+						}
+					}
+					add_building = heavy_serfdom
+					add_building = nobles_80
+				}
+				if = {
+					limit = {	
+						NOT = { has_building = slavery }
+						NOT = { has_building = encomienda }
+						NOT = { has_building = heavy_serfdom }
+						NOT = { has_building = moderate_serfdom }
+						NOT = { has_building = light_serfdom }
+						NOT = { has_building = freedom }
+						NOT = { has_building = civic_charter }
+						NOT = { has_building = local_assembly }
+						NOT = { has_building = republic_city }
+					}
+					add_building = freedom
+					add_building = citizens_80
+				}
+			}
+			every_owned_province = {
+				if = {
+					limit = { owner = { technology_group = western }}
+					if = {
+						limit = { is_year = 1400 }
+						trigger_switch = {
+							on_trigger = has_building
+							light_serfdom = { random = { chance = 30 remove_building = light_serfdom add_building = freedom }}
+							moderate_serfdom = { random = { chance = 30 remove_building = moderate_serfdom add_building = light_serfdom }}
+							heavy_serfdom =  { random = { chance = 30 remove_building = heavy_serfdom add_building = moderate_serfdom }}
+						}
+					}
+					if = {
+						limit = { is_year = 1420 }
+						trigger_switch = {
+							on_trigger = has_building
+							light_serfdom = { random = { chance = 30 remove_building = light_serfdom add_building = freedom }}
+							moderate_serfdom = { random = { chance = 30 remove_building = moderate_serfdom add_building = light_serfdom }}
+							heavy_serfdom =  { random = { chance = 50 remove_building = heavy_serfdom add_building = moderate_serfdom }}
+						}
+					}
+					if = {
+						limit = { is_year = 1435 }
+						trigger_switch = {
+							on_trigger = has_building
+							light_serfdom = { random = { chance = 30 remove_building = light_serfdom add_building = freedom }}
+							moderate_serfdom = { random = { chance = 50 remove_building = moderate_serfdom add_building = light_serfdom }}
+							heavy_serfdom =  { remove_building = heavy_serfdom add_building = moderate_serfdom }
+						}
+					}
+					if = {
+						limit = { is_year = 1450 }
+						trigger_switch = {
+							on_trigger = has_building
+							light_serfdom = { random = { chance = 50 remove_building = light_serfdom add_building = freedom }}
+							moderate_serfdom = { remove_building = moderate_serfdom add_building = light_serfdom }
+						}
+					}
+					if = {
+						limit = {
+							is_year = 1460
+							has_building = light_serfdom
+						}
+						remove_building = light_serfdom add_building = freedom
+					}
+				}
+				if = {
+					limit = { owner = { technology_group = eastern }}
+					if = {
+						limit = { is_year = 1420 }
+						trigger_switch = {
+							on_trigger = has_building
+							moderate_serfdom = { random = { chance = 30 remove_building = moderate_serfdom add_building = heavy_serfdom }}
+							light_serfdom =  { random = { chance = 30 remove_building = light_serfdom add_building = moderate_serfdom }}
+							freedom = { random = { chance = 30 remove_building = freedom add_building = light_serfdom }}
+						}
+					}
+					if = {
+						limit = { is_year = 1440 }
+						trigger_switch = {
+							on_trigger = has_building
+							moderate_serfdom = { random = { chance = 30 remove_building = moderate_serfdom add_building = heavy_serfdom }}
+							light_serfdom =  { random = { chance = 30 remove_building = light_serfdom add_building = moderate_serfdom }}
+							freedom = { random = { chance = 50 remove_building = freedom add_building = light_serfdom }}
+						}
+					}
+					if = {
+						limit = { is_year = 1450 }
+						trigger_switch = {
+							on_trigger = has_building
+							moderate_serfdom = { random = { chance = 30 remove_building = moderate_serfdom add_building = heavy_serfdom }}
+							light_serfdom =  { random = { chance = 50 remove_building = light_serfdom add_building = moderate_serfdom }}
+							freedom = { remove_building = freedom add_building = light_serfdom }
+						}
+					}
+					if = {
+						limit = { is_year = 1460 }
+						trigger_switch = {
+							on_trigger = has_building
+							moderate_serfdom = { random = { chance = 50 remove_building = moderate_serfdom add_building = heavy_serfdom }}
+							light_serfdom =  { remove_building = light_serfdom add_building = moderate_serfdom }
+						}
+					}
+				}
+			}
+			if = {
+				limit = { tag = PAP }
+				every_owned_province = {
+					remove_building = church_20
+				}
+			}
+			every_owned_province = {
+				if = {
+					limit = {
+						NOT = { fort_level = 2 }
+						OR = {
+							has_building = light_serfdom
+							has_building = moderate_serfdom
+							has_building = heavy_serfdom
+						}
+						OR = {
+							has_building = nobles_80
+							has_building = nobles_60
+							AND = {
+								has_building = nobles_40
+								OR = {
+									has_building = church_60
+									has_building = church_40
+									has_building = church_20
+									has_building = grand_priory
+								}
+							}
+						}
+					}
+					if = {
+						limit = { has_owner_culture = yes }
+						set_province_flag = rest_20a
+					}
+					if = {
+						limit = {
+							OR = {
+								has_owner_accepted_culture = yes
+								AND = {
+									NOT = { has_owner_culture = yes }
+									owner = {
+										culture_group = PREV
+										OR = {
+											AND = {
+												has_dlc = "Common Sense"
+												government_rank = 4
+											}
+											AND = {
+												NOT = { has_dlc = "Common Sense" }
+												total_development = 1050
+											}
+										}
+									}
+								}
+							}
+						}
+						set_province_flag = rest_30a
+					}
+					if = {
+						limit = {
+							NOT = { has_owner_culture = yes }
+							NOT = { has_owner_accepted_culture = yes }
+							NOT = {
+								owner = {
+									culture_group = PREV
+									OR = {
+										AND = {
+											has_dlc = "Common Sense"
+											government_rank = 4
+										}
+										AND = {
+											NOT = { has_dlc = "Common Sense" }
+											total_development = 1050
+										}
+									}
+								}
+							}
+						}
+						set_province_flag = rest_40a
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_province_flag = rest_20a }
+						NOT = { has_province_flag = rest_30a }
+						NOT = { has_province_flag = rest_40a }
+					}
+					if = {
+						limit = {
+							OR = {
+								has_owner_accepted_culture = yes
+								AND = {
+									NOT = { has_owner_culture = yes }
+									owner = {
+										culture_group = PREV
+										OR = {
+											AND = {
+												has_dlc = "Common Sense"
+												government_rank = 4
+											}
+											AND = {
+												NOT = { has_dlc = "Common Sense" }
+												total_development = 1050
+											}
+										}
+									}
+								}
+							}
+							NOT = { fort_level = 2 }
+						}
+						set_province_flag = rest_10a
+					}
+					if = {
+						limit = {
+							NOT = { has_owner_accepted_culture = yes }
+							NOT = { has_owner_culture = yes }
+							NOT = {
+								owner = {
+									culture_group = PREV
+									OR = {
+										AND = {
+											has_dlc = "Common Sense"
+											government_rank = 4
+										}
+										AND = {
+											NOT = { has_dlc = "Common Sense" }
+											total_development = 1050
+										}
+									}
+								}
+							}
+							NOT = { fort_level = 2 }
+						}
+						set_province_flag = rest_20a
+					}
+				}
+				if = { 
+					limit = { has_province_flag = rest_10a NOT = { local_autonomy = 10 }}
+					set_local_autonomy = 10
+				}
+				if = { 
+					limit = { has_province_flag = rest_20a NOT = { local_autonomy = 20 }}
+					set_local_autonomy = 20
+				}
+				if = { 
+					limit = { has_province_flag = rest_30a NOT = { local_autonomy = 30 }}
+					set_local_autonomy = 30
+				}
+				if = { 
+					limit = { has_province_flag = rest_40a NOT = { local_autonomy = 40 }}
+					set_local_autonomy = 40
+				}
+			}
+		}
+	}
+	
+	option = { name = "vef_libbuild.1.opta" }
+}
+
+#######################
+# Monarchy; non-Nomad #
+#######################
+
+# Background 
+country_event = {
+	id = vef_libbuild.100
+	title = vef_libbuild.100.t
+	desc = vef_libbuild.100.d
+	picture = VEF_CONQUEST_eventPicture
+
+	is_triggered_only = yes #on_actions/on_war_won
+	
+	hidden = yes
+	
+	trigger = {
+		government = monarchy
+		is_nomad = no
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = forts_removed }
+				every_owned_province = {
+					limit = { has_province_flag = starting_fort }
+					clr_province_flag = starting_fort
+					if = {
+						limit = { has_province_modifier = theodosian_walls }
+						remove_province_modifier = theodosian_walls
+					}
+				}
+			}
+			every_owned_province = {
+				limit = {
+					NOT = { months_since_defection = 1 }
+					NOT = { has_province_modifier = lib_building_cooldown }
+				}
+				### Stability Calculation ###
+				if = {
+					limit = { has_global_flag = vef_stab_flag }
+					set_variable = { which = prov_stab_pen value = 100 }
+					if = {
+						limit = { is_core = ROOT }
+						change_variable = { which = prov_stab_pen value = -40 }
+						else = {
+							if = {
+								limit = { is_permanent_claim = ROOT }
+								change_variable = { which = prov_stab_pen value = -20 }
+							}
+						}
+					}
+					if = {
+						limit = { has_owner_culture = yes }
+						change_variable = { which = prov_stab_pen value = -20 }
+						else = {
+							if = {
+								limit = { culture_group = owner }
+								change_variable = { which = prov_stab_pen value = -10 }
+							}
+						}
+					}
+					if = {
+						limit = { has_owner_religion = yes }
+						change_variable = { which = prov_stab_pen value = -15 }
+						else = {
+							if = {
+								limit = { religion_group = owner }
+								change_variable = { which = prov_stab_pen value = -5 }
+							}
+						}
+					}
+					export_to_variable = { which = vef_stab_dev value = development }
+					owner = { export_to_variable = { which = vef_full_dev value = total_development }}
+					set_variable = { which = vef_full_dev which = ROOT }
+					divide_variable = { which = vef_stab_dev which = vef_full_dev }
+					multiply_variable = { which = vef_stab_dev value = 10 }
+					multiply_variable = { which = prov_stab_pen which = vef_stab_dev }
+					if = {
+						limit = { owner = { has_country_modifier = rise_of_ottomans1 }}
+						multiply_variable = { which = prov_stab_pen value = 0.25 }
+					}
+					if = {
+						limit = { owner = { has_country_modifier = rise_of_ottomans2 }}
+						multiply_variable = { which = prov_stab_pen value = 0.5 }
+					}
+					if = {
+						limit = { NOT = { check_variable = { which = prov_stab_pen value = 10 }}}
+						owner = { change_variable = { which = national_stability value = -10 }}
+						else = {
+							owner = {
+								set_variable = { which = prov_stab_pen which = PREV }
+								subtract_variable = { which = national_stability which = prov_stab_pen }
+							}
+						}
+					}
+				}
+				### End Stability Calculation ###
+				clr_province_flag = hold_10a
+				clr_province_flag = hold_20a
+				clr_province_flag = hold_30a
+				clr_province_flag = hold_40a
+				clr_province_flag = hold_60a
+				clr_province_flag = noble_titles
+				clr_province_flag = selling_land
+				clr_province_flag = church_donation
+				clr_province_flag = seizing_land_noble
+				clr_province_flag = seizing_land_citizen
+				clr_province_flag = nom_priority_set
+				random_province = {
+					limit = {
+						area = PREV
+						owned_by = ROOT
+						months_since_defection = 1
+					}
+					if = {
+						limit = { has_province_flag = hold_10a }
+						PREV = { set_province_flag = hold_10a }
+					}
+					if = {
+						limit = { has_province_flag = hold_20a }
+						PREV = { set_province_flag = hold_20a }
+					}
+					if = {
+						limit = { has_province_flag = hold_30a }
+						PREV = { set_province_flag = hold_30a }
+					}
+					if = {
+						limit = { has_province_flag = hold_40a }
+						PREV = { set_province_flag = hold_40a }
+					}
+					if = {
+						limit = { has_province_flag = hold_60a }
+						PREV = { set_province_flag = hold_60a }
+					}
+					if = {
+						limit = { has_province_flag = noble_titles }
+						PREV = { set_province_flag = noble_titles }
+					}
+					if = {
+						limit = { has_province_flag = selling_land }
+						PREV = { set_province_flag = selling_land }
+					}
+					if = {
+						limit = { has_province_flag = church_donation }
+						PREV = { set_province_flag = church_donation }
+					}
+					if = {
+						limit = { has_province_flag = seizing_land_noble }
+						PREV = { set_province_flag = seizing_land_noble }
+					}
+					if = {
+						limit = { has_province_flag = seizing_land_citizen }
+						PREV = { set_province_flag = seizing_land_citizen }
+					}
+					if = {
+						limit = { has_province_modifier = rm_light_garrison }
+						PREV = { add_province_modifier = { name = rm_light_garrison duration = -1 }}
+					}
+					if = {
+						limit = { has_province_modifier = rm_heavy_garrison }
+						PREV = { add_province_modifier = { name = rm_heavy_garrison duration = -1 }}
+					}
+					if = {
+						limit = { has_province_modifier = rm_skirmishers }
+						PREV = { add_province_modifier = { name = rm_skirmishers duration = -1 }}
+					}
+					if = {
+						limit = { has_province_modifier = rm_supplies }
+						PREV = { add_province_modifier = { name = rm_supplies duration = -1 }}
+					}
+					if = {
+						limit = { has_province_modifier = rm_light_levies }
+						PREV = { add_province_modifier = { name = rm_light_levies duration = -1 }}
+					}
+					if = {
+						limit = { has_province_modifier = rm_harsh_levies }
+						PREV = { add_province_modifier = { name = rm_harsh_levies duration = -1 }}
+					}
+					if = {
+						limit = { has_province_modifier = rm_light_taxes }
+						PREV = { add_province_modifier = { name = rm_light_taxes duration = -1 }}
+					}
+					if = {
+						limit = { has_province_modifier = rm_harsh_taxes }
+						PREV = { add_province_modifier = { name = rm_harsh_taxes duration = -1 }}
+					}
+					if = {
+						limit = { has_province_modifier = rm_promote_culture }
+						PREV = { add_province_modifier = { name = rm_promote_culture duration = -1 }}
+					}
+					if = {
+						limit = { has_province_modifier = rm_encourage_accepted }
+						PREV = { add_province_modifier = { name = rm_encourage_accepted duration = -1 }}
+					}
+					if = {
+						limit = { has_province_modifier = rm_deportation }
+						PREV = { add_province_modifier = { name = rm_deportation duration = -1 }}
+					}
+					if = {
+						limit = { has_province_modifier = rm_genocide }
+						PREV = { add_province_modifier = { name = rm_genocide duration = -1 }}
+					}
+					if = {
+						limit = { has_province_modifier = rm_increase_serfdom }
+						PREV = { add_province_modifier = { name = rm_increase_serfdom duration = -1 }}
+					}
+					if = {
+						limit = { has_province_modifier = rm_decrease_serfdom }
+						PREV = { add_province_modifier = { name = rm_decrease_serfdom duration = -1 }}
+					}
+					if = {
+						limit = { has_province_modifier = rm_seize_land }
+						PREV = { add_province_modifier = { name = rm_seize_land duration = -1 }}
+					}
+				}
+			}
+			if = {
+				limit = { has_country_modifier = the_dissolution_of_the_monasteries }
+				every_owned_province = {
+					limit = { NOT = { months_since_defection = 1 }}
+					if = {
+						limit = { has_building = church_20 }
+						remove_building = church_20
+						set_province_flag = was_church_20
+					}
+					if = {
+						limit = { has_building = church_40 }
+						remove_building = church_40
+						set_province_flag = was_church_40
+					}
+					if = {
+						limit = { has_building = church_60 }
+						remove_building = church_60
+						set_province_flag = was_church_60
+					}
+					if = {
+						limit = { has_building = church_80 }
+						remove_building = church_80
+						set_province_flag = was_church_80
+					}
+					if = {
+						limit = {
+							has_building = grand_priory
+							NOT = { ROOT = { has_country_modifier = successor_order }}
+							NOT = { ROOT = { has_country_flag = protected_priories }}
+						}
+						remove_building = grand_priory
+					}
+					if = {
+						limit = {
+							has_building = grand_priory
+							NOT = { ROOT = { has_country_modifier = successor_order }}
+						}
+						set_province_flag = protected_priory
+					}
+				}
+			}
+			if = {
+				limit = { check_variable = { which = free_subjects value = 3.5 }}
+				every_owned_province = {
+					limit = {
+						NOT = { months_since_defection = 1 }
+						NOT = { has_province_modifier = lib_building_cooldown }
+						is_overseas = no
+						is_core = ROOT
+						OR = {
+							culture = owner
+							has_owner_accepted_culture = yes
+							owner = {
+								culture_group = PREV
+								OR = {
+									AND = {
+										has_dlc = "Common Sense"
+										government_rank = 4
+									}
+									AND = {
+										NOT = { has_dlc = "Common Sense" }
+										total_development = 1050
+									}
+								}
+							}
+						}
+					}
+					if = {
+						limit = { has_building = light_serfdom }
+						remove_building = light_serfdom
+						add_building = freedom
+					}
+					if = {
+						limit = { has_building = moderate_serfdom }
+						remove_building = moderate_serfdom
+						add_building = freedom
+					}
+					if = {
+						limit = { has_building = heavy_serfdom }
+						remove_building = heavy_serfdom
+						add_building = freedom
+					}
+					add_province_modifier = { name = lib_building_cooldown duration = 45 }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = free_subjects value = 2.5 }
+					NOT = { check_variable = { which = free_subjects value = 3.5 }}
+				}
+				every_owned_province = {
+					limit = {
+						NOT = { months_since_defection = 1 }
+						NOT = { has_province_modifier = lib_building_cooldown }
+						is_overseas = no
+						is_core = ROOT
+						OR = {
+							culture = owner
+							has_owner_accepted_culture = yes
+							owner = {
+								culture_group = PREV
+								OR = {
+									AND = {
+										has_dlc = "Common Sense"
+										government_rank = 4
+									}
+									AND = {
+										NOT = { has_dlc = "Common Sense" }
+										total_development = 1050
+									}
+								}
+							}
+						}
+					}
+					if = {
+						limit = { has_building = freedom }
+						remove_building = freedom
+						add_building = light_serfdom
+					}
+					if = {
+						limit = { has_building = moderate_serfdom }
+						remove_building = moderate_serfdom
+						add_building = light_serfdom
+					}
+					if = {
+						limit = { has_building = heavy_serfdom }
+						remove_building = heavy_serfdom
+						add_building = light_serfdom
+					}
+					add_province_modifier = { name = lib_building_cooldown duration = 45 }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = free_subjects value = 1.5 }
+					NOT = { check_variable = { which = free_subjects value = 2.5 }}
+				}
+				every_owned_province = {
+					limit = {
+						NOT = { months_since_defection = 1 }
+						NOT = { has_province_modifier = lib_building_cooldown }
+						is_overseas = no
+						is_core = ROOT
+						OR = {
+							culture = owner
+							has_owner_accepted_culture = yes
+							owner = {
+								culture_group = PREV
+								OR = {
+									AND = {
+										has_dlc = "Common Sense"
+										government_rank = 4
+									}
+									AND = {
+										NOT = { has_dlc = "Common Sense" }
+										total_development = 1050
+									}
+								}
+							}
+						}
+					}
+					if = {
+						limit = { has_building = light_serfdom }
+						remove_building = light_serfdom
+						add_building = moderate_serfdom
+					}
+					if = {
+						limit = { has_building = freedom }
+						remove_building = freedom
+						add_building = moderate_serfdom
+					}
+					if = {
+						limit = { has_building = heavy_serfdom }
+						remove_building = heavy_serfdom
+						add_building = moderate_serfdom
+					}
+					add_province_modifier = { name = lib_building_cooldown duration = 45 }
+				}
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = free_subjects value = 1.5 }}}
+				every_owned_province = {
+					limit = {
+						NOT = { months_since_defection = 1 }
+						NOT = { has_province_modifier = lib_building_cooldown }
+						is_overseas = no
+						is_core = ROOT
+						OR = {
+							culture = owner
+							has_owner_accepted_culture = yes
+							owner = {
+								culture_group = PREV
+								OR = {
+									AND = {
+										has_dlc = "Common Sense"
+										government_rank = 4
+									}
+									AND = {
+										NOT = { has_dlc = "Common Sense" }
+										total_development = 1050
+									}
+								}
+							}
+						}
+					}
+					if = {
+						limit = { has_building = light_serfdom }
+						remove_building = light_serfdom
+						add_building = heavy_serfdom
+					}
+					if = {
+						limit = { has_building = moderate_serfdom }
+						remove_building = moderate_serfdom
+						add_building = heavy_serfdom
+					}
+					if = {
+						limit = { has_building = freedom }
+						remove_building = freedom
+						add_building = heavy_serfdom
+					}
+					add_province_modifier = { name = lib_building_cooldown duration = 45 }
+				}
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						NOT = { months_since_defection = 1 }
+						NOT = { has_province_modifier = lib_building_cooldown }
+						is_overseas = no
+						is_core = ROOT
+						OR = {
+							culture = owner
+							has_owner_accepted_culture = yes
+							owner = {
+								culture_group = PREV
+								OR = {
+									AND = {
+										has_dlc = "Common Sense"
+										government_rank = 4
+									}
+									AND = {
+										NOT = { has_dlc = "Common Sense" }
+										total_development = 1050
+									}
+								}
+							}
+						}
+					}
+				}
+				every_owned_province = {
+					limit = {
+						NOT = { months_since_defection = 1 }
+						NOT = { has_province_modifier = lib_building_cooldown }
+						is_overseas = no
+						is_core = ROOT
+						OR = {
+							culture = owner
+							has_owner_accepted_culture = yes
+							owner = {
+								culture_group = PREV
+								OR = {
+									AND = {
+										has_dlc = "Common Sense"
+										government_rank = 4
+									}
+									AND = {
+										NOT = { has_dlc = "Common Sense" }
+										total_development = 1050
+									}
+								}
+							}
+						}
+					}
+					add_province_modifier = { name = lib_building_cooldown duration = 45 }
+				}
+			}
+			if = {
+				limit = { culture_group = iberian }
+				every_owned_province = {
+					limit = {
+						NOT = { months_since_defection = 1 }
+						NOT = { has_province_modifier = lib_building_cooldown }
+						NOT = { has_building = slavery }
+						NOT = { has_building = encomienda }
+						OR = {
+							culture_group = central_american
+							culture_group = maya
+							culture_group = otomanguean
+							culture_group = chibchan
+							culture_group = andean_group
+							culture_group = je_tupi
+							culture_group = chonan
+							culture_group = carribean
+						}
+					}
+					if = {
+						limit = { has_building = freedom }
+						remove_building = freedom
+					}
+					if = {
+						limit = { has_building = light_serfdom }
+						remove_building = light_serfdom
+					}
+					if = {
+						limit = { has_building = moderate_serfdom }
+						remove_building = moderate_serfdom
+					}
+					if = {
+						limit = { has_building = heavy_serfdom }
+						remove_building = heavy_serfdom
+					}
+					add_building = encomienda
+					if = {
+						limit = { has_building = citizens_20 }
+						remove_building = citizens_20
+					}
+					if = {
+						limit = { has_building = citizens_40 }
+						remove_building = citizens_40
+					}
+					if = {
+						limit = { has_building = citizens_60 }
+						remove_building = citizens_60
+					}
+					if = {
+						limit = { has_building = citizens_80 }
+						remove_building = citizens_80
+					}
+					if = {
+						limit = { has_building = nobles_20 }
+						remove_building = nobles_20
+					}
+					if = {
+						limit = { has_building = nobles_40 }
+						remove_building = nobles_40
+					}
+					if = {
+						limit = { has_building = nobles_60 }
+						remove_building = nobles_60
+					}
+					if = {
+						limit = { has_building = nobles_80 }
+						remove_building = nobles_80
+					}
+					add_province_modifier = { name = lib_building_cooldown duration = 45 }
+				}
+			}
+			every_owned_province = {
+				limit = {
+					NOT = { months_since_defection = 1 }
+					NOT = { has_province_modifier = lib_building_cooldown }
+					is_overseas = no
+					is_city = yes
+				}
+				set_province_flag = libbuild101
+			}
+			random_owned_province = {
+				limit = { has_province_flag = libbuild101 }
+				province_event = { id = vef_libbuild.101 days = 1 }
+			}
+		}
+	}
+
+	option = {
+		name = "vef_libbuild.100.opta"
+	}
+}
+
+#Decide Fate of Conquered Provinces
+province_event = {
+	id = vef_libbuild.101
+	title = vef_libbuild.101.t
+	desc = vef_libbuild.101.d
+	picture = VEF_CONQUEST_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = { NOT = { has_province_modifier = lib_building_cooldown }}
+	
+	immediate = {
+		hidden_effect = { add_province_modifier = { name = lib_building_cooldown duration = 45 }}
+		clr_province_flag = libbuild101
+		trigger_switch = {
+			on_trigger = has_building
+			heavy_serfdom = { custom_tooltip = formerfreedom_1 }
+			moderate_serfdom = { custom_tooltip = formerfreedom_2 }
+			light_serfdom = { custom_tooltip = formerfreedom_3 }
+			freedom = { custom_tooltip = formerfreedom_4 }
+			civic_charter = { custom_tooltip = formerfreedom_5 }
+			local_assembly = { custom_tooltip = formerfreedom_6 }
+			republic_city = { custom_tooltip = formerfreedom_6 }
+		}
+	}
+	
+	option = {	#Keep Local Lords in Place
+		trigger = {
+			OR = {
+				has_building = heavy_serfdom
+				has_building = moderate_serfdom
+				has_building = light_serfdom
+			}
+		}
+		ai_chance = { factor = 90 }
+		name = "vef_libbuild.101.opta"
+		custom_tooltip = no_building_change
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild101 }
+					province_event = { id = vef_libbuild.101 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Confirm Liberties
+		trigger = { has_building = freedom }
+		ai_chance = { factor = 90 }
+		name = "vef_libbuild.101.optb"
+		custom_tooltip = no_building_change
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild101 }
+					province_event = { id = vef_libbuild.101 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Confirm Charters
+		trigger = { has_building = civic_charter }
+		ai_chance = { factor = 90 }
+		name = "vef_libbuild.101.optc"
+		custom_tooltip = no_building_change
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild101 }
+					province_event = { id = vef_libbuild.101 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Confirm Assembly
+		trigger = { has_building = local_assembly }
+		ai_chance = { factor = 90 }
+		name = "vef_libbuild.101.optd"
+		custom_tooltip = no_building_change
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild101 }
+					province_event = { id = vef_libbuild.101 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Confirm Assembly
+		trigger = { has_building = republic_city }
+		ai_chance = { factor = 90 }
+		name = "vef_libbuild.101.optd"
+		if = {
+			limit = { province_id = 269 exists = VEN }
+			add_nationalism = 25
+		}
+		if = {
+			limit = { province_id = 253 exists = GEN }
+			add_nationalism = 25
+		}
+		if = {
+			limit = { province_id = 237 exists = FLR }
+			add_nationalism = 25
+		}
+		if = {
+			limit = { province_id = 242 exists = PIS }
+			add_nationalism = 25
+		}
+		if = {
+			limit = { province_id = 243 exists = LUC }
+			add_nationalism = 25
+		}
+		if = {
+			limit = { province_id = 240 exists = SIE }
+			add_nationalism = 25
+		}
+		remove_building = republic_city
+		add_building = local_assembly
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild101 }
+					province_event = { id = vef_libbuild.101 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Give the lands to $CULTURE$ Lords
+		trigger = {
+			owner = {
+				government = monarchy
+				check_variable = { which = aristocratic_privilege value = 30 }
+			}
+		}
+		ai_chance = { factor = 10 }
+		name = "vef_libbuild.101.opte"
+		province_event = { id = vef_libbuild.102 }
+		if = {
+			limit = {
+				OR = {
+					has_building = citizens_40
+					has_building = citizens_60
+					has_building = citizens_80
+				}
+			}
+			add_nationalism = 5
+		}
+	}
+	
+	option = {	#Appoint a Provincial Governor
+		name = "vef_libbuild.101.optf"
+		ai_chance = { factor = 10 }
+		province_event = { id = vef_libbuild.103 }
+		add_nationalism = 10
+	}
+	
+	option = {	#Remove republican institutions
+		name = "vef_libbuild.101.optg"
+		trigger = {
+			OR = {
+				has_building = republic_city
+				has_building = local_assembly
+			}
+		}
+		if = {
+			limit = { has_building = republic_city }
+			remove_building = republic_city
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_nationalism = 10
+		}
+		if = {
+			limit = { has_building = local_assembly }
+			remove_building = local_assembly
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_nationalism = 5
+		}
+		add_building = freedom
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild101 }
+					province_event = { id = vef_libbuild.101 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Grant charter
+		trigger = {
+			development = 12
+			NOT = { has_building = civic_charter }
+			owner = { check_variable = { which = vef_rule_law value = 25 }}
+		}
+		name = "vef_libbuild.101.opth"
+		trigger_switch = {
+			on_trigger = has_building
+			republic_city = {
+				remove_building = republic_city
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_nationalism = 5
+			}
+			local_assembly = {
+				remove_building = local_assembly
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_nationalism = 2
+			}
+			freedom = {
+				remove_building = freedom
+				add_nationalism = -2
+			}
+			light_serfdom = {
+				remove_building = light_serfdom
+				add_nationalism = -4
+			}
+			moderate_serfdom = {
+				remove_building = moderate_serfdom
+				add_nationalism = -6
+			}
+			heavy_serfdom = {
+				remove_building = heavy_serfdom
+				add_nationalism = -10
+			}
+		}
+		add_building = civic_charter
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild101 }
+					province_event = { id = vef_libbuild.101 days = 1 }
+				}
+			}
+		}
+	}
+}
+
+#$CULTURE$ Nobles
+province_event = {
+	id = vef_libbuild.102
+	title = vef_libbuild.102.t
+	desc = vef_libbuild.102.d
+	picture = VEF_CONQUEST_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+		trigger_switch = {
+			on_trigger = has_building
+			heavy_serfdom = { custom_tooltip = formerfreedom_1 }
+			moderate_serfdom = { custom_tooltip = formerfreedom_2 }
+			light_serfdom = { custom_tooltip = formerfreedom_3 }
+			freedom = { custom_tooltip = formerfreedom_4 }
+			civic_charter = { custom_tooltip = formerfreedom_5 }
+			local_assembly = { custom_tooltip = formerfreedom_6 }
+			republic_city = { custom_tooltip = formerfreedom_6 }
+		}
+		if = {
+			limit = { has_building = citizens_40 }
+			remove_building = citizens_40
+			if = {
+				limit = {
+					NOT = { has_building = nobles_60 }
+					NOT = { has_building = nobles_40 }
+					NOT = { has_building = nobles_20 }
+				}
+				add_building = nobles_40
+			}
+			if = {
+				limit = { has_building = nobles_60 }
+				remove_building = nobles_60
+				add_building = nobles_80
+				add_building = citizens_20
+			}
+			if = {
+				limit = { has_building = nobles_40 }
+				remove_building = nobles_40
+				add_building = nobles_80
+			}
+			if = {
+				limit = { has_building = nobles_20 }
+				remove_building = nobles_20
+				add_building = nobles_60
+			}
+		}
+		if = {
+			limit = { has_building = citizens_60 }
+			remove_building = citizens_60
+			add_building = citizens_20
+			if = {
+				limit = {
+					NOT = { has_building = nobles_40 }
+					NOT = { has_building = nobles_20 }
+				}
+				add_building = nobles_40
+			}
+			if = {
+				limit = { has_building = nobles_40 }
+				remove_building = nobles_40
+				add_building = nobles_80
+			}
+			if = {
+				limit = { has_building = nobles_20 }
+				remove_building = nobles_20
+				add_building = nobles_60
+			}
+		}
+		if = {
+			limit = { has_building = citizens_80 }
+			remove_building = citizens_80
+			add_building = citizens_40
+			if = {
+				limit = { NOT = { has_building = nobles_20 }}
+				add_building = nobles_40
+			}
+			if = {
+				limit = { has_building = nobles_20 }
+				remove_building = nobles_20
+				add_building = nobles_60
+			}
+		}
+	}
+	
+	option = {	#Maintain their current rights
+		trigger = {
+			OR = {
+				has_building = heavy_serfdom
+				has_building = moderate_serfdom
+				has_building = light_serfdom
+			}
+		}
+		name = "vef_libbuild.102.opta"
+		ai_chance = { factor = 100 }
+		custom_tooltip = no_building_change
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild101 }
+					province_event = { id = vef_libbuild.101 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#In accordance with our customs
+		name = "vef_libbuild.102.optb"
+		if = {
+			limit = { NOT = { owner = { check_variable = { which = free_subjects value = 1.5 }}}}
+			if = {
+				limit = { has_building = heavy_serfdom }
+				custom_tooltip = no_building_change
+			}
+			if = {
+				limit = { has_building = moderate_serfdom }
+				remove_building = moderate_serfdom
+				add_building = heavy_serfdom
+				add_nationalism = 5
+			}	
+			if = {
+				limit = { has_building = light_serfdom }
+				remove_building = light_serfdom
+				add_building = heavy_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = freedom }
+				remove_building = freedom
+				add_building = heavy_serfdom
+				add_nationalism = 15
+			}
+			if = {
+				limit = { has_building = civic_charter }
+				remove_building = civic_charter
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_charter
+				add_building = heavy_serfdom
+				add_nationalism = 15
+			}
+			if = {
+				limit = { has_building = local_assembly }
+				remove_building = local_assembly
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = heavy_serfdom
+				add_nationalism = 15
+			}
+			if = {
+				limit = { has_building = republic_city }
+				remove_building = republic_city
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = heavy_serfdom
+				add_nationalism = 20
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					check_variable = { which = free_subjects value = 1.5 }
+					NOT = { check_variable = { which = free_subjects value = 2.5 }}
+				}
+			}
+			if = {
+				limit = { has_building = heavy_serfdom }
+				remove_building = heavy_serfdom
+				add_building = moderate_serfdom
+				add_nationalism = -2
+			}
+			if = {
+				limit = { has_building = moderate_serfdom }
+				custom_tooltip = no_building_change
+			}	
+			if = {
+				limit = { has_building = light_serfdom }
+				remove_building = light_serfdom
+				add_building = moderate_serfdom
+				add_nationalism = 5
+			}
+			if = {
+				limit = { has_building = freedom }
+				remove_building = freedom
+				add_building = moderate_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = civic_charter }
+				remove_building = civic_charter
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_charter
+				add_building = moderate_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = local_assembly }
+				remove_building = local_assembly
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = moderate_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = republic_city }
+				remove_building = republic_city
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = moderate_serfdom
+				add_nationalism = 15
+			}
+		}
+		if = {
+			limit = { owner = { check_variable = { which = free_subjects value = 2.5 }}}
+			if = {
+				limit = { has_building = heavy_serfdom }
+				remove_building = heavy_serfdom
+				add_building = light_serfdom
+				add_nationalism = -5
+			}
+			if = {
+				limit = { has_building = moderate_serfdom }
+				remove_building = moderate_serfdom
+				add_building = light_serfdom
+				add_nationalism = -2
+			}	
+			if = {
+				limit = { has_building = light_serfdom }
+				custom_tooltip = no_building_change
+			}
+			if = {
+				limit = { has_building = freedom }
+				remove_building = freedom
+				add_building = light_serfdom
+				add_nationalism = 5
+			}
+			if = {
+				limit = { has_building = civic_charter }
+				remove_building = civic_charter
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_charter
+				add_building = light_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = local_assembly }
+				remove_building = local_assembly
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = light_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = republic_city }
+				remove_building = republic_city
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = light_serfdom
+				add_nationalism = 15
+			}
+		}
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild101 }
+					province_event = { id = vef_libbuild.101 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Slight restriction
+		trigger = { owner = { check_variable = { which = free_subjects value = 1.5 }}}
+		name = "vef_libbuild.102.optc"
+		if = {
+			limit = {
+				owner = { check_variable = { which = free_subjects value = 1.5 }}
+				NOT = { owner = { check_variable = { which = free_subjects value = 2.5 }}}
+			}
+			if = {
+				limit = { has_building = heavy_serfdom }
+				custom_tooltip = no_building_change
+			}
+			if = {
+				limit = { has_building = moderate_serfdom }
+				remove_building = moderate_serfdom
+				add_building = heavy_serfdom
+				add_nationalism = 5
+			}	
+			if = {
+				limit = { has_building = light_serfdom }
+				remove_building = light_serfdom
+				add_building = heavy_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = freedom }
+				remove_building = freedom
+				add_building = heavy_serfdom
+				add_nationalism = 15
+			}
+			if = {
+				limit = { has_building = civic_charter }
+				remove_building = civic_charter
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_charter
+				add_building = heavy_serfdom
+				add_nationalism = 15
+			}
+			if = {
+				limit = { has_building = local_assembly }
+				remove_building = local_assembly
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = heavy_serfdom
+				add_nationalism = 15
+			}
+			if = {
+				limit = { has_building = republic_city }
+				remove_building = republic_city
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = heavy_serfdom
+				add_nationalism = 20
+			}
+		}
+		if = {
+			limit = { owner = { check_variable = { which = free_subjects value = 2.5 }}}
+			if = {
+				limit = { has_building = heavy_serfdom }
+				remove_building = heavy_serfdom
+				add_building = moderate_serfdom
+				add_nationalism = -2
+			}
+			if = {
+				limit = { has_building = moderate_serfdom }
+				custom_tooltip = no_building_change
+			}	
+			if = {
+				limit = { has_building = light_serfdom }
+				remove_building = light_serfdom
+				add_building = moderate_serfdom
+				add_nationalism = 5
+			}
+			if = {
+				limit = { has_building = freedom }
+				remove_building = freedom
+				add_building = moderate_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = civic_charter }
+				remove_building = civic_charter
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_charter
+				add_building = moderate_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = local_assembly }
+				remove_building = local_assembly
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = moderate_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = republic_city }
+				remove_building = republic_city
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = moderate_serfdom
+				add_nationalism = 15
+			}
+		}
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild101 }
+					province_event = { id = vef_libbuild.101 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Significant restriction
+		trigger = { owner = { check_variable = { which = free_subjects value = 2.5 }}}
+		name = "vef_libbuild.102.optd"
+		if = {
+			limit = { has_building = heavy_serfdom }
+			custom_tooltip = no_building_change
+		}
+		if = {
+			limit = { has_building = moderate_serfdom }
+			remove_building = moderate_serfdom
+			add_building = heavy_serfdom
+			add_nationalism = 5
+		}	
+		if = {
+			limit = { has_building = light_serfdom }
+			remove_building = light_serfdom
+			add_building = heavy_serfdom
+			add_nationalism = 10
+		}
+		if = {
+			limit = { has_building = freedom }
+			remove_building = freedom
+			add_building = heavy_serfdom
+			add_nationalism = 15
+		}
+		if = {
+			limit = { has_building = civic_charter }
+			remove_building = civic_charter
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_charter
+			add_building = heavy_serfdom
+			add_nationalism = 15
+		}
+		if = {
+			limit = { has_building = local_assembly }
+			remove_building = local_assembly
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = heavy_serfdom
+			add_nationalism = 15
+		}
+		if = {
+			limit = { has_building = republic_city }
+			remove_building = republic_city
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = heavy_serfdom
+			add_nationalism = 20
+		}
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild101 }
+					province_event = { id = vef_libbuild.101 days = 1 }
+				}
+			}
+		}
+	}
+}
+
+#Provincial Governor
+province_event = {
+	id = vef_libbuild.103
+	title = vef_libbuild.103.t
+	desc = vef_libbuild.103.d
+	picture = VEF_CONQUEST_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+		trigger_switch = {
+			on_trigger = has_building
+			heavy_serfdom = { custom_tooltip = formerfreedom_1 }
+			moderate_serfdom = { custom_tooltip = formerfreedom_2 }
+			light_serfdom = { custom_tooltip = formerfreedom_3 }
+			freedom = { custom_tooltip = formerfreedom_4 }
+			civic_charter = { custom_tooltip = formerfreedom_5 }
+			local_assembly = { custom_tooltip = formerfreedom_6 }
+			republic_city = { custom_tooltip = formerfreedom_6 }
+		}
+		if = {
+			limit = { has_building = nobles_80 }
+			remove_building = nobles_80
+			add_building = nobles_40
+		}
+		if = {
+			limit = { has_building = nobles_60 }
+			remove_building = nobles_60
+			add_building = nobles_40
+		}
+		if = {
+			limit = { has_building = nobles_40 }
+			remove_building = nobles_40
+			add_building = nobles_20
+		}
+		if = {
+			limit = { has_building = nobles_20 }
+			remove_building = nobles_20
+		}
+		if = {
+			limit = { has_building = citizens_80 }
+			remove_building = citizens_80
+			add_building = citizens_40
+		}
+		if = {
+			limit = { has_building = citizens_60 }
+			remove_building = citizens_60
+			add_building = citizens_40
+		}
+		if = {
+			limit = { has_building = citizens_40 }
+			remove_building = citizens_40
+			add_building = citizens_20
+		}
+		if = {
+			limit = { has_building = citizens_20 }
+			remove_building = citizens_20
+		}
+	}
+	
+	option = {	#Maintain their current rights
+		trigger = {
+			OR = {
+				has_building = heavy_serfdom
+				has_building = moderate_serfdom
+				has_building = light_serfdom
+			}
+		}
+		name = "vef_libbuild.103.opta"
+		ai_chance = { factor = 100 }
+		custom_tooltip = no_building_change
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild101 }
+					province_event = { id = vef_libbuild.101 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#In accordance with our customs
+		name = "vef_libbuild.103.optb"
+		if = {
+			limit = { NOT = { owner = { check_variable = { which = free_subjects value = 1.5 }}}}
+			if = {
+				limit = { has_building = heavy_serfdom }
+				custom_tooltip = no_building_change
+			}
+			if = {
+				limit = { has_building = moderate_serfdom }
+				remove_building = moderate_serfdom
+				add_building = heavy_serfdom
+				add_nationalism = 5
+			}	
+			if = {
+				limit = { has_building = light_serfdom }
+				remove_building = light_serfdom
+				add_building = heavy_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = freedom }
+				remove_building = freedom
+				add_building = heavy_serfdom
+				add_nationalism = 15
+			}
+			if = {
+				limit = { has_building = civic_charter }
+				remove_building = civic_charter
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_charter
+				add_building = heavy_serfdom
+				add_nationalism = 15
+			}
+			if = {
+				limit = { has_building = local_assembly }
+				remove_building = local_assembly
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = heavy_serfdom
+				add_nationalism = 15
+			}
+			if = {
+				limit = { has_building = republic_city }
+				remove_building = republic_city
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = heavy_serfdom
+				add_nationalism = 20
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					check_variable = { which = free_subjects value = 1.5 }
+					NOT = { check_variable = { which = free_subjects value = 2.5 }}
+				}
+			}
+			if = {
+				limit = { has_building = heavy_serfdom }
+				remove_building = heavy_serfdom
+				add_building = moderate_serfdom
+				add_nationalism = -2
+			}
+			if = {
+				limit = { has_building = moderate_serfdom }
+				custom_tooltip = no_building_change
+			}	
+			if = {
+				limit = { has_building = light_serfdom }
+				remove_building = light_serfdom
+				add_building = moderate_serfdom
+				add_nationalism = 5
+			}
+			if = {
+				limit = { has_building = freedom }
+				remove_building = freedom
+				add_building = moderate_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = civic_charter }
+				remove_building = civic_charter
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_charter
+				add_building = moderate_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = local_assembly }
+				remove_building = local_assembly
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = moderate_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = republic_city }
+				remove_building = republic_city
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = moderate_serfdom
+				add_nationalism = 15
+			}
+		}
+		if = {
+			limit = { owner = { check_variable = { which = free_subjects value = 2.5 }}}
+			if = {
+				limit = { has_building = heavy_serfdom }
+				remove_building = heavy_serfdom
+				add_building = light_serfdom
+				add_nationalism = -5
+			}
+			if = {
+				limit = { has_building = moderate_serfdom }
+				remove_building = moderate_serfdom
+				add_building = light_serfdom
+				add_nationalism = -2
+			}	
+			if = {
+				limit = { has_building = light_serfdom }
+				custom_tooltip = no_building_change
+			}
+			if = {
+				limit = { has_building = freedom }
+				remove_building = freedom
+				add_building = light_serfdom
+				add_nationalism = 5
+			}
+			if = {
+				limit = { has_building = civic_charter }
+				remove_building = civic_charter
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_charter
+				add_building = light_serfdom
+				add_nationalism = 8
+			}
+			if = {
+				limit = { has_building = local_assembly }
+				remove_building = local_assembly
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = light_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = republic_city }
+				remove_building = republic_city
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = light_serfdom
+				add_nationalism = 15
+			}
+		}
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild101 }
+					province_event = { id = vef_libbuild.101 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Slight restriction
+		trigger = { owner = { check_variable = { which = free_subjects value = 1.5 }}}
+		name = "vef_libbuild.103.optc"
+		if = {
+			limit = { owner = { check_variable = { which = free_subjects value = 1.5 }}}
+			if = {
+				limit = { has_building = heavy_serfdom }
+				custom_tooltip = no_building_change
+			}
+			if = {
+				limit = { has_building = moderate_serfdom }
+				remove_building = moderate_serfdom
+				add_building = heavy_serfdom
+				add_nationalism = 5
+			}	
+			if = {
+				limit = { has_building = light_serfdom }
+				remove_building = light_serfdom
+				add_building = heavy_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = freedom }
+				remove_building = freedom
+				add_building = heavy_serfdom
+				add_nationalism = 15
+			}
+			if = {
+				limit = { has_building = civic_charter }
+				remove_building = civic_charter
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_charter
+				add_building = heavy_serfdom
+				add_nationalism = 15
+			}
+			if = {
+				limit = { has_building = local_assembly }
+				remove_building = local_assembly
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = heavy_serfdom
+				add_nationalism = 15
+			}
+			if = {
+				limit = { has_building = republic_city }
+				remove_building = republic_city
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = heavy_serfdom
+				add_nationalism = 20
+			}
+		}
+		if = {
+			limit = { owner = { check_variable = { which = free_subjects value = 2.5 }}}
+			if = {
+				limit = { has_building = heavy_serfdom }
+				remove_building = heavy_serfdom
+				add_building = moderate_serfdom
+				add_nationalism = -2
+			}
+			if = {
+				limit = { has_building = moderate_serfdom }
+				custom_tooltip = no_building_change
+			}	
+			if = {
+				limit = { has_building = light_serfdom }
+				remove_building = light_serfdom
+				add_building = moderate_serfdom
+				add_nationalism = 5
+			}
+			if = {
+				limit = { has_building = freedom }
+				remove_building = freedom
+				add_building = moderate_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = civic_charter }
+				remove_building = civic_charter
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_charter
+				add_building = moderate_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = local_assembly }
+				remove_building = local_assembly
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = moderate_serfdom
+				add_nationalism = 10
+			}
+			if = {
+				limit = { has_building = republic_city }
+				remove_building = republic_city
+				add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_assembly
+				add_building = moderate_serfdom
+				add_nationalism = 15
+			}
+		}
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild101 }
+					province_event = { id = vef_libbuild.101 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Significant restriction
+		trigger = { owner = { check_variable = { which = free_subjects value = 2.5 }}}
+		name = "vef_libbuild.103.optd"
+		if = {
+			limit = { has_building = heavy_serfdom }
+			custom_tooltip = no_building_change
+		}
+		if = {
+			limit = { has_building = moderate_serfdom }
+			remove_building = moderate_serfdom
+			add_building = heavy_serfdom
+			add_nationalism = 5
+		}	
+		if = {
+			limit = { has_building = light_serfdom }
+			remove_building = light_serfdom
+			add_building = heavy_serfdom
+			add_nationalism = 10
+		}
+		if = {
+			limit = { has_building = freedom }
+			remove_building = freedom
+			add_building = heavy_serfdom
+			add_nationalism = 15
+		}
+		if = {
+			limit = { has_building = civic_charter }
+			remove_building = civic_charter
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+				set_province_flag = newgov_was_charter
+			add_building = heavy_serfdom
+			add_nationalism = 15
+		}
+		if = {
+			limit = { has_building = local_assembly }
+			remove_building = local_assembly
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = heavy_serfdom
+			add_nationalism = 15
+		}
+		if = {
+			limit = { has_building = republic_city }
+			remove_building = republic_city
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = heavy_serfdom
+			add_nationalism = 20
+		}
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild101 }
+					province_event = { id = vef_libbuild.101 days = 1 }
+				}
+			}
+		}
+	}
+}
+
+
+#############
+# Republics #
+#############
+
+# Background for newly conquered provinces - republic non-enlightenment
+country_event = {
+	id = vef_libbuild.200
+	title = vef_libbuild.200.t
+	desc = vef_libbuild.200.d
+	picture = VEF_CONQUEST_eventPicture
+
+	is_triggered_only = yes #on_actions/on_war_won
+	
+	hidden = yes
+	
+	trigger = {
+		government = republic
+		NOT = { has_reform = revolutionary_republic }
+	}
+
+	immediate = {
+		every_owned_province = {
+			limit = {
+				NOT = { months_since_defection = 1 }
+				is_overseas = no
+				is_city = yes
+			}
+			set_province_flag = libbuild201
+			### Stability Calculation ###
+			if = {
+				limit = { has_global_flag = vef_stab_flag }
+				set_variable = { which = prov_stab_pen value = 100 }
+				if = {
+					limit = { is_core = ROOT }
+					change_variable = { which = prov_stab_pen value = -40 }
+					else = {
+						if = {
+							limit = { is_permanent_claim = ROOT }
+							change_variable = { which = prov_stab_pen value = -20 }
+						}
+					}
+				}
+				if = {
+					limit = { has_owner_culture = yes }
+					change_variable = { which = prov_stab_pen value = -20 }
+					else = {
+						if = {
+							limit = { culture_group = owner }
+							change_variable = { which = prov_stab_pen value = -10 }
+						}
+					}
+				}
+				if = {
+					limit = { has_owner_religion = yes }
+					change_variable = { which = prov_stab_pen value = -15 }
+					else = {
+						if = {
+							limit = { religion_group = owner }
+							change_variable = { which = prov_stab_pen value = -5 }
+						}
+					}
+				}
+				export_to_variable = { which = vef_stab_dev value = development }
+				owner = { export_to_variable = { which = vef_full_dev value = total_development }}
+				set_variable = { which = vef_full_dev which = ROOT }
+				divide_variable = { which = vef_stab_dev which = vef_full_dev }
+				multiply_variable = { which = vef_stab_dev value = 10 }
+				multiply_variable = { which = prov_stab_pen which = vef_stab_dev }
+				if = {
+					limit = { NOT = { check_variable = { which = prov_stab_pen value = 10 }}}
+					owner = { change_variable = { which = national_stability value = -10 }}
+					else = {
+						owner = {
+							set_variable = { which = prov_stab_pen which = PREV }
+							subtract_variable = { which = national_stability which = prov_stab_pen }
+						}
+					}
+				}
+			}
+			### End Stability Calculation ###
+		}
+		if = {
+			limit = { has_country_flag = forts_removed }
+			every_owned_province = {
+				limit = { has_province_flag = starting_fort }
+				clr_province_flag = starting_fort
+			}
+		}
+		random_owned_province = {
+			limit = { has_province_flag = libbuild201 }
+			province_event = { id = vef_libbuild.201 days = 1 }
+		}
+	}
+
+	option = {
+		name = "vef_libbuild.200.opta"
+	}
+}
+
+# Republic Province Disposition
+province_event = {
+	id = vef_libbuild.201
+	title = vef_libbuild.201.t
+	desc = vef_libbuild.201.d
+	picture = VEF_CONQUEST_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_province_flag = libbuild201
+		trigger_switch = {
+			on_trigger = has_building
+			heavy_serfdom = { custom_tooltip = formerfreedom_1 }
+			moderate_serfdom = { custom_tooltip = formerfreedom_2 }
+			light_serfdom = { custom_tooltip = formerfreedom_3 }
+			freedom = { custom_tooltip = formerfreedom_4 }
+			civic_charter = { custom_tooltip = formerfreedom_5 }
+			local_assembly = { custom_tooltip = formerfreedom_6 }
+			republic_city = { custom_tooltip = formerfreedom_6 }
+		}
+	}
+	
+	option = {	#Keep Local Lords in Place
+		trigger = {
+			OR = {
+				has_building = heavy_serfdom
+				has_building = moderate_serfdom
+				has_building = light_serfdom
+			}
+		}
+		ai_chance = { factor = 90 }
+		name = "vef_libbuild.201.opta"
+		custom_tooltip = no_building_change
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild201 }
+					province_event = { id = vef_libbuild.201 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Confirm Liberties
+		trigger = { has_building = freedom }
+		ai_chance = { factor = 90 }
+		name = "vef_libbuild.201.optb"
+		custom_tooltip = no_building_change
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild201 }
+					province_event = { id = vef_libbuild.201 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Confirm Charters
+		trigger = { has_building = civic_charter }
+		ai_chance = { factor = 90 }
+		name = "vef_libbuild.201.optc"
+		custom_tooltip = no_building_change
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild201 }
+					province_event = { id = vef_libbuild.201 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Confirm Assembly
+		trigger = { has_building = local_assembly }
+		ai_chance = { factor = 90 }
+		name = "vef_libbuild.201.optd"
+		custom_tooltip = no_building_change
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild201 }
+					province_event = { id = vef_libbuild.201 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Confirm Assembly
+		trigger = { has_building = republic_city }
+		ai_chance = { factor = 90 }
+		name = "vef_libbuild.201.optd"
+		if = {
+			limit = { province_id = 269 exists = VEN }
+			add_nationalism = 25
+		}
+		if = {
+			limit = { province_id = 253 exists = GEN }
+			add_nationalism = 25
+		}
+		if = {
+			limit = { province_id = 237 exists = FLR }
+			add_nationalism = 25
+		}
+		if = {
+			limit = { province_id = 242 exists = PIS }
+			add_nationalism = 25
+		}
+		if = {
+			limit = { province_id = 243 exists = LUC }
+			add_nationalism = 25
+		}
+		if = {
+			limit = { province_id = 240 exists = SIE }
+			add_nationalism = 25
+		}
+		remove_building = republic_city
+		add_building = local_assembly
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild201 }
+					province_event = { id = vef_libbuild.201 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Give the lands to $CULTURE$ Lords
+		trigger = { owner = { has_reform = noble_republic }}
+		ai_chance = { factor = 10 }
+		name = "vef_libbuild.201.opte"
+		if = {
+			limit = {
+				OR = {
+					has_building = citizens_40
+					has_building = citizens_60
+					has_building = citizens_80
+				}
+			}
+			add_nationalism = 5
+		}
+		
+		province_event = { id = vef_libbuild.202 }
+	}
+	
+	option = {	#Appoint a Provincial Governor
+		name = "vef_libbuild.201.optf"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				OR = {
+					has_building = civic_charter
+					has_building = local_assembly
+					has_building = republic_city
+				}
+				factor = 0
+			}
+		}
+		province_event = { id = vef_libbuild.203 }
+	}
+	
+}
+
+#$CULTURE$ Nobles
+province_event = {
+	id = vef_libbuild.202
+	title = vef_libbuild.202.t
+	desc = vef_libbuild.202.d
+	picture = VEF_CONQUEST_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+		trigger_switch = {
+			on_trigger = has_building
+			heavy_serfdom = { custom_tooltip = formerfreedom_1 }
+			moderate_serfdom = { custom_tooltip = formerfreedom_2 }
+			light_serfdom = { custom_tooltip = formerfreedom_3 }
+			freedom = { custom_tooltip = formerfreedom_4 }
+			civic_charter = { custom_tooltip = formerfreedom_5 }
+			local_assembly = { custom_tooltip = formerfreedom_6 }
+			republic_city = { custom_tooltip = formerfreedom_6 }
+		}
+		if = {
+			limit = { has_building = citizens_40 }
+			remove_building = citizens_40
+			if = {
+				limit = { has_building = nobles_60 }
+				remove_building = nobles_60
+				add_building = nobles_80
+				add_building = citizens_20
+			}
+			if = {
+				limit = { has_building = nobles_40 }
+				remove_building = nobles_40
+				add_building = nobles_80
+			}
+			if = {
+				limit = { has_building = nobles_20 }
+				remove_building = nobles_20
+				add_building = nobles_60
+			}
+			if = {
+				limit = {
+					NOT = { has_building = nobles_60 }
+					NOT = { has_building = nobles_40 }
+					NOT = { has_building = nobles_20 }
+				}
+				add_building = nobles_40
+			}
+		}
+		if = {
+			limit = { has_building = citizens_60 }
+			remove_building = citizens_60
+			add_building = citizens_20
+			if = {
+				limit = { has_building = nobles_40 }
+				remove_building = nobles_40
+				add_building = nobles_80
+			}
+			if = {
+				limit = { has_building = nobles_20 }
+				remove_building = nobles_20
+				add_building = nobles_60
+			}
+			if = {
+				limit = {
+					NOT = { has_building = nobles_40 }
+					NOT = { has_building = nobles_20 }
+				}
+				add_building = nobles_40
+			}
+		}
+		if = {
+			limit = { has_building = citizens_80 }
+			remove_building = citizens_80
+			add_building = citizens_40
+			if = {
+				limit = { has_building = nobles_20 }
+				remove_building = nobles_20
+				add_building = nobles_60
+			}
+			if = {
+				limit = { NOT = { has_building = nobles_20 }}
+				add_building = nobles_40
+			}
+		}
+	}
+	
+	option = {	#Maintain their current rights
+		trigger = {
+			OR = {
+				has_building = heavy_serfdom
+				has_building = moderate_serfdom
+				has_building = light_serfdom
+			}
+		}
+		name = "vef_libbuild.202.opta"
+		ai_chance = { factor = 100 }
+		custom_tooltip = no_building_change
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild201 }
+					province_event = { id = vef_libbuild.201 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Nothing
+		name = "vef_libbuild.202.optb"
+		if = {
+			limit = { has_building = heavy_serfdom }
+			custom_tooltip = no_building_change
+		}
+		if = {
+			limit = { has_building = moderate_serfdom }
+			remove_building = moderate_serfdom
+			add_building = heavy_serfdom
+			add_nationalism = 5
+		}	
+		if = {
+			limit = { has_building = light_serfdom }
+			remove_building = light_serfdom
+			add_building = heavy_serfdom
+			add_nationalism = 10
+		}
+		if = {
+			limit = { has_building = freedom }
+			remove_building = freedom
+			add_building = heavy_serfdom
+			add_nationalism = 15
+		}
+		if = {
+			limit = { has_building = civic_charter }
+			remove_building = civic_charter
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_charter
+			add_building = heavy_serfdom
+			add_nationalism = 15
+		}
+		if = {
+			limit = { has_building = local_assembly }
+			remove_building = local_assembly
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = heavy_serfdom
+			add_nationalism = 20
+		}
+		if = {
+			limit = { has_building = republic_city }
+			remove_building = republic_city
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = heavy_serfdom
+			add_nationalism = 20
+		}
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild201 }
+					province_event = { id = vef_libbuild.201 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Movement
+		name = "vef_libbuild.202.optc"
+		if = {
+			limit = { has_building = heavy_serfdom }
+			remove_building = heavy_serfdom
+			add_building = moderate_serfdom
+			add_nationalism = -2
+		}
+		if = {
+			limit = { has_building = moderate_serfdom }
+			custom_tooltip = no_building_change
+		}	
+		if = {
+			limit = { has_building = light_serfdom }
+			remove_building = light_serfdom
+			add_building = moderate_serfdom
+			add_nationalism = 5
+		}
+		if = {
+			limit = { has_building = freedom }
+			remove_building = freedom
+			add_building = moderate_serfdom
+			add_nationalism = 10
+		}
+		if = {
+			limit = { has_building = civic_charter }
+			remove_building = civic_charter
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_charter
+			add_building = moderate_serfdom
+			add_unrest = 10
+		}
+		if = {
+			limit = { has_building = local_assembly }
+			remove_building = local_assembly
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = moderate_serfdom
+			add_unrest = 15
+		}
+		if = {
+			limit = { has_building = republic_city }
+			remove_building = republic_city
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = moderate_serfdom
+			add_unrest = 15
+		}
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild201 }
+					province_event = { id = vef_libbuild.201 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Property Rights
+		name = "vef_libbuild.202.optd"
+		if = {
+			limit = { has_building = heavy_serfdom }
+			remove_building = heavy_serfdom
+			add_building = light_serfdom
+			add_unrest = -5
+		}
+		if = {
+			limit = { has_building = moderate_serfdom }
+			remove_building = moderate_serfdom
+			add_building = light_serfdom
+			add_unrest = -2
+		}	
+		if = {
+			limit = { has_building = light_serfdom }
+			custom_tooltip = no_building_change
+		}
+		if = {
+			limit = { has_building = freedom }
+			remove_building = freedom
+			add_building = light_serfdom
+			add_unrest = 5
+		}
+		if = {
+			limit = { has_building = civic_charter }
+			remove_building = civic_charter
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_charter
+			add_building = light_serfdom
+			add_unrest = 5
+		}
+		if = {
+			limit = { has_building = local_assembly }
+			remove_building = local_assembly
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = light_serfdom
+			add_unrest = 10
+		}
+		if = {
+			limit = { has_building = republic_city }
+			remove_building = republic_city
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = light_serfdom
+			add_unrest = 10
+		}
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild201 }
+					province_event = { id = vef_libbuild.201 days = 1 }
+				}
+			}
+		}
+	}
+}
+
+#Provincial Governor
+province_event = {
+	id = vef_libbuild.203
+	title = vef_libbuild.203.t
+	desc = vef_libbuild.203.d
+	picture = VEF_CONQUEST_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+		trigger_switch = {
+			on_trigger = has_building
+			heavy_serfdom = { custom_tooltip = formerfreedom_1 }
+			moderate_serfdom = { custom_tooltip = formerfreedom_2 }
+			light_serfdom = { custom_tooltip = formerfreedom_3 }
+			freedom = { custom_tooltip = formerfreedom_4 }
+			civic_charter = { custom_tooltip = formerfreedom_5 }
+			local_assembly = { custom_tooltip = formerfreedom_6 }
+			republic_city = { custom_tooltip = formerfreedom_6 }
+		}
+	}
+	
+	option = {	#Maintain their current rights
+		trigger = {
+			OR = {
+				has_building = heavy_serfdom
+				has_building = moderate_serfdom
+				has_building = light_serfdom
+			}
+		}
+		name = "vef_libbuild.203.opta"
+		ai_chance = { factor = 100 }
+		custom_tooltip = no_building_change
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild201 }
+					province_event = { id = vef_libbuild.201 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Restrict their movement and property
+		name = "vef_libbuild.203.optb"
+		if = {
+			limit = { has_building = heavy_serfdom }
+			custom_tooltip = no_building_change
+		}
+		if = {
+			limit = { has_building = moderate_serfdom }
+			remove_building = moderate_serfdom
+			add_building = heavy_serfdom
+			add_unrest = 5
+		}	
+		if = {
+			limit = { has_building = light_serfdom }
+			remove_building = light_serfdom
+			add_building = heavy_serfdom
+			add_unrest = 10
+		}
+		if = {
+			limit = { has_building = freedom }
+			remove_building = freedom
+			add_building = heavy_serfdom
+			add_unrest = 15
+		}
+		if = {
+			limit = { has_building = civic_charter }
+			remove_building = civic_charter
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_charter
+			add_building = heavy_serfdom
+			add_unrest = 15
+		}
+		if = {
+			limit = { has_building = local_assembly }
+			remove_building = local_assembly
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = heavy_serfdom
+			add_unrest = 20
+		}
+		if = {
+			limit = { has_building = republic_city }
+			remove_building = republic_city
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = heavy_serfdom
+			add_unrest = 20
+		}
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild201 }
+					province_event = { id = vef_libbuild.201 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Restrict only property and inheritance
+		name = "vef_libbuild.203.optc"
+		if = {
+			limit = { has_building = heavy_serfdom }
+			remove_building = heavy_serfdom
+			add_building = moderate_serfdom
+			add_unrest = -2
+		}
+		if = {
+			limit = { has_building = moderate_serfdom }
+			custom_tooltip = no_building_change
+		}	
+		if = {
+			limit = { has_building = light_serfdom }
+			remove_building = light_serfdom
+			add_building = moderate_serfdom
+			add_unrest = 5
+		}
+		if = {
+			limit = { has_building = freedom }
+			remove_building = freedom
+			add_building = moderate_serfdom
+			add_unrest = 10
+		}
+		if = {
+			limit = { has_building = civic_charter }
+			remove_building = civic_charter
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_charter
+			add_building = moderate_serfdom
+			add_unrest = 10
+		}
+		if = {
+			limit = { has_building = local_assembly }
+			remove_building = local_assembly
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = moderate_serfdom
+			add_unrest = 15
+		}
+		if = {
+			limit = { has_building = republic_city }
+			remove_building = republic_city
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = moderate_serfdom
+			add_unrest = 15
+		}
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild201 }
+					province_event = { id = vef_libbuild.201 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Restrict only property
+		name = "vef_libbuild.203.optd"
+		if = {
+			limit = { has_building = heavy_serfdom }
+			remove_building = heavy_serfdom
+			add_building = light_serfdom
+			add_unrest = -5
+		}
+		if = {
+			limit = { has_building = moderate_serfdom }
+			remove_building = moderate_serfdom
+			add_building = light_serfdom
+			add_unrest = -2
+		}	
+		if = {
+			limit = { has_building = light_serfdom }
+			custom_tooltip = no_building_change
+		}
+		if = {
+			limit = { has_building = freedom }
+			remove_building = freedom
+			add_building = light_serfdom
+			add_unrest = 5
+		}
+		if = {
+			limit = { has_building = civic_charter }
+			remove_building = civic_charter
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_charter
+			add_building = light_serfdom
+			add_unrest = 5
+		}
+		if = {
+			limit = { has_building = local_assembly }
+			remove_building = local_assembly
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = light_serfdom
+			add_unrest = 10
+		}
+		if = {
+			limit = { has_building = republic_city }
+			remove_building = republic_city
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = light_serfdom
+			add_unrest = 10
+		}
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild201 }
+					province_event = { id = vef_libbuild.201 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	#Property Rights
+		name = "vef_libbuild.203.opte"
+		if = {
+			limit = { has_building = heavy_serfdom }
+			remove_building = heavy_serfdom
+			add_building = freedom
+			add_unrest = -8
+		}
+		if = {
+			limit = { has_building = moderate_serfdom }
+			remove_building = moderate_serfdom
+			add_building = freedom
+			add_unrest = -5
+		}	
+		if = {
+			limit = { has_building = light_serfdom }
+			remove_building = light_serfdom
+			add_building = freedom
+			add_unrest = -2
+		}
+		if = {
+			limit = { has_building = freedom }
+			custom_tooltip = no_building_change
+		}
+		if = {
+			limit = { has_building = civic_charter }
+			remove_building = civic_charter
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_charter
+			add_building = freedom
+			add_unrest = 2
+		}
+		if = {
+			limit = { has_building = local_assembly }
+			remove_building = local_assembly
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = freedom
+			add_unrest = 5
+		}
+		if = {
+			limit = { has_building = republic_city }
+			remove_building = republic_city
+			add_permanent_province_modifier = { name = newgov_had_rights duration = 36500 }
+			set_province_flag = newgov_was_assembly
+			add_building = freedom
+			add_unrest = 5
+		}
+		hidden_effect = {
+			owner = {
+				random_owned_province = {
+					limit = { has_province_flag = libbuild201 }
+					province_event = { id = vef_libbuild.201 days = 1 }
+				}
+			}
+		}
+	}
+}
+
+
+##########
+# Nomads #
+##########
+
+# Background 
+country_event = {
+	id = vef_libbuild.300
+	title = vef_libbuild.300.t
+	desc = vef_libbuild.300.d
+	picture = VEF_CONQUEST_eventPicture
+
+	is_triggered_only = yes #on_actions/on_war_won
+	
+	hidden = yes
+	
+	trigger = {
+		is_nomad = yes
+	}
+
+	immediate = {
+		if = {
+			limit = { has_country_flag = forts_removed }
+			every_owned_province = {
+				limit = { has_province_flag = starting_fort }
+				clr_province_flag = starting_fort
+				if = {
+					limit = { has_province_modifier = theodosian_walls }
+					remove_province_modifier = theodosian_walls
+				}
+			}
+		}
+		every_owned_province = {
+			limit = {
+				NOT = { months_since_defection = 1 }
+				NOT = { has_province_modifier = lib_building_cooldown }
+			}
+			### Stability Calculation ###
+			if = {
+				limit = { has_global_flag = vef_stab_flag }
+				set_variable = { which = prov_stab_pen value = 100 }
+				if = {
+					limit = { is_core = ROOT }
+					change_variable = { which = prov_stab_pen value = -40 }
+					else = {
+						if = {
+							limit = { is_permanent_claim = ROOT }
+							change_variable = { which = prov_stab_pen value = -20 }
+						}
+					}
+				}
+				if = {
+					limit = { has_owner_culture = yes }
+					change_variable = { which = prov_stab_pen value = -20 }
+					else = {
+						if = {
+							limit = { culture_group = owner }
+							change_variable = { which = prov_stab_pen value = -10 }
+						}
+					}
+				}
+				if = {
+					limit = { has_owner_religion = yes }
+					change_variable = { which = prov_stab_pen value = -15 }
+					else = {
+						if = {
+							limit = { religion_group = owner }
+							change_variable = { which = prov_stab_pen value = -5 }
+						}
+					}
+				}
+				export_to_variable = { which = vef_stab_dev value = development }
+				owner = { export_to_variable = { which = vef_full_dev value = total_development }}
+				set_variable = { which = vef_full_dev which = ROOT }
+				divide_variable = { which = vef_stab_dev which = vef_full_dev }
+				multiply_variable = { which = vef_stab_dev value = 10 }
+				multiply_variable = { which = prov_stab_pen which = vef_stab_dev }
+				if = {
+					limit = { check_variable = { which = prov_stab_pen value = 25 }}
+					owner = { change_variable = { which = national_stability value = -25 }}
+					else = {
+						owner = {
+							set_variable = { which = prov_stab_pen which = PREV }
+							subtract_variable = { which = national_stability which = prov_stab_pen }
+						}
+					}
+				}
+			}
+			### End Stability Calculation ###
+			if = {
+				limit = { has_province_flag = hold_10a }
+				clr_province_flag = hold_10a
+			}
+			if = {
+				limit = { has_province_flag = hold_20a }
+				clr_province_flag = hold_20a
+			}
+			if = {
+				limit = { has_province_flag = hold_30a }
+				clr_province_flag = hold_30a
+			}
+			if = {
+				limit = { has_province_flag = hold_40a }
+				clr_province_flag = hold_40a
+			}
+			if = {
+				limit = { has_province_flag = hold_60a }
+				clr_province_flag = hold_60a
+			}
+			if = {
+				limit = { has_province_flag = noble_titles }
+				clr_province_flag = noble_titles
+			}
+			if = {
+				limit = { has_province_flag = selling_land }
+				clr_province_flag = selling_land
+			}
+			if = {
+				limit = { has_province_flag = church_donation }
+				clr_province_flag = church_donation
+			}
+			if = {
+				limit = { has_province_flag = seizing_land_noble }
+				clr_province_flag = seizing_land_noble
+			}
+			if = {
+				limit = { has_province_flag = seizing_land_citizen }
+				clr_province_flag = seizing_land_citizen
+			}
+		}
+	}
+
+	option = {
+		name = "vef_libbuild.300.opta"
+	}
+}
+
+
+#############
+# Theocracy #
+#############
+
+# Background for newly conquered provinces - theocracies
+country_event = {
+	id = vef_libbuild.400
+	title = vef_libbuild.400.t
+	desc = vef_libbuild.400.d
+	picture = VEF_CONQUEST_eventPicture
+
+	is_triggered_only = yes #on_actions/on_war_won
+	
+	hidden = yes
+	
+	trigger = {
+		government = theocracy
+	}
+
+	immediate = {
+		every_owned_province = {
+			limit = {
+				NOT = { months_since_defection = 1 }
+				is_overseas = no
+				is_city = yes
+			}
+			### Stability Calculation ###
+			if = {
+				limit = { has_global_flag = vef_stab_flag }
+				set_variable = { which = prov_stab_pen value = 100 }
+				if = {
+					limit = { is_core = ROOT }
+					change_variable = { which = prov_stab_pen value = -40 }
+					else = {
+						if = {
+							limit = { is_permanent_claim = ROOT }
+							change_variable = { which = prov_stab_pen value = -20 }
+						}
+					}
+				}
+				if = {
+					limit = { has_owner_culture = yes }
+					change_variable = { which = prov_stab_pen value = -20 }
+					else = {
+						if = {
+							limit = { culture_group = owner }
+							change_variable = { which = prov_stab_pen value = -10 }
+						}
+					}
+				}
+				if = {
+					limit = { has_owner_religion = yes }
+					change_variable = { which = prov_stab_pen value = -15 }
+					else = {
+						if = {
+							limit = { religion_group = owner }
+							change_variable = { which = prov_stab_pen value = -5 }
+						}
+					}
+				}
+				export_to_variable = { which = vef_stab_dev value = development }
+				owner = { export_to_variable = { which = vef_full_dev value = total_development }}
+				set_variable = { which = vef_full_dev which = ROOT }
+				divide_variable = { which = vef_stab_dev which = vef_full_dev }
+				multiply_variable = { which = vef_stab_dev value = 10 }
+				multiply_variable = { which = prov_stab_pen which = vef_stab_dev }
+				if = {
+					limit = { NOT = { check_variable = { which = prov_stab_pen value = 10 }}}
+					owner = { change_variable = { which = national_stability value = -10 }}
+					else = {
+						owner = {
+							set_variable = { which = prov_stab_pen which = PREV }
+							subtract_variable = { which = national_stability which = prov_stab_pen }
+						}
+					}
+				}
+			}
+			### End Stability Calculation ###
+		}
+		if = {
+			limit = { has_country_flag = forts_removed }
+			every_owned_province = {
+				limit = { has_province_flag = starting_fort }
+				clr_province_flag = starting_fort
+			}
+		}
+	}
+
+	option = {
+		name = "vef_libbuild.400.opta"
+	}
+}
+
+
+#############################
+# Newly Colonised Provinces #
+#############################
+
+province_event = {
+	id = vef_libbuild.1000
+	title = "vef_libbuild.1000.t"
+	desc = "vef_libbuild.1000.d"
+	picture = VEF_COURT_eventPicture
+	
+	hidden = yes
+	
+	is_triggered_only = yes	#vef_government.3
+
+	immediate = {
+		clr_province_flag = libbuild_initialise
+		if = {
+			limit = {
+				NOT = { region = west_siberia_region }
+				NOT = { region = east_siberia_region }
+				NOT = { region = ural_region }
+				NOT = { region = russia_region }
+				NOT = { region = scandinavia_region }
+				NOT = { owner = { capital_scope = { continent = north_america }}}
+				NOT = { owner = { capital_scope = { continent = south_america }}}
+				NOT = { owner = { capital_scope = { continent = new_world }}}
+				is_overseas = yes
+			}
+			set_province_flag = colony_marker
+		}
+		if = {
+			limit = {
+				NOT = { area = cuba_area }
+				OR = {
+					region = carribeans_region
+					AND = {
+						island = yes
+						OR = {
+							trade_goods = cotton
+							trade_goods = tobacco
+							trade_goods = sugar
+						}
+					}
+				}
+				NOT = { native_size = 9 }
+				owner = {
+					technology_group = western
+					NOT = { has_country_modifier = the_abolish_slavery_act }
+				}
+			}
+			add_building = slavery
+		}
+		if = {
+			limit = {
+				NOT = { has_building = slavery }
+				OR = {
+					continent = north_america
+					continent = south_america
+					continent = new_world
+				}
+				owner = { culture_group = iberian }
+			}
+			add_building = encomienda
+			add_building = nobles_80
+		}
+		if = {
+			limit = {
+				NOT = { has_building = slavery }
+				owner = { culture_group = east_slavic }
+				OR = {
+					region = russia_region
+					region = west_siberia_region
+					region = east_siberia_region
+					region = ural_region
+					region = caucasia_region
+				}
+			}
+			add_building = light_serfdom
+			add_building = nobles_60
+			add_building = citizens_20
+		}
+		if = {
+			limit = {
+				NOT = { has_building = slavery }
+				NOT = { has_building = encomienda }
+				NOT = { has_building = heavy_serfdom }
+				NOT = { has_building = moderate_serfdom }
+				NOT = { has_building = light_serfdom }
+				NOT = { has_building = freedom }
+				NOT = { has_building = civic_charter }
+				NOT = { has_building = local_assembly }
+				NOT = { has_building = republic_city }
+			}
+			add_building = freedom
+			add_building = citizens_80
+		}
+	}
+	
+	option = {
+		name = "vef_libbuild.1000.opta"
+	}
+}
+
+
+###################
+# Dynamic Drivers #
+###################
+
+# Freedom drives citizen ownership at the expense of nobles; law makes this faster
+province_event = {
+	id = vef_libbuild.2000
+	title = "vef_libbuild.2000.t"
+	desc = "vef_libbuild.2000.d"
+	picture = VEF_COURT_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			has_building = freedom
+			has_building = civic_charter
+		}
+		OR = {
+			has_building = nobles_80
+			has_building = nobles_60
+			has_building = nobles_40
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+		modifier = {
+			owner = { check_variable = { which = vef_rule_law value = 30 }}
+			factor = 0.75
+		}
+		modifier = {
+			owner = { check_variable = { which = vef_rule_law value = 50 }}
+			factor = 0.75
+		}
+		modifier = {
+			owner = { check_variable = { which = vef_rule_law value = 60 }}
+			factor = 0.75
+		}
+		modifier = {
+			has_building = civic_charter
+			factor = 0.2
+		}
+	}
+	
+	option = {
+		trigger = { has_building = nobles_80 }
+		name = "vef_libbuild.2000.opta"
+		remove_building = nobles_80
+		add_building = nobles_60
+		if = {
+			limit = { has_building = citizens_20 }
+			remove_building = citizens_20
+			add_building = citizens_40
+		}
+		if = {
+			limit = {
+				NOT = { has_building = citizens_20 }
+				NOT = { has_building = citizens_40 }
+			}
+			add_building = citizens_20
+		}
+	}
+	
+	option = {
+		trigger = { has_building = nobles_60 }
+		name = "vef_libbuild.2000.opta"
+		remove_building = nobles_60
+		add_building = nobles_40
+		if = {
+			limit = { has_building = citizens_40 }
+			remove_building = citizens_40
+			add_building = citizens_60
+		}
+		if = {
+			limit = { has_building = citizens_20 }
+			remove_building = citizens_20
+			add_building = citizens_40
+		}
+		if = {
+			limit = {
+				NOT = { has_building = citizens_20 }
+				NOT = { has_building = citizens_40 }
+				NOT = { has_building = citizens_60 }
+			}
+			add_building = citizens_20
+		}
+	}
+	
+	option = {
+		trigger = { has_building = nobles_40 }
+		name = "vef_libbuild.2000.opta"
+		remove_building = nobles_40
+		add_building = nobles_20
+		if = {
+			limit = { has_building = citizens_60 }
+			remove_building = citizens_60
+			add_building = citizens_80
+		}
+		if = {
+			limit = { has_building = citizens_40 }
+			remove_building = citizens_40
+			add_building = citizens_60
+		}
+		if = {
+			limit = { has_building = citizens_20 }
+			remove_building = citizens_20
+			add_building = citizens_40
+		}
+		if = {
+			limit = {
+				NOT = { has_building = citizens_20 }
+				NOT = { has_building = citizens_40 }
+				NOT = { has_building = citizens_60 }
+				NOT = { has_building = citizens_80 }
+			}
+			add_building = citizens_20
+		}
+	}
+}
+
+# Heavy Serfdom reduces citizen ownership
+province_event = {
+	id = vef_libbuild.2001
+	title = "vef_libbuild.2001.t"
+	desc = "vef_libbuild.2001.d"
+	picture = VEF_COURT_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		has_building = heavy_serfdom
+		OR = {
+			has_building = citizens_80
+			has_building = citizens_60
+			has_building = citizens_40
+			has_building = citizens_20
+		}
+	}
+	
+	mean_time_to_happen = { months = 300 }
+	
+	option = {
+		trigger = { has_building = citizens_80 }
+		name = "vef_libbuild.2001.opta"
+		remove_building = citizens_80
+		add_building = citizens_60
+		if = {
+			limit = { has_building = nobles_20 }
+			remove_building = nobles_20
+			add_building = nobles_40
+		}
+		if = {
+			limit = {
+				NOT = { has_building = nobles_20 }
+				NOT = { has_building = nobles_40 }
+			}
+			add_building = nobles_20
+		}
+	}
+	
+	option = {
+		trigger = { has_building = citizens_60 }
+		name = "vef_libbuild.2001.opta"
+		remove_building = citizens_60
+		add_building = citizens_40
+		if = {
+			limit = { has_building = nobles_40 }
+			remove_building = nobles_40
+			add_building = nobles_60
+		}
+		if = {
+			limit = { has_building = nobles_20 }
+			remove_building = nobles_20
+			add_building = nobles_40
+		}
+		if = {
+			limit = {
+				NOT = { has_building = nobles_20 }
+				NOT = { has_building = nobles_40 }
+				NOT = { has_building = nobles_60 }
+			}
+			add_building = nobles_20
+		}
+	}
+	option = {
+		trigger = { has_building = citizens_40 }
+		name = "vef_libbuild.2001.opta"
+		remove_building = citizens_40
+		add_building = citizens_20
+		if = {
+			limit = { has_building = nobles_60 }
+			remove_building = nobles_60
+			add_building = nobles_80
+		}
+		if = {
+			limit = { has_building = nobles_40 }
+			remove_building = nobles_40
+			add_building = nobles_60
+		}
+		if = {
+			limit = { has_building = nobles_20 }
+			remove_building = nobles_20
+			add_building = nobles_40
+		}
+		if = {
+			limit = {
+				NOT = { has_building = nobles_20 }
+				NOT = { has_building = nobles_40 }
+				NOT = { has_building = nobles_60 }
+				NOT = { has_building = nobles_80 }
+			}
+			add_building = nobles_20
+		}
+	}
+	option = {
+		trigger = { has_building = citizens_20 }
+		name = "vef_libbuild.2001.opta"
+		remove_building = citizens_20
+		if = {
+			limit = { has_building = nobles_60 }
+			remove_building = nobles_60
+			add_building = nobles_80
+		}
+		if = {
+			limit = { has_building = nobles_40 }
+			remove_building = nobles_40
+			add_building = nobles_60
+		}
+		if = {
+			limit = { has_building = nobles_20 }
+			remove_building = nobles_20
+			add_building = nobles_40
+		}
+		if = {
+			limit = {
+				NOT = { has_building = nobles_20 }
+				NOT = { has_building = nobles_40 }
+				NOT = { has_building = nobles_60 }
+				NOT = { has_building = nobles_80 }
+			}
+			add_building = nobles_20
+		}
+	}
+}
+
+# No AP reduces Serfdom (For free nations conquering areas where their option is to leave local lords in place).
+province_event = {
+	id = vef_libbuild.2002
+	title = "vef_libbuild.2002.t"
+	desc = "vef_libbuild.2002.d"
+	picture = VEF_COURT_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			has_building = heavy_serfdom
+			has_building = moderate_serfdom
+			has_building = light_serfdom
+		}
+		NOT = { owner = { check_variable = { which = aristocratic_privilege value = 15 }}}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+		modifier = {
+			owner = { check_variable = { which = vef_rule_law value = 30 }}
+			factor = 0.75
+		}
+		modifier = {
+			owner = { check_variable = { which = vef_rule_law value = 50 }}
+			factor = 0.75
+		}
+		modifier = {
+			owner = { check_variable = { which = vef_rule_law value = 60 }}
+			factor = 0.75
+		}
+	}
+	
+	option = {
+		if = {
+			limit = { has_building = light_serfdom }
+			remove_building = light_serfdom
+			add_building = freedom
+		}
+		if = {
+			limit = { has_building = moderate_serfdom }
+			remove_building = moderate_serfdom
+			add_building = light_serfdom
+		}
+		if = {
+			limit = { has_building = heavy_serfdom }
+			remove_building = heavy_serfdom
+			add_building = moderate_serfdom
+		}
+	}
+}

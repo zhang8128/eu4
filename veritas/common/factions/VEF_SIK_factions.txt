@@ -1,0 +1,61 @@
+#Misls
+sik_misls = {
+	monarch_power = ADM
+	always = yes
+	modifier = {
+		global_tax_modifier = -0.3
+		global_prov_trade_power_modifier = -0.25
+		trade_steering = 0.25
+		global_manpower_modifier = -0.3
+		global_unrest = -5
+		land_forcelimit_modifier = 0.3
+		global_regiment_cost = -0.3
+		naval_forcelimit_modifier = -0.3
+		global_trade_power = 0.25
+		production_efficiency = -0.3
+		merchants = 1
+		legitimacy = -2
+		prestige_decay = -0.01
+	}
+}
+
+#Dal Khalsa
+sik_dal_khalsa = {
+	monarch_power = MIL
+	always = yes
+	modifier = { 
+		religious_unity = 0.2
+		tolerance_heretic = 2
+		tolerance_heathen = 2
+		tolerance_own = 2
+		missionaries = 1
+		land_morale = 0.1
+		global_regiment_cost = -0.3
+		global_tax_modifier = -0.3
+		trade_efficiency = -0.3
+		production_efficiency = -0.25
+		idea_cost = 0.05
+	}
+}
+
+#Sarbat Khalsa
+sik_sarbat_khalsa = {
+	monarch_power = DIP
+	always = yes
+	modifier = {
+		diplomats = 1
+		global_tax_modifier = 0.25
+		production_efficiency = 0.1
+		trade_efficiency = 0.15
+		merc_maintenance_modifier = -0.15
+		global_unrest = -3
+		legitimacy = 2
+		war_exhaustion = -0.01
+		land_morale = -0.2
+		naval_morale = -0.2
+		global_missionary_strength = -0.025
+		land_forcelimit_modifier = -0.15
+		naval_forcelimit_modifier = -0.15
+	}
+}
+		

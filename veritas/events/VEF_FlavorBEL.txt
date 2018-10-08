@@ -1,0 +1,478 @@
+########################################
+# Events for Wallonia and Belgium
+########################################
+
+namespace = flavor_bel
+normal_or_historical_nations = yes
+
+#Sets the Wallonian government and capital.
+country_event = {
+	id = flavor_bel.10001
+	title = flavor_bel.10001.t
+	desc = flavor_bel.10001.d
+	picture = VEF_BEL_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes #by wallonia_nation decision
+
+	option = {
+		name = flavor_bel.10001.opta	# Form a monarchy,and move the capital to Namur
+		change_government = monarchy
+		set_capital = 201
+		201 = {
+			add_base_tax = 1
+			add_base_manpower = 1
+			add_base_production = 1
+		}
+	}
+	option = {
+		name = flavor_bel.10001.optb		# Form a republic,and move the capital to Liege
+		change_government = republic
+		set_capital = 200
+		200 = {
+			add_base_tax = 1
+			add_base_manpower = 1
+			add_base_production = 1
+		}
+	}
+	option = {
+		name = flavor_bel.10001.optc		# Status Quo
+		add_prestige = -5
+	}
+}
+
+# Belgian revolution
+province_event = {
+	id = flavor_bel.10002
+	title = flavor_bel.10002.t
+	desc = flavor_bel.10002.d
+	picture = VEF_BEL_REVOLUTION_eventPicture
+
+	major = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		province_group = belgium_group
+		has_institution = nationalism_inst
+		NOT = { exists = BEL }
+		owner = {
+			NOT = { primary_culture = ROOT }
+			NOT = { religion = ROOT }
+		}
+	}
+
+	mean_time_to_happen = { 
+		months = 480
+		
+		modifier = {
+			factor = 0.75 
+			owner = { 
+				NOT = { accepted_culture = ROOT } 
+			}
+		}					
+		modifier = {
+			factor = 0.95 
+			owner = { NOT = { adm = 2 } }
+		}					
+		modifier = {
+			factor = 0.95 
+		 	owner = { NOT = { mil = 2 } }
+		}		
+		modifier = {
+			factor = 1.05 
+			owner = { adm = 2 }
+		}			
+		modifier = {
+			factor = 1.05
+		 	owner = { mil = 2 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { revolt_percentage = 0.1 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { revolt_percentage = 0.3 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { revolt_percentage = 0.5 }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { NOT = { stability = 0 } }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { NOT = { stability = -1 } }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { NOT = { stability = -2 } }
+		}
+		modifier = {
+			factor = 1.1
+			owner = { stability = 1 }
+		}
+		modifier = {
+			factor = 1.1
+			owner = { stability = 2 }
+		}
+		modifier = {
+			factor = 1.1
+			owner = { stability = 3 }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_province = {
+				limit = { province_group = belgium_group }
+				add_core = BEL
+			}
+		}
+	}
+	
+	option = {
+		name = flavor_bel.10002.opta #How dare they!
+		add_province_modifier = { name = "belgian_nationalism" duration = 1865 }
+		spawn_rebels = { type = nationalist_rebels size = 1 }
+		owner = {
+			set_country_flag = bel_revolution
+			change_variable = { which = national_stability value = -1000 }
+			add_prestige = -10 
+		}
+	}
+}
+
+
+# Soldiers Defect
+province_event = {
+	id = flavor_bel.3
+	title =  flavor_bel.10003.t
+	desc =  flavor_bel.10003.d
+	picture = VEF_BEL_REVOLUTION_eventPicture
+
+	trigger = {
+		is_core = BEL
+		owner = { has_country_flag = bel_revolution }
+		NOT = { has_province_modifier = belgian_nationalism }
+	}
+
+	mean_time_to_happen = { months = 16 }
+	
+	option = {
+		name = flavor_bel.10003.opta #We can handle this petty rebellion.
+		ai_chance = { 
+		factor = 20 
+		modifier = {
+				factor = 10
+				OR = {
+					NOT = { owner = { prestige = 0 } }
+					war_exhaustion = 5
+					NOT = { stability = -2 }
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = { owner = { prestige = -25 } }
+					war_exhaustion = 10
+				}
+			}
+		}
+		add_province_modifier = { name = "belgian_nationalism" duration = 1865 }
+		spawn_rebels = { type = nationalist_rebels size = 1 }
+		owner = {
+			add_prestige = 1
+			add_war_exhaustion = 1		
+		}
+	}
+	option = {
+		name = flavor_bel.10003.optb #Appeal for foreign intervention.
+		ai_chance = { factor = 80 }		
+		trigger = {
+			owner = { 
+				any_neighbor_country = {
+					is_subject = no
+					is_at_war = no
+				}
+			}
+			NOT = { has_global_flag = bel_intervention_being_considered }
+		}
+		add_province_modifier = { name = "belgian_nationalism" duration = 1865 }
+		spawn_rebels = { type = nationalist_rebels size = 1 }
+		set_global_flag = bel_intervention_being_considered
+		owner = { 
+			add_prestige = -5
+			country_event = {id = flavor_bel.10004 days = 1 } 
+		}
+	}
+	option = {
+		name = flavor_bel.10007.optb #Give into rebel demands.
+		ai_chance = { factor = 10 }
+		trigger = {
+			owner = {  has_global_flag = bel_intervention_being_considered }
+		}
+		add_province_modifier = { name = "belgian_nationalism" duration = 1865 }
+		owner = {
+			country_event = { id = flavor_bel.10008 days = 3 }
+		}
+	}
+}
+
+#Foreign Intervention Bridge
+country_event = {
+	id = flavor_bel.10004
+	title = flavor_bel.10004.t
+	desc = flavor_bel.10004.d
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes 	# by flavor_bel.3
+	
+	option = {
+		name = flavor_bel.10004.opta #Appeal for foreign intervention.
+		set_global_flag = bel_intervention_being_considered
+		every_country = {
+			limit = {
+				is_subject = no
+				is_at_war = no
+				OR = {
+					is_neighbor_of = ROOT
+					alliance_with = ROOT
+					is_enemy = ROOT
+				}
+			}
+			country_event = { id = flavor_bel.10005 days = 35 random = 5 }
+		}
+	}
+}
+
+# Foreign Intervention
+country_event = {
+	id = flavor_bel.10005
+	title = flavor_bel.10005.t
+	desc = flavor_bel.10005.d
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes 	# by flavor_bel.4
+	
+	trigger = { 
+		has_global_flag = bel_intervention_being_considered
+		NOT = { has_country_flag = bel_revolution }
+	}
+		
+	option = {
+		name = flavor_bel.10005.opta #Support the establishment.
+		ai_chance = { 
+			factor = 25 	
+			modifier = {
+				factor = 75
+				alliance_with = FROM 
+			}
+			modifier = {
+				factor = 0
+				is_rival = FROM 
+			}
+		}
+		add_prestige = 5
+		add_years_of_income = -0.25
+		FROM = { country_event = { id = flavor_bel.10006 days = 3} }
+	}
+	option = {
+		name = flavor_bel.10005.optb #Support the revolution.
+		ai_chance = { 
+			factor = 50 
+			modifier = {
+				factor = 0
+				alliance_with = FROM 
+			}
+			modifier = {
+				factor = 75
+				is_rival = FROM 
+			}
+		}
+		add_prestige = 5
+		add_years_of_income = -0.25
+		FROM = { country_event = { id = flavor_bel.10007 days = 3} }
+	}
+	option = {
+		name = flavor_bel.10005.optc #Wait and watch.
+		ai_chance = { factor = 25 }	
+		add_prestige = -1
+	}	
+}
+
+# Nation Sides With Establishment
+country_event = {
+	id = flavor_bel.10006
+	title = flavor_bel.10006.t
+	desc = flavor_bel.10006.d
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes 	# by flavor_bel.5
+	
+	option = {
+		name = flavor_bel.10006.opta #We will prevail!
+		add_war_exhaustion = -1
+		add_prestige = 5
+		add_mil_power = 50
+		add_years_of_income = 0.25
+	}
+}
+
+# Nation Sides With Rebels
+country_event = {
+	id = flavor_bel.10007
+	title = flavor_bel.10007.t
+	desc = flavor_bel.10007.d
+	picture = VEF_BEL_REVOLUTION_eventPicture
+	
+	is_triggered_only = yes 	# by flavor_bel.5
+	
+	option = {
+		name = flavor_bel.10007.opta #Keep fighting.
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 30
+				OR = {
+					NOT = { prestige = 0 }
+					war_exhaustion = 5
+					NOT = { stability = -2 }
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = { prestige = -25 }
+					war_exhaustion = 10
+				}
+			}
+		}
+		add_war_exhaustion = 2
+		add_prestige = -5
+	}
+	option = {
+		name = flavor_bel.10007.optb #Give into rebel demands.
+		ai_chance = { factor = 10 }
+		country_event = { id = flavor_bel.10008 days = 3}
+	}
+}
+
+# Treaty of London
+country_event = {
+	id = flavor_bel.10008
+	title = flavor_bel.10008.t
+	desc = flavor_bel.10008.d
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes 	# by flavor_bel.3 and flavor_bel.7
+	
+	major = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = bel_revolution 
+	}
+	
+	option = {
+		name = flavor_bel.10008.opta #It is finished.
+		clr_global_flag = bel_intervention_being_considered
+		clr_country_flag = bel_revolution
+		every_province = { remove_province_modifier = belgian_nationalism }
+		release = BEL
+		add_stability = 3
+		add_war_exhaustion = -5
+	}
+}
+
+# Belgian Revolution Suceeds
+country_event = {
+	id = flavor_bel.10009
+	title = flavor_bel.10009.t
+	desc = flavor_bel.10009.d
+	picture = VEF_BEL_REVOLUTION_eventPicture
+	
+	major = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = bel_revolution
+		exists = BEL
+	}
+	
+	mean_time_to_happen = { 
+		days = 3
+	}
+	
+	option = {
+		name = flavor_bel.10009.opta #It is finished.
+		clr_global_flag = bel_intervention_being_considered
+		clr_country_flag = bel_revolution
+		every_province = { remove_province_modifier = belgian_nationalism }
+	}
+}
+
+# Belgian Revolution Fails
+country_event = {
+	id = flavor_bel.10010
+	title = flavor_bel.10010.t
+	desc = flavor_bel.10010.d
+	picture = VEF_COUNTRY_COLLAPSE_eventPicture
+	
+	major = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = bel_revolution
+		NOT = { exists = BEL }
+	}
+	
+	mean_time_to_happen = { 
+		months = 240
+		
+		modifier = {
+			factor = 0.8 
+			adm = 4 
+		}			
+		modifier = {
+			factor = 0.8
+		 	mil = 4 
+		}
+		modifier = {
+			factor = 1.1
+			 NOT = { stability = 0 } 
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { stability = -1 } 
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { stability = -2 } 
+		}
+		modifier = {
+			factor = 0.95
+			stability = 1 
+		}
+		modifier = {
+			factor = 0.85
+			stability = 2 
+		}
+		modifier = {
+			factor = 0.65
+			stability = 3 
+		}
+	}
+	
+	option = {
+		name = flavor_bel.10010.opta #It is finished!
+		clr_global_flag = bel_intervention_being_considered
+		clr_country_flag = bel_revolution
+		every_province = { remove_province_modifier = belgian_nationalism }
+	}
+}

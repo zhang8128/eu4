@@ -1,0 +1,627 @@
+# VEF Policy Events
+
+namespace = vef_policy
+
+country_event = {
+	id = vef_policy.10004
+	title = "vef_policy.10004.t"
+	desc = "vef_policy.10004.d"
+
+	picture = VEF_UNIVERSITY_eventPicture
+
+	trigger = {
+		ai = no
+		has_active_policy = vef_policy_ruler_imp
+		has_regency = no
+		has_country_flag = ruler_imp_init
+		ruler_age = 16
+		NOT = { ruler_age = 41 }
+		NOT = { has_country_modifier = ruler_improvement_timer }
+		NOT = { has_country_flag = scholasticism_flag }
+	}
+
+	mean_time_to_happen = { months = 120 } # 10 years 
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = { name = "ruler_improvement_timer" duration = 1460 hidden = yes }
+			clr_country_flag = ruler_imp_init
+		}
+	}
+
+	option = {
+		name = "vef_policy.10004.opta"
+		trigger = {
+			OR = { 
+				has_country_flag = adm_gain
+				has_country_flag = dip_gain
+				has_country_flag = mil_gain
+			}
+		}
+		if = {
+			limit = { has_country_flag = adm_gain }
+			change_adm = 1
+		}
+		if = {
+			limit = { has_country_flag = dip_gain }
+			change_dip = 1
+		}
+		if = {
+			limit = { has_country_flag = mil_gain }
+			change_mil = 1
+		}
+		hidden_effect = {
+			clr_country_flag = adm_gain
+			clr_country_flag = dip_gain
+			clr_country_flag = mil_gain
+		}
+	}
+
+	option = {
+		name = "vef_policy.10004.optb"
+		trigger = {
+			OR = { 
+				has_country_flag = adm_loss
+				has_country_flag = dip_loss
+				has_country_flag = mil_loss
+			}
+		}
+		if = {
+			limit = { has_country_flag = adm_loss }
+			if = { 
+				limit = { adm = 1 }
+				change_adm = -1
+			}
+		}
+		if = {
+			limit = { has_country_flag = dip_loss }
+			if = { 
+				limit = { dip = 1 }
+				change_dip = -1
+			}
+		}
+		if = {
+			limit = { has_country_flag = mil_loss }
+			if = { 
+				limit = { mil = 1 }
+				change_mil = -1
+			}
+		}
+		hidden_effect = {
+			clr_country_flag = adm_loss
+			clr_country_flag = dip_loss
+			clr_country_flag = mil_loss
+		}
+	}
+
+	option = {
+		name = "vef_policy.10004.optc"
+		trigger = {
+			OR = { 
+				has_country_flag = add_trait_scholar
+				has_country_flag = add_trait_minister
+				has_country_flag = add_trait_good_general
+				has_country_flag = add_trait_smooth
+				has_country_flag = add_trait_trade
+				has_country_flag = add_trait_patron
+			}
+			NOT = { has_dlc = "Rights of Man" }
+		}
+
+		if = { 
+			limit = { has_country_flag = add_trait_scholar }
+			add_ruler_modifier = { name = ruler_trait_scholar duration = -1 }
+		}
+		if = { 
+			limit = { has_country_flag = add_trait_minister }
+			add_ruler_modifier = { name = ruler_trait_minister duration = -1 }
+		}
+		if = { 
+			limit = { has_country_flag = add_trait_good_general }
+			add_ruler_modifier = { name = ruler_trait_good_general duration = -1 }
+		}
+		if = { 
+			limit = { has_country_flag = add_trait_smooth }
+			add_ruler_modifier = { name = ruler_trait_smooth duration = -1 }
+		}
+		if = { 
+			limit = { has_country_flag = add_trait_trade }
+			add_ruler_modifier = { name = ruler_trait_trade duration = -1 }
+		}
+		if = { 
+			limit = { has_country_flag = add_trait_patron }
+			add_ruler_modifier = { name = ruler_trait_patron duration = -1 }
+		}
+		hidden_effect = {
+			clr_country_flag = add_trait_scholar
+			clr_country_flag = add_trait_minister
+			clr_country_flag = add_trait_good_general
+			clr_country_flag = add_trait_smooth
+			clr_country_flag = add_trait_trade
+			clr_country_flag = add_trait_patron
+		}
+	}
+}
+
+# Heir Improvement - MP. If the heir gains 2 points in any area, event does not run.
+country_event = {
+	id = vef_policy.10005
+	title = "vef_policy.10005.t"
+	desc = "vef_policy.10005.d"
+
+	picture = VEF_UNIVERSITY_eventPicture
+
+	trigger = {
+		ai = no
+		has_active_policy = vef_policy_heir_imp
+		has_heir = yes
+		NOT = { has_country_modifier = heir_improvement_timer }
+		has_country_flag = heir_imp_init
+		NOT = { has_country_flag = scholasticism_flag }
+		NOT = { check_variable = { which = heir_adm_gain value = 2 } }
+		NOT = { check_variable = { which = heir_dip_gain value = 2 } }
+		NOT = { check_variable = { which = heir_mil_gain value = 2 } }
+		heir_age = 4
+		NOT = { heir_age = 16 }
+	}
+
+	mean_time_to_happen = { months = 120 } # 10 years - should only happen once or twice
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = { name = "heir_improvement_timer" duration = 1460 hidden = yes }
+			clr_country_flag = heir_imp_init
+		}
+	}
+
+	option = {
+		name = "vef_policy.10005.opta"
+		trigger = { has_country_flag = heir_adm_gain }
+		change_variable = { which = heir_adm_gain value = 1 }
+	}
+
+	option = {
+		name = "vef_policy.10005.optb"
+		trigger = { has_country_flag = heir_dip_gain }
+		change_variable = { which = heir_dip_gain value = 1 }
+	}
+
+	option = {
+		name = "vef_policy.10005.optc"
+		trigger = { has_country_flag = heir_mil_gain }
+		change_variable = { which = heir_mil_gain value = 1 }
+	}
+}
+
+# Heir Improvement - scholasticism
+country_event = {
+	id = vef_policy.10006
+	title = "vef_policy.10006.t"
+	desc = "vef_policy.10006.d"
+
+	picture = VEF_UNIVERSITY_eventPicture
+
+	trigger = {
+		ai = no
+		has_active_policy = vef_policy_heir_imp
+		has_heir = yes
+		has_country_flag = heir_imp_init
+		NOT = { has_country_modifier = heir_improvement_timer }
+		NOT = { has_country_flag = heir_scholasticism_flag }
+		heir_age = 4
+		NOT = { heir_age = 16 }
+	}
+
+	mean_time_to_happen = { months = 3600 } # 150 years means 1 per 20/heirs or 5%
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = { name = "heir_improvement_timer" duration = 1460 hidden = yes }
+			clr_country_flag = add_heir_trait_scholar
+			clr_country_flag = add_heir_trait_minister
+			clr_country_flag = add_heir_trait_good_general
+			clr_country_flag = add_heir_trait_smooth
+			clr_country_flag = add_heir_trait_trade
+			clr_country_flag = add_heir_trait_patron
+			set_country_flag = heir_scholasticism_flag
+		}
+	}
+
+	option = {
+		name = "vef_policy.10006.opta"
+		trigger = { has_country_flag = heir_adm_loss }
+		set_variable = { which = heir_adm_gain value = -1 }
+	}
+
+	option = {
+		name = "vef_policy.10006.optb"
+		trigger = { has_country_flag = heir_dip_loss }
+		set_variable = { which = heir_dip_gain value = -1 }
+	}
+
+	option = {
+		name = "vef_policy.10006.optc"
+		trigger = { has_country_flag = heir_mil_loss }
+		set_variable = { which = heir_mil_gain value = -1 }
+	}
+}
+
+# Heir Improvement - Traits
+country_event = {
+	id = vef_policy.10007
+	title = "vef_policy.10007.t"
+	desc = "vef_policy.10007.d"
+
+	picture = VEF_UNIVERSITY_eventPicture
+
+	trigger = {
+		ai = no
+		has_active_policy = vef_policy_heir_imp
+		NOT = { has_dlc = "Rights of Man" }
+		has_heir = yes
+		has_country_flag = heir_imp_init
+		NOT = { has_country_modifier = heir_improvement_timer }
+		NOT = { has_country_flag = heir_scholasticism_flag }
+		heir_age = 4
+		NOT = { heir_age = 16 }
+	}
+
+	mean_time_to_happen = { months = 120 } # 10 years - should only happen once or twice
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = { name = "heir_improvement_timer" duration = 1460 hidden = yes }
+			clr_country_flag = heir_imp_init
+		}
+	}
+
+	option = {
+		name = "vef_policy.10007.opta"
+		trigger = { has_country_flag = add_heir_trait_scholar }
+		custom_tooltip = "heir_scholar"
+	}
+
+	option = {
+		name = "vef_policy.10007.optb"
+		trigger = { has_country_flag = add_heir_trait_minister }
+		custom_tooltip = "heir_minister"
+	}
+
+	option = {
+		name = "vef_policy.10007.optc"
+		trigger = { has_country_flag = add_heir_trait_good_general }
+		custom_tooltip = "heir_good_general"
+	}
+
+	option = {
+		name = "vef_policy.10007.optd"
+		trigger = { has_country_flag = add_heir_trait_smooth }
+		custom_tooltip = "heir_smooth"
+	}
+
+	option = {
+		name = "vef_policy.10007.opte"
+		trigger = { has_country_flag = add_heir_trait_trade }
+		custom_tooltip = "heir_trade"
+	}
+
+	option = {
+		name = "vef_policy.10007.optf"
+		trigger = { has_country_flag = add_heir_trait_patron }
+		custom_tooltip = "heir_patron"
+	}
+}
+
+# Heir Takes the Throne - grant benefits. This event has the potential to run multiple times
+# if the heir has gained more than one point in an MP attribute.
+country_event = {
+	id = vef_policy.10008
+	title = "vef_policy.10008.t"
+	desc = "vef_policy.10008.d"
+
+	picture = VEF_UNIVERSITY_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		ai = no
+		NOT = { has_country_flag = vef_regency }
+		OR = {
+			has_country_flag = add_heir_trait_scholar
+			has_country_flag = add_heir_trait_minister
+			has_country_flag = add_heir_trait_good_general
+			has_country_flag = add_heir_trait_smooth
+			has_country_flag = add_heir_trait_trade
+			has_country_flag = add_heir_trait_patron
+			check_variable = { which = heir_adm_gain value = 1 }
+			check_variable = { which = heir_dip_gain value = 1 }
+			check_variable = { which = heir_mil_gain value = 1 }
+			has_country_flag = heir_scholasticism_flag
+		}
+	}
+
+	option = {
+		name = "vef_policy.10008.opta"
+
+		if = {
+			limit = { NOT = { has_dlc = "Rights of Man" } }
+			# Traits
+			if = {
+				limit = { has_country_flag = add_heir_trait_scholar }
+				add_ruler_modifier = { name = ruler_trait_scholar duration = -1 }
+			}
+			if = {
+				limit = { has_country_flag = add_heir_trait_minister }
+				add_ruler_modifier = { name = ruler_trait_minister duration = -1 }
+			}
+			if = {
+				limit = { has_country_flag = add_heir_trait_good_general }
+				add_ruler_modifier = { name = ruler_trait_good_general duration = -1 }
+			}
+			if = {
+				limit = { has_country_flag = add_heir_trait_smooth }
+				add_ruler_modifier = { name = ruler_trait_smooth duration = -1 }
+			}
+			if = {
+				limit = { has_country_flag = add_heir_trait_trade }
+				add_ruler_modifier = { name = ruler_trait_trade duration = -1 }
+			}
+			if = {
+				limit = { has_country_flag = add_heir_trait_patron }
+				add_ruler_modifier = { name = ruler_trait_patron duration = -1 }
+			}
+		}
+
+		# Scholasticism effects
+		if = {
+			limit = { 
+				NOT = { check_variable = { which = heir_adm_gain value = 0 } } 
+				adm = 1
+			}
+			change_adm = -1
+			hidden_effect = { 
+				set_variable = { which = heir_adm_gain value = 0 }
+			}
+		}
+		if = {
+			limit = { 
+				NOT = { check_variable = { which = heir_dip_gain value = 0 } } 
+				dip = 1
+			}
+			change_dip = -1
+			hidden_effect = {
+				set_variable = { which = heir_dip_gain value = 0 }
+			}
+		}
+		if = {
+			limit = { 
+				NOT = { check_variable = { which = heir_mil_gain value = 0 } } 
+				mil = 1
+			}
+			change_mil = -1
+			hidden_effect = {
+				set_variable = { which = heir_mil_gain value = 0 }
+			}
+		}
+
+		# Education effects
+		if = {
+			limit = { check_variable = { which = heir_adm_gain value = 1 } }
+			if = { 
+				limit = { adm = 6 }
+				add_prestige = 10
+				custom_tooltip = "heir_6_adm"
+			}
+			if = {
+				limit = { NOT = { adm = 6 } }
+				change_adm = 1
+			}
+			hidden_effect = {
+				change_variable = { which = heir_adm_gain value = -1 }
+			}
+		}
+		if = {
+			limit = { check_variable = { which = heir_dip_gain value = 1 } }
+			if = { 
+				limit = { dip = 6 }
+				add_prestige = 10
+				custom_tooltip = "heir_6_dip"
+			}
+			if = {
+				limit = { NOT = { dip = 6 } }
+				change_dip = 1
+			}
+			hidden_effect = {
+				change_variable = { which = heir_dip_gain value = -1 }
+			}
+		}
+		if = {
+			limit = { check_variable = { which = heir_mil_gain value = 1 } }
+			if = { 
+				limit = { mil = 6 }
+				add_prestige = 10
+				custom_tooltip = "heir_6_mil"
+			}
+			if = {
+				limit = { NOT = { mil = 6 } }
+				change_mil = 1
+			}
+			hidden_effect = {
+				change_variable = { which = heir_mil_gain value = -1 }
+			}
+		}
+
+		# Clear all flags
+		clr_country_flag = add_heir_trait_scholar
+		clr_country_flag = add_heir_trait_minister
+		clr_country_flag = add_heir_trait_good_general
+		clr_country_flag = add_heir_trait_smooth
+		clr_country_flag = add_heir_trait_trade
+		clr_country_flag = add_heir_trait_patron
+		clr_country_flag = heir_scholasticism_flag
+	}
+}
+
+# Policy effects
+country_event = {
+	id = vef_policy.10011
+	title = "vef_policy.10011.t"
+	desc = "vef_policy.10011.d"
+
+	picture = VEF_ADMIN_CAPACITY_eventPicture
+
+	hidden = yes
+
+	trigger = { 
+		ai = no 
+	}
+
+	immediate =  {
+		# Random options for policies - done here to prevent mutliple events
+		if = {
+			limit = { has_active_policy = vef_policy_ruler_imp }
+			if = {
+				limit = { NOT = { has_dlc = "Rights of Man" } }
+				random_list = {
+					# MP
+					48 = {
+						random_list = {
+							34 = { set_country_flag = adm_gain }
+							33 = { set_country_flag = dip_gain }
+							33 = { set_country_flag = mil_gain }
+						}
+					}
+					# Trait
+					47 = {
+						random_list = {
+							10 = { set_country_flag = add_trait_scholar }
+							10 = { set_country_flag = add_trait_minister }
+							10 = { set_country_flag = add_trait_good_general }
+							10 = { set_country_flag = add_trait_smooth }
+							10 = { set_country_flag = add_trait_trade }
+							10 = { set_country_flag = add_trait_patron }
+						}
+					}
+					# Failure
+					5 = {
+						random_list = {
+							34 = { set_country_flag = adm_loss }
+							33 = { set_country_flag = dip_loss }
+							33 = { set_country_flag = mil_loss }
+						}
+						set_country_flag = scholasticism_flag
+					}
+				}
+			}
+			if = {
+				limit = { has_dlc = "Rights of Man" }
+				random_list = {
+					# MP
+					95 = {
+						random_list = {
+							34 = { set_country_flag = adm_gain }
+							33 = { set_country_flag = dip_gain }
+							33 = { set_country_flag = mil_gain }
+						}
+					}
+					# Failure
+					5 = {
+						random_list = {
+							34 = { set_country_flag = adm_loss }
+							33 = { set_country_flag = dip_loss }
+							33 = { set_country_flag = mil_loss }
+						}
+						set_country_flag = scholasticism_flag
+					}
+				}
+			}
+			set_country_flag = ruler_imp_init
+		}
+		
+		if = {
+			limit = { 
+				has_active_policy = vef_policy_heir_imp 
+				NOT = { has_country_flag = heir_scholasticism_flag }
+			}
+			clr_country_flag = heir_adm_gain
+			clr_country_flag = heir_dip_gain
+			clr_country_flag = heir_mil_gain
+			random_list = {
+				34 = { set_country_flag = heir_adm_gain }
+				33 = { set_country_flag = heir_dip_gain }
+				33 = { set_country_flag = heir_mil_gain }
+			}
+			clr_country_flag = heir_adm_loss
+			clr_country_flag = heir_dip_loss
+			clr_country_flag = heir_mil_loss
+			random_list = {
+				34 = { set_country_flag = heir_adm_loss }
+				33 = { set_country_flag = heir_dip_loss }
+				33 = { set_country_flag = heir_mil_loss }
+			}
+			clr_country_flag = add_heir_trait_scholar
+			clr_country_flag = add_heir_trait_minister
+			clr_country_flag = add_heir_trait_good_general
+			clr_country_flag = add_heir_trait_smooth
+			clr_country_flag = add_heir_trait_trade
+			clr_country_flag = add_heir_trait_patron
+			if = {
+				limit = { NOT = { has_dlc = "Rights of Man" } }
+				random_list = {
+					20 = { set_country_flag = add_heir_trait_scholar }
+					15 = { set_country_flag = add_heir_trait_minister }
+					15 = { set_country_flag = add_heir_trait_good_general }
+					20 = { set_country_flag = add_heir_trait_smooth }
+					15 = { set_country_flag = add_heir_trait_trade }
+					15 = { set_country_flag = add_heir_trait_patron }
+				}
+			}
+			set_country_flag = heir_imp_init
+		}
+
+		if = {
+			limit = { has_active_policy = vef_policy_regency_imp }
+			random_list = {
+				34 = { set_country_flag = adm_gain }
+				33 = { set_country_flag = dip_gain }
+				33 = { set_country_flag = mil_gain }
+			}
+			set_country_flag = regency_imp_init
+		}
+	}
+
+	option = {
+		name = "vef_policy.10011.opta"
+	}
+}
+
+# Adjust Tsar power for Russia
+country_event = {
+	id = vef_policy.10012
+	title = "vef_policy.10012.t"
+	desc = "vef_policy.10012.d"
+
+	picture = VEF_BAD_ARISTOCRATS_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		tag = RUS
+		has_country_flag = tsar_power_flag
+	}
+
+	immediate = {
+		if = { 
+			limit = { faction_in_power = rus_zemsky_sobor }
+			change_variable = { which = tsar_power value = -0.125 }
+		}
+		if = { 
+			limit = { NOT = { faction_in_power = rus_zemsky_sobor } }
+			change_variable = { which = tsar_power value = 0.35 }
+		}
+	}
+
+	option = {
+		name = "vef_policy.10012.opta"
+	}
+}

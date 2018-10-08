@@ -1,0 +1,24 @@
+# Fuzhou
+#Province IDs changed
+
+owner = YUN
+controller = YUN
+culture = chihan
+religion = confucianism
+capital = "Fuzhou"
+trade_goods = tea
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 2
+is_city = yes
+add_core = YUN
+discovered_by = chinese
+discovered_by = niitaka
+
+1356.8.1 = { owner = CZH controller = CZH add_core = CZH remove_core = YUN add_core = MNG }
+1366.1.1 = { owner = MNG controller = MNG fort_15th = yes }
+1519.1.1 = { discovered_by = POR } # Tome Pires
+1646.10.1 = { owner = QNG controller = QNG add_core = QNG }
+1662.4.1 = { owner = CZH controller = CZH } # Three Feudatories
+1681.10.1 = { owner = QNG controller = QNG }

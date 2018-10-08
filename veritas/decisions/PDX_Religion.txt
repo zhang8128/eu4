@@ -1,0 +1,1463 @@
+country_decisions = {
+
+	# Catholic ones, that affects reform desire.
+	institute_the_societas_jesu = {
+		potential = {
+			OR = {
+				tag = POR
+				tag = SPA
+			}
+			normal_or_historical_nations = yes
+			religion = catholic
+			NOT = { has_country_modifier = the_societas_jesu }
+			NOT = { has_country_modifier = jesuits_expelled }
+		}
+		allow = {
+			adm_tech = 30
+		}
+		effect = {	
+			add_country_modifier = { name = "the_societas_jesu" duration = -1 }
+			#add_reform_desire = -0.02
+		}
+		ai_will_do = {
+			factor = 1
+		}	
+	}
+	
+	#de_heretico_comburendo_act in VEF_Legislation
+
+	# Commons for all christians.
+	advancement_of_true_religion_act = {
+		potential = {
+			religion_group = christian
+			NOT = { has_country_modifier = the_advancement_of_true_religion_act }
+		}
+		allow = {
+			advisor = theologian
+		}
+		effect = {	
+			add_country_modifier = { name = "the_advancement_of_true_religion_act" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	#blasphemy_act in VEF_Legislation
+
+	declaration_of_indulgence = {
+		potential = {
+			religion_group = christian
+			NOT = { has_country_modifier = the_declaration_of_indulgence }
+			NOT = { has_country_modifier = the_test_act }
+		}
+		allow = {
+			adm_tech = 30
+		}
+		effect = {	
+			add_country_modifier = { name = "the_declaration_of_indulgence" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				NOT = { stability = 2 }
+				factor = 0
+			}
+			modifier = { 
+				NOT = { any_owned_province = { has_owner_religion = no religion_group = christian } }
+				factor = 0
+			}
+		}
+	}
+
+	#act_of_uniformity in VEF_Legislation
+	
+	#suffragan_bishop_act in VEF_Legislation
+	
+#	church_tax = {
+#		potential = {
+#			religion_group = christian
+#			NOT = { has_country_modifier = church_taxes }
+#			NOT = { tag = PAP }
+#		}
+#		allow = {
+#			# Raises the king to be the legal authority in all religious matters
+#			OR = {
+#				NOT = { religion = catholic }
+#				has_country_modifier = the_statue_in_restraint_of_appeals
+#			}
+#			advisor = theologian
+#		}
+#		effect = {	
+#			add_country_modifier = { name = "church_taxes" duration = -1 }
+#		}
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
+	
+	sunday_school = {
+		potential = {
+			religion_group = christian
+			NOT = { has_country_modifier = sunday_schools }
+			adm_tech = 39
+		}
+		allow = {
+			adm = 2
+			stability = 2
+		}
+		effect = {	
+			add_country_modifier = { name = "sunday_schools" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#conventicle_act in VEF_Legislation
+
+#	superintendents = {
+#		potential = {
+#			OR = {
+#				religion = protestant
+#				religion = reformed
+#			}
+#			NOT = { has_country_modifier = superintendent_office }
+#		}
+#		allow = {
+#			advisor = theologian
+#		}
+#		effect = {	
+#			add_country_modifier = { name = "superintendent_office" duration = -1 }
+#		}
+#		ai_will_do = {
+#			factor = 1
+#			modifier = { 
+#				NOT = { stability = 2 }
+#				factor = 0
+#			}
+#		}
+#	}
+	
+	#test_act in VEF_Legislation
+	
+	#dissolution_of_the_monasteries in VEF_Religion
+	
+	#popery_act in VEF_Legislation
+	
+	# Muslim modifiers
+	sheikh_ul_islam = {
+		potential = {
+			religion_group = muslim
+			NOT = { has_ruler_modifier = the_sheikh_ul_islam }
+		}
+		allow = {
+			adm = 3
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+		}
+		effect = {	
+			add_ruler_modifier = { name = "the_sheikh_ul_islam" duration = -1 }
+			add_piety = 0.10
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				NOT = { piety = -0.1 }
+				factor = 0
+			}			
+		}
+	}
+	
+	the_khalifah = {
+		potential = {
+			religion = sunni
+			NOT = { has_ruler_modifier = khalifah }
+		}
+		allow = {
+			mil = 3
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+		}
+		effect = {	
+			add_ruler_modifier = { name = "khalifah" duration = -1 }
+			add_piety = 0.10
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				NOT = { piety = -0.1 }
+				factor = 0
+			}
+		}
+	}
+	
+	denouncement_of_sect_practices = {
+		potential = {
+			religion_group = muslim
+			NOT = { has_ruler_modifier = sect_practices }
+		}
+		allow = {
+			dip = 3
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+		}
+		effect = {	
+			add_ruler_modifier = { name = "sect_practices" duration = -1 }
+			add_piety = 0.10
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				NOT = { piety = -0.1 }
+				factor = 0
+			}			
+		}
+	}
+	
+	islamic_centre_of_scholarly = {
+		potential = {
+			religion_group = muslim
+			NOT = { has_ruler_modifier = islamic_scholarly_centre }
+			adm_tech = 29
+		}
+		allow = {
+			dip = 5
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+		}
+		effect = {	
+			add_ruler_modifier = { name = "islamic_scholarly_centre" duration = -1 }
+			add_piety = 0.25
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				NOT = { piety = -0.1 }
+				factor = 0
+			}			
+		}
+	}
+	
+	jizya_tax = {
+		potential = {
+			religion_group = muslim
+			NOT = { has_ruler_modifier = per_capita_tax }
+			any_owned_province = { has_owner_religion = no }
+			# estate
+			NOT = { has_dlc = "The Cossacks" }
+		}
+		allow = {
+			adm = 3
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+		}
+		effect = {	
+			add_ruler_modifier = { name = "per_capita_tax" duration = -1 }
+			add_piety = -0.15
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { piety = 0.01 }
+				factor = 0
+			}
+		}
+	}
+	
+	monastic_education = {
+		potential = {
+			OR = {
+				religion = buddhism #Theravada
+				religion = vajrayana
+				religion = mahayana
+			}
+			NOT = { has_country_modifier = monastic_education_system }
+		}
+		allow = {
+			adm = 3
+		}
+		effect = {	
+			add_country_modifier = { name = "monastic_education_system" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { treasury = 100 }
+				factor = 0
+			}
+		}
+	}
+	
+	regulate_the_monastaries = {
+		potential = {
+			religion = vajrayana
+			NOT = { has_country_modifier = regulated_monasteries }
+			adm_tech = 39
+		}
+		allow = {
+			adm = 3
+		}
+		effect = {	
+			add_country_modifier = { name = "regulated_monasteries" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	adopt_vajrayana = {
+		potential = {
+			OR = {
+				religion_group = pagan
+				religion_group = reformed_pagan
+			}
+			any_owned_province = { religion = vajrayana }
+			is_subject = no
+		}
+		allow = {
+			stability = 3
+			is_at_war = no
+			OR = {
+				NOT = { has_secondary_religion = yes }
+				secondary_religion = vajrayana
+			}
+		}
+		effect = {
+			change_religion = vajrayana
+			add_stability = -4
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { is_year = 1550 }
+				NOT = { dominant_religion = vajrayana }
+			}
+			modifier = {
+				factor = 0
+				religion = tengri
+				has_dlc = "The Cossacks"
+			}
+		}
+	}
+	
+	invite_lama = {
+		potential = {
+			religion = vajrayana
+			has_dlc = "Common Sense"
+			NOT = { has_country_modifier = vajrayana_lama }
+			NOT = { has_ruler_flag = invited_lama }
+		}
+		allow = {
+			stability = 1
+			prestige = 25
+			is_at_war = no
+		}
+		effect = {
+			hidden_effect = { set_ruler_flag = invited_lama }
+			add_prestige = -25
+			country_event = { id = buddhism_events.34 days = 60 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { prestige = 30 }
+			}
+		}
+	}
+	
+	anti_christian_edict = {
+		potential = {
+			OR = {
+				religion_group = eastern
+				religion = confucianism
+			}
+			NOT = { has_country_modifier = the_anti_christian_edict }
+			OR = {
+				any_neighbor_country = { religion_group = christian }
+				1095 = { owner = { religion_group = christian } }
+				1124 = { owner = { religion_group = christian } }
+				1120 = { owner = { religion_group = christian } }
+			}
+		}
+		allow = {
+			is_defender_of_faith = no
+			OR = {
+				any_neighbor_country = {
+					religion_group = christian
+					NOT = { has_opinion = { who = ROOT value = 0 } }
+				}
+				1124 = {
+					owner = {
+						religion_group = christian
+						NOT = { has_opinion = { who = ROOT value = 0 } }
+					}
+				}
+				1120 = {
+					owner = {
+						religion_group = christian
+						NOT = { has_opinion = { who = ROOT value = 0 } }
+					}
+				}
+				1095 = {
+					owner = {
+						religion_group = christian
+						NOT = { has_opinion = { who = ROOT value = 0 } }
+					}
+				}
+			}
+
+		}
+		effect = {	
+			add_country_modifier = { name = "the_anti_christian_edict" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { stability = 2 }
+				factor = 0
+			}
+			modifier = { 
+				num_of_missionaries = 4
+				factor = 0
+			}
+			modifier = { 
+				NOT = { any_owned_province = { has_owner_religion = no } }
+				factor = 0
+			}
+		}
+	}
+	
+	ibadat_khana = {
+		potential = {
+			religion_group = muslim
+			NOT = { has_country_modifier = house_of_worship }
+			NOT = { has_idea_group = religious_ideas }
+			NOT = { has_idea_group = economic_ideas }
+		}
+		allow = {
+			full_idea_group = innovativeness_ideas
+		}
+		effect = {
+			add_country_modifier = { name = "house_of_worship" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	din_i_illahi = {
+		potential = {
+			OR = {
+				AND = {
+					religion = hinduism
+					any_owned_province = { religion_group = muslim }			
+				}
+				AND = {
+					tag = MUG
+					religion_group = muslim
+					any_owned_province = { religion = hinduism }
+				}
+			}
+			NOT = { has_country_modifier = divine_faith }
+		}
+		allow = {
+			is_defender_of_faith = no
+			ADM = 3
+		}
+		effect = {	
+			add_country_modifier = { name = "divine_faith" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { num_of_missionaries = 2 }
+				factor = 0
+			}
+		}
+	}
+	
+	anti_muslim_edict = {
+		potential = {
+			religion = hinduism
+			NOT = { has_country_modifier = muslim_resistance }
+			NOT = { any_owned_province = { religion = sunni } }
+			any_neighbor_country = { religion_group = muslim }			
+		}
+		allow = {
+			stability = 2
+		}
+		effect = {	
+			add_country_modifier = { name = "muslim_resistance" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				num_of_missionaries = 2
+				factor = 0
+			}
+		}
+	}
+	
+	acceptance_of_religious_sects = {
+		potential = {
+			religion = hinduism
+			NOT = { has_country_modifier = religious_sect_tolerance }
+		}
+		allow = {
+			is_defender_of_faith = no
+			is_at_war = no
+			stability = 1
+		}
+		effect = {	
+			add_country_modifier = { name = "religious_sect_tolerance" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				NOT = { any_owned_province = { has_owner_religion = no } }
+				factor = 0
+			}
+		}
+	}
+	
+	haridasa_movement = {
+		potential = {
+			religion = hinduism
+			NOT = { has_country_modifier = the_haridasa_movement }	
+			NOT = { has_country_modifier = the_advaita_movement }
+		}
+		allow = {
+			stability = 1
+			dip = 3
+			NOT = { has_country_modifier = the_advaita_movement }
+		}
+		effect = {	
+			add_country_modifier = { name = "the_haridasa_movement" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { treasury = 100 }
+				factor = 0
+			}
+			modifier = { 
+				NOT = { any_owned_province = { has_owner_religion = no } }
+				factor = 0
+			}
+		}
+	}
+	
+	advaita_movement = {
+		potential = {
+			religion = hinduism
+			NOT = { has_country_modifier = the_advaita_movement }
+			NOT = { has_country_modifier = the_haridasa_movement }
+		}
+		allow = {
+			stability = 1
+			adm = 3
+			NOT = { has_country_modifier = the_haridasa_movement }
+		}
+		effect = {	
+			add_country_modifier = {
+				name = "the_advaita_movement"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				num_of_missionaries = 2
+				factor = 0
+			}
+			modifier = { 
+				NOT = { any_owned_province = { has_owner_religion = no } }
+				factor = 0
+			}
+			modifier = { 
+				revolt_percentage = 5
+				factor = 0
+			}
+			modifier = { 
+				war_exhaustion = 10
+				factor = 0
+			}
+		}
+	}
+	
+	divination = {
+		potential = {
+			OR = {
+				religion_group = pagan
+				religion_group = reformed_pagan
+			}
+			NOT = { has_country_modifier = godly_inspiration }
+		}
+		allow = {
+			is_at_war = no
+			stability = 1
+		}
+		effect = {	
+			add_country_modifier = { name = "godly_inspiration" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { stability = 2 }
+				factor = 0
+			}
+			modifier = {
+				OR = {
+					revolt_percentage = 5
+					war_exhaustion = 10
+				}
+				factor = 0
+			}
+		}
+	}
+	
+	religious_sacrifice = {
+		potential = {
+			religion_group = pagan
+			NOT = { has_country_modifier = religious_sacrifices }
+		}
+		allow = {
+			adm = 3
+			stability = 1
+		}
+		effect = {	
+			add_country_modifier = { name = "religious_sacrifices" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				war_exhaustion = 10
+				factor = 0
+			}
+			modifier = {
+				revolt_percentage = 5
+				factor = 0
+			}
+		}
+	}
+	
+	vision_quest = {
+		potential = {
+			OR = {
+				religion_group = pagan
+				religion_group = reformed_pagan
+			}
+			NOT = { has_country_modifier = rite_of_passage }
+		}
+		allow = {
+			ADM = 3
+		}
+		effect = {	
+			add_country_modifier = { name = "rite_of_passage" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { stability = 1 }
+				factor = 0
+			}
+		}
+	}
+	
+	save_the_burning_world = {
+		potential = {
+			religion = sikhism
+			NOT = { has_country_modifier = saving_the_burning_world }
+		}
+		allow = {
+			ADM = 3
+		}
+		effect = {	
+			add_country_modifier = { name = "saving_the_burning_world" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_idea_group = innovativeness_ideas
+				factor = 0
+			}
+		}
+	}
+	
+	enforce_heritage = {
+		potential = {
+			OR = {
+				religion_group = eastern
+				religion = confucianism
+			}
+			NOT = { has_country_modifier = enforcing_heritage }
+		}
+		allow = {
+			any_neighbor_country = {
+				NOT = { religion_group = eastern }
+				NOT = { religion = confucianism }
+			}
+			stability = 1
+		}
+		effect = {	
+			add_country_modifier = { name = "enforcing_heritage" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_idea_group = innovativeness_ideas
+				factor = 0
+			}
+		}
+	}
+	
+	restrict_government_offices = {
+		potential = {
+			religion = judaism
+			NOT = { has_country_modifier = restricted_offices }
+		}
+		allow = {
+			ADM = 3
+		}
+		effect = {
+			add_country_modifier = { name = "restricted_offices" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_idea_group = innovativeness_ideas
+				factor = 0
+			}
+		}
+	}
+	
+	spreading_of_norse_rituals = {
+		potential = {
+			religion = norse_pagan_reformed
+			NOT = { has_country_modifier = spreading_norse_rituals }
+		}
+		allow = {
+			ADM = 3
+		}
+		effect = {	
+			add_country_modifier = {
+				name = "spreading_norse_rituals"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_idea_group = innovativeness_ideas
+				factor = 0
+			}
+		}
+	}
+	
+	tengri_yellow_shamanism = {
+		potential = {
+			religion = tengri
+			NOT = { has_country_modifier = yellow_shamanism_modifier }
+			NOT = { has_country_modifier = black_shamanism_modifier }
+		}
+		allow = {
+			ADM = 3
+		}
+		effect = {	
+			add_country_modifier = {
+				name = "yellow_shamanism_modifier"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	tengri_black_shamanism = {
+		potential = {
+			religion = tengri
+			NOT = { has_secondary_religion = yes }
+			NOT = { has_country_modifier = yellow_shamanism_modifier }
+			NOT = { has_country_modifier = black_shamanism_modifier }
+		}
+		allow = {
+			ADM = 3
+		}
+		effect = {	
+			add_country_modifier = {
+				name = "black_shamanism_modifier"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_idea_group = innovativeness_ideas
+				factor = 0
+			}
+		}
+	}
+	
+	tengri_expel_the_khojas = {
+		potential = {
+			religion = tengri
+			has_country_flag = khojas_established
+			NOT = { has_country_flag = end_of_khojas }
+			num_of_cities = 2
+		}
+		allow = {
+			legitimacy_or_horde_unity = 75
+			NOT = { has_ruler_modifier = support_of_the_khojas }
+		}
+		effect = {
+			hidden_effect = {
+				set_country_flag = end_of_khojas
+			}
+			custom_tooltip = tengri_events.16.b.tt
+			random_owned_province = {
+				limit = {
+					is_capital = no
+				}
+				if = {
+					limit = {
+						owner = {
+							NOT = { check_variable = { which = khojas_retained value = 5 } }
+						}
+					}
+					spawn_rebels = {
+						type = sunni_rebels
+						size = 1
+						win = yes
+					}
+				}
+				if = {
+					limit = {
+						owner = {
+							check_variable = { which = khojas_retained value = 5 }
+							NOT = { check_variable = { which = khojas_retained value = 7 } }
+						}
+					}
+					spawn_rebels = {
+						type = sunni_rebels
+						size = 2
+						win = yes
+					}
+				}
+				if = {
+					limit = {
+						owner = {
+							check_variable = { which = khojas_retained value = 7 }
+						}
+					}
+					spawn_rebels = {
+						type = sunni_rebels
+						size = 3
+						win = yes
+					}
+				}
+			}
+		}
+	}
+	
+	zoroastrian_rites_of_admission = {
+		potential = {
+			religion = zoroastrianism
+			NOT = { has_country_modifier = rites_of_admission_modifier }
+		}
+		allow = {
+			stability = 2
+			ADM = 3
+			adm_power = 50
+		}
+		effect = {
+			add_adm_power = -50
+			add_country_modifier = {
+				name = "rites_of_admission_modifier"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_idea_group = innovativeness_ideas
+				factor = 0
+			}
+		}
+	}
+	
+	zoroastrian_royal_fires = {
+		potential = {
+			religion = zoroastrianism
+			NOT = { has_country_modifier = royal_fires_modifier }
+		}
+		allow = {
+			government_rank = 4
+			owns_core_province = 819 #Various locations suggested to have been the site of these fires.
+			owns_core_province = 1536 #Various locations suggested to have been the site of these fires.
+			owns_core_province = 818 #Various locations suggested to have been the site of these fires.
+			owns_core_province = 1518 #Various locations suggested to have been the site of these fires.
+			owns_core_province = 1515 #Various locations suggested to have been the site of these fires.
+			owns_core_province = 822 #Various locations suggested to have been the site of these fires.
+			owns_core_province = 1512 #Various locations suggested to have been the site of these fires.
+		}
+		effect = {	
+			add_country_modifier = {
+				name = "royal_fires_modifier"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = {
+					owns_core_province = 819 #Various locations suggested to have been the site of these fires.
+					owns_core_province = 1536 #Various locations suggested to have been the site of these fires.
+					owns_core_province = 818 #Various locations suggested to have been the site of these fires.
+					owns_core_province = 1518 #Various locations suggested to have been the site of these fires.
+					owns_core_province = 1515 #Various locations suggested to have been the site of these fires.
+					owns_core_province = 822 #Various locations suggested to have been the site of these fires.
+					owns_core_province = 1512 #Various locations suggested to have been the site of these fires.
+				}
+				factor = 0
+			}
+		}
+	}
+
+	zoroastrian_diaspora = {
+		potential = {
+			religion = zoroastrianism
+			NOT = { has_country_modifier = reunification_with_parsees }
+		}
+		allow = {
+			owns_core_province = 1523 #Teheran
+			owns_core_province = 1525 #Isfahan
+			owns_core_province = 1508 #Mogostan
+			owns_core_province = 1510 #Kerman
+			owns_core_province = 1516 #Yazd
+			owns_core_province = 1485 #Balkh
+			owns_core_province = 1443 #Thatta
+			owns_core_province = 1403 #Sanjan
+			owns_core_province = 1393 #Mumbai
+			owns_core_province = 1530 #Kermanshah
+			all_owned_province = {
+				religion = zoroastrianism
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "reunification_with_parsees"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = {
+					owns_core_province = 1523 #Teheran
+					owns_core_province = 1525 #Isfahan
+					owns_core_province = 1510 #Kerman
+					owns_core_province = 1516 #Yazd
+					owns_core_province = 1485 #Balkh
+					owns_core_province = 1443 #Thatta
+					owns_core_province = 1403 #Sanjan
+					owns_core_province = 1393 #Mumbai
+					owns_core_province = 1530 #Kermanshah
+				}
+				factor = 0
+			}
+		}
+	}
+	
+	animism_ritual_education = {
+		potential = {
+			OR = {
+				religion = animism
+				religion = serer
+				religion = vodun
+				religion = akan
+				religion = yoruba
+				religion = odinani
+				religion = maguzawa
+				religion = waaq
+			}
+			NOT = { has_country_modifier = ritual_education_modifier }
+			any_owned_province = {
+				NOT = { religion = owner }
+			}
+		}
+		allow = {
+			adm_tech = 18
+			stability = 2
+			ADM = 3
+			adm_power = 50
+		}
+		effect = {
+			add_adm_power = -50
+			add_country_modifier = {
+				name = "ritual_education_modifier"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_idea_group = innovativeness_ideas
+				factor = 0
+			}
+		}
+	}
+	
+	shamanism_wondering_shamans = {
+		potential = {
+			OR = {
+				religion = shamanism
+				religion = bantu
+				religion = slavicanism
+			}
+			NOT = { has_country_modifier = wandering_shamans_modifier }
+			any_owned_province = {
+				NOT = { religion = owner }
+			}
+		}
+		allow = {
+			adm_tech = 18
+			stability = 2
+			ADM = 3
+			adm_power = 50
+		}
+		effect = {
+			add_adm_power = -50
+			add_country_modifier = {
+				name = "wandering_shamans_modifier"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_idea_group = innovativeness_ideas
+				factor = 0
+			}
+		}
+	}
+	
+	totemism_purification_movement = {
+		potential = {
+			religion = totemism
+			NOT = { has_country_modifier = purification_movement_modifier }
+			any_owned_province = {
+				NOT = { religion = owner }
+			}
+		}
+		allow = {
+			stability = 2
+			ADM = 3
+			adm_power = 50
+		}
+		effect = {
+			add_adm_power = -50
+			add_country_modifier = {
+				name = "purification_movement_modifier"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_idea_group = innovativeness_ideas
+				factor = 0
+			}
+		}
+	}
+	
+	mesoamerican_codification_of_the_faith = {
+		potential = {
+			religion = popol
+			NOT = { has_country_modifier = codification_of_mayan_faith }
+			any_owned_province = {
+				NOT = { religion = owner }
+			}
+		}
+		allow = {
+			OR = {
+				AND = {	
+					has_dlc = "El Dorado"
+					is_religion_reformed = yes
+				}
+				AND = {
+					NOT = {
+						has_dlc = "El Dorado"
+					}
+					has_institution = renaissance
+				}
+			}
+			stability = 2
+			adm_power = 50
+		}
+		effect = {
+			add_adm_power = -50
+			add_country_modifier = {
+				name = "codification_of_mayan_faith"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_idea_group = innovativeness_ideas
+				factor = 0
+			}
+		}
+	}
+	
+	nahuatl_conversion_ceremonies = {
+		potential = {
+			religion = xochiyaoyotl
+			NOT = { has_country_modifier = nahuatl_sacrificial_stones }
+			any_owned_province = {
+				NOT = { religion = owner }
+			}
+		}
+		allow = {
+			OR = {
+				AND = {	
+					has_dlc = "El Dorado"
+					is_religion_reformed = yes
+				}
+				AND = {
+					NOT = {
+						has_dlc = "El Dorado"
+					}
+					has_institution = renaissance
+				}
+			}
+			stability = 2
+			adm_power = 50
+		}
+		effect = {
+			add_adm_power = -50
+			add_country_modifier = {
+				name = "nahuatl_sacrificial_stones"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_idea_group = innovativeness_ideas
+				factor = 0
+			}
+		}
+	}
+	
+	inti_obligatory_religious_festivals = {
+		potential = {
+			religion = incan
+			NOT = { has_country_modifier = great_inti_festivals }
+			any_owned_province = {
+				NOT = { religion = owner }
+			}
+		}
+		allow = {
+			OR = {
+				AND = {	
+					has_dlc = "El Dorado"
+					is_religion_reformed = yes
+				}
+				AND = {
+					NOT = {
+						has_dlc = "El Dorado"
+					}
+					has_institution = renaissance
+				}
+			}
+			stability = 2
+			adm_power = 50
+		}
+		effect = {
+			add_adm_power = -50
+			add_country_modifier = {
+				name = "great_inti_festivals"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_idea_group = innovativeness_ideas
+				factor = 0
+			}
+		}
+	}
+	
+	pagan_conversion_to_christianity = {
+		potential = {
+			OR = {
+				religion_group = pagan
+				religion_group = reformed_pagan
+			}
+			OR = {
+				AND = {
+					NOT = { tag = LIT }
+					normal_or_historical_nations = yes
+				}
+				AND = {
+					tag = LIT
+					normal_or_historical_nations = yes
+					NOT = { religion = romuva }
+				}
+				normal_or_historical_nations = no
+			}
+			NOT = { religion = tengri }
+			any_owned_province = {
+				OR = {
+					religion = catholic
+					religion = orthodox
+					religion = coptic
+					religion = reformed
+					religion = protestant
+				}
+			}
+			is_subject = no
+		}
+		allow = {
+			NOT = { government = tribal }
+			stability = 1
+		}
+		effect = {
+			custom_tooltip = pagan_conversion_to_christianity_tooltip
+			hidden_effect = {
+				country_event = { id = religious_events.18 }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { religion = animism }
+			}
+		}
+	}
+	pagan_conversion_to_islam = {
+		potential = {
+			OR = {
+				religion_group = pagan
+				religion_group = reformed_pagan
+			}
+			OR = {
+				AND = {
+					NOT = { tag = LIT }
+					normal_or_historical_nations = yes
+				}
+				AND = {
+					tag = LIT
+					normal_or_historical_nations = yes
+					NOT = { religion = romuva }
+				}
+				normal_or_historical_nations = no
+			}
+			NOT = { religion = tengri }
+			any_owned_province = {
+				religion_group = muslim
+			}
+			is_subject = no
+		}
+		allow = {
+			NOT = { government = tribal }
+			stability = 1
+		}
+		effect = {
+			custom_tooltip = pagan_conversion_to_islam_tooltip
+			hidden_effect = {
+				country_event = { id = religious_events.19 }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { religion = animism }
+			}
+		}
+	}
+	pagan_conversion_to_buddhism = {
+		potential = {
+			OR = {
+				religion_group = pagan
+				religion_group = reformed_pagan
+			}
+			OR = {
+				AND = {
+					NOT = { tag = LIT }
+					normal_or_historical_nations = yes
+				}
+				AND = {
+					tag = LIT
+					normal_or_historical_nations = yes
+					NOT = { religion = romuva }
+				}
+				normal_or_historical_nations = no
+			}
+			NOT = { religion = tengri }
+			any_owned_province = { religion_group = eastern }
+			is_subject = no
+		}
+		allow = {
+			NOT = { government = tribal }
+			stability = 1
+		}
+		effect = {
+			custom_tooltip = pagan_conversion_to_buddhism_tooltip
+			hidden_effect = {
+				country_event = { id = religious_events.20 }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { religion = animism }
+			}
+		}
+	}
+	pagan_conversion_to_dharmic = {
+		potential = {
+			OR = {
+				religion_group = pagan
+				religion_group = reformed_pagan
+			}
+			OR = {
+				AND = {
+					NOT = { tag = LIT }
+					normal_or_historical_nations = yes
+				}
+				AND = {
+					tag = LIT
+					normal_or_historical_nations = yes
+					NOT = { religion = romuva }
+				}
+				normal_or_historical_nations = no
+			}
+			NOT = { religion = tengri }
+			any_owned_province = {
+				religion_group = dharmic
+			}
+			is_subject = no
+		}
+		allow = {
+			NOT = { government = tribal }
+			stability = 1
+		}
+		effect = {
+			custom_tooltip = pagan_conversion_to_dharmic_tooltip
+			hidden_effect = {
+				country_event = { id = religious_events.21 }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { religion = animism }
+			}
+		}
+	}
+	pagan_conversion_to_zoroastrian = {
+		potential = {
+			OR = {
+				religion_group = pagan
+				religion_group = reformed_pagan
+			}
+			OR = {
+				AND = {
+					NOT = { tag = LIT }
+					normal_or_historical_nations = yes
+				}
+				AND = {
+					tag = LIT
+					normal_or_historical_nations = yes
+					NOT = { religion = romuva }
+				}
+				normal_or_historical_nations = no
+			}
+			NOT = { religion = tengri }
+			any_owned_province = {
+				religion_group = dualism
+			}
+			is_subject = no
+		}
+		allow = {
+			NOT = { government = tribal }
+			stability = 1
+		}
+		effect = {
+			custom_tooltip = pagan_conversion_to_zoroastrian_tooltip
+			hidden_effect = {
+				country_event = { id = religious_events.22 }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { religion = animism }
+			}
+		}
+	}
+	pagan_conversion_to_judaism = {
+		potential = {
+			OR = {
+				religion_group = pagan
+				religion_group = reformed_pagan
+			}
+			OR = {
+				AND = {
+					NOT = { tag = LIT }
+					normal_or_historical_nations = yes
+				}
+				AND = {
+					tag = LIT
+					normal_or_historical_nations = yes
+					NOT = { religion = romuva }
+				}
+				normal_or_historical_nations = no
+			}
+			NOT = { religion = tengri }
+			any_owned_province = {
+				religion_group = semitic
+			}
+			is_subject = no
+		}
+		allow = {
+			NOT = { government = tribal }
+			stability = 1
+		}
+		effect = {
+			custom_tooltip = pagan_conversion_to_judaism_tooltip
+			hidden_effect = {
+				country_event = { id = religious_events.23 }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { religion = animism }
+			}
+		}
+	}
+}

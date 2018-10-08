@@ -1,0 +1,406 @@
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+technology_group = chinese
+religion = buddhism
+primary_culture = shan
+capital = 1189 # Ava
+add_accepted_culture = burmese
+add_accepted_culture = chin
+
+#Myinsaing Kingdom
+1297.12.17 = {
+	monarch = {
+		name = "Thihathu"
+		dynasty = "Myinsaing"
+		birth_date = 1265.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	queen = {
+		name = "Mi Saw U"
+		dynasty = "Pagan"
+		birth_date = 1260.1.1	#made up
+		death_date = 1325.2.1	#made up
+		female = yes
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1298.6.1 = {
+	heir = {
+		name = "Uzana"
+		monarch_name = "Uzana I"
+		dynasty = "Myinsaing"
+		birth_date = 1298.6.1
+		death_date = 1340.9.1
+		claim = 80
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+#Pinya Kingdom (Mynsaign divided upon Thihathu's death)
+1325.2.1 = {
+	monarch = {
+		name = "Uzana I"
+		dynasty = "Myinsaing"
+		birth_date = 1298.6.1
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1340.9.1 = {
+	monarch = {
+		name = "Sithu"
+		dynasty = "Myinsaing"
+		birth_date = 1280.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Kyawswa"
+		monarch_name = "Kyawswa I"
+		dynasty = "Myinsaing"
+		birth_date = 1299.1.1
+		death_date = 1350.12.12
+		adm = 4
+		dip = 3
+		mil = 3
+	}
+}
+
+1344.3.29 = {
+	monarch = {
+		name = "Kyawswa I"
+		dynasty = "Myinsaing"
+		birth_date = 1299.1.1
+		adm = 4
+		dip = 3
+		mil = 3
+	}
+	heir = {
+		name = "Kyawswa"
+		monarch_name = "Kyawswa II"
+		dynasty = "Myinsaing"
+		birth_date = 1328.1.1
+		death_date = 1359.3.19
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1350.12.12 = {
+	monarch = {
+		name = "Kyawswa II"
+		dynasty = "Myinsaing"
+		birth_date = 1328.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1359.3.19 = {
+	monarch = {
+		name = "Narathu"
+		dynasty = "Myinsaing"
+		birth_date = 1333.2.1
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1364.6.1 = {
+	monarch = {
+		name = "Uzana II"
+		dynasty = "Myinsaing"
+		birth_date = 1324.1.1
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+# Thandominbya overthrows Uzana II following devastating Shan raids
+# Rulers of the Ava Dynasty, the biggest of the Shan states.
+1364.9.1 = {
+	monarch = {
+		name = "Thadominbya"
+		dynasty = "Ava"
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1368.1.1 = {
+	monarch = {
+		name = "Nga Nu"
+		dynasty = "Ava"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1368.7.1 = {
+	monarch = {
+		name = "Swasawke"
+		dynasty = "Ava"
+		adm = 4
+		dip = 3
+		mil = 3
+	}
+}
+
+1368.7.1 = {
+	heir = {
+		name = "Tarabya"
+		monarch_name = "Tarabya"
+		dynasty = "Ava"
+		birth_Date = 1352.1.1
+		death_Date = 1404.7.1
+		claim = 95
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1401.1.1 = {
+	monarch = {
+		name = "Tarabya"
+		dynasty = "Ava"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1401.7.1 = {
+	monarch = {
+		name = "Nga Nauk Hsan"
+		dynasty = "Ava"
+		adm = 0
+		dip = 0
+		mil = 1
+	}
+}
+
+1401.10.1 = {
+	monarch = {
+		name = "Minkhaung I"
+		dynasty = "Ava"
+		adm = 3
+		dip = 4
+		mil = 4
+	}
+}
+
+1401.10.1 = {
+	heir = {
+		name = "Thihathu"
+		monarch_name = "Thihathu"
+		dynasty = "Ava"
+		birth_Date = 1381.1.1
+		death_Date = 1426.1.1
+		claim = 95
+		adm = 2
+		dip = 1
+		mil = 1
+	}
+}
+
+1422.1.1 = {
+	monarch = {
+		name = "Thihathu"
+		dynasty = "Ava"
+		adm = 2
+		dip = 1
+		mil = 1
+	}
+}
+
+1422.1.1 = {
+	heir = {
+		name = "Minhlange"
+		monarch_name = "Minhlange"
+		dynasty = "Ava"
+		birth_Date = 1407.1.1
+		death_Date = 1426.7.1
+		claim = 95
+		adm = 1
+		dip = 0
+		mil = 0
+	}
+}
+
+1426.1.1 = {
+	monarch = {
+		name = "Minhlange"
+		dynasty = "Ava"
+		adm = 1
+		dip = 0
+		mil = 0
+	}
+}
+
+1426.7.1 = {
+	monarch = {
+		name = "Kale Kyetaungnyo"
+		dynasty = "Ava"
+		adm = 1
+		dip = 0
+		mil = 0
+	}
+}
+
+1427.1.1 = {
+	monarch = {
+		name = "Mohnyin Thado"
+		dynasty = "Ava"
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1427.1.1 = {
+	heir = {
+		name = "Minyekyawswa"
+		monarch_name = "Minyekyawswa"
+		dynasty = "Ava"
+		birth_Date = 1413.1.1
+		death_Date = 1443.1.1
+		claim = 95
+		adm = 2
+		dip = 3
+		mil = 3
+	}
+}
+
+1440.1.1 = {
+	monarch = {
+		name = "Minyekyawswa"
+		dynasty = "Ava"
+		adm = 2
+		dip = 3
+		mil = 3
+	}
+}
+
+1440.1.1 = {
+	heir = {
+		name = "Narapati"
+		monarch_name = "Narapati"
+		dynasty = "Ava"
+		birth_Date = 1416.1.1
+		death_Date = 1469.1.1
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1443.1.1 = {
+	monarch = {
+		name = "Narapati"
+		dynasty = "Ava"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1443.1.1 = {
+	heir = {
+		name = "Thihathura"
+		monarch_name = "Thihathura"
+		dynasty = "Ava"
+		birth_Date = 1439.1.1
+		death_Date = 1481.1.1
+		claim = 95
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1469.1.1 = {
+	monarch = {
+		name = "Thihathura"
+		dynasty = "Ava"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1469.1.1 = {
+	heir = {
+		name = "Minkhaung"
+		monarch_name = "Minkhaung II"
+		dynasty = "Ava"
+		birth_Date = 1449.1.1
+		death_Date = 1502.1.1
+		claim = 95
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1481.1.1 = {
+	monarch = {
+		name = "Minkhaung II"
+		dynasty = "Ava"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1481.1.1 = {
+	heir = {
+		name = "Shwenankyawshin"
+		monarch_name = "Shwenankyawshin"
+		dynasty = "Ava"
+		birth_Date = 1466.1.1
+		death_Date = 1527.1.1
+		claim = 95
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1502.1.1 = {
+	monarch = {
+		name = "Shwenankyawshin"
+		dynasty = "Ava"
+		adm = 2
+		dip = 1
+		mil = 0
+	}
+}
+
+1543.1.1 = {
+	monarch = {
+		name = "Mobye Narapati"
+		dynasty = "Ava"
+		adm = 0
+		dip = 1
+		mil = 0
+	}
+}
+# 1555: Annexed by Taungu

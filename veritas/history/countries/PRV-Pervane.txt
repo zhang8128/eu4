@@ -1,0 +1,19 @@
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 2
+primary_culture = turkish
+religion = sunni
+technology_group = ottoman
+capital = 624	# Sinop
+
+1300.1.1 = {
+	monarch = {
+		name = "Gazi Çelebi"
+		dynasty = "Pervâneoglu"
+		adm = 4
+		dip = 1
+		mil = 2
+	}
+	add_piety = 0.1
+}
+
+# Annexed by Candar

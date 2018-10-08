@@ -1,0 +1,3 @@
+# Mauretanian Coast
+#Province IDs changed
+discovered_by = sudanese_tech

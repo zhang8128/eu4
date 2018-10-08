@@ -1,0 +1,41 @@
+# Halland
+
+capital = "Halmstad"
+owner = DAN
+controller = DAN
+add_core = DAN
+add_core = SWE
+culture = scanian
+religion = catholic
+trade_goods = livestock
+base_tax = 3
+base_production = 3
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+# Swedish redemption of Danish pawn
+1332.1.1   = { owner = SWE controller = SWE }
+1350.1.1   = { base_tax = 2 base_production = 2 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { controller = DAN owner = DAN add_core = DAN remove_core = SWE remove_province_modifier = province_black_death }
+1400.1.1   = { base_tax = 3 base_manpower = 3 }
+1434.6.1   = { revolt = { type = anti_tax_rebels size = 1 } controller = REB } # Engelbrekt rebellion
+1436.4.27  = { revolt = {} controller = DAN } # Engelbrekt was murdered by Måns Bengtsson Natt och Dag
+1500.1.1   = { base_manpower = 2 }
+1534.8.15  = { revolt = { type = revolutionary_rebels size = 1 } controller = REB } # 'Grevefejden'(Christofer of Oldenburg)
+1534.11.15 = { revolt = {} controller = DAN } # Liberated by Sweden
+1536.1.1   = { religion = protestant} # Unknown date
+1565.9.15  = { controller = SWE } # The Nordic Seven-year War
+1569.12.4  = { controller = DAN } # The Nordic Seven-year War
+1600.1.1   = { base_manpower = 0.7 }
+1645.8.13  = { owner = SWE controller = SWE } # The Peace of Brömsebro
+1645.8.13  = { courthouse = yes } # minor court belonging to Göta Hovrätt
+1650.1.1   = { base_manpower = 0.9 }
+1680.1.1   = { culture = swedish } # The population adepted to Swedish ways.
+1700.1.1   = { base_manpower = 1.2 }
+1750.1.1   = { base_manpower = 1.5 }
+1800.1.1   = { base_manpower = 2 }

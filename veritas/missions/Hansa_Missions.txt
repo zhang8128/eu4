@@ -1,0 +1,53 @@
+hansa_sound_toll = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = HSA
+	}
+	has_country_shield = yes
+	
+	end_sound_toll = {
+		icon = mission_conquer_50_development
+		required_missions = { }
+		position = 1
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 390
+				province_id = 392
+			}
+			NOT = { controlled_by = ROOT }
+		}
+		
+		trigger = {
+			OR = {
+				OR = {
+					controls = 390
+					controls = 392
+				}
+				390 = {
+					owner = {
+						has_opinion = {
+							who = ROOT
+							value = 200
+						}
+						is_at_war = no
+					}
+				}
+				390 = {
+					NOT = { has_province_modifier = sound_toll }
+				}
+			}
+		}
+		
+		effect = {
+			381 = { # Lubeck
+				add_province_modifier = {
+					name = "free_shipping_through_the_sound"
+					duration = -1
+				}
+			}
+		}
+	}
+}

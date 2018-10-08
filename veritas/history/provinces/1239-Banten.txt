@@ -1,0 +1,27 @@
+# Banten
+
+capital = "Banten"
+owner = SUN
+controller = SUN
+add_core = SUN
+culture = javanese
+religion = hinduism
+trade_goods = spices
+base_tax = 4
+base_production = 4
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = MKS
+discovered_by = MLC
+discovered_by = ATJ
+discovered_by = MAJ
+discovered_by = BEI
+discovered_by = KUT
+discovered_by = BLI
+discovered_by = SUN
+discovered_by = SVJ
+
+# Banten became an independent sultanate
+1552.1.1  = { discovered_by = BAN owner = BAN controller = BAN add_core = BAN }
+1602.1.1  = { discovered_by = GBR } # English settlement

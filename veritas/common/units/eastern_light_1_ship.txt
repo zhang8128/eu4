@@ -1,0 +1,10 @@
+#Strook
+#model = barque
+#tech_level = 0
+type = transport
+unit_type = eastern
+
+hull_size = 6
+base_cannons = 8
+sail_speed = 10
+sailors = 150

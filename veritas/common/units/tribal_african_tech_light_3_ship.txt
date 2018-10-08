@@ -1,0 +1,10 @@
+#Great Mutapa War Canoe
+#model = frigate
+#tech_level = 26
+type = transport
+unit_type = tribal_african_tech
+
+hull_size = 12
+base_cannons = 10
+sail_speed = 10
+sailors = 150

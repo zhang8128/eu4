@@ -1,0 +1,203 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+primary_culture = moselfranconian
+religion = catholic
+technology_group = western
+capital = 337	# Düsseldorf
+
+1308.4.16 = {
+	monarch = {
+		name = "Adolf IX"
+		dynasty = "von Berg"
+		birth_date = 1278.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1312.1.1 = {
+	queen = {
+		country_of_origin = KLE
+		name = "Agnes"
+		dynasty = "von Cleves"
+		birth_date = 1295.1.1
+		death_date = 1361.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1348.4.3 = {
+	monarch = {
+		name = "Gerhard IV"
+		dynasty = "von Julich"
+		birth_date = 1325.1.1
+		adm = 2
+		dip = 2
+		mil = 4
+	}
+	queen = {
+		country_of_origin = BRG
+		name = "Margaret"
+		dynasty = "Calvelage-Ravensberg"
+		birth_date = 1320.1.1
+		death_date = 1389.2.13
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Wilhelm"
+		monarch_name = "Wilhelm VII"
+		dynasty = "von Julich"
+		birth_date = 1348.1.1
+		death_date = 1408.6.25
+		claim = 100
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1360.5.18 = {
+	monarch = {
+		name = "Wilhelm VII"
+		dynasty = "von Julich"
+		birth_date = 1348.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1363.9.28 = {
+	queen = {
+		country_of_origin = PAL
+		name = "Anna"
+		dynasty = "von Wittelsbach"
+		birth_date = 1346.1.1
+		death_date = 1415.11.30
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1370.1.1 = {
+	heir = {
+		name = "Adolf"
+		monarch_name = "Adolf X"
+		dynasty = "von Julich"
+		birth_date = 1370.1.1
+		death_date = 1437.7.14
+		claim = 100
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+#Changed the regnal numbers upon attaining ducal status
+1380.1.1 = {
+	government_rank = 2
+	monarch = {
+		name = "Wilhelm I"
+		dynasty = "von Julich"
+		birth_date = 1348.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = PAL
+		name = "Anna"
+		dynasty = "von Wittelsbach"
+		birth_date = 1346.1.1
+		death_date = 1415.11.30
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Adolf"
+		monarch_name = "Adolf I"
+		dynasty = "von Julich"
+		birth_date = 1370.1.1
+		death_date = 1437.7.14
+		claim = 100
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1408.6.25 = {
+	monarch = {
+		name = "Adolf I"
+		dynasty = "von Julich"
+		birth_date = 1370.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = BAR
+		name = "Yolande"
+		dynasty = "de Montbéliard"
+		birth_date = 1378.1.1
+		death_date = 1421.1.10
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Rupert"
+		monarch_name = "Rupert I"
+		dynasty = "von Julich"
+		birth_date = 1405.1.1	# Made Up
+		death_date = 1431.8.2
+		claim = 100
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1430.2.14 = {
+	queen = {
+		country_of_origin = BAV
+		name = "Elisabeth"
+		dynasty = "von Wittelsbach"
+		birth_date = 1406.1.1
+		death_date = 1468.3.5
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+# Permanent Union with Julich ending in the combination of the ducal titles (Julich-Berg)
+
+#Grand Duchy of Berg
+1806.3.15 = {
+	monarch = { 
+		name = "Joachim I"
+		dynasty = "Murat"
+		birth_date = 1767.3.25
+		dip = 3
+		mil = 2
+		adm = 2
+		leader = {	name = "Joachim I Murat"	type = general	fire = 4	shock = 4	manuever = 6	siege = 2 }
+	}
+}
+
+# Union with France when Murat promoted to Naples (1808.8.1) Napoleon's nephew nominally duke under regency

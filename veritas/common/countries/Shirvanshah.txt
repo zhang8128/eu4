@@ -1,0 +1,163 @@
+#Country Name: Please see filename.
+
+graphical_culture = muslimgfx
+
+color = { 98  206  253 }
+
+historical_idea_groups = { 
+	defensive_ideas
+	quantity_ideas
+	administrative_ideas
+	free_trade_ideas
+	spy_ideas
+	economic_ideas
+	standing_army_ideas
+	expansion_ideas
+}
+
+historical_units = {
+	muslim_artillery_10_1
+	muslim_artillery_16_1
+	muslim_artillery_23_1
+	muslim_artillery_29_1
+	muslim_artillery_35_1
+	muslim_artillery_40_1
+	muslim_artillery_44_1
+	muslim_artillery_48_1
+	muslim_artillery_52_1
+	muslim_artillery_55_1
+	muslim_artillery_55_2
+	muslim_cavalry_0_1
+	muslim_cavalry_0_2
+	muslim_cavalry_21_1
+	muslim_cavalry_21_2
+	muslim_cavalry_27_1
+	muslim_cavalry_31_1
+	muslim_cavalry_36_1
+	muslim_cavalry_40_1
+	muslim_cavalry_44_1
+	muslim_cavalry_48_1
+	muslim_cavalry_48_2
+	muslim_cavalry_51_1
+	muslim_cavalry_51_2
+	muslim_cavalry_55_1
+	muslim_cavalry_55_2
+	muslim_cavalry_58_1
+	muslim_cavalry_58_2
+	muslim_cavalry_16_1
+	muslim_cavalry_16_2
+	muslim_infantry_0_1
+	muslim_infantry_0_2
+	muslim_infantry_17_1
+	muslim_infantry_17_2
+	muslim_infantry_21_1
+	muslim_infantry_21_2
+	muslim_infantry_25_1
+	muslim_infantry_25_2
+	muslim_infantry_28_1
+	muslim_infantry_28_2
+	muslim_infantry_31_1
+	muslim_infantry_31_2
+	muslim_infantry_34_1
+	muslim_infantry_34_2
+	muslim_infantry_39_1
+	muslim_infantry_39_2
+	muslim_infantry_42_1
+	muslim_infantry_42_2
+	muslim_infantry_45_1
+	muslim_infantry_45_2
+	muslim_infantry_48_1
+	muslim_infantry_48_2
+	muslim_infantry_50_1
+	muslim_infantry_50_2
+	muslim_infantry_53_1
+	muslim_infantry_53_2
+	muslim_infantry_55_1
+	muslim_infantry_55_2
+	muslim_infantry_6_1
+	muslim_infantry_6_2
+	muslim_infantry_57_1
+	muslim_infantry_57_2
+	muslim_infantry_59_1
+	muslim_infantry_59_2
+	muslim_infantry_63_1
+	muslim_infantry_63_2
+	muslim_infantry_14_1
+	muslim_infantry_14_2
+}
+
+monarch_names = {
+	"Ibrahim #0 Muhammad" = 20
+	"Ibrahim #0" = 20
+	"Farrukhsiyar Khalil #0" = 60
+	"Bahram Farrukhsiyar #0" = 40
+	"Ghazi Farrukhsiyar #0" = 20
+	"Ismail #0" = 10
+	"Tahmasp #0" = 10
+	"Junayd #0" = 10
+	"Farrukh #0" = 10
+ 	"Khalilullah #0" = 10
+	
+
+	"Adila #0" = -3
+	"Malahat #0" = -3
+	"Ummugulsum #0" = -1
+	"Khadija #0" = -1
+	"Abida #0" = -1
+	"Bika #0" = -1
+	"Lal Bi #0" = -1
+	"Khanikah #0" = -1
+	"Halima #0" = -1
+	"Shahnavaz #0" = -1
+	"Gunish #0" = -1
+	"Pari #0" = -1
+	"Khair #0" = -1
+	"Shah #0" = -1
+	"Farangis #0" = -1
+	"Mahin Banu #0" = -1
+	"Tajlu #0" = -1
+	"Gowhar #0" = -1
+	"Zainab #0" = -1
+	"Fatemeh #0" = -1
+
+	
+
+	 
+}
+
+leader_names = {
+	Sabiri
+	Jalili
+	Azizi
+	Shahy
+	Daei
+	Qazai
+	Dalwand
+	Ahrari
+	Fatemi
+	Sabet
+	Ansari
+}
+
+ship_names = {
+	Baku Abathur "Adamn Kasia" "Aesma Daeva" Agas
+	Ahriman Ahura "Ahura Mazda" Ahurani Airyaman
+	"Aka Manah" Aladdin Allatum Amashaspan Ameratat
+	"Amesha Spentas" Anahita "Angra Mainyu" Anjuman
+	"Apam-natat" Apaosa Aredvi Arishtat Armaiti Arsaces
+	"Asha vahista" Asman "Asto Vidatu" "Astvat-Ereta"
+	Atar "Azi Dahaka" Baga Bahram Burijas Bushyasta Buyasta
+	Camros Daena Daevas Ahaka Dahhak Dena Dev Diwe Drug
+	Drvaspa Frashegird Fravashis Gandarewa "Gao-kerena"
+	Gayomard Gayomart "Geus-Tasan" "Geus-Urvan" Haoma
+	Haurvatat Humay Hvar Hvarekhshaeta Indar Indra Izha
+	Jamshid Jeh Karshipta Kavi Khara "Khshathra vairya"
+	Kundrav Mah Mahre Mahrianag Manu Manuchihir Mao 
+	Mashyane Mashye Menog Mithra Nairyosangha Nanghaithya
+	Neriosang Ormazd Peris Peshdadians Rapithwin Rashnu
+	Rustam Saurva Simurgh "Spenta Mainyu" Sraosa Srosh
+	Tawrich Thunaupa Tistrya Tushnamatay Vanant Vata
+	Verethragna "Vohu Manah" Vouruskasha Yam Yasht Yazata
+	Yezidi Yima Zal Zam "Zam-Armatay" Zarathustra Zarich
+	"Zend-Avesta" Zurvan
+}

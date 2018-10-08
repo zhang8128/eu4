@@ -1,0 +1,11 @@
+#Pinsi
+#model = eastindiaman
+#tech_level = 42
+type = light_ship
+unit_type = chinese
+
+hull_size = 16
+base_cannons = 16
+sail_speed = 8
+trade_power = 5.625
+sailors = 50

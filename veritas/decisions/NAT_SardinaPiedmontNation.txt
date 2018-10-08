@@ -1,0 +1,194 @@
+country_decisions = {
+
+	sardinia_piedmont_nation = {
+		major = yes
+		potential = {
+			OR = {
+				tag = SAV
+				tag = SAR
+			}
+			normal_or_historical_nations = yes
+			NOT = { exists = SPI }
+			government = monarchy
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			stability = 1
+			adm_tech = 28
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			calc_true_if = {
+				tag = SAR
+				tag = SAV
+				NOT = { exists = SAV }
+				NOT = { exists = SAR }
+				amount = 2
+			}
+			owns_core_province = 132		# Nice
+			owns_core_province = 137		# Savoie
+			137 = { NOT = { nationalism = 1 } }
+			owns_core_province = 205		# Gallura
+			205 = { NOT = { nationalism = 1 } }
+			owns_core_province = 206		# Sassari
+			206 = { NOT = { nationalism = 1 } }
+			owns_core_province = 207		# Oristano
+			207 = { NOT = { nationalism = 1 } }
+			owns_core_province = 208		# Cagliari
+			208 = { NOT = { nationalism = 1 } }
+			owns_core_province = 255		# Cuneo
+			owns_core_province = 256		# Saluzzo
+			owns_core_province = 257		# Piedmont
+			257 = { NOT = { nationalism = 1 } }
+		}
+		effect = {
+			change_tag = SPI
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			set_capital = 257		# Piedmont
+			add_prestige = 10
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = SPI_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 400
+	}
+	
+	sardinia_piedmont_nation_inherit = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					tag = SAV
+					OR = {
+						ai = no
+						AND = {
+							ai = yes
+							SAR = {	junior_union_with = SAV	}
+							#This overlaps with allow for AI, is meant to negate do_not_integrate
+							SAR = { NOT = { num_of_cities = 10 } } #Keep this number the same as in allow
+						}
+					}
+				}
+				AND = {
+					tag = SAR
+					OR = {
+						ai = no
+						AND = {
+							ai = yes
+							SAV = {	junior_union_with = SAR	}
+							#This overlaps with allow for AI, is meant to negate do_not_integrate
+							SAV = { NOT = { num_of_cities = 14 } } #Keep this number the same as in allow
+						}
+					}
+				}
+			}
+			normal_or_historical_nations = yes
+			government = monarchy
+			NOT = { exists = SPI }
+		}
+		allow = {
+			stability = 1
+			adm_tech = 28
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			prestige = 75
+			dip = 3
+			adm = 3
+			OR = {
+				AND = {
+					tag = SAR
+					owns_core_province = 205		# Gallura
+					owns_core_province = 206		# Sassari
+					owns_core_province = 207		# Oristano
+					owns_core_province = 208		# Cagliari
+					senior_union_with = SAV
+					SAV = {
+						owns_core_province = 257	# Piedmont
+						NOT = { num_of_cities = 14 } #Original 8 + 5
+					}
+				}
+				AND = {
+					tag = SAV
+					owns_core_province = 257			# Piedmont
+					senior_union_with = SAR
+					SAR = {
+						owns_core_province = 205		# Gallura
+						owns_core_province = 206		# Sassari
+						owns_core_province = 207		# Oristano
+						owns_core_province = 208		# Cagliari
+						NOT = { num_of_cities = 10 } #Original 4 + 5
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = { tag = SAV }
+				inherit = SAR
+			}
+			if = {
+				limit = { tag = SAR }
+				inherit = SAV
+			}
+			change_tag = SPI
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			set_capital = 257	# Piedmont
+			add_prestige = 25
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = SPI_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+		do_not_integrate = SAR
+		do_not_integrate = SAV
+	}
+
+}

@@ -1,0 +1,39 @@
+#Närke
+
+capital = "Örebro"
+owner = SWE
+controller = SWE
+add_core = SWE
+culture = swedish
+religion = catholic
+trade_goods = iron
+base_tax = 2
+base_production = 2
+base_manpower = 1
+is_city = yes
+hre = no
+basic_fort = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+set_province_flag = starting_fort
+set_local_autonomy = 10
+
+1353.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1497.3.13  = { controller = DAN } #Danish loyalists at Danish DoW
+1497.10.6  = { controller = SWE } #Hans I become King and Sweden a Danish Vassal
+1501.8.1   = { controller = DAN } #Danish loyalists at Swedish DoW and breaking of vassalage
+1502.3.15  = { controller = SWE } #Retaken by Sweden
+# 1520.3.6  = { owner = DAN controller = DAN } #The Council accept Christian II as King
+# 1521.5.20 = { owner = SWE controller = SWE } #Joins after Västerås is taken by Sweden
+1527.6.1   = { religion = protestant }
+1600.1.1   = { base_manpower = 0.6 }
+1647.1.1   = { temple = yes } #Unknown date
+1650.1.1   = { base_manpower = 0.7 }
+1700.1.1   = { base_manpower = 0.8 }
+1730.1.1   = { citysize = 1864 } #Due to the support of manufactories
+1750.1.1   = { base_manpower = 0.9 }
+1800.1.1   = { base_manpower = 1 }

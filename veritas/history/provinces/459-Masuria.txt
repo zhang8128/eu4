@@ -1,0 +1,28 @@
+# Masuria
+
+capital = "Marienwerder"
+owner = TEU
+controller = TEU
+add_core = TEU
+culture = prussian
+religion = catholic
+trade_goods = naval_supplies
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1347.1.1   = { base_manpower = 3 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1454.2.10  = { add_core = POL revolt = { type = revolutionary_rebels size = 0 } controller = REB }  # Thirteen Years War
+1466.10.19 = {	revolt = {} add_core = PRU controller = TEU } # Peace of Torun
+1525.2.10  = { owner = PRU controller = PRU remove_core = TEU remove_core = POL religion = protestant } # Albert of Prussia became a protestant
+1618.8.28  = {	owner = BRA controller = BRA add_core = BRA } # Prussia in a personal union with Brandenburg
+1701.1.18  = {	owner = PRU controller = PRU remove_core = BRA } # Kingdom of Prussia
+1758.1.22 = { controller = RUS } # Occupied by Russia
+1762.5.5 = { controller = PRU } # Russians withdraw

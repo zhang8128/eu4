@@ -1,0 +1,59 @@
+name = "English Civil War"
+war_goal = {
+	type = take_capital_personal_union
+	casus_belli = cb_restore_personal_union
+	tag = ENG
+}
+
+1650.5.1 = {
+	add_attacker = ENG
+	add_defender = SCO
+}
+
+1650.9.3 = {
+	battle = {
+		name = "Dunbar"
+		location = 16
+		attacker = {
+			commander = "David Leslie"	
+			infantry = 16500
+			cavalry = 5500
+			losses = 12	# percent	
+			country = SCO
+		}
+		defender = {
+			commander = "Oliver Cromwell"
+			infantry = 7500
+			cavalry = 3500
+			losses = 1	# percent
+			country = ENG
+		}
+		result = yes
+	}
+}
+
+1651.7.20 = {
+	battle = {
+		name = "Inverkeithing"
+		location = 13
+		attacker = {
+			commander = "Sir John Brown"	
+			infantry = 4500
+			losses = 50	# percent	
+			country = SCO
+		}
+		defender = {
+			commander = "John Lambert"
+			infantry = 4500
+			losses = 5	# percent
+			country = ENG
+		}
+		result = yes
+	}
+}
+
+# Tender of Union
+1651.10.28 = {
+	rem_attacker = ENG
+	rem_defender = SCO
+}

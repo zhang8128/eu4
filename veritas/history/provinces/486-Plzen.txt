@@ -1,0 +1,31 @@
+# Plzen
+
+capital = "Plzen"
+owner = BOH
+controller = BOH
+add_core = BOH
+culture = czech
+religion = catholic
+trade_goods = hemp
+base_tax = 5
+base_production = 5
+base_manpower = 6
+is_city = yes
+hre = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1348.1.1   = { base_manpower = 5 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1526.8.30 = {	owner = HAB controller = HAB add_core = HAB remove_core = BOH }
+1550.1.1  = { citysize = 7000 }
+1600.1.1  = { citysize = 9000 }
+# Defenestration of Prague
+1618.5.23 = { owner = BOH controller = BOH add_core = BOH }
+1620.11.8  = {	owner = HAB controller = HAB remove_core = BOH }
+1700.1.1  = { citysize = 11000 courthouse = yes }
+1800.1.1  = { citysize = 12000 }
+1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved

@@ -1,0 +1,16 @@
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+technology_group = chinese
+religion = buddhism
+primary_culture = cantonese
+capital = 1112	# Dali
+
+1355.1.1 = {
+	monarch = {
+		name = "Basalawarmi"
+		dynasty = "Yuan"
+		adm = 2
+		dip = 1
+		mil = 4
+	}
+}

@@ -1,0 +1,169 @@
+######################################################################
+# Highland Rebels = Free Scotland
+######################################################################
+highland_rebels = {
+
+	color = { 200 175 10 }
+	
+	area = nation_rebel_tag 		# Stays within the nation
+	government = any				# Don't care about gov type				
+	defection = nation_rebel_tag				# Will not defect
+	defect_delay = 60
+	independence = nation_rebel_tag			# Does not strive for independence
+	unit_transfer = no				# Units do not remain after enforcing demands.
+	gfx_type = culture_province
+	will_relocate = yes
+
+	resilient = no					# Can retreat
+	reinforcing = yes				# Can reinforce
+	general = yes					# Does use generals
+	smart = yes						# Do assault forts, tactically withdraw from battle, etc.
+	
+	artillery = 0.1
+	infantry = 0.9
+	cavalry = 0
+	
+	morale = 0.80
+	
+	# Possible handle actions
+	handle_action_negotiate = yes
+	handle_action_stability = no
+	handle_action_build_core = no
+	handle_action_send_missionary = no		
+	handle_action_change_culture = no		
+	
+	# The rebel type with the highest modifier for this province gets picked
+	spawn_chance = {
+		factor = 5
+		# Non-western technology expempt
+		modifier = {
+			factor = 0.0
+			NOT = { has_province_modifier = vef_highland_rebels }
+		}
+	}
+ 
+ 	# This is checked for EACH province in the Area of Operations
+	movement_evaluation = {
+		factor = 0
+		modifier = {
+			factor = 0.1
+			units_in_province = 1
+		}
+		modifier = {
+			factor = 0.001
+			controlled_by = REB
+		}
+		modifier = {
+			factor = 2.0
+			is_capital = yes
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 2
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 4
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 6
+		}
+	}
+	
+	# Province Scope
+ 	siege_won_trigger = {
+ 		culture = REB
+ 	}
+	siege_won_effect = {
+		add_nationalism = 10 # Add ten extra years of nationalism
+	}
+	
+	# Country scope
+	can_negotiate_trigger = {
+		always = yes
+	}
+	
+	# Country scope
+	can_enforce_trigger = {
+		always = yes
+	}
+	
+	# Country scope
+		
+	# Localisation for their demands
+	demands_description = "highland_rebels_demand"
+	
+	# Country scope
+	demands_enforced_effect = {
+		add_prestige = -20
+		change_variable = { which = aristocratic_privilege value = -5 }
+		if = {
+			limit = {
+				OR = {
+					tag = SCO
+					tag = CLT
+					tag = ISC
+				}
+				is_lesser_in_union = yes
+			}
+			every_country = {
+				limit = { senior_union_with = ROOT }
+				break_union = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { exists = SCO }
+				NOT = { exists = CLT }
+				NOT = { exists = ISC }
+			}
+			release = SCO
+		}
+		if = {
+			limit = {
+				exists = SCO
+				NOT = { exists = CLT }
+				NOT = { exists = ISC }
+				NOT = { tag = SCO }
+			}
+			every_owned_province = {
+				limit = {
+					controlled_by = REB
+					is_core = SCO
+				}
+				cede_province = SCO
+			}
+		}
+		if = {
+			limit = {
+				NOT = { exists = SCO }
+				exists = CLT
+				NOT = { exists = ISC }
+				NOT = { tag = CLT }
+			}
+			every_owned_province = {
+				limit = {
+					controlled_by = REB
+					is_core = CLT
+				}
+				cede_province = CLT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { exists = SCO }
+				NOT = { exists = CLT }
+				exists = ISC
+				NOT = { tag = ISC }
+			}
+			every_owned_province = {
+				limit = {
+					controlled_by = REB
+					is_core = ISC
+				}
+				cede_province = ISC
+			}
+		}
+	}
+}

@@ -1,0 +1,10 @@
+#Mayan Warship
+#model = cog
+#tech_level = 18
+type = heavy_ship
+unit_type = mesoamerican
+
+hull_size = 12
+base_cannons = 12
+sail_speed = 5
+sailors = 200

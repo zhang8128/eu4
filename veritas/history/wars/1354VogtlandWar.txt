@@ -1,0 +1,15 @@
+name = "Vogtland War"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 323 #Vogtland
+}
+
+1354.1.1 = {
+	add_attacker = BOH
+	add_defender = VOG
+}
+1357.1.1 = {
+	rem_attacker = BOH
+	rem_defender = VOG
+}

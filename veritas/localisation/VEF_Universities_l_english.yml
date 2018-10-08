@@ -1,0 +1,12 @@
+﻿l_english:
+ vef_universities.1.t: "Offer to Endow the University of Leuven"
+ vef_universities.1.d: "An offer has been made to endow the Katholieke Universiteit Leuven, a Dutch-speaking university in Flanders located in the centre of the historic town of Leuven. We can allow the university to be built, or take immediate benefits."
+ vef_universities.1.opta: "A University"
+ vef_universities.1.optb: "Immediate Benefits"
+ vef_universities.2.t: "Founding of St. Andrews University"
+ vef_universities.2.d: "The Pope has issued a Bull to a small group of clergy who have founded a school of higher education."
+ vef_universities.2.opta: "OK"
+ vef_universities.3.t: "Founding of Jagiellonian University"
+ vef_universities.3.d: "An offer has been made to endow the first polish university in city of Krakow."
+ vef_universities.3.opta: "Found the University"
+ vef_universities.3.optb: "Take the immediate benefits"

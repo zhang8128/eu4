@@ -1,0 +1,23 @@
+#Province IDs changed
+government = monarchy add_government_reform = constitutional_monarchy
+government_rank = 3
+technology_group = western
+primary_culture = polynesian
+add_accepted_culture = english
+religion = animism
+capital = 1928	# Wellington
+
+
+#1534.1.1 = { decision = suffragan_bishop_act }
+
+1534.11.1 = { decision = first_act_royal_supremacy }
+
+1536.1.1 = { decision = dissolution_of_the_monasteries }
+
+1549.1.1 = { decision = act_of_uniformity }
+
+1554.12.31 = { decision = revive_the_heresy_acts }
+
+1559.1.1 = { decision = second_act_royal_supremacy }
+
+1580.1.1 = { decision = enlist_privateers }

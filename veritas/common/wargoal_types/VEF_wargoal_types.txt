@@ -1,0 +1,505 @@
+# Supress the horde. In our alternate timeline the hordes were defeated and stopped by Pala,
+# Persia and Byzantium in turn. Their inability to make inroads leaves them less powerful.
+suppress_hordes = {
+	type = take_border
+
+	badboy_factor = 0	# No penalty for going for the horde!
+	prestige_factor = 1
+	peace_cost_factor = 0.75
+
+	allowed_provinces = {
+		is_capital = no
+		any_neighbor_province = { owned_by = ROOT }
+		owner = { government = steppe_horde }
+	}
+	peace_options = {
+		po_demand_provinces
+		po_become_vassal
+	}
+}
+
+# BYZ war goals for their justinian missions
+empire_of_justinian = {
+	type = take_border
+
+	badboy_factor = 1	
+	prestige_factor = 1
+	peace_cost_factor = 1 
+
+	allowed_provinces = {
+		OR = {
+			is_core = ROOT
+			is_claim = ROOT
+		}
+		province_group = justinian_realm
+		any_neighbor_province = { owned_by = ROOT }
+	}
+
+	peace_options = {
+		po_demand_provinces
+		po_become_vassal
+	}
+}
+
+force_convert_heretics = {
+	type = superiority
+
+	badboy_factor = 0.75
+	prestige_factor = 2
+	peace_cost_factor = 1.0
+
+	allowed_provinces = {
+		always = yes
+	}
+	peace_options = {
+		po_change_religion
+	}
+
+	country_desc = ALL_HERETICS
+	war_name = HERETIC_WAR_NAME
+}
+
+release_rome = {
+	type = superiority
+
+	badboy_factor = 0.25
+	prestige_factor = 1
+	peace_cost_factor = 1 
+
+	peace_options = {
+		po_release_vassals
+	}
+}
+
+reclaim_core = {
+	type = take_core
+
+	attacker = {
+		badboy_factor = 2
+		prestige_factor = 1.5
+		peace_cost_factor = 1
+
+		allowed_provinces = {
+			any_core_country = { is_subject_of = ROOT }
+		}
+
+		peace_options = {
+			po_demand_provinces
+			po_return_cores
+			po_revoke_cores
+		}
+
+		prov_desc = ALL_CORES
+	}
+
+	defender = {
+		badboy_factor = 0.25
+		prestige_factor = 1
+		peace_cost_factor = 0.75
+
+		allowed_provinces = { is_core = FROM }
+
+		peace_options = {
+			po_demand_provinces
+		}
+
+		prov_desc = ALL_CORES
+	}
+
+	war_name = CORE_WAR_NAME
+}
+
+byz_take_border = {
+	type = take_border
+
+	badboy_factor = 0.75
+	prestige_factor = 1
+	peace_cost_factor = 0.75
+
+	allowed_provinces = {
+		is_claim = ROOT
+	}
+
+	peace_options = {
+		po_demand_provinces
+		po_concede_defeat
+	}
+
+	war_name = BORDER_WAR_NAME
+}
+
+capture_spices = {
+	type = take_province
+
+	badboy_factor = 2
+	prestige_factor = 1
+	peace_cost_factor = 1
+
+	allowed_provinces = {
+		OR = {
+			trade_goods = cinnamon
+			trade_goods = cloves
+			trade_goods = nutmeg
+			trade_goods = spices
+		}
+		is_capital = no
+	}
+
+	peace_options = {
+		po_demand_provinces
+		po_gold
+		po_concede_defeat
+	}
+
+	war_name = CAPTURE_SPICES_NAME
+}
+
+anti_rival = {
+	type = superiority
+	
+	attacker = {
+		badboy_factor = 0.5
+		prestige_factor = 2
+		peace_cost_factor = 1.5
+		
+		allowed_provinces = {
+			always = yes
+		}
+		
+		peace_options = {
+			po_demand_provinces
+			po_become_vassal
+			po_humiliate
+			po_humiliate_rival
+		}
+		
+		country_desc = ALL_RIVALS
+		prov_desc = ALL_PROVS
+	}
+	
+	defender = {
+		badboy_factor = 0.5
+		prestige_factor = 2
+		peace_cost_factor = 1.5
+		
+		allowed_provinces = {
+			always = yes
+		}
+		
+		peace_options = {
+			po_concede_defeat
+			po_demand_provinces
+			po_become_vassal
+			po_humiliate
+			po_humiliate_rival
+		}
+		
+		country_desc = ALL_RIVALS
+		prov_desc = ALL_PROVS
+	}	
+	
+	war_name = RIVALS_WAR_NAME
+}
+
+superiority_tribute = {
+	type = superiority
+	
+	badboy_factor = 0.50
+	prestige_factor = 1
+	peace_cost_factor = 0.50
+
+	peace_options = {
+		po_gold
+		po_concede_defeat
+		po_humiliate
+		po_become_tributary_state
+	}
+
+	war_name = TRIBUTE_WAR_NAME
+}
+
+ghazi_dominance = {
+	type = superiority
+
+	badboy_factor = 0.25
+	prestige_factor = 2
+	peace_cost_factor = 0.75
+
+	allowed_provinces = {
+		always = yes
+	}
+	
+	peace_options = {
+		po_demand_provinces
+	}
+	
+	country_desc = ALL_TURKS
+	prov_desc = ALL_PROVS
+
+
+	war_name = RIVALS_WAR_NAME
+}
+
+rus_enforcer = {
+	type = superiority
+	
+	attacker = {
+		badboy_factor = 0.25
+		prestige_factor = 2
+		peace_cost_factor = 0.70
+
+		allowed_provinces = {
+			always = yes
+		}
+
+		peace_options = {
+			po_demand_provinces
+		}
+
+		country_desc = ALL_COALITION
+		prov_desc = ALL_PROVS
+	}
+	
+	war_name = RUS_ENFORCER_WAR_NAME
+}
+
+take_capital_kalmar_union = {
+	type = take_capital
+
+	badboy_factor = 0.2
+	prestige_factor = 0.2
+	peace_cost_factor = 0.2
+
+    attacker = {
+    	peace_options = {
+     	   po_form_personal_union
+     	   po_gold
+     	  }
+
+        deny_annex = yes
+	}
+
+	defender = {
+		peace_options = {
+			po_concede_defeat
+			po_return_cores
+			po_demand_provinces
+			po_revoke_cores
+			po_release_vassals
+			po_release_annexed
+			po_gold
+			po_annul_treaties
+		}
+
+        deny_annex = yes
+	}
+
+	war_name = UNION_WAR_NAME
+}
+
+kalmar_union_independence = {
+	type = defend_capital
+
+	attacker = {
+		badboy_factor = 1
+		prestige_factor = 2
+		peace_cost_factor = 0.2
+
+        peace_options = {
+        	po_independence
+			po_gold
+		}
+
+        deny_annex = yes
+	}
+
+	defender = {
+		badboy_factor = 0
+		prestige_factor = 2
+		peace_cost_factor = 0.5
+
+		peace_options = {
+			po_concede_defeat
+			po_demand_provinces
+		}
+
+		deny_annex = yes
+	}
+
+	war_name = KU_INDEPENDENCE_WAR_NAME
+}
+
+hyw_force_pu = {
+	type = take_capital
+	
+	badboy_factor = 0.6
+	prestige_factor = 1
+	peace_cost_factor = 0.8
+	
+	peace_options = {
+		po_form_personal_union
+	}
+	
+	war_name = UNION_WAR_NAME
+}
+
+superiority_vef_crusade = {
+	type = superiority
+	
+	attacker = {
+		badboy_factor = 0.75
+		prestige_factor = 1.25
+		peace_cost_factor = 1.0	
+		
+		allowed_provinces = {
+			always = yes
+		}
+		
+		peace_options = {
+			po_demand_provinces
+		}
+		
+		country_desc = ALL_INFIDELS
+		prov_desc = ALL_PROVS
+	}
+	
+	defender = {
+		badboy_factor = 0.75
+		prestige_factor = 1.25
+		peace_cost_factor = 1.0	
+		
+		allowed_provinces = {
+			always = yes
+		}
+		
+		peace_options = {
+			po_demand_provinces
+		}
+		
+		country_desc = ALL_INFIDELS
+		prov_desc = ALL_PROVS
+	}	
+	
+	war_name = VEF_CRUSADE_WAR_NAME	
+}
+
+alliance_superiority = {
+	type = superiority
+	
+	badboy_factor = 4
+	prestige_factor = 0.25
+	peace_cost_factor = 1.25
+
+	peace_options = {
+		po_concede_defeat
+		po_gold
+	}
+	
+	deny_annex = yes
+
+}
+
+# WRE war goal for the HRE CB
+wre_v_hre = {
+	type = take_capital
+
+	attacker = {
+		badboy_factor = 0.25
+		prestige_factor = 1.5
+		peace_cost_factor = 0.5	
+	
+		allowed_provinces = {
+			OR = {
+				is_core = ROOT
+				is_claim = ROOT
+			}
+		}
+	
+		peace_options = {
+			po_demand_provinces
+			po_gold
+			po_concede_defeat
+		}
+	}
+	
+	defender = {
+		badboy_factor = 0.25
+		prestige_factor = 1.5
+		peace_cost_factor = 0.5
+		
+		allowed_provinces = {
+			always = yes
+		}
+	
+		peace_options = {
+			po_release_annexed
+			po_release_vassals
+			po_demand_provinces
+			po_concede_defeat
+		}
+	}
+	
+	war_name = WRE_V_HRE_NAME
+}
+
+vef_superiority_punitive = {
+	type = superiority
+	
+	badboy_factor = 0.1
+	prestige_factor = 1
+	peace_cost_factor = 0.75	
+	
+	allowed_provinces = {
+		OR = {
+			is_claim = ROOT
+			is_core = ROOT
+		}
+	}
+	
+	peace_options = {
+		po_release_vassals
+		po_release_annexed
+		po_return_cores
+		po_demand_provinces
+		po_revoke_cores
+		po_gold
+		po_concede_defeat
+	}
+	
+	prov_desc = ALL_CORES_AND_CLAIMS
+	war_name = PUNITIVE_WAR_NAME	
+}
+
+vef_permanent_claim = {
+	type = take_province
+	
+	badboy_factor = 0.5
+	prestige_factor = 1.2
+	peace_cost_factor = 0.75
+	
+	allowed_provinces = {
+		is_permanent_claim = ROOT
+	}
+	
+	peace_options = {
+		po_demand_provinces
+	}
+	
+	prov_desc = ALL_PERM_CLAIMS
+	war_name = CLAIM_WAR_NAME
+}
+
+# For country reuniting.
+vef_reunite_breakaway = {
+	type = take_capital
+	
+	badboy_factor = 0.25
+	prestige_factor = 1
+	peace_cost_factor = 0.5
+	
+	peace_options = {
+		po_demand_provinces
+	}
+	
+	war_name = VASSAL_MISSION_WAR_NAME
+}

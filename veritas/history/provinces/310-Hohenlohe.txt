@@ -1,0 +1,30 @@
+# Hohenlohe
+
+owner = HLO
+controller = HLO
+add_core = HLO
+culture = alemannic
+religion = catholic
+capital = "Öhringen"
+trade_goods = grain
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+hre = yes
+
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1551.1.1 = { religion = protestant }
+1806.7.12 = {
+	hre = no
+	owner = WUR
+	controller = WUR
+	add_core = WUR
+} # The Holy Roman Empire is dissolved

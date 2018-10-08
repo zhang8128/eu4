@@ -1,0 +1,189 @@
+government = theocracy add_government_reform = leading_clergy_reform
+technology_group = western
+religion = catholic
+primary_culture = alemannic
+capital = 319	# Strasbourg
+fixed_capital = 319 # Cannot move capital away from this province & no power cost to move to it
+
+1307.1.1 = {
+	monarch = {
+		name = "Johann I"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1328.10.5 = {
+	monarch = {
+		name = "Berthold II"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1353.10.23 = {
+	monarch = {
+		name = "Johann  II"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1365.9.14 = {
+	monarch = {
+		name = "Johann  III"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1371.4.4 = {
+	monarch = {
+		name = "Lamprecht"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1374.4.20 = {
+	monarch = {
+		name = "Friedrich II"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1393.1.1 = {
+	monarch = {
+		name = "Ludwig"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1393.10.10 = {
+	monarch = {
+		name = "Burkhard II"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1394.1.1 = {
+	monarch = {
+		name = "Wilhelm II"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1439.1.1 = {
+	monarch = {
+		name = "Konrad IV"
+		adm = 3
+		dip = 1
+		mil = 1
+	}
+}
+
+1440.11.11 = {
+	monarch = {
+		name = "Ruprecht I"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1478.10.18 = {
+	monarch = {
+		name = "Albrecht I"
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+
+1506.9.20 = {
+	monarch = {
+		name = "Wilhelm III"
+		adm = 3
+		dip = 3
+		mil = 2
+	} 
+}
+
+1541.6.29 = {
+	monarch = {
+		name = "Erasmus I"
+		adm = 1
+		dip = 1
+		mil = 4
+	} 
+}
+
+1568.11.27 = {
+	monarch = {
+		name = "Johann IV"
+		adm = 3
+		dip = 0
+		mil = 3
+	} 
+}
+
+1592.5.2 = {
+	monarch = {
+		name = "Johann Georg I"
+		adm = 0
+		dip = 1
+		mil = 1
+	}
+	religion = protestant
+}
+
+1593.2.27 = {
+	monarch = {
+		name = "Karl I"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	religion = catholic
+}
+
+1607.11.24 = {
+	monarch = {
+		name = "Leopold I"
+		adm = 1
+		dip = 3
+		mil = 1
+	} 
+}
+
+
+1626.2.1 = {
+	monarch = {
+		name = "Leopold Wilhelm I"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1662.11.20 = {
+	monarch = {
+		name = "Franz Egon I"
+		adm = 4
+		dip = 1
+		mil = 1
+	} 
+}

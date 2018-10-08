@@ -1,0 +1,385 @@
+########################################
+# Flavor Events for Medici Republic
+# VEF
+########################################
+
+namespace = vef_medici 
+normal_or_historical_nations = yes
+
+
+###########################
+# 10000 - Election Events #
+###########################
+
+#Florentine Ruler Transition
+country_event = {
+	id = vef_medici.10000
+	title = "vef_medici.10000.t"
+	desc = "vef_medici.10000.d"
+	picture = VEF_FLORENCE_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_reform = medici_republic
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				25 = { set_variable = { which = medici_optionb value = 1 } }
+				25 = { set_variable = { which = medici_optionb value = 2 } }
+				25 = { set_variable = { which = medici_optionb value = 3 } }
+				25 = { set_variable = { which = medici_optionb value = 4 } }
+			}
+			random_list = {
+				25 = { set_variable = { which = medici_optionc value = 1 } }
+				25 = { set_variable = { which = medici_optionc value = 2 } }
+				25 = { set_variable = { which = medici_optionc value = 3 } }
+				25 = { set_variable = { which = medici_optionc value = 4 } }
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_medici.10000.opta"
+		define_ruler = {
+			dynasty = "de Medici"
+		}
+		add_republican_tradition = -20
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_dlc = "Rights of Man" }}
+				random_list = {
+					20 = { add_ruler_modifier = { name = ruler_trait_builder }}
+					20 = { add_ruler_modifier = { name = ruler_trait_trade }}
+					20 = { add_ruler_modifier = { name = ruler_trait_scholar }}
+					20 = { add_ruler_modifier = { name = ruler_trait_patron }}
+					20 = { add_ruler_modifier = { name = ruler_trait_minister }}
+				}
+			}
+		}
+	}
+	
+	option = {
+		trigger = { 
+			check_variable = { which = medici_optionb value = 1 }
+			NOT = { check_variable = { which = medici_optionb value = 2 } }
+		}
+		name = "vef_medici.10000.optb1" # Condottieri
+		define_ruler = {
+			dynasty = "de Medici"	
+		}
+		add_republican_tradition = -10
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_dlc = "Rights of Man" }}
+				random_list = {
+					20 = { add_ruler_modifier = { name = ruler_trait_hero }}
+					20 = { add_ruler_modifier = { name = ruler_trait_strong }}
+					20 = { add_ruler_modifier = { name = ruler_trait_hawk }}
+					20 = { add_ruler_modifier = { name = ruler_trait_warmonger }}
+					20 = { add_ruler_modifier = { name = ruler_trait_equestrian }}
+				}
+			}
+		}
+	}
+	
+	option = {
+		trigger = { 
+			check_variable = { which = medici_optionb value = 2 }
+			NOT = { check_variable = { which = medici_optionb value = 3 } }
+		}
+		name = "vef_medici.10000.optb2" # Admiral
+		define_ruler = {
+			dynasty = "de Medici"	
+		}
+		add_republican_tradition = -10
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_dlc = "Rights of Man" }}
+				random_list = {
+					20 = { add_ruler_modifier = { name = ruler_trait_hero }}
+					20 = { add_ruler_modifier = { name = ruler_trait_shipbuilder }}
+					20 = { add_ruler_modifier = { name = ruler_trait_hawk }}
+					20 = { add_ruler_modifier = { name = ruler_trait_warmonger }}
+					20 = { add_ruler_modifier = { name = ruler_trait_strong }}
+				}
+			}
+		}
+	}
+	
+	option = {
+		trigger = { 
+			check_variable = { which = medici_optionb value = 3 }
+			NOT = { check_variable = { which = medici_optionb value = 4 } }
+		}
+		name = "vef_medici.10000.optb3" # Sforza
+		define_ruler = {
+			dynasty = "de Medici"	
+		}
+		add_republican_tradition = -10
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_dlc = "Rights of Man" }}
+				random_list = {
+					20 = { add_ruler_modifier = { name = ruler_trait_hero }}
+					20 = { add_ruler_modifier = { name = ruler_trait_patron }}
+					20 = { add_ruler_modifier = { name = ruler_trait_respected }}
+					20 = { add_ruler_modifier = { name = ruler_trait_extravagent }}
+					20 = { add_ruler_modifier = { name = ruler_trait_dove }}
+				}
+			}
+		}
+	}
+	
+	option = {
+		trigger = { 
+			check_variable = { which = medici_optionb value = 4 }
+		}
+		name = "vef_medici.10000.optb4" # Bureaucrat
+		define_ruler = {
+			dynasty = "de Medici"	
+		}
+		add_republican_tradition = -10
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_dlc = "Rights of Man" }}
+				random_list = {
+					20 = { add_ruler_modifier = { name = ruler_trait_patron }}
+					20 = { add_ruler_modifier = { name = ruler_trait_builder }}
+					20 = { add_ruler_modifier = { name = ruler_trait_philanthropist }}
+					20 = { add_ruler_modifier = { name = ruler_trait_scholar }}
+					20 = { add_ruler_modifier = { name = ruler_trait_dove }}
+				}
+			}
+		}
+	}
+
+	option = {
+		trigger = { 
+			check_variable = { which = medici_optionc value = 1 }
+			NOT = { check_variable = { which = medici_optionc value = 2 } }
+		}
+		name = "vef_medici.10000.optc1" # Ambassador
+		define_ruler = {
+			dynasty = "de Medici"	
+		}
+		add_republican_tradition = -10
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_dlc = "Rights of Man" }}
+				random_list = {
+					20 = { add_ruler_modifier = { name = ruler_trait_dove }}
+					20 = { add_ruler_modifier = { name = ruler_trait_extravagent }}
+					20 = { add_ruler_modifier = { name = ruler_trait_respected }}
+					20 = { add_ruler_modifier = { name = ruler_trait_trade }}
+					20 = { add_ruler_modifier = { name = ruler_trait_shipbuilder }}
+				}
+			}
+		}
+	}
+	
+	option = {
+		trigger = { 
+			check_variable = { which = medici_optionc value = 2 }
+			NOT = { check_variable = { which = medici_optionc value = 3 } }
+		}
+		name = "vef_medici.10000.optc2" # Cardinal
+		define_ruler = {
+			dynasty = "de Medici"	
+		}
+		add_republican_tradition = -10
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_dlc = "Rights of Man" }}
+				random_list = {
+					20 = { add_ruler_modifier = { name = ruler_trait_pious }}
+					20 = { add_ruler_modifier = { name = ruler_trait_philanthropist }}
+					20 = { add_ruler_modifier = { name = ruler_trait_respected }}
+					20 = { add_ruler_modifier = { name = ruler_trait_dove }}
+					20 = { add_ruler_modifier = { name = ruler_trait_strong }}
+				}
+			}
+		}
+	}
+	
+	option = {
+		trigger = { 
+			check_variable = { which = medici_optionc value = 3 }
+			NOT = { check_variable = { which = medici_optionc value = 4 } }
+		}
+		name = "vef_medici.10000.optc3" # Trader
+		define_ruler = {
+			dynasty = "de Medici"	
+		}
+		add_republican_tradition = -10
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_dlc = "Rights of Man" }}
+				random_list = {
+					20 = { add_ruler_modifier = { name = ruler_trait_trade }}
+					20 = { add_ruler_modifier = { name = ruler_trait_shipbuilder }}
+					20 = { add_ruler_modifier = { name = ruler_trait_builder }}
+					20 = { add_ruler_modifier = { name = ruler_trait_patron }}
+					20 = { add_ruler_modifier = { name = ruler_trait_equestrian }}
+				}
+			}
+		}
+	}
+	
+	option = {
+		trigger = { 
+			check_variable = { which = medici_optionc value = 4 }
+		}
+		name = "vef_medici.10000.optc4" # Banker
+		define_ruler = {
+			dynasty = "de Medici"	
+		}
+		add_republican_tradition = -10
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_dlc = "Rights of Man" }}
+				random_list = {
+					20 = { add_ruler_modifier = { name = ruler_trait_trade }}
+					20 = { add_ruler_modifier = { name = ruler_trait_builder }}
+					20 = { add_ruler_modifier = { name = ruler_trait_philanthropist }}
+					20 = { add_ruler_modifier = { name = ruler_trait_patron }}
+					20 = { add_ruler_modifier = { name = ruler_trait_dove }}
+				}
+			}
+		}
+	}
+}
+
+#On-Election event
+country_event = {
+	id = vef_medici.10001
+	title = "vef_medici.10001.t"
+	desc = "vef_medici.10001.d"
+	picture = VEF_ASSASSINATION_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_reform = medici_republic
+	}
+	
+	immediate = { 
+		hidden_effect = {
+			random_list = {
+				95 = {}
+				5 = { country_event = { id = vef_medici.10002 days = 60 }}
+			}
+		}
+	}
+
+	option = {	# Time for new blood
+		name = "vef_medici.10001.opta"
+		country_event = { id = vef_medici.10000 }
+		add_republican_tradition = 5
+	}
+	option = {	# Keep things as they are
+		name = "vef_medici.10001.optb"
+		add_republican_tradition = -5
+	}
+}
+
+#Assassination
+country_event = {
+	id = vef_medici.10002
+	title = "vef_medici.10002.t"
+	desc = "vef_medici.10002.d"
+	picture = VEF_ASSASSINATION_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_reform = medici_republic
+	}
+
+	option = {
+		name = "vef_medici.10002.opta"
+		random_list = {
+			30 = { FLR = { country_event = { id = vef_medici.10000 } } }
+			70 = {}
+		}
+	}	
+}
+
+
+##########################
+# 20000 - General Flavor #
+##########################
+
+# Medici control of the Republic
+country_event = {
+	id = vef_medici.20000
+	title = "vef_medici.20000.t"
+	desc = "vef_medici.20000.d"
+	picture = VEF_FLORENCE_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = FLR
+		government = republic
+		NOT = { has_reform = medici_republic }
+		is_year = 1430
+	}
+	
+	option = {
+		name = "vef_medici.20000.opta"
+		add_government_reform = medici_republic
+		define_ruler = {
+			name = "Cosimo I"
+			dynasty = "de Medici"
+			adm = 5
+		}
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = "vef_medici.20000.optb"
+		add_stability = 1
+		add_republican_tradition = 25
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Declare Archduchy
+country_event = {
+	id = vef_medici.20001
+	title = "vef_medici.20001.t"
+	desc = "vef_medici.20001.d"
+	picture = VEF_FLORENCE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_reform = medici_republic
+		NOT = { republican_tradition = 25 }
+		prestige = 40
+	}
+	
+	option = {
+		name = "vef_medici.20001.opta"
+		change_tag = TUS
+		change_government = monarchy
+		define_heir = {
+			dynasty = "de Medici"
+		}
+		if = {
+			limit = {
+				has_custom_ideas = no
+				NOT = { has_idea_group = TUS_ideas }
+			}
+			country_event = { id = "national_ideas.60000" days = 1 }
+		}
+	}
+	
+	option = {
+		name = "vef_medici.20001.optb"
+		add_republican_tradition = 50
+	}
+}

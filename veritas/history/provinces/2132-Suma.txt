@@ -1,0 +1,29 @@
+# Suma
+
+capital = "Suma"
+native_size = 5
+native_ferocity = 2
+native_hostileness = 7
+culture = navajo
+religion = totemism
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+
+discovered_by = north_american
+
+1540.1.1   = { discovered_by = SPA } # Francisco Vasquez de Coronado
+1709.10.12 = {	owner = SPA
+		controller = SPA
+		capital = "Chihuahua"
+		culture = castillian
+		religion = catholic
+		citysize = 1100
+	     } # Founded by Antonio Deza y Ulloa
+1734.1.1   = { add_core = SPA }
+1750.1.1   = { citysize = 2060 }
+1800.1.1   = { citysize = 3780 }
+1810.9.16  = { owner = MEX add_core = MEX controller = SPA } # Mexican War of Independence
+1821.8.24 = { controller = MEX } # Spain concedes defeat

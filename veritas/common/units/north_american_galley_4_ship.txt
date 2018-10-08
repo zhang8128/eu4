@@ -1,0 +1,10 @@
+#Large Canoe
+#model = galleass
+#tech_level = 12
+type = galley
+unit_type = north_american
+
+hull_size = 6
+base_cannons = 8
+sail_speed = 6
+sailors = 50

@@ -1,0 +1,33 @@
+# Durres
+
+capital = "Durres"
+owner = ALB
+controller = ALB
+add_core = ALB
+add_core = BYZ
+culture = albanian
+religion = orthodox
+trade_goods = fish
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = scandinavian_tech
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1358.1.1	= { revolt = { type = pretender_rebels size = 2 leader = "Karl Topia" }} # Rises against the Serbs outside Durres but is unfriendly to the Angevins; takes Durres in 1368
+1368.1.1	= { revolt = {} owner = ALB controller = ALB add_core = NAP remove_core = BYZ  }
+1385.1.1	= { revolt = { type = pretender_rebels size = 2 leader = "Balsa II" } controller = REB }
+1385.9.18	= { revolt = {} controller = ALB } #Put down with Ottoman help
+1392.1.1	= { owner = VEN controller = VEN add_territorial_core = VEN } #Sold/Given to Venice (Last ruler dies shortly after)
+1435.1.1	= { remove_core = NAP }
+1501.1.1	= { owner = TUR controller = TUR add_territorial_core = TUR remove_core = VEN } # Conquered by Ottomans
+1650.1.1	= { religion = sunni }
+1754.1.1	= { owner = ALB controller = ALB remove_territorial_core = TUR } # Autonomous Albanian Pasha
+1850.1.1	= { base_manpower = 4 base_tax = 4 base_production = 4 }

@@ -1,0 +1,15 @@
+name = "Portuguese Conquest of Tangiers"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 1667 # Marrakech
+}
+
+1471.1.1 = {
+	add_attacker = POR
+}
+
+#Peace and end of war
+1471.12.30 = {
+	rem_attacker = POR
+}

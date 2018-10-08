@@ -1,0 +1,10 @@
+#Nupe Large Canoe
+#model = barque
+#tech_level = 8
+type = transport
+unit_type = sub_saharan
+
+hull_size = 8
+base_cannons = 10
+sail_speed = 10
+sailors = 100

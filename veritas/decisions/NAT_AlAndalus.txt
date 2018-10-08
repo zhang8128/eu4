@@ -1,0 +1,84 @@
+country_decisions = {
+
+	al_andalus = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			OR = {
+				tag = GRA
+				tag = MOR
+			}
+			normal_or_historical_nations = yes
+			religion_group = muslim
+			NOT = { exists = ADL }
+		}
+		allow = {
+			stability = 1
+			is_nomad = no
+			is_subject = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				upper_andalucia_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				lower_andalucia_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				tooltip = owns_all_andalucia
+			}
+			owns_core_province = 61 	# Alto Alentejo
+			owns_core_province = 103 	# Valencia
+		}
+		effect = {
+			change_tag = ADL
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			add_prestige = 25
+			set_capital = 92	# Cordoba
+			if = {
+				limit = { NOT = { primary_culture = andalucian } }
+				change_primary_culture = andalucian
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = ADL_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+}

@@ -1,0 +1,1393 @@
+#~# Savoyer National Madness #~#
+
+
+#Balkans
+
+ALB_ideas = {
+	start = {
+		tolerance_own = 2
+		land_morale = 0.15
+	}
+
+	bonus = {
+		global_institution_spread = 0.1
+	}
+	
+	trigger = {
+		tag = ALB
+	}
+
+	free = yes		#will be added at load.
+
+	legacy_of_angevin = {
+		prestige = 1
+	}
+
+	the_city_of_durres = {
+		global_own_trade_power = 0.15
+	}
+	
+	albanian_resilience = {
+        war_exhaustion = -0.01
+        enemy_core_creation = 0.3		
+	}
+
+	league_of_lezhe = {
+		leader_land_manuever = 1
+		army_tradition = 0.5
+	}
+
+	turkish_sufism = {
+		idea_cost = -0.1
+	}
+
+	the_pronoia = {
+		trade_efficiency = 0.05
+		production_efficiency = 0.1
+	}
+
+	western_ideas = {
+		num_accepted_cultures = 1
+        core_creation = -0.1
+	}
+}
+
+#Greece
+
+LAE_ideas = {
+    start = {
+		cavalry_power = 0.15
+		prestige_decay = -0.01
+	}
+	
+	bonus = {
+	    culture_conversion_cost = -0.10
+	}
+	
+	trigger = {
+		tag = LAE
+	}
+
+	free = yes		#will be added at load.
+
+	the_crusader_tradition = {
+	    army_tradition = 0.5
+	}
+	
+	knights_of_christ = {
+		global_missionary_strength = 0.01
+	}
+	
+	byzantine_bureaucracy = {
+	    stability_cost_modifier = -0.05
+		advisor_cost = -0.1
+	}
+	
+	support_latin_trade = {
+	    global_trade_power = 0.1
+		trade_efficiency = 0.1
+	}
+	
+	greek_schoolars_lae = {
+		global_institution_spread = 0.1
+		idea_cost = -0.05
+	}
+	
+	crusade_for_anatolia = {
+	    discipline = 0.05
+		land_morale = 0.1
+	}
+	
+	the_latin_emperor = {
+	    legitimacy = 1
+	}	
+}
+
+TRE_ideas = {
+    start = {
+	    trade_efficiency = 0.10
+		global_tax_modifier = 0.1
+	}
+	
+	bonus = {
+	    infantry_power = 0.2
+	}
+	
+	trigger = {
+		tag = TRE
+	}
+	
+	free = yes		#will be added at load.
+	
+	the_georgian_relation = {
+		mil_tech_cost_modifier = -0.1
+		improve_relation_modifier = 0.15
+    }
+	
+	tre_black_sea_trade = {
+		global_own_trade_power = 0.1
+	}
+	
+	pontic_greeks = {
+		global_institution_spread = 0.1
+		advisor_pool = 1
+	}
+	
+	the_walls_of_trabzon = {
+	    defensiveness = 0.25
+	}
+	
+	the_imperial_succession = {
+	    heir_chance = 0.5
+	}
+	
+	tre_byzantine_heritage = {
+	    cavalry_power = 0.15
+		army_tradition = 0.5
+	}
+	
+	the_true_successor = {
+	    prestige = 2
+	}
+}
+	
+#Italy
+
+SNM_ideas = {
+    start = {
+        global_unrest = -2
+        production_efficiency = 0.1
+    }
+
+    bonus = {
+        build_cost = -0.10
+    }
+
+    trigger = {
+		tag = SNM
+	}
+	
+	free = yes		#will be added at load.
+		
+    the_arego = {
+		republican_tradition = 1
+    }
+	
+	walls_of_san_marino = {
+	    defensiveness = 0.25
+    }
+	
+	florentine_renaissance = {
+	    idea_cost = -0.05
+		global_institution_spread = 0.1
+	}
+	
+	the_papal_alliance = {
+		improve_relation_modifier = 0.25
+		diplomatic_upkeep = 1
+	}
+	
+    divine_independence = {
+        stability_cost_modifier = -0.15
+    }		
+	
+	napoleonic_sympathy = {
+	    infantry_power = 0.1
+		diplomatic_reputation = 1
+	}
+	
+	refuge_of_the_unification = {
+	    prestige = 1
+	}
+}	
+	
+#Baltics	
+
+TEU_ideas = {
+    start = {
+	    tolerance_own = 2
+		missionaries = 1
+	}
+	
+	bonus = {
+		global_institution_spread = 0.1
+	}
+	
+	trigger = {
+		tag = TEU
+	}
+
+	free = yes		#will be added at load.
+	
+	ostsiedlung = {
+	    core_creation = -0.075
+	    culture_conversion_cost = -0.10
+	}
+	
+	english_traders = {
+	    global_own_trade_power = 0.1
+	    advisor_pool = 1
+	}
+	
+	rule_the_baltic = {
+	    land_forcelimit_modifier = 0.15
+		naval_forcelimit_modifier = 0.10
+	}
+	
+	defend_the_order = {
+	    defensiveness = 0.20
+	}
+	
+	by_divine_right = {
+	    church_power_modifier = 0.05
+		global_missionary_strength = 0.01
+	}
+	
+	the_christian_banner = {
+		#Same as LIV_ideas
+        land_morale = 0.10
+		tolerance_heretic = 1
+	}
+	
+	the_prussian_virtues = {
+		#Same as BRA_ideas and PRU_ideas
+        discipline = 0.05
+    }	    
+}
+
+LIV_ideas = {
+    start = {
+		tolerance_own = 2
+		missionaries = 1
+	}
+	
+	bonus = {
+	    leader_land_shock = 1
+	}
+	
+	trigger = {
+		tag = LIV
+	}
+	
+	free = yes		#will be added at load.
+	
+	converters_of_livonia = {
+	    global_missionary_strength = 0.01
+	}
+	
+	the_livonian_confederation = {
+	    stability_cost_modifier = -0.10
+	}
+	
+	diplomatic_expasions_liv = {
+	    diplomatic_annexation_cost = -0.1
+	}
+	
+	defend_against_muscovy = {
+	    defensiveness = 0.2
+	}
+	
+	reform_the_ranks = {
+	    army_tradition_decay = -0.01
+	}
+	
+	the_christian_banner = {
+		#Same as TEU_ideas
+        land_morale = 0.10
+		tolerance_heretic = 1
+	}
+	
+	establish_the_livonian_guard = {
+        discipline = 0.05
+    }	    
+}
+
+#HRE
+
+ULM_ideas = {
+    start = {
+	    production_efficiency = 0.1
+		trade_efficiency = 0.1
+	}
+	
+	bonus = {
+	    infantry_power = 0.10
+	}
+	
+	trigger = {
+		tag = ULM
+	}
+	
+	free = yes		#will be added at load.
+	
+	freeulm = {
+	    global_unrest = -2
+	}
+	
+	the_swabian_leagues = {
+	    defensiveness = 0.1
+		war_exhaustion = -0.01
+	}
+	
+	swabian_leader = {
+		diplomatic_reputation = 1
+		stability_cost_modifier = -0.05
+	}
+
+	prosper_trade = {
+		caravan_power = 0.20
+		global_own_trade_power = 0.1
+	}
+	
+	protestant_revival = {
+	    idea_cost = -0.1
+	}
+	
+	wars_of_faith_ulm = {
+	    land_morale = 0.1
+	}
+	
+	meistersingers_literature = {
+	    prestige = 1
+	}
+	
+}
+
+#Stem Duchies
+
+FRC_ideas = {
+	start = {
+		global_spy_defence = 0.2
+		land_morale = 0.05
+	}
+
+	bonus = {
+		prestige = 1.5
+	}
+ 
+	trigger = {
+		tag = FRC
+	}
+	
+	free = yes  #will be added at load.
+	
+	unify_the_frank_tongues = {
+		stability_cost_modifier = -0.10
+	}
+	
+	offices_of_the_faith = {
+		adm_tech_cost_modifier = -0.1
+		advisor_pool = 1
+	}
+	
+	the_prince_bishops = {
+		diplomatic_reputation = 1
+		tolerance_own = 1
+	}
+	
+	franconian_renaissance = {
+		idea_cost = -0.05
+		advisor_cost = -0.1
+	}
+	
+	breweries_and_wineries = {
+		global_trade_goods_size_modifier = 0.1
+	}
+	
+	ford_of_the_franks = {
+		trade_efficiency = 0.10  
+	}
+	
+	carolingian_heritage = {
+		imperial_authority = 0.2
+	}	
+}
+
+SWA_ideas = {
+	start = {
+		infantry_cost = -0.1
+		diplomatic_upkeep = 1
+	}
+
+	bonus = {
+		build_cost = -0.1
+	}
+
+	trigger = {
+		tag = SWA
+	}
+	
+	free = yes  #will be added at load.
+		
+	the_swabian_league = {
+		defensiveness = 0.25
+	}
+	
+	realm_of_the_landsknecht = {
+		infantry_power = 0.15
+		possible_mercenaries = 0.125
+	}
+	
+	cities_of_wealth = {
+		trade_efficiency = 0.1
+		production_efficiency = 0.1
+	}
+	
+	the_swabian_constitution = { 
+		stability_cost_modifier = -0.1
+	}
+	
+	form_the_alpine_corps = {
+		discipline = 0.05
+		leader_land_manuever = 1
+	}
+	
+	swa_royal_academia = {
+		global_institution_spread = 0.1
+	}
+	
+	legacy_of_barbarossa = {
+		imperial_authority = 0.2
+	}
+}
+
+LOT_ideas = {
+	start = {
+		global_tax_modifier = 0.15
+		prestige_decay = -0.01
+	}
+
+	bonus = {
+		diplomatic_reputation = 2
+	}
+
+	trigger = {
+		tag = LOT
+	}
+
+	free = yes  #will be added at load.
+
+	the_knightly_codes = {
+		army_tradition = 0.5
+		cavalry_power = 0.15
+	}
+
+	land_of_many = {
+		num_accepted_cultures = 1
+	} 
+
+	by_the_sea = {
+		naval_forcelimit_modifier = 0.1
+		global_own_trade_power = 0.1
+	}
+
+	routes_of_the_rhine = { 
+		trade_efficiency = 0.1
+		trade_steering = 0.15
+	}
+
+	together_lotharigians = {
+		stability_cost_modifier = -0.1
+	}
+
+	kingdom_of_the_lothairs = {
+		legitimacy = 1
+	}
+
+	heir_of_the_holy_empire = {
+		imperial_authority = 0.2
+	}
+}
+
+SXN_ideas = {
+	start = {
+		discipline = 0.05
+		discovered_relations_impact = -0.20
+	}
+	 
+	bonus = {
+		infantry_power = 0.15
+	}
+	 
+	trigger = {
+		tag = SXN
+	}
+
+	free = yes  #will be added at load.
+	 
+	the_ducal_houses = {
+		improve_relation_modifier = 0.20
+		heir_chance = 0.50
+	} 
+
+	henry_the_lion = {
+		fabricate_claims_cost = -0.25
+	}
+
+	saxon_blood = {
+		prestige_from_land = 0.33
+		recover_army_morale_speed = 0.05
+	}
+
+	prostestant_lords = {
+		global_tax_modifier = 0.1
+		tolerance_own = 1
+	}
+
+	royal_military_schools = {
+		mil_tech_cost_modifier = -0.1
+		free_leader_pool = 1
+	}
+
+	oldest_of_all = {
+		prestige_decay = -0.01
+		diplomatic_reputation = 1  
+	}
+
+	rulers_of_germania = {
+		imperial_authority = 0.2
+	}
+} 
+	
+#Maghreb&Iberia
+
+ADL_ideas = {
+    start = {
+	    religious_unity = 0.25
+	    global_tax_modifier = 0.15
+	}
+	
+	bonus = {
+        build_cost = -0.10
+	}
+	
+	trigger = {
+		tag = ADL
+	}
+	
+	free = yes		#will be added at load.
+	
+	legend_of_the_rereconquista = {
+	    land_morale = 0.10
+		army_tradition = 0.5
+	}
+
+	caliphate_of_cordoba = {
+	    legitimacy = 1
+        core_creation = -0.1
+    }
+
+	beacon_of_learning = {
+		global_institution_spread = 0.1
+	}
+
+    revive_the_mobile_guard = {
+	    cavalry_power = 0.10
+		reinforce_speed = 0.05
+	}
+
+	the_mubarizun = {
+	    infantry_power = 0.10
+		discipline = 0.05
+	}
+
+	iberian_bazaars = {
+	    global_own_trade_power = 0.1
+		trade_efficiency = 0.1
+	}
+
+	rebuild_the_great_mosque = {
+	    prestige = 1
+	}
+}
+
+ADR_ideas = {
+    start = {
+	    global_regiment_cost = -0.1
+		global_tax_modifier = 0.1
+	}
+
+	bonus = {
+	    production_efficiency = 0.2
+    }
+
+	trigger = {
+		tag = ADR
+	}
+	
+	free = yes		#will be added at load.
+
+	marca_hispanica = {
+	    defensiveness = 0.5
+	}
+
+	the_last_magna = {
+	    prestige = 1
+	    cavalry_power = 0.15
+	}
+
+	pareage_of_andorra = {
+		diplomatic_upkeep = 1
+		heir_chance = 0.50
+	}
+
+	repel_aragon = {
+	    hostile_attrition = 2	    
+	}
+
+	diocese_of_urgell = {
+	    stability_cost_modifier = -0.15
+	    tolerance_own = 1
+	}
+
+	enlightened_administration = {
+	    adm_tech_cost_modifier = -0.10
+		advisor_cost = -0.1
+	}
+
+	thoughts_of_the_revolution = {
+	    land_morale = 0.1
+	}
+}
+
+MOR_ideas = {
+    start = {
+		may_perform_slave_raid = yes
+        enemy_core_creation = 1
+	}
+
+	bonus = {
+	    light_ship_power = 0.10
+	}
+
+    trigger = {
+		tag = MOR
+	}
+
+	free = yes		#will be added at load.
+
+	heirs_to_al_andalus = {
+	    prestige = 1
+	}
+
+	moroccan_reforms = {
+	    land_forcelimit_modifier = 0.2
+	}
+
+	maintain_african_trade = {
+	    trade_steering = 0.15
+		justify_trade_conflict_cost = -0.1
+	}
+
+	united_the_state_mor = {
+	    global_tax_modifier = 0.10
+    }
+
+	form_the_black_guard = {
+	    discipline = 0.05
+		infantry_power = 0.05
+	}
+
+	restore_trade_control = {
+	    global_own_trade_power = 0.1
+		privateer_efficiency = 0.2
+	}
+
+	western_influences_mor = {
+		stability_cost_modifier = -0.1
+	}	
+}
+
+#Africa
+
+ALW_ideas = {
+    start = {
+	    land_morale = 0.1
+		cavalry_cost = -0.1
+	}
+
+	bonus = {
+	    discipline = 0.05
+	}
+
+	trigger = {
+		OR = {
+			tag = ALW
+			tag = MAK
+		}
+	}
+
+	free = yes		#will be added at load.
+
+	the_priestking = {
+	    legitimacy = 1
+	}
+
+	sand_builders = {
+	    build_cost = -0.10
+	}
+
+	nubian_warfare = {
+	    cavalry_power = 0.10
+		land_attrition = -0.1
+	}
+
+	reform_the_agricultural_system = {
+	    production_efficiency = 0.1
+	}
+
+	orthodox_fervor = {
+	    global_missionary_strength = 0.01
+		tolerance_own = 1
+	}
+	
+	byzantine_influence = {
+	    prestige = 0.5
+		advisor_cost = -0.10
+	}
+
+    routes_to_alexandria = {
+	    global_own_trade_power = 0.1
+	    trade_efficiency = 0.10
+	}
+}
+	
+	
+#Japan
+
+AMO_ideas = {
+    start = {
+	    diplomatic_upkeep = 1
+		global_tax_modifier = 0.15
+	}
+
+	bonus = {
+	    defensiveness = 0.15
+	}
+
+	trigger = {
+		tag = AMA
+	}
+
+	free = yes		#will be added at load.
+
+	the_amako_clan = {
+	    land_morale = 0.10
+	}
+
+	tsunehisa_hegemony = {
+		discipline = 0.05
+		siege_ability = 0.05
+	}
+
+	twelve_lands = {
+	    core_creation = -0.1
+	}
+
+	one_lord_ama = {
+	    global_unrest = -1
+	}
+
+	battle_of_clans_ama = {
+	    war_exhaustion = -0.01
+	}
+
+	the_oda_alliance = {
+	    army_tradition_decay = -0.005
+		mil_tech_cost_modifier = -0.1
+	}
+
+	glory_of_the_dead = {
+	    prestige_from_land = 1
+	}
+}
+
+DTE_ideas = {
+    start = {
+	    discipline = 0.05
+		global_tax_modifier = 0.15
+	}
+
+	bonus = {
+	    legitimacy = 1
+	}
+
+	trigger = {
+		tag = DTE
+	}
+	
+	free = yes		#will be added at load.	
+
+    the_date_clan = {
+        global_manpower_modifier = 0.15
+	}
+
+	nanboku_cho_period = {
+	    envoy_travel_time = -0.3
+	}
+
+	date_unification = {
+		unjustified_demands = -0.15
+		land_morale = 0.1
+	}
+
+	northern_alliance = {
+	    defensiveness = 0.2
+		diplomatic_upkeep = 1
+	}
+
+	tokugawas_judgement = {
+		diplomatic_reputation = 1
+	    prestige_decay = -0.01	
+	}
+
+	end_the_date_sodo = {
+	    global_unrest = -1
+	}
+
+	kita_no_o = {
+	    land_forcelimit_modifier = 0.2
+	}
+}	
+
+HJO_ideas = {
+    start = {
+	    build_cost = -0.1
+		global_ship_cost = -0.1
+	}
+
+	bonus = {
+	    defensiveness = 0.25
+	}
+
+	trigger = {
+		tag = HJO
+	}
+
+	free = yes		#will be added at load.
+
+	the_hojo_clan = {
+	    global_unrest = -1
+	}
+
+	shikken = {
+	    legitimacy = 1
+	}
+
+	mongol_defence = {
+	    heavy_ship_power = 0.10
+		navy_tradition = 0.5
+	}
+
+	hojo_administration = {
+		global_institution_spread = 0.05
+		stability_cost_modifier = -0.05
+	}
+
+	zen_buddism_hjo = {
+		idea_cost = -0.10
+	}
+
+	bushido_followers = {
+	    discipline = 0.05
+		land_morale = 0.10
+	}
+
+	trade_lords = {
+	    global_own_trade_power = 0.15
+		global_trade_goods_size_modifier = 0.05
+	}	
+}
+
+TKG_ideas = {
+	start = {
+		heir_chance = 0.25
+		diplomatic_reputation = 1
+	}
+
+	bonus = {
+		infantry_power = 0.10
+	}
+
+	trigger = {
+		tag = TKG
+	}
+
+	free = yes		#will be added at load.
+
+	the_tokugawa_clan = {
+	    idea_cost = -0.05
+		global_spy_defence = 0.1
+	}
+
+	traditions_of_war = {
+	    army_tradition = 0.5
+        discipline = 0.05
+	}
+
+	the_edo_period = {
+		vassal_income = 0.15
+		vassal_forcelimit_bonus = 0.20
+	}
+
+	the_tokugawa_bakufu = {	
+		diplomatic_annexation_cost = -0.2
+		ae_impact = -0.05
+	}
+
+	shinto_fervor = {
+	    land_morale = 0.15
+		global_missionary_strength = 0.02
+	}
+
+	kyoho_reforms = {
+		stability_cost_modifier = -0.15
+	}
+
+	the_eternal_shogun = {
+	    legitimacy = 1
+		prestige_decay = -0.01
+	}
+}
+
+ODA_ideas = {
+    start = {
+	    recover_army_morale_speed = 0.02
+		defensiveness = 0.15
+	} 
+
+	bonus = {
+	    siege_ability = 0.15
+	}
+
+	trigger = {
+		tag = ODA
+	}
+
+	free = yes		#will be added at load.
+
+	the_oda_clan = {
+	    stability_cost_modifier = -0.05
+		advisor_cost = -0.1
+	}
+
+	no_chains = {
+        legitimacy = 0.5
+        production_efficiency = 0.075		
+	}
+
+	militar_innovations = {
+	    mil_tech_cost_modifier = -0.15
+	}
+
+	introduction_of_a_new_era = {
+	    idea_cost = -0.05
+		infantry_power = 0.075
+	}
+
+	nobunaga_reign = {
+	    prestige = 1
+	}
+
+	momoyama_period = {
+	    war_exhaustion = -0.01
+	}
+
+	eyes_to_west = {
+		naval_forcelimit_modifier = 0.20
+	}
+}
+
+TKD_ideas = {
+    start = {
+	    land_forcelimit_modifier = 0.2
+		diplomatic_upkeep = 1
+	}
+
+	bonus = {
+	    leader_land_shock = 1
+	}
+
+	trigger = {
+		tag = TKD
+	}
+
+	free = yes		#will be added at load.
+
+	the_takeda_clan = {
+	    prestige = 1
+	}
+
+	the_kamakura_period = {
+	    production_efficiency = 0.10
+	    diplomatic_reputation = 1
+	}
+
+	clan_literature = {
+	    idea_cost = -0.05
+		stability_cost_modifier = -0.05
+	}
+
+	uesugi_rivalry = {
+	    spy_offence = 0.15
+		global_spy_defence = 0.1
+	}
+
+	takeda_expasion = {
+		fabricate_claims_cost = -0.25
+	}
+
+	glory_of_war = {
+	    prestige_from_land = 0.5
+		army_tradition = 0.5
+	}
+
+	legacy_of_shigen = {
+		cavalry_power = 0.15
+		core_creation = -0.10
+	}
+}
+
+UES_ideas = {
+    start = {
+	    infantry_power = 0.10
+		cavalry_power = 0.05
+	}
+
+	bonus = {
+	    artillery_power = 0.05
+	}
+
+	trigger = {
+		tag = UES
+	}
+
+	free = yes		#will be added at load.
+
+	the_uesugi_clan = {
+	    army_tradition = 0.5
+	}
+
+	swords_of_the_nine_suns = {
+	    discipline = 0.05
+	}
+
+	takeda_rivalry = {
+	    land_morale = 0.05
+		global_spy_defence = 0.15
+	}
+
+	kenshin_reforms = {
+	    global_trade_goods_size_modifier = 0.05
+		trade_efficiency = 0.10
+	}
+
+	imposing_control = {
+	    core_creation = -0.10
+	}
+	
+	ues_denkoku_no_ji = {
+		idea_cost = -0.1
+	}
+
+	reformed_tozama = {
+	    global_unrest = -1
+		global_tax_modifier = 0.075
+	}
+	
+}
+
+
+HTT_ideas = {
+	start = {
+	    infantry_power = 0.1
+		idea_cost = -0.05
+	}
+
+	bonus = {
+		leader_land_manuever = 1
+	}
+
+	trigger = {
+		tag = HTT
+	}
+
+	free = yes		#will be added at load.
+
+	the_hattori_clan = {
+	    global_spy_defence = 0.33
+	}
+
+	early_ninjas = {
+	    possible_mercenaries = 0.25
+	}
+
+	the_iga_school = {
+		spy_offence = 0.2
+		fabricate_claims_cost = -0.25
+	}
+
+	teisatsu = {	
+		diplomats = 1	
+	}
+
+	kisho = {
+	    discipline = 0.05
+		land_attrition = -0.15
+	}
+
+	defence_of_shadow = {
+		hostile_attrition = 1
+		defensiveness = 0.1
+	}
+
+	conquer_within = {
+		siege_ability = 0.1
+	}
+}
+
+SMZ_ideas = {
+    start = {
+	    leader_land_fire = 1
+		infantry_power = 0.1
+	}
+
+	bonus = {
+	    trade_efficiency = 0.10
+	}
+
+	trigger = {
+		tag = SMZ
+	}
+
+	free = yes		#will be added at load.
+
+	the_shimazu_clan = {
+	    discipline = 0.05
+	}
+
+	kyushu_unification = {
+	    legitimacy = 1
+	    core_creation = -0.1
+	}
+
+	oda_expasions = {
+	    defensiveness = 0.1
+		land_morale = 0.1
+	}
+
+	clean_the_coucil = {
+	    advisor_cost = -0.1
+		global_tax_modifier = 0.1
+	}
+
+	destroyer_of_the_three_mountains = {
+	    siege_ability = 0.15
+	}
+
+	the_ryukyu_factor = {
+	    global_trade_power = 0.05
+		trade_steering = 0.1
+	}
+
+	industrial_state_smz = {
+	    global_trade_goods_size_modifier = 0.15
+	}	
+}
+
+MRI_ideas = {
+    start = {
+	    navy_tradition = 0.5
+		global_ship_cost = -0.10
+	}
+
+	bonus = {
+	    leader_naval_fire = 1
+	}
+
+	trigger = {
+		tag = MRI
+	}
+
+	free = yes		#will be added at load.
+
+	the_mori_clan = {
+	    leader_naval_manuever = 1 
+		naval_morale = 0.15
+	}	
+
+	jito_office = {
+		global_tax_modifier = 0.1
+	}
+
+	kyushu_fleet = {
+	    heavy_ship_power = 0.1
+		galley_power = 0.1
+	}
+
+	expand_power_mri = {
+	    global_own_trade_power = 0.1
+		justify_trade_conflict_cost = -0.1
+	}
+
+	ikko_routes = {	    
+		trade_efficiency = 0.10
+	}
+
+	modernized_thinking = {
+	    idea_cost = -0.05
+		global_institution_spread = 0.05
+	}
+
+	western_navy_system = {
+	    naval_forcelimit_modifier = 0.2
+		recover_navy_morale_speed = 0.02
+	}
+}
+
+OTM_ideas = {
+    start = {
+	    diplomatic_reputation = 1
+		discipline = 0.05
+	}
+
+	bonus = {
+		artillery_power = 0.1
+	}
+
+	trigger = {
+		tag = OTM
+	}
+
+	free = yes		#will be added at load.
+
+	the_otomo_clan = {
+	    improve_relation_modifier = 0.15
+	    envoy_travel_time = -0.20
+	}
+
+    shugo_otm = {
+	    production_efficiency = 0.1
+	}
+
+	militar_organizers = {
+	    manpower_recovery_speed = 0.1
+		global_regiment_recruit_speed = -0.1
+	}
+
+	portuguese_trade = {
+	    trade_efficiency = 0.1
+	}
+	
+	otm_christian_conversion = {
+		missionaries = 1
+		#papal_influence = 1
+	}
+	
+	otm_tensho_embassy = {
+		global_institution_spread = 0.1
+	}
+	
+	otm_kunikuzushi = {
+		siege_ability = 0.1
+	}
+}
+
+CSK_ideas = {
+    start = {
+	    production_efficiency = 0.1
+		infantry_cost = -0.1
+	}
+
+	bonus = {
+	    adm_tech_cost_modifier = -0.10
+	}
+
+	trigger = {
+		tag = CSK
+	}
+	
+	free = yes		#will be added at load.
+
+	the_chosokabe_clan = {
+	    land_maintenance_modifier = -0.15
+	}
+
+	reconciled_clans = {
+	    war_exhaustion = -0.01
+	}
+
+	conqueror_of_shikoku = {
+	    land_forcelimit_modifier = 0.15
+		core_creation = -0.1
+	}
+
+	invading_the_neighbour = {
+	    unjustified_demands = -0.20
+	}
+
+	tradition_of_the_bow = {
+	    infantry_power = 0.1
+	    army_tradition = 0.5
+	}
+
+	chosokabe_aristocracy = {
+	    advisor_pool = 1
+		global_tax_modifier = 0.05
+	}
+
+	continue_the_clan = {
+	    heir_chance = 0.33
+	}
+}	
+
+#Fantasy
+
+THL_ideas = {
+    start = {
+        navy_tradition = 0.5
+        light_ship_power = 0.15
+    }
+	
+    bonus = {
+        naval_attrition = -0.2
+    }
+	
+    trigger = {
+		tag = THL
+	}
+
+	free = yes		#will be added at load.
+
+	sea_code = {
+	    naval_morale = 0.15
+		global_ship_cost = -0.1
+	}
+
+	establish_the_commonwealth = {
+	    stability_cost_modifier = -0.10
+		defensiveness = 0.10
+	}
+
+	saga_of_erick_the_red = {
+	    prestige = 1
+	}
+
+	njords_worship = {
+	    navy_tradition_decay = -0.01
+	    tolerance_own = 2
+	}
+
+	create_the_krakens = {
+		heavy_ship_power = 0.15
+	}
+
+	the_iron_price = {
+		unjustified_demands = -0.20
+	}
+
+	the_norse_virtues_thu = {
+	    ship_durability = 0.1
+	    discipline = 0.05
+	}
+}

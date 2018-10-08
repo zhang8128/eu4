@@ -1,0 +1,16 @@
+# Cuttack
+#Province IDs changed
+
+owner = ORI
+controller = ORI
+culture = oriya
+religion = hinduism
+capital = "Katak"
+trade_goods = cloth
+hre = no
+base_tax = 3
+base_production = 3
+base_manpower = 4
+add_core = ORI
+is_city = yes
+discovered_by = indian

@@ -1,0 +1,23 @@
+# Kulob
+
+capital = "Kulob"
+owner = CHG
+controller = CHG
+add_core = CHG
+culture = tadjik
+religion = sunni
+trade_goods = wool
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = nomad_group
+discovered_by = indopersian
+
+1370.1.1 = { owner = TIM controller = TIM add_core = TIM remove_core = CHG }
+1501.1.1 = { controller = SHY } # Conquered by Muhammad Shaybani
+1502.1.1 = { owner = SHY add_core = SHY remove_core = TIM } # The Uzbek Shaybanids brings an end to the Timurid dynasty
+1673.1.1 = { discovered_by = ENG }
+1677.1.1 = { discovered_by = FRA }
+1707.5.12 = { discovered_by = GBR }

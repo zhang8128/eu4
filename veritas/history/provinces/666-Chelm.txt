@@ -1,0 +1,51 @@
+# Chelm
+
+capital= "Chelm"
+owner = VOL
+controller = VOL
+add_core = VOL
+culture = ruthenian
+religion = orthodox
+trade_goods = grain
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+discovered_by = indopersian
+
+1349.1.1	= { controller = POL } # Lithuanian defeat at Streva sees their power reduced
+1352.9.1	= { controller = VOL } # Truce signed leaving all of Volhynia with Liubartas
+1366.9.1	= { owner = POL controller = POL } # Treaty turns these areas over to Poland
+1371.1.1	= { owner = VOL controller = VOL } # Liubartas takes advantage of Casimir III's death
+1392.8.4	= { owner = LIT controller = LIT add_territorial_core = LIT } # End of Lithuanian Civil War sees independence of Volhynia reduced
+1450.1.1   = { citysize = 9400 }
+1475.1.1   = { marketplace = yes }
+1490.1.1   = { unrest = 6 } # Uprising led by Mukha
+1492.1.1   = { unrest = 0 }  
+1500.1.1   = { citysize = 11093 }
+1550.1.1   = { citysize = 10240 religion = reformed }
+1569.7.1   = {	owner = PLC controller = PLC remove_core = VOL add_core = PLC } # Union of Lublin
+1588.1.1   = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Civil war
+1589.1.1   = { revolt = {} controller = PLC } # Coronation of Sigismund III
+1596.1.1   = { unrest  = 4 } # Religious struggles, union of Brest
+1597.1.1   = { unrest = 0 }
+1600.1.1   = { citysize = 15353 }  
+1655.1.1   = { citysize = 9800 } # The Deluge
+1700.1.1   = { citysize = 21250 }
+1733.1.1   = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # The war of Polish succession
+1735.1.1   = { revolt = {} controller = PLC }
+1750.1.1   = { citysize = 25000 }
+1781.1.1   = { unrest = 4 } # Struggle against serfdom
+1781.9.17  = { citysize = 32000 } # Second settlement patent
+1794.3.24  = { unrest = 8 } # Kosciuszko uprising
+1794.11.16 = { unrest = 0 } # The end of the uprising
+1795.10.24 = {	owner = HAB controller = HAB add_core = HAB } # Third partition of Poland
+1800.1.1   = { citysize = 41900 }
+1807.7.9   = {	owner = POL controller = POL remove_core = HAB } # The Duchy of Warsaw is established after the treaty of Tilsit, ruled by Frederick Augustus I of Saxony
+1812.12.12 = { controller = RUS }
+1814.4.11  = {	owner = RUS add_core = RUS } # Napoleon abdicates

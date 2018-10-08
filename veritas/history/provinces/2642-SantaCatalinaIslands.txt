@@ -1,0 +1,3 @@
+# Santa Catalina Islands
+#Province IDs changed
+1542.1.1 = { discovered_by = SPA }

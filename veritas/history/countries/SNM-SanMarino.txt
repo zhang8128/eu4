@@ -1,0 +1,11 @@
+# San Marino
+#Province IDs changed
+government = republic add_government_reform = oligarchic_republic
+government_rank = 2
+primary_culture = umbrian
+religion = catholic
+technology_group = western
+capital = 233 # Firenze
+
+1200.1.1 = { set_country_flag = guelphs_ghibellines_active }
+1560.1.1 = { clr_country_flag = guelphs_ghibellines_active }

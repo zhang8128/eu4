@@ -1,0 +1,22 @@
+#Province IDs changed
+government = monarchy add_government_reform = principality
+government_rank = 1
+primary_culture = russian
+religion = orthodox
+technology_group = eastern
+historical_friend = MOS
+capital = 735 # Ustyug
+
+set_country_flag = russian_horde_tribute
+
+1307.1.1 = {
+	monarch = {
+		name = "Vasili"
+		dynasty = "Rurikovich"
+		birth_date = 1291.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+#Ustyug was not actually formed until 1364, it was at this time under the rule of Rostov. Since Rostov doesn't exist in game I just gave ustyug their prince

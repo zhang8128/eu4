@@ -1,0 +1,18 @@
+#Province IDs changed
+government = tribal add_government_reform = tribal_despotism
+government_rank = 3
+primary_culture = putun
+religion = popol
+technology_group = mesoamerican
+capital = 2091	# Petén
+
+
+1300.1.1 = {
+	monarch = {
+		name = "Ahkinxok Muluchtzekel" #Fictional
+		dynasty = "Itza"
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+} #No known Itza rulers in-timeline

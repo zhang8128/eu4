@@ -1,0 +1,12 @@
+# Ottoman Light Infantry
+
+unit_type = ottoman
+type = infantry
+
+maneuver = 1
+offensive_morale = 11
+defensive_morale = 11
+offensive_fire = 10
+defensive_fire = 15
+offensive_shock = 4
+defensive_shock = 4

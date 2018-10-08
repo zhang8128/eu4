@@ -1,0 +1,29 @@
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+primary_culture = songhai
+religion = sunni
+technology_group = sudanese_tech
+capital = 1790
+historical_rival = MAL
+
+1280.1.1 = { 
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 20.0 }
+}
+
+1309.1.1 = {
+	monarch = {
+		name = "Kossoi"
+		dynasty = "Dia"
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}
+
+1340.1.1 = { 
+	clr_country_flag = starting_vassal 
+	clr_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 0 }
+}

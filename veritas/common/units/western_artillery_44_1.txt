@@ -1,0 +1,19 @@
+# Horse Artillery
+
+type = artillery
+
+maneuver = 2
+offensive_morale = 1
+defensive_morale = 4
+offensive_fire = 15
+defensive_fire = 3
+offensive_shock = 0
+defensive_shock = 0
+
+trigger = {
+	OR = {
+		unit_type = western
+		technology_group = western
+		technology_group = high_american
+	}
+}

@@ -1,0 +1,3 @@
+# Kamtchatka Basin
+#Province IDs changed
+1647.1.1 = { discovered_by = RUS }

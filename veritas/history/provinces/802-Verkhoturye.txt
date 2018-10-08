@@ -1,0 +1,17 @@
+# Verkhoturye
+
+capital = "Neromkar"
+owner = GOL
+controller = GOL
+add_core = GOL
+culture = uralic
+religion = tengri
+trade_goods = grain
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = eastern
+
+1430.1.1 = { owner = BSH controller = BSH remove_core = GOL } # Breakup of the Horde

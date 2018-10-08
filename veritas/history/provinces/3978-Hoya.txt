@@ -1,0 +1,28 @@
+# Hoya
+
+capital = "Hoya"
+owner = HOY
+controller = HOY
+add_core = HOY
+culture = lowersaxon
+religion = catholic
+trade_goods = livestock
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+hre = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1	= { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1	= { remove_province_modifier = province_black_death }
+1512.1.1	= { controller = BRU }	# Occupied in fealty dispute
+1519.1.1	= { controller = HOY }	# Compromise restores the count
+1525.1.1	= { religion = protestant }
+1582.2.25	= { owner = HAN controller = HAN add_core = HAN } # Otto VIII dies childless; territory devolves to Calenberg line of Brunswick
+1806.7.12	= { hre = no } # The Holy Roman Empire is dissolved
+1807.7.9	= {	owner = WES controller = WES add_core = WES } # The Second Treaty of Tilsit, the kingdom of Westfalia
+1813.10.14	= {	owner = HAN controller = HAN remove_core = WES } # Westfalia is dissolved after the Battle of Leipsig

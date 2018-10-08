@@ -1,0 +1,10 @@
+#Arab Frigate
+#model = heavy_frigate
+#tech_level = 46
+type = transport
+unit_type = muslim
+
+hull_size = 24
+base_cannons = 44
+sail_speed = 8
+sailors = 300

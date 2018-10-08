@@ -1,0 +1,376 @@
+########################################
+# Naples Events
+# VEF
+########################################
+
+namespace = flavor_nap
+normal_or_historical_nations = yes
+
+#1343 succession#
+#10001 Death of Robert de Anjou, Joanna I succeeds
+#10002 Andrew de Anjou becomes consort of Hungary
+#10003 Hungary notified of the death and succession
+#10004 Andrew de Anjou frees the Pippini brothers
+#10005 Hungary notified if Andrew not executed
+#10006 Murder of Andrew de Anjou
+#10007 Hungary notified of Andrew's death and get CB
+#10008 Naples informed of CB
+#10009 Cleanup event (hidden)
+#10010 Cleanup event (hidden)
+
+###################
+# 1343 succession #
+###################
+
+# After the death of Robert de Anjou, his favorite daughter suceeds,
+# and not her husband, who would have otherwise had a better claim.
+country_event = {
+	id = flavor_nap.10001
+	title = "flavor_nap.10001.t"
+	desc = "flavor_nap.10001.d"
+	picture = VEF_KING_DIES_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = NAP
+		NOT = { has_ruler_flag = charles_de_anjou }
+		has_country_flag = fathers_favorite
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = andrew_snubbed
+			HUN = {
+				country_event = {
+					id = flavor_nap.10003
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "Rights of Man"
+					has_regency_trigger = no
+					has_consort = no
+				}
+				define_consort = {
+					country_of_origin = HUN
+					name = "Andrew"
+					dynasty = "de Anjou"
+					female = no
+					adm = 2
+					dip = 2
+					mil = 2
+				}
+				set_consort_flag = andrew_de_anjou
+			}
+		}
+		
+	}
+
+	option = {
+		name = "flavor_nap.10001.opta"
+		add_legitimacy = -10
+	}
+}
+
+# Andrew de Anjou becomes consort of Hungary (generated, as betrothals are not implemented)
+country_event = {
+	id = flavor_nap.10002
+	title = "flavor_nap.10002.t"
+	desc = "flavor_nap.10002.d"
+	picture = VEF_DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NAP
+		has_country_flag = andrew_snubbed
+		has_regency_trigger = no
+		has_dlc = "Rights of Man"
+		has_consort = no
+	}
+
+	option = {
+		name = "flavor_nap.10002.opta"
+		define_consort = {
+			country_of_origin = HUN
+			name = "Andrew"
+			dynasty = "de Anjou"
+			female = no
+			adm = 2
+			dip = 2
+			mil = 2
+		}
+		hidden_effect = {
+			set_consort_flag = andrew_de_anjou
+		}
+	}
+}
+
+# Hungary notified that a close relative was snubbed for the throne
+country_event = {
+	id = flavor_nap.10003
+	title = "flavor_nap.10003.t"
+	desc = "flavor_nap.10003.d"
+	picture = VEF_COURT_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "flavor_nap.10003.opta"
+	}
+}
+
+# Andrew de Anjou frees the Pippini brothers
+country_event = {
+	id = flavor_nap.10004
+	title = "flavor_nap.10004.t"
+	desc = "flavor_nap.10004.d"
+	picture = VEF_ACCUSATION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = NAP
+		has_country_flag = andrew_snubbed
+		has_regency_trigger = no
+		OR = {
+			NOT = { has_dlc = "Rights of Man" }
+			has_consort_flag = andrew_de_anjou
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = andrew_snubbed
+		}
+	}
+
+	# Let Andrew off with a warning
+	option = {
+		name = "flavor_nap.10004.opta"
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			HUN = {
+				country_event = {
+					id = flavor_nap.10005
+				}
+			}
+			set_country_flag = nobles_upset
+		}
+		add_prestige = -5
+		add_legitimacy = -5
+		add_dip_power = -50
+	}
+	# Give Andrew a little more power to keep him at bay
+	option = {
+		name = "flavor_nap.10004.optb"
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			HUN = {
+				country_event = {
+					id = flavor_nap.10005
+				}
+			}
+			set_country_flag = nobles_upset
+		}
+		add_prestige = -10
+		add_legitimacy = -10
+		222 = { noble_rebels = 2 }
+	}
+	# Execute Andrew for his audacity
+	option = {
+		name = "flavor_nap.10004.optc"
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			HUN = {
+				country_event = {
+					days = 15
+					id = flavor_nap.10007
+				}
+			}
+			set_country_flag = andrew_executed
+			if = {
+				limit = {
+					has_dlc = "Rights of Man"
+				}
+				kill_consort = yes
+			}
+		}
+		add_prestige = 20
+		add_legitimacy = -20
+	}
+}
+
+# Hungary notified if Andrew not executed
+country_event = {
+	id = flavor_nap.10005
+	title = "flavor_nap.10005.t"
+	desc = "flavor_nap.10005.d"
+	picture = VEF_COURT_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "flavor_nap.10005.opta"
+	}
+}
+
+# Murder of Andrew de Anjou
+country_event = {
+	id = flavor_nap.10006
+	title = "flavor_nap.10006.t"
+	desc = "flavor_nap.10006.d"
+	picture = VEF_ASSASSINATION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = NAP
+		has_country_flag = nobles_upset
+		OR = {
+			NOT = { has_dlc = "Rights of Man" }
+			has_consort_flag = andrew_de_anjou
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					has_dlc = "Rights of Man"
+				}
+				kill_consort = yes
+			}
+		}
+	}
+
+	option = {
+		name = "flavor_nap.10006.opta"
+		add_legitimacy = -10
+		hidden_effect = {
+			clr_country_flag = nobles_upset
+			HUN = {
+				country_event = {
+					days = 15
+					id = flavor_nap.10007
+				}
+			}
+		}
+	}
+}
+
+# Hungary notified of Andrew's death and gets a CB
+country_event = {
+	id = flavor_nap.10007
+	title = "flavor_nap.10007.t"
+	desc = {
+		trigger = { NAP = { has_country_flag = andrew_executed } }
+		desc = "flavor_nap.10007.d.1"
+	}
+	desc = {
+		trigger = { NOT = { NAP = { has_country_flag = andrew_executed } } }
+		desc = "flavor_nap.10007.d.2"
+	}
+	picture = VEF_DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "flavor_nap.10007.opta"
+		add_casus_belli = {
+			target = NAP
+			type = cb_restore_personal_union
+			months = 240
+		}
+		hidden_effect = {
+			NAP = {
+				country_event = {
+					id = flavor_nap.10008
+				}
+			}
+		}
+	}
+}
+
+# Naples informed of CB
+country_event = {
+	id = flavor_nap.10008
+	title = "flavor_nap.10008.t"
+	desc = "flavor_nap.10008.d"
+	picture = VEF_COURT_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "flavor_nap.10008.opta"
+		hidden_effect = {
+			clr_country_flag = fathers_favorite
+		}
+	}
+}
+
+# Giovanna dies early, set up second event (hidden)
+country_event = {
+	id = flavor_nap.10009
+	title = "flavor_nap.10009.t"
+	desc = "flavor_nap.10009.d"
+	picture = VEF_DEATH_OF_HEIR_eventPicture
+	
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		has_country_flag = fathers_favorite
+		NOT = { has_heir_flag = giovanna }
+	}
+	
+	option = {
+		name = "flavor_nap.10009.opta"
+		#after 90 days, if not has_country_flag = andrew_snubbed, fire event
+		NAP = {
+			country_event = {
+				days = 35
+				id = flavor_nap.10010
+			}
+		}
+	}
+}
+
+# Giovanna dies early, kill flags (hidden)
+country_event = {
+	id = flavor_nap.10010
+	title = "flavor_nap.10010.t"
+	desc = "flavor_nap.10010.d"
+	picture = VEF_DEATH_OF_HEIR_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		has_country_flag = fathers_favorite
+		NOT = { has_country_flag = andrew_snubbed }
+		NOT = { has_country_flag = nobles_upset }
+		NOT = { has_country_flag = andrew_executed }
+	}
+	
+	option = {
+		name = "flavor_nap.10009.opta"
+		hidden_effect = {
+			clr_country_flag = fathers_favorite
+		}
+	}
+}

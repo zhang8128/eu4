@@ -1,0 +1,49 @@
+# Hradecko
+
+capital = "Hradec Kralove"
+owner = BOH
+controller = BOH
+add_core = BOH
+culture = czech
+religion = catholic
+trade_goods = beer
+base_tax = 5
+base_production = 5
+base_manpower = 5
+is_city = yes
+hre = yes
+discovered_by = eastern
+discovered_by = indopersian
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1348.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1419.7.30 = { religion = hussite }
+1436.7.5  = { revolt = {} controller = BOH } # Peace is signed in Jihlava
+1450.1.1  = { citysize = 16000 }
+1457.1.1  = { unrest = 5 barracks = yes } # George of Podiebrand had to secure recognition from the German and Catholic towns
+1464.1.1  = { unrest = 1 } # The Catholic nobility is still undermines the crown.
+1471.1.1  = { unrest = 0 }
+1526.8.30 = {	owner = HAB
+		controller = HAB
+		add_core = HAB
+		remove_core = BOH
+	    } # Battle of Mohac where Lajos II dies -> Habsburg succession
+1550.1.1  = { citysize = 21000 marketplace = yes }
+1600.1.1  = { citysize = 24000 }
+1618.5.23 = { # Defenestration of Prague
+		owner = BOH
+		controller = BOH
+		add_core = BOH
+		}
+1620.11.8  = {	owner = HAB
+		controller = HAB
+		remove_core = BOH
+	     } # Tilly beats the Winterking. Deus Vult!
+1627.1.1  = { citysize = 23000 } # Order from Ferdinand II to reconvert to Catholicism, many Protestant leave the country (Moravia predominantly Catholic)
+1663.9.1  = { citysize = 20000 } # Large parts of Moravia are devastated
+1750.1.1  = { citysize = 22000}
+1800.1.1  = { citysize = 24000 }
+1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved

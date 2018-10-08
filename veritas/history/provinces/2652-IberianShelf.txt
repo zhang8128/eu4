@@ -1,0 +1,6 @@
+# Iberian Shelf
+#Province IDs changed
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+1453.1.1 = { discovered_by = muslim }

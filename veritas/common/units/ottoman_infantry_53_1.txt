@@ -1,0 +1,12 @@
+# Ottoman Line Infantry
+
+unit_type = ottoman
+type = infantry
+
+maneuver = 1
+offensive_morale = 9
+defensive_morale = 8
+offensive_fire = 7
+defensive_fire = 7
+offensive_shock = 3
+defensive_shock = 3

@@ -1,0 +1,200 @@
+#Russia
+
+graphical_culture = easterngfx
+
+color = { 96  131  80 }
+
+revolutionary_colors = { 0  13  5 }
+
+historical_score = 5300
+
+historical_idea_groups = {
+	offensive_ideas
+	intimidatory_ideas
+	religious_ideas
+	quantity_ideas
+	exploration_ideas
+	land_trade_ideas
+	drafted_army_ideas
+	land_ideas
+}
+
+historical_units = { 
+	eastern_artillery_16_1
+	eastern_artillery_22_1
+	eastern_artillery_29_1
+	eastern_artillery_35_1
+	eastern_artillery_40_1
+	eastern_artillery_44_1
+	eastern_artillery_48_1
+	eastern_artillery_48_2
+	eastern_artillery_52_1
+	eastern_artillery_55_1
+	eastern_artillery_55_2
+	eastern_artillery_9_1
+	eastern_cavalry_0_1
+	eastern_cavalry_0_2
+	eastern_cavalry_21_1
+	eastern_cavalry_21_2
+	eastern_cavalry_27_1
+	eastern_cavalry_31_1
+	eastern_cavalry_36_1
+	eastern_cavalry_40_1
+	eastern_cavalry_44_1
+	eastern_cavalry_44_2
+	eastern_cavalry_48_1
+	eastern_cavalry_48_2
+	eastern_cavalry_51_1
+	eastern_cavalry_51_2
+	eastern_cavalry_55_1
+	eastern_cavalry_55_2
+	eastern_cavalry_58_1
+	eastern_cavalry_58_2
+	eastern_cavalry_16_1
+	eastern_cavalry_16_2
+	eastern_infantry_0_1
+	eastern_infantry_0_2
+	eastern_infantry_17_1
+	eastern_infantry_17_2
+	eastern_infantry_25_1
+	eastern_infantry_25_2
+	eastern_infantry_28_1
+	eastern_infantry_28_2
+	eastern_infantry_31_1
+	eastern_infantry_31_2
+	eastern_infantry_34_1
+	eastern_infantry_34_2
+	eastern_infantry_39_1
+	eastern_infantry_39_2
+	eastern_infantry_42_1
+	eastern_infantry_42_2
+	eastern_infantry_45_1
+	eastern_infantry_45_2
+	eastern_infantry_48_1
+	eastern_infantry_48_2
+	eastern_infantry_50_1
+	eastern_infantry_50_2
+	eastern_infantry_53_1
+	eastern_infantry_53_2
+	eastern_infantry_55_1
+	eastern_infantry_55_2
+	eastern_infantry_57_1
+	eastern_infantry_57_2
+	eastern_infantry_59_1
+	eastern_infantry_59_2
+	eastern_infantry_63_1
+	eastern_infantry_63_2
+	eastern_infantry_6_1
+	eastern_infantry_6_2
+	eastern_infantry_14_1
+	eastern_infantry_14_2
+}
+
+monarch_names = {
+	"Ivan #3" = 60
+	"Fyodor #1" = 60
+	"Pyotr #0" = 60
+	"Vasiliy #2" = 20
+	"Aleksandr #0" = 20
+	"Alexei #0" = 20
+	"Boris #0" = 20
+	"Mikhail #0" = 20
+	"Pavel #0" = 20
+	"Yekaterina #0" = -20
+	"Dmitriy #6" = 15
+	"Yuriy #4" = 15
+	"Anna #0" = -15
+	"Elizaveta #0" = -15
+	"Konstantin #0" = 15
+	"Andrei #3" = 10
+	"Semen #1" = 10
+	"Nikolai #0" = 10
+	"Afanasiy #0" = 0
+	"Anatoliy #0" = 0
+	"Anton #0" = 0
+	"Arseniy #0" = 0
+	"Artamon #0" = 0
+	"Artemiy #0" = 0
+	"Bogdan #0" = 0
+	"Demyan #0" = 0
+	"Epifaniy #0" = 0
+	"Feofan #0" = 0
+	"Gavriil #0" = 0
+	"Grigoriy #0" = 0
+	"Iosif #0" = 0
+	"Isaak #0" = 0
+	"Kirill #0" = 0
+	"Lavrentiy #0" = 0
+	"Lazar #0" = 0
+	"Lev #0" = 0
+	"Malyuta #0" = 0
+	"Mark #0" = 0
+	"Mefodiy #0" = 0
+	"Nikifor #0" = 0
+	"Nikita #0" = 0
+	"Nikodim #0" = 0
+	"Oleg #0" = 0
+	"Platon #0" = 0
+	"Prokopiy #0" = 0
+	"Sergei #0" = 0
+	"Stanislav #0" = 0
+	"Varfolomey #0" = 0
+	"Yefim #0" = 0
+	"Yulian #0" = 0
+}
+
+leader_names = {
+	Adashev Apraxine Atlasov
+	Basmanov Baryatiski Bibikov Beketov Baranov
+	Chernigovets Chelyuskin Chuiski
+	Dolgorukov Dubenski Dezhnev
+	Ermolov
+	Fermor
+	Godunov Golitsyn Gagarin Glinski
+	Kasimovskiy Kurbski Khovanski Kutuzov Koltsov-Mosalski Khabarov
+	Mikulinski Menshikov Minih Mansurov Moskvitin
+	Ovchina-Obolenski Osterman-Tolstoy Orlov
+	Pozharski Potemkin Petrov Poyarkov Patrikeev
+	Romodanovski Rumyantsev Repnin Rebrov
+	Shuiski Sheremetev Skopin Shein Soltikov Spiridof Senyavin Stroganov Semenov
+	Tottleben "de Tolly" Tomasov
+	Ushakov
+	Vorotinski Vishnevetski
+	Wittgenstein
+	Yalichev Yermak
+}
+
+ship_names = {
+	"Sv.Nestor" "Maria Magdalena" "Sv.Ekaterina" "Sv.Petr i Pavel" "Apostol Petr"
+	"Apostol Pavel" "Sv.Mark" "Sv.Matfei" "Sv.Georgiy Pobedonosetz" "Sv.Alxander Nevskiy"
+	"Sv.Ioann Krestitel" "Sv.Andrey Pervozvanniy" "Sv.Vladmir" "Sv.Boris i Gleb"
+	"Sv.Kirill i Mefodiy" Mstislav Yaroslav Sviatoslav Sudislav Stanislav Vsevolod
+	Vladislav Rurik Rostislav Vladimir Izyaslav Vseslav Boleslav Mecheslav Rodislav
+	Ratibor Branimir Gavriil Mihail Uriil Rafail Salafail Varakhail Yagudiil Kastor
+	Yaroslavets Pallada Passat Perekat Predanny Priboy Liman Primerny Provorny
+	Ivanovets Speshniy Kreyser Pylky Zhemchug Nadezhda Neva Diana Merkuriy Vostok
+	Mirniy Yunona Alexander Pollux Opyt Avos Kamchatka Desna Dnepr Taganrog Yevstafiy
+	"Rozhdestvo Hristovo" Preobrazheniye "Dvenadsat Apostolov" "Tri Sviatitelya" Burya
+	Yevropa Krym Tavrida Groza Tverdiy Ezekiel
+}
+
+army_names = {
+	"Russian Imperial Army"
+	"Army of Finland"
+	"Army of Poland"
+	"Army of Ukraine"
+	"Army of Crimea"
+	"Army of the Ural"
+	"Army of the Caucasus"
+	"Army of Siberia"
+	"Army of the Baltic"
+}
+
+fleet_names = {
+	"Blue Squadron"
+	"Red Squadron"
+	"White Squadron"
+	"Baltic Squadron"
+	"Black Sea Squadron"
+
+}

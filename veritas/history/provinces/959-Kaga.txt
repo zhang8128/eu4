@@ -1,0 +1,32 @@
+# Kaga
+# Manpower revision complete
+#Province IDs changed
+
+owner = HTK
+controller = HTK
+add_core = HTK
+culture = japanese
+religion = shinto
+capital = "Takaoka"
+trade_goods = rice
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 5
+add_core = SBA
+is_city = yes
+discovered_by = chinese
+discovered_by = niitaka
+
+1400.1.1	= { base_manpower = 2.5 }
+1500.1.1	= { base_manpower = 3.5 }
+1562.7.1	= { add_core = UES }
+1576.1.1	= { owner = UES controller = UES remove_core = HTK }
+1581.1.1	= { add_core = JAP owner = JAP controller = JAP remove_core = UES }
+1583.6.14	= { owner = MAE controller = MAE add_core = MAE remove_core = JAP }
+1600.1.1	= { base_manpower = 4.5 }
+1603.3.24	= { owner = JAP controller = JAP add_core = JAP remove_core = TKG } # Tokugawa shogunate founded
+1650.1.1	= { base_manpower = 5 }
+1700.1.1	= { base_manpower = 6 }
+1750.1.1	= { base_manpower = 6 }
+1800.1.1	= { base_manpower = 5.75 }

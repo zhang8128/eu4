@@ -1,0 +1,22 @@
+# Poyang
+#Province IDs changed
+
+owner = YUN
+controller = YUN
+culture = wuhan
+religion = confucianism
+capital = "Tai'an"
+trade_goods = rice
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 5
+add_core = YUN
+is_city = yes
+discovered_by = chinese
+
+1357.1.1 = { owner = CSH controller = CSH add_core = CSH remove_core = YUN add_core = MNG }
+1365.4.1 = { owner = MNG controller = MNG }
+#1644.4.1 = { owner = CSH controller = CSH } # The Shun dynasty of Li Zicheng
+1645.7.1  = {	owner = QNG controller = QNG add_core = QNG } # The Qing Dynasty
+1662.1.1 = { remove_core = MNG }

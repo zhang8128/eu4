@@ -1,0 +1,56 @@
+# VEF
+
+namespace = vef_caltabellotta
+normal_or_historical_nations = yes
+
+# Succession in Trinacria (Sicily)
+country_event = {
+	id = vef_caltabellotta.1
+	title = vef_caltabellotta.1.t
+	desc = vef_caltabellotta.1.d
+	picture = VEF_DEATH_OF_HEIR_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SIC
+		has_country_flag = peace_of_caltabellotta
+		NOT = { is_subject_of = NAP }
+	}
+
+	option = {
+		name = "vef_caltabellotta.1.opta"
+		clr_country_flag = peace_of_caltabellotta
+		NAP = { country_event = { id = vef_caltabellotta.2 days = 1 }}
+		change_variable = { which = national_stability value = -500 }
+	}
+}
+
+country_event = {
+	id = vef_caltabellotta.2
+	title = vef_caltabellotta.2.t
+	desc = vef_caltabellotta.2.d
+	picture = VEF_DEATH_OF_HEIR_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = NAP
+	}
+	
+	option = {
+		name = "vef_caltabellotta.2.opta"
+		ai_chance = { factor = 100 }
+		SIC = { every_owned_province = { limit = { is_core = SIC } add_core = NAP }}
+		add_prestige = 15
+	}
+	
+	option = {
+		name = "vef_caltabellotta.2.optb"
+		ai_chance = { factor = 0 }
+		add_prestige = -25
+		add_legitimacy = -15
+	}
+}

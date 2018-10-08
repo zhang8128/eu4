@@ -1,0 +1,111 @@
+#Country Name: See the Name of this File.
+
+graphical_culture = indiangfx
+
+color = { 110  136  66 }
+
+historical_idea_groups = {
+	quantity_ideas
+	spy_ideas
+	religious_ideas
+	defensive_ideas
+	mercantilist_ideas
+	cultural_unity_ideas
+	drafted_army_ideas
+	gf1_ideas
+}
+
+historical_units = {
+   indian_artillery_8_1
+   indian_artillery_16_1
+   indian_artillery_24_1
+   indian_artillery_32_1
+   indian_artillery_38_1
+   indian_artillery_42_1
+   indian_cavalry_0_1
+   indian_cavalry_16_1
+   indian_cavalry_21_1
+   indian_cavalry_27_1
+   indian_cavalry_31_1
+   indian_cavalry_36_1
+   indian_cavalry_48_1
+   indian_infantry_0_1
+   indian_infantry_6_1
+   indian_infantry_17_1
+   indian_infantry_21_1
+   indian_infantry_25_1
+   indian_infantry_34_1
+   indian_infantry_42_1
+   indian_infantry_45_1
+   indian_infantry_48_1
+   indian_infantry_50_1
+}
+
+
+
+
+monarch_names = {
+	"Haria #1" = 30
+	"Jugasai  #1" = 30
+	"Pratapnayan #1" = 30
+	"Harirudra #0" = 30
+	"Anku  #0" = 30
+	"Raghunath #0" = 30
+	"Biswambhar  #0" = 30
+	"Raisingh  #0" = 30
+	"Dusmant  #0" = 30
+	"Pratap Deo #0" = 10
+	"Padman #0" = 10
+	"Khadag Rai #0" = 10
+	"Yuvaraj #0" = 0
+	"Birabar #0" = 0
+	"Harichandra #0" = 0
+	"Gopinath #0" = 0
+	"Raghuraj #0" = 0
+	"Haria #0" = 0
+	"Bishwanath #0" = 10
+	"Rai #0" = 0
+	"Sunder #0" = 0
+	"Krishna #0" = 0
+	"Barman #0" = 0
+	"Biwarta #0" = 0
+	"Jagannath #0" = 0
+	"Narayana #0" = 0
+	"Bebarta #0" = 0
+	"Chandra #0" = 0
+	"Damodar #0" = 0
+	"Jadunath #0" = 0
+	"Pradeep #0" = 0
+	"Giriraj #0" = -1
+	"Suratarangini Devi #0" = -1
+	"Malavika Devi #0" = -1
+}
+
+leader_names = {
+	Singh
+	Deo
+	Gangabansi
+	Pusapati
+	Ghumsur
+	Parmar
+	Patnaik
+	Samant
+	Rawat
+	Deb
+	Bhanja
+	Vidyadhar
+	Mangraj
+	Mahapatra
+	Pal
+	Janamuni
+	Narendra
+}
+
+ship_names = {
+	Baitarani Balasore Balugaon Behrampur
+	Bhubeneswar Brahmani Chandipur Chilka
+	Cuttack Durga Gopalpur Jagannath
+	Juggernaut Kalijai Konark Lakshmi
+	Mahanadi Nalabana Paradeep Parvati
+	Puri Radha Sarasvati Satapada
+}

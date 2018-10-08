@@ -1,0 +1,295 @@
+# VeF
+
+namespace = flavor_byz
+normal_or_historical_nations = yes
+
+# On new monarch, one faction gains 20 power at the expense of the others
+country_event = {
+	id = flavor_byz.10001
+	title = "flavor_byz.10001.t"
+	desc = "flavor_byz.10001.d"
+	picture = VEF_COURT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = BYZ
+		has_country_flag = restore_justinians_realm_flag
+		has_factions = yes
+	}
+
+	option = {
+		name = "flavor_byz.10001.opta"		# To the mercantilist faction
+		ai_chance = { factor = 33 }
+		add_faction_influence = { faction = byz_mercantilist influence = 10 }
+		add_mercantilism = 10
+	}
+	option = {
+		name = "flavor_byz.10001.optb"		# To the military faction
+		ai_chance = { factor = 33 }
+		add_faction_influence = { faction = byz_militarist influence = 10 }
+	}
+	option = {
+		name = "flavor_byz.10001.optc"		# To the patriarchal faction
+		ai_chance = { factor = 33 }
+		add_faction_influence = { faction = byz_patriarchal influence = 10 }
+		add_patriarch_authority = 0.10
+	}
+}
+
+# The AI needs help getting the military faction going! So we help it decide until
+# it gets the flag.
+
+country_event = {
+	id = flavor_byz.10024
+	title = "flavor_byz.10001.t"
+	desc = "flavor_byz.10001.d"
+	picture = VEF_COURT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = BYZ
+		NOT = { has_country_flag = restore_justinians_realm_flag }
+		has_factions = yes
+	}
+
+	option = {
+		name = "flavor_byz.10001.opta"		# To the mercantilist faction
+		ai_chance = { factor = 1 }
+		add_faction_influence = { faction = byz_mercantilist influence = 10 }
+	}
+	option = {
+		name = "flavor_byz.10001.optb"		# To the military faction
+		ai_chance = { factor = 98 }
+		add_faction_influence = { faction = byz_militarist influence = 10 }
+	}
+	option = {
+		name = "flavor_byz.10001.optc"		# To the patriarchal faction
+		ai_chance = { factor = 1 }
+		add_faction_influence = { faction = byz_patriarchal influence = 10 }
+	}
+}
+
+# Further boost for the military faction for the AI. Fires every 5 years.
+
+country_event = {
+	id = flavor_byz.10025
+	title = "flavor_byz.10025.t"
+	desc = "flavor_byz.10025.d"
+
+	picture = VEF_LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = BYZ
+		ai = yes
+		has_factions = yes
+		NOT = { has_country_flag = restore_justinians_realm_flag }
+		NOT = { faction_in_power = byz_militarist }
+	}
+
+	option = {
+		name = "flavor_byz.10025.opta"
+		add_faction_influence = { faction = byz_militarist influence = 15 }
+	}
+}
+
+# On a regency, the ascendant faction solidifies power. 3 events since
+# faction code is not available beyond some basic scripts.
+#
+# Patriarchal 
+country_event = {
+	id = flavor_byz.10005
+	title = "flavor_byz.10005.t"
+	desc = "flavor_byz.10005.d"
+	
+	picture = VEF_ORTHODOX_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = BYZ
+		has_factions = yes
+		faction_in_power = byz_patriarchal
+	}
+
+	option = {
+		name = "flavor_byz.10005.opta"
+		ai_chance = { factor = 100 }
+		add_faction_influence = { faction = byz_patriarchal influence = 20 }
+	}
+}
+
+# Mercantilist
+country_event = {
+	id = flavor_byz.10006
+	title = "flavor_byz.10006.t"
+	desc = "flavor_byz.10006.d"
+	
+	picture = VEF_MERCHANTS_TALKING_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = BYZ
+		has_factions = yes
+		faction_in_power = byz_mercantilist
+	}
+
+	option = {
+		name = "flavor_byz.10006.opta"
+		ai_chance = { factor = 100 }
+		add_faction_influence = { faction = byz_mercantilist influence = 20 }
+	}
+}
+
+# Militarist
+country_event = {
+	id = flavor_byz.10007
+	title = "flavor_byz.10007.t"
+	desc = "flavor_byz.10007.d"
+	
+	picture = VEF_LAND_MILITARY_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = BYZ
+		has_factions = yes
+		faction_in_power = byz_militarist
+	}
+
+	option = {
+		name = "flavor_byz.10007.opta"
+		ai_chance = { factor = 100 }
+		add_faction_influence = { faction = byz_militarist influence = 20 }
+	}
+}
+
+country_event = {
+	id = flavor_byz.10031
+	title = "flavor_byz.10031.t"
+	desc = "flavor_byz.10031.d"
+	picture = VEF_MERCHANTS_TALKING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "flavor_byz.10031.opta"
+		add_casus_belli = { target = FROM type = cb_byz_trade_centers months = 24 }
+		add_country_modifier = { name = "byz_merc_trade_war" duration = 730 }
+	}
+}
+
+# Byzantine Civil War - non GOB
+country_event = {
+	id = flavor_byz.10036
+	title = "flavor_byz.10036.t"
+	desc = "flavor_byz.10036.d"
+
+	picture = VEF_CIVIL_WAR_eventPicture
+	
+	trigger = {
+		tag = BYZ
+		OR = { 
+			has_country_modifier = byzantine_decline1
+			has_country_modifier = byzantine_decline2
+		}
+		has_any_disaster = no
+		NOT = { has_country_flag = byz_civil_war }
+		government = monarchy
+		OR = {
+			NOT = { stability = -1 }
+			war_exhaustion = 10
+			has_regency_trigger = yes
+			is_female = yes
+			NOT = { legitimacy = 70 }
+		}
+		num_of_cities = 6
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			factor = 3
+			has_country_modifier = byzantine_decline2
+		}
+		modifier = {
+			factor = 0.5
+			has_regency_trigger = yes
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { legitimacy = 50 }
+		}
+		modifier = {
+			factor = 0.5
+			overextension_percentage = 0.50
+		}
+		modifier = {
+			factor = 0.8
+			revolt_percentage = 0.1
+		}
+		modifier = {
+			factor = 1.1
+			stability = 0
+		}
+		modifier = {
+			factor = 1.2
+			stability = 1
+		}
+		modifier = {
+			factor = 1.5
+			stability = 2
+		}
+		modifier = {
+			factor = 3
+			stability = 3
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { stability = -2 }
+		}
+		modifier = {
+			factor = 1.5
+			prestige = 50
+		}
+		modifier = {
+			factor = 1.1
+			prestige = 30
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { adm  = 2 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { mil  = 2 }
+		}
+		modifier = {
+			factor = 1.5
+			adm  = 5
+		}
+		modifier = {
+			factor = 1.5
+			mil  = 5
+		}
+	}
+	
+	immediate = {
+		set_country_flag = byz_civil_war
+		set_country_flag = civil_war
+	}
+	
+	option = {
+		name = "flavor_byz.10036.opta" # Crush them!
+		random_owned_province = {
+			limit = { is_core = ROOT }
+			pretender_rebels = 2
+			change_siege = 20		#so they take them quickly
+		}
+		every_owned_province = { add_unrest = 2 }
+	}
+}

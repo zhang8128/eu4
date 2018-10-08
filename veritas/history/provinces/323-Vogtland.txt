@@ -1,0 +1,39 @@
+# Vogtland
+
+capital = "Plauen"
+owner = VOG
+controller = VOG
+add_core = VOG
+culture = eastfranconian
+religion = catholic
+trade_goods = grain
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1	= { base_manpower = 3 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1357.1.1	= { owner = BOH controller = BOH add_core = BOH } # To Bohemia following the Vogtland war
+1360.1.1   = { remove_province_modifier = province_black_death }
+1500.1.1  = { citysize = 15000 }
+1531.1.1  = { religion = protestant }
+1550.1.1  = { citysize = 18000 }
+1554.3.3  = { capital = "Weimar" }
+1572.1.1 = { owner = SAX controller = SAX add_core = SAX }
+1600.1.1  = { citysize = 19000 }
+1650.1.1  = { citysize = 15000 }
+1700.1.1  = { citysize = 17000 }
+1750.1.1  = { citysize = 17200 }
+1790.8.1  = { unrest = 5 } # Peasant revolt
+1791.1.1  = { unrest = 0 }
+1800.1.1  = { citysize = 16900 }
+1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+1815.6.9  = {	owner = PRU
+		controller = PRU
+		add_core = PRU
+} # Congress of Vienna

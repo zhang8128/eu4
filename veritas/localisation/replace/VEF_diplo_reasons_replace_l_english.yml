@@ -1,0 +1,8 @@
+﻿l_english:
+
+ ###Replacement localisations from vanilla's diplo_reasons_l_english###
+
+ DIPLO_NOT_WANT_BIG_SHIP: "$WHO$ has no use for Heavy Warships: "
+ DIPLO_TOO_MANY_BIG_SHIP: "$WHO$ wants §R$NUM$§! fewer Heavy Warships: "
+ DIPLO_TOO_MANY_LIGHT_SHIP: "$WHO$ wants §R$NUM$§! fewer Trade Ships: "
+ DIPLO_TOO_MANY_TRANSPORT: "$WHO$ wants §R$NUM$§! fewer Light Warships: "

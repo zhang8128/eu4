@@ -1,0 +1,213 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 100  50  150 }
+revolutionary_colors = { 15  6  16 } #Parthenopean Republic
+
+historical_score = 120
+
+historical_idea_groups = {
+	mm1_ideas
+	quantity_ideas
+	economic_ideas
+	mercantilist_ideas
+	defensive_ideas
+	administrative_ideas
+	diplomatic_ideas
+	drafted_army_ideas
+}
+
+historical_units = {
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+monarch_names = {
+	"Carlo #3" = 80
+	"Ferrante #0" = 80
+	"Filippo #0" = 60
+	"Alfonso #0" = 40
+	"Federigo #0" = 20
+	"Ladislao #0" = 20
+	"Gioachino #0" = 20
+	"Achille #0" = 15
+	"Gabriele #0" = 15
+	"Alberto #0" = 10
+	"Antonio #0" = 10
+	"Cesare #0" = 10
+	"Francesco #0" = 10
+	"Giovanni #0" = 10
+	"Giuseppe #0" = 10
+	"Leopoldo #0" = 10
+	"Adriano #0" = 0
+	"Alessandro #0" = 0
+	"Alfredo #0" = 0
+	"Bartolomeo #0" = 0
+	"Benedetto #0" = 0
+	"Claudio #0" = 0
+	"Enzo #0" = 0
+	"Fabio #0" = 0
+	"Fabrizio #0" = 0
+	"Gaspare #0" = 0
+	"Leandro #0" = 0
+	"Marco #0" = 0
+	"Martino #0" = 0
+	"Nestore #0" = 0
+	"Paolo #0" = 0
+	"Pietro #0" = 0
+	"Raniero #0" = 0
+	"Roberto #0" = 0
+	"Salvatore #0" = 0
+	"Vicenzo #0" = 0
+	
+	"Giovanna #1" = -15
+	"Julia #0" = -5
+	"Carlotta #0" = -5
+	"Isabella #0" = -1
+}
+
+leader_names = {
+	Pignatelli
+	Carafa
+	Caracciolo
+	Sanseverino
+	Acquaviva
+	Orsini
+	Marzano
+	Pignatelli
+	"d'Avalos"
+	Tocco
+	Mazziotti
+	Coscia
+	Mazzaccara
+	Rizzo
+}
+
+ship_names = {
+	#Cities
+	Amalfi Aquila Avellino
+	Bari Barletta Benevento Brindisi
+	Capua Campobasso Catanzaro Chieti Crotone Cosenza
+	Foggia
+	Gaeta
+	Lagonegro Lecce Lucera
+	Matera Mondragone Montefusco Monteleone
+	Napoli
+	Otranto
+	Pescara Potenza
+	"Reggio di Calabria"
+	Salerno "San Severo" "Santa Maria" Sorrento
+	Taranto Trani
+	
+	#Monarchs
+	"Alfonso il Magnanimo"
+	"Ladislao il Magnanimo"
+	"Re Carlo I" "Roberto il Saggio" "Regina Giovanna"
+	
+	#Regions
+	"Abruzzo Citra" "Abruzzo Ultra"
+	Basilicata
+	"Calabria Citra" "Calabria Ultra" Capitanata
+	Molise
+	"Principato Citra" "Principato Ultra"
+	"Terra di Bari" "Terra di Lavoro" "Terra d'Otranto"
+	
+	#Religion
+	"Arcangelo Gabriele"
+	"Madre di Dio" "Madonna Assunta" Misericordia 
+	"San Antonio" "San Gennaro" "San Ferdinando" "San Michele" "San Tommaso"
+	"Santa Trinità"
+	
+	#Historical ships at Lepanto
+	Brava
+	Capitana
+	Costanza
+	Fiamma
+	Fortuna
+	Idra Invidia
+	Lomellina
+	Mendoza
+	"Sant'Andrea" "Sant'Angelo" "San Giovanni" "San Giacomo" "San Giorgio" "San Nicola" 
+	"Santa Barbara" "Santa Caterina" "Santa Lucia"
+	Sagittaria
+	Terana
+	Vittoria
+}
+
+army_names = {
+	"Esercito del Re" "Esercito di $PROVINCE$"
+}
+
+fleet_names = {
+	"Flottiglia Reale"
+	"Flottiglia di Napoli"
+	"Flottiglia di Amalfi"
+}

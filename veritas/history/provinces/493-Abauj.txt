@@ -1,0 +1,54 @@
+# Abaúj
+
+capital = "Kassa"
+owner = ABA
+controller = ABA
+add_core = ABA
+add_core = HUN
+culture = slovak
+religion = catholic
+trade_goods = wine
+base_tax = 4
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+
+heavy_serfdom = yes
+nobles_60 = yes
+
+discovered_by = eastern
+discovered_by = nomad_group
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1309.1.1   = { unrest = 3 } # Noble troubles
+1312.6.15  = { owner = HUN controller = HUN } # Aba family largely dispossessed after battle of Rozgony
+1316.1.1   = { unrest = 0 remove_core = ABA }
+1348.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+# Battle of Mohács, the end of the independent Kingdom of Hungary, Hungary came under military rule
+1526.8.30 = {	owner = HAB controller = HAB add_core = HAB add_core = TRA } 
+1545.1.1  = { religion = protestant } # Synod of Erdod
+1570.1.1   = {remove_core = TRA	} #Treaty of Speyer
+1604.1.1  = { revolt = { type = nationalist_rebels size = 1 } controller = REB } # The nobility in Royal Hungary rebelled against Habsburg & Jesuit repression
+1606.1.1  = { revolt = {} controller = HAB } # Peace treaty
+1619.1.1  = { revolt = { type = nationalist_rebels size = 1 } controller = REB } # Occupied by Gabriel Bethlen
+1620.1.1  = { revolt = {} }
+1626.1.1  = { controller = HAB } # The 3rd Peace of Pressburg
+1648.1.1  = {	owner = TRA
+		controller = TRA
+		add_core = TRA
+	   	remove_core = HAB
+	    } # Kosice is united with Transylvania
+1682.1.1  = { revolt = { type = nationalist_rebels size = 1 } controller = REB } # Occupied by Imrich Tokoli
+1685.1.1  = {	revolt = {}
+		owner = HAB
+	        controller = HAB
+	        add_core = HAB
+	        remove_core = TRA
+	    } # Imrich Tokoli surrendered to the emperor's soldiers
+1703.1.1  = { unrest = 6 } # Kuruc rebellion, lead by Francisc Rakoczy
+1711.1.1  = { unrest = 0 } # Treaty of Szatmar, the House of Habsburg recognized as the new ruler

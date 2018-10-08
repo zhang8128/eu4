@@ -1,0 +1,30 @@
+#Province Scope
+reduce_base_tax = {
+  if = {
+    limit = {
+      base_manpower_max = no
+    }
+    add_base_manpower = 1
+  }
+  add_base_tax = -1
+}
+
+reduce_base_production = {
+  if = {
+    limit = {
+      base_tax_max = no
+    }
+    add_base_tax = 1
+  }
+  add_base_production = -1
+}
+
+reduce_base_manpower = {
+  if = {
+    limit = {
+      base_production_max = no
+    }
+    add_base_production = 1
+  }
+  add_base_manpower = -1
+}

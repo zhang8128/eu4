@@ -1,0 +1,311 @@
+base_tax_max = { #Province Scope
+	OR = {
+		AND = {
+			is_capital = no
+			NOT = { 
+				owner = { adm_tech = 12 }
+			}
+			base_tax = 2
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 12 }
+			NOT = { 
+				owner = { adm_tech = 20 }
+			}
+			base_tax = 3
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 20 }
+			NOT = { 
+				owner = { adm_tech = 26 }
+			}
+			base_tax = 4
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 26 }
+			base_tax = 5
+		}
+		AND = {
+			is_capital = yes
+			NOT = { province_id = 151 }
+			NOT = { 
+				owner = { adm_tech = 22 }
+			}
+			base_tax = 5
+		}
+		AND = {
+			is_capital = yes
+			NOT = { province_id = 151 }
+			owner = { adm_tech = 22 }
+			base_tax = 8
+		}
+		AND = {
+			is_capital = yes
+			province_id = 151
+			base_tax = 10
+		}
+	}
+}
+
+base_production_max = { #Province Scope
+	OR = {
+		AND = {
+			is_capital = no
+			NOT = { 
+				owner = { adm_tech = 12 }
+			}
+			base_production = 2
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 12 }
+			NOT = { 
+				owner = { adm_tech = 20 }
+			}
+			base_production = 3
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 20 }
+			NOT = { 
+				owner = { adm_tech = 26 }
+			}
+			base_production = 4
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 26 }
+			base_production = 5
+		}
+		AND = {
+			is_capital = yes
+			NOT = { province_id = 151 }
+			NOT = { 
+				owner = { adm_tech = 22 }
+			}
+			base_production = 5
+		}
+		AND = {
+			is_capital = yes
+			NOT = { province_id = 151 }
+			owner = { adm_tech = 22 }
+			base_production = 8
+		}
+		AND = {
+			is_capital = yes
+			province_id = 151
+			base_production = 10
+		}
+	}
+}
+
+base_manpower_max = { #Province Scope
+	OR = {
+		AND = {
+			is_capital = no
+			NOT = { 
+				owner = { adm_tech = 12 }
+			}
+			base_manpower = 2
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 12 }
+			NOT = { 
+				owner = { adm_tech = 20 }
+			}
+			base_manpower = 3
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 20 }
+			NOT = { 
+				owner = { adm_tech = 26 }
+			}
+			base_manpower = 4
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 26 }
+			base_manpower = 5
+		}
+		AND = {
+			is_capital = yes
+			NOT = { province_id = 151 }
+			NOT = { 
+				owner = { adm_tech = 22 }
+			}
+			base_manpower = 5
+		}
+		AND = {
+			is_capital = yes
+			NOT = { province_id = 151 }
+			owner = { adm_tech = 22 }
+			base_manpower = 8
+		}
+		AND = {
+			is_capital = yes
+			province_id = 151
+			base_manpower = 10
+		}
+	}
+}
+
+max_tax_exceeded = { #Province Scope
+	OR = {
+		AND = {
+			is_capital = no
+			NOT = { 
+				owner = { adm_tech = 12 }
+			}
+			base_tax = 3
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 12 }
+			NOT = { 
+				owner = { adm_tech = 20 }
+			}
+			base_tax = 4
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 20 }
+			NOT = { 
+				owner = { adm_tech = 26 }
+			}
+			base_tax = 5
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 26 }
+			base_tax = 6
+		}
+		AND = {
+			is_capital = yes
+			NOT = { province_id = 151 }
+			NOT = { 
+				owner = { adm_tech = 22 }
+			}
+			base_tax = 6
+		}
+		AND = {
+			is_capital = yes
+			NOT = { province_id = 151 }
+			owner = { adm_tech = 22 }
+			base_tax = 9
+		}
+		AND = {
+			is_capital = yes
+			province_id = 151
+			base_tax = 11
+		}
+	}
+}
+
+max_production_exceeded = { #Province Scope
+	OR = {
+		AND = {
+			is_capital = no
+			NOT = { 
+				owner = { adm_tech = 12 }
+			}
+			base_production = 3
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 12 }
+			NOT = { 
+				owner = { adm_tech = 20 }
+			}
+			base_production = 4
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 20 }
+			NOT = { 
+				owner = { adm_tech = 26 }
+			}
+			base_production = 5
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 26 }
+			base_production = 6
+		}
+		AND = {
+			is_capital = yes
+			NOT = { province_id = 151 }
+			NOT = { 
+				owner = { adm_tech = 22 }
+			}
+			base_production = 6
+		}
+		AND = {
+			is_capital = yes
+			NOT = { province_id = 151 }
+			owner = { adm_tech = 22 }
+			base_production = 9
+		}
+		AND = {
+			is_capital = yes
+			province_id = 151
+			base_production = 11
+		}
+	}
+}
+
+max_manpower_exceeded = { #Province Scope
+	OR = {
+		AND = {
+			is_capital = no
+			NOT = { 
+				owner = { adm_tech = 12 }
+			}
+			base_manpower = 3
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 12 }
+			NOT = { 
+				owner = { adm_tech = 20 }
+			}
+			base_manpower = 4
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 20 }
+			NOT = { 
+				owner = { adm_tech = 26 }
+			}
+			base_manpower = 5
+		}
+		AND = {
+			is_capital = no
+			owner = { adm_tech = 26 }
+			base_manpower = 6
+		}
+		AND = {
+			is_capital = yes
+			NOT = { province_id = 151 }
+			NOT = { 
+				owner = { adm_tech = 22 }
+			}
+			base_manpower = 6
+		}
+		AND = {
+			is_capital = yes
+			NOT = { province_id = 151 }
+			owner = { adm_tech = 22 }
+			base_manpower = 9
+		}
+		AND = {
+			is_capital = yes
+			province_id = 151
+			base_manpower = 11
+		}
+	}
+}

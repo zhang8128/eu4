@@ -1,0 +1,16 @@
+# Keffa
+#Province IDs changed
+
+capital = "Kaffa"
+owner = ETH
+controller = ETH
+add_core = ETH
+culture = amharic
+religion = coptic
+base_tax = 1
+base_production = 1
+base_manpower = 2
+trade_goods = coffee
+discovered_by = sudanese_tech
+hre = no
+is_city = yes

@@ -1,0 +1,60 @@
+# Warsangali
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+technology_group = muslim
+primary_culture = somali
+religion = sunni
+capital = 1712
+
+1309.1.1 = {
+	monarch = {
+		name = "Dhidhin"
+		dynasty = "Gerad"
+		dip = 2
+		adm = 3
+		mil = 3
+	}
+}
+
+1309.1.1 = {
+	heir = {
+		name = "Hamar Gale"
+		monarch_name = "Hamar Gale"
+		dynasty = "Gerad"
+		birth_date = 1291.1.1
+		death_date = 1328.7.1
+		dip = 1
+		adm = 2
+		mil = 4
+		claim = 75
+	}
+}
+
+1311.2.1 = {
+	monarch = {
+		name = "Hamar Gale"
+		dynasty = "Gerad"
+		birth_date = 1291.1.1
+		dip = 1
+		adm = 2
+		mil = 4
+	}
+}	
+		
+1311.2.1 = {
+	heir = {
+		name = "Ibrahim"
+		monarch_name = "Ibrahim"
+		dynasty = "Gerad"
+		birth_date = 1300.1.1
+		death_date = 1340.3.1
+		dip = 1
+		adm = 2
+		mil = 4
+		claim = 75
+	}
+}		
+		
+# fill in more rullers from http://en.wikipedia.org/wiki/Gerad_Dhidhin
+# NOTE: Do not put in death-dates for rulers, they do not work (Penguintopia)

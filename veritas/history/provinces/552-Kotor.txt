@@ -1,0 +1,45 @@
+# Kotor
+
+capital = "Zabljak"
+owner = SER
+controller = SER
+add_core = SER
+add_core = MON
+culture = serbian
+religion = orthodox
+trade_goods = fish
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = scandinavian_tech
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1332.1.1	= { unrest = 5 } # Zetan nobles revolt over unfulfilled promises
+1333.1.1	= { unrest = 0 } # Revolts put down over the course of the year
+1347.1.1	= { base_manpower = 2 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1	= { remove_province_modifier = province_black_death }
+1371.1.1	= { owner = MON controller = MON } # Independence when Serbian Empire collapses
+1384.1.1	= { owner = BOS controller = BOS add_territorial_core = BOS } # Fealty to Bosnia
+1391.3.10	= { owner = MON controller = MON remove_territorial_core = BOS } # Independent again on Tvrtko's death
+1421.1.1 = { owner = SER controller = SER } # Annexed to Serbia
+1450.1.1 = { citysize = 4070 }
+1451.1.1 = { owner = MON controller = MON remove_core = SER }
+1478.1.1 = { add_territorial_core = TUR } # Conquered Zabljak, but never fully conquered Zeta
+1482.1.1 = { capital = "Cetinje" }
+1499.1.1 = { owner = TUR controller = TUR }
+1500.1.1 = { citysize = 4210 }
+1515.1.1 = { owner = MON controller = MON remove_territorial_core = TUR } # Prince-bishops of Cetinje
+1550.1.1 = { citysize = 6205 }
+1623.1.1 = { citysize = 4870 } # Cetinje sacked by the Ottomans. Incursions in 1603 & 1613
+1650.1.1 = { citysize = 5570 }
+1700.1.1 = { citysize = 4980 } # Cetinje sacked again in 1687 & 1692
+1709.1.1 = { unrest = 5 courthouse = yes } # Montenegro's Muslim converts were massacred at Vladika Danilo's order
+1712.1.1 = { unrest = 2 } # Cetinje sacked again as a response
+1800.1.1 = { citysize = 8960 }

@@ -1,0 +1,22 @@
+# Yichuan
+
+capital = "Yichuan"
+owner = YUN
+controller = YUN
+add_core = YUN
+culture = chihan
+religion = confucianism
+trade_goods = iron
+base_tax = 6
+base_production = 6
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1355.1.1 = { owner = CXI controller = CXI add_core = CXI remove_core = YUN } #Red Turban Rebellion
+1371.1.1 = { owner = MNG controller = MNG add_core = MNG } # Destruction of Xia
+1637.1.1 = { revolt = { type = anti_tax_rebels size = 2 } controller = REB } # Zhang Xianzhong rebellion
+1643.1.1 = { revolt = { } unrest = 0 owner = CXI controller = CXI } # The Xi dynasty of Zhang Xianzhong
+1647.1.2  = {	owner = QNG controller = QNG add_core = QNG } # The Qing Dynasty
+1662.1.1 = { remove_core = MNG }

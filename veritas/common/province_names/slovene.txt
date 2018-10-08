@@ -1,0 +1,13 @@
+#Province IDs changed
+271 = "Furlanija"
+272 = "Oglej"
+273 = "Gorica"
+274 = "Trst"
+293 = "Beljak"
+294 = "Koroška"
+295 = "Gradec"
+298 = "Dunaj"
+529 = "Maribor"
+530 = "Kranjska"
+531 = "Istra"
+535 = "Dalmacija"

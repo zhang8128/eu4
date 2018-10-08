@@ -1,0 +1,10 @@
+#Drakkar
+#model = galley
+#tech_level = 0
+type = galley
+unit_type = scandinavian_tech
+
+hull_size = 6
+base_cannons = 4
+sail_speed = 8
+sailors = 175

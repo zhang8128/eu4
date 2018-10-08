@@ -1,0 +1,4 @@
+# Guangzhou Bay
+#Province IDs changed
+discovered_by = chinese
+1514.1.1 = { discovered_by = POR }

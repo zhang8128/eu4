@@ -1,0 +1,1811 @@
+# Knights Hospitaller; adapted from TNK events
+
+namespace = theknights
+normal_or_historical_nations = yes
+
+#1 Suppression of the Templars
+#2 Knights Setup (For post-1313 start)
+#3 New Home For Knights
+#4 Knights solidify control of new home
+#5 Player Retreats from Rhodes
+
+#Priories
+#100 Priory Fate If Monasteries Dissolved
+#101 Close Knights Priories at War
+#102 War Ends (Revoke decision to close priories?)
+#200 Priory count
+#201 Change Tongues
+
+#Election of Grandmster
+#300 Election
+
+
+#1312 - Suppression of Templars
+country_event = {
+	id = theknights.1
+	title = "theknights.1.t"
+	desc = "theknights.1.d"
+	picture = VEF_NAVAL_MILITARY_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = KNI
+		is_year = 1312
+		has_country_flag = kosj_start
+	}
+	
+	immediate = { clr_country_flag = kosj_start }
+	
+	option = {
+		name = theknights.1.opta
+		add_prestige = 10		
+
+		hidden_effect = {
+			#Provence Tongue (Toulouse and St. Giles )
+				#Toulouse
+			if = {
+				limit = { 131 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				131 = { 
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Marseilles (St. Giles)
+			if = {
+				limit = { 130 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				130 = { 
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+			#Auvergne Tongue
+			if = {
+				limit = { 142 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }	
+				142 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+
+			
+			# French Tongue
+				#Champagne (Reims)
+			if = {
+				limit = { 175 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				175 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Ile-de-France
+			if = {
+				limit = { 170 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }		
+				170 = { 
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Aquitaine (Poitou)
+			if = {
+				limit = { 144 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }	
+				144 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+			# Italian Tongue
+				#Sicily (Messina)
+			if = {
+				limit = { 213 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				213 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Barletta (Bari)
+			if = {
+				limit = { 218 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				218 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Capua
+			if = {
+				limit = { 223 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				223 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Rome
+			if = {
+				limit = { 227 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				227 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Pisa
+			if = {
+				limit = { 242 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				242 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Venice
+			if = {
+				limit = { 269 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				269 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Lombardia(Asti)
+			if = {
+				limit = { 259 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				259 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+
+			# Spanish Tongue
+				#Amposta (Barcelona)
+			if = {
+				limit = { 107 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				107 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Castille (Leon)
+			if = {
+				limit = { 79 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				79 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Navarra
+			if = {
+				limit = { 114 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				114 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Portugal (Alto Alentejo)
+			if = {
+				limit = { 61 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }	
+				61 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+			# English Tongue
+				#Clerkenwall (London)
+			if = {
+				limit = { 34 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				34 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Kilmainham (Meath)
+			if = {
+				limit = { 46 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				46 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Scotland (Lothian)
+			if = {
+				limit = { 15 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				15 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+			# German Tongue
+				#Antvorskov (Sjaelland)
+			if = {
+				limit = { 390 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				390 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Breisgau
+			if = {
+				limit = { 317 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				317 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Poznan
+			if = {
+				limit = { 476 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				476 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Bohemia (Chechy)
+			if = {
+				limit = { 488 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				488 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Rostock
+			if = {
+				limit = { 372 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				372 = { 
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+
+			if = {
+				limit = { NOT = { REB = { check_variable = { which = kosj_priories value = 5 } } }}
+				capital_scope = { add_province_modifier = { name = "kosj_fort1" duration = -1 } }
+			}
+
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 5 } 
+						NOT = { check_variable = { which = kosj_priories value = 10 } }
+					}
+				}
+				capital_scope = { add_province_modifier = { name = "kosj_fort2" duration = -1 } }
+			}
+
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 10 } 
+						NOT = { check_variable = { which = kosj_priories value = 15 } }
+					}
+				}
+				capital_scope = { add_province_modifier = { name = "kosj_fort3" duration = -1 } }
+			}
+
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 15 } 
+						NOT = { check_variable = { which = kosj_priories value = 20 } }
+					}
+				}
+				capital_scope = { add_province_modifier = { name = "kosj_fort4" duration = -1 } }
+			}
+			
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 20 } 
+						NOT = { check_variable = { which = kosj_priories value = 25 } }
+					}
+				}
+				capital_scope = { add_province_modifier = { name = "kosj_fort5" duration = -1 } }
+			}
+			
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 25 } 
+						NOT = { check_variable = { which = kosj_priories value = 30 } }
+					}
+				}
+				capital_scope = { add_province_modifier = { name = "kosj_fort6" duration = -1 } }
+			}
+
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 30 } 
+						NOT = { check_variable = { which = kosj_priories value = 35 } }
+					}
+				}
+				capital_scope = { add_province_modifier = { name = "kosj_fort7" duration = -1 } }
+			}
+			
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 35 } 
+						NOT = { check_variable = { which = kosj_priories value = 40 } }
+					}
+				}
+				capital_scope = { add_province_modifier = { name = "kosj_fort8" duration = -1 } }
+			}
+
+			if = {
+				limit = { REB = { check_variable = { which = kosj_priories value = 40 } }}
+				capital_scope = { add_province_modifier = { name = "kosj_fort9" duration = -1 } }
+			}
+		}
+
+		capital_scope = {
+			transport = ROOT
+			light_ship = ROOT
+			galley = ROOT
+			galley = ROOT
+			galley = ROOT
+			galley = ROOT
+			galley = ROOT
+			infantry = ROOT
+		}		
+	}
+}
+
+#Knights Setup
+country_event = {
+	id = theknights.2
+	title = "theknights.2.t"
+	desc = "theknights.2.d"
+	picture = VEF_NAVAL_MILITARY_eventPicture
+	
+	is_triggered_only = yes #vef_setup.1
+	
+	hidden = yes
+	
+	option = {
+		name = theknights.2.opta	
+
+		hidden_effect = {
+			#Provence Tongue (Toulouse and St. Giles )
+				#Toulouse
+			if = {
+				limit = { 131 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				131 = { 
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Marseilles (St. Giles)
+			if = {
+				limit = { 130 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				130 = { 
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+			#Auvergne Tongue
+			if = {
+				limit = { 142 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }	
+				142 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+
+			
+			# French Tongue
+				#Champagne (Reims)
+			if = {
+				limit = { 175 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				175 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Ile-de-France
+			if = {
+				limit = { 170 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }		
+				170 = { 
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Aquitaine (Poitou)
+			if = {
+				limit = { 144 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }	
+				144 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+			# Italian Tongue
+				#Sicily (Messina)
+			if = {
+				limit = { 213 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				213 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Barletta (Bari)
+			if = {
+				limit = { 218 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				218 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Capua
+			if = {
+				limit = { 223 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				223 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Rome
+			if = {
+				limit = { 227 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				227 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Pisa
+			if = {
+				limit = { 242 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				242 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Venice
+			if = {
+				limit = { 269 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				269 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Lombardia(Asti)
+			if = {
+				limit = { 259 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				259 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+
+			# Spanish Tongue
+				#Amposta (Barcelona)
+			if = {
+				limit = { 107 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				107 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Castille (Leon)
+			if = {
+				limit = { 79 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				79 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Navarra
+			if = {
+				limit = { 114 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				114 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Portugal (Alto Alentejo)
+			if = {
+				limit = { 61 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }	
+				61 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+			# English Tongue
+				#Clerkenwall (London)
+			if = {
+				limit = { 34 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				34 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Kilmainham (Meath)
+			if = {
+				limit = { 46 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				46 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Scotland (Lothian)
+			if = {
+				limit = { 15 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				15 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+			# German Tongue
+				#Antvorskov (Sjaelland)
+			if = {
+				limit = { 390 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				390 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Breisgau
+			if = {
+				limit = { 317 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				317 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Poznan
+			if = {
+				limit = { 476 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				476 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Bohemia (Chechy)
+			if = {
+				limit = { 488 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				488 = {
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+				#Rostock
+			if = {
+				limit = { 372 = { owner = { religion = catholic NOT = { has_reform = revolutionary_republic } } } }
+				372 = { 
+					add_building = grand_priory
+					trigger_switch = {
+						on_trigger = has_building
+						church_20 = { remove_building = church_20 }
+						church_40 = { remove_building = church_40 }
+						church_60 = { remove_building = church_60 }
+						church_80 = { remove_building = church_80 }
+					}
+					set_province_flag = kosj_priory
+				}
+				REB = { change_variable = { which = kosj_priories value = 1 } }
+			}
+
+			if = {
+				limit = { NOT = { REB = { check_variable = { which = kosj_priories value = 5 } } }}
+				KNI = { capital_scope = { add_province_modifier = { name = "kosj_fort1" duration = -1 } }}
+			}
+
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 5 } 
+						NOT = { check_variable = { which = kosj_priories value = 10 } }
+					}
+				}
+				KNI = { capital_scope = { add_province_modifier = { name = "kosj_fort2" duration = -1 } }}
+			}
+
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 10 } 
+						NOT = { check_variable = { which = kosj_priories value = 15 } }
+					}
+				}
+				KNI = { capital_scope = { add_province_modifier = { name = "kosj_fort3" duration = -1 } }}
+			}
+
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 15 } 
+						NOT = { check_variable = { which = kosj_priories value = 20 } }
+					}
+				}
+				KNI = { capital_scope = { add_province_modifier = { name = "kosj_fort4" duration = -1 } }}
+			}
+			
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 20 } 
+						NOT = { check_variable = { which = kosj_priories value = 25 } }
+					}
+				}
+				KNI = { capital_scope = { add_province_modifier = { name = "kosj_fort5" duration = -1 } }}
+			}
+			
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 25 } 
+						NOT = { check_variable = { which = kosj_priories value = 30 } }
+					}
+				}
+				KNI = { capital_scope = { add_province_modifier = { name = "kosj_fort6" duration = -1 } }}
+			}
+
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 30 } 
+						NOT = { check_variable = { which = kosj_priories value = 35 } }
+					}
+				}
+				KNI = { capital_scope = { add_province_modifier = { name = "kosj_fort7" duration = -1 } }}
+			}
+			
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 35 } 
+						NOT = { check_variable = { which = kosj_priories value = 40 } }
+					}
+				}
+				KNI = { capital_scope = { add_province_modifier = { name = "kosj_fort8" duration = -1 } }}
+			}
+
+			if = {
+				limit = { REB = { check_variable = { which = kosj_priories value = 40 } }}
+				KNI = { capital_scope = { add_province_modifier = { name = "kosj_fort9" duration = -1 } }}
+			}
+		}	
+	}
+}
+
+#New Home For the Knights
+province_event = {
+	id = theknights.3
+	title = "theknights.3.t"
+	desc = "theknights.3.d"
+	picture = VEF_FORT_eventPicture
+	
+	trigger = {
+		OR = {
+			province_id = 108 # baleares
+			province_id = 204 # corsica
+			province_id = 206 # sardinia
+			province_id = 209 # Malta
+			province_id = 572 # corfu
+			province_id = 578 # naxos
+			province_id = 577 # crete
+			province_id = 596 # rhodes
+			province_id = 618 # cyprus
+		}
+		is_capital = no
+		NOT = { exists = KNI }
+		NOT = { has_global_flag = knights_formed_jerusalem }
+		NOT = { is_year = 1750 }
+		NOT = { owner = { has_country_flag = kosj_refused_home }}
+		owner = {
+			religion = catholic
+			num_of_cities = 5
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			province_id = 209
+			factor = 0.01
+		}
+		modifier = {
+			province_id = 1611
+			factor = 0.2
+		}
+		modifier = {
+			province_id = 577
+			factor = 0.7
+		}
+		modifier = {
+			province_id = 618
+			factor = 0.4
+		}
+		modifier = {
+			province_id = 596
+			factor = 0.01
+		}
+		modifier = {
+			province_id = 578
+			factor = 0.5
+		}
+		modifier = {
+			province_id = 572
+			factor = 0.5
+		}
+		modifier = {
+			province_id = 206
+			factor = 1.1
+		}
+		modifier = {
+			province_id = 204
+			factor = 0.8
+		}
+		modifier = {
+			province_id = 108
+			factor = 0.2
+		}
+	}
+	option = {
+		name = "theknights.3.opta"
+		ai_chance = { factor = 100 }
+		
+		owner = {
+			add_prestige = 20
+			add_years_of_income = 0.5
+			reverse_add_opinion = { who = KNI modifier = opinion_knights_newhome }
+			add_opinion = { who = KNI modifier = opinion_knights_newhome }
+		}
+		remove_core = ROOT
+		add_core = KNI
+		cede_province = KNI
+		province_event = { id = theknights.4 days = 365 }
+	}
+	
+	option = {
+		name = "theknights.3.optb"# I think Not
+		ai_chance = { factor = 0 }
+		owner = {
+			add_prestige = -10
+			reverse_add_opinion = { who = KNI modifier = opinion_refused_newhome }
+			set_country_flag = kosj_refused_home
+		}
+	}
+}
+
+# KNIGHTS SOLIDIFY CONTROL OF NEW HOME
+province_event = {
+	id = theknights.4
+	title = "theknights.4.t"
+	desc = "theknights.4.d"
+	picture = VEF_FORT_eventPicture
+
+	is_triggered_only = yes	#theknights.3 or theknights.5
+
+	option = {
+		name = "theknights.4.opta"
+		infantry = KNI
+		galley = KNI
+		galley = KNI
+		galley = KNI
+		galley = KNI
+		light_ship = KNI
+		hidden_effect = {
+			every_country = {
+				limit = { religion = catholic }
+				ROOT = { remove_core = PREV }
+			}
+		}
+			if = {
+				limit = { NOT = { REB = { check_variable = { which = kosj_priories value = 5 } } }}
+				owner = { capital_scope = { add_province_modifier = { name = "kosj_fort1" duration = -1 } } }
+			}
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 5 } 
+						NOT = { check_variable = { which = kosj_priories value = 10 } }
+					}
+				}
+				owner = { capital_scope = { add_province_modifier = { name = "kosj_fort2" duration = -1 } } }
+			}
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 10 } 
+						NOT = { check_variable = { which = kosj_priories value = 15 } }
+					}
+				}
+				owner = { capital_scope = { add_province_modifier = { name = "kosj_fort3" duration = -1 } } }
+			}
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 15 } 
+						NOT = { check_variable = { which = kosj_priories value = 20 } }
+					}
+				}
+				owner = { capital_scope = { add_province_modifier = { name = "kosj_fort4" duration = -1 } } }
+			}			
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 20 } 
+						NOT = { check_variable = { which = kosj_priories value = 25 } }
+					}
+				}
+				owner = { capital_scope = { add_province_modifier = { name = "kosj_fort5" duration = -1 } } }
+			}			
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 25 } 
+						NOT = { check_variable = { which = kosj_priories value = 30 } }
+					}
+				}
+				owner = { capital_scope = { add_province_modifier = { name = "kosj_fort6" duration = -1 } } }
+			}
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 30 } 
+						NOT = { check_variable = { which = kosj_priories value = 35 } }
+					}
+				}
+				owner = { capital_scope = { add_province_modifier = { name = "kosj_fort7" duration = -1 } } }
+			}		
+			if = {
+				limit = { 
+					REB = {
+						check_variable = { which = kosj_priories value = 35 } 
+						NOT = { check_variable = { which = kosj_priories value = 40 } }
+					}
+				}
+				owner = { capital_scope = { add_province_modifier = { name = "kosj_fort8" duration = -1 } } }
+			}
+			if = {
+				limit = { REB = { check_variable = { which = kosj_priories value = 40 } }}
+				owner = { capital_scope = { add_province_modifier = { name = "kosj_fort9" duration = -1 } } }
+			}
+	}
+}
+
+#Player Retreats From Rhodes
+country_event = {
+	id = theknights.5
+	title = "theknights.5.t"
+	desc = "theknights.5.d"
+	picture = VEF_FORT_eventPicture
+	
+	is_triggered_only = yes	#on_siege_lost_country
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = KNI
+		ai = no
+		NOT = { num_of_cities = 2 }
+		capital_scope = {
+			province_id = 596
+			NOT = { controlled_by = ROOT }
+		}
+		209 = { owner = { ai = yes }}
+	}
+	
+	immediate = { 
+		209 = {
+			add_core = KNI
+			cede_province = KNI
+			province_event = { id = theknights.4 days = 35 }
+		}
+		set_capital = 209
+	}
+	
+	option = {
+		name = "theknights.5.opta"
+		every_known_country = {
+			limit = { controls = 596 }
+			596 = {
+				remove_core = KNI
+				cede_province = PREV
+			}
+		}
+		every_country = {
+			limit = { war_with = KNI }
+			white_peace = KNI
+		}
+	}
+}
+
+
+############
+# Priories #
+############
+
+#Priory Fate On Monastery Dissolution
+country_event = {
+	id = theknights.100
+	title = "theknights.100.t"
+	desc = "theknights.100.d"
+	picture = VEF_NAVAL_MILITARY_eventPicture
+	
+	is_triggered_only = yes #decisions/dissolution of the monasteries
+	
+	trigger = { NOT = { has_country_modifier = successor_order }}
+	
+	option = {	# A New Order
+		trigger = { NOT = { religion = anabaptist }}
+		name = "theknights.100.opta"
+		add_country_modifier = { name = successor_order duration = -1 }
+	}
+	
+	option = {	#Nationalise the land
+		name = "theknights.100.optb"
+		every_owned_province = {
+			limit = { has_building = grand_priory }
+			remove_building = grand_priory
+		}
+		add_prestige = -2
+	}
+	
+	option = {	#Respect Their Property
+		name = "theknights.100.optc"
+		every_owned_province = {
+			limit = { has_building = grand_priory }
+			set_province_flag = protected_priory
+		}
+		set_country_flag = protected_priories
+		change_variable = { which = vef_rule_law value = 1 }
+	}
+}
+
+#Close Priories in War
+country_event = {
+	id = theknights.101
+	title = "theknights.101.t"
+	desc = "theknights.101.d"
+	picture = VEF_FORT_eventPicture
+	
+	is_triggered_only = yes #decisions/VeF_religion.txt/close_knights_priories
+	
+	immediate = { set_country_flag = knights_priories_closed }
+	
+	option = {	#To the Church
+		ai_chance = { factor = 100 }
+		name = "theknights.101.opta"
+		every_owned_province = {
+			limit = { has_building = grand_priory }
+			remove_building = grand_priory
+			if = {
+				limit = { has_building = church_80 }
+				set_province_flag = priory_to_crown
+			}
+			if = {
+				limit = { has_building = church_60 }
+				remove_building = church_60
+				add_building = church_80
+				set_province_flag = priory_to_church
+			}
+			if = {
+				limit = { has_building = church_40 }
+				remove_building = church_40
+				add_building = church_60
+				set_province_flag = priory_to_church
+			}
+			if = {
+				limit = { has_building = church_20 }
+				remove_building = church_20
+				add_building = church_40
+				set_province_flag = priory_to_church
+			}
+			if = {
+				limit = {
+					NOT = { has_building = church_20 }
+					NOT = { has_building = church_40 }
+					NOT = { has_building = church_60 }
+					NOT = { has_building = church_80 }
+				}
+				add_building = church_20
+				set_province_flag = priory_to_church
+			}
+			set_province_flag = was_knights_priory
+		}
+		clr_country_flag = knights_priory_decision
+	}
+	
+	option = {	#To the crown
+		name = "theknights.101.optb"
+		every_owned_province = {
+			limit = { has_building = grand_priory }
+			remove_building = grand_priory
+			set_province_flag = was_knights_priory
+			set_province_flag = priory_to_crown
+		}
+		clr_country_flag = knights_priory_decision
+	}
+}
+
+#Restore Priories
+country_event = {
+	id = theknights.102
+	title = "theknights.102.t"
+	desc = "theknights.102.d"
+	picture = VEF_FORT_eventPicture
+	
+	is_triggered_only = yes #on_actions/on_war_won(lost)
+	
+	trigger = {
+		NOT = { war_with = KNI }
+		has_country_flag = knights_priories_closed
+	}
+	
+	immediate = { clr_country_flag = knights_priories_closed }
+	
+	option = {	#Restore Priories
+		ai_chance = { factor = 100 }
+		name = "theknights.102.opta"
+		every_owned_province = {
+			limit = { has_province_flag = priory_to_church }
+			if = {
+				limit = {
+					NOT = { has_building = church_20 }
+					NOT = { has_building = church_40 }
+					NOT = { has_building = church_60 }
+					NOT = { has_building = church_80 }
+					has_province_flag = crown_lands
+				}
+				add_building = grand_priory
+			}
+			if = {
+				limit = { has_building = church_20 }
+				remove_building = church_20
+				add_building = grand_priory
+			}
+			if = {
+				limit = { has_building = church_40 }
+				remove_building = church_40
+				add_building = church_20
+				add_building = grand_priory
+			}
+			if = {
+				limit = { has_building = church_60 }
+				remove_building = church_60
+				add_building = church_40
+				add_building = grand_priory
+			}
+			if = {
+				limit = { has_building = church_80 }
+				remove_building = church_80
+				add_building = church_60
+				add_building = grand_priory
+			}
+		}
+		every_owned_province = {
+			limit = {
+				has_province_flag = priory_to_crown
+				has_province_flag = crown_lands
+			}
+			add_building = grand_priory
+		}
+	}
+	
+	option = {	#Keep the land
+		name = "theknights.102.optb"
+		every_owned_province = {
+			limit = { has_province_flag = was_knights_priory }
+			clr_province_flag = was_knights_priory
+			clr_province_flag = priory_to_crown
+			clr_province_flag = priory_to_church
+		}
+		reverse_add_opinion = { who = PAP modifier = seized_priories }
+		reverse_add_opinion = { who = KNI modifier = seized_priories }
+	}
+}
+
+
+###############
+# Maintenance #
+###############
+
+#Regular Priory Count
+country_event = {
+	id = theknights.200
+	title = "theknights.200.t"
+	desc = "theknights.200.d"
+	picture = VEF_FORT_eventPicture
+	
+	is_triggered_only = yes #vef_government.3
+	
+	hidden = yes
+	
+	trigger = {
+		tag = KNI
+		NOT = { has_country_flag = kosj_start }
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { REB = { check_variable = { which = kosj_priories value = 5 }}}
+				NOT = { capital_scope = { has_province_modifier = kosj_fort1 }}
+			}
+			capital_scope = {
+				add_province_modifier = { name = "kosj_fort1" duration = -1 }
+				trigger_switch = {
+					on_trigger = has_province_modifier
+					kosj_fort2 = { remove_province_modifier = kosj_fort2 }
+					kosj_fort3 = { remove_province_modifier = kosj_fort3 }
+					kosj_fort4 = { remove_province_modifier = kosj_fort4 }
+					kosj_fort5 = { remove_province_modifier = kosj_fort5 }
+					kosj_fort6 = { remove_province_modifier = kosj_fort6 }
+					kosj_fort7 = { remove_province_modifier = kosj_fort7 }
+					kosj_fort8 = { remove_province_modifier = kosj_fort8 }
+					kosj_fort9 = { remove_province_modifier = kosj_fort9 }
+				}
+			}
+			country_event = { id = theknights.201 }
+		}
+		if = {
+			limit = {
+				REB = {
+					check_variable = { which = kosj_priories value = 5 }
+					NOT = { check_variable = { which = kosj_priories value = 10 }}
+				}
+				NOT = { capital_scope = { has_province_modifier = kosj_fort2 }}
+			}
+			capital_scope = {
+				add_province_modifier = { name = "kosj_fort2" duration = -1 }
+				trigger_switch = {
+					on_trigger = has_province_modifier
+					kosj_fort1 = { remove_province_modifier = kosj_fort1 KNI = { set_country_flag = fortup }}
+					kosj_fort3 = { remove_province_modifier = kosj_fort3 KNI = { set_country_flag = fortdown }}
+					kosj_fort4 = { remove_province_modifier = kosj_fort4 KNI = { set_country_flag = fortdown }}
+					kosj_fort5 = { remove_province_modifier = kosj_fort5 KNI = { set_country_flag = fortdown }}
+					kosj_fort6 = { remove_province_modifier = kosj_fort6 KNI = { set_country_flag = fortdown }}
+					kosj_fort7 = { remove_province_modifier = kosj_fort7 KNI = { set_country_flag = fortdown }}
+					kosj_fort8 = { remove_province_modifier = kosj_fort8 KNI = { set_country_flag = fortdown }}
+					kosj_fort9 = { remove_province_modifier = kosj_fort9 KNI = { set_country_flag = fortdown }}
+				}
+			}
+			country_event = { id = theknights.201 }
+		}
+		if = {
+			limit = {
+				REB = {
+					check_variable = { which = kosj_priories value = 10 }
+					NOT = { check_variable = { which = kosj_priories value = 15 }}
+				}
+				NOT = { capital_scope = { has_province_modifier = kosj_fort3 }}
+			}
+			capital_scope = {
+				add_province_modifier = { name = "kosj_fort3" duration = -1 }
+				trigger_switch = {
+					on_trigger = has_province_modifier
+					kosj_fort1 = { remove_province_modifier = kosj_fort1 KNI = { set_country_flag = fortup }}
+					kosj_fort2 = { remove_province_modifier = kosj_fort2 KNI = { set_country_flag = fortup }}
+					kosj_fort4 = { remove_province_modifier = kosj_fort4 KNI = { set_country_flag = fortdown }}
+					kosj_fort5 = { remove_province_modifier = kosj_fort5 KNI = { set_country_flag = fortdown }}
+					kosj_fort6 = { remove_province_modifier = kosj_fort6 KNI = { set_country_flag = fortdown }}
+					kosj_fort7 = { remove_province_modifier = kosj_fort7 KNI = { set_country_flag = fortdown }}
+					kosj_fort8 = { remove_province_modifier = kosj_fort8 KNI = { set_country_flag = fortdown }}
+					kosj_fort9 = { remove_province_modifier = kosj_fort9 KNI = { set_country_flag = fortdown }}
+				}
+			}
+			country_event = { id = theknights.201 }
+		}
+		if = {
+			limit = {
+				REB = {
+					check_variable = { which = kosj_priories value = 15 }
+					NOT = { check_variable = { which = kosj_priories value = 20 }}
+				}
+				NOT = { capital_scope = { has_province_modifier = kosj_fort4 }}
+			}
+			capital_scope = {
+				add_province_modifier = { name = "kosj_fort4" duration = -1 }
+				trigger_switch = {
+					on_trigger = has_province_modifier
+					kosj_fort1 = { remove_province_modifier = kosj_fort1 KNI = { set_country_flag = fortup }}
+					kosj_fort2 = { remove_province_modifier = kosj_fort2 KNI = { set_country_flag = fortup }}
+					kosj_fort3 = { remove_province_modifier = kosj_fort3 KNI = { set_country_flag = fortup }}
+					kosj_fort5 = { remove_province_modifier = kosj_fort5 KNI = { set_country_flag = fortdown }}
+					kosj_fort6 = { remove_province_modifier = kosj_fort6 KNI = { set_country_flag = fortdown }}
+					kosj_fort7 = { remove_province_modifier = kosj_fort7 KNI = { set_country_flag = fortdown }}
+					kosj_fort8 = { remove_province_modifier = kosj_fort8 KNI = { set_country_flag = fortdown }}
+					kosj_fort9 = { remove_province_modifier = kosj_fort9 KNI = { set_country_flag = fortdown }}
+				}
+			}
+			country_event = { id = theknights.201 }
+		}
+		if = {
+			limit = {
+				REB = {
+					check_variable = { which = kosj_priories value = 20 }
+					NOT = { check_variable = { which = kosj_priories value = 25 }}
+				}
+				NOT = { capital_scope = { has_province_modifier = kosj_fort5 }}
+			}
+			capital_scope = {
+				add_province_modifier = { name = "kosj_fort5" duration = -1 }
+				trigger_switch = {
+					on_trigger = has_province_modifier
+					kosj_fort1 = { remove_province_modifier = kosj_fort1 KNI = { set_country_flag = fortup }}
+					kosj_fort2 = { remove_province_modifier = kosj_fort2 KNI = { set_country_flag = fortup }}
+					kosj_fort3 = { remove_province_modifier = kosj_fort3 KNI = { set_country_flag = fortup }}
+					kosj_fort4 = { remove_province_modifier = kosj_fort4 KNI = { set_country_flag = fortup }}
+					kosj_fort6 = { remove_province_modifier = kosj_fort6 KNI = { set_country_flag = fortdown }}
+					kosj_fort7 = { remove_province_modifier = kosj_fort7 KNI = { set_country_flag = fortdown }}
+					kosj_fort8 = { remove_province_modifier = kosj_fort8 KNI = { set_country_flag = fortdown }}
+					kosj_fort9 = { remove_province_modifier = kosj_fort9 KNI = { set_country_flag = fortdown }}
+				}
+			}
+			country_event = { id = theknights.201 }
+		}
+		if = {
+			limit = {
+				REB = {
+					check_variable = { which = kosj_priories value = 25 }
+					NOT = { check_variable = { which = kosj_priories value = 30 }}
+				}
+				NOT = { capital_scope = { has_province_modifier = kosj_fort6 }}
+			}
+			capital_scope = {
+				add_province_modifier = { name = "kosj_fort6" duration = -1 }
+				trigger_switch = {
+					on_trigger = has_province_modifier
+					kosj_fort1 = { remove_province_modifier = kosj_fort1 KNI = { set_country_flag = fortup }}
+					kosj_fort2 = { remove_province_modifier = kosj_fort2 KNI = { set_country_flag = fortup }}
+					kosj_fort3 = { remove_province_modifier = kosj_fort3 KNI = { set_country_flag = fortup }}
+					kosj_fort4 = { remove_province_modifier = kosj_fort4 KNI = { set_country_flag = fortup }}
+					kosj_fort5 = { remove_province_modifier = kosj_fort5 KNI = { set_country_flag = fortup }}
+					kosj_fort7 = { remove_province_modifier = kosj_fort7 KNI = { set_country_flag = fortdown }}
+					kosj_fort8 = { remove_province_modifier = kosj_fort8 KNI = { set_country_flag = fortdown }}
+					kosj_fort9 = { remove_province_modifier = kosj_fort9 KNI = { set_country_flag = fortdown }}
+				}
+			}
+			country_event = { id = theknights.201 }
+		}
+		if = {
+			limit = {
+				REB = {
+					check_variable = { which = kosj_priories value = 30 }
+					NOT = { check_variable = { which = kosj_priories value = 35 }}
+				}
+				NOT = { capital_scope = { has_province_modifier = kosj_fort7 }}
+			}
+			capital_scope = {
+				add_province_modifier = { name = "kosj_fort7" duration = -1 }
+				trigger_switch = {
+					on_trigger = has_province_modifier
+					kosj_fort1 = { remove_province_modifier = kosj_fort1 KNI = { set_country_flag = fortup }}
+					kosj_fort2 = { remove_province_modifier = kosj_fort2 KNI = { set_country_flag = fortup }}
+					kosj_fort3 = { remove_province_modifier = kosj_fort3 KNI = { set_country_flag = fortup }}
+					kosj_fort4 = { remove_province_modifier = kosj_fort4 KNI = { set_country_flag = fortup }}
+					kosj_fort5 = { remove_province_modifier = kosj_fort5 KNI = { set_country_flag = fortup }}
+					kosj_fort6 = { remove_province_modifier = kosj_fort6 KNI = { set_country_flag = fortup }}
+					kosj_fort8 = { remove_province_modifier = kosj_fort8 KNI = { set_country_flag = fortdown }}
+					kosj_fort9 = { remove_province_modifier = kosj_fort9 KNI = { set_country_flag = fortdown }}
+				}
+			}
+			country_event = { id = theknights.201 }
+		}
+		if = {
+			limit = {
+				REB = {
+					check_variable = { which = kosj_priories value = 35 }
+					NOT = { check_variable = { which = kosj_priories value = 40 }}
+				}
+				NOT = { capital_scope = { has_province_modifier = kosj_fort8 }}
+			}
+			capital_scope = {
+				add_province_modifier = { name = "kosj_fort8" duration = -1 }
+				trigger_switch = {
+					on_trigger = has_province_modifier
+					kosj_fort1 = { remove_province_modifier = kosj_fort1 KNI = { set_country_flag = fortup }}
+					kosj_fort2 = { remove_province_modifier = kosj_fort2 KNI = { set_country_flag = fortup }}
+					kosj_fort3 = { remove_province_modifier = kosj_fort3 KNI = { set_country_flag = fortup }}
+					kosj_fort4 = { remove_province_modifier = kosj_fort4 KNI = { set_country_flag = fortup }}
+					kosj_fort5 = { remove_province_modifier = kosj_fort5 KNI = { set_country_flag = fortup }}
+					kosj_fort6 = { remove_province_modifier = kosj_fort6 KNI = { set_country_flag = fortup }}
+					kosj_fort7 = { remove_province_modifier = kosj_fort7 KNI = { set_country_flag = fortup }}
+					kosj_fort9 = { remove_province_modifier = kosj_fort9 KNI = { set_country_flag = fortdown }}
+				}
+			}
+			country_event = { id = theknights.201 }
+		}
+		if = {
+			limit = {
+				REB = { check_variable = { which = kosj_priories value = 40 }}
+				NOT = { capital_scope = { has_province_modifier = kosj_fort9 }}
+			}
+			set_country_flag = fortup
+			capital_scope = {
+				add_province_modifier = { name = "kosj_fort9" duration = -1 }
+				trigger_switch = {
+					on_trigger = has_province_modifier
+					kosj_fort1 = { remove_province_modifier = kosj_fort1 }
+					kosj_fort2 = { remove_province_modifier = kosj_fort2 }
+					kosj_fort3 = { remove_province_modifier = kosj_fort3 }
+					kosj_fort4 = { remove_province_modifier = kosj_fort4 }
+					kosj_fort5 = { remove_province_modifier = kosj_fort5 }
+					kosj_fort6 = { remove_province_modifier = kosj_fort6 }
+					kosj_fort7 = { remove_province_modifier = kosj_fort7 }
+					kosj_fort8 = { remove_province_modifier = kosj_fort8 }
+				}
+			}
+			country_event = { id = theknights.201 }
+		}
+	}
+	
+	option = {
+		name = "theknights.200.opta"
+	}
+}
+
+#Fort Level Change
+country_event = {
+	id = theknights.201
+	title = "theknights.201.t"
+	desc = "theknights.201.d"
+	picture = VEF_FORT_eventPicture
+	
+	is_triggered_only = yes #theknights.200
+	
+	immediate = {
+		if = {
+			limit = {
+				custom_trigger_tooltip = {
+					has_country_flag = fortup
+					tooltip = kni_growing
+				}
+			}
+		}
+		if = {
+			limit = {
+				custom_trigger_tooltip = {
+					has_country_flag = fortdown
+					tooltip = kni_waning
+				}
+			}
+		}
+	}
+	
+	option = {
+		trigger = { has_country_flag = fortup }
+		name = "theknights.201.opta"
+		clr_country_flag = fortup
+	}
+	
+	option = {
+		trigger = { has_country_flag = fortdown }
+		name = "theknights.201.optb"
+		clr_country_flag = fortdown
+	}
+}
+
+
+############
+# Election #
+############
+
+#On Monarch Death
+country_event = {
+	id = theknights.300
+	title = "theknights.300.t"
+	desc = "theknights.300.d"
+	picture = VEF_FORT_eventPicture
+	
+	is_triggered_only = yes #on_actions/on_monarch_death
+
+	trigger = {
+		tag = KNI
+		had_country_flag = { flag = election_ongoing days = 45 }
+	}
+
+	immediate = {
+		clr_country_flag = election_ongoing
+		set_country_flag = election_ongoing
+	}
+	
+	option = {
+		name = "theknights.300.opta"
+		define_ruler = {}
+	}
+	
+	option = {
+		trigger = { has_leader_with = { general = yes }}
+		name = "theknights.300.optb"
+		define_leader_to_ruler = { type = general }
+	}
+	
+	option = {
+		trigger = { has_leader_with = { admiral = yes }}
+		name = "theknights.300.optc"
+		define_leader_to_ruler = { type = admiral }
+	}
+	
+	option = {
+		name = "theknights.300.optd"
+	}
+}

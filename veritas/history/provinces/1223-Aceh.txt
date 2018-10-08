@@ -1,0 +1,28 @@
+# Aceh
+
+capital = "Limuri"
+owner = PSA
+controller = PSA
+add_core = PSA
+culture = sumatran
+religion = sunni
+trade_goods = spices
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = MKS
+discovered_by = MLC
+discovered_by = ATJ
+discovered_by = MAJ
+discovered_by = BEI
+discovered_by = BLI
+discovered_by = SUN
+discovered_by = KUT
+discovered_by = SVJ
+discovered_by = indian
+
+1405.1.1 = { discovered_by = MNG }
+1471.1.1 = { owner = ATJ controller = ATJ add_core = ATJ capital = "Banda Aceh" }
+1509.1.1 = { discovered_by = POR }

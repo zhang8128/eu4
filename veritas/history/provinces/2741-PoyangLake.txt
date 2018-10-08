@@ -1,0 +1,3 @@
+# Poyang Lake
+#Province IDs changed
+discovered_by = chinese

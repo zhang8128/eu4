@@ -1,0 +1,221 @@
+zeus = {
+
+	prestige = 1
+	legitimacy = 0.5
+	horde_unity = 0.5
+	republican_tradition = 0.5
+	
+	allow = {
+		religion = hellenic
+		NOT = { has_country_flag = vef_regency }
+	}
+	sprite = 7
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			personality = ai_balanced
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}		
+	}
+}
+
+athena = {
+
+	technology_cost = -0.05
+	discipline = 0.05
+	
+	allow = {
+		religion = hellenic
+		NOT = { has_country_flag = vef_regency }
+	}
+	sprite = 8
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}			
+	}	
+}
+
+aphrodite = {
+
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.20
+	
+	allow = {
+		religion = hellenic
+		NOT = { has_country_flag = vef_regency }
+	}
+	sprite = 9
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}			
+	}	
+}
+
+apollo = {
+
+	idea_cost = -0.05
+	global_unrest = -1
+	
+	allow = {
+		religion = hellenic
+		NOT = { has_country_flag = vef_regency }
+	}
+	sprite = 10
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}			
+	}	
+}
+
+ares = {
+
+	land_morale = 0.10
+	siege_ability = 0.05
+	
+	allow = {
+		religion = hellenic
+		NOT = { has_country_flag = vef_regency }
+	}
+	sprite = 11
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_militarist
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}			
+	}	
+}
+
+artemis = {
+
+	production_efficiency = 0.05
+	global_tax_modifier = 0.10
+	
+	allow = {
+		religion = hellenic
+		NOT = { has_country_flag = vef_regency }
+	}
+	sprite = 12
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_capitalist
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}			
+	}	
+}
+
+hades = {
+
+	unjustified_demands = -0.10
+	core_creation = -0.075
+	
+	allow = {
+		religion = hellenic
+		NOT = { has_country_flag = vef_regency }
+	}
+	sprite = 13
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_militarist
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_colonialist
+		}			
+	}	
+}
+
+hermes = {
+
+	diplomats = 1
+	build_cost = -0.1
+	
+	allow = {
+		religion = hellenic
+		NOT = { has_country_flag = vef_regency }
+	}
+	sprite = 14
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 2
+			personality = ai_capitalist
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}			
+	}	
+}
+
+poseidon = {
+
+	naval_morale = 0.10
+	global_sailors_modifier = 0.10
+	
+	allow = {
+		religion = hellenic
+		NOT = { has_country_flag = vef_regency }
+	}
+	sprite = 15
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_colonialist
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}			
+	}	
+}

@@ -1,0 +1,72 @@
+# Glory of Byzantium - new countries
+
+# Aba TEMP
+ABA = {
+    color1= { 170 0 10  }
+    color2= { 255 255 255  }
+    color3= { 34 115 55  }
+}
+
+# Csak TEMP
+HCS = {
+    color1= { 170 0 15  }
+    color2= { 255 255 255  }
+    color3= { 34 115 60  }
+}
+
+# Koszegi TEMP
+KSZ = {
+    color1= { 170 0 20  }
+    color2= { 255 255 255  }
+    color3= { 34 115 65  }
+}
+
+# Ugrin Csak TEMP
+UGC = {
+    color1= { 170 0 25 }
+    color2= { 255 255 255  }
+    color3= { 34 115 70 }
+}
+
+# Syrmia TEMP
+SRE = {
+    color1= { 170 0 30 }
+    color2= { 255 255 255  }
+    color3= { 34 115 75 }
+}
+
+# Coptic Egypt
+EGY = {
+    color1= { 75 75 75  }
+    color2= { 255 0 0  }
+    color3= { 75 75 75  }
+}
+
+# Magna Frisia
+FRY = {
+	color1= { 219 163 72  }
+	color2= { 222 205 177  }
+	color3= { 43 80 110  }
+}
+# Wallonia
+WLN = {
+    color1= { 255 255 255  }
+    color2= { 175 15 15 }
+    color3= { 188 148 70  }
+}
+
+
+# Ultimate Cossak Mod
+# Hetmanshina
+HTM = {
+    color1= { 255 180 50 }
+    color2= { 180 30 90 }
+    color3= { 255 180 50 }
+}
+
+# DON
+DON = {
+    color1= { 200 80 150 }
+    color2= { 130 36 90 }
+    color3= { 25 180 70 }
+}

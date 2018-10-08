@@ -1,0 +1,31 @@
+# Norrbotten
+
+capital = "Gammelstad"
+native_hostileness = 1
+native_size = 5
+native_ferocity = 2
+culture = sapmi
+religion = shamanism
+trade_goods = fur
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+
+1323.1.1   = { owner = SWE controller = SWE add_core = SWE citysize = 1000 religion = catholic }
+1353.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1401.1.1   = { temple = yes } # Nederluleå kyrka
+1527.6.1   = { culture = swedish religion = protestant}
+1600.1.1   = { base_manpower = 0.2 }
+1621.1.1   = { capital = "Luleå" dock = yes }
+1623.1.1   = { is_city = yes }
+1650.1.1   = { base_manpower = 0.25 }
+1700.1.1   = { base_manpower = 0.3 }
+1750.1.1   = { base_manpower = 0.4 }
+1800.1.1   = { base_manpower = 0.5 }
+1809.3.24  = { controller = RUS } # Conquered by Barclay de Tolly
+1809.9.17  = { controller = SWE } # Treaty of Fredrikshamn

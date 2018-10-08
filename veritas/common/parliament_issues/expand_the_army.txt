@@ -1,0 +1,37 @@
+expand_the_army = {
+
+	category = 1
+
+	allow = {
+		always = yes
+	}
+	
+	on_issue_taken = {
+		change_variable = { which = parliament_debate value = 1 }
+	}
+	
+	effect = {
+		
+	}
+	
+	modifier = {
+		global_regiment_recruit_speed = -0.1
+		global_regiment_cost = -0.1
+	}
+
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 3
+			NOT = { army_size_percentage = 0.2 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { army_size_percentage = 0.5 }
+		}
+	}
+
+	ai_will_do = {
+		factor = 1	
+	}	
+}

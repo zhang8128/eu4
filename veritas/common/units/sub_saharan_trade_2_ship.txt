@@ -1,0 +1,11 @@
+#African Medium Dhow
+#model = cog
+#tech_level = 6
+type = light_ship
+unit_type = sub_saharan
+
+hull_size = 4
+base_cannons = 2
+sail_speed = 4
+trade_power = 0.75
+sailors = 25

@@ -1,0 +1,43 @@
+# Nivernais
+
+capital = "Nevers"
+owner = NEV
+controller = NEV 
+add_core = NEV
+add_core = BUR
+culture = burgundian
+religion = catholic
+trade_goods = grain
+base_tax = 5
+base_production = 5
+base_manpower = 5
+is_city = yes
+hre = no
+
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1348.1.1   = { base_manpower = 4 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1400.1.1   = { base_manpower = 4 }
+1404.4.27	= { owner = BUR controller = BUR } # John the Fearless inherits
+1465.1.1   = { owner = NEV controller = NEV remove_core = BUR } # Charles the Bold expells the Count of Nevers from court
+1500.1.1   = { base_manpower = 5 }
+1539.1.1   = { owner = FRA controller = FRA add_core = FRA remove_core = NEV }
+1588.12.1  = { unrest = 5 } # Henri de Guise assassinated at Blois, Ultra-Catholics into a frenzy
+1594.1.1   = { unrest = 0 } # 'Paris vaut bien une messe!', Henri converts to Catholicism
+1600.1.1   = { base_manpower = 2.25 }
+1639.1.1   = { unrest = 3 }
+1641.1.1   = { unrest = 0 }
+1650.1.1   = { base_manpower = 2.5 }
+1650.1.14  = { unrest = 7 } # Mazarin arrests the Princes Condé, Conti & Longueville, the beginning of the Second Fronde
+1651.4.1   = { unrest = 4 } # An unstable peace is concluded
+1651.12.1  = { unrest = 7 } # Mazarin returns from exile, Condé sides with Spain, situation heats up again
+1652.10.21 = { unrest = 0 } # The King is allowed to enter Paris again, Mazarin leaves France for good. Second Fronde over.
+1700.1.1   = { base_manpower = 2.7 }
+1750.1.1   = { base_manpower = 3 }
+1800.1.1   = { base_manpower = 3.75 }

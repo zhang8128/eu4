@@ -1,0 +1,6 @@
+# Land's End
+1309.1.1 = {
+    discovered_by = ICE
+    discovered_by = NOR
+}
+1481.1.1 = { discovered_by = POR }

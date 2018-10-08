@@ -1,0 +1,29 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+technology_group = indian
+primary_culture = panjabi
+religion = sikhism
+capital = 1445	# Amritsar
+
+1740.1.1 = {
+	add_country_modifier = { name = "sikh_confederacy" duration = -1 }
+	monarch = {
+		name = "Bhuma Singh"
+		dynasty = "Dhillon"
+		ADM = 2
+		DIP = 3
+		MIL = 2
+	}
+	religion = sikhism
+}
+
+1774.1.1 = {
+	monarch = {
+		name = "Hari Singh"
+		dynasty = "Dhillon"
+		ADM = 2
+		DIP = 1
+		MIL = 6
+	}
+}

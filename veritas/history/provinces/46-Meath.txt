@@ -1,0 +1,45 @@
+# Meath
+
+capital = "Dublin"
+owner = ENG
+controller = ENG
+add_territorial_core = ENG
+add_core = LEI
+culture = irish
+religion = catholic
+trade_goods = wool
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+hre = no
+fort_15th = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+set_local_autonomy = 30
+
+1349.1.1	= { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1	= { remove_province_modifier = province_black_death }
+1459.1.1 	= { owner = YOR controller = YOR add_territorial_core = YOR } # War breaks out; Yorkists flee the country
+1471.5.4	= { owner = ENG controller = ENG remove_territorial_core = YOR } # Battle of Tewkesbury & the End of the War of the Roses
+1500.1.1	= { base_manpower = 2 }
+1541.6.18	= { owner = IRE controller = IRE add_core = IRE remove_territorial_core = ENG seat_in_parliament = yes } # Crown of Ireland Act
+1642.1.1	= { revolt = { type = nationalist_rebels size = 1 } controller = REB }
+1642.6.7 	= { revolt = {} controller = IRE remove_core = LEI seat_in_parliament = no } # Confederation of Kilkenny
+1649.8.15	= { controller = ENG } # Cromwell lands and relieves Dublin
+1650.1.1	= { base_tax = 3 base_production = 3 base_manpower = 3 }
+1652.5.1	= { owner = ENG } # End of the Irish Confederates
+1660.5.1	= { owner = IRE controller = IRE seat_in_parliament = yes } # Restoration of Charles II
+1689.3.12	= { revolt = { type = pretender_rebels size = 2 } controller = REB } # James II Lands in Ireland
+1690.7.1	= { revolt = {} controller = IRE } # Battle of the Boyne; Dublin abandoned
+1750.1.1	= { base_manpower = 4 }
+1798.5.24	= { revolt = { type = nationalist_rebels size = 1 } controller = REB } # Irish Rebellion
+1798.7.14	= { revolt = {} controller = IRE }
+1800.1.1	= { base_tax = 6 base_production = 6 base_manpower = 6 }
+1801.1.1	= { owner = GBR controller = GBR add_core = GBR } #Acts of Union
+1803.7.23	= { revolt = { type = nationalist_rebels size = 2 name = "Emmet's Rebellion" } controller = REB } # Emmet's rebellion
+1803.8.25	= { revolt = {} controller = GBR }
+1850.1.1	= { base_manpower = 7 }

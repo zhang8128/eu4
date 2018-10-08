@@ -1,0 +1,19 @@
+# Socotra
+
+capital = "Socotra"
+owner = ADE
+controller = ADE
+add_core = ADE
+culture = yemeni_culture
+religion = sunni
+trade_goods = fish
+base_tax = 1
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = sudanese_tech 
+discovered_by = muslim 
+
+set_local_autonomy = 40
+

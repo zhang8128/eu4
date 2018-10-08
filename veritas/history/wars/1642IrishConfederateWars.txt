@@ -1,0 +1,117 @@
+name = "Confederate Wars"
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+	tag = IRE
+}
+
+1642.6.7 = {
+	add_attacker = ENG
+	add_defender = IRE
+}
+
+1647.8.1 = {
+	battle = {
+		name = "Newburn"
+		location = 46
+		attacker = {
+			commander = "Thomas Preston"	
+			infantry = 7000
+			losses = 45	# percent	
+			country = IRE
+		}
+		defender = {
+			commander = "Michael Jones"
+			infantry = 6000
+			losses = 10	# percent
+			country = ENG
+		}
+		result = yes
+	}
+}
+
+1647.11.13 = {
+	battle = {
+		name = "Knocknanuss"
+		location = 49
+		attacker = {
+			commander = "Theobald Taaffe"	
+			infantry = 7000
+			losses = 45	# percent	
+			country = IRE
+		}
+		defender = {
+			commander = "Murrough O'Brien"
+			infantry = 5200
+			losses = 15	# percent
+			country = ENG
+		}
+		result = yes
+	}
+}
+
+1649.8.2 = {
+	battle = {
+		name = "Rathmines"
+		location = 46
+		attacker = {
+			commander = "James Butler"	
+			infantry = 11000
+			losses = 10	# percent	
+			country = IRE
+		}
+		defender = {
+			commander = "Michael Jones"
+			infantry = 5000
+			losses = 5	# percent
+			country = ENG
+		}
+		result = yes
+	}
+}
+
+1650.5.10 = {
+	battle = {
+		name = "Macroom"
+		location = 49
+		attacker = {
+			commander = "David Roche"	
+			infantry = 2000
+			losses = 30	# percent	
+			country = IRE
+		}
+		defender = {
+			commander = "Lord Broghill"
+			infantry = 800
+			losses = 2	# percent
+			country = ENG
+		}
+		result = yes
+	}
+}
+
+1650.8.1 = {
+	battle = {
+		name = "Scarrifholis"
+		location = 53
+		attacker = {
+			commander = "Heber MacMahon"	
+			infantry = 5400
+			cavalry = 600
+			losses = 50	# percent	
+			country = IRE
+		}
+		defender = {
+			commander = "Sir Charles Coote"
+			infantry = 3000
+			losses = 3	# percent
+			country = ENG
+		}
+		result = yes
+	}
+}
+
+1652.5.1 = {
+	rem_attacker = ENG
+	rem_defender = IRE
+}

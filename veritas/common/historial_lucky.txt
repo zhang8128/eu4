@@ -1,0 +1,11 @@
+OSM = { NOT = { exists = TUR } }
+TUR = { NOT = { exists = OSM } }
+MOS = { always = yes }
+HAB = { always = yes }
+VEN = { always = yes }
+ENG = { always = yes }
+FRA = { always = yes }
+CAS = { always = yes }
+POL = { always = yes }
+LIT = { always = yes }
+SWE = { always = yes }

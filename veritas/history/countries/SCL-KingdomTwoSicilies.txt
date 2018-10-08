@@ -1,0 +1,11 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+technology_group = western
+religion = catholic
+primary_culture = sicilian
+capital = 222 # Napoli
+historical_friend = ACH
+historical_friend = ATH
+
+# Formable nation; not yet in history files

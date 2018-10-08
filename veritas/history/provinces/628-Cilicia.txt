@@ -1,0 +1,43 @@
+# Cilicia
+
+owner = CIL
+controller = CIL
+culture = armenian
+religion = nestorian
+capital = "Tarsus"
+trade_goods = fish
+hre = no
+base_tax = 6
+base_production = 6
+base_manpower = 6
+citysize = 2544
+is_city = yes
+add_core = CIL
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = scandinavian_tech
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1100.1.1	= { add_province_modifier = { name = orthodox_crusader_province duration = -1 } add_province_modifier = { name = "nestorian_fidelity" duration = 7300 } }
+1347.1.1	= { base_manpower = 5 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1	= { owner = RAM controller = RAM add_core = RAM remove_province_modifier = orthodox_crusader_province remove_province_modifier = province_black_death } 
+1419.1.1	= { culture = turkish religion = sunni }
+1444.1.1	= { add_core = TUR }
+1500.1.1	= { base_manpower = 6 }
+1600.1.1	= { base_manpower = 2 }
+1608.1.1	= { owner = TUR controller = TUR add_core = TUR }
+1623.1.1	= { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # The empire fell into anarchy, Janissaries stormed the palace
+1625.1.1	= { revolt = {} controller = TUR } # Murad tries to quell the corruption
+1650.1.1	= { base_manpower = 2.5 }
+1658.1.1	= { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Revolt of Abaza Hasan Pasha, centered on Aleppo, extending into Anatolia
+1659.1.1	= { revolt = {} controller = TUR }
+1699.1.1	= { revolt = { type = nationalist_rebels size = 0 } controller = REB } # The Shuff Mountain rebellion 
+1700.1.1	= { revolt = {} base_manpower = 2.5 controller = TUR }
+1740.1.1	= { base_tax = 2
+base_production = 2 } # The decentralizing effect of the provincial system
+1750.1.1	= { base_manpower = 2.5 }
+1800.1.1	= { base_manpower = 2.5 }

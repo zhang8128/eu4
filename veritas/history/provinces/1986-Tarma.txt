@@ -1,0 +1,41 @@
+# Tarma
+
+capital = "Tarma"
+owner = INC
+controller = INC
+add_core = INC
+culture = inca
+religion = incan
+trade_goods = gold
+base_tax = 4
+base_production = 4
+base_manpower = 5
+is_city = yes
+hre = no
+
+discovered_by = INC
+
+1450.1.1  = { citysize = 2430 }
+1533.8.29 = {	discovered_by = SPA
+		owner = SPA
+		controller = SPA
+		culture = castillian
+		religion = catholic
+	    } # The death of Atahualpa
+1537.1.1  = { unrest = 8 } # Fighting breaks out when Almagro seizes Cuzco
+1538.1.1  = { unrest = 5 } # Almagro is defeated & executed
+1541.1.1  = { unrest = 6 } # Pizzaro is assassinated by supporters of Almagro, his brother assumes control
+1548.1.1  = { unrest = 0 } # Gonzalo Pizzaro is also executed & Spain regains control
+1550.1.1  = { citysize = 2980 }
+1558.8.29 = { add_core = SPA }
+1600.1.1  = { citysize = 3270 }
+1650.1.1  = { citysize = 3840 }
+1700.1.1  = { citysize = 4205 }
+1750.1.1  = { citysize = 4760 add_core = PEU }
+1800.1.1  = { citysize = 5100 }
+1812.1.1 = { revolt = { type = nationalist_rebels size = 0 } controller = REB } # Peruvian War of Independence
+1821.7.28 = {
+		revolt = {}
+		owner = PEU
+		controller = PEU
+		} # Peru declares independence

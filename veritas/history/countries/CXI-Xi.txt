@@ -1,0 +1,30 @@
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+technology_group = chinese
+religion = confucianism
+primary_culture = chihan
+capital = 1075 #Chongqing
+
+1355.1.1 = {
+	monarch = {
+		name = "Yuchen"
+		dynasty = "Ming"
+		birth_date = 1331.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1630.1.1 = {
+	monarch = {
+		name = "Xianzhong"
+		dynasty = "Zhang"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+	capital = 1074	# Yichuan
+}
+
+1644.8.9 = { capital = 1078 } # Sichuan

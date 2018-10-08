@@ -1,0 +1,12 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+primary_culture = aquitaine
+add_accepted_culture = occitain
+add_accepted_culture = cosmopolitan_french
+religion = catholic
+technology_group = western
+capital = 123	# Toulouse
+
+
+1560.1.1 = { religion = reformed }

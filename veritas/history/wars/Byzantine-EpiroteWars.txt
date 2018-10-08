@@ -1,0 +1,18 @@
+# Epirus insults Byzantium
+
+name = "First Byzantine-Epirote War"
+
+war_goal = {
+	type = superiority_insult_mutual
+	casus_belli = cb_insult
+}
+
+1315.8.1 = {	add_attacker = BYZ	add_defender = EPI	}
+1328.1.1 = {	rem_attacker = BYZ	rem_defender = EPI	} # Byzantine victory
+
+# Byzantine conquest of Epirus
+
+1336.1.1 = {	add_attacker = BYZ	add_defender = EPI	}
+1339.1.1 = {	add_defender = NAP	}
+1341.1.1 = {	rem_attacker = BYZ	rem_defender = EPI	rem_defender = NAP	} # Byzantium annexed Epirus and Aetolia
+

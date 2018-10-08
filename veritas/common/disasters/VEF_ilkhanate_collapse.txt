@@ -1,0 +1,88 @@
+# GOL Collapse
+
+ilkhanate_collapse = {
+	potential = {
+		tag = ILK
+		normal_or_historical_nations = yes
+		NOT = { has_country_flag = ilk_collapsed  }
+		uses_doom = no
+	}
+
+	can_start = {
+		has_country_flag = horde_collapse
+	}
+	
+	can_stop = {
+		NOT = { has_country_flag = horde_collapse }
+	}
+	
+	progress = {
+		modifier = {
+			factor = 1
+			custom_trigger_tooltip = {
+				has_regency_trigger = yes
+				tooltip = yes_regency
+			}
+		}
+		modifier = {
+			factor = 0.50
+			any_owned_province = { unrest = 20 }
+		}
+		modifier = {
+			factor = 0.25
+			any_owned_province = { unrest = 35 }
+		}
+		modifier = {
+			factor = 1
+			vassal = 1
+		}
+		modifier = {
+			factor = 1
+			has_heir = no
+		}
+		modifier = {
+			factor = 0.25
+			NOT = { ADM = 4 }
+		}		
+		modifier = {
+			factor = 0.25
+			NOT = { ADM = 3 }
+		}		
+		modifier = {
+			factor = 0.5
+			NOT = { ADM = 2 }
+		}		
+		modifier = {
+			factor = 1.0
+			is_at_war = yes
+			NOT = { war_score = -10 }
+		}
+	}
+	
+	# Less than 16 provinces, a human player can stabilize. AI will keep on going...
+	can_end = {
+		NOT = { num_of_cities = 16 }
+		ai = no
+	}
+
+	modifier = {
+		stability_cost_modifier = 0.50
+		global_manpower_modifier = -0.25
+		global_autonomy = -0.33
+		global_unrest = 25
+	}	
+
+	on_start = flavor_ilk.1
+	on_end = flavor_ilk.2
+	
+	on_monthly = {
+		events = {
+			flavor_ilk.15	# Remove ILK cores and lower unrest
+		}
+		random_events = { 
+			1000 = 0
+			100 = flavor_ilk.14
+		}
+	}
+}
+

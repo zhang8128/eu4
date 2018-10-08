@@ -1,0 +1,20 @@
+#East Indiaman
+#model = eastindiaman
+#tech_level = 42
+type = light_ship
+
+hull_size = 16
+base_cannons = 18
+sail_speed = 10
+trade_power = 5.625
+sailors = 65
+
+trigger = {
+	OR = {
+		unit_type = western
+		technology_group = western
+		technology_group = scandinavian_tech
+		technology_group = byzantine
+		technology_group = high_american
+	}
+}

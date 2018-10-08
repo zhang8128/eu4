@@ -1,0 +1,10 @@
+#Oyo War Canoe
+#model = frigate
+#tech_level = 26
+type = transport
+unit_type = sub_saharan
+
+hull_size = 14
+base_cannons = 12
+sail_speed = 10
+sailors = 150

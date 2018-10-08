@@ -1,0 +1,29 @@
+# Owari
+# Manpower revision complete
+#Province IDs changed
+
+owner = ODA
+controller = ODA
+culture = japanese
+religion = shinto
+capital = "Kiyosu"
+trade_goods = dyes
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 6
+is_city = yes
+add_core = ODA
+discovered_by = chinese
+discovered_by = niitaka
+
+1400.1.1	= { base_manpower = 4 }
+1500.1.1	= { base_manpower = 5 }
+1532.1.1	= { capital = "Nagoya" fort_15th = yes } # Kiyosu Castle, the capital of the Oda clan
+1542.1.1	= { discovered_by = POR }
+1573.7.3	= { add_core = JAP owner = JAP controller = JAP remove_core = ODA }
+1600.1.1	= { base_manpower = 6 }
+1650.1.1	= { base_manpower = 7 }
+1700.1.1	= { base_manpower = 8 }
+1750.1.1	= { base_manpower = 8 }
+1800.1.1	= { base_manpower = 7.5 }

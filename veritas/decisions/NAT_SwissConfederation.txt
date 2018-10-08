@@ -1,0 +1,56 @@
+country_decisions = {
+
+	# Confederation as Switzerland
+	swiss_confederation_1 = {
+		major = yes
+		potential = {
+			government = swiss_canton
+			normal_or_historical_nations = yes
+		}
+		allow = {
+			NOT = { exists = SWI }
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			num_of_owned_provinces_with = { culture = swiss value = 3 }
+			adm_power = 100
+		}
+		effect = {
+			add_government_reform = swiss_confederation
+			change_tag = SWI
+			add_adm_power = -100
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 1000
+	}
+	
+	# Secularize as a Swiss Archbishopdic
+	swiss_secularize_government = {		
+		potential = {
+			government = archbishopric
+			normal_or_historical_nations = yes
+			OR = {
+				capital_scope = { area = romandie_area }
+				capital_scope = { area = switzerland_area }
+			}
+		}
+		allow = {
+			num_of_cities = 3
+			adm_power = 100
+		}
+		effect = {
+			add_government_reform = swiss_canton
+			add_adm_power = -100
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = SWI_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 1000
+	}
+
+}

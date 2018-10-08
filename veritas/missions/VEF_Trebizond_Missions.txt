@@ -1,0 +1,318 @@
+tre_black_sea_missions = {
+	slot = 1
+	generic = no
+	ai = no
+	potential = {
+		tag = TRE
+	}
+	
+	tre_kaffa = {
+		icon = mission_sea_battles
+		required_missions = {  }
+		provinces_to_highlight = {
+			province_id = 640
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			640 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			if = {
+				limit = { GOL = { owns = 647 }}
+				647 = { cede_province = ROOT }
+			}
+		}
+	}
+	tre_outposts = {
+		icon = mission_invade_island
+		required_missions = { tre_kaffa }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 641
+				province_id = 643
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			641 = { country_or_non_sovereign_subject_holds = ROOT }
+			643 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			641 = { change_culture = pontian change_religion = orthodox }
+			643 = { change_culture = pontian change_religion = orthodox }
+			add_country_modifier = {
+				name = "naval_enthusiasm_mission"
+				duration = 9125 #25 years
+			}
+		}
+	}
+}
+
+tre_local_missions = {
+	slot = 2
+	generic = no
+	ai = no
+	potential = {
+		tag = TRE
+	}
+	
+	tre_erzurum = {
+		icon = mission_build_up_to_force_limit
+		required_missions = {  }
+		provinces_to_highlight = {
+			area = erzurum_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			erzurum_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			rum_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			dulkadir_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	tre_rum = {
+		icon = mission_cannons_firing
+		required_missions = { tre_erzurum }
+		provinces_to_highlight = {
+			owned_by = RUM
+		}
+		trigger = {
+			OR = {
+				NOT = { exists = RUM }
+				RUM = {
+					is_subject_of = ROOT
+					is_subject_other_than_tributary_trigger = yes
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = army_enthusiasm
+				duration = 3650
+			}
+		}
+	}
+}
+
+tre_empire_missions = {
+	slot = 3
+	generic = no
+	ai = no
+	potential = {
+		tag = TRE
+	}
+	
+	tre_trade = {
+		icon = mission_asian_trader
+		required_missions = { tre_candar }
+		position = 1
+		provinces_to_highlight = {
+			province_id = 638
+		}
+		trigger = {
+			638 = { is_strongest_trade_power = ROOT }
+		}
+		effect = {
+			638 = { add_center_of_trade_level = 1  }
+		}
+	}
+	
+	tre_nicea_coast = {
+		icon = mission_non-western_soldiers
+		required_missions = { tre_candar }
+		position = 3
+		provinces_to_highlight = {
+			area = nicea_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			nicea_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			thrace_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	tre_empire = {
+		icon = mission_empire
+		required_missions = { tre_nicea_coast }
+		position = 3
+		trigger = {
+			588 = { controlled_by = ROOT }
+			war_score_against = { who = BYZ value = 60 }
+		}
+		effect = {
+			every_province = {
+				limit = { is_core = BYZ }
+				add_core = ROOT
+			}
+			BYZ = {
+				every_owned_province = {
+					limit = { area = thrace_area }
+					cede_province = ROOT
+				}
+				change_tag = MOR
+			}
+			add_accepted_culture = greek
+			change_tag = BYZ
+			swap_non_generic_missions = yes
+		}
+	}
+}
+
+tre_north_anatolia_missinos = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = TRE
+	}
+	
+	tre_coast = {
+		icon = mission_cannons_firing
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 624
+				province_id = 625
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			624 = { country_or_non_sovereign_subject_holds = ROOT }
+			625 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			624 = { add_core = ROOT }
+			625 = { add_core = ROOT }
+			613 = { add_permanent_claim = ROOT }
+			623 = { add_permanent_claim = ROOT }
+		}
+	}
+	tre_candar = {
+		icon = mission_conquer_5_states
+		required_missions = { tre_coast }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 613
+				province_id = 623
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			613 = { country_or_non_sovereign_subject_holds = ROOT }
+			623 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			613 = { change_culture = pontian change_religion = orthodox }
+			623 = { change_culture = pontian change_religion = orthodox }
+			nicea_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hudavendigar_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	tre_ankara = {
+		icon = mission_unite_home_region
+		required_missions = { tre_candar }
+		provinces_to_highlight = {
+			area = hudavendigar_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			hudavendigar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			
+		}
+	}
+}
+
+tre_georgia_missions = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = TRE
+	}
+	
+	tre_georgian_ally = {
+		icon = mission_alliances
+		required_missions = {  }
+		trigger = {
+			OR = {
+				alliance_with = IMR
+				alliance_with = GEO
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "influential_diplomacy"
+				duration = 3650 #10 years
+			}
+		}
+	}
+	tre_destroy_rival = {
+		icon = mission_non-western_cavalry_raid
+		required_missions = { tre_georgian_ally }
+		trigger = {
+			OR = {
+				AND = {
+					alliance_with = IMR
+					NOT = { exists = GEO }
+				}
+				AND = {
+					alliance_with = GEO
+					NOT = { exists = IMR }
+				}
+			}
+		}
+		effect = {
+			armenia_area = {
+				limit = {
+					NOT = { owned_by = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}

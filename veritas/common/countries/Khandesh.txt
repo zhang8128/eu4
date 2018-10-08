@@ -1,0 +1,115 @@
+#Country Name: See the Name of this File.
+
+graphical_culture = indiangfx
+
+color = { 138  151  103 }
+
+historical_idea_groups = {
+	quantity_ideas
+	spy_ideas
+	religious_ideas
+	defensive_ideas
+	mercantilist_ideas
+	cultural_unity_ideas
+	drafted_army_ideas
+	gf1_ideas
+}
+
+historical_units = {
+   indian_artillery_8_1
+   indian_artillery_16_1
+   indian_artillery_24_1
+   indian_artillery_32_1
+   indian_artillery_38_1
+   indian_artillery_42_1
+   indian_cavalry_0_1
+   indian_cavalry_16_1
+   indian_cavalry_21_1
+   indian_cavalry_27_1
+   indian_cavalry_31_1
+   indian_cavalry_36_1
+   indian_cavalry_48_1
+   indian_infantry_0_1
+   indian_infantry_6_1
+   indian_infantry_17_1
+   indian_infantry_21_1
+   indian_infantry_25_1
+   indian_infantry_34_1
+   indian_infantry_42_1
+   indian_infantry_45_1
+   indian_infantry_48_1
+   indian_infantry_50_1
+}
+
+monarch_names = {
+	"Nasir Khan #0" = 15
+	"Miran Adil Khan #0" = 15
+	"Miran Mubarak Khan #0" = 15
+	"Da'ud Khan #0" = 10
+	"Ghazni Khan #0" = 10
+	"'Adil Khan #0" = 10
+	"Miran Muhammand Khan #0" = 15
+	"Miran Mubarak Shah #0" = 15
+	"Miran Muhammad Shah #0" = 15
+	"Alam Khan #0" = 15
+	"Rajah 'Ali Khan #0" = 15
+	"Miran Bahadur Shah #0" = 15
+	"Mahmud  #0" = 0
+	"Ferishta #0" = 0
+	"Ghiyas-ud-din #0" = 0
+	"Qadir #0" = 0
+	"Mohammed #0" = 0
+	"Baz #0" = 0
+	"Salim #0" = 0
+	"Nasir #0" = 0
+	"Amir #0" = 0
+	"Hoshang #0" = 0
+	"Ahmadi #0" = -1
+	"Mumtaz #0" = -1
+	"Malika #0" = -1
+}
+
+leader_names = {
+	Chirag
+	Bonjani
+	Bhatti
+	Buchar	
+	Durai
+	Eswara
+	Kota
+	Murti
+	Mori
+	Haji
+	Uzbek
+	Gilani
+	Paramara
+	Bahadur
+	Gauri
+	Jurjani
+	Khan
+	Malik
+	Sultan
+	Khorasani
+	Farooqi
+	Changezi
+	Turani
+	Latif
+	Bhilala
+	Solanki
+	Chattari
+	Kanjar
+	Ghuri
+	Naru
+	Chudasama
+	Pahore
+	Tomara
+}
+
+ship_names = {
+	Alia Arusa Bori Fatimah
+	Jalsena Girna "Kala Jahazi"
+	Khan "Lal Jahazi" Narmada Nausena
+	"Nav ka Yudh" Niknaz "Nila Jahazi"
+	Niloufa Noor Panjhra Sagar Salima
+	Shameena Suhalia Tapi Yasmine Zahira
+}

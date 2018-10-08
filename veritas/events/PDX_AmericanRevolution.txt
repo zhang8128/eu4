@@ -1,0 +1,315 @@
+normal_or_historical_nations = yes
+
+# American quest for independence
+country_event = {
+	id = 1021
+	title = "EVTNAME1021"
+	desc = "EVTDESC1021"
+	picture = VEF_ANGRY_MOB_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1750
+		OR = {
+			owns = 2238		# Susquehanna
+			owns = 2248		# Mahican
+			owns = 2249		# Manhattan
+			owns = 2250		# Connecticut
+			owns = 2251		# Massachusetts
+		}
+		NOT = { has_country_flag = american_revolution }
+		NOT = { exists = USA }
+		capital_scope = { continent = europe }
+		USA = {
+			NOT = {
+				OR = {
+					is_core = 2206			# Muskogee
+					is_core = 2224			# Saluda
+					is_core = 2225			# Santee
+					is_core = 2228			# Cheraw
+					is_core = 2232			# Pamlico
+					is_core = 2233			# Alamance
+					is_core = 2234			# Powhatan
+					is_core = 2236			# Manahoac
+					is_core = 2238			# Susquehanna
+					is_core = 2239			# Conoy
+					is_core = 2244			# Lenape
+					is_core = 2245			# Delaware
+					is_core = 2246			# Unami
+					is_core = 2249			# Manhattan
+					is_core = 2250			# Connecticut
+					is_core = 2251			# Massachusetts
+					is_core = 2254			# Pennacook
+					is_core = 2255			# Abnaki
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			factor = 0.9
+			economic_ideas = 6
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { economic_ideas = 4 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { economic_ideas = 2 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { stability = -1 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { stability = -2 }
+		}
+		modifier = {
+			factor = 1.1
+			stability = 1
+		}
+		modifier = {
+			factor = 1.1
+			stability = 2
+		}
+		modifier = {
+			factor = 1.1
+			stability = 3
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { adm = 2 }
+		}
+		modifier = {
+			factor = 0.85
+			NOT = { adm = 1 }
+		}
+		modifier = {
+			factor = 0.95
+			is_year = 1760
+		}
+		modifier = {
+			factor = 0.85
+			is_year = 1780
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1021"
+		set_country_flag = american_revolution
+		USA = {
+			add_core = 2206			# Muskogee
+			add_core = 2224			# Saluda
+			add_core = 2225			# Santee
+			add_core = 2228			# Cheraw
+			add_core = 2232			# Pamlico
+			add_core = 2233			# Alamance
+			add_core = 2234			# Powhatan
+			add_core = 2236			# Manahoac
+			add_core = 2238			# Susquehanna
+			add_core = 2239			# Conoy
+			add_core = 2244			# Lenape
+			add_core = 2245			# Delaware
+			add_core = 2246			# Unami
+			add_core = 2249			# Manhattan
+			add_core = 2250			# Connecticut
+			add_core = 2251			# Massachusetts
+			add_core = 2254			# Pennacook
+			add_core = 2255			# Abnaki
+		}
+	}
+}
+
+
+# Trade restrictions
+province_event = {
+	id = 1022
+	title = "EVTNAME1022"
+	desc = "EVTDESC1022"
+	picture = VEF_LIBERUM_VETO_eventPicture
+	
+	trigger = {
+		owner = { 
+			has_country_flag = american_revolution
+			NOT = { has_country_flag = trade_restrictions }
+			NOT = { mercantilism = 50 }
+		}
+		NOT = { exists = USA }
+		USA = {
+			OR = {
+				is_core = 2206			# Muskogee
+				is_core = 2224			# Saluda
+				is_core = 2225			# Santee
+				is_core = 2228			# Cheraw
+				is_core = 2232			# Pamlico
+				is_core = 2233			# Alamance
+				is_core = 2234			# Powhatan
+				is_core = 2236			# Manahoac
+				is_core = 2238			# Susquehanna
+				is_core = 2239			# Conoy
+				is_core = 2244			# Lenape
+				is_core = 2245			# Delaware
+				is_core = 2246			# Unami
+				is_core = 2249			# Manhattan
+				is_core = 2250			# Connecticut
+				is_core = 2251			# Massachusetts
+				is_core = 2254			# Pennacook
+				is_core = 2255			# Abnaki
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+		
+		modifier = {
+			factor = 0.9
+			owner = { NOT = { mercantilism = 30  } }
+		}
+		modifier = {
+			factor = 0.8
+			owner = { NOT = { mercantilism = 20  } }
+		}
+		modifier = {
+			factor = 0.8
+			owner = { NOT = { mercantilism = 10  } }
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1022" # Send troops
+		owner = {
+			set_country_flag = trade_restrictions
+			
+			random_owned_province = {
+				limit = { is_core = USA }
+				nationalist_rebels = 2
+			}
+			random_owned_province = {
+				limit = { is_core = USA }
+				nationalist_rebels = 3
+			}
+			random_owned_province = {
+				limit = { is_core = USA }
+				nationalist_rebels = 2
+			}
+			random_owned_province = {
+				limit = { is_core = USA }
+				nationalist_rebels = 3
+			}
+			random_owned_province = {
+				limit = { is_core = USA }
+				nationalist_rebels = 2
+			}
+			random_owned_province = {
+				limit = { is_core = USA }
+				nationalist_rebels = 3
+			}		
+		}
+		add_province_modifier = {
+			name = "military_reinforcement"
+			duration = 3650
+		}
+	}
+
+	option = {
+		name = "EVTOPTB1022" # Restrict export
+		owner = {
+			add_country_modifier = {
+				name = "export_restrictions"
+				duration = 3650
+			}
+			set_country_flag = trade_restrictions
+		}
+	}
+}
+
+# Colonial assembly
+province_event = {
+	id = 1023
+	title = "EVTNAME1023"
+	desc = "EVTDESC1023"
+	picture = VEF_LIBERUM_VETO_eventPicture
+	
+	trigger = {
+		owner = { has_country_flag = american_revolution }
+		is_core = USA
+		unrest = 3
+		NOT = { has_province_modifier = loyalist_stronghold }
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+
+		modifier = {
+			factor = 0.9
+			owner = { NOT = { stability = -1 } }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { NOT = { stability = -2 } }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { NOT = { advisor = statesman } }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { NOT = { adm = 1 } }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { NOT = { dip = 1 } }
+		}
+		modifier = {
+			factor = 1.1
+			owner = { adm = 5 }
+		}
+		modifier = {
+			factor = 1.1
+			owner = { dip = 5 }
+		}
+		modifier = {
+			factor = 1.1
+			owner = { advisor = statesman }
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1023" # Attempt to find a diplomatic solution
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 0
+				owner = { has_country_modifier = diplomatic_negotiation }
+			}
+		}
+		owner = {
+			clr_country_flag = american_revolution
+			add_country_modifier = {
+				name = "diplomatic_negotiation"
+				duration = -1
+			}
+		}
+	}
+		
+	option = {
+		name = "EVTOPTB1023" # The days of diplomacy are over
+		ai_chance = { factor = 100 }
+		owner = { add_stability = -1 }
+		add_province_modifier = {
+			name = "colonial_tensions"
+			duration = -1
+		}
+	}
+}

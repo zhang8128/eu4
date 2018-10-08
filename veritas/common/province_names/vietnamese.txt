@@ -1,0 +1,7 @@
+1135 = "Da Nang"
+1136 = "Qui Nhon"
+1137 = "Nha Trang"
+1138 = "Phang Rang"
+1145 = "Gia Dinh"
+1146 = "Can Tho"
+1147 = "Ca Mau"

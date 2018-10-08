@@ -1,0 +1,18 @@
+# Managua
+
+capital = "Managua"
+native_size = 5
+native_ferocity = 1
+native_hostileness = 2
+culture = miskito
+religion = animism
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+discovered_by = mesoamerican
+
+1523.1.1   = { owner = SPA controller = SPA capital = "Managua" culture = castillian religion = catholic citysize = 2995 trade_goods = coffee } # First permanent Spanish settlement 
+1548.1.1   = { add_core = SPA }
+1810.9.16  = { owner = MEX add_core = MEX controller = SPA } # Mexican War of Independence

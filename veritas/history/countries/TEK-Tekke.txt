@@ -1,0 +1,34 @@
+# Tekke
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 2
+primary_culture = turkish
+religion = sunni
+technology_group = ottoman
+capital = 606	# Tekke
+
+
+# PU under Hamid
+
+# No accurate dates available
+1321.1.1 = {
+	monarch = {
+		name = "Yunus"
+		dynasty = Tekeli
+		adm = 4
+		dip = 1
+		mil = 2
+	}
+	add_piety = 0.1
+}
+
+1324.1.1 = {
+	monarch = {
+		name = "Mahmud" 
+		dynasty = Tekeli
+		adm = 4
+		dip = 1
+		mil = 2
+	}
+	add_piety = 0.1
+}

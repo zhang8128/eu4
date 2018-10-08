@@ -1,0 +1,69 @@
+country_decisions = {
+
+	chile_nation = {
+		major = yes
+		potential = {
+			colonial_la_plata = { owned_by = ROOT }
+			is_nomad = no
+			is_random_new_world = no
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+			}
+			NOT = { exists = CHL }
+			OR = {
+				ai = no
+				num_of_cities = 3	
+			}
+			NOT = { has_country_flag = changed_from_colonial_nation }
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			is_former_colonial_nation = yes
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			capital_scope = {
+				colonial_region = colonial_la_plata
+				is_core = ROOT
+			}
+			custom_trigger_tooltip = {
+				chile_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				tooltip = owns_all_chile
+			}
+		}
+		effect = {
+			change_tag = CHL
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			colonial_la_plata = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = CHL
+			}
+			add_prestige = 25
+			set_country_flag = changed_from_colonial_nation
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+}

@@ -1,0 +1,73 @@
+country_decisions = {
+
+	silesian_nation = {
+		major = yes
+		potential = {
+			primary_culture = schlesian
+			normal_or_historical_nations = yes
+			OR = {
+				is_playing_custom_nation = no
+				ai = no
+			}
+			OR = {
+				NOT = { exists = SIL }
+				ai = no
+			}
+			NOT = { tag = SIL }
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = POL }
+			NOT = { tag = PLC }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			NOT = { exists = SIL }
+			stability = 1
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 479	# Wroclaw
+			num_of_owned_provinces_with = {
+				value = 3
+				area = silesia_area
+				is_core = ROOT
+				NOT = { nationalism = 1 }				
+			}
+		}
+		effect = {
+			if = {
+	 			limit = { is_subject = yes }
+	 			overlord = {
+	 				clr_country_flag = overlord_flag_@ROOT
+	 				set_country_flag = overlord_flag_SIL
+	 			}
+	 		}
+			change_tag = SIL
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			479 = {
+				add_base_tax = 1
+				add_base_production = 1
+			}
+			set_capital = 479
+			silesia_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = SIL
+			}
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 400
+	}
+
+}

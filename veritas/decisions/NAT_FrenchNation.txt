@@ -1,0 +1,96 @@
+country_decisions = {
+
+	french_nation = {
+		major = yes
+		potential = {
+			OR = {
+				culture_group = french
+				primary_culture = basque
+				primary_culture = breton
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				NOT = { exists = FRA }
+				ai = no
+			}
+			NOT = { exists = RFR }
+			NOT = { tag = FRA }
+			NOT = { tag = ANV }
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = SPA }		# Basque is a valid culture for both FRA and SPA
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			NOT = { exists = FRA }
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { region = france_region }
+						AND = {
+							region = france_region
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_france
+			}
+			owns_core_province = 157	# Maine
+			owns_core_province = 153	# Berry
+			owns_core_province = 174	# Vermandois
+			owns_core_province = 170	# Île-de-France
+			owns_core_province = 154	# Orléannais
+			owns_core_province = 171	# Nemours
+			owns_core_province = 175	# Reims
+		}
+		effect = {
+			change_tag = FRA
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			france_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = FRA
+			}
+			add_prestige = 25
+			set_capital = 170
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = FRA_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+}

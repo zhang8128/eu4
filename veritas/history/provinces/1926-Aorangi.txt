@@ -1,0 +1,23 @@
+# Aorangi
+#Province IDs changed
+
+culture = polynesian
+religion = animism
+capital = "Aorangi"
+trade_goods = unknown
+hre = no
+base_tax = 1
+base_production = 1
+base_manpower = 1
+native_size = 10
+native_ferocity = 4
+native_hostileness = 9
+
+1642.1.1 = { discovered_by = NED } # Abel Tasman
+1840.2.6 = {
+	owner = NWZ
+	controller = NWZ
+	add_core = NWZ
+	capital = "Dunedin"
+	change_province_name = "Dunedin"
+	} # Treaty of Waitangi makes New Zealand British Protectorate

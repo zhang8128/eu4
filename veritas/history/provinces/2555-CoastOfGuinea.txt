@@ -1,0 +1,6 @@
+# Coast Of Guinea
+#Province IDs changed
+discovered_by = sudanese_tech
+discovered_by = sub_saharan
+
+1444.1.1 = { discovered_by = POR } # Prince Henry's School

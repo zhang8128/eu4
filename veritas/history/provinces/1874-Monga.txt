@@ -1,0 +1,17 @@
+# Monga
+#Province IDs changed
+
+capital = "Monga"
+owner = ZIM
+controller = ZIM
+add_core = ZIM
+is_city = yes
+culture = shona
+religion = bantu
+base_tax = 2
+base_production = 2
+base_manpower = 3
+trade_goods = ivory
+discovered_by = tribal_african_tech 
+discovered_by = muslim 
+hre = no

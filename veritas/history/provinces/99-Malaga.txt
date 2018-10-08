@@ -1,0 +1,43 @@
+# Malaga
+
+capital = "Malaga"
+owner = GRA	
+controller = GRA
+add_core = GRA
+culture = andalucian
+religion = sunni
+trade_goods = salt
+base_tax = 5
+base_production = 5
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+add_province_modifier = { name = "moorish_culture" duration = -1 }
+
+1349.1.1   = { base_manpower = 4 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1399.1.1   = { remove_province_modifier = moorish_culture add_core = CAS }
+1482.7.1   = { revolt = { type = revolutionary_rebels size = 2 } controller = REB } # While his father is absent becuase of the war, prince Boabdil stages a coup and the Kingdom of Granada is split in two halves, both at war with Castilla
+1484.5.1   = { revolt = {} controller = GRA } # Boabdil is captured by the christians and forced to a truce, Muhammad el Zagal returns to Granada and retakes power, extending the war with Castilla.
+1492.1.2   = { owner = CAS controller = CAS } # Boabdil gives the keys of the Alhambra to King Fernando, the Reconquista ends.
+1499.12.1  = { unrest = 2 } # Increased pressure from the Inquisition to convert Spanish muslims
+1500.1.1   = { base_manpower = 5 }
+1502.2.1   = { unrest = 0 religion = catholic } # All the subjects of Castilla are forced to convert or emigrate
+1516.1.23  = {	controller = SPA owner = SPA add_core = SPA remove_core = CAS }
+1568.12.25 = { unrest = 15 } # Sublevation of the morisques in the kingdom of Granada.
+1570.10.28 = {	unrest = 0 culture = castillian remove_core = GRA } # To quell the revolt, the morisques in Granada are forcefully deported to other Spanish territories
+1600.1.1   = { base_manpower = 2.25 }
+1650.1.1   = { base_manpower = 2 }
+1700.1.1   = { base_manpower = 2.2 }
+1750.1.1   = { base_manpower = 2.6 }
+1800.1.1   = { base_manpower = 3 }
+1808.6.6   = { revolt = { type = pretender_rebels size = 0 } controller = REB }
+1811.1.1   = { revolt = {} controller = SPA }
+1812.10.1  = { revolt = { type = pretender_rebels size = 1 } controller = REB }
+1813.12.11 = { revolt = {} controller = SPA }

@@ -1,0 +1,48 @@
+# Baranya
+
+capital = "Pécs"
+owner = KSZ
+controller = KSZ
+add_core = KSZ
+add_core = HUN
+culture = hungarian
+religion = catholic
+trade_goods = wine
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = scandinavian_tech
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1309.1.1   = { unrest = 3 } # Noble troubles
+1316.1.1   = { unrest = 0 }
+1348.1.1   = { base_manpower = 2 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1351.1.1   = { owner = HUN controller = HUN remove_core = KSZ }	#Last member of the dynasty known to have died
+1360.1.1   = { remove_province_modifier = province_black_death }
+1500.1.1   = { base_manpower = 3 }
+1506.1.1 = { revolt = { type = anti_tax_rebels size = 2 } controller = REB } # Szekely rebellion
+1507.1.1 = { revolt = {} controller = HUN } # Estimated
+1514.4.1 = { revolt = { type = anti_tax_rebels size = 2 } controller = REB } # Peasant rebellion against Hungary's magnates
+1515.1.1 = { revolt = {} controller = HUN } # Estimated
+1526.8.30 = { owner = HAB controller = HAB add_core = HAB } # Hungary fractured after Battle of Mohacs
+1529.9.1 = { controller = TUR } # Occupied by Suleiman I during march on Vienna
+1533.6.22 = { owner = TRA add_core = TRA }
+1542.1.1 = { owner = TUR controller = HAB remove_core = TRA add_core = TUR }
+1543.6.1 = { controller = TUR } # Without Ferdinand's support, the citizens couldn't hold Pecs anymore
+1545.8.1 = { remove_core = HAB } # Treaty of Adrianople ends the Ottoman-Habsburg War
+1550.1.1 = { citysize = 5722 }
+1567.1.1 = { religion = reformed } # Synod of Debrecen
+1600.1.1 = { citysize = 6770 }
+1650.1.1 = { citysize = 7544 }
+1686.10.22 = { owner = HAB controller = HAB add_core = HAB remove_core = TUR } # The Ottomans surrender to the army led by Louis of Baden
+1690.1.1 = { citysize = 5430 } # Plague
+1700.1.1 = { citysize = 7400 }
+1750.1.1 = { citysize = 8100 }
+1800.1.1 = { citysize = 9870 }

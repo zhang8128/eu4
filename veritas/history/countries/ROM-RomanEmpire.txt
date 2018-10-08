@@ -1,0 +1,10 @@
+#Province IDs changed
+government = monarchy
+add_government_reform = autocracy_reform
+government_rank = 4
+primary_culture = roman
+religion = catholic
+technology_group = western
+unit_type = western
+capital = 227 # Rome
+fixed_capital = 227

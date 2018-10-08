@@ -1,0 +1,25 @@
+# Singapore
+
+capital = "Temasek"
+owner = SGP
+controller = SGP
+add_core = SGP
+culture = malayan
+religion = buddhism
+trade_goods = copper #tin
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = chinese
+discovered_by = indian
+
+1398.1.1	= { owner = XXX controller = XXX remove_core = SGP is_city = no trade_goods = unknown native_size = 5 native_ferocity = 3 native_hostileness = 2 } # City destroyed by Majaphit soldiers; some villages remain
+1400.1.1	= { religion = sunni }
+1402.1.1	= { owner = MLC controller = MLC add_core = MLC is_city = yes trade_goods = copper } # Parameswara founds Malacca; maintains loyalty of remaining settlements on Singapore.
+1509.1.1	= { discovered_by = POR }
+1511.9.10	= { owner = JOH controller = JOH add_core = JOH remove_core = MLC } # Malacca occupied; sultanate collapses in short order
+1521.1.1	= { discovered_by = SPA }
+1819.2.6	= { owner = GBR controller = GBR capital = "Singapore" } # Raffles' expedition
+1860.1.1	= { religion = mahayana }

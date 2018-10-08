@@ -1,0 +1,59 @@
+# VeF
+
+janissary_children = {
+	potential = {
+		tag = TUR
+		has_country_flag = janissary_marriages
+		NOT = { has_country_flag = revolt_janissary_children }
+		normal_or_historical_nations = yes
+	}
+
+	can_start = {
+		OR = {
+			has_country_modifier = vef_janissaries_4
+			has_country_modifier = coc_janissaries_4
+		}
+		check_variable = { which = janissary_strength value = 120 }
+	}
+	
+	can_stop = {
+		OR = {
+			AND = {
+				NOT = { has_country_modifier = vef_janissaries_4 }
+				NOT = { has_country_modifier = coc_janissaries_4 }
+			}
+			NOT = { check_variable = { which = janissary_strength value = 120 }}
+		}
+	}
+	
+	progress = {
+		modifier = {
+			factor = 0.5
+			check_variable = { which = janissary_strength value = 50 }
+		}
+	}
+	
+	can_end = {
+		NOT = { check_variable = { which = janissary_strength value = 25 }}
+	}
+
+	modifier = {
+		global_unrest = 4
+		global_manpower_modifier = -0.10
+		discipline = -0.1
+		land_morale = -0.05
+	}
+
+
+	on_start = vef_newgov.30004
+	on_end = vef_newgov.30005
+	
+	on_monthly = {
+		events = {
+		}
+		random_events = { 
+			1000 = 0	
+		}
+	}
+}
+

@@ -1,0 +1,15 @@
+# Biram
+
+capital = "Biram"
+owner = KAN
+controller = KAN
+add_core = KAN
+culture = hausa
+religion = maguzawa
+trade_goods = millet
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = sudanese_tech

@@ -1,0 +1,10 @@
+#Galeota
+#model = galleass
+#tech_level = 28
+type = galley
+unit_type = byzantine
+
+hull_size = 14
+base_cannons = 28
+sail_speed = 8
+sailors = 300

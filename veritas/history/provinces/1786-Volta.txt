@@ -1,0 +1,15 @@
+# Volta
+
+capital = "Jasikan"
+owner = DAH
+controller = DAH
+add_core = DAH
+culture = fon
+religion = yoruba
+trade_goods = millet
+base_tax = 1
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = sub_saharan

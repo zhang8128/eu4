@@ -1,0 +1,27 @@
+# Indragiri
+
+capital = "Indragiri"
+owner = SVJ
+controller = SVJ
+add_core = SVJ
+culture = sumatran
+religion = vajrayana
+trade_goods = rice
+base_tax = 1
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = MKS
+discovered_by = MLC
+discovered_by = ATJ
+discovered_by = MAJ
+discovered_by = BEI
+discovered_by = KUT
+discovered_by = BLI
+discovered_by = SUN
+discovered_by = SVJ
+discovered_by = indian
+
+1405.1.1 = { discovered_by = MNG }
+1509.1.1 = { discovered_by = POR }

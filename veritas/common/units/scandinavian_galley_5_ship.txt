@@ -1,0 +1,10 @@
+#Skärgårdsfregatt
+#model = archipelago_frigate
+#tech_level = 38
+type = galley
+unit_type = scandinavian_tech
+
+hull_size = 24
+base_cannons = 34
+sail_speed = 8
+sailors = 350

@@ -1,0 +1,10 @@
+#North American Sailboat
+#model = cog
+#tech_level = 18
+type = transport
+unit_type = north_american
+
+hull_size = 8
+base_cannons = 6
+sail_speed = 8
+sailors = 50

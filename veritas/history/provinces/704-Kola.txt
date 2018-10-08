@@ -1,0 +1,29 @@
+#Kola
+
+capital = "Murmansk"
+owner = NOV
+controller = NOV
+add_territorial_core = NOV
+culture = karelian
+religion = norse_pagan_reformed
+trade_goods = fur
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = MOS
+discovered_by = RUS
+discovered_by = TVE
+discovered_by = scandinavian_tech
+discovered_by = NOV
+discovered_by = SMO
+discovered_by = PSK
+discovered_by = PLT
+discovered_by = RYA
+discovered_by = YAR
+discovered_by = NZH
+set_local_autonomy = 90
+
+1478.1.15 = {	owner = MOS controller = MOS add_core = MOS remove_core = NOV }
+1503.4.1 = {	owner = RUS controller = RUS add_core = RUS remove_core = MOS }

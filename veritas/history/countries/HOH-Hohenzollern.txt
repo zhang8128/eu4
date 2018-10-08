@@ -1,0 +1,244 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+technology_group = western
+religion = catholic
+primary_culture = alemannic
+capital = 314	# Stuttgart
+
+1218.1.1 = {
+	monarch = {
+		name = "Friedrich IV"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1251.1.1 = {
+	monarch = {
+		name = "Friedrich V"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1289.5.24 = {
+	monarch = {
+		name = "Friedrich VI"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1298.5.4 = {
+	monarch = {
+		name = "Friedrich VII"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1309.10.6 = {
+	monarch = {
+		name = "Friedrich VIII"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1333.1.1 = {
+	monarch = {
+		name = "Friedrich IX"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1377.1.1 = {
+	monarch = {
+		name = "Friedrich XI"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1401.11.26 = {
+	monarch = {
+		name = "Friedrich XII"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1426.1.1 = {
+	monarch = {
+		name = "Eitel Friedrich I"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1439.1.1 = {
+	monarch = {
+		name = "Jobst Nikolaus I"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1488.2.9 = {
+	monarch = {
+		name = "Eitel Friedrich II"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1512.6.18 = {
+	monarch = {
+		name = "Eitel Friedrich III"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1525.1.15 = {
+	monarch = {
+		name = "Karl I"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+#####################################################
+# Hohenzollern partitioned between sons of Karl	#
+# Rulers of Hohenzollern-Sigmaringen from here		#
+#####################################################
+
+
+1576.3.18 = {
+	monarch = {
+		name = "Karl II"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1606.4.8 = {
+	monarch = {
+		name = "Johann I"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1638.3.22 = {
+	monarch = {
+		name = "Meinrad I"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1681.1.30 = {
+	monarch = {
+		name = "Maximilian I"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1689.8.13 = {
+	monarch = {
+		name = "Meinrad II"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1715.10.20 = {
+	monarch = {
+		name = "Joseph Friedrich Ernst I"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1769.12.8 = {
+	monarch = {
+		name = "Karl Friedrich I"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1785.12.20 = {
+	monarch = {
+		name = "Anton Aloys"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1831.10.17 = {
+	monarch = {
+		name = "Karl III"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1848.8.27 = {
+	monarch = {
+		name = "Karl Anton"
+		dynasty = "von Hohenzollern"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+#Purchased by Prussia in 1849 following the revolution of 1848.

@@ -1,0 +1,200 @@
+ilksucc_missions = {
+	slot = 1 #upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		OR = {
+			tag = MZF
+			tag = INJ
+			tag = CBN
+			tag = JAI
+		}
+	}
+	has_country_shield = yes
+	
+	ilksucc_defeat_rival = {
+		icon = mission_have_two_subjects
+		required_missions = {  } #None
+		trigger = {
+			if = {
+				limit = { tag = MZF }
+				OR = {
+					NOT = { exists = INJ }
+					INJ = { is_subject_of = ROOT }
+				}
+			}
+			if = {
+				limit = { tag = INJ }
+				OR = {
+					NOT = { exists = MZF }
+					MZF = { is_subject_of = ROOT }
+				}
+			}
+			if = {
+				limit = { tag = CBN }
+				OR = {
+					NOT = { exists = JAI }
+					JAI = { is_subject_of = ROOT }
+				}
+			}
+			if = {
+				limit = { tag = JAI }
+				OR = {
+					NOT = { exists = CBN }
+					CBN = { is_subject_of = ROOT }
+				}
+			}
+		}
+		effect = {
+			iraq_e_ajam_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	ilksucc_tehran = {
+		icon = mission_arabian_fort
+		required_missions = { ilksucc_defeat_rival }
+		provinces_to_highlight = {
+			area = iraq_e_ajam_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			iraq_e_ajam_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			persia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	ilksucc_persia_region = {
+		icon = mission_unite_home_region
+		required_missions = { ilksucc_tehran }
+		provinces_to_highlight = {
+			region = persia_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			persia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = army_enthusiasm
+				duration = 3650
+			}
+			sistan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			khorasan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			makran_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	ilksucc_form_persia = {
+		icon = mission_empire
+		required_missions = { ilksucc_persia_region }
+		provinces_to_highlight = {
+			area = gondwana_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			NOT = { exists = PER }
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { region = persia_region }
+						AND = {
+							region = persia_region
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_persia
+			}
+		}
+		effect = {
+			change_tag = PER
+			swap_non_generic_missions = yes
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			add_prestige = 25
+			change_primary_culture = persian
+			if = {
+				limit = { technology_group = nomad_group }
+				change_technology_group = muslim
+				change_unit_type = muslim
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = PER_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+			azerbaijan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			south_kurdistan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			iraq_arabi_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			basra_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}

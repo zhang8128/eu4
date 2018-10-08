@@ -1,0 +1,91 @@
+#Yarkand in vanilla
+government = monarchy add_government_reform = iqta
+government_rank = 3
+primary_culture = khazak
+religion = sunni
+technology_group = chinese
+capital = 863	# Kashgar
+
+#Khans of Eastern Mughalistan or Uighuristan
+1348.1.1 = {
+	monarch = {
+		name = "Tughlugh Timur"
+		dynasty = "Chagatayid"
+		adm = 4
+		dip = 4
+		mil = 4
+	}
+}
+
+1363.1.1 = {
+	monarch = {
+		name = "Ilyas Khoja"
+		dynasty = "Chagatayid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1368.1.1 = {
+	monarch = {
+		name = "Qamar-ud-din"
+		dynasty = "Chagatayid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1462.1.1 = {
+	monarch = {
+		name = "Dost Muhammad Khan"
+		dynasty = "Chagatayid"
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+
+1469.1.1 = {
+	monarch = {
+		name = "Kebek Sultan Oghlan"
+		dynasty = "Chagatayid"
+		adm = 1
+		dip = 0
+		mil = 3
+	}
+}
+
+1514.1.1 = {
+	monarch = {
+		name = "Mansur Khan"
+		dynasty = "Chagatayid"
+		adm = 1
+		dip = 1
+		mil = 4
+	}
+}
+
+1543.1.1 = {
+	monarch = {
+		name = "Shah Khan"
+		dynasty = "Chagatayid"
+		adm = 2
+		dip = 1
+		mil = 3
+	}
+}
+
+1570.1.1 = {
+	monarch = {
+		name = "Muhammad Khan ibn Mansur Khan"
+		dynasty = "Chagatayid"
+		adm = 1
+		dip = 0
+		mil = 3
+	}
+}
+
+# ->> 1591 ?
+# Absorbed by Oirats ?

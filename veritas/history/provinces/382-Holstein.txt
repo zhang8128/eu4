@@ -1,0 +1,41 @@
+# Holstein
+
+owner = SHL
+controller = SHL
+add_core = SHL
+culture = lowersaxon
+religion = catholic
+base_tax = 4
+base_production = 4
+trade_goods = grain
+base_manpower = 3
+is_city = yes
+capital = "Kiel"
+hre = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1460.3.5  = { owner = DAN controller = DAN add_core = DAN }
+#1476.1.1 = { hre = yes }
+1500.1.1   = { citysize = 7000 }
+1529.1.1   = { religion = protestant }
+1544.1.1   = { owner = SHL controller = SHL }
+1550.1.1   = { citysize = 9000 base_tax = 5
+base_production = 5 }
+1600.1.1   = { citysize = 11000 }
+1625.1.1   = { citysize = 12000 }
+1773.1.1   = { owner = DAN controller = DAN }
+1775.1.1   = { citysize = 20000 }
+1806.7.12  = { hre = no } # The Holy Roman Empire is dissolved
+1810.12.13 = {	owner = RFR
+		controller = RFR
+		add_core = RFR
+	    } # Annexed by France
+1814.4.11 = {	owner = DAN
+		controller = DAN
+		remove_core = RFR
+	    } # Napoleon abdicates unconditionally

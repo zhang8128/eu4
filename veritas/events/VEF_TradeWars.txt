@@ -1,0 +1,1155 @@
+# Venetian-Genoese Trade War Events
+# 
+namespace = vef_tradewars
+normal_or_historical_nations = yes
+
+
+#Black Sea 
+#1	Changeover Event
+#2	Victory
+#3	Defeat
+#4	Time's Up
+#5	Notification - Time's Up
+
+#Chios
+#10	Byzantines End Lease
+#11	Genoese Maona
+#12	Genoese Retake Chios
+#13	Inform Genoa
+
+#Mediterranean
+#20	Changeover Event
+#21	Victory
+#22	Defeat
+#23	Time's Up
+#24	Notification - Time's Up
+
+#Maintenance Routines&Display
+#90000	Black Sea
+#90001	Med
+#90002	Display Current Status
+
+# Changeover Event
+country_event = {
+	id = vef_tradewars.1
+	title = "vef_tradewars.1.t"
+	desc = "vef_tradewars.1.d"
+	picture = VEF_COURT_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = VEN
+				has_country_flag = venice_ahead_trade_war_black
+				NOT = { check_variable = { which = black_trade_power value = 5 }}
+			}
+			AND = {
+				tag = GEN
+				has_country_flag = genoa_ahead_trade_war_black
+				NOT = { check_variable = { which = black_trade_power value = 5 }}
+			}
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = black_trade_power value = 0 }
+			clr_country_flag = venice_ahead_trade_war_black
+			clr_country_flag = genoa_ahead_trade_war_black
+		}
+	}
+	
+	option = {
+		trigger = { tag = VEN }
+		name = "vef_tradewars.1.opta"
+		add_prestige = -5
+		GEN = { set_variable = { which = black_trade_power  value = 10 } set_country_flag = genoa_ahead_trade_war_black }
+	}
+	
+	option = {
+		trigger = { tag = GEN }
+		name = "vef_tradewars.1.opta"
+		add_prestige = -5
+		VEN = { set_variable = { which = black_trade_power  value = 10 } set_country_flag = venice_ahead_trade_war_black }
+	}
+}
+# Victory!
+country_event = {
+	id = vef_tradewars.2
+	title = "vef_tradewars.2.t"
+	desc = "vef_tradewars.2.d"
+	picture = VEF_COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = GEN
+			tag = VEN
+		}
+		NOT = { has_global_flag = black_trade_wars_over }
+		check_variable = { which = black_trade_power value = 100 }
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = black_trade_power value = 0 }
+			clr_country_flag = genoa_ahead_trade_war_black
+			clr_country_flag = venice_ahead_trade_war_black
+			set_global_flag = black_trade_wars_over
+		}
+	}
+	
+	option = {
+		trigger = { tag = VEN }
+		name = "vef_tradewars.2.opta"
+		add_prestige = 10
+		add_country_modifier = {
+			name = black_trade_war_victor
+			duration = -1
+		}
+		add_historical_friend = GOL
+		GOL = { add_historical_friend = VEN }
+		GEN = { country_event = { id = vef_tradewars.3 days = 3 }}
+	}
+	
+	option = {
+		trigger = { tag = GEN }
+		name = "vef_tradewars.2.opta"
+		add_prestige = 10
+		add_country_modifier = {
+			name = black_trade_war_victor
+			duration = -1
+		}
+		add_historical_friend = GOL
+		GOL = { add_historical_friend = GEN }
+		VEN = { country_event = { id = vef_tradewars.3 days = 3 }}
+	}
+}
+
+# Defeat!
+country_event = {
+	id = vef_tradewars.3
+	title = "vef_tradewars.3.t"
+	desc = "vef_tradewars.3.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_tradewars.3.opta"
+		add_prestige = -25
+	}
+}
+
+# Time's Up
+country_event = {
+	id = vef_tradewars.4
+	title = "vef_tradewars.4.t"
+	desc = "vef_tradewars.4.d"
+	picture = VEF_COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	hidden = yes
+	
+	trigger = {
+		tag = VEN
+		is_year = 1400
+	}
+	
+	option = {
+		name = "vef_tradewars.4.opta"
+		if = {
+			limit = {
+				NOT = { has_global_flag = black_trade_wars_over }
+				NOT = { check_variable = { which = black_trade_power value = 90 }}
+				NOT = { GEN = { check_variable = { which = black_trade_power value = 90 }}}
+			}
+			country_event = { id = vef_tradewars.5 }
+			GEN = { country_event = { id = vef_tradewars.5 }}
+			set_global_flag = black_trade_wars_over
+		}
+	}
+}
+
+# Notification - Time's Up
+country_event = {
+	id = vef_tradewars.5
+	title = "vef_tradewars.5.t"
+	desc = "vef_tradewars.5.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_tradewars.5.opta"
+		set_variable = { which = black_trade_power value = 0 }
+	}
+}
+
+#########
+# Chios #
+#########
+
+# Byzantines End Lease
+country_event = {
+	id = vef_tradewars.10
+	title = "vef_tradewars.10.t"
+	desc = "vef_tradewars.10.d"
+	picture = VEF_COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = GEN
+		OR = {
+			war_with = BYZ
+			is_year = 1329
+		}
+		NOT = { is_year = 1330 }
+	}
+	
+	immediate = { 592 = { add_core = BYZ }}
+	
+	option = {	#Abandon Province
+		ai_chance = { factor = 100 }
+		name = "vef_tradewars.10.opta"
+		592 = { cede_province = BYZ add_local_autonomy = 50 }
+	}
+	
+	option = {	#No, it is ours.
+		ai_chance = { factor = 0 }
+		name = "vef_tradewars.10.optb"
+		custom_tooltip = tt_chios_lease
+	}
+}
+
+# Genoese Maona
+country_event = {
+	id = vef_tradewars.11
+	title = "vef_tradewars.11.t"
+	desc = "vef_tradewars.11.d"
+	picture = VEF_COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = GEN
+		592 = {
+			owns_or_vassal_of = BYZ
+			is_core = GEN
+		}
+		BYZ = { has_country_modifier = byzantine_decline1 }
+		is_year = 1345
+		NOT = { is_year = 1350 }
+	}
+	
+	option = {	#Approve the venture
+		ai_chance = { factor = 75 }
+		name = "vef_tradewars.11.opta"
+		BYZ = { country_event = { id = vef_tradewars.12 days = 365 }}
+	}
+	
+	option = {	#Invest in the venture
+		ai_chance = { factor = 25 }
+		name = "vef_tradewars.11.optb"
+		add_years_of_income = -0.1
+		BYZ = { country_event = { id = vef_tradewars.12 days = 365 }}
+		set_country_flag = chios_investment
+	}
+	
+	option = {	#No, it is too risky
+		ai_chance = { factor = 0 }
+		name = "vef_tradewars.11.optb"
+		592 = { remove_core = GEN }
+	}
+}
+
+# Genoese Retake Chios
+country_event = {
+	id = vef_tradewars.12
+	title = "vef_tradewars.12.t"
+	desc = "vef_tradewars.12.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes #vef_tradewars.11
+	
+	immediate = {
+		592 = { cede_province = GEN }
+		GEN = { country_event = { id = vef_tradewars.13 }}
+	}
+	
+	option = {
+		ai_chance = { factor = 50 }
+		name = "vef_tradewars.12.opta"
+		592 = { remove_core = BYZ }
+	}
+	
+	option = {
+		trigger = { NOT = { has_country_modifier = byzantine_decline1 }}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_at_war = yes
+			}
+		}
+		name = "vef_tradewars.12.optb"
+		declare_war_with_cb = {
+			who = GEN
+			casus_belli = cb_core
+		}
+	}
+}
+
+# Genoese Retake Chios - Inform Genoa
+country_event = {
+	id = vef_tradewars.13
+	title = "vef_tradewars.13.t"
+	desc = "vef_tradewars.13.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes #vef_tradewars.12
+
+	option = {
+		name = "vef_tradewars.13.opta"
+		592 = {
+			if = {
+				limit = { NOT = { GEN = { has_country_flag = chios_investment }}}
+				add_province_modifier = { name = chios_maona duration = -1 }
+			}
+			add_province_modifier = { name = trade_post_modifier duration = -1 }
+		}
+	}
+}
+
+# Changeover Event
+country_event = {
+	id = vef_tradewars.20
+	title = "vef_tradewars.20.t"
+	desc = "vef_tradewars.20.d"
+	picture = VEF_COURT_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = VEN
+				has_country_flag = venice_ahead_trade_war_med
+				NOT = { check_variable = { which = med_trade_power value = 5 }}
+			}
+			AND = {
+				tag = GEN
+				has_country_flag = genoa_ahead_trade_war_med
+				NOT = { check_variable = { which = med_trade_power value = 5 }}
+			}
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = med_trade_power value = 0 }
+			clr_country_flag = venice_ahead_trade_war_med
+			clr_country_flag = genoa_ahead_trade_war_med
+		}
+	}
+	
+	option = {
+		trigger = { tag = VEN }
+		name = "vef_tradewars.20.opta"
+		add_prestige = -5
+		GEN = { set_variable = { which = med_trade_power  value = 10 } set_country_flag = genoa_ahead_trade_war_med}
+	}
+	
+	option = {
+		trigger = { tag = GEN }
+		name = "vef_tradewars.20.opta"
+		add_prestige = -5
+		VEN = { set_variable = { which = med_trade_power  value = 10 } set_country_flag = venice_ahead_trade_war_med }
+	}
+}
+# Victory!
+country_event = {
+	id = vef_tradewars.21
+	title = "vef_tradewars.21.t"
+	desc = "vef_tradewars.21.d"
+	picture = VEF_COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = GEN
+			tag = VEN
+		}
+		NOT = { has_global_flag = med_trade_wars_over }
+		check_variable = { which = med_trade_power value = 100 }
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = med_trade_power value = 0 }
+			clr_country_flag = genoa_ahead_trade_war_med
+			clr_country_flag = venice_ahead_trade_war_med
+			set_global_flag = med_trade_wars_over
+		}
+		capital_scope = { add_center_of_trade_level = 1 }
+	}
+	
+	option = {
+		trigger = { tag = VEN }
+		name = "vef_tradewars.21.opta"
+		add_prestige = 10
+		add_country_modifier = {
+			name = med_trade_war_victor
+			duration = -1
+		}
+		add_historical_friend = MAM
+		MAM = { add_historical_friend = VEN }
+		GEN = { country_event = { id = vef_tradewars.22 days = 3 }}
+	}
+	
+	option = {
+		trigger = { tag = GEN }
+		name = "vef_tradewars.21.opta"
+		add_prestige = 10
+		add_country_modifier = {
+			name = med_trade_war_victor
+			duration = -1
+		}
+		add_historical_friend = MAM
+		MAM = { add_historical_friend = GEN }
+		VEN = { country_event = { id = vef_tradewars.22 days = 3 }}
+	}
+}
+
+# Defeat!
+country_event = {
+	id = vef_tradewars.22
+	title = "vef_tradewars.22.t"
+	desc = "vef_tradewars.22.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_tradewars.22.opta"
+		add_prestige = -25
+	}
+}
+
+# Time's Up
+country_event = {
+	id = vef_tradewars.23
+	title = "vef_tradewars.23.t"
+	desc = "vef_tradewars.23.d"
+	picture = VEF_COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	hidden = yes
+	
+	trigger = {
+		tag = VEN
+		is_year = 1450
+	}
+	
+	option = {
+		name = "vef_tradewars.23.opta"
+		if = {
+			limit = {
+				NOT = { has_global_flag = med_trade_wars_over }
+				NOT = { check_variable = { which = med_trade_power value = 90 }}
+				NOT = { GEN = { check_variable = { which = med_trade_power value = 90 }}}
+			}
+			country_event = { id = vef_tradewars.24 }
+			GEN = { country_event = { id = vef_tradewars.24 }}
+			set_global_flag = med_trade_wars_over
+		}
+	}
+}
+
+# Notification - Time's Up
+country_event = {
+	id = vef_tradewars.24
+	title = "vef_tradewars.24.t"
+	desc = "vef_tradewars.24.d"
+	picture = VEF_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_tradewars.24.opta"
+		set_variable = { which = med_trade_power value = 0 }
+	}
+}
+
+#######################
+# Maintenance Routine #
+#######################
+
+#Black Sea
+country_event = {
+	id = vef_tradewars.90000
+	title = "vef_tradewars.90000.t"
+	desc = "vef_tradewars.90000.d"
+	picture = VEF_ADMIN_CAPACITY_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		tag = VEN
+		NOT = { has_global_flag = black_trade_wars_over }
+	}
+
+	immediate =  {
+		if = {
+			limit = { VEN = { check_variable = { which = black_trade_power value = 5 }} }
+			if = {
+				limit = { 640 = { owned_by = VEN } } # Kaffa
+				VEN = { change_variable = { which = black_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 641 = { owned_by = VEN } } # Anapa
+				VEN = { change_variable = { which = black_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 592 = { owned_by = VEN } } # Chios
+				VEN = { change_variable = { which = black_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { VEN = { owns_or_vassal_of = 578 } } # Naxos
+				VEN = { change_variable = { which = black_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 580 = { owned_by = VEN } } # Euboea
+				VEN = { change_variable = { which = black_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 643 = { owned_by = VEN } } # Azov
+				VEN = { change_variable = { which = black_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 588 = { has_trader = VEN }}
+				VEN = { change_variable = { which = black_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 588 = { is_strongest_trade_power = VEN }}
+				VEN = { change_variable = { which = black_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 640 = { owned_by = GEN } } # Kaffa
+				VEN = { change_variable = { which = black_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 641 = { owned_by = GEN } } # Anapa
+				VEN = { change_variable = { which = black_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 592 = { owned_by = GEN } } # Chios
+				VEN = { change_variable = { which = black_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { GEN = { owns_or_vassal_of = 592 } } # Naxos
+				VEN = { change_variable = { which = black_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 580 = { owned_by = GEN } } # Euboea
+				VEN = { change_variable = { which = black_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 643 = { owned_by = GEN } } # Azov
+				VEN = { change_variable = { which = black_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 588 = { has_trader = GEN }}
+				VEN = { change_variable = { which = black_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 588 = { is_strongest_trade_power = GEN }}
+				VEN = { change_variable = { which = black_trade_power value = -0.1 } }
+			}
+		}
+
+		if = {
+			limit = { GEN = { check_variable = { which = black_trade_power value = 5 }} }
+			if = {
+				limit = { 640 = { owned_by = VEN } } # Kaffa
+				GEN = { change_variable = { which = black_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 641 = { owned_by = VEN } } # Anapa
+				GEN = { change_variable = { which = black_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 592 = { owned_by = VEN } } # Chios
+				GEN = { change_variable = { which = black_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { VEN = { owns_or_vassal_of = 578 } } # Naxos
+				GEN = { change_variable = { which = black_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 580 = { owned_by = VEN } } # Euboea
+				GEN = { change_variable = { which = black_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 643 = { owned_by = VEN } } # Azov
+				GEN = { change_variable = { which = black_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 588 = { has_trader = VEN }}
+				GEN = { change_variable = { which = black_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 588 = { is_strongest_trade_power = VEN }}
+				GEN = { change_variable = { which = black_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 640 = { owned_by = GEN } } # Kaffa
+				GEN = { change_variable = { which = black_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 641 = { owned_by = GEN } } # Anapa
+				GEN = { change_variable = { which = black_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 592 = { owned_by = GEN } } # Chios
+				GEN = { change_variable = { which = black_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { GEN = { owns_or_vassal_of = 578 } } # Naxos
+				GEN = { change_variable = { which = black_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 580 = { owned_by = GEN } } # Euboea
+				GEN = { change_variable = { which = black_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 643 = { owned_by = GEN } } # Azov
+				GEN = { change_variable = { which = black_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 588 = { has_trader = GEN }}
+				GEN = { change_variable = { which = black_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 588 = { is_strongest_trade_power = GEN }}
+				GEN = { change_variable = { which = black_trade_power value = 0.1 } }
+			}
+		}
+	}
+
+	option = {
+		name = "vef_tradewars.90000.opta"
+	}
+}
+
+#Mediterranean Sea
+country_event = {
+	id = vef_tradewars.90001
+	title = "vef_tradewars.90001.t"
+	desc = "vef_tradewars.90001.d"
+	picture = VEF_ADMIN_CAPACITY_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		tag = VEN
+		NOT = { has_global_flag = med_trade_wars_over }
+	}
+
+	immediate =  {
+		if = {
+			limit = { VEN = { check_variable = { which = med_trade_power value = 5 }} }
+			if = {
+				limit = { VEN = { owns_or_vassal_of = 618 } } # Cyprus
+				VEN = { change_variable = { which = med_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 577 = { owned_by = VEN } } # Crete
+				VEN = { change_variable = { which = med_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = {
+					OR = {
+						205 = { owned_by = VEN }	#Sardinia
+						206 = { owned_by = VEN }
+						207 = { owned_by = VEN }
+						208 = { owned_by = VEN }
+					}
+				}
+				VEN = { change_variable = { which = med_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = {
+					OR = {
+						210 = { owned_by = VEN }	#Sicily
+						211 = { owned_by = VEN }
+						212 = { owned_by = VEN }
+						213 = { owned_by = VEN }
+					}
+				}
+				VEN = { change_variable = { which = med_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 1635 = { has_trader = VEN }}
+				VEN = { change_variable = { which = med_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 1635 = { owns_or_vassal_of = VEN } } # Alexandria
+				VEN = { change_variable = { which = med_trade_power value = 0.2 } }
+			}
+			if = {
+				limit = { 1641 = { owns_or_vassal_of = VEN } } # Tripoli
+				VEN = { change_variable = { which = med_trade_power value = 0.2 } }
+			}
+			if = {
+				limit = { 212 = { is_strongest_trade_power = VEN }}
+				VEN = { change_variable = { which = med_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { GEN = { owns_or_vassal_of = 618 } } # Cyprus
+				VEN = { change_variable = { which = med_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 577 = { owned_by = GEN } } # Crete
+				VEN = { change_variable = { which = med_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = {
+					OR = {
+						205 = { owned_by = GEN }	#Sardinia
+						206 = { owned_by = GEN }
+						207 = { owned_by = GEN }
+						208 = { owned_by = GEN }
+					}
+				}
+				VEN = { change_variable = { which = med_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = {
+					OR = {
+						210 = { owned_by = GEN }	#Sicily
+						211 = { owned_by = GEN }
+						212 = { owned_by = GEN }
+						213 = { owned_by = GEN }
+					}
+				}
+				VEN = { change_variable = { which = med_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 1635 = { has_trader = GEN }}
+				VEN = { change_variable = { which = med_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 1635 = { owns_or_vassal_of = GEN } } # Alexandria
+				VEN = { change_variable = { which = med_trade_power value = -0.2 } }
+			}
+			if = {
+				limit = { 1641 = { owns_or_vassal_of = GEN } } # Tripoli
+				VEN = { change_variable = { which = med_trade_power value = -0.2 } }
+			}
+			if = {
+				limit = { 212 = { is_strongest_trade_power = GEN }}
+				VEN = { change_variable = { which = med_trade_power value = -0.1 } }
+			}
+		}
+		if = {
+			limit = { GEN = { check_variable = { which = med_trade_power value = 5 }} }
+			if = {
+				limit = { GEN = { owns_or_vassal_of = 618 } } # Cyprus
+				GEN = { change_variable = { which = med_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 577 = { owned_by = GEN } } # Crete
+				GEN = { change_variable = { which = med_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = {
+					OR = {
+						205 = { owned_by = GEN }	#Sardinia
+						206 = { owned_by = GEN }
+						207 = { owned_by = GEN }
+						208 = { owned_by = GEN }
+					}
+				}
+				GEN = { change_variable = { which = med_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = {
+					OR = {
+						210 = { owned_by = GEN }	#Sicily
+						211 = { owned_by = GEN }
+						212 = { owned_by = GEN }
+						213 = { owned_by = GEN }
+					}
+				}
+				GEN = { change_variable = { which = med_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 1635 = { has_trader = GEN }}
+				GEN = { change_variable = { which = med_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { 1635 = { owns_or_vassal_of = GEN } } # Alexandria
+				GEN = { change_variable = { which = med_trade_power value = 0.2 } }
+			}
+			if = {
+				limit = { 1641 = { owns_or_vassal_of = GEN } } # Tripoli
+				GEN = { change_variable = { which = med_trade_power value = 0.2 } }
+			}
+			if = {
+				limit = { 212 = { is_strongest_trade_power = GEN }}
+				GEN = { change_variable = { which = med_trade_power value = 0.1 } }
+			}
+			if = {
+				limit = { VEN = { owns_or_vassal_of = 618 } } # Cyprus
+				GEN = { change_variable = { which = med_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 577 = { owned_by = VEN } } # Crete
+				GEN = { change_variable = { which = med_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = {
+					OR = {
+						205 = { owned_by = VEN }	#Sardinia
+						206 = { owned_by = VEN }
+						207 = { owned_by = VEN }
+						208 = { owned_by = VEN }
+					}
+				}
+				GEN = { change_variable = { which = med_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = {
+					OR = {
+						210 = { owned_by = VEN }	#Sicily
+						211 = { owned_by = VEN }
+						212 = { owned_by = VEN }
+						213 = { owned_by = VEN }
+					}
+				}
+				GEN = { change_variable = { which = med_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 1635 = { has_trader = VEN }}
+				GEN = { change_variable = { which = med_trade_power value = -0.1 } }
+			}
+			if = {
+				limit = { 1635 = { owns_or_vassal_of = VEN } } # Alexandria
+				GEN = { change_variable = { which = med_trade_power value = -0.2 } }
+			}
+			if = {
+				limit = { 1641 = { owns_or_vassal_of = VEN } } # Tripoli
+				GEN = { change_variable = { which = med_trade_power value = -0.2 } }
+			}
+			if = {
+				limit = { 212 = { is_strongest_trade_power = VEN }}
+				GEN = { change_variable = { which = med_trade_power value = -0.1 } }
+			}
+		}
+	}
+
+	option = {
+		name = "vef_tradewars.90001.opta"
+	}
+}
+
+#Display Status - Black Sea
+country_event = {
+	id = vef_tradewars.90002
+	title = "vef_tradewars.90002.t"
+	desc = "vef_tradewars.90002.d"
+	picture = VEF_ADMIN_CAPACITY_eventPicture
+
+	is_triggered_only = yes	#decisions/display_trade_wars or vef_tradewars.90003
+
+	immediate = {
+		VEN = {
+			if = {
+				limit = { 640 = { owned_by = VEN } } # Kaffa
+				custom_tooltip = tradewars_owns_kaffa
+			}
+			if = {
+				limit = { 641 = { owned_by = VEN } } # Anapa
+				custom_tooltip = tradewars_owns_anapa
+			}
+			if = {
+				limit = { 643 = { owned_by = VEN } } # Azov
+				custom_tooltip = tradewars_owns_azov
+			}
+			if = {
+				limit = { 592 = { owned_by = VEN } } # Chios
+				custom_tooltip = tradewars_owns_chios
+			}
+			if = {
+				limit = { 580 = { owned_by = VEN } } # Euboea
+				custom_tooltip = tradewars_owns_euboea
+			}
+			if = {
+				limit = { owns_or_subject_of = 578 } # Naxos
+				custom_tooltip = tradewars_owns_naxos
+			}
+			if = {
+				limit = { 588 = { has_trader = VEN }}
+				custom_tooltip = tradewars_in_constantinople
+			}
+			if = {
+				limit = { 588 = { is_strongest_trade_power = VEN }}
+				custom_tooltip = tradewars_leads_constantinople
+			}
+		}
+		GEN = {
+			if = {
+				limit = { 640 = { owned_by = GEN } } # Kaffa
+				custom_tooltip = tradewars_owns_kaffa
+			}
+			if = {
+				limit = { 641 = { owned_by = GEN } } # Anapa
+				custom_tooltip = tradewars_owns_anapa
+			}
+			if = {
+				limit = { 643 = { owned_by = GEN } } # Azov
+				custom_tooltip = tradewars_owns_azov
+			}
+			if = {
+				limit = { 592 = { owned_by = GEN } } # Chios
+				custom_tooltip = tradewars_owns_chios
+			}
+			if = {
+				limit = { 580 = { owned_by = GEN } } # Euboea
+				custom_tooltip = tradewars_owns_euboea
+			}
+			if = {
+				limit = { owns_or_subject_of = 578 } # Naxos
+				custom_tooltip = tradewars_owns_naxos
+			}
+			if = {
+				limit = { 588 = { has_trader = GEN }}
+				custom_tooltip = tradewars_in_constantinople
+			}
+			if = {
+				limit = { 588 = { is_strongest_trade_power = GEN }}
+				custom_tooltip = tradewars_leads_constantinople
+			}
+		}
+		if = {
+			limit = { 640 = { NOT = { owned_by = GEN } NOT = { owned_by = VEN }}}
+			custom_tooltip = tradewars_open_kaffa
+		}
+		if = {
+			limit = { 641 = { NOT = { owned_by = GEN } NOT = { owned_by = VEN }}}
+			custom_tooltip = tradewars_open_anapa
+		}
+		if = {
+			limit = { 643 = { NOT = { owned_by = GEN } NOT = { owned_by = VEN }}}
+			custom_tooltip = tradewars_open_azov
+		}
+		if = {
+			limit = { 592 = { NOT = { owned_by = GEN } NOT = { owned_by = VEN }}}
+			custom_tooltip = tradewars_open_chios
+		}
+		if = {
+			limit = { 580 = { NOT = { owned_by = GEN } NOT = { owned_by = VEN }}}
+			custom_tooltip = tradewars_open_euboea
+		}
+		if = {
+			limit = {
+				NOT = { VEN = { owns_or_subject_of = 578 }}
+				NOT = { GEN = { owns_or_subject_of = 578 }}
+			}
+			custom_tooltip = tradewars_open_naxos
+		}
+		if = {
+			limit = { 588 = { NOT = { has_trader = GEN } NOT = { has_trader = VEN }}}
+			custom_tooltip = notradewars_in_constantinople
+		}
+		if = {
+			limit = { 588 = { NOT = { is_strongest_trade_power = GEN } NOT = { is_strongest_trade_power = VEN }}}
+			custom_tooltip = tradewars_nolead_constantinople
+		}
+	}
+	option = {
+		trigger = { NOT = { has_global_flag = med_trade_wars_over }}
+		name = "vef_tradewars.90002.opta"
+		country_event = { id = vef_tradewars.90003 }
+	}
+	
+	option = {
+		name = "vef_tradewars.90002.optb"
+	}
+}
+
+#Display Status - Mediterranean
+country_event = {
+	id = vef_tradewars.90003
+	title = "vef_tradewars.90003.t"
+	desc = "vef_tradewars.90003.d"
+	picture = VEF_ADMIN_CAPACITY_eventPicture
+
+	is_triggered_only = yes	#decisions/display_trade_wars or vef_tradewars.90002
+
+	immediate = {
+		VEN = {
+			if = {
+				limit = { owns_or_subject_of = 618 } # Cyprus
+				custom_tooltip = tradewars_owns_cyprus
+			}
+			if = {
+				limit = { 577 = { owned_by = VEN } } # Crete
+				custom_tooltip = tradewars_owns_crete
+			}
+			if = {
+				limit = {
+					OR = {
+						205 = { owned_by = VEN }	#Sardinia
+						206 = { owned_by = VEN }
+						207 = { owned_by = VEN }
+						208 = { owned_by = VEN }
+					}
+				}
+				custom_tooltip = tradewars_owns_sardinia
+			}
+			if = {
+				limit = {
+					OR = {
+						210 = { owned_by = VEN }	#Sicily
+						211 = { owned_by = VEN }
+						212 = { owned_by = VEN }
+						213 = { owned_by = VEN }
+					}
+				}
+				custom_tooltip = tradewars_owns_sicily
+			}
+			if = {
+				limit = { 1635 = { has_trader = VEN }}
+				custom_tooltip = tradewars_in_alexandria
+			}
+			if = {
+				limit = { owns_or_subject_of = 1641 } # Tripoli
+				custom_tooltip = tradewars_owns_tripoli
+			}
+			if = {
+				limit = { 212 = { is_strongest_trade_power = VEN }}
+				custom_tooltip = tradewars_leads_sicily
+			}
+		}
+		GEN = {
+			if = {
+				limit = { owns_or_subject_of = 618 } # Cyprus
+				custom_tooltip = tradewars_owns_cyprus
+			}
+			if = {
+				limit = { 577 = { owned_by = GEN } } # Crete
+				custom_tooltip = tradewars_owns_crete
+			}
+			if = {
+				limit = {
+					OR = {
+						205 = { owned_by = GEN }	#Sardinia
+						206 = { owned_by = GEN }
+						207 = { owned_by = GEN }
+						208 = { owned_by = GEN }
+					}
+				}
+				custom_tooltip = tradewars_owns_sardinia
+			}
+			if = {
+				limit = {
+					OR = {
+						210 = { owned_by = GEN }	#Sicily
+						211 = { owned_by = GEN }
+						212 = { owned_by = GEN }
+						213 = { owned_by = GEN }
+					}
+				}
+				custom_tooltip = tradewars_owns_sicily
+			}
+			if = {
+				limit = { 1635 = { has_trader = GEN }}
+				custom_tooltip = tradewars_in_alexandria
+			}
+			if = {
+				limit = { owns_or_subject_of = 1641 } # Tripoli
+				custom_tooltip = tradewars_owns_tripoli
+			}
+			if = {
+				limit = { 212 = { is_strongest_trade_power = GEN }}
+				custom_tooltip = tradewars_leads_sicily
+			}
+		}
+		if = {
+			limit = {
+				NOT = { VEN = { owns_or_subject_of = 618 }}
+				NOT = { GEN = { owns_or_subject_of = 618 }}
+			}
+			custom_tooltip = tradewars_open_cyprus
+		}
+		if = {
+			limit = {
+				NOT = { 577 = { owned_by = VEN }}
+				NOT = { 577 = { owned_by = GEN }}
+			}
+			custom_tooltip = tradewars_open_crete
+		}
+		if = {
+			limit = {
+				205 = { NOT = { owned_by = VEN } NOT = { owned_by = GEN }}
+				206 = { NOT = { owned_by = VEN } NOT = { owned_by = GEN }}
+				207 = { NOT = { owned_by = VEN } NOT = { owned_by = GEN }}
+				208 = { NOT = { owned_by = VEN } NOT = { owned_by = GEN }}
+			}
+			custom_tooltip = tradewars_open_sardinia
+		}
+		if = {
+			limit = {
+				210 = { NOT = { owned_by = VEN } NOT = { owned_by = GEN }}
+				211 = { NOT = { owned_by = VEN } NOT = { owned_by = GEN }}
+				212 = { NOT = { owned_by = VEN } NOT = { owned_by = GEN }}
+				213 = { NOT = { owned_by = VEN } NOT = { owned_by = GEN }}
+			}
+			custom_tooltip = tradewars_open_sicily
+		}	
+		if = {
+			limit = { 1635 = { NOT = { has_trader = GEN } NOT = { has_trader = VEN }}}
+			custom_tooltip = notradewars_in_alexandria
+		}
+		if = {
+			limit = { GEN = { owns_or_subject_of = 1635 } } # Alexandria
+			GEN = { custom_tooltip = tradewars_owns_alexandria }
+		}
+		if = {
+			limit = { VEN = { owns_or_subject_of = 1635 } } # Alexandria
+			VEN = { custom_tooltip = tradewars_owns_alexandria }
+		}
+		if = {
+			limit = {
+				NOT = { VEN = { owns_or_subject_of = 1635 }}
+				NOT = { GEN = { owns_or_subject_of = 1635 }}
+			}
+			custom_tooltip = tradewars_open_alexandria
+		}
+		if = {
+			limit = {
+				NOT = { VEN = { owns_or_subject_of = 1641 }}
+				NOT = { GEN = { owns_or_subject_of = 1641 }}
+			}
+			custom_tooltip = tradewars_open_tripoli
+		}
+		if = {
+			limit = { 212 = { NOT = { is_strongest_trade_power = GEN } NOT = { is_strongest_trade_power = VEN }}}
+			custom_tooltip = tradewars_nolead_sicily
+		}
+	}
+	option = {
+		name = "vef_tradewars.90003.opta"
+		trigger = { NOT = { has_global_flag = black_trade_wars_over }}
+		country_event = { id = vef_tradewars.90002 }
+	}
+	
+	option = {
+		name = "vef_tradewars.90003.optb"
+	}
+}

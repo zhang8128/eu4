@@ -1,0 +1,32 @@
+# Pronsk
+
+capital = "Pronsk"
+owner = GOL
+controller = GOL
+add_core = GOL
+add_core = RYA
+culture = russian
+religion = orthodox
+trade_goods = grain
+base_tax = 1
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1483.1.1	= { owner = RYA controller = RYA }
+1500.1.1   = { citysize = 4149 }
+1502.6.1   = { owner = CRI controller = CRI add_core = CRI remove_core = GOL } # Golden Horde destroyed by Crimea
+1550.1.1   = { citysize = 4881 } 
+1572.8.2   = {	owner = RUS controller = RUS add_core = RUS remove_core = CRI } # Battle of Molodi
+1600.1.1   = { citysize = 5742 }
+1650.1.1   = { citysize = 6755 culture = russian religion = orthodox }
+1700.1.1   = { citysize = 7948 }
+1750.1.1   = { citysize = 9350 }
+1800.1.1   = { citysize = 11000 }

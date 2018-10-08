@@ -1,0 +1,864 @@
+crus_anatolia_missions = {
+	slot = 1
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		has_country_flag = crusader_state
+		NOT = { tag = KNI }
+	}
+	has_country_shield = no
+	
+	crus_smyrniote_crusade = {
+		icon = mission_sea_battles
+		required_missions = {  } #None
+		provinces_to_highlight = {
+			province_id = 593
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			593 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			586 = { add_permanent_claim = ROOT }
+			aydin_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			
+		}
+	}
+	
+	crus_galipoli = {
+		icon = mission_invade_island
+		required_missions = { crus_smyrniote_crusade }
+		position = 2
+		provinces_to_highlight = {
+			province_id = 586
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			586 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			587 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	crus_adrianople = {
+		icon = mission_conquer_50_development
+		required_missions = { crus_galipoli }
+		position = 3
+		provinces_to_highlight = {
+			province_id = 587
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			587 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			thrace_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	crus_restore_empire = {
+		icon = mission_empire
+		required_missions = { crus_adrianople }
+		position = 4
+		provinces_to_highlight = {
+			province_id = 588
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			588 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			if = {
+				limit = { NOT = { tag = CYP }}
+				change_tag = LAE
+			}
+			morea_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			northern_greece_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}	
+	}
+}
+
+crus_levant_missions = {
+	slot = 3
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		has_country_flag = crusader_state
+		NOT = { tag = CYP }
+	}
+	has_country_shield = no
+	
+	crus_coastal_enclave = {
+		icon = mission_invade_island
+		required_missions = {  } #None
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1610
+				province_id = 1611
+				province_id = 1612
+				province_id = 1617
+				province_id = 1618
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			OR = {
+				1610 = { country_or_non_sovereign_subject_holds = ROOT }
+				1611 = { country_or_non_sovereign_subject_holds = ROOT }
+				1612 = { country_or_non_sovereign_subject_holds = ROOT }
+				1617 = { country_or_non_sovereign_subject_holds = ROOT }
+				1618 = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						1610 = { country_or_non_sovereign_subject_holds = ROOT }
+						1611 = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+				}
+				set_country_flag = crus_mission_restore_jerusalem
+				1609 = { add_permanent_claim = ROOT }
+				1610 = { add_permanent_claim = ROOT }
+				1611 = { add_permanent_claim = ROOT }
+			}
+			if = {
+				limit = {
+					OR = {
+						1612 = { country_or_non_sovereign_subject_holds = ROOT }
+						1617 = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+				}
+				set_country_flag = crus_mission_restore_tripoli
+				1612 = { add_permanent_claim = ROOT }
+				1617 = { add_permanent_claim = ROOT }
+			}
+			
+			if = {
+				limit = { 1618 = { country_or_non_sovereign_subject_holds = ROOT }}
+				set_country_flag = crus_mission_restore_antioch
+				1619 = { add_permanent_claim = ROOT }
+				1620 = { add_permanent_claim = ROOT }
+			}
+		}
+	}
+	
+	crus_crusader_state = {
+		icon = mission_unite_home_region
+		required_missions = { crus_coastal_enclave }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					ROOT = { has_country_flag = crus_mission_restore_jerusalem }
+					OR = {
+						province_id = 1609
+						province_id = 1610
+						province_id = 1611
+					}
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+			}
+			OR = {
+				AND = {
+					ROOT = { has_country_flag = crus_mission_restore_tripoli }
+					OR = {
+						province_id = 1612
+						province_id = 1617
+					}
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+			}
+			OR = {
+				AND = {
+					ROOT = { has_country_flag = crus_mission_restore_antioch }
+					OR = {
+						province_id = 1618
+						province_id = 1619
+						province_id = 1620
+					}
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = tt_restore_state
+				OR = {
+					AND = {
+						has_country_flag = crus_mission_restore_jerusalem
+						1609 = { country_or_non_sovereign_subject_holds = ROOT }
+						1610 = { country_or_non_sovereign_subject_holds = ROOT }
+						1611 = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+				}
+				OR = {
+					AND = {
+						has_country_flag = crus_mission_restore_tripoli
+						1612 = { country_or_non_sovereign_subject_holds = ROOT }
+						1617 = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+				}
+				OR = {
+					AND = {
+						has_country_flag = crus_mission_restore_antioch
+						1608 = { country_or_non_sovereign_subject_holds = ROOT }
+						1619 = { country_or_non_sovereign_subject_holds = ROOT }
+						1620 = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+				}
+			}
+		}
+		effect = {
+			aleppo_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			palestine_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			syria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+					NOT = { province_id = 1613 }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	crus_all_states = {
+		icon = mission_assemble_an_army
+		required_missions = { crus_crusader_state }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = aleppo_area
+				area = palestine_area
+				area = syria_area
+			}
+			NOT = { province_id = 1613 }
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			aleppo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			palestine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1612 = { country_or_non_sovereign_subject_holds = ROOT }
+			1617 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			1607 = { add_permanent_claim = ROOT }
+			1608 = { add_permanent_claim = ROOT }
+			1613 = { add_permanent_claim = ROOT }
+			rakka_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			dulkadir_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+crus_egypt_missions = {
+	slot = 4
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		has_country_flag = crusader_state
+	}
+	has_country_shield = no
+	
+	crus_alexandrian_crusade = {
+		icon = mission_triumphal_entry
+		required_missions = {  } #None
+		provinces_to_highlight = {
+			province_id = 1635
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			1635 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			gharbia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	crus_egypt_coast = {
+		icon = mission_conquer_5_states
+		required_missions = { crus_alexandrian_crusade }
+		position = 2
+		provinces_to_highlight = {
+			area = gharbia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			gharbia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			central_egypt_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	crus_cairo = {
+		icon = mission_pyramids
+		required_missions = { crus_egypt_coast }
+		position = 3
+		provinces_to_highlight = {
+			area = central_egypt_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			central_egypt_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			upper_egypt_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			libyan_desert_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			sharqiya_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+crus_barbary_missions = {
+	slot = 5
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		has_country_flag = crusader_state
+	}
+	has_country_shield = no
+	
+	crus_barbary_crusade = {
+		icon = mission_arch
+		required_missions = {  } #None
+		provinces_to_highlight = {
+			province_id = 1647
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			1647 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			1644 = { add_permanent_claim = ROOT }
+			tripolitania_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	crus_tripoli_coast = {
+		icon = mission_invade_island
+		required_missions = { crus_barbary_crusade }
+		position = 2
+		provinces_to_highlight = {
+			area = tripolitania_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tripolitania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			tunisia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	crus_tunis = {
+		icon = mission_cannons_firing
+		required_missions = { crus_tripoli_coast }
+		position = 3
+		provinces_to_highlight = {
+			area = tunisia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tunisia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			kabylia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			algiers_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+kni_anatolia_missions = {
+	slot = 1
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = KNI
+		capital_scope = { region = anatolia_region }
+	}
+	has_country_shield = yes
+	
+	kni_smyrniote_crusade = {
+		icon = mission_sea_battles
+		required_missions = {  } #None
+		provinces_to_highlight = {
+			province_id = 593
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			593 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			aydin_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	kni_aydin = {
+		icon = mission_cannons_firing
+		required_missions = { kni_smyrniote_crusade }
+		position = 2
+		provinces_to_highlight = {
+			area = aydin_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			aydin_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			karesi_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hudavendigar_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	kni_tongues = {
+		icon = mission_war_chest
+		required_missions = { } #None
+		position = 3
+		trigger = {
+			capital_scope = { has_province_modifier = kosj_fort9 }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "army_enthusiasm"
+				duration = 18250 #50 years
+			}
+		}
+	}
+	
+	kni_secure_mediterranean = {
+		icon = mission_sea_battles
+		required_missions = { kni_tongues kni_turks }
+		position = 4
+		provinces_to_highlight = {
+			sea_zone = { region = mediterrenean_region NOT = { area = black_sea_area }}
+			owner = { religion_group = muslim }
+		}
+		trigger = {
+			NOT = {
+				any_province = {
+					sea_zone = { region = mediterrenean_region NOT = { area = black_sea_area }}
+					owner = { religion_group = muslim }
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = { name = successful_crusade duration = -1 }
+		}	
+	}
+}
+
+kni_anatolia_2_missions = {
+	slot = 2
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = KNI
+		capital_scope = { region = anatolia_region }
+	}
+	has_country_shield = yes
+	
+	kni_bodrum_castle = {
+		icon = mission_conquer_50_development
+		required_missions = {  } #None
+		provinces_to_highlight = {
+			province_id = 595
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			595 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			mentese_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	kni_mentese = {
+		icon = mission_assemble_an_army
+		required_missions = { kni_bodrum_castle }
+		position = 2
+		provinces_to_highlight = {
+			area = mentese_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			mentese_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			hamid_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			karaman_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	kni_turks = {
+		icon = mission_conquer_5_states
+		required_missions = { kni_aydin kni_mentese }
+		position = 3
+		provinces_to_highlight = {
+			owner = { primary_culture = turkish }
+		}
+		trigger = {
+			NOT = { any_known_country = { primary_culture = turkish }}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "naval_enthusiasm_mission"
+				duration = 9125 #25 years
+			}
+		}
+	}
+}
+
+cyp_anatolia_syria_missions = {
+	slot = 2
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = CYP
+	}
+	has_country_shield = yes
+	
+	cyp_alanye = {
+		icon = mission_conquer_50_development
+		required_missions = {  } #None
+		completed_by = 1361.8.24
+		provinces_to_highlight = {
+			province_id = 616
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			616 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			cilicia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cyp_cilicia = {
+		icon = mission_invade_island
+		required_missions = { cyp_alanye }
+		position = 2
+		provinces_to_highlight = {
+			area = cilicia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			cilicia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			hamid_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			karaman_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cyp_antioch = {
+		icon = mission_conquer_5_states
+		required_missions = { cyp_all_koj }
+		position = 3
+		provinces_to_highlight = {
+			area = aleppo_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			aleppo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			rakka_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			dulkadir_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+cyp_jerusalem_missions = {
+	slot = 3
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = CYP
+	}
+	has_country_shield = yes
+	
+	cyp_jerusalem = {
+		icon = mission_hands_praying
+		required_missions = {  } #None
+		provinces_to_highlight = {
+			province_id = 1611
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			1611 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			palestine_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cyp_all_koj = {
+		icon = mission_unite_home_region
+		required_missions = { cyp_jerusalem }
+		position = 2
+		provinces_to_highlight = {
+			area = palestine_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			palestine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			syria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			1612 = { add_permanent_claim = ROOT }
+			1617 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	cyp_become_koj = {
+		icon = mission_monarch_in_throne_room
+		required_missions = { cyp_all_koj }
+		position = 3
+		provinces_to_highlight = {
+			area = palestine_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			palestine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				NOT = { nationalism = 1 }
+			}
+		}
+		effect = {
+			change_tag = KOJ
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = KOJ1_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+			1606 = { add_claim = ROOT }
+			1607 = { add_permanent_claim = ROOT }
+			1608 = { add_permanent_claim = ROOT }
+			1613 = { add_claim = ROOT }
+		}
+	}
+}

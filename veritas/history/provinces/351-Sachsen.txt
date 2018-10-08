@@ -1,0 +1,30 @@
+# Sachsen
+
+owner = MEI
+controller = MEI
+culture = uppersaxon
+religion = catholic
+capital = "Meissen"
+trade_goods = iron
+hre = yes
+base_tax = 5
+base_production = 5
+base_manpower = 3
+is_city = yes
+fort_15th = yes
+add_core = MEI
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1   = { base_tax = 4 base_production = 4 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death set_variable = { which = tax_growth value = 75 } set_variable = { which = prod_growth value = 75 }} # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1400.1.1   = { base_tax = 5 base_production = 5 set_variable = { which = tax_growth value = 0 } set_variable = { which = prod_growth value = 0 }}
+1423.1.6  = { owner = SAX controller = SAX add_core = SAX remove_core = MEI capital = "Dresden" } # Incorporated into Saxony
+1531.1.1  = { religion = protestant }
+1589.1.1  = { fort_15th = no fort_16th = yes } # Current structure of Festung Königstein is built
+1790.8.1  = { unrest = 5 } # Peasant revolt
+1791.1.1  = { unrest = 0 }
+1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved

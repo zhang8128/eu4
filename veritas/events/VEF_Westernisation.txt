@@ -1,0 +1,31 @@
+namespace = vef_westernisation
+
+country_event = {
+	id = vef_westernisation.10000
+	title = "vef_westernisation.10000.t"
+	desc = "vef_westernisation.10000.d"
+    picture = "VEF_WESTERNISATION_eventPicture"
+
+	trigger = {
+		has_institution = gunpowder
+		has_institution = animals
+		NOT = { unit_type = western }
+		OR = {
+			technology_group = mesoamerican
+			technology_group = pacific_islander
+			technology_group = south_american
+			technology_group = andean
+			technology_group = tribal_african_tech
+			technology_group = north_american
+		}
+	}
+
+	option ={
+		name = "vef_westernisation.10000.opt"
+		if = {
+			limit = { primitives = yes }
+			change_technology_group = high_american
+		}
+		change_unit_type = western
+	}
+}

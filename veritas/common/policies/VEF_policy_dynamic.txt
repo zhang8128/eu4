@@ -1,0 +1,146 @@
+#VeF Policies Reimagined - Policies that morph over time.
+#aka Operation Guilty Spark
+#aka Policaust
+
+vef_early_inflation = {
+
+	monarch_power = ADM
+	
+	potential = {
+		NOT = { is_year = 1450 }
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = economic_ideas
+			has_idea_group = religious_ideas
+			has_idea_group = innovativeness_ideas
+		}
+		inflation = 2.5
+		NOT = {
+			OR = {
+				has_active_policy = vef_mid_inflation
+				has_active_policy = vef_late_inflation
+			}
+		}
+	}
+	
+	inflation_reduction = 0.02
+	advisor_cost = 0.04
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = { inflation = 1 }
+		}
+		modifier = {
+			factor = 0
+			is_year = 1450
+		}
+		modifier = {
+			factor = 2
+			inflation = 5
+		}
+		modifier = {
+			factor = 2
+			inflation = 10
+		}
+	}
+}
+
+vef_mid_inflation = {
+
+	monarch_power = ADM
+	
+	potential = {
+		is_year = 1450
+		NOT = { is_year = 1650 }
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = economic_ideas
+			has_idea_group = religious_ideas
+			has_idea_group = innovativeness_ideas
+		}
+		inflation = 5
+		NOT = {
+			OR = {
+				has_active_policy = vef_early_inflation
+				has_active_policy = vef_late_inflation
+			}
+		}
+	}
+	
+	inflation_reduction = 0.04
+	global_trade_goods_size_modifier = 0.05
+	advisor_cost = 0.08
+	interest = 1
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = { inflation = 1 }
+		}
+		modifier = {
+			factor = 0
+			is_year = 1650
+		}
+		modifier = {
+			factor = 2
+			inflation = 10
+		}
+		modifier = {
+			factor = 2
+			inflation = 15
+		}
+	}
+}
+
+vef_late_inflation = {
+
+	monarch_power = ADM
+	
+	potential = {
+		is_year = 1650
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = economic_ideas
+			has_idea_group = religious_ideas
+			has_idea_group = innovativeness_ideas
+		}
+		inflation = 10
+		NOT = {
+			OR = {
+				has_active_policy = vef_early_inflation
+				has_active_policy = vef_mid_inflation
+			}
+		}
+	}
+	
+	inflation_reduction = 0.08
+	global_trade_goods_size_modifier = 0.1
+	global_unrest = -1
+	advisor_cost = 0.16
+	interest = 2
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = { inflation = 1 }
+		}
+		modifier = {
+			factor = 2
+			inflation = 15
+		}
+		modifier = {
+			factor = 2
+			inflation = 20
+		}
+	}
+}

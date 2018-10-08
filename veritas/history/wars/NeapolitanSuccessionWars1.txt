@@ -1,0 +1,24 @@
+name = "First Neapolitan Succession War"
+succession = NAP
+war_goal = {
+	type = take_capital_throne
+	casus_belli = cb_claim_throne
+	tag = NAP
+}
+
+1347.3.1 = {
+	add_attacker = HUN
+	add_attacker = CRO
+	add_attacker = KSZ
+	add_defender = NAP
+	add_defender = PRO
+}
+
+#Cut short by the black plague
+1348.4.1 = {
+	rem_attacker = HUN
+	rem_attacker = CRO
+	rem_attacker = KSZ
+	rem_defender = NAP
+	rem_defender = PRO
+}

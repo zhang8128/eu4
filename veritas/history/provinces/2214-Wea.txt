@@ -1,0 +1,48 @@
+# Wea
+
+capital = "Wea"
+native_size = 5
+native_ferocity = 1
+native_hostileness = 6
+culture = illini
+religion = totemism
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+
+discovered_by = north_american
+
+
+1670.1.1  = { discovered_by = FRA } # René-Robert Cavelier claimed the territory
+1732.1.1  = {	owner = FRA
+		controller = FRA
+		culture = cosmopolitan_french
+		religion = catholic
+		citysize = 1750
+	    } # French settlers
+1750.1.1  = {	discovered_by = GBR
+		citysize = 4980
+	    } # Thomas Walker
+1757.1.1  = { add_core = FRA }
+1763.2.10 = {	owner = GBR
+		controller = GBR
+		religion = protestant
+		culture = english
+		remove_core = FRA
+	    } # Treaty of Paris - ceded to Britain, France gave up its claim
+1763.3.1  = { unrest = 6 } # Native discontent with the British rule
+1763.5.1  = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Pontiac's war
+1764.6.1  = { revolt = {} controller = GBR unrest = 0 } # Peace negotiations
+1783.9.3 = {
+		add_core = USA
+		culture = illini
+		religion = totemism
+	    } # Treaty of Paris, GBR abandons but support natives against USA.
+1800.1.1  = { citysize = 5255 }
+1805.1.1  = { owner = USA
+		controller = USA
+		culture = american
+		religion = protestant
+	    } # Treaty of Vincennes and subsequent, Natives cede much of this region

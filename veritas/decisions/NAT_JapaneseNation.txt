@@ -1,0 +1,88 @@
+country_decisions = {
+
+	unite_japan = {
+		major = yes
+		potential = {
+			government = shogunate
+			normal_or_historical_nations = yes
+			capital_scope = { region = japan_region }
+			NOT = { exists = JAP }
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			num_of_owned_provinces_with = {
+				value = 30
+				region = japan_region
+				is_core = ROOT
+				NOT = { nationalism = 1 }
+			}
+		}
+		effect = {
+			country_event = { id = "flavor_jpn.20001" days = 1 }
+			every_subject_country = {
+				limit = { is_subject_of_type = daimyo_vassal }
+				ROOT = { inherit = PREV }
+			}
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 500
+	}
+	
+	# Sakoku
+	enforce_sakoku_law = {
+		potential = {
+			tag = JAP
+			normal_or_historical_nations = yes
+			num_of_cities = 10
+			NOT = { has_country_modifier = sakoku_law }
+			NOT = { has_country_flag = sakoku_law }
+			has_country_modifier = "western_trade"
+		}
+
+		allow = {
+			stability = 2
+			num_of_cities = 20
+			OR = {
+				legitimacy = 75
+				republican_tradition = 75
+			}
+			adm_power = 200
+			mil_power = 200
+			dip_power = 200
+		}
+
+		effect = {
+			every_country = {
+				limit = { culture_group = japanese_group }
+				remove_country_modifier = "western_trade"
+				add_country_modifier = { name = "sakoku_law" duration = -1 }
+				set_country_flag = sakoku_law
+			}
+			set_global_flag = japan_is_closed
+			add_adm_power = -200
+			add_dip_power = -200
+			add_mil_power = -200
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_country_modifier = western_trade
+				NOT = {
+					any_owned_province = {
+						religion = catholic
+						has_missionary = no
+					}
+				}
+			}
+		}
+	}
+
+}

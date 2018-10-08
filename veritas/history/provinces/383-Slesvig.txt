@@ -1,0 +1,38 @@
+# Slesvig
+#Province IDs changed
+
+add_core = SHL
+owner = SHL
+controller = SHL
+culture = lowersaxon
+religion = catholic
+hre = no
+base_tax = 4
+base_production = 4
+trade_goods = grain
+base_manpower = 3
+capital = "Ribe"
+is_city = yes
+citysize = 2800 # Estimated
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1000.1.1   = { add_core = DAN }
+1349.1.1   = { base_tax = 3 base_production = 3 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death set_variable = { which = tax_growth value = 75 } set_variable = { which = prod_growth value = 75 }} # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1400.1.1   = { base_tax = 4 base_production = 4 set_variable = { which = tax_growth value = 75 } set_variable = { which = prod_growth value = 75 }}
+1460.3.5  = { owner = DAN controller = DAN }
+1536.1.1 = { religion = protestant }
+1550.1.1 = { citysize = 4870 }
+1600.1.1 = { citysize = 5500 }
+1644.1.12  = { controller = SWE } #Torstenssons War-Captured by Lennart Torstensson
+1645.8.13  = { controller = SHL } #The Peace of Brömsebro
+1650.1.1 = { citysize = 5980 }
+1657.10.23 = { controller = SWE } #Karl X Gustavs First Danish War-Captured by Wrangel
+1658.2.26  = { owner = SHL controller = SHL } #The Peace of Roskilde
+1700.1.1 = { citysize = 6340 }
+1721.1.1 = { owner = DAN controller = DAN }
+1750.1.1 = { citysize = 7500 }
+1800.1.1 = { citysize = 8100 }

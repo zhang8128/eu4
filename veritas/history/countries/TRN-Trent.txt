@@ -1,0 +1,33 @@
+# Trent
+government = theocracy add_government_reform = leading_clergy_reform
+primary_culture = austrian
+religion = catholic
+technology_group = western
+capital = 267 # Trent
+
+1303.1.1 = {
+	monarch = {
+		name = "Bartholomew Querini"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1310.1.1 = {
+	monarch = {
+		name = "Henry III von Metz"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1338.1.1 = {
+	monarch = {
+		name = "Nikolaus Abrein"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}

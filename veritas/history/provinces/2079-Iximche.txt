@@ -1,0 +1,21 @@
+# Iximche
+
+capital = "Iximché"
+owner = KIC
+controller = KIC
+add_core = KIC
+culture = highland_mayan
+religion = popol
+trade_goods = cocoa
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = mesoamerican
+
+1470.1.1	= { unrest = 0 revolt = { type = noble_rebels size = 2 } controller = REB } # Kaqchikel lords withdraws from Kiche kingdom after attempted coup d'etat
+1525.1.1   = { discovered_by = SPA owner = SPA controller = SPA } #Alvarado crushes the last of Guatemala mayans
+1529.1.1   = { culture = castillian religion = catholic } # First settlers
+1552.1.1   = { add_core = SPA }
+1810.9.16  = { owner = MEX add_core = MEX controller = SPA } # Mexican War of Independence

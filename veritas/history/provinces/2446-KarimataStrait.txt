@@ -1,0 +1,4 @@
+# Karimata Strait
+#Province IDs changed
+discovered_by = chinese
+1509.1.1 = { discovered_by = POR }

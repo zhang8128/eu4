@@ -1,0 +1,152 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+primary_culture = wallonian
+religion = catholic
+technology_group = western
+capital = 203	# Luxembourg
+historical_rival = POL
+
+
+1288.6.5 = {
+	monarch = {
+		name = "Henri VII"
+		dynasty = "von Luxemburg"
+		birth_date = 1275.1.1
+		adm = 4
+		dip = 4
+		mil = 4
+	}
+}
+
+1292.7.9 = {
+	queen = {
+		country_of_origin = BRB
+		name = "Margaret"
+		dynasty = "de Reginar"
+		birth_date = 1276.10.4
+		death_date = 1311.12.14
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1296.8.10 = {
+	heir = {
+		name = "John"
+		monarch_name = "John I"
+		dynasty = "von Luxemburg"
+		birth_date = 1296.8.10
+		death_date = 1346.8.26
+		claim = 100
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+}
+
+1313.8.24 = {
+	monarch = {
+		name = "John I"
+		dynasty = "von Luxemburg"
+		birth_date = 1296.8.10
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+	queen = {
+		country_of_origin = BOH
+		name = "Elisabeth"
+		dynasty = "Premyslovci"
+		birth_date = 1292.1.20
+		death_date = 1330.9.28
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1337.2.25 = {
+	heir = {
+		name = "Wenceslaus"
+		monarch_name = "Wenceslaus I"
+		dynasty = "von Luxemburg"
+		birth_date = 1337.2.25
+		death_date = 1383.12.7
+		claim = 100
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+# Personal Union under Bohemia 1346.8.26 
+
+1353.1.1 = {
+	government_rank = 2
+	monarch = {
+		name = "Wenceslaus I"
+		dynasty = "von Luxemburg"
+		birth_date = 1337.2.25
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = BRB
+		name = "Jeanne"
+		dynasty = "de Reginar"
+		birth_date = 1322.6.24
+		death_date = 1406.11.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+# 1383.12.7 - 1388.1.1	Personal Union under Bohemia
+# 1388.1.1 - 1411.1.18	Personal Union under Brandenburg
+
+1411.1.18 = {
+	monarch = {
+		name = "Elisabeth I"
+		dynasty = "von Luxemburg"
+		birth_date = 1390.11.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+	queen = {
+		country_of_origin = BRB
+		name = "Antoine"
+		dynasty = "de Valois"
+		birth_date = 1384.1.1
+		death_date = 1415.10.25
+		female = no
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1418.1.1 = {
+	queen = {
+		country_of_origin = BAV
+		name = "John"
+		dynasty = "von Wittelsbach"
+		birth_date = 1374.1.1
+		death_date = 1425.1.6
+		female = no
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+# 1441 Elisabeth signs a treaty leaving the duchy to Burgundy but they impatiently invade
+# and sieze it two years later.

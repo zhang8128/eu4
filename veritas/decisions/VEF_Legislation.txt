@@ -1,0 +1,184 @@
+country_decisions = {
+
+	#From PDX_Religion
+
+	de_heretico_comburendo_act = {
+		potential = {
+			religion = catholic
+			NOT = { has_country_modifier = de_heretico_comburendo }
+			#reform_desire = 0.10
+			NOT = { government = papal_government }
+			NOT = { government = archbishopric }
+		}
+		allow = {
+			adm_tech = 25
+		}
+		effect = {	
+			add_country_modifier = { name = "de_heretico_comburendo" duration = -1 }			
+			#add_reform_desire = 0.001
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	blasphemy_act = {
+		potential = {
+			religion_group = christian
+			NOT = { religion = orthodox }
+			NOT = { religion = coptic }
+			NOT = { religion = nestorian }
+			NOT = { has_country_modifier = the_blasphemy_act }
+			is_year = 1570
+		}
+
+		allow = { 
+			adm = 3
+		}
+
+		effect = {	
+			add_country_modifier = { name = "the_blasphemy_act" duration = -1 }
+		}
+		ai_will_do = { factor = 1 }
+	}
+	
+	act_of_uniformity = {
+		potential = {
+			religion = anglican
+			NOT = { has_country_modifier = the_act_of_uniformity }
+		}
+		allow = { adm_tech = 28 }
+		effect = {	
+			add_country_modifier = { name = "the_act_of_uniformity" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#	suffragan_bishop_act = {
+#		potential = {
+#			religion = catholic
+#			NOT = { has_country_modifier = the_suffragan_bishop_act }
+#			NOT = { government = papal_government }
+#			NOT = { government = archbishopric }
+#		}
+#		allow = { adm_tech = 28 }
+#		effect = {	
+#			add_country_modifier = { name = "the_suffragan_bishop_act" duration = -1 }
+#		}
+#		ai_will_do = { factor = 0 }
+#	}
+	
+
+	conventicle_act = {
+		potential = {
+			religion_group = christian
+			NOT = {
+				religion = catholic
+				religion = orthodox
+				religion = coptic
+				religion = nestorian
+			}
+			NOT = { has_country_modifier = the_conventicle_act }
+		}
+
+		allow = {
+			adm_tech = 30
+		}
+
+		effect = {	
+			add_country_modifier = { name = "the_conventicle_act" duration = -1 }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	test_act = {
+		potential = {
+			religion_group = christian
+			NOT = {
+				religion = catholic
+				religion = orthodox
+				religion = coptic
+				religion = nestorian
+			}
+			NOT = { has_country_modifier = the_declaration_of_indulgence }
+			NOT = { has_country_modifier = the_test_act }
+		}
+		allow = {
+			adm_tech = 30
+		}
+		effect = {	
+			add_country_modifier = { name = "the_test_act" duration = -1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	popery_act = {
+		potential = {
+			religion = protestant
+			NOT = { has_country_modifier = the_popery_act }
+		}
+		allow = {
+			mil = 3
+			#NOT = { has_opinion = { who = PAP value = 0 } }
+		}
+		effect = {	
+			add_country_modifier = { name = "the_popery_act" duration = -1 }
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	#From PDX_Civic
+
+	abolish_slavery_act = {
+		potential = {
+			is_year = 1700
+			OR = {
+				slaves = 1
+				any_owned_province = { has_building = slavery }
+			}
+			adm_tech = 36
+			NOT = { has_country_modifier = the_abolish_slavery_act }
+		}
+		allow = {
+			dip = 3
+			NOT = { overextension_percentage = 0.02 }
+		}
+		effect = {
+			add_prestige = 5
+			add_country_modifier = { name = innovative_modifier duration = 3650 }
+			add_country_modifier = { name = "the_abolish_slavery_act" duration = -1 }
+			custom_tooltip = abolished_slavery_act_tooltip
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						trade_goods = slaves
+					}
+					change_trade_goods = unknown
+					remove_building = tradecompany
+					if = {
+						limit = { has_province_modifier = slave_entrepot }
+						remove_province_modifier = slave_entrepot
+					}
+				}
+				every_owned_province = {
+					limit = { has_building = slavery }
+					remove_building = slavery
+					add_building = freedom
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { full_idea_group = innovativeness_ideas }
+			}
+		}
+	}
+
+}

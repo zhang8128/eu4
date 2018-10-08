@@ -1,0 +1,23 @@
+# Timaru
+#Province IDs changed
+
+culture = polynesian
+religion = animism
+hre = no
+trade_goods = unknown
+base_manpower = 1
+base_tax = 1
+base_production = 1
+capital = "Christchurch"
+native_size = 10
+native_ferocity = 4
+native_hostileness = 9
+
+1642.1.1 = { discovered_by = NED } # Abel Tasman
+1840.2.6 = {
+	owner = NWZ
+	controller = NWZ
+	add_core = NWZ
+	capital = "Christchurch"
+	change_province_name = "Christchurch"
+	} # Treaty of Waitangi makes New Zealand British Protectorate

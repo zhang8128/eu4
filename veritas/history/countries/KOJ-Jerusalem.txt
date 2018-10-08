@@ -1,0 +1,207 @@
+# Kingdom of Jerusalem
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+primary_culture = greek
+religion = orthodox
+technology_group = byzantine
+historical_rival = BYZ
+historical_rival = MAM
+historical_friend = PER
+capital = 1611 # Jerusalem/Judea
+
+1289.9.12 = {
+	monarch = {
+		name = "Belisarius II"
+		dynasty = "Phokas"
+		birth_date = 1274.1.1
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+}
+
+1289.9.12 = {
+	heir = {
+		name = "Basil"
+		monarch_name = "Basil II"
+		dynasty = "Phokas"
+		birth_date = 1285.1.1
+		death_date = 1358.6.17
+		claim = 100
+		adm = 4
+		dip = 2
+		mil = 2
+	}
+}
+
+1327.1.12 = {
+	monarch = {
+		name = "Basil II"
+		dynasty = "Phokas"
+		birth_date = 1285.1.1
+		adm = 4
+		dip = 2
+		mil = 2
+	}
+}
+
+1327.1.12 = {
+	heir = {
+		name = "Iohannes"
+		monarch_name = "Iohannes I"
+		dynasty = "Phokas"
+		birth_date = 1306.1.1
+		death_date = 1380.9.12
+		claim = 100
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1358.6.17 = {
+	monarch = {
+		name = "Iohannes I"
+		dynasty = "Phokas"
+		birth_date = 1306.1.1
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1368.4.7 = {
+	heir = {
+		name = "Belisarius"
+		monarch_name = "Belisarius IV"
+		dynasty = "Phokas"
+		birth_date = 1368.4.7
+		death_date = 1434.1.1
+		claim = 100
+		adm = 3
+		dip = 4
+		mil = 3
+	}
+}
+
+1380.9.12 = {
+	monarch = {
+		name = "Belisarius III"
+		dynasty = "Phokas"
+		birth_date = 1368.4.7
+		adm = 3
+		dip = 4
+		mil = 3
+	}
+}
+
+1387.9.16 = {
+	heir = {
+		name = "Belisarius"
+		monarch_name = "Belisarius IV"
+		dynasty = "Phokas"
+		birth_date = 1387.9.16
+		death_date = 1449.5.17
+		claim = 100
+		adm = 2
+		dip = 3
+		mil = 3
+	}
+}
+
+1434.1.1 = {
+	monarch = {
+		name = "Belisarius IV"
+		dynasty = "Phokas"
+		adm = 2
+		dip = 3
+		mil = 3
+	}
+}
+
+1434.1.1 = {
+	heir = {
+		name = "Stephanos"
+		monarch_name = "Stephanos I"
+		dynasty = "Phokas"
+		birth_date = 1430.9.16
+		death_date = 1484.8.31
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 5
+	}
+}
+
+1449.5.17 = {
+	monarch = {
+		name = "Stephanos I"
+		dynasty = "Phokas"
+		adm = 2
+		dip = 2
+		mil = 5
+	}
+}
+
+1454.3.17 = {
+	heir = {
+		name = "Belisarius"
+		monarch_name = "Belisarius V"
+		dynasty = "Phokas"
+		birth_date = 1454.3.17
+		death_date = 1492.7.11
+		claim = 100
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+}
+
+1484.8.31 = {
+	monarch = {
+		name = "Belisarius V"
+		dynasty = "Phokas"
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+}
+
+1484.8.31 = {
+	heir = {
+		name = "Basil"
+		monarch_name = "Basil III"
+		dynasty = "Phokas"
+		birth_date = 1472.6.28
+		death_date = 1486.7.3
+		claim = 100
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1486.7.3 = {
+	heir = {
+		name = "Sophia"
+		monarch_name = "Sophia I"
+		dynasty = "Phokas"
+		birth_date = 1475.2.18
+		death_date = 1517.12.4
+		claim = 80
+		adm = 5
+		dip = 4
+		mil = 2
+	}
+}
+
+1492.7.11 = {
+	monarch = {
+		name = "Sophia I"
+		dynasty = "Phokas"
+		adm = 5
+		dip = 4
+		mil = 2
+	}
+}

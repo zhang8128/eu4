@@ -1,0 +1,57 @@
+# If you add advisortypes, and use those tags, do not change them without changing everywhere they are used.
+#
+# Additional arguments: allow_only_male/allow_only_female
+#
+# Uses all 'modifiers' possible that are exported as a Modifier.
+
+# Note that ai_will_do calculates a priority.
+# An advisor may be chosen over another if its random priority exceeds it. RandomPriority(advisor) := rand[1, 2[ * Priority(advisor).
+
+######################################################
+# Administrative Advisors
+######################################################
+
+######################################################
+
+architect = {
+	monarch_power = ADM
+	
+	# Bonus
+	build_cost = -0.10
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			owns = 269
+			269 = { has_building = arsenale_fifth }
+			OR = {
+				tag = VEN
+				has_country_flag = ven_formed_italy
+			}
+		}
+	}
+}
+
+composer = {
+	monarch_power = DIP
+	
+	# Bonus
+	prestige_decay = -0.005
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}

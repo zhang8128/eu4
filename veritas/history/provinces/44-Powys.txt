@@ -1,0 +1,44 @@
+# Powys
+
+capital = "Carmarthen"
+owner = ENG
+controller = ENG
+add_core = ENG
+add_core = WLS
+culture = welsh
+religion = catholic
+trade_goods = wool
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+hre = no
+basic_fort = yes
+estate = vef_welsh_estate
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+set_local_autonomy = 30
+set_province_flag = starting_fort
+
+1349.1.1	= { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1	= { remove_province_modifier = province_black_death }
+1400.1.1	= { owner = WLS controller = WLS } # Welsh independence under Owain Glyndwr
+1415.1.1	= { owner = ENG controller = ENG } # English Rule Restored
+1453.1.1	= { unrest = 5 } # Start of the War of the Roses (minor conflicts )
+1459.1.1 	= { owner = LAN controller = LAN add_core = LAN } # War breaks out
+1471.5.4	= { unrest = 2 owner = ENG controller = ENG remove_core = LAN } # Battle of Tewkesbury & the End of the War of the Roses
+1483.10.1	= { revolt = { type = noble_rebels size = 0 leader = "Duke of Buckingham" } controller = REB } #Buckingham's rebellion
+1483.11.1	= { revolt = {} unrest = 8 controller = ENG } # Rebellion collapses
+1485.8.7	= { revolt = { type = pretender_rebels size = 0 leader = "Henry Tudor" } controller = REB }
+1485.8.23	= { unrest = 0 controller = ENG } # Battle of Bosworth Field
+1500.1.1	= { base_manpower = 1 }
+1536.1.1	= { seat_in_parliament = yes } #Laws in Wales Acts
+1625.1.1	= { courthouse = yes } # Estimated
+1650.1.1	= { base_manpower = 1 }
+1700.1.1	= { base_manpower = 1 }
+1707.5.1	= { owner = GBR controller = GBR add_core = GBR remove_core = ENG } #Acts of Union
+1750.1.1	= { religion = anglican }
+1800.1.1	= { base_manpower = 2 }

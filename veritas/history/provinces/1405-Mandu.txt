@@ -1,0 +1,39 @@
+# Mandu
+
+capital = "Mandu"
+owner = DLH
+controller = DLH
+add_territorial_core = DLH
+culture = bihari
+religion = hinduism
+trade_goods = rice
+base_tax = 4
+base_production = 4
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = indian
+
+1382.1.1	= { owner = KHD controller = KHD add_core = KHD remove_territorial_core = DLH } #Khandesh sultunate
+1401.1.1	= { owner = MLW controller = MLW add_core = MLW }
+1498.1.1	= { discovered_by = POR }
+1531.1.1	= { controller = GUJ } # Conquered by Ahmad Shahis
+1532.1.1	= { owner = GUJ } # Conquered by Ahmad Shahis
+1535.1.1	= { controller = MUG } # Mughal campaign
+1537.1.1	= { owner = MLW controller = MLW } # Reverts to Gujarati control and granted independence
+1543.1.1	= { owner = BNG controller = BNG } # Conquered by Sher Shah Sur
+1545.5.22	= { owner = MLW controller = MLW } # Death of Sher Shah, governor declares independence
+1561.3.1	= { controller = MUG } #Pir Mohammad Khan
+1561.8.1	= { controller = MLW } #Baz Bahadur regains controll as Pir Mohammad Khan is recalled
+1562.5.1	= { controller = MUG } #Reconquered by Akbar
+1562.6.1	= { owner = MUG } # Annexed by Mughal Empire
+1564.1.1	= { revolt = { type = noble_rebels size = 1 } controller = REB }#Revolt of Uzbek commanders in Malwa
+1565.1.1	= { revolt = {} controller = MUG }	#Revolt beaten down
+1622.3.1	= { revolt = { type = pretender_rebels size = 3 name = "Khurrams Faction" leader = "Shah Jahan Timurid" } controller = REB } #Should be named Khurram at this point
+1622.4.1	= { revolt = { type = pretender_rebels size = 0 name = "Khurrams Faction" leader = "Shah Jahan Timurid" } controller = REB } #Should be named Khurram at this point
+1622.8.1	= { revolt = {} controller = MUG } #Defeated and flees south to Khandesh
+1657.9.14	= { revolt = { type = pretender_rebels size = 0 name = "Murad Bakhsh's Faction" leader = "Murad Bakhsh Timurid" } controller = REB } # Shah Jahan falls ill, his sons starts civil war
+1658.6.25	= { revolt = {} controller = MUG add_core = MUG } # Aurangzeb imprison Murad
+1724.1.1	= { add_core = MAR } # The Mughal state began to weaken
+1735.1.1	= { owner = MAR controller = MAR add_core = MAR remove_core = MUG capital = "Indore" } # Malwa is ceded to the Marathas
+1818.6.3	= { owner = GBR controller = GBR remove_core = MAR }

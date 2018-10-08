@@ -1,0 +1,10 @@
+#War Canoe
+#model = galleass
+#tech_level = 16
+type = galley
+unit_type = north_american
+
+hull_size = 10
+base_cannons = 12
+sail_speed = 8
+sailors = 75

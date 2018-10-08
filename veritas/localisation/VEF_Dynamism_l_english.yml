@@ -1,0 +1,22 @@
+﻿l_english:
+
+ ###Localisation for VEF's Bohemian Crown mechanics###
+
+ vef_dynamism.1.t: "AI Only Dynamism"
+ vef_dynamism.1.d: "This is an ai-only event. If you see this, please report error §Rvef_dynamism.1§!"
+ vef_dynamism.1.opta: "OK"
+ vef_dynamism.2.t: "AI Only Dynamism"
+ vef_dynamism.2.d: "This is an ai-only event. If you see this, please report error §Rvef_dynamism.2§!"
+ vef_dynamism.2.opta: "OK"
+ vef_dynamism.3.t: "AI Only Dynamism"
+ vef_dynamism.3.d: "This is an ai-only event. If you see this, please report error §Rvef_dynamism.3§!"
+ vef_dynamism.3.opta: "OK"
+ vef_dynamism.4.t: "AI Only Dynamism"
+ vef_dynamism.4.d: "This is an ai-only event. If you see this, please report error §Rvef_dynamism.4§!"
+ vef_dynamism.4.opta: "OK"
+ vef_dynamism.5.t: "AI Only Dynamism"
+ vef_dynamism.5.d: "This is an ai-only event. If you see this, please report error §Rvef_dynamism.5§!"
+ vef_dynamism.5.opta: "OK"
+ vef_dynamism.10.t: "City Names"
+ vef_dynamism.10.d: "This is a hidden event. If you see this, please report error §Rvef_dynamism.10§!"
+ vef_dynamism.10.opta: "OK"

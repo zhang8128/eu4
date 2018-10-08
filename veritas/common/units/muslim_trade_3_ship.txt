@@ -1,0 +1,11 @@
+#Jahazi
+#model = barque
+#tech_level = 26
+type = light_ship
+unit_type = muslim
+
+hull_size = 8
+base_cannons = 3
+sail_speed = 6
+trade_power = 1.75
+sailors = 30

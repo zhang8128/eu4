@@ -1,0 +1,114 @@
+#Country Name: Please see filename.
+
+graphical_culture = easterngfx
+
+color = { 213 0 39 }
+
+random_nation_chance = 0
+
+revolutionary_colors = { 5  0  1 }
+
+historical_idea_groups = {
+	free_trade_ideas
+	quality_ideas
+	religious_ideas
+	mm1_ideas
+	offensive_ideas
+	expansion_ideas
+	intimidatory_ideas
+	standing_army_ideas
+}
+
+historical_units = { 
+	byzantine_artillery_15_1
+	byzantine_artillery_22_1
+	byzantine_artillery_29_1
+	byzantine_artillery_35_1
+	byzantine_artillery_8_1
+	byzantine_cavalry_0_1
+	byzantine_cavalry_0_2
+	byzantine_cavalry_21_1
+	byzantine_cavalry_21_2
+	byzantine_cavalry_27_1
+	byzantine_cavalry_31_1
+	byzantine_cavalry_36_1
+	byzantine_cavalry_40_1
+	byzantine_cavalry_44_1
+	byzantine_cavalry_44_2
+	byzantine_cavalry_16_1
+	byzantine_cavalry_16_2
+	byzantine_infantry_0_1
+	byzantine_infantry_0_2
+	byzantine_infantry_17_1
+	byzantine_infantry_17_2
+	byzantine_infantry_21_1
+	byzantine_infantry_21_2
+	byzantine_infantry_25_1
+	byzantine_infantry_25_2
+	byzantine_infantry_28_1
+	byzantine_infantry_28_2
+	byzantine_infantry_31_1
+	byzantine_infantry_31_2
+	byzantine_infantry_34_1
+	byzantine_infantry_34_2
+	byzantine_infantry_39_1
+	byzantine_infantry_39_2
+	byzantine_infantry_42_1
+	byzantine_infantry_42_2
+	byzantine_infantry_45_1
+	byzantine_infantry_45_2
+	byzantine_infantry_6_1
+	byzantine_infantry_6_2
+	byzantine_infantry_14_1
+	byzantine_infantry_14_2
+}
+
+
+
+
+
+monarch_names = {
+	"Papnoute #2" = 40
+	"Gerges #5" = 40
+	"Mina #0" = 20
+	"Alexandros #0" = 20
+	"Onouphrios #0" = 30
+	"Pakhom #0" = 10
+	"Chrysanthos #0" = 10
+	"Shenoute #0" = 50
+	"Arsinoe #1" = -5
+	"Tanoute #2" = -10
+}
+
+ship_names = {
+	"The Holy Cross"
+	"The Grail"
+	"The Faithful"
+	"Hammer of God"
+	"True Believer"
+	"The Cleansing"
+	"Baldwin's Gate"
+	"The Rapture"
+	"God Will Know His Own"
+	Paladin
+	Purifier
+	Crusader
+	Guardian
+	Pilgrim
+	Absolution
+	Avenger
+	Vindicator
+	"The Scourge"
+}
+
+leader_names = { 
+	Putros 
+	Girgos
+	Doris	
+	Gadricos
+	Lusignos
+	Piuros 
+	Ammonos
+	Piumos
+	Pithomos 
+}

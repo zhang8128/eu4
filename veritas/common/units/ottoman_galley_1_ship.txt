@@ -1,0 +1,10 @@
+#Karamursel
+#model = galley
+#tech_level = 0
+type = galley
+unit_type = ottoman
+
+hull_size = 6
+base_cannons = 6
+sail_speed = 9
+sailors = 200

@@ -1,0 +1,7 @@
+﻿l_english:
+
+ ###Replacement localisations from vanilla's diplo_reasons_l_english###
+
+ custom_idea_light_ship_cost_desc: "The design of a trade ship is not just about its purpose, a naval engineer needs to consider the design, construction, maintenance, and operation of the ship as well."
+ custom_idea_transport_cost_desc: "Employing a naval architect at our court enables us to lower the costs of constructing light warships."
+ custom_idea_light_ship_power_desc: "The trade ships are faster but have fewer gun ports than other war ships. While the new practice of loading two round shots into one gun and firing them both at once mean the ships have a lower effective range and accuracy, it is devastating at close range."

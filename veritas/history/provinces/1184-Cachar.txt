@@ -1,0 +1,21 @@
+# Cachar
+#Province IDs changed
+
+owner = KAC
+controller = KAC
+culture = meitei
+religion = buddhism
+capital = "Maibang"
+trade_goods = nutmeg
+hre = no
+base_tax = 2
+base_production = 2
+base_manpower = 4
+is_city = yes
+add_core = KAC
+discovered_by = nomad_group
+discovered_by = chinese
+discovered_by = indian
+
+1757.1.1 = { capital = "Khaspur" }
+1824.1.1 = { owner = GBR controller = GBR add_core = GBR }

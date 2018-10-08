@@ -1,0 +1,53 @@
+########################################
+# Events for Mantua
+########################################
+
+namespace = flavor_man
+normal_or_historical_nations = yes
+
+# Gonzaga Takeover
+country_event = {
+	id = flavor_man.10000
+	title = flavor_man.10000.t
+	desc = flavor_man.10000.d
+	picture = VEF_COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MAN
+		is_year = 1328
+		NOT = { is_year = 1330 }
+		NOT = { dynasty = "Gonzaga" }
+	}
+	
+	mean_time_to_happen = { months = 3 }
+	
+	option = {
+		name = "flavor_man.10000.opta"
+		define_ruler = {
+			name = "Ludovico I"
+			dynasty = "Gonzaga"
+			age = 60
+			adm = 3
+			dip = 3
+			mil = 4
+		}
+		define_heir = {
+			name = "Guido"
+			dynasty = "Gonzaga"
+			birth_date = 1290.1.1
+			claim = 95
+			adm = 3
+			dip = 3
+			mil = 2
+		}
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = "flavor_man.10000.optb"
+		add_national_stability_or_adm_power = yes
+		ai_chance = { factor = 0 }
+	}
+}

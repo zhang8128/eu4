@@ -1,0 +1,12 @@
+# Line Infantry
+
+unit_type = eastern
+type = infantry
+
+maneuver = 1
+offensive_morale = 6
+defensive_morale = 5
+offensive_fire = 4
+defensive_fire = 4
+offensive_shock = 1
+defensive_shock = 4

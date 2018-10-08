@@ -1,0 +1,37 @@
+# Garjat
+
+capital = "Kalahandi"
+owner = ORI
+controller = ORI
+add_core = ORI
+add_core = GRJ
+culture = garjati
+religion = hinduism
+trade_goods = spices
+base_tax = 3
+base_production = 3
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = indian
+
+1325.1.1   = { owner = GRJ controller = GRJ remove_core = ORI }	#Fracturing of eastern Ganges
+1498.1.1   = { discovered_by = POR }
+1752.1.1 = {
+	owner = NAG
+	controller = NAG
+	add_core = NAG
+} # Marathas
+1803.1.1 = {
+	owner = GBR
+	controller = GBR
+}
+1806.1.1 = {
+	owner = NAG
+	controller = NAG
+}
+1816.1.1 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+}

@@ -1,0 +1,17 @@
+#Province IDs changed
+government = tribal add_government_reform = tribal_federation
+government_rank = 3
+primary_culture = tlapanec
+religion = xochiyaoyotl
+technology_group = mesoamerican
+capital = 2111
+
+
+1300.1.1 = {
+	monarch = {
+		name = "Jituh Znia"
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+} #No known Tlapanec rulers in-timeline

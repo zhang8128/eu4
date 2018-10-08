@@ -1,0 +1,5 @@
+# Coast Of Shetlands
+#Province IDs changed
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western

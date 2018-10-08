@@ -1,0 +1,11 @@
+#Heavy Balsa
+#model = flute
+#tech_level = 36
+type = light_ship
+unit_type = south_american
+
+hull_size = 12
+base_cannons = 6
+sail_speed = 6
+trade_power = 2.5
+sailors = 45

@@ -1,0 +1,12 @@
+# Late Slobodskie Kozaki
+
+unit_type = eastern
+type = cavalry
+
+maneuver = 2
+offensive_morale = 9
+defensive_morale = 9
+offensive_fire = 2
+defensive_fire = 2
+offensive_shock = 5
+defensive_shock = 5

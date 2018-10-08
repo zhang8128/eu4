@@ -1,0 +1,14 @@
+government = monarchy add_government_reform = iqta
+government_rank = 3
+primary_culture = bedouin_arabic
+religion = sunni
+technology_group = muslim
+historical_friend = ADE
+historical_friend = RUM
+historical_friend = RAM
+historical_rival = PER
+historical_rival = BYZ
+historical_rival = KOJ
+historical_rival = ILK
+historical_rival = KNI
+capital = 1600 # Mecca

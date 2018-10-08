@@ -1,0 +1,22 @@
+# Kaliz
+#Province IDs changed
+government = monarchy add_government_reform = principality
+government_rank = 3
+primary_culture = ruthenian
+religion = orthodox
+technology_group = eastern
+capital = 662	# Ruthenia
+
+
+set_country_flag = russian_horde_tribute
+
+1308.3.18 = {
+	monarch = {
+		name = "Andriy II"
+		dynasty = "Rurikovich"
+		adm = 2
+		dip = 3
+		mil = 3
+	}
+}
+

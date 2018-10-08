@@ -1,0 +1,178 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 243  26  14 }
+
+random_nation_chance = 0
+
+historical_idea_groups = {
+	quality_ideas
+	economic_ideas
+	intimidatory_ideas
+	offensive_ideas
+	exploration_ideas
+	gf1_ideas
+	standing_army_ideas
+	free_trade_ideas
+}
+
+historical_units = { 
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+
+
+
+
+monarch_names = {
+	"Thomas #4" = 120
+	"John #2" = 100
+	"William #5" = 60
+	"Richard #0" = 60
+	"Robert #1" = 40
+	"George #0" = 40
+	"Matthew #0" = 40
+	"Henry #1" = 20
+	"Christopher #0" = 20
+	"Edmund #0" = 20
+	"Edward #0" = 20
+	"Edwin #0" = 20
+	"Lancelot #0" = 20
+	"Lawrence #0" = 20
+	"Nicholas #0" = 20
+	"Thobias #0" = 20
+	"Alexander #0" = 0
+	"Ambrose #0" = 0
+	"Andrew #0" = 0
+	"Anthony #0" = 0
+	"Archibald #0" = 0
+	"Benjamin #0" = 0
+	"Daniel #0" = 0
+	"David #0" = 0
+	"Francis #0" = 0
+	"Geoffrey #0" = 0
+	"Guy #0" = 0
+	"Horatio #0" = 0
+	"Hugh #0" = 0
+	"Isaac #0" = 0
+	"James #0" = 0
+	"Jeremy #0" = 0
+	"Jonathan #0" = 0
+	"Joseph #0" = 0
+	"Lewis #0" = 0
+	"Nehemiah #0" = 0
+	"Oliver #0" = 0
+	"Samuel #0" = 20
+	"Sydney #0" = 0
+	
+	"Alaina #0" = -1
+	"Victoria #0" = -1
+	"Elisabeth #0" = -1
+}
+
+leader_names = {
+	Aislabie Armytage Aske
+	Barwick Beaumont Belasis Bingley Bosville Bowes Bulmer 
+	Clifford Constable Conyers Craven
+	Darcy Drax Duncombe
+	Fairfax Furnival
+	Grimston		
+	Harland Hillyard Hotham Howard Hutton
+	Ingilby
+	Lacy Langdale Legard
+	Mallory Metcalfe
+	Neville Norton
+	Scargill Scrope Sheffield Spencer Stanhope Strickland Sykes
+	Tempest Thorp
+	Warren Wentworth
+	Yorke
+}
+
+ship_names = {
+        Allerton
+        Beverley Bridlington Brigantia
+        Calderdale Cleveland Craven
+        Dalesman "Duke of York"
+        Eboracum "East Riding"
+        Flamborough Fountains
+        Halifax Hallam Holderness Humber
+        Ingleborough
+        "Kingston-upon-Hull"
+        Masham Middleham
+        "North Riding" "North Sea" Northallerton
+        Pennine Pontefract
+        Richmond Ripon "River Ouse"
+        Scarborough Scoresby Standard Swale
+        "Vale of York"
+        Wensleydale "West Riding" Wharfe "Whitby Castle" "White Rose"
+        York
+}

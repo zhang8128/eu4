@@ -1,0 +1,28 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+technology_group = western
+primary_culture = irish
+religion = catholic
+capital = 46	# Dublin
+
+1541.6.18 = { government = monarchy add_government_reform = english_monarchy } # Crown of Ireland Act
+
+#Confederation of Kilkenny 
+1642.6.7 = {
+	government = monarchy add_government_reform = feudalism_reform
+	capital = 3982
+	monarch = {
+		name = "Aedh XIV"
+		dynasty = "mac Eóghain"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+#Restoration of Charles II
+1660.5.1 = {
+	government = monarchy
+	add_government_reform = english_monarchy
+	capital = 46
+}

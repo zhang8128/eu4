@@ -1,0 +1,796 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+technology_group = western
+primary_culture = lowersaxon
+religion = catholic
+capital = 345 # Brunswick
+
+1267.1.1 = { add_country_modifier = { name = "hanseatic_league_member" duration = -1 }}
+
+1292.1.1 = {
+	monarch = {
+		name = "Albrecht II"
+		dynasty = "von Welf"
+		birth_date = 1268.1.1
+		dip = 2
+		adm = 2
+		mil = 3
+	}
+	queen = {
+		country_of_origin = MKL
+		name = "Rixa"
+		dynasty = "von Werle"
+		birth_date = 1270.1.1
+		death_date = 1317.11.26
+		female = yes
+		adm = 1 
+		dip = 1
+		mil = 1
+	}
+}
+
+1292.6.24 = {
+	heir = {
+		name = "Otto"
+		monarch_name = "Otto der Milde"
+		dynasty = "von Welf"
+		birth_date = 1292.6.24
+		death_date = 1344.8.30
+		claim = 95
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1318.9.22 = {
+	monarch = {
+		name = "Otto der Milde"
+		dynasty = "von Welf"
+		birth_date = 1292.6.24
+		dip = 3
+		adm = 2
+		mil = 2
+	}
+	heir = {
+		name = "Magnus"
+		monarch_name = "Magnus I"
+		dynasty = "von Welf"
+		birth_date = 1304.1.1
+		death_date = 1369.1.1
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1344.8.30 = {
+	monarch = {
+		name = "Magnus I"
+		dynasty = "von Welf"
+		birth_date = 1304.1.1
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	heir = {
+		name = "Magnus"
+		monarch_name = "Magnus II"
+		dynasty = "von Welf"
+		birth_date = 1324.1.1
+		death_date = 1373.1.1
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1369.6.1 = {
+	monarch = {
+		name = "Magnus II"
+		dynasty = "von Welf"
+		birth_date = 1324.7.25
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+	heir = {
+		name = "Friedrich"
+		monarch_name = "Friedrich I"
+		dynasty = "von Welf"
+		birth_date = 1357.1.1
+		death_date = 1400.6.5
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+	
+1373.7.25 = {
+	monarch = {
+		name = "Friedrich I"
+		dynasty = "von Welf"
+		birth_date = 1357.1.1
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+	heir = {
+		name = "Bernhard"
+		monarch_name = "Bernhard I"
+		dynasty = "von Welf"
+		birth_date = 1361.1.1
+		death_date = 1434.6.11
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1386.1.1 = {
+	queen = {
+		country_of_origin = SAX
+		name = "Anna"
+		dynasty = "von Ascania"
+		birth_date = 1370.1.1	# Made Up
+		death_date = 1426.4.18
+		female = yes
+		adm = 2 
+		dip = 2
+		mil = 2
+	}
+}
+	
+
+1400.6.5 = {
+	monarch = {
+		name = "Bernhard I"
+		dynasty = "von Welf"
+		birth_date = 1361.1.1
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = SAX
+		name = "Margaret"
+		dynasty = "von Ascania"
+		birth_date = 1375.1.1	# Estimated
+		death_date = 1435.1.1	# Made Up
+		female = yes
+		adm = 2 
+		dip = 2
+		mil = 2
+	}
+}
+	
+	
+1416.1.1 = {
+	heir = {
+		name = "Otto"
+		monarch_name = "Otto IV"
+		dynasty = "von Welf"
+		birth_date = 1416.1.1	# Estimated
+		death_date = 1446.1.1
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+# Treaty sees Bernhard swap Brunswick for Luneburg
+1428.1.1 = {
+	monarch = {
+		name = "Wilhelm IV"
+		dynasty = "von Welf"
+		birth_date = 1392.1.1
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = BRA
+		name = "Cecilia"
+		dynasty = "von Hohenzollern"
+		birth_date = 1405.1.1
+		death_date = 1449.1.4
+		female = yes
+		adm = 2 
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Wilhelm"
+		monarch_name = "Wilhelm II"
+		dynasty = "von Welf"
+		birth_date = 1425.1.1
+		death_date = 1503.7.7
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+# Brunswick divided; William takes Calenberg while Henry takes Brunswick-Wolfenbuttel
+1432.1.1 = {
+	monarch = {
+		name = "Heinrich IV"
+		dynasty = "von Welf"
+		birth_date = 1411.1.1
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = calm_personality
+	add_ruler_personality = careful_personality
+	add_ruler_personality = craven_personality
+}
+
+1436.1.1 = {
+	queen = {
+		country_of_origin = KLE
+		name = "Helen"
+		dynasty = "von der Mark"
+		birth_date = 1423.1.1
+		death_date = 1471.1.1
+		female = yes
+		adm = 1 
+		dip = 1
+		mil = 1
+	}
+}
+
+#Dukes of Braunschweig-Wolfenbüttel
+
+1473.12.7 = {
+	monarch = {
+		name = "Wilhelm I"
+		dynasty = "von Welf"
+		birth_date = 1392.1.1
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	heir = {
+		name = "Wilhelm"
+		monarch_name = "Wilhelm II"
+		dynasty = "von Welf"
+		birth_date = 1425.1.1
+		death_date = 1503.7.7
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = cruel_personality
+}
+
+1482.7.25 = {
+	monarch = {
+		name = "Wilhelm II"
+		dynasty = "von Welf"
+		birth_date = 1425.1.1
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = ANH
+		name = "Elizabeth"
+		dynasty = "von Stolberg"
+		birth_date = 1438.1.1
+		death_date = 1520.9.20
+		female = yes
+		adm = 1 
+		dip = 1
+		mil = 1
+	}
+	heir = {
+		name = "Heinrich"
+		monarch_name = "Heinrich der Ältere"
+		dynasty = "von Welf"
+		birth_date = 1463.6.14
+		death_date = 1514.6.23
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1503.7.7 = {
+	monarch = {
+		name = "Heinrich der Ältere"
+		dynasty = "von Welf"
+		birth_date = 1463.6.24
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = POM
+		name = "Catherine"
+		dynasty = "Gryf"
+		birth_date = 1465.1.1
+		death_date = 1526.1.1
+		female = yes
+		adm = 1 
+		dip = 1
+		mil = 1
+	}
+	heir = {
+		name = "Heinrich"
+		monarch_name = "Heinrich der Jüngere"
+		dynasty = "von Welf"
+		birth_date = 1489.11.10
+		death_date = 1568.6.11
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1514.6.23 = {
+	monarch = {
+		name = "Heinrich der Jüngere"
+		dynasty = "von Welf"
+		birth_date = 1489.11.10
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1515.1.1 = {
+	queen = {
+		country_of_origin = WUR
+		name = "Maria"
+		dynasty = "de Montbéliard"
+		birth_date = 1500.1.1	# Made Up
+		death_date = 1541.1.1
+		female = yes
+		adm = 1 
+		dip = 1
+		mil = 1
+	}
+}
+
+1528.6.29 = {
+	heir = {
+		name = "Julius"
+		monarch_name = "Julius I"
+		dynasty = "von Welf"
+		birth_date = 1528.6.29
+		death_date = 1589.5.3
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1568.6.11 = {
+	religion = protestant
+	monarch = {
+		name = "Julius I"
+		dynasty = "von Welf"
+		birth_date = 1528.6.29
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = BRA
+		name = "Hedwig"
+		dynasty = "von Hohenzollern"
+		birth_date = 1540.2.23
+		death_date = 1602.10.21
+		female = yes
+		adm = 1 
+		dip = 1
+		mil = 1
+	}
+	heir = {
+		name = "Heinrich Julius"
+		monarch_name = "Heinrich Julius I"
+		dynasty = "von Welf"
+		birth_date = 1564.10.15
+		death_date = 1613.7.20
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1589.5.13 = {
+	monarch = {
+		name = "Heinrich Julius I"
+		dynasty = "von Welf"
+		birth_date = 1564.10.15
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1590.4.19 = {
+	queen = {
+		country_of_origin = DAN
+		name = "Elizabeth"
+		dynasty = "von Oldenburg"
+		birth_date = 1573.8.25
+		death_date = 1626.6.19
+		female = yes
+		adm = 1 
+		dip = 1
+		mil = 1
+	}
+}
+
+1591.4.5 = {
+	heir = {
+		name = "Friedrich Ulrich"
+		monarch_name = "Friedrich Ulrich I"
+		dynasty = "von Welf"
+		birth_date = 1591.4.5
+		death_date = 1634.8.11
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1613.7.20 = {
+	monarch = {
+		name = "Friedrich Ulrich I"
+		dynasty = "von Welf"
+		birth_date = 1591.4.15
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+#On Frederick Ulrich's death, his territories passed to a line of #distant cousins
+
+1613.7.20 = {
+	heir = {
+		name = "August"
+		monarch_name = "August II"
+		dynasty = "von Welf"
+		birth_date = 1579.4.10
+		death_date = 1666.9.17
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1625.5.9 = {
+	join_league = protestant
+}
+
+1634.8.11 = {
+	monarch = {
+		name = "August II"
+		dynasty = "von Welf"
+		birth_date = 1579.4.10
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = ANH
+		name = "Dorothea"
+		dynasty = "von Ascania"
+		birth_date = 1607.9.25
+		death_date = 1634.9.26
+		female = yes
+		adm = 1 
+		dip = 1
+		mil = 1
+	}
+	heir = {
+		name = "Rudolf August"
+		monarch_name = "Rudolf August I"
+		dynasty = "von Welf"
+		birth_date = 1627.5.16
+		death_date = 1704.1.26
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1642.1.1 = {
+	leave_league = protestant
+}
+
+1666.9.17 = {
+	monarch = {
+		name = "Rudolf August I"
+		dynasty = "von Welf"
+		birth_date = 1627.5.16
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	heir = {
+		name = "Anton Ulrich"
+		monarch_name = "Anton Ulrich I"
+		dynasty = "von Welf"
+		birth_date = 1633.10.4
+		death_date = 1714.3.27
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	queen = {
+		name = "Christine Elizabeth"
+		dynasty = "von Muhlingen"
+		birth_date = 1634.1.1
+		death_date = 1681.1.1
+		female = yes
+		adm = 1 
+		dip = 1
+		mil = 1
+	}
+}
+
+1704.1.26 = {
+	monarch = {
+		name = "Anton Ulrich I"
+		dynasty = "von Welf"
+		birth_date = 1633.10.4
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	queen = {
+		name = "Elizabeth Juliana"
+		dynasty = "von Oldenburg"
+		birth_date = 1633.6.24
+		death_date = 1704.2.4
+		female = yes
+		adm = 1 
+		dip = 1
+		mil = 1
+	}
+	heir = {
+		name = "August Wilhelm"
+		monarch_name = "August Wilhelm I"
+		dynasty = "von Welf"
+		birth_date = 1662.3.8
+		death_date = 1731.3.23
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1714.3.27 = {
+	monarch = {
+		name = "August Wilhelm I"
+		dynasty = "von Welf"
+		birth_date = 1662.3.8
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	heir = {
+		name = "Ludwig Rudolf"
+		monarch_name = "Ludwig Rudolf I"
+		dynasty = "von Welf"
+		birth_date = 1671.7.22
+		death_date = 1735.3.1
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	queen = {
+		name = "Elizabeth Sophie"
+		dynasty = "von Oldenburg"
+		birth_date = 1683.1.1
+		death_date = 1767.1.1
+		female = yes
+		adm = 1 
+		dip = 1
+		mil = 1
+	}
+}
+
+1731.3.23 = {
+	monarch = {
+		name = "Ludwig Rudolf I"
+		dynasty = "von Welf"
+		birth_date = 1671.7.22
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	heir = {
+		name = "Ferdinand Albrecht"
+		monarch_name = "Ferdinand Albrecht I"
+		dynasty = "von Welf"
+		birth_date = 1680.5.29
+		death_date = 1735.9.2
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1735.3.1 = {
+	monarch = {
+		name = "Ferdinand Albrecht I"
+		dynasty = "von Welf"
+		birth_date = 1680.5.29
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = BRU
+		name = "Antionette Amalie"
+		dynasty = "von Welf"
+		birth_date = 1696.4.14
+		death_date = 1762.3.6
+		female = yes
+		adm = 1 
+		dip = 1
+		mil = 1
+	}
+	heir = {
+		name = "Karl"
+		monarch_name = "Karl I"
+		dynasty = "von Welf"
+		birth_date = 1713.8.1
+		death_date = 1780.3.26
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+# Dukes of Braunschweig (after 1753)
+1735.9.13 = {
+	monarch = {
+		name = "Karl I"
+		dynasty = "von Welf"
+		birth_date = 1713.8.1
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = PRU
+		name = "Philippine Charlotte"
+		dynasty = "von Hohenzollern"
+		birth_date = 1716.3.13
+		death_date = 1801.2.17
+		female = yes
+		adm = 1 
+		dip = 1
+		mil = 1
+	}
+}
+
+1735.10.9 = {
+	heir = {
+		name = "Karl Wilhelm Ferdinand"
+		monarch_name = "Karl Wilhelm Ferdinand"
+		dynasty = "von Welf"
+		birth_date = 1735.10.9
+		death_date = 1806.10.16
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1780.3.26 = {
+	monarch = {
+		name = "Karl Wilhelm Ferdinand"
+		dynasty = "von Welf"
+		birth_date = 1735.10.9
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = ENG
+		name = "Augusta"
+		dynasty = "von Hannover"
+		birth_date = 1737.7.31
+		death_date = 1813.3.23
+		female = yes
+		adm = 1 
+		dip = 1
+		mil = 1
+	}
+	heir = {
+		name = "Friedrich Wilhelm"
+		monarch_name = "Friedrich Wilhelm"
+		dynasty = "von Welf"
+		birth_date = 1771.10.9
+		death_date = 1815.6.16
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1806.11.10 = {
+	monarch = {
+		name = "Friedrich Wilhelm"
+		dynasty = "von Welf"
+		birth_date = 1771.10.9
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = BAD
+		name = "Marie Elisabeth"
+		dynasty = "von Baden"
+		birth_date = 1782.9.7
+		death_date = 1808.12.8
+		female = yes
+		adm = 1 
+		dip = 1
+		mil = 1
+	}
+	heir = {
+		name = "Karl"
+		monarch_name = "Karl II"
+		dynasty = "von Welf"
+		birth_date = 1804.10.30
+		death_date = 1873.8.18
+		claim = 95
+		adm = 0
+		dip = 1
+		mil = 1
+	}
+}
+
+1815.6.16 = {
+	monarch = {
+		name = "Karl II"
+		dynasty = "von Welf"
+		birth_date = 1804.10.30
+		adm = 0
+		dip = 1
+		mil = 1
+	}
+}
+
+1830.9.10 = { 
+	monarch = {
+		name = "Wilhelm VIII"
+		dynasty = "von Welf"
+		birth_date = 1806.4.25
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}

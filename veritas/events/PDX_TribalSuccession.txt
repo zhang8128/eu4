@@ -1,0 +1,101 @@
+namespace = tribal_succession
+
+# Tribal Succession Crisis
+country_event = {
+	id = tribal_succession.1
+	title = tribal_succession.1.t
+	desc = tribal_succession.1.d
+	picture = VEF_KING_SICK_IN_BED_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		government = steppe_horde
+		NOT = { has_country_modifier = rise_of_timurids }
+		OR = {
+			NOT = { legitimacy_or_horde_unity = 50 }
+			has_regency_trigger = yes
+		}
+		#OR = {
+		#	NOT = { tag = CRI }
+		#	has_global_flag = death_of_haji_giray
+		#}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { legitimacy_or_horde_unity = 50 }
+			}
+			random_owned_province = {
+				pretender_rebels = 2
+			}
+		}
+	}
+	
+	option = {
+		name = tribal_succession.1.a
+		trigger = {
+			NOT = { legitimacy_or_horde_unity = 50 }
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					NOT = { is_core = ROOT }
+					can_spawn_rebels = nationalist_rebels
+				}
+			}
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						NOT = { is_core = ROOT }
+						can_spawn_rebels = nationalist_rebels
+					}
+					nationalist_rebels = 1
+				}
+			}
+			custom_tooltip = tribal_succession_crisis_non_cores_will_revolt
+		}
+		add_ruler_modifier = {
+			name = "tribal_succession_crisis"
+		}
+		custom_tooltip = tribal_crisis_can_end_when
+	}
+	
+	option = {
+		name = tribal_succession.1.b
+		trigger = { has_regency_trigger = yes }
+		clr_country_flag = vef_regency
+		clear_existing_royals = yes
+		kill_heir = yes
+		define_ruler = {
+		}
+		add_horde_unity = -25
+	}
+}
+
+# Succession Secured!
+country_event = {
+	id = tribal_succession.2
+	title = tribal_succession.2.t
+	desc = tribal_succession.2.d
+	picture = VEF_NEW_HEIR_eventPicture
+	
+	trigger = {
+		has_ruler_modifier = tribal_succession_crisis
+		government = steppe_horde
+		NOT = { has_spawned_rebels = pretender_rebels }
+		NOT = { has_regency_trigger = yes }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = tribal_succession.1.a
+		remove_country_modifier = tribal_succession_crisis
+		add_stability_or_adm_power = yes
+		add_horde_unity = 25
+	}
+}

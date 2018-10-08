@@ -1,0 +1,92 @@
+# General Factions for Monarchies
+
+# For Counties, Duchies, and all Monarchies except Constitutional
+# Aristocrats
+monarchy_aristocrats = {
+	monarch_power = MIL
+	always = yes
+	modifier = {
+		cavalry_cost = -0.10
+		cavalry_power = 0.10
+		global_manpower_modifier = -0.10
+		free_leader_pool = 1
+	}
+}
+
+# Guilds
+monarchy_guilds = {
+	monarch_power = ADM
+	always = yes
+	modifier = {
+		trade_efficiency = 0.10
+		global_prov_trade_power_modifier = 0.2
+		production_efficiency = 0.10
+		war_exhaustion = -0.01
+	}
+}
+
+# Church
+monarchy_church = {
+	monarch_power = DIP
+	always = yes
+	modifier = {
+		global_unrest = -2
+		global_missionary_strength = 0.01
+		tolerance_heretic = -2
+		tolerance_heathen = -2
+		tolerance_own = 2
+		global_tax_modifier = -0.05
+	}
+}
+
+###############################
+# For Constitutional Monarchies
+# Lords
+con_mon_lords = {
+	monarch_power = ADM
+	always = yes
+	modifier = {
+		cavalry_cost = -0.10
+		cavalry_power = 0.10
+		global_manpower_modifier = -0.10
+		free_leader_pool = 1
+	}
+}
+
+# Commons
+con_mon_commons = {
+	monarch_power = ADM
+	always = yes
+	modifier = {
+		global_manpower_modifier = 0.10
+		infantry_power = 0.1
+		global_tax_modifier = -0.10
+	}
+}
+
+# Merchants/Businessmen
+con_mon_merchants = {
+	monarch_power = ADM
+	always = yes
+	modifier = {
+		global_trade_power = 0.1
+		trade_efficiency = 0.20
+		merchants = 1
+		production_efficiency = 0.10
+		war_exhaustion = -0.01
+	}
+}
+
+# Church
+con_mon_church = {
+	monarch_power = DIP
+	always = yes
+	modifier = {
+		global_unrest = -1
+		global_missionary_strength = 0.01
+		tolerance_heretic = -1
+		tolerance_heathen = -1
+		tolerance_own = 1
+		global_tax_modifier = -0.05
+	}
+}

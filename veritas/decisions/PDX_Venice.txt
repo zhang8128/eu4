@@ -1,0 +1,138 @@
+country_decisions = {
+
+	confirm_thalassocracy = {
+		potential = {
+			NOT = { has_country_modifier = thalassocracy }
+			NOT = { has_idea_group = land_ideas }
+			OR = {
+				212 = { # Palermo
+					is_strongest_trade_power = ROOT
+				}
+				253 = { # Genoa
+					is_strongest_trade_power = ROOT
+				}
+				269 = { # Venice
+					is_strongest_trade_power = ROOT
+				}
+				588 = { # Constantinople
+					is_strongest_trade_power = ROOT
+				}
+				1635 = { # Alexandria
+					is_strongest_trade_power = ROOT
+				}
+				1662 = { # Tanja
+					is_strongest_trade_power = ROOT
+				}
+
+				367 = { # Danzig
+					is_strongest_trade_power = ROOT
+				}				
+				381 = {	# Lubeck
+					is_strongest_trade_power = ROOT
+				}
+				2870 = { # Baltic Sea
+					is_strongest_trade_power = ROOT
+				}
+				34 = { # England
+					is_strongest_trade_power = ROOT
+				}
+				2875 = { # North Sea
+					is_strongest_trade_power = ROOT
+				}
+				685 = { # Novgorod
+					is_strongest_trade_power = ROOT
+				}
+
+				2417 = { # Gulf of Aden
+					is_strongest_trade_power = ROOT
+				}
+				1443 = { # Thatta
+					is_strongest_trade_power = ROOT
+				}
+				2426 = { # Ceylon
+					is_strongest_trade_power = ROOT
+				}
+				2429 = { # Bengal
+					is_strongest_trade_power = ROOT
+				}
+				2447 = { # Malacca
+					is_strongest_trade_power = ROOT
+				}
+			}
+		}
+		allow = {
+			OR = {
+				full_idea_group = mm1_ideas
+				full_idea_group = gf1_ideas
+			}
+			OR = {
+				AND = {
+					212 = { # Palermo
+						is_strongest_trade_power = ROOT
+					}
+					253 = { # Genoa
+						is_strongest_trade_power = ROOT
+					}
+					269 = { # Venice
+						is_strongest_trade_power = ROOT
+					}
+					588 = { # Constantinople
+						is_strongest_trade_power = ROOT
+					}
+					1635 = { # Alexandria
+						is_strongest_trade_power = ROOT
+					}
+					1662 = { # Tanja
+						is_strongest_trade_power = ROOT
+					}
+				}
+				AND = {
+					367 = { # Danzig
+						is_strongest_trade_power = ROOT
+					}				
+					381 = {	# Lubeck
+						is_strongest_trade_power = ROOT
+					}
+					2870 = { # Baltic Sea
+						is_strongest_trade_power = ROOT
+					}
+					34 = { # England
+						is_strongest_trade_power = ROOT
+					}
+					2875 = { # North Sea
+						is_strongest_trade_power = ROOT
+					}
+					685 = { # Novgorod
+						is_strongest_trade_power = ROOT
+					}
+				}
+				AND = {
+					2417 = { # Gulf of Aden
+						is_strongest_trade_power = ROOT
+					}
+					1443 = { # Thatta
+						is_strongest_trade_power = ROOT
+					}
+					2426 = { # Ceylon
+						is_strongest_trade_power = ROOT
+					}
+					2429 = { # Bengal
+						is_strongest_trade_power = ROOT
+					}
+					2447 = { # Malacca
+						is_strongest_trade_power = ROOT
+					}
+				}
+			}
+		}		
+
+		effect = {
+			add_country_modifier = { name = "thalassocracy" duration = -1 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

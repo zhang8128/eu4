@@ -1,0 +1,123 @@
+baltic_supported_hansa = {
+	opinion = 20
+	yearly_decay = 2
+}
+
+baltic_rejected_hansa = {
+	opinion = -20
+	yearly_decay = 2
+}
+
+baltic_hansa_trade_war = {
+	opinion = -100
+	yearly_decay = 10
+}
+
+baltic_cooperation_against_hansa = {
+	opinion = 20
+	yearly_decay = 4
+}
+
+baltic_rejected_cooperation = {
+	opinion = -10
+	yearly_decay = 2
+}
+
+baltic_under_union = {
+	opinion = 100
+	yearly_decay = 5
+}
+
+baltic_lesser_union = {
+	opinion = 50
+	yearly_decay = 10
+}
+
+baltic_rejected_union = {
+	opinion = -100
+	yearly_decay = 20
+}
+
+baltic_declared_war = {
+	opinion = -50
+	yearly_decay = 5
+}
+
+baltic_rejected_help = {
+	opinion = -20
+	yearly_decay = 2
+}
+
+baltic_kept_union = {
+	opinion = 10
+	yearly_decay = 2
+}
+
+baltic_broke_union = {
+	opinion = -50
+	yearly_decay = 10
+}
+
+baltic_broke_union_with_force = {
+	opinion = -100
+	yearly_decay = 10
+}
+
+baltic_union_was_too_weak = {
+	opinion = -50
+	yearly_decay = 5
+}
+
+baltic_caused_bloodbath = {
+	opinion = -100
+	yearly_decay = 5
+}
+
+baltic_caused_bloodbath_severe = {
+	opinion = -200
+	yearly_decay = 5
+}
+
+baltic_sent_us_funds = {
+	opinion = 10
+	yearly_decay = 2
+}
+
+baltic_executed_heathens = {
+	opinion = 50
+	yearly_decay = 5
+}
+
+baltic_pressed_opportunity = {
+    opinion = -10
+    yearly_decay = 2
+}
+
+baltic_rejected_bribe = {
+    opinion = -50
+    yearly_decay = 5
+}
+
+baltic_asked_for_bribes = {
+    opinion = -20
+    yearly_decay = 5
+}
+
+baltic_gave_bribe = {
+    opinion = 20
+    yearly_decay = 4
+}
+
+baltic_refused_give_bribe = {
+    opinion = -20
+    yearly_decay = 4
+}
+
+baltic_joined_independence = {
+    opinion = 20
+    yearly_decay = 4
+}
+
+
+
+

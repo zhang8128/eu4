@@ -1,0 +1,68 @@
+#Province IDs changed
+name = "Portuguese Succession War"
+succession = POR
+war_goal = {
+	type = take_capital_throne
+	casus_belli = cb_claim_throne
+	tag = POR
+}
+
+1580.2.1 = {
+	add_attacker = SPA
+	add_defender = POR
+	add_defender = ENG
+	add_defender = FRA
+}
+
+1580.8.25 = {
+	battle = {
+		name = "Battle of Alcantara"
+		location = 63
+		attacker = {
+			commander = "Duque de Alba"	# Duque de Alba
+			infantry = 13000
+			cavalry = 1800
+			losses = 3	# percent
+			country = SPA
+		}
+		defender = {
+			commander = "António I"	# António I
+			infantry = 8000
+			cavalry = 500
+			losses = 50	# percent
+			country = POR
+		}
+		result = yes
+	}
+}
+
+
+1580.8.26 = {
+	rem_defender = POR
+	add_attacker = POR
+}
+
+1582.7.26 = {
+	battle = {
+		name = "Ponta Delgada"
+		location = 2653
+		attacker = {
+			commander = "Piero Strozzi"	
+			heavy_ship = 60
+			losses = 25	# percent
+			country = FRA
+		}
+		defender = {
+			commander = "Alvaro de Bazan"
+			heavy_ship = 28
+			losses = 0	# percent
+			country = SPA
+		}
+		result = yes
+	}
+}
+
+1583.1.1 = {
+	rem_defender = ENG
+	rem_defender = FRA
+}

@@ -1,0 +1,18 @@
+# Bilma
+
+capital = "Bilma"
+owner = KBO
+controller = KBO
+add_core = KBO
+culture = kanuri
+religion = sunni
+trade_goods = millet
+base_tax = 1
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = sudanese_tech 
+discovered_by = muslim
+
+add_permanent_province_modifier = { name = "dessert_oasis" duration = -1 }

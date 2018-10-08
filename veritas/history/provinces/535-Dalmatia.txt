@@ -1,0 +1,34 @@
+# Dalmatia
+
+capital = "Zara"
+owner = VEN
+controller = VEN
+add_core = VEN
+add_core = CRO
+culture = croatian
+religion = catholic
+trade_goods = livestock
+base_tax = 3
+base_production = 3
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = scandinavian_tech
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1347.1.1	= { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1358.1.1	= { owner = CRO controller = CRO }
+1360.1.1	= { remove_province_modifier = province_black_death }
+1389.3.1	= { owner = BOS controller = BOS add_core = BOS } #Region submits after vicious campaign by Tvrtko
+1394.6.1	= { owner = CRO controller = CRO remove_core = BOS } #Bosnian decline under Dabisa
+1409.1.1	= { owner = VEN controller = VEN } # Sold to Venice
+1428.1.1	= { remove_core = CRO }
+1797.10.17 = { owner = HAB controller = HAB add_core = HAB } # Treaty of Campo Formio
+1805.12.26 = { owner = FRA controller = FRA add_core = FRA remove_core = HAB } # Treaty of Pressburg
+1813.9.20  = { controller = HAB } # Occupied by Austrian forces
+1814.4.6   = { owner = HAB add_core = HAB remove_core = FRA } # Napoleon abdicates

@@ -1,0 +1,77 @@
+name = "Second Italian War"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 222 # Naples
+}
+
+1500.11.11 = {
+	add_attacker = FRA
+	add_attacker = ARA
+	add_attacker = CAS
+	add_attacker = RMG
+	add_defender = NAP
+}
+
+1501.8.2 = {
+	rem_defender = NAP
+}
+
+1502.4.1 = { # France and Aragon fall out over the spoils
+	rem_attacker = ARA
+	rem_attacker = CAS
+	add_defender = ARA
+	add_defender = CAS
+}
+
+1503.4.28 = {
+	battle = {
+		name = "Cerignola"
+		location = 218
+		attacker = {
+			commander = "Gonzalo Fernandez de Cordoba"
+			infantry = 5500
+			cavalry = 800
+			losses = 8	#percent
+			country = ARA
+		}
+		defender = {
+			commander = "Louis d'Armagnac"
+			infantry = 7650
+			cavalry = 1100
+			losses = 22	#percent
+			country = FRA 
+		}
+		result = no
+	}
+}
+
+1503.12.29 = {
+	battle = {
+		name = "Garigliano"
+		location = 218
+		attacker = {
+			commander = "Gonzalo Fernandez de Cordoba"
+			infantry = 11000
+			cavalry = 200
+			losses = 7	#percent
+			country = ARA
+		}
+		defender = {
+			commander = "Ludovico of Saluzzo"
+			infantry = 10000
+			cavalry = 2200
+			losses = 40	#percent
+			country = FRA 
+		}
+		result = no
+	}
+}
+
+# Treaty of Lyon
+1504.1.31 = {
+	rem_attacker = FRA
+	rem_attacker = RMG
+	rem_defender = ARA
+	rem_defender = CAS
+}

@@ -1,0 +1,108 @@
+country_decisions = {
+
+	kingdom_of_jerusalem = {
+		major = yes
+		potential = {
+			tag = KNI
+			ai = no
+			normal_or_historical_nations = yes
+			NOT = { exists = KOJ }
+			religion = catholic
+			NOT = { government = republic }
+			NOT = { is_year = 1650 } #end of crusades
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 1609	# Nagev
+			1609 = { NOT = { nationalism = 1 } }
+			owns_core_province = 1610	# Gaza
+			1610 = { NOT = { nationalism = 1 } }
+			owns_core_province = 1611	# Judea
+			1611 = { NOT = { nationalism = 1 } }
+		}
+		effect = {
+			if = {
+				limit = { tag = KNI }
+				set_global_flag = knights_formed_jerusalem
+				every_owned_province = {
+					if = {
+						limit = { has_province_modifier = kosj_fort1 }
+						remove_country_modifier = kosj_fort1
+					}
+					if = {
+						limit = { has_province_modifier = kosj_fort2 }
+						remove_country_modifier = kosj_fort2
+					}
+					if = {
+						limit = { has_province_modifier = kosj_fort3 }
+						remove_country_modifier = kosj_fort3
+					}
+					if = {
+						limit = { has_province_modifier = kosj_fort4 }
+						remove_country_modifier = kosj_fort4
+					}
+					if = {
+						limit = { has_province_modifier = kosj_fort5 }
+						remove_country_modifier = kosj_fort5
+					}
+					if = {
+						limit = { has_province_modifier = kosj_fort6 }
+						remove_country_modifier = kosj_fort6
+					}
+					if = {
+						limit = { has_province_modifier = kosj_fort7 }
+						remove_country_modifier = kosj_fort7
+					}
+					if = {
+						limit = { has_province_modifier = kosj_fort8 }
+						remove_country_modifier = kosj_fort8
+					}
+					if = {
+						limit = { has_province_modifier = kosj_fort9 }
+						remove_country_modifier = kosj_fort9
+					}
+				}
+			}
+			change_tag = KOJ
+			add_prestige = 25
+			set_capital = 1611
+			change_government = monarchy
+			set_legacy_government = hereditary_monarchy
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = KOJ1_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+}

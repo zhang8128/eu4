@@ -1,0 +1,124 @@
+#estate - to get attention when we deal with estates. These events are disabled with the Cossacks DLC due to the tribes estate taking their place
+
+# Get a pretender rising if low war-exhaustion and not in a war
+country_event = {
+	id = 9202
+	title = "EVTNAME9202"
+	desc = "EVTDESC9202"
+	picture = VEF_CIVIL_WAR_eventPicture
+
+	trigger = {
+		government = steppe_horde
+		NOT = { has_dlc = "The Cossacks" }
+		is_year = 1450
+		NOT = { had_recent_war = 15 }
+		has_truce = no
+		is_at_war = no
+		num_of_cities = 10
+		NOT = { war_exhaustion = 1 }
+		NOT = { num_of_rebel_controlled_provinces = 1 }
+		NOT = { has_spawned_rebels = pretender_rebels }
+		NOT = { has_regency_trigger = yes }
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+		modifier = {
+			factor = 0.5
+			mil = 4
+		}
+		modifier = {
+			factor = 10
+			ai = yes
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA9202"
+		random_owned_province = {
+			pretender_rebels = 1
+		}
+	}
+}
+
+# Event to get a heir killed and pretender rising
+country_event = {
+	id = 9203
+	title = "EVTNAME9203"
+	desc = "EVTDESC9203"
+	picture = VEF_CIVIL_WAR_eventPicture
+	
+	trigger = {
+		government = steppe_horde
+		NOT = { has_dlc = "The Cossacks" }
+		NOT = { had_recent_war = 15 }
+		is_year = 1450
+		has_truce = no
+		is_at_war = no
+		num_of_cities = 10
+		NOT = { war_exhaustion = 1 }
+		has_heir = yes
+		NOT = { num_of_rebel_controlled_provinces = 1 }
+		NOT = { has_spawned_rebels = pretender_rebels }
+		NOT = { has_regency_trigger = yes }
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.5
+			mil = 4
+		}
+		modifier = {
+			factor = 10
+			ai = yes
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA9203"
+		vef_kill_heir = yes
+	}
+	option = {
+		name = "EVTOPTB9203"
+		random_owned_province = {
+			pretender_rebels = 2
+		}
+	}	
+}
+
+# Lower legitimacy if no heir and at peace
+country_event = {
+	id = 9204
+	title = "EVTNAME9204"
+	desc = "EVTDESC9204"
+	picture = VEF_DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+		government = steppe_horde
+		NOT = { has_dlc = "The Cossacks" }
+		is_year = 1450
+		NOT = { had_recent_war = 15 }
+		has_truce = no
+		is_at_war = no
+		num_of_cities = 10
+		NOT = { war_exhaustion = 1 }
+		has_heir = no
+		NOT = { has_regency_trigger = yes }
+		legitimacy = 10
+		NOT = { num_of_rebel_controlled_provinces = 1 }
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		modifier = {
+			factor = 10
+			ai = yes
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA9204"
+		add_legitimacy = -15
+	}
+}

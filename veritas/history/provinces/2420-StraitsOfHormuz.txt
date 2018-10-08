@@ -1,0 +1,8 @@
+# Straits Of Hormuz
+#Province IDs changed
+discovered_by = muslim
+discovered_by = ZAN
+discovered_by = indopersian
+discovered_by = ILK
+discovered_by = byzantine
+1488.1.1 = { discovered_by = POR } # Pêro da Covilhã

@@ -1,0 +1,5 @@
+# Coast Of Cameroon
+#Province IDs changed
+discovered_by = tribal_african_tech
+
+1472.1.1 = { discovered_by = POR }

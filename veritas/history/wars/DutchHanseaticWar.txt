@@ -1,0 +1,24 @@
+name = "Dutch-Hanseatic War"
+war_goal = {
+	type = superiority_trade_mutual
+	casus_belli = cb_trade_war
+}
+
+1438.1.1 = {
+	add_attacker = BUR
+	add_defender = HSA
+	add_defender = DNZ
+	add_defender = LUB
+	add_defender = BRM
+	add_defender = HAM
+}
+
+# Treaty of Copenhagen
+1441.7.1 = {
+	rem_attacker = BUR
+	rem_defender = HSA
+	rem_defender = DNZ
+	rem_defender = LUB
+	rem_defender = BRM
+	rem_defender = HAM
+}

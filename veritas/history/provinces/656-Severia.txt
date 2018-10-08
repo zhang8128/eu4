@@ -1,0 +1,44 @@
+# Severia
+#Province IDs changed
+
+owner = NSV
+controller = NSV    
+culture = ruthenian
+religion = orthodox
+hre = no
+base_tax = 2
+base_production = 2
+base_manpower = 2
+trade_goods = iron
+capital = "Novgorod-Seversky"
+citysize = 5706
+is_city = yes
+add_core = NSV
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1392.1.1 = { owner = LIT controller = LIT add_core = LIT remove_core = NSV }
+1450.1.1   = { citysize = 5900 }
+1500.1.1   = { citysize = 6500 }
+1503.3.25  = { owner = RUS controller = RUS add_core = RUS remove_core = LIT } # Treaty of the Annunciation
+1550.1.1   = { citysize = 7898 }
+1591.12.1  = { controller = ZAZ }
+1593.2.2   = { controller = PLC }
+1594.1.1   = { controller = ZAZ }
+1596.5.1   = { controller = PLC }
+1600.1.1  = { citysize = 12267 }
+1638.4.1  = { controller = ZAZ }
+1638.9.1   = { controller = PLC }
+1648.1.1  = { owner = HTM controller = HTM add_core = HTM }
+1650.1.1   = { citysize = 10931 } # Military and territorial unit at the time
+1654.1.18  = { owner = RUS controller = RUS add_core = RUS } # Treaty of Pereyaslav
+1660.1.1  = { owner = PLC controller = PLC add_core = PLC }
+1667.2.9  = { owner = RUS controller = RUS add_core = RUS remove_core = PLC } # Treaty of Andrusovo
+1700.1.1   = { citysize = 12861 }
+1750.1.1   = { citysize = 15130 }
+1794.3.24  = { unrest = 5 } # Kosciuszko uprising, minimize the Russian influence
+1794.11.16 = { unrest = 0 }
+1800.1.1   = { citysize = 17800 }

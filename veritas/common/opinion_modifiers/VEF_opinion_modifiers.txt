@@ -1,0 +1,307 @@
+# Opinion Modifiers for VeF
+
+england_is_anglican = {
+	opinion = -200
+}
+
+left_hre = {
+	opinion = -30
+}
+
+iberian_rivalry = {
+	opinion = -100
+	yearly_decay = 4
+}
+
+spain_started_the_inquisition = {
+	opinion = 150
+}
+
+spain_cancelled_the_inquisition = {
+	opinion = -50
+}
+
+empire_remembers = { 
+	opinion = -70 
+}
+
+founded_the_jesuits = {
+	opinion = 25
+}
+
+rejected_true_faith = {
+	opinion = -200
+}
+
+distrust_byzantium = {
+	opinion = -50
+	yearly_decay = 1
+}
+
+hanseatic_league_friendship = {
+	opinion = 40
+}
+
+hansa_leader_opinion = {
+    opinion = 75
+}
+
+hansa_left_city_state = {
+    opinion = -200
+    yearly_decay = 10
+}
+
+cambrai_league = {
+	opinion = -75
+	yearly_decay = 2.5
+}
+
+refused_cambrai_league = {
+	opinion = -50
+	yearly_decay = 5
+}
+
+kontor_declined = { 
+	opinion = -20
+	yearly_decay = 5
+}
+
+defied_the_pope = {
+	opinion = -50
+	yearly_decay = 1
+}
+
+rejected_the_pope = {
+	opinion = -100
+	yearly_decay = 1
+}
+
+returned_rome = {
+	opinion = 50
+	yearly_decay = 1
+}
+
+hus_executed = {
+	opinion = -100
+	yearly_decay = 2
+}
+
+hus_spared = {
+	opinion = -10
+	yearly_decay = 2
+}
+
+opinion_restored_abp = {
+	opinion = 50
+	yearly_decay = 1
+}
+
+accepted_westphalia = {
+	opinion = -200
+	yearly_decay = 20
+}
+
+refused_westphalia = {
+	opinion = 200
+	yearly_decay = 10
+}
+
+harboring_fugitive = {
+	opinion = -100
+	yearly_decay = 5
+}
+
+losing_war_vassal = {
+	opinion = -75
+	yearly_decay = 5
+	years = 15
+}
+
+expelled_jesuits = {
+	opinion = -50
+	yearly_decay = 1
+}
+
+imposed_sound_toll = {
+	opinion = -50
+}
+
+declared_for_roman_throne = {
+	opinion = -200
+	yearly_decay = 1
+}
+
+formed_byzantine_empire = {
+	opinion = -200
+	yearly_decay = 1
+}
+
+vassal_stage_1 = {
+	opinion = -25
+	yearly_decay = 0.1
+}
+
+vassal_stage_2 = {
+	opinion = 5
+	yearly_decay = 0.1
+}
+
+vassal_stage_3 = {
+	opinion = 10
+	yearly_decay = 0.1
+}
+
+vassal_stage_4 = {
+	opinion = 15
+	yearly_decay = 0.1
+}
+
+vassal_stage_5 = {
+	opinion = 20
+	yearly_decay = 0.1
+}
+
+vassal_hedjaz_opinion = {
+	opinion = 25
+}
+
+intransigent_vassal = {
+	opinion = -30
+}
+
+long_term_vassal = {
+	opinion = 25
+}
+
+horde_tribute = {
+	opinion = 60
+	yearly_decay = 10
+}
+
+satrapies_disestablished = {
+	opinion = -100
+	yearly_decay = 1
+}
+
+swe_returned_bohuslan = {
+    opinion = 50
+    yearly_decay = 5
+}
+
+swe_refused_return_bohuslan = {
+    opinion = -100
+    yearly_decay = 2
+}
+
+swe_bought_bohuslan = {
+    opinion = 10
+    yearly_decay = 5
+}
+
+swe_elected_erik = {
+	opinion = 50
+	yearly_decay = 2
+}
+
+sca_magnus = {
+	opinion = 200
+}
+
+concessions_revoked = {
+	opinion = -100
+	yearly_decay = 5
+}
+
+pap_was_vassal = {
+	opinion = -75
+	yearly_decay = 1
+}
+
+sikh_confederacy_friendship = {
+	opinion = 40
+}
+
+opinion_dragos = {
+	opinion = -200
+	yearly_decay = 4
+	min = -200
+}
+
+tolerance_neg_50 = {
+	opinion = -50
+}
+
+tolerance_neg_45 = {
+	opinion = -45
+}
+
+tolerance_neg_40 = {
+	opinion = -40
+}
+
+tolerance_neg_35 = {
+	opinion = -35
+}
+
+tolerance_neg_30 = {
+	opinion = -30
+}
+
+tolerance_neg_25 = {
+	opinion = -25
+}
+
+tolerance_neg_20 = {
+	opinion = -20
+}
+
+tolerance_neg_15 = {
+	opinion = -15
+}
+
+tolerance_neg_10 = {
+	opinion = -10
+}
+
+tolerance_neg_5 = {
+	opinion = -5
+}
+
+tolerance_0 = {
+	opinion = 0
+}
+
+tolerance_5 = {
+	opinion = 5
+}
+
+tolerance_10 = {
+	opinion = 10
+}
+
+tolerance_15 = {
+	opinion = 15
+}
+
+tolerance_20 = {
+	opinion = 20
+}
+
+tolerance_25 = {
+	opinion = 25
+}
+
+tolerance_30 = {
+	opinion = 30
+}
+
+seized_priories = {
+	opinion = -100
+	yearly_decay = 1
+}
+
+genocide_opinion = {
+	opinion = -10
+	yearly_decay = 1
+	min = -200
+}

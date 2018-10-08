@@ -1,0 +1,11 @@
+#Kamatera Karavia
+#model = flute
+#tech_level = 15
+type = light_ship
+unit_type = byzantine
+
+hull_size = 10
+base_cannons = 4
+sail_speed = 8
+trade_power = 1.5
+sailors = 25

@@ -1,0 +1,16 @@
+# Sine Saloum
+
+capital = "Sine Saloum"
+owner = JOL
+controller = JOL
+add_core = JOL
+culture = wolof
+religion = serer
+trade_goods = salt
+base_tax = 3
+base_production = 3
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = sudanese_tech
+

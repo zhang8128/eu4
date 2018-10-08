@@ -1,0 +1,9 @@
+pagan_revival_overlord_religious_pressure = {
+	opinion = -50
+	yearly_decay = 1
+}
+
+pagan_revival_overlord_religious_tolerance = {
+	opinion = 50
+	yearly_decay = 1
+}

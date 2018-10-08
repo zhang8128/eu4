@@ -1,0 +1,92 @@
+#Country Name: See the Name of this File.
+
+graphical_culture = indiangfx
+
+color = { 232  79  142 }
+
+historical_idea_groups = {
+	quantity_ideas
+	spy_ideas
+	religious_ideas
+	defensive_ideas
+	mercantilist_ideas
+	cultural_unity_ideas
+	drafted_army_ideas
+	gf1_ideas
+}
+
+historical_units = {
+   indian_artillery_8_1
+   indian_artillery_16_1
+   indian_artillery_24_1
+   indian_artillery_32_1
+   indian_artillery_38_1
+   indian_artillery_42_1
+   indian_cavalry_0_1
+   indian_cavalry_16_1
+   indian_cavalry_21_1
+   indian_cavalry_27_1
+   indian_cavalry_31_1
+   indian_cavalry_36_1
+   indian_cavalry_48_1
+   indian_infantry_0_1
+   indian_infantry_6_1
+   indian_infantry_17_1
+   indian_infantry_21_1
+   indian_infantry_25_1
+   indian_infantry_34_1
+   indian_infantry_42_1
+   indian_infantry_45_1
+   indian_infantry_48_1
+   indian_infantry_50_1
+}
+
+
+
+
+monarch_names = {
+	"Muhammad Sa'adat #0" = 20
+	"Dust 'Ali #0" = 20
+	"Safdar 'Ali #0" = 20
+	"Anwar ad-Din Muhammad #0" = 20
+	"Wala Jah Muhammad 'Ali #0" = 20
+	"Umdat Ul-Umra #0" = 20
+	"Azimuddaula #0" = 20
+	"Muhammad #0" = 0
+	"Daud #0" = 0
+	"Ali #0" = 0
+	"Anwaruddin #0" = 0
+	"Azim #0" = 0
+	"Ismail #0" = 0
+	"Ghulam Mohammed #0" = 0
+	"Abdul #0" = 0
+	"Ghausia #0" = -1
+	"Khair un-Nisa #0" = -1
+	"Hydiathunissa #0" = -1
+	"Mubarakunissa #0" = -1
+	"Malikunnissa #0" = -1
+}
+
+leader_names = {
+	"Khan Wallajah"
+	"ul Umra"
+	Khan
+	Bahadur
+	Khader
+	Reddy
+	Mudaliar
+	Rajapopalachari
+	Thondaiman
+	Saluva
+	Chetty
+	Sastri
+}
+
+ship_names = {
+	Chambal Devi Durga Ganga
+	Gayatri Jalsena "Kala Jahazi"
+	Lakshmi "Lal Jahazi" Nausena
+	"Nav ka Yudh" "Nila Jahazi"
+	Parvati Radha Ratri Sagar
+	Sarasvati Sita Spiti Yamuna
+}

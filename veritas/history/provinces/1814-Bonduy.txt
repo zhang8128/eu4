@@ -1,0 +1,15 @@
+# Bonduy
+
+capital = "Bondu"
+owner = MAL
+controller = MAL
+add_core = MAL
+culture = wolof
+religion = serer
+trade_goods = gold
+base_tax = 3
+base_production = 3
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = sudanese_tech

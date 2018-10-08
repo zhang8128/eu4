@@ -1,0 +1,10 @@
+#Drua
+#model = cog
+#tech_level = 16
+type = transport
+unit_type = pacific_islander
+
+hull_size = 10
+base_cannons = 8
+sail_speed = 10
+sailors = 80

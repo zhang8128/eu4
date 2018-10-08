@@ -1,0 +1,26 @@
+name = "Greek War of Independence"
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+	tag = GRE
+}
+
+1821.3.17 = {
+	add_attacker = GRE
+	add_defender = TUR
+}
+
+1827.1.1 = {
+	add_attacker = GBR
+	add_attacker = RFR
+	add_attacker = RUS
+} # European powers intervene to assist Greece
+
+# Greek Surrender
+1832.5.1 = {
+	rem_attacker = GBR
+	rem_attacker = RFR
+	rem_attacker = RUS
+	rem_attacker = GRE
+	rem_defender = TUR
+}

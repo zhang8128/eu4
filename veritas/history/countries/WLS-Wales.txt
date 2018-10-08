@@ -1,0 +1,66 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+technology_group = western
+primary_culture = welsh
+religion = catholic
+capital = 45 # Gwynedd
+historical_friend = BRI
+historical_rival = ENG
+
+1330.1.1 = {
+	monarch = {
+		name = "Owain III"
+		dynasty = "Aberffraw"
+		birth_date = 1330.1.1
+#		death_date = 1378.1.1
+		adm = 2
+		dip = 5
+		mil = 6
+	}
+}
+
+1400.1.1 = {
+	monarch = {
+		name = "Owain IV"
+		dynasty = "Aberffraw"
+		birth_date = 1349.1.1
+#		death_date = 1415.1.1
+		adm = 5
+		dip = 4
+		mil = 7
+		leader = {
+			type = general
+			name = "Owain IV"
+			fire = 3
+			shock = 2
+			manuever = 5
+			siege = 2
+		}
+	}
+	heir = {
+		name = "Gruffudd"
+		monarch_name = "Gruffudd I"
+		dynasty = "Aberffraw"
+		birth_date = 1375.1.1
+		death_date = 1412.6.1
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1412.6.1 = {
+	heir = {
+		name = "Madoc"
+		monarch_name = "Madoc I"
+		dynasty = "Aberffraw"
+		birth_date = 1381.1.1
+		death_date = 1415.1.1
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}

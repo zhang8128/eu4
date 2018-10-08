@@ -1,0 +1,22 @@
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+technology_group = sudanese_tech
+primary_culture = oromo
+religion = sunni
+capital = 1726
+
+1309.1.1 = { #estimate, listed as ending 1329 so its almost certain he was ruling now
+	monarch = {
+		name = "Haydar"
+		dynasty = "Dawaro"
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+}
+
+1333.1.1 = { 
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 20.0 }
+}

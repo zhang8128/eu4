@@ -1,0 +1,146 @@
+#Province IDs changed
+government = theocracy add_government_reform = leading_clergy_reform
+technology_group = western
+religion = catholic
+primary_culture = dutch
+capital = 184	# Utrecht
+
+1267.1.1 = { add_country_modifier = { name = "hanseatic_league_member" duration = -1 } }
+
+#Prince Bishops of Utrecht
+1301.6.1 = {
+	monarch = {
+		name = "Guy van Avennes"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1317.6.1 = {
+	monarch = {
+		name = "Frederik II van Sierck"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1322.1.1 = {
+	monarch = {
+		name = "Jacob van Oudshoorn"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1322.6.1 = {
+	monarch = {
+		name = "Jan III van Diest"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1342.6.1 = {
+	monarch = {
+		name = "Jan IV van Arkel"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1364.6.1 = {
+	monarch = {
+		name = "Jan V van Virneburg"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1371.6.1 = {
+	monarch = {
+		name = "Arnold II van Hoorn"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1379.6.1 = {
+	monarch = {
+		name = "Floris van Wevelinkhoven"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1393.1.1 = {
+	monarch = {
+		name = "Frederick III"
+		adm = 3
+		dip = 4
+		mil = 1
+	}
+}
+
+1423.1.1 = {
+	monarch = {
+		name = "Rudolf I"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1455.4.7 = {
+	monarch = {
+		name = "Gijsbrecht I"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1456.8.3 = {
+	monarch = {
+		name = "David I"
+		adm = 5
+		dip = 5
+		mil = 2
+	}
+}
+
+1494.4.16 = {
+	monarch = {
+		name = "Frederik IV"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1517.5.9 = {
+	monarch = {
+		name = "Filips I"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1524.4.7 = {
+	monarch = {
+		name = "Hendrik II"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+#Sold to Charles V on 21 August 1528

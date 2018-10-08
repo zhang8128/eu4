@@ -1,0 +1,10 @@
+#Ou-gunsen
+#model = archipelago_frigate
+#tech_level = 44
+type = galley
+unit_type = niitaka
+
+hull_size = 24
+base_cannons = 40
+sail_speed = 6
+sailors = 400

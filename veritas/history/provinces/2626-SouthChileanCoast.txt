@@ -1,0 +1,3 @@
+# South Chilean Coast
+#Province IDs changed
+1520.1.1 = { discovered_by = SPA }

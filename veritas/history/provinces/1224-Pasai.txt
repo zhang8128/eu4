@@ -1,0 +1,32 @@
+# Pasai
+
+capital = "Pasai"
+owner = PSA
+controller = PSA
+add_core = PSA
+culture = sumatran
+religion = sunni
+trade_goods = rice
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = MKS
+discovered_by = MLC
+discovered_by = ATJ
+discovered_by = MAJ
+discovered_by = BEI
+discovered_by = KUT
+discovered_by = BLI
+discovered_by = SUN
+discovered_by = SVJ
+discovered_by = indian
+
+extra_cost = 15
+center_of_trade = 1
+
+1405.1.1	= { discovered_by = MNG }
+1509.1.1	= { discovered_by = POR }
+1521.1.1	= { owner = POR controller = POR } # Portugal conquered Pasai
+1524.1.1	= { owner = ATJ controller = ATJ add_core = ATJ }

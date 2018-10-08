@@ -1,0 +1,10 @@
+# Badiyat ash Sham
+#Province IDs changed
+
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = AJU
+discovered_by = ADA
+discovered_by = ILK
+discovered_by = byzantine

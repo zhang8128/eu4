@@ -1,0 +1,15 @@
+# Xweda
+
+capital = "Xweda"
+owner = DAH
+controller = DAH
+add_core = DAH
+culture = fon
+religion = yoruba
+trade_goods = ebony
+base_tax = 3
+base_production = 3
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = sub_saharan

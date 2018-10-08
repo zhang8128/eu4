@@ -1,0 +1,96 @@
+country_decisions = {
+
+	rajasthan_nation = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			primary_culture = rajput
+			normal_or_historical_nations = yes
+			NOT = { exists = RAJ }
+			NOT = { tag = BHR }
+			NOT = { tag = HIN }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = SIK }
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 1428 # Ajmer
+			1428 = { NOT = { nationalism = 1 } }
+			owns_core_province = 1429 # Chittorgarh
+			1429 = { NOT = { nationalism = 1 } }
+			owns_core_province = 1430 # Hadoti
+			1430 = { NOT = { nationalism = 1 } }
+			owns_core_province = 1435 # Dhundhar
+			1435 = { NOT = { nationalism = 1 } }
+			owns_core_province = 1437 # Jangladesh
+			1437 = { NOT = { nationalism = 1 } }
+			owns_core_province = 1440 # Marwar
+			1440 = { NOT = { nationalism = 1 } }
+			owns_core_province = 1441 # Jaisalmer
+			1441 = { NOT = { nationalism = 1 } }
+
+		}
+		effect = {
+			change_tag = RAJ
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			malwa_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = RAJ
+			}
+			mewar_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = RAJ
+			}
+			marwar_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = RAJ
+			}
+			jaipur_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = RAJ
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+}

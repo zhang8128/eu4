@@ -1,0 +1,46 @@
+name = "Brabant Succession War"
+succession = BRB
+war_goal = {
+	type = take_capital_throne
+	casus_belli = cb_claim_throne
+	tag = BRB
+}
+
+# Succession war on the death of John III, Duke of Brabant who is succeeded by his eldest
+# daughter Joanna. Louis II of Flanders claims Brabant on behalf of his wife Margaret,
+# younger sister to Duchess Joanna. Joanna is supported by her husband the Duke of Luxemburg
+1355.12.5 = {
+	add_attacker = FLA
+	add_defender = BRB
+	add_defender = LUX
+}
+
+#No Details available on the battle; all estimated
+1356.8.17 = {
+	battle = {
+		name = "Battle of Scheut"
+		location = 193
+		attacker = {
+			infantry = 9000
+			cavalry = 1000
+			losses = 8	# percent
+			country = FLA
+		}
+
+		defender = {
+			infantry = 8000
+			cavalry = 1000
+			losses = 30	# percent
+			country = BRB
+		}
+
+		result = yes
+	}
+}
+
+#Peace of Ath; Flanders gains Antwerp
+1357.6.4 = {
+	rem_attacker = FLA
+	rem_defender = BRB
+	rem_defender = LUX
+}

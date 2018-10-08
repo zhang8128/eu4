@@ -1,0 +1,30 @@
+# Settsu
+# Manpower revision complete
+#Province IDs changed
+
+owner = MIY
+controller = MIY
+culture = japanese
+religion = shinto
+capital = "Naniwa"
+trade_goods = chinaware
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 5
+add_core = MIY
+is_city = yes
+discovered_by = chinese
+discovered_by = niitaka
+
+1400.1.1	= { base_manpower = 2.5 }
+1478.1.1	= { capital = "Sakai" }
+1500.1.1	= { base_manpower = 3.5 }
+1569.12.1	= { add_core = ODA owner = ODA controller = ODA }
+1573.7.3	= { add_core = JAP owner = JAP controller = JAP remove_core = ODA }
+1580.1.1	= { remove_core = MIY }
+1600.1.1	= { base_manpower = 4.5 }
+1650.1.1	= { base_manpower = 5 }
+1700.1.1	= { base_manpower = 6 }
+1750.1.1	= { base_manpower = 6 }
+1800.1.1	= { base_manpower = 5.75 }

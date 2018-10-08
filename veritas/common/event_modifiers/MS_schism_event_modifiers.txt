@@ -1,0 +1,16 @@
+ecumenical_council = {
+	global_tax_modifier = -0.05
+	religious_unity = 0.05
+	global_missionary_strength = 0.01
+	prestige = -0.1
+	legitimacy = 0.1
+}
+
+anti_pope = {
+	religious_unity = 0.1
+	global_tax_modifier = 0.1
+	legitimacy = 0.5
+	prestige = 0.5
+	global_unrest = 1
+	improve_relation_modifier = -0.5
+}

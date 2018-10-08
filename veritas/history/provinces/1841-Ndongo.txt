@@ -1,0 +1,16 @@
+# Ndongo
+#Province IDs changed
+
+capital = "Ndongo"
+owner = NDO
+controller = NDO
+add_core = NDO
+culture = bakongo
+religion = bantu
+base_tax = 2
+base_production = 2
+base_manpower = 5
+trade_goods = livestock
+hre = no
+is_city = yes
+discovered_by = tribal_african_tech

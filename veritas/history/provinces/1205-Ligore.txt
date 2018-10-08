@@ -1,0 +1,31 @@
+# Ligore
+
+capital = "Nakhon Si Thammarat"
+owner = SUK
+controller = SUK
+add_core = SUK
+culture = malayan
+religion = buddhism
+trade_goods = sandalwood
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1350.1.1 = { owner = AYU controller = AYU add_core = AYU remove_core = SUK }
+1535.1.1 = { discovered_by = POR }
+1570.1.1 = {
+	owner = AYU
+	controller = AYU
+}
+#1767.4.1 = {
+#	owner = LIG
+#	controller = LIG
+#}
+1769.1.1 = {
+	owner = AYU
+	controller = AYU
+#	remove_core = LIG
+}

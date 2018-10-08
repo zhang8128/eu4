@@ -1,0 +1,10 @@
+#Log Raft
+#model = galley
+#tech_level = 2
+type = transport
+unit_type = north_american
+
+hull_size = 2
+base_cannons = 2
+sail_speed = 1
+sailors = 25

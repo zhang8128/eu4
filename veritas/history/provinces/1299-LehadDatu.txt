@@ -1,0 +1,22 @@
+# Lehad Datu
+
+capital = "Lehad Datu"
+owner = BEI
+controller = BEI
+add_core = BEI
+culture = bornean
+religion = vajrayana
+trade_goods = palm
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+is_city = yes
+discovered_by = chinese
+
+1365.1.1 = { religion = sunni }
+1521.1.1 = { discovered_by = POR }
+1672.1.1 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Civil war over succession
+1673.1.1 = { revolt = {} controller = BEI }
+1703.1.1 = { owner = SUL controller = SUL add_core = SUL remove_core = BEI } # Ceded to the Sultanate of Sulu
+1848.1.1 = { owner = GBR controller = GBR add_core = GBR remove_core = SUL } # British Crown Colony

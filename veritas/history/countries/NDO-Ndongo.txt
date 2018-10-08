@@ -1,0 +1,7 @@
+#Province IDs changed
+government = tribal add_government_reform = tribal_despotism
+government_rank = 2
+primary_culture = bakongo
+religion = bantu
+technology_group = tribal_african_tech
+capital = 1841 # Luanda

@@ -1,0 +1,145 @@
+#Pirates
+
+graphical_culture = westerngfx
+
+color = { 110  109  94 }
+
+historical_idea_groups = {
+	spy_ideas
+	quantity_ideas
+	religious_ideas
+	mercantilist_ideas
+	defensive_ideas
+	delegative_ideas
+	land_ideas
+	drafted_army_ideas
+}
+
+historical_units = { 
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+
+
+monarch_names = {
+	"Woodes  #0" = 10
+	"Black  #0" = 10
+	"Howell  #0" = 10
+	"Calico  #0" = 10
+	"Lessone  #0" = 10
+	"Lawrence  #0" = 10
+	"Lewis  #0" = 10
+	"John  #0" = 10	
+	"Roche  #0" = 10
+	"James  #0" = 10
+	"Assan  #0" = 10
+	"Dirck #0" = 10
+	
+	"Jane #0" = -1
+}
+	
+leader_names = {
+	Alvel Cavendish "de Bouff" Brower Barton
+	Hein Noort Easton Rais Verney Rous Reis
+	Davis Collier Greaves Bellamy Every Vane
+	Rogers Taylor Vorley Kelly Howard Halsey
+}
+
+ship_names = {
+	"Captain's Horror"
+	"Death"
+	"Disgraceful Strumpet"
+	"Dragon's Gold"
+	"Executioner"
+	"Killer's Fearful Storm"
+	"Murderer's Death"
+	"Privateer's Strumpet"
+	"The Damned Killer"
+	"The Dark Dagger"
+	"The Dirty Blade"
+	"The Dirty Scream"
+	"The Doom of the Ocean"
+	"The Dreaming Demon"
+	"The Fallen Raider"
+	"The Fear of the Demon"
+	"The Foul Whore"
+	"The Gold Cutlass"
+	"The Hell-born"
+	"The Horrid Compass"
+	"The Horrible Raider"
+	"The Howling Wolf"
+	"The Lustful Hangman"
+	"The Nightmare"
+	"The Poison Death"
+	"The Serpent"
+	"The Vicious Murderer"
+	"The Vile Saber"
+}

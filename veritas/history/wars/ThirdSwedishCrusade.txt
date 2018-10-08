@@ -1,0 +1,225 @@
+#Province IDs changed
+name = "Third Swedish Crusade"
+war_goal = {
+	type = take_border
+	casus_belli = cb_border_war
+	province = 431
+}
+
+1293.5.1 = {
+	add_attacker = SWE
+	add_defender = NOV
+}
+
+1293.7.1 = {
+	battle = {
+		name = "Vyborg"
+		location = 431
+		attacker = {
+			commander = "Torkel Knutsson"
+			infantry = 5000
+			cavalry = 1000
+			losses = 11	# percent
+			country = SWE
+		}
+		defender = {
+			commander = "Yaroslav Novinskii" #made up
+			infantry = 1000
+			losses = 60	# percent
+			country = NOV
+		}
+		result = yes
+	}
+}
+
+1293.9.1 = {
+	battle = {
+		name = "Kexholm"
+		location = 430
+		attacker = {
+			commander = "Torkel Knutsson"
+			infantry = 4000
+			losses = 5	# percent
+			country = SWE
+		}
+		defender = {
+			commander = "Fedor Kobrila" #made up
+			infantry = 400
+			losses = 30	# percent
+			country = NOV
+		}
+		result = yes
+	}
+}
+
+1294.6.1 = {
+	battle = {
+		name = "Neva River"
+		location = 685
+		attacker = {
+			commander = "Torkel Knutsson"
+			infantry = 6000
+			losses = 9	# percent
+			country = SWE
+		}
+		defender = {
+			commander = "Fedor Kobrila" #made up
+			infantry = 4000
+			losses = 40	# percent
+			country = NOV
+		}
+		result = yes
+	}
+}
+
+1295.6.1 = {
+	battle = {
+		name = "Kexholm Castle"
+		location = 430
+		attacker = {
+			commander = "Sigge Lake"
+			infantry = 200
+			losses = 100	# percent
+			country = SWE
+		}
+		defender = {
+			commander = "Fedor Kobrila" #made up
+			infantry = 5000
+			losses = 3 # percent
+			country = NOV
+		}
+		result = no
+	}
+}
+
+1300.8.1 = {
+	battle = {
+		name = "Landskrona Castle"
+		location = 685
+		attacker = {
+			commander = "Torkel Knutsson"
+			infantry = 6000
+			cavalry = 1000
+			losses = 15	# percent
+			country = SWE
+		}
+		defender = {
+			commander = "Ivashko Targovich" #made up
+			infantry = 9000
+			losses = 10 # percent
+			country = NOV
+		}
+		result = no
+	}
+}
+
+1302.5.1 = {
+	battle = {
+		name = "Göta Fästning"
+		location = 430
+		attacker = {
+			commander = "Torkel Knutsson"
+			infantry = 4000
+			cavalry = 1000
+			losses = 20	# percent
+			country = SWE
+		}
+		defender = {
+			commander = "Ivashko Targovich" #made up
+			infantry = 6000
+			losses = 15 # percent
+			country = NOV
+		}
+		result = no
+	}
+}
+
+1303.3.1 = {
+	battle = {
+		name = "Viborg Lake"
+		location = 431
+		attacker = {
+			commander = "Torkel Knutsson"
+			infantry = 6000
+			losses = 20	# percent
+			country = SWE
+		}
+		defender = {
+			commander = "Ivashko Targovich" #made up
+			infantry = 5000
+			losses = 25 # percent
+			country = NOV
+		}
+		result = no
+	}
+}
+
+1303.7.1 = {
+	battle = {
+		name = "Viborg Kust"
+		location = 431
+		attacker = {
+			commander = "Torkel Knutsson"
+			infantry = 4000
+			losses = 40	# percent
+			country = SWE
+		}
+		defender = {
+			commander = "Ivashko Targovich" #made up
+			infantry = 6000
+			losses = 10 # percent
+			country = NOV
+		}
+		result = no
+	}
+}
+
+1306.6.1 = {
+	battle = {
+		name = "Nöteborg Fält"
+		location = 431
+		attacker = {
+			commander = "Torkel Knutsson"
+			infantry = 8000
+			cavalry = 1000
+			losses = 22	# percent
+			country = SWE
+		}
+		defender = {
+			commander = "Ivashko Targovich" #made up
+			infantry = 9000
+			cavalry = 3000
+			losses = 12 # percent
+			country = NOV
+		}
+		result = no
+	}
+}
+
+1308.8.1 = {
+	battle = {
+		name = "Saima River"
+		location = 431
+		attacker = {
+			commander = "Torkel Knutsson"
+			infantry = 7000
+			cavalry = 1000
+			losses = 40	# percent
+			country = SWE
+		}
+		defender = {
+			commander = "Ivashko Targovich" #made up
+			infantry = 9000
+			cavalry = 4000
+			losses = 20 # percent
+			country = NOV
+		}
+		result = no
+	}
+}
+
+# Treaty of Nöteborg
+1323.6.6 = {
+	rem_attacker = SWE
+	rem_defender = NOV
+}

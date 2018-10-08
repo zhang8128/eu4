@@ -1,0 +1,150 @@
+#Country Name: Please see filename.
+
+graphical_culture = easterngfx
+
+color = { 146  134  77 }
+
+historical_idea_groups = {
+	offensive_ideas
+	intimidatory_ideas
+	religious_ideas
+	quantity_ideas
+	exploration_ideas
+	land_trade_ideas
+	drafted_army_ideas
+	land_ideas
+}
+
+historical_units = {
+	eastern_artillery_16_1
+	eastern_artillery_22_1
+	eastern_artillery_29_1
+	eastern_artillery_35_1
+	eastern_artillery_40_1
+	eastern_artillery_44_1
+	eastern_artillery_48_1
+	eastern_artillery_48_2
+	eastern_artillery_52_1
+	eastern_artillery_55_1
+	eastern_artillery_55_2
+	eastern_artillery_9_1
+	eastern_cavalry_0_1
+	eastern_cavalry_0_2
+	eastern_cavalry_21_1
+	eastern_cavalry_21_2
+	eastern_cavalry_27_1
+	eastern_cavalry_31_1
+	eastern_cavalry_36_1
+	eastern_cavalry_40_1
+	eastern_cavalry_44_1
+	eastern_cavalry_44_2
+	eastern_cavalry_48_1
+	eastern_cavalry_48_2
+	eastern_cavalry_51_1
+	eastern_cavalry_51_2
+	eastern_cavalry_55_1
+	eastern_cavalry_55_2
+	eastern_cavalry_58_1
+	eastern_cavalry_58_2
+	eastern_cavalry_16_1
+	eastern_cavalry_16_2
+	eastern_infantry_0_1
+	eastern_infantry_0_2
+	eastern_infantry_17_1
+	eastern_infantry_17_2
+	eastern_infantry_25_1
+	eastern_infantry_25_2
+	eastern_infantry_28_1
+	eastern_infantry_28_2
+	eastern_infantry_31_1
+	eastern_infantry_31_2
+	eastern_infantry_34_1
+	eastern_infantry_34_2
+	eastern_infantry_39_1
+	eastern_infantry_39_2
+	eastern_infantry_42_1
+	eastern_infantry_42_2
+	eastern_infantry_45_1
+	eastern_infantry_45_2
+	eastern_infantry_48_1
+	eastern_infantry_48_2
+	eastern_infantry_50_1
+	eastern_infantry_50_2
+	eastern_infantry_53_1
+	eastern_infantry_53_2
+	eastern_infantry_55_1
+	eastern_infantry_55_2
+	eastern_infantry_57_1
+	eastern_infantry_57_2
+	eastern_infantry_59_1
+	eastern_infantry_59_2
+	eastern_infantry_63_1
+	eastern_infantry_63_2
+	eastern_infantry_6_1
+	eastern_infantry_6_2
+	eastern_infantry_14_1
+	eastern_infantry_14_2
+}
+
+monarch_names = {
+	"Ivan #3" = 80
+	"Fyodor #1" = 20
+	"Oleg #1" = 20
+	"Vasiliy #1" = 20
+	"Dmitriy #5" = 10
+	"Vladimir #2" = 10
+	"Akim #0" = 0
+	"Anastas #0" = 0
+	"Anton #0" = 0
+	"Arseniy #0" = 0
+	"Bogdan #0" = 0
+	"Daniil #0" = 0
+	"David #0" = 0
+	"Ferapont #0" = 0
+	"Fyodor #0" = 0
+	"Isaak #0" = 0
+	"Kirill #0" = 0
+	"Lavrentiy #0" = 0
+	"Lazar #0" = 0
+	"Leonid #0" = 0
+	"Leonti #0" = 0
+	"Luka #0" = 0
+	"Makariy #0" = 0
+	"Mefodiy #0" = 0
+	"Milan #0" = 0
+	"Mitrofan #0" = 0
+	"Nazariy #0" = 0
+	"Nestor #0" = 0
+	"Nikolai #0" = 0
+	"Nikon #0" = 0
+	"Pyotr #0" = 0
+	"Roman #0" = 0
+	"Valeriy #0" = 0
+	"Veniamin #0" = 0
+	"Vlad #0" = 0
+	"Vsevolod #0" = 0
+	"Yaromir #0" = 0
+	"Yevgeniy #0" = 0
+	"Zinoviy #0" = 0
+	"Zakhar #0" = 0
+	
+	"Dominika #0" = -1
+	"Katya #0" = -1
+	"Anna #0" = -5
+	"Fedora #0" = -1
+	"Maria #0" = -1
+}
+
+leader_names = { 
+	Muromsky Pronsky Barabshin Brukathy Shuisky Glazaty Gorbaty
+	Kirdyapin Nizhegorodsky Nogtew Skopin Ivanov Travin Tolbuzin
+	Rozhestvensky Sapogov Vsevolozhsky Gubastov Danilov Dmitriev
+	Dobrynsky Yeropkin
+}
+
+ship_names = {
+	Pronsk Pronya "Y. Sviatoslavich" Murom
+	"Staraya Ryazan" Pereslavl Ryazansky Moksha
+	Oka Tsna Skopin Mikhailov Lolotcha Kasimov
+	Kadorn Sasovo Shatsk Novornichurinsk
+}

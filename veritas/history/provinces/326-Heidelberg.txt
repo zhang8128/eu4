@@ -1,0 +1,39 @@
+# Heidelberg
+
+capital = "Heidelberg"
+culture = rhinefranconian
+religion = catholic
+trade_goods = livestock
+owner = PAL
+base_tax = 6
+base_production = 6
+base_manpower = 3
+is_city = yes
+controller = PAL
+add_core = PAL
+hre = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1   = { base_tax = 5 base_production = 5 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death set_variable = { which = tax_growth value = 75 } set_variable = { which = prod_growth value = 75 }} # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1400.1.1   = { base_tax = 6 base_production = 6 set_variable = { which = tax_growth value = 0 } set_variable = { which = prod_growth value = 0 }}
+1453.1.1   = { temple = yes } # The Kaiserdom in Speyer is on of the oldest and greatest in the HRE, built over the 11th and 12th century
+1495.1.1   = { courthouse = yes }
+1546.4.19  = { religion = protestant } # #Friedrich II converts the coutnry to protestant
+1600.1.1   = { citysize = 22000 }
+1648.1.1   = { citysize = 15000 }
+1689.8.1   = { base_tax = 5
+base_production = 5 controller = FRA } # French troops burn, pillage and destroy in the succession wars.
+1697.4.19  = { owner = PAL controller = PAL } # Peace of Rijswijk strengthens the catholics
+1700.1.1   = { citysize = 20000 }
+1750.1.1   = { citysize = 24000 }
+1777.12.30 = {	owner = BAV
+		controller = BAV
+		add_core = BAV
+	     } # Karl Theodor becomes elector of both the Pawesternate and Bavaria after Maximillian III's death
+1803.4.27 = { owner = BAD controller = BAD add_core = BAD remove_core = BAV }
+1806.7.12  = { hre = no } # The Holy Roman Empire is dissolved

@@ -1,0 +1,21 @@
+# Romania
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+primary_culture = romanian
+add_accepted_culture = moldavian
+add_accepted_culture = wallachian
+add_accepted_culture = transylvanian
+religion = orthodox
+technology_group = eastern
+capital = 507	# Tîrgoviste
+
+historical_rival = GOL
+historical_rival = OSM
+historical_rival = HUN
+historical_rival = TUR
+historical_friend = TRA
+historical_friend = MOL
+historical_friend = WAL
+historical_friend = BYZ
+historical_friend = SER

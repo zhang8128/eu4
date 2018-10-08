@@ -1,0 +1,40 @@
+colonial_taxation = {
+
+	category = 2
+
+	allow = {
+		colony = 1
+	}
+	
+	on_issue_taken = {
+		change_variable = { which = parliament_debate value = 1 }
+	}
+	
+	effect = {
+		#
+	}
+	
+	modifier = {
+		global_tariffs = 0.25
+	}
+	
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			colony = 2
+		}
+		modifier = {
+			factor = 2
+			colony = 3
+		}
+		modifier = {
+			factor = 2
+			colony = 4
+		}
+	}
+
+	ai_will_do = {
+		factor = 1
+	}	
+}

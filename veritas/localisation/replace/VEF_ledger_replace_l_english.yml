@@ -1,0 +1,10 @@
+﻿l_english:
+
+ ###Replacement localisations from vanilla's ledger_l_english###
+
+ LEDGER_BIGSHIP_FIRE: "Heavy Warship Fire"
+ LEDGER_LIGHTSHIP_FIRE: "Trade Ship Fire"
+ LEDGER_TRANSPORT_FIRE: "Light Warship fire"
+ LEDGER_BIGSHIP_SHOCK: "Heavy Warship Shock"
+ LEDGER_LIGHTSHIP_SHOCK: "Trade Ship Shock"
+ LEDGER_TRANSPORT_SHOCK: "Light Warship Shock"

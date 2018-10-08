@@ -1,0 +1,63 @@
+country_decisions = {
+
+	habsburg_nation = {
+		major = yes
+		potential = {
+			primary_culture = austrian
+			normal_or_historical_nations = yes
+			OR = {
+				tag = STY
+				tag = CTH
+				tag = TIR
+			}
+			OR = {
+				NOT = { exists = HAB }
+				ai = no
+			}
+		}
+		allow = {
+			NOT = { exists = HAB }
+			stability = 1
+			is_at_war = no
+			is_nomad = no
+			is_subject = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				inner_austria_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				austria_proper_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				tooltip = owns_all_austria
+			}
+		}
+		effect = {
+			change_tag = HAB
+			add_prestige = 10
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = HAB_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 400
+	}
+
+}

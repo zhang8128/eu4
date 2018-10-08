@@ -1,0 +1,29 @@
+# Okinawa
+# Manpower revision complete
+#Province IDs changed
+
+owner = RYU
+controller = RYU
+culture = japanese
+religion = animism
+capital = "Shuri"
+trade_goods = livestock
+hre = no
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+add_core = RYU
+discovered_by = chinese
+discovered_by = niitaka
+
+1400.1.1	= { base_manpower = 1.5 }
+1500.1.1	= { base_manpower = 2 }
+1600.1.1	= { base_manpower = 3 }
+1609.3.10	= { controller = JAP } # Japanese occupation, King Sho Nei was taken prisoner
+1611.1.1	= { controller = RYU } # Sho Nei is released
+1624.1.1	= { religion = shinto } # The Amami islands are annexed
+1650.1.1	= { base_manpower = 4 }
+1700.1.1	= { base_manpower = 4.5 }
+1750.1.1	= { base_manpower = 4.5 }
+1800.1.1	= { base_manpower = 4.5 }

@@ -1,0 +1,28 @@
+government = republic add_government_reform = oligarchic_republic
+government_rank = 1
+mercantilism = 25
+primary_culture = prussian
+technology_group = western
+religion = catholic
+capital = 367	# Danzig
+fixed_capital = 367 # Cannot move capital away from this province & no power cost to move to it
+
+1235.1.1 = {
+    add_country_modifier = { name = "hanseatic_league_member" duration = -1 }
+    add_country_modifier = { name = "hansa_city_state_modifier" duration = -1 }
+    set_country_flag = hansa_city_state
+}
+
+1540.1.1 = { government = republic add_government_reform = administrative_republic }
+
+1750.1.1 = { government = republic }
+
+1807.7.9 = {
+	monarch = {
+		name = "Franz Joseph I"
+		adm = 2
+		dip = 1
+		mil = 3
+		leader = {	name = "Franz Joseph I"   	type = general fire = 3	shock = 3	manuever = 3	siege = 2 }
+	}
+}

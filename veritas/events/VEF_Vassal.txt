@@ -1,0 +1,1635 @@
+# Vassal mechanics
+#
+#  vef_vassal.1 : Calculate vassal progress
+#  vef_vassal.2 : Count vassals
+#  vef_vassal.3 : Initialize a vassal
+#  vef_vassal.4 : Stage 4 - Vassal
+#  vef_vassal.5 : Stage 3 - Vassal
+#  vef_vassal.6 : Stage 2 - Vassal
+#  vef_vassal.7 : Stage 1 - Vassal
+#  vef_vassal.9 : Initialize an overlord
+# vef_vassal.10 : Stage 2 - Overlord
+# vef_vassal.11 : Stage 3 - Overlord
+# vef_vassal.12 : Stage 4 - Overlord
+# vef_vassal.13 : Stage 5 - Overlord
+# vef_vassal.14 : Complete - Overlord
+# vef_vassal.15 : Cleanup for country no longer a vassal
+# vef_vassal.16 : Vassal Bonus Notification 0 - Vassal
+# vef_vassal.17 : Vassal Bonus Notification 1 - Vassal
+# vef_vassal.18 : Vassal Bonus Notification 2 - Vassal
+# vef_vassal.19 : Vassal Bonus Notification 3 - Vassal
+# vef_vassal.20 : Vassal Bonus Notification 3 - Overlord
+# vef_vassal.21 : Vassal Bonus Notification 3 - Overlord
+# vef_vassal.22 : Vassal Bonus Notification 3 - Overlord
+# vef_vassal.23 : Vassal Bonus Notification 3 - Overlord
+#100	Hedjaz given extra provinces
+#101	Explain Hedjaz rules
+#200	French Fealties - Switch to normal vassal mechanics
+#40031	Vassal government
+#40032	Fix government of free vassal
+#40034	Special Turkish vassal governments
+
+namespace = vef_vassal
+
+# Vassal progress
+country_event = {
+	id = vef_vassal.1
+	title = "vef_vassal.1.t"
+	desc = "vef_vassal.1.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		is_subject = yes
+	}
+
+	immediate = {
+		if = {
+			limit = { NOT = { liberty_desire = 25 }}
+			set_variable = { which = subject_libdesire value = 0 }
+		}
+		if = {
+			limit = { liberty_desire = 25 }
+			set_variable = { which = subject_libdesire value = 1 }
+			if = {
+				limit = { liberty_desire = 50 }
+				set_variable = { which = subject_libdesire value = 2 }
+				if = {
+					limit = { liberty_desire = 75 }	
+					set_variable = { which = subject_libdesire value = 3 }
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { overlord = { has_country_flag = overlord_flag_@ROOT }}}
+			every_known_country = { clr_country_flag = overlord_flag_@ROOT }
+			overlord = { set_country_flag = overlord_flag_@ROOT }
+		}
+		if = {
+			limit = {
+				OR = { 
+					is_subject_of_type = russian_tribute
+					is_subject_of_type = russian_enforcer
+				}
+			}
+			set_variable = { which = subject_libdesire value = 3 }
+		}
+		if = {
+			limit = { 
+				NOT = { is_subject_of_type = daimyo_vassal }
+				NOT = { is_subject_of_type = tributary_state }
+				NOT = { is_subject_of_type = french_vassal }
+				NOT = { is_subject_of_type = romagna_state }
+				NOT = { is_subject_of_type = swiss_confederate }
+				NOT = { is_subject_of_type = iure_uxoris }
+				NOT = { overlord = { ROOT = { is_client_nation_of = PREV }}}
+				is_lesser_in_union = no
+				is_colonial_nation = no
+				is_march = no
+				NOT = { is_subject_of_type = persian_satrap }
+				NOT = { is_subject_of_type = taifa_subject }
+				NOT = { is_subject_of_type = russian_tribute }
+				NOT = { is_subject_of_type = russian_enforcer }
+				NOT = { is_subject_of_type = native_protectorate }
+				OR = {
+					NOT = { overlord = { is_emperor = yes }}
+					NOT = { hre_reform_level = 7 }
+					NOT = { is_part_of_hre = yes }
+				}
+			}
+			if = { 
+				limit = { NOT = { overlord = { has_country_flag = overlord_flag_@ROOT }}}
+				clr_country_flag = vassal_flag
+				clr_country_flag = starting_vassal
+				clr_country_flag = intransigent_vassal
+				clr_country_flag = allowed_to_annex
+				clr_country_flag = long_term_vassal
+				clr_country_flag = overlord_notified_0
+				clr_country_flag = overlord_notified_1
+				clr_country_flag = overlord_notified_2
+				clr_country_flag = overlord_notified_3
+				every_known_country = { clr_country_flag = overlord_flag_@ROOT }	#clear previous overlord if changed hands in peace
+				set_variable = { which = vassal_progress value = 0 }
+				set_variable = { which = vassal_boost value = 0 }
+				overlord = { set_country_flag = overlord_flag_@ROOT }
+			}
+			# Run the 'new vassal' events if needed
+			if = {
+				limit = { 
+					NOT = { has_country_flag = vassal_flag }
+					NOT = { has_country_flag = allowed_to_annex }
+					NOT = { has_country_flag = long_term_vassal }
+					NOT = { any_known_country = { war_with = PREV }}
+				}
+				set_country_flag = vassal_flag
+				set_country_flag = vassal_initialising
+				export_to_variable = { which = prevvassal_prov value = num_of_cities }
+				export_to_variable = { which = province_count value = num_of_cities }	#To account for vassal having lost provinces in the same war they lost freedom
+				set_variable = { which = vassal_progress value = 20 }
+				country_event = { id = vef_vassal.3 }
+			}
+			if = {
+				limit = {
+					is_nomad = no	#Can't progress with no administration
+					NOT = { has_country_flag = vassal_initialising }
+					NOT = { has_country_flag = long_term_vassal }
+					NOT = { is_subject_of_type = vassal_hedjaz }
+				}
+				# Default progress - roughly 50 years with no boosts. Add the overlord's boost  
+				# vef_vassal.2
+				if = {
+					limit = {  NOT = { has_reform = ethnarchy_government }}
+					change_variable = { which = vassal_progress value = 0.5 }
+					change_variable = { which = vassal_progress which = vassal_boost }
+					else = { change_variable = { which = vassal_progress value = 0.3 }}
+				}
+		
+				#LD Modifiers 
+				if = {
+					limit = { liberty_desire = 40 }
+					change_variable = { which = vassal_progress value = -0.2 }
+					if = {
+						limit = { liberty_desire = 50 }
+						change_variable = { which = vassal_progress value = -0.2 }
+						if = {
+							limit = { liberty_desire = 60 }
+							change_variable = { which = vassal_progress value = -0.2 }
+							if = {
+								limit = { liberty_desire = 80 }
+								change_variable = { which = vassal_progress value = -0.5 }
+							}
+						}
+					}
+				}
+				# Bonus for ideas
+				if = {
+					limit = { diplomatic_ideas = 3 }
+					change_variable = { which = vassal_progress value = 0.06 }
+				}
+				if = {
+					limit = { foreign_affairs_ideas = 5 }
+					change_variable = { which = vassal_progress value = 0.06 }
+				}
+				# Neighbor bonus
+				if = {
+					limit = { overlord = { is_neighbor_of = ROOT } }
+					change_variable = { which = vassal_progress value = 0.06 }
+				}
+	
+				# Religion effects (bonus/malus)
+				if = {
+					limit = { overlord = { has_matching_religion = ROOT } }
+					change_variable = { which = vassal_progress value = 0.03 }
+				}
+				if = {
+					limit = { NOT = { overlord = { has_matching_religion = ROOT } } }
+					change_variable = { which = vassal_progress value = -0.04 }
+				}
+
+				# Culture bonus/malus
+				if = {
+					limit = { overlord = { primary_culture = ROOT } }
+					change_variable = { which = vassal_progress value = 0.03 }
+				}
+				if = {
+					limit = { NOT = { overlord = { culture_group = ROOT }}}
+					change_variable = { which = vassal_progress value = -0.02 }
+				}
+
+				# Bonus for major institution disparity
+				if = {
+					limit = {
+						overlord = { institution_difference = { who = ROOT value = 2 }}
+					}
+					change_variable = { which = vassal_progress value = 0.06 }
+				}
+			
+				# Bonus for major size disparity
+				if = {
+					limit = {
+						overlord = { military_strength = { who = ROOT value = 5 }}
+					}
+					change_variable = { which = vassal_progress value = 0.06 }
+				}
+				# Malus if vassal is 5 or more provinces
+				if = {
+					limit = { num_of_cities = 5 }
+					change_variable = { which = vassal_progress value = -0.05 }
+				}
+				# Malus if vassal is 50% size of overlord
+				if = {
+					limit = {
+						NOT = { overlord = { military_strength = { who = ROOT value = 2 }}}
+					}
+					change_variable = { which = vassal_progress value = -0.05 }
+				}
+				# Malus for any negative institution disparity
+				if = {
+					limit = {
+						NOT = { overlord = { institution_difference = { who = ROOT value = 0 }}}
+					}
+					change_variable = { which = vassal_progress value = -0.1 }
+				}
+				if = {
+					limit = { has_ruler_flag = ambitious_vassal }
+					change_variable = { which = vassal_progress value = -0.1 }
+				}
+				# Policy
+				if = {
+					limit = { has_active_policy = vef_vassal_freedom }
+					change_variable = { which = vassal_progress value = -1 }
+				}
+				# Bureaucrat gives a boost
+				if = {
+					limit = { overlord = { advisor = bureaucrat } }
+					change_variable = { which = vassal_progress value = 0.06 }
+				}
+				# Diplomacy Policy Finisher
+				if = {
+					limit = { overlord = { has_active_policy = vef_diplomacyf } }
+					change_variable = { which = vassal_progress value = 0.5 }
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = vassal_initialising }
+					NOT = { has_reform = ethnarchy_government }
+					NOT = { check_variable = { which = prevvassal_prov which = province_count }}
+					check_variable = { which = vassal_progress value = 0 }
+				}
+				change_variable = { which = prevvassal_prov value = 1 }
+				change_variable = { which = vassal_progress value = -50 }
+				if = {
+					limit = {
+						NOT = { check_variable = { which = prevvassal_prov which = province_count }}
+						check_variable = { which = vassal_progress value = 0 }
+					}
+					change_variable = { which = prevvassal_prov value = 1 }
+					change_variable = { which = vassal_progress value = -50 }
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = vassal_initialising }
+					has_reform = ethnarchy_government
+					NOT = { check_variable = { which = prevvassal_prov which = province_count }}
+					check_variable = { which = vassal_progress value = 0 }
+				}
+				change_variable = { which = prevvassal_prov value = 1 }
+				change_variable = { which = vassal_progress value = -20 }
+				if = {
+					limit = {
+						NOT = { check_variable = { which = prevvassal_prov which = province_count }}
+						check_variable = { which = vassal_progress value = 0 }
+					}
+					change_variable = { which = prevvassal_prov value = 1 }
+					change_variable = { which = vassal_progress value = -20 }
+				}
+			}
+		
+			# France makes no progress during Western Schism
+			if = {
+				limit = {
+					tag = AVI
+					has_reform = papacy_reform
+				}
+				set_variable = { which = vassal_progress value = 20 }
+			}
+			
+			if = {
+				limit = { has_country_modifier = vassal_rebellious }
+				set_variable = { which = vassal_progress value = 10 }
+			}
+		
+			if = {
+				limit = { check_variable = { which = vassal_progress value = 100 } NOT = { any_known_country = { war_with = PREV }}}
+				set_variable = { which = vassal_progress value = 20 }
+				trigger_switch = {
+					on_trigger = is_subject_of_type
+					suzerainty = {
+						overlord = {
+							create_subject = { who = ROOT subject_type = dependency }
+							country_event = { id = vef_vassal.11 }
+						}
+					}
+					dependency = {
+						overlord = {
+							create_subject = { who = ROOT subject_type = dominion }
+							country_event = { id = vef_vassal.12 }
+						}
+					}
+					dominion = {
+						overlord = {
+							create_subject = { who = ROOT subject_type = vassal }
+							country_event = { id = vef_vassal.13 }
+						}
+					}
+					vassal = {
+						add_country_modifier = { name = vassal_integrated duration = -1 }
+						set_country_flag = allowed_to_annex
+						clr_country_flag = long_term_vassal # To be sure it's set to 0 days
+						set_variable = { which = vassal_progress value = 60 }
+						clr_country_flag  = vassal_flag
+						set_country_flag = long_term_vassal
+						overlord = { country_event = { id = vef_vassal.14 }}
+					}
+				}
+			}
+			if = {
+				limit = { NOT = { check_variable = { which = vassal_progress value = 0 }} NOT = { any_known_country = { war_with = PREV }}}
+				set_variable = { which = vassal_progress value = 80 }
+				if = {
+					limit = { has_country_modifier = vassal_integrated }
+					remove_country_modifier = vassal_integrated
+					set_country_flag  = vassal_flag
+					clr_country_flag = long_term_vassal
+					clr_country_flag = allowed_to_annex
+					overlord = { country_event = { id = vef_vassal.8 }}
+					else = {
+						trigger_switch = {
+							on_trigger = is_subject_of_type
+							vassal= {
+								overlord = {
+									create_subject = { who = ROOT subject_type = dominion }
+									country_event = { id = vef_vassal.4 }
+								}
+							}
+							dominion = {
+								overlord = {
+									create_subject = { who = ROOT subject_type = dependency }
+									country_event = { id = vef_vassal.5 }
+								}
+							}
+							dependency = {
+								overlord = {
+									create_subject = { who = ROOT subject_type = suzerainty }
+									country_event = { id = vef_vassal.6 }
+								}
+							}
+							suzerainty = {
+								set_variable = { which = vassal_progress value = 10 }
+								if = {
+									limit = { NOT = { has_country_modifier = vassal_rebellious }}
+									add_country_modifier = { name = vassal_rebellious duration = 3650 }
+									overlord = { reverse_add_opinion = { who = ROOT modifier = angry_vassal }}
+								}
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = HED
+					normal_or_historical_nations = yes
+					any_owned_province = { NOT = { is_core = HED }}
+				}
+				overlord = { country_event = { id = vef_vassal.100 }}
+			}
+			else = {
+				if = { 
+					limit = { NOT = { overlord = { has_country_flag = overlord_flag_@ROOT }}}
+					clr_country_flag = vassal_flag
+					clr_country_flag = starting_vassal
+					clr_country_flag = intransigent_vassal
+					clr_country_flag = allowed_to_annex
+					clr_country_flag = long_term_vassal
+					clr_country_flag = overlord_notified_0
+					clr_country_flag = overlord_notified_1
+					clr_country_flag = overlord_notified_2
+					clr_country_flag = overlord_notified_3
+					every_known_country = { clr_country_flag = overlord_flag_@ROOT }	#clear previous overlord if changed hands in peace
+					set_variable = { which = vassal_progress value = 0 }
+					set_variable = { which = vassal_boost value = 0 }
+					overlord = { set_country_flag = overlord_flag_@ROOT }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "vef_vassal.1.opta"
+	}
+}
+
+# Count the vassals and transfer the boost value
+country_event = {
+	id = vef_vassal.2
+	title = "vef_vassal.2.t"
+	desc = "vef_vassal.2.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	hidden = yes
+
+	trigger = {
+	}
+
+	immediate = {
+		set_variable = { which = long_term_vassal_count value = 0 }
+		every_subject_country = {
+			limit = { 
+				OR = {
+					junior_union_with = ROOT
+					vassal_of = ROOT
+					march_of = ROOT
+				}
+			}
+			if = {
+				limit = { is_vassal = yes }
+				set_variable = { which = vassal_boost which = ROOT }
+			}
+			# Bonus for long-term vassal
+			if = {
+				limit = {
+					OR = {
+						is_lesser_in_union = yes
+						is_march = yes
+						has_country_flag = long_term_vassal 
+					}
+				}
+				ROOT = { 
+					change_variable = { which = national_stability value = 0.5 }
+					change_variable = { which = long_term_vassal_count value = 1 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "vef_vassal.2.opta"
+	}
+}
+
+# Initialize
+country_event = {
+	id = vef_vassal.3
+	title = "vef_vassal.3.t"
+	desc = "vef_vassal.3.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	hidden = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		release_all_subjects = yes
+		if = {
+			limit = {
+				NOT = { has_country_flag = starting_vassal }
+				NOT = { has_country_flag = priveleges_revoked } # Emperor doesn't force change
+				OR = {
+					NOT = { tag = HED }
+					NOT = { normal_or_historical_nations = yes }
+				}
+			}
+			overlord = {
+				set_country_flag = overlord_flag_@ROOT
+				create_subject = { who = ROOT subject_type = suzerainty }
+				country_event = { id = vef_vassal.9 }
+				country_event = { id = vef_vassal.40031 days = 1 }
+				country_event = { id = vef_vassal.40034 days = 1 }
+			}
+		}
+		if = {
+			limit = {
+				tag = HED
+				normal_or_historical_nations = yes
+				NOT = { has_country_flag = starting_vassal }
+			}
+			overlord = {
+				set_country_flag = overlord_flag_@ROOT
+				create_subject = { who = ROOT subject_type = hedjaz_vassal }
+				country_event = { id = vef_vassal.101 days = 3 }
+			}
+		}
+		clr_country_flag = vassal_initialising
+	}
+
+	option = {
+		name = "vef_vassal.3.opta"
+	}
+}
+
+# Vassal Regress
+country_event = {
+	id = vef_vassal.4
+	title = "vef_vassal.4.t"
+	desc = "vef_vassal.4.d"
+	picture = VEF_VASSAL_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+
+	option = {
+		name = "vef_vassal.4.opta"
+	}
+}
+
+country_event = {
+	id = vef_vassal.5
+	title = "vef_vassal.5.t"
+	desc = "vef_vassal.5.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_vassal.5.opta"
+	}
+}
+
+country_event = {
+	id = vef_vassal.6
+	title = "vef_vassal.6.t"
+	desc = "vef_vassal.6.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_vassal.6.opta"
+	}
+}
+
+country_event = {
+	id = vef_vassal.7
+	title = "vef_vassal.7.t"
+	desc = "vef_vassal.7.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_vassal.7.opta"
+	}
+}
+
+country_event = {
+	id = vef_vassal.8
+	title = "vef_vassal.8.t"
+	desc = "vef_vassal.8.d"
+	picture = VEF_VASSAL_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = { reverse_remove_opinion = { who = FROM modifier = long_term_vassal }}
+	}
+
+	option = {
+		name = "vef_vassal.8.opta"
+	}
+}
+
+# Overlord events (9 through 14).
+# Initial Setup
+country_event = {
+	id = vef_vassal.9
+	title = "vef_vassal.9.t"
+	desc = "vef_vassal.9.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+
+	option = {
+		name = "vef_vassal.9.opta"
+	}
+}
+
+country_event = {
+	id = vef_vassal.10
+	title = "vef_vassal.10.t"
+	desc = "vef_vassal.10.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_vassal.10.opta"
+		trigger = { ai = yes }
+	}
+
+	option = {
+		name = "vef_vassal.10.optb"
+		trigger = { ai = no }
+		add_adm_power = -10
+	}
+
+	option = {
+		name = "vef_vassal.10.optc"
+		trigger = { ai = no NOT = { has_country_modifier = inefficient_bureaucracy } NOT = { corruption = 90 }}
+		add_adm_power = -10
+		add_years_of_income = -0.125
+		add_corruption = 2
+		FROM = { add_corruption = 5 }
+		random_list = {
+			50 = { FROM = { change_variable = { which = vassal_progress value = 20 } } }
+			40 = { FROM = { change_variable = { which = vassal_progress value = 30 } } }
+			10 = { FROM = { change_variable = { which = vassal_progress value = 40 } } }
+		}
+	}
+}
+
+country_event = {
+	id = vef_vassal.11
+	title = "vef_vassal.11.t"
+	desc = "vef_vassal.11.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_vassal.11.opta"
+		trigger = { ai = yes }
+	}
+
+	option = {
+		name = "vef_vassal.11.optb"
+		trigger = { ai = no }
+		add_adm_power = -10
+	}
+
+	option = {
+		name = "vef_vassal.11.optc"
+		trigger = { ai = no NOT = { has_country_modifier = inefficient_bureaucracy } NOT = { corruption = 90 }}
+		add_adm_power = -10
+		add_years_of_income = -0.15
+		add_corruption = 2
+		FROM = { add_corruption = 5 }
+		random_list = {
+			50 = { FROM = { change_variable = { which = vassal_progress value = 20 } } }
+			40 = { FROM = { change_variable = { which = vassal_progress value = 30 } } }
+			10 = { FROM = { change_variable = { which = vassal_progress value = 40 } } }
+		}
+	}
+}
+
+country_event = {
+	id = vef_vassal.12
+	title = "vef_vassal.12.t"
+	desc = "vef_vassal.12.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_vassal.12.opta"
+		trigger = { ai = yes }
+	}
+
+	option = {
+		name = "vef_vassal.12.optb"
+		trigger = { ai = no }
+		add_mil_power = -10
+	}
+
+	option = {
+		name = "vef_vassal.12.optc"
+		trigger = { ai = no NOT = { has_country_modifier = inefficient_bureaucracy } NOT = { corruption = 90 }}
+		add_mil_power = -10
+		add_years_of_income = -0.15
+		add_corruption = 2
+		FROM = { add_corruption = 5 }
+		random_list = {
+			50 = { FROM = { change_variable = { which = vassal_progress value = 20 } } }
+			40 = { FROM = { change_variable = { which = vassal_progress value = 30 } } }
+			10 = { FROM = { change_variable = { which = vassal_progress value = 40 } } }
+		}
+	}
+}
+
+country_event = {
+	id = vef_vassal.13
+	title = "vef_vassal.13.t"
+	desc = "vef_vassal.13.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_vassal.13.opta"
+		trigger = { ai = yes }
+	}
+
+	option = {
+		name = "vef_vassal.13.optb"
+		trigger = { ai = no }
+		add_adm_power = -10
+	}
+
+	option = {
+		name = "vef_vassal.13.optc"
+		trigger = { ai = no NOT = { has_country_modifier = inefficient_bureaucracy } NOT = { corruption = 90 }}
+		add_adm_power = -10
+		add_years_of_income = -0.15
+		add_corruption = 2
+		FROM = { add_corruption = 5 }
+		random_list = {
+			50 = { FROM = { change_variable = { which = vassal_progress value = 20 } } }
+			40 = { FROM = { change_variable = { which = vassal_progress value = 30 } } }
+			10 = { FROM = { change_variable = { which = vassal_progress value = 40 } } }
+		}
+	}
+}
+
+country_event = {
+	id = vef_vassal.14
+	title = "vef_vassal.14.t"
+	desc = "vef_vassal.14.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = { reverse_add_opinion = { who = FROM modifier = long_term_vassal }}
+	}
+
+	option = {
+		name = "vef_vassal.14.opta"
+	}
+}
+
+# Cleanup event for vassal that is freed from the previous overlord
+country_event = {
+	id = vef_vassal.15
+	title = "vef_vassal.15.t"
+	desc = "vef_vassal.15.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	trigger = {
+		OR = { 
+			has_country_flag = vassal_flag
+			has_country_flag = long_term_vassal
+			check_variable = { which = vassal_progress value = 1 }
+		}
+		is_subject = no
+	}
+
+	immediate = {
+		hidden_effect = {
+#			if = {
+#				limit = { any_known_country =  { war_with = ROOT has_country_flag = overlord_flag_@ROOT NOT = { is_in_war = { participants = ROOT casus_belli = cb_independence_war }}}}
+#				set_country_flag = suzerainty_war_overlord
+#				set_variable = { which = vassal_save which = vassal_progress }
+#				random_country = { limit = { has_country_flag = overlord_flag_@ROOT } set_country_flag = restore_suzerainty_@ROOT }
+#			}
+			clr_country_flag = vassal_flag
+			clr_country_flag = starting_vassal
+			clr_country_flag = intransigent_vassal
+			clr_country_flag = allowed_to_annex
+			clr_country_flag = long_term_vassal
+			clr_country_flag = overlord_notified_0
+			clr_country_flag = overlord_notified_1
+			clr_country_flag = overlord_notified_2
+			clr_country_flag = overlord_notified_3
+			# Clear overlord's vassal boost
+			set_variable = { which = vassal_boost value = 0 }
+			set_variable = { which = vassal_progress value = 0 }
+			every_known_country = {
+				reverse_remove_opinion = { who = ROOT modifier = long_term_vassal }
+				remove_opinion = { who = ROOT modifier = intransigent_vassal }
+				clr_country_flag = overlord_flag_@ROOT
+			}
+			country_event = { id = vef_vassal.40032 days = 1 }
+		}
+	}
+
+	option = {
+		name = "vef_vassal.15.opta"
+		add_prestige = 20
+		add_years_of_income = .25
+	}
+}
+
+# Notify Overlord of bonuses when acquired
+country_event = {
+	id = vef_vassal.16
+	title = "vef_vassal.16.t"
+	desc = "vef_vassal.16.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		is_vassal = yes
+		has_country_modifier = long_term_vassal_0
+		NOT = { has_country_flag = overlord_notified_0 }
+	}
+
+	option = {
+		name = "vef_vassal.16.opta"
+		overlord = { country_event = { id = vef_vassal.20 days = 3 } }
+		set_country_flag = overlord_notified_0
+	}
+}
+
+country_event = {
+	id = vef_vassal.17
+	title = "vef_vassal.17.t"
+	desc = "vef_vassal.17.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		is_vassal = yes
+		NOT = { has_country_flag = overlord_notified_1 }
+		has_country_modifier = long_term_vassal_1
+	}
+
+	option = {
+		name = "vef_vassal.17.opta"
+		overlord = { country_event = { id = vef_vassal.21 days = 3 } }
+		set_country_flag = overlord_notified_1
+	}
+}
+
+country_event = {
+	id = vef_vassal.18
+	title = "vef_vassal.18.t"
+	desc = "vef_vassal.18.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		is_vassal = yes
+		NOT = { has_country_flag = overlord_notified_2 }
+		has_country_modifier = long_term_vassal_2
+	}
+
+	option = {
+		name = "vef_vassal.18.opta"
+		overlord = { country_event = { id = vef_vassal.22 days = 3 } }
+		set_country_flag = overlord_notified_2
+	}
+}
+
+country_event = {
+	id = vef_vassal.19
+	title = "vef_vassal.19.t"
+	desc = "vef_vassal.19.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		is_vassal = yes
+		NOT = { has_country_flag = overlord_notified_3 }
+		has_country_modifier = long_term_vassal_3
+	}
+
+	option = {
+		name = "vef_vassal.19.opta"
+		overlord = { country_event = { id = vef_vassal.23 days = 3 } }
+		set_country_flag = overlord_notified_3
+	}
+}
+
+# Overlord Events
+country_event = {
+	id = vef_vassal.20
+	title = "vef_vassal.20.t"
+	desc = "vef_vassal.20.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_vassal.20.opta"
+		custom_tooltip = "vassal_bonus_0"
+	}
+}
+
+country_event = {
+	id = vef_vassal.21
+	title = "vef_vassal.21.t"
+	desc = "vef_vassal.21.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_vassal.21.opta"
+		custom_tooltip = "vassal_bonus_1"
+	}
+}
+
+country_event = {
+	id = vef_vassal.22
+	title = "vef_vassal.22.t"
+	desc = "vef_vassal.22.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_vassal.22.opta"
+		custom_tooltip = "vassal_bonus_2"
+	}
+}
+
+country_event = {
+	id = vef_vassal.23
+	title = "vef_vassal.23.t"
+	desc = "vef_vassal.23.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_vassal.23.opta"
+		custom_tooltip = "vassal_bonus_3"
+	}
+}
+
+# AI is having issues diplo-annexing.
+country_event = {
+	id = vef_vassal.24
+	title = "vef_vassal.24.t"
+	desc = "vef_vassal.24.d"
+
+	picture = VEF_VASSAL_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		has_country_flag = long_term_vassal
+		ai = yes
+		overlord = { 
+			ai = yes 
+			NOT = { is_nomad = yes } # The hordes should not integrate their vassals
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	immediate = {
+		clr_country_flag = long_term_vassal
+		overlord = { inherit = ROOT }
+	}
+
+	option = {
+		name = "vef_vassal.24.opta"
+		custom_tooltip = "vassal_bonus_3"
+	}
+}
+
+
+##########
+# Hedjaz #
+##########
+
+#No more territory for them
+country_event = {
+	id = vef_vassal.100
+	title = "vef_vassal.100.t"
+	desc = "vef_vassal.100.d"
+	picture = VEF_VASSAL_eventPicture
+	
+	is_triggered_only = yes #vef_vassal.1
+	
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_vassal.100.opta"
+		HED = {
+			every_owned_province = {
+				limit = { NOT = { is_core = HED }}
+				cede_province = ROOT
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_vassal.100.optb"
+		free_vassal = HED
+	}
+}
+
+#Inform Overlord of Mechanic
+country_event = {
+	id = vef_vassal.101
+	title = "vef_vassal.101.t"
+	desc = "vef_vassal.101.d"
+	picture = VEF_VASSAL_eventPicture
+	
+	is_triggered_only = yes #vef_vassal.3 or vef_setup.1
+	
+	option = {
+		name = "vef_vassal.101.opta"
+	}
+}
+
+#Hedjaz Break Free
+country_event = {
+	id = vef_vassal.102
+	title = "vef_vassal.102.t"
+	desc = "vef_vassal.102.d"
+	picture = VEF_VASSAL_eventPicture
+	
+	trigger = {
+		tag = HED
+		is_subject_of_type = vassal_hedjaz
+		overlord = { NOT = { num_of_cities = ROOT }}
+	}
+	
+	option = {
+		name = "vef_vassal.102.opta"
+	}
+}
+
+#Fealties become vassals
+country_event = {
+	id = vef_vassal.200
+	title = "vef_vassal.200.t"
+	desc = "vef_vassal.200.d"
+	picture = VEF_VASSAL_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = FRA
+		OR = {
+			any_subject_country = { military_strength = { who = ROOT value = 0.8 }}
+			has_country_flag = restore_france
+			has_country_flag = 100war_over
+			is_year = 1500
+		}
+		french_vassal = 1
+	}
+	
+	mean_time_to_happen = { months = 6 }
+	
+	option = {
+		name = "vef_vassal.200.opta"
+		every_subject_country = {
+			limit = { is_subject_of_type = french_vassal }
+			if = {
+				limit = { NOT = { num_of_cities = 3 }}
+				FRA = { create_subject = { who = PREV subject_type = dominion }}
+			}
+			if = {
+				limit = { num_of_cities = 3 NOT = { num_of_cities = 5 }}
+				FRA = { create_subject = { who = PREV subject_type = dependency }}
+			}
+			if = {
+				limit = { num_of_cities = 5 }
+				FRA = { create_subject = { who = PREV subject_type = suzerainty }}
+			}
+		}
+	}
+}
+
+# Vassal states
+country_event = {
+	id = vef_vassal.40031
+	title = "vef_vassal.40031.t"
+	desc = "vef_vassal.40031.d"
+	picture = VEF_VASSAL_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { FROM = { government = theocracy }}
+		NOT = { FROM = { has_reform = daimyo }}
+		NOT = { FROM = { has_reform = indep_daimyo }}
+		NOT = { FROM = { has_reform = venice_republic }}
+		NOT = { FROM = { tag = FLR }}
+		FROM = { has_opinion_modifier = { modifier = had_war_with_us who = ROOT }}
+	}
+
+	immediate = { 
+		hidden_effect = {
+			remove_opinion = { who = FROM modifier = aggressive_expansion }
+		}
+	}
+	
+	option = {	# Vassal Governor
+		name = "vef_vassal.40031.opta"
+		ai_chance = { factor = 0 }
+		FROM = {  add_government_reform = vassal_governorship }
+	}
+	
+	option = {	# Ottoman Eyalet
+		trigger = {
+			OR = { 
+				tag = TUR
+				tag = OSM
+			}
+			OR = {
+				FROM = { technology_group = ottoman }
+				FROM = { technology_group = muslim }
+			}
+		}
+		name = "vef_vassal.40034.optb"
+		ai_chance = { factor = 90 }
+		FROM = { add_government_reform = ottoman_eyalet }
+	}
+	
+	option = {	# Ethnarchy
+		trigger = {
+			capital_scope = { continent = europe }
+			NOT = { FROM = { capital_scope = { continent = europe }}}
+		}
+		
+		name = "vef_vassal.40031.opte"
+		ai_chance = { factor = 90 }
+		custom_tooltip = ethnarchy_tooltip
+		FROM = { add_government_reform = ethnarchy_government }
+	}
+	
+	option = {	# Place a family member on the throne
+		trigger = {
+			government = monarchy
+			OR = {
+				AND = {
+					NOT = { check_variable = { which = male_gen0_2_age value = 1080 }}
+					NOT = { has_country_flag = male_gen0_2_heir }
+				}
+				AND = {
+					NOT = { check_variable = { which = male_gen0_3_age value = 1080 }}
+					NOT = { has_country_flag = male_gen0_3_heir }
+				}
+				AND = {
+					NOT = { check_variable = { which = male_gen0_4_age value = 1080 }}
+					NOT = { has_country_flag = male_gen0_4_heir }
+				}
+				AND = {
+					NOT = { check_variable = { which = male_gen1_2_age value = 1080 }}
+					NOT = { has_country_flag = male_gen1_2_heir }
+				}
+				AND = {
+					NOT = { check_variable = { which = male_gen1_3_age value = 1080 }}
+					NOT = { has_country_flag = male_gen1_3_heir }
+				}
+				AND = {
+					NOT = { check_variable = { which = male_gen1_4_age value = 1080 }}
+					NOT = { has_country_flag = male_gen1_4_heir }
+				}
+			}
+		}
+		name = "vef_vassal.40031.optb"
+		ai_chance = { factor = 0 }
+		if = {
+			limit = { NOT = { FROM = { government = monarchy } } }
+			tooltip = {
+				FROM = {
+					change_government = monarchy
+					set_legacy_government = hereditary_monarchy
+					change_variable = { which = national_stability value = -300 }
+				}
+			}
+		}
+		tooltip ={
+			FROM = {
+				define_ruler = { dynasty = ROOT }
+				define_heir = { dynasty = ROOT }
+				change_variable = { which = national_stability value = -200 }
+			}
+		}
+		hidden_effect = { FROM = { country_event = { id = vef_vassal.40035 }}}
+	}
+	
+	option = {	# Leave existing government in place
+		name = "vef_vassal.40031.optc"
+		ai_chance = { factor = 10 }
+		FROM = { 
+			add_national_stability_or_adm_power = yes
+		}
+	}
+}
+
+# Fix Government of Free Vassal
+country_event = {
+	id = vef_vassal.40032
+	title = "vef_vassal.40032.t"
+	desc = "vef_vassal.40032.d"
+	
+	picture = VEF_VASSAL_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			has_reform = vassal_governorship
+			has_reform = ottoman_eyalet
+			has_reform = ethnarchy_government
+		}
+	}
+	
+	option = {
+		trigger = {
+			capital_scope = { continent = europe }
+		}
+		name = vef_vassal.40032.opta
+		add_government_reform = feudalism_reform
+	}
+	
+	option = {
+		trigger = {
+			NOT = { capital_scope = { continent = europe }}
+		}
+		name = vef_vassal.40032.opta
+		add_government_reform = autocracy_reform
+	}
+}
+
+
+# Vassal states - Family Member (Bounce the event so we get the FROM again)
+country_event = {
+	id = vef_vassal.40035
+	title = "vef_vassal.40035.t"
+	desc = "vef_vassal.40035.d"
+	picture = VEF_VASSAL_eventPicture
+
+	is_triggered_only = yes
+	
+	hidden = yes
+	
+	immediate = { FROM = { country_event = { id = vef_vassal.40036 }}}
+	
+	option = {
+		name = "vef_vassal.40035.opta"
+	}
+}
+
+# Vassal states - Family Member (Bounce the event so we get the FROM again)
+country_event = {
+	id = vef_vassal.40036
+	title = "vef_vassal.40036.t"
+	desc = "vef_vassal.40036.d"
+	picture = VEF_VASSAL_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		trigger = {
+			AND = {
+				NOT = { check_variable = { which = male_gen0_2_age value = 1080 }}
+				NOT = { has_country_flag = male_gen0_2_heir }
+			}
+		}
+		name = "vef_vassal.40036.opta"
+		if = {
+			limit = { NOT = { FROM = { government = monarchy } } }
+			FROM = {
+				change_government = monarchy
+				set_legacy_government = hereditary_monarchy
+				change_variable = { which = national_stability value = -300 }
+			}
+		}
+		FROM = {
+			set_dynasty = ROOT
+			change_variable = { which = national_stability value = -200 }
+		}
+		hidden_effect = {
+			FROM = {
+				clear_existing_royals = yes
+				set_variable = { which = male_gen0_2_age which = ROOT }
+				set_variable = { which = male_gen1_2m1_age which = ROOT }
+				set_variable = { which = male_gen1_2m2_age which = ROOT }
+				set_variable = { which = male_gen1_2m3_age which = ROOT }
+				set_variable = { which = male_gen1_2m4_age which = ROOT }
+				set_variable = { which = female_gen1_2m1_age which = ROOT }
+				set_variable = { which = female_gen1_2m2_age which = ROOT }
+				set_variable = { which = female_gen1_2m3_age which = ROOT }
+				set_variable = { which = female_gen1_2m4_age which = ROOT }
+				salic_law_heir_death = yes
+				kill_ruler = yes
+				set_ruler_culture = ROOT
+				set_ruler_religion = ROOT
+				set_heir_culture = ROOT
+				set_heir_religion = ROOT
+				set_country_flag = cadet_branch_@ROOT
+				set_variable = { which = cadet_branch_time value = 1 }
+				if = {
+					limit = { any_country = { NOT = { tag = PREV } has_country_flag = cadet_branch_@ROOT NOT = { check_variable = { which = cadet_branch_time value = 2 }}}}
+					change_variable = { which = cadet_branch_time value = -1 }
+				}
+			}
+			set_variable = { which = male_gen0_2_age value = 1100 }
+			set_variable = { which = male_gen1_2m1_age value = 1100 }
+			set_variable = { which = male_gen1_2m2_age value = 1100 }
+			set_variable = { which = male_gen1_2m3_age value = 1100 }
+			set_variable = { which = male_gen1_2m4_age value = 1100 }
+			set_variable = { which = female_gen1_2m1_age value = 1100 }
+			set_variable = { which = female_gen1_2m2_age value = 1100 }
+			set_variable = { which = female_gen1_2m3_age value = 1100 }
+			set_variable = { which = female_gen1_2m4_age value = 1100 }
+		}
+	}
+	
+	option = {
+		trigger = {
+			AND = {
+				NOT = { check_variable = { which = male_gen0_3_age value = 1080 }}
+				NOT = { has_country_flag = male_gen0_3_heir }
+			}
+		}
+		name = "vef_vassal.40036.optb"
+		if = {
+			limit = { NOT = { FROM = { government = monarchy } } }
+			FROM = {
+				change_government = monarchy
+				set_legacy_government = hereditary_monarchy
+				change_variable = { which = national_stability value = -300 }
+			}
+		}
+		FROM = {
+			set_dynasty = ROOT
+			change_variable = { which = national_stability value = -200 }
+		}
+		hidden_effect = {
+			FROM = {
+				clear_existing_royals = yes
+				set_variable = { which = male_gen0_3_age which = ROOT }
+				set_variable = { which = male_gen1_3m1_age which = ROOT }
+				set_variable = { which = male_gen1_3m2_age which = ROOT }
+				set_variable = { which = male_gen1_3m3_age which = ROOT }
+				set_variable = { which = male_gen1_3m4_age which = ROOT }
+				set_variable = { which = female_gen1_3m1_age which = ROOT }
+				set_variable = { which = female_gen1_3m2_age which = ROOT }
+				set_variable = { which = female_gen1_3m3_age which = ROOT }
+				set_variable = { which = female_gen1_3m4_age which = ROOT }
+				salic_law_heir_death = yes
+				kill_ruler = yes
+				set_ruler_culture = ROOT
+				set_ruler_religion = ROOT
+				set_heir_culture = ROOT
+				set_heir_religion = ROOT
+				set_country_flag = cadet_branch_@ROOT
+				set_variable = { which = cadet_branch_time value = 1 }
+				if = {
+					limit = { any_country = { NOT = { tag = PREV } has_country_flag = cadet_branch_@ROOT NOT = { check_variable = { which = cadet_branch_time value = 2 }}}}
+					change_variable = { which = cadet_branch_time value = -1 }
+				}
+			}
+			set_variable = { which = male_gen0_3_age value = 1100 }
+			set_variable = { which = male_gen1_3m1_age value = 1100 }
+			set_variable = { which = male_gen1_3m2_age value = 1100 }
+			set_variable = { which = male_gen1_3m3_age value = 1100 }
+			set_variable = { which = male_gen1_3m4_age value = 1100 }
+			set_variable = { which = female_gen1_3m1_age value = 1100 }
+			set_variable = { which = female_gen1_3m2_age value = 1100 }
+			set_variable = { which = female_gen1_3m3_age value = 1100 }
+			set_variable = { which = female_gen1_3m4_age value = 1100 }
+		}
+	}
+	
+	option = {
+		trigger = {
+			AND = {
+				NOT = { check_variable = { which = male_gen0_4_age value = 1080 }}
+				NOT = { has_country_flag = male_gen0_4_heir }
+			}
+		}
+		name = "vef_vassal.40036.optc"
+		if = {
+			limit = { NOT = { FROM = { government = monarchy } } }
+			FROM = {
+				change_government = monarchy
+				set_legacy_government = hereditary_monarchy
+				change_variable = { which = national_stability value = -300 }
+			}
+		}
+		FROM = {
+			set_dynasty = ROOT
+			change_variable = { which = national_stability value = -200 }
+		}
+		hidden_effect = {
+			FROM = {
+				clear_existing_royals = yes
+				set_variable = { which = male_gen0_3_age which = ROOT }
+				set_variable = { which = male_gen1_3m1_age which = ROOT }
+				set_variable = { which = male_gen1_3m2_age which = ROOT }
+				set_variable = { which = male_gen1_3m3_age which = ROOT }
+				set_variable = { which = male_gen1_3m4_age which = ROOT }
+				set_variable = { which = female_gen1_3m1_age which = ROOT }
+				set_variable = { which = female_gen1_3m2_age which = ROOT }
+				set_variable = { which = female_gen1_3m3_age which = ROOT }
+				set_variable = { which = female_gen1_3m4_age which = ROOT }
+				salic_law_heir_death = yes
+				kill_ruler = yes
+				set_ruler_culture = ROOT
+				set_ruler_religion = ROOT
+				set_heir_culture = ROOT
+				set_heir_religion = ROOT
+				set_country_flag = cadet_branch_@ROOT
+				set_variable = { which = cadet_branch_time value = 1 }
+				if = {
+					limit = { any_country = { NOT = { tag = PREV } has_country_flag = cadet_branch_@ROOT NOT = { check_variable = { which = cadet_branch_time value = 2 }}}}
+					change_variable = { which = cadet_branch_time value = -1 }
+				}
+			}
+			set_variable = { which = male_gen0_4_age value = 1100 }
+			set_variable = { which = male_gen1_4m1_age value = 1100 }
+			set_variable = { which = male_gen1_4m2_age value = 1100 }
+			set_variable = { which = male_gen1_4m3_age value = 1100 }
+			set_variable = { which = male_gen1_4m4_age value = 1100 }
+			set_variable = { which = female_gen1_4m1_age value = 1100 }
+			set_variable = { which = female_gen1_4m2_age value = 1100 }
+			set_variable = { which = female_gen1_4m3_age value = 1100 }
+			set_variable = { which = female_gen1_4m4_age value = 1100 }
+		}
+	}
+	
+	option = {
+		trigger = {
+			AND = {
+				NOT = { check_variable = { which = male_gen1_2_age value = 1080 }}
+				NOT = { has_country_flag = male_gen1_2_heir }
+			}
+		}
+		name = "vef_vassal.40036.optd"
+		if = {
+			limit = { NOT = { FROM = { government = monarchy } } }
+			FROM = {
+				change_government = monarchy
+				set_legacy_government = hereditary_monarchy
+				change_variable = { which = national_stability value = -300 }
+			}
+		}
+		FROM = {
+			set_dynasty = ROOT
+			change_variable = { which = national_stability value = -200 }
+		}
+		hidden_effect = {
+			FROM = {
+				clear_existing_royals = yes
+				set_variable = { which = male_gen1_2_age which = ROOT }
+				set_variable = { which = male_gen2_2m1_age which = ROOT }
+				set_variable = { which = male_gen2_2m2_age which = ROOT }
+				set_variable = { which = male_gen2_2m3_age which = ROOT }
+				set_variable = { which = male_gen2_2m4_age which = ROOT }
+				set_variable = { which = female_gen2_2m1_age which = ROOT }
+				set_variable = { which = female_gen2_2m2_age which = ROOT }
+				set_variable = { which = female_gen2_2m3_age which = ROOT }
+				set_variable = { which = female_gen2_2m4_age which = ROOT }
+				salic_law_heir_death = yes
+				kill_ruler = yes
+				set_ruler_culture = ROOT
+				set_ruler_religion = ROOT
+				set_heir_culture = ROOT
+				set_heir_religion = ROOT
+				set_country_flag = cadet_branch_@ROOT
+				set_variable = { which = cadet_branch_time value = 1 }
+				if = {
+					limit = { any_country = { NOT = { tag = PREV } has_country_flag = cadet_branch_@ROOT NOT = { check_variable = { which = cadet_branch_time value = 2 }}}}
+					change_variable = { which = cadet_branch_time value = -1 }
+				}
+			}
+			set_variable = { which = male_gen1_2_age value = 1100 }
+			set_variable = { which = male_gen2_2m1_age value = 1100 }
+			set_variable = { which = male_gen2_2m2_age value = 1100 }
+			set_variable = { which = male_gen2_2m3_age value = 1100 }
+			set_variable = { which = male_gen2_2m4_age value = 1100 }
+			set_variable = { which = female_gen2_2m1_age value = 1100 }
+			set_variable = { which = female_gen2_2m2_age value = 1100 }
+			set_variable = { which = female_gen2_2m3_age value = 1100 }
+			set_variable = { which = female_gen2_2m4_age value = 1100 }
+		}
+	}
+	
+	option = {
+		trigger = {
+			AND = {
+				NOT = { check_variable = { which = male_gen1_3_age value = 1080 }}
+				NOT = { has_country_flag = male_gen1_3_heir }
+			}
+		}
+		name = "vef_vassal.40036.opte"
+		if = {
+			limit = { NOT = { FROM = { government = monarchy } } }
+			FROM = {
+				change_government = monarchy
+				set_legacy_government = hereditary_monarchy
+				change_variable = { which = national_stability value = -300 }
+			}
+		}
+		FROM = {
+			set_dynasty = ROOT
+			change_variable = { which = national_stability value = -200 }
+		}
+		hidden_effect = {
+			FROM = {
+				clear_existing_royals = yes
+				set_variable = { which = male_gen1_3_age which = ROOT }
+				set_variable = { which = male_gen2_3m1_age which = ROOT }
+				set_variable = { which = male_gen2_3m2_age which = ROOT }
+				set_variable = { which = male_gen2_3m3_age which = ROOT }
+				set_variable = { which = male_gen2_3m4_age which = ROOT }
+				set_variable = { which = female_gen2_3m1_age which = ROOT }
+				set_variable = { which = female_gen2_3m2_age which = ROOT }
+				set_variable = { which = female_gen2_3m3_age which = ROOT }
+				set_variable = { which = female_gen2_3m4_age which = ROOT }
+				salic_law_heir_death = yes
+				kill_ruler = yes
+				set_ruler_culture = ROOT
+				set_ruler_religion = ROOT
+				set_heir_culture = ROOT
+				set_heir_religion = ROOT
+				set_country_flag = cadet_branch_@ROOT
+				set_variable = { which = cadet_branch_time value = 1 }
+				if = {
+					limit = { any_country = { NOT = { tag = PREV } has_country_flag = cadet_branch_@ROOT NOT = { check_variable = { which = cadet_branch_time value = 2 }}}}
+					change_variable = { which = cadet_branch_time value = -1 }
+				}
+			}
+			set_variable = { which = male_gen1_3_age value = 1100 }
+			set_variable = { which = male_gen2_3m1_age value = 1100 }
+			set_variable = { which = male_gen2_3m2_age value = 1100 }
+			set_variable = { which = male_gen2_3m3_age value = 1100 }
+			set_variable = { which = male_gen2_3m4_age value = 1100 }
+			set_variable = { which = female_gen2_3m1_age value = 1100 }
+			set_variable = { which = female_gen2_3m2_age value = 1100 }
+			set_variable = { which = female_gen2_3m3_age value = 1100 }
+			set_variable = { which = female_gen2_3m4_age value = 1100 }
+		}
+	}
+	
+	option = {
+		trigger = {
+			AND = {
+				NOT = { check_variable = { which = male_gen1_4_age value = 1080 }}
+				NOT = { has_country_flag = male_gen1_4_heir }
+			}
+		}
+		name = "vef_vassal.40036.optf"
+		if = {
+			limit = { NOT = { FROM = { government = monarchy } } }
+			FROM = {
+				change_government = monarchy
+				set_legacy_government = hereditary_monarchy
+				change_variable = { which = national_stability value = -300 }
+			}
+		}
+		FROM = {
+			set_dynasty = ROOT
+			change_variable = { which = national_stability value = -200 }
+		}
+		hidden_effect = {
+			FROM = {
+				clear_existing_royals = yes
+				set_variable = { which = male_gen1_4_age which = ROOT }
+				set_variable = { which = male_gen2_4m1_age which = ROOT }
+				set_variable = { which = male_gen2_4m2_age which = ROOT }
+				set_variable = { which = male_gen2_4m3_age which = ROOT }
+				set_variable = { which = male_gen2_4m4_age which = ROOT }
+				set_variable = { which = female_gen2_4m1_age which = ROOT }
+				set_variable = { which = female_gen2_4m2_age which = ROOT }
+				set_variable = { which = female_gen2_4m3_age which = ROOT }
+				set_variable = { which = female_gen2_4m4_age which = ROOT }
+				salic_law_heir_death = yes
+				kill_ruler = yes
+				set_ruler_culture = ROOT
+				set_ruler_religion = ROOT
+				set_heir_culture = ROOT
+				set_heir_religion = ROOT
+				set_country_flag = cadet_branch_@ROOT
+				set_variable = { which = cadet_branch_time value = 1 }
+				if = {
+					limit = { any_country = { NOT = { tag = PREV } has_country_flag = cadet_branch_@ROOT NOT = { check_variable = { which = cadet_branch_time value = 2 }}}}
+					change_variable = { which = cadet_branch_time value = -1 }
+				}
+			}
+			set_variable = { which = male_gen1_4_age value = 1100 }
+			set_variable = { which = male_gen2_4m1_age value = 1100 }
+			set_variable = { which = male_gen2_4m2_age value = 1100 }
+			set_variable = { which = male_gen2_4m3_age value = 1100 }
+			set_variable = { which = male_gen2_4m4_age value = 1100 }
+			set_variable = { which = female_gen2_4m1_age value = 1100 }
+			set_variable = { which = female_gen2_4m2_age value = 1100 }
+			set_variable = { which = female_gen2_4m3_age value = 1100 }
+			set_variable = { which = female_gen2_4m4_age value = 1100 }
+		}
+	}
+}

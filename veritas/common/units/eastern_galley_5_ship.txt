@@ -1,0 +1,10 @@
+#Kaika
+#model = archipelago_frigate
+#tech_level = 32
+type = galley
+unit_type = eastern
+
+hull_size = 20
+base_cannons = 28
+sail_speed = 8
+sailors = 300

@@ -1,0 +1,4 @@
+# Western Fidji Basin
+#Province IDs changed
+discovered_by = pacific_islander
+1605.1.1 = { discovered_by = POR }

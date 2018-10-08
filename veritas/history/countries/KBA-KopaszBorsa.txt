@@ -1,0 +1,31 @@
+# Hungary
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+primary_culture = hungarian
+religion = catholic
+technology_group = eastern
+capital = 515 # Bihar
+historical_friend = WAL
+historical_friend = TRA
+historical_rival = HUN
+historical_rival = HCS
+historical_rival = ABA
+historical_rival = KSZ
+historical_rival = UGC
+historical_rival = CRO
+
+1291.8.27 = {
+	monarch = {
+		name = "Kopasz Jakab"
+		dynasty = "Borsa"
+		birth_date = 1260.1.1
+		adm = 4
+		dip = 2
+		mil = 5
+	}
+	set_ruler_flag = ambitious_vassal
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 10.0 }
+}

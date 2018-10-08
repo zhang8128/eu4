@@ -1,0 +1,123 @@
+country_decisions = {
+
+	sikh_nation = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			religion = sikhism
+			normal_or_historical_nations = yes
+			NOT = { exists = SIK }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = RAJ }
+			OR = {
+				capital_scope = { area = himalayan_hills_area }
+				is_playing_custom_nation = no
+			}
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { area = multan_area }
+						AND = {
+							area = multan_area
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				all_owned_province = {
+					OR = {
+						NOT = { area = sirhind_area }
+						AND = {
+							area = sirhind_area
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				all_owned_province = {
+					OR = {
+						NOT = { area = lahore_area }
+						AND = {
+							area = lahore_area
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_punjab
+			}
+			owns_core_province = 1447	# Multan
+			owns_core_province = 1450	# Amristar
+			owns_core_province = 1452	# Lahore
+		}
+	 	effect = {
+			change_tag = SIK
+			if = {
+				limit = { is_part_of_hre = yes }
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			set_government_rank = 4
+			every_province = {
+				limit = {
+					religion = sikhism
+					NOT = { area = multan_area }
+					NOT = { area = sirhind_area }
+					NOT = { area = lahore_area }
+				}
+				add_permanent_claim = SIK
+			}
+			multan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { religion = sikhism }
+				}
+				add_permanent_claim = SIK
+			}
+			sirhind_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { religion = sikhism }
+				}
+				add_permanent_claim = SIK
+			}
+			lahore_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { religion = sikhism }
+				}
+				add_permanent_claim = SIK
+			}
+			add_prestige = 20
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = SIK_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+}

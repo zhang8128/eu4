@@ -1,0 +1,10 @@
+#Plank Canoe
+#model = galley
+#tech_level = 0
+type = galley
+unit_type = mesoamerican
+
+hull_size = 4
+base_cannons = 2
+sail_speed = 4
+sailors = 20

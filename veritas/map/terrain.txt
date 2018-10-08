@@ -1,0 +1,633 @@
+##################################################################
+### Terrain Categories
+###
+### Terrain types: plains, mountains, hills, desert, artic, forest, jungle, marsh, pti
+### Types are used by the game to apply certain bonuses/maluses on movement/combat etc.
+###
+### Sound types: plains, forest, desert, sea, jungle, mountains
+
+categories =  {
+	pti = {
+		type = pti
+	}
+
+	ocean = {
+		color = { 8 31 130 }
+
+		is_water = yes
+		movement_cost = 1.0
+
+		sound_type = sea
+	}
+
+	inland_ocean = {
+		color = { 55 90 220 }
+
+		sound_type = sea
+		is_water = yes
+		inland_sea = yes
+
+		movement_cost = 1.0
+	}
+
+	glacier = {
+		color = { 235 235 235 }
+
+		sound_type = desert
+
+		defence = 1
+		movement_cost = 1.25
+		supply_limit = 2
+		local_development_cost = 0.5
+		local_colonial_growth = -20
+		nation_designer_cost_multiplier = 0.75
+
+		terrain_override = {
+			2270 2271 2272 2289
+		}
+	}
+
+	farmlands = {
+		color = { 179 255 64  }
+
+		type = plains
+		sound_type = plains
+
+		movement_cost = 1.10
+		local_development_cost = -0.05
+		supply_limit = 10
+		allowed_num_of_buildings = 1
+		nation_designer_cost_multiplier = 1.05
+
+		terrain_override = {
+			15 16 22 26 33 34 36
+			37 38 39 122 128 129 144 145 149 151 152 157 158 163 164 167 168 169 170 172 173
+			174 175 184 193 194 195 196 219 221 222
+			223 226 227 239 240 242 248 250 251 262
+			263 265 266
+			270 297
+			298 307 308 309 314 315 326
+			328 329
+			331 349 350 368 369 388 390 392 467 468 471 473 474 475 476 484 488
+			490
+			491 496 501 502 517 519 520 521 522 523 524 544
+			545 557 588 654 657 658 659 667 669 951 955 962 964 966 967 968 969 970 972
+			1030
+			1035 1036 1037 1038 1039 1040 1041 1042 1043
+			1057 1058 1059 1060
+			1061 1062 1063 1064 1065 1066 1067 1068 1069 1071 1072 1078 1079 1080 1081
+			1082
+			1083 1084 1085 1088 1089 1090 1101 1102 1117 1119 1121 1123 1130 1148 1152 1189 1335 1341
+			1342 1365 1369 1386 1411 1412 1413 1432 1433 1447 1450 1451 1452 1462 1467 1468 1473
+			1474 1475 1559 1560 1562 1565 1624
+			1629 1630 1631 1632 1633
+			1634 1635 2199 2210 2223 3975 3976 3977
+			1022 1025 #Korea
+		}
+	}
+
+	forest = {
+		color = { 31 116 16 }
+
+		type = forest
+		sound_type = forest
+
+		movement_cost = 1.25
+		defence = 1
+		combat_width = -0.20
+		supply_limit = 4
+		local_development_cost = 0.2
+		nation_designer_cost_multiplier = 0.9
+
+		terrain_override = {
+			398 404 405 406 407 408 409 410 411 412 413 414 415
+			417 418 419 425 437
+			438 701 702 705 736 737
+			738
+			916 931
+			957 961 1920
+			1930 2257
+			2263 2269
+			2281 2294
+			2295 2297
+			3962
+		}
+	}
+
+	hills = {
+		color = { 113 176 151 }
+
+		type = hills
+		sound_type = mountain
+
+		movement_cost = 1.40
+		defence = 1
+		local_defensiveness = 0.1
+		local_development_cost = 0.25
+		combat_width = -0.25
+		nation_designer_cost_multiplier = 0.85
+		supply_limit = 5
+
+		terrain_override = {
+			44 45 118 119 120 123 126 127 130 131 132 133 139 140 150 191 214 215 216 229 230
+			231 233 234 237 247 252 253 259 260 264 267 271 534
+			538 540 542 543 549
+			550 593 594 610 612 634 950 952 956 960 965 974 975 976 979 980 981 982 983 984
+			985 986
+			987 988 989 990 1070 1073 1074 1086 1087 1091 1092 1096 1097 1098 1099 1100 1103 1104 1105 1118
+			1133 1134 1135 1140 1142 1143 1149 1150 1165 1166
+			1169 1329 1349 1351 1356 1359 1361 1363 1366 1367 1382
+			1383 1389
+			1390 1392 1393 1401 1402 1404 1407 1409 1410 1415 1416
+			1418 1422 1427 1431
+			1459
+			1460 1461 1470 1471 1472 1810 1811 1926 1929 2070 2073 2074 2078
+			2079 2081 2097
+			2098 2107
+			2111 2112 2113 2119 2120
+			2122 2123 2183 2189 2196 2217 2222 2230 2235
+			2238 2244 2247 2248 2252 2253 2256 2258
+			2262 2264 2265 2266 2274 2280 2302 2318
+			2319 2320
+			3961
+			1021 1024 1016 1019 3965 3967 #Korea
+		}
+	}
+
+	woods = {
+		color = { 41 155 22 }
+
+		type = forest
+		sound_type = forest
+
+		movement_cost = 1.10
+		defence = 1
+		local_development_cost = 0.15
+		combat_width = -0.20
+		nation_designer_cost_multiplier = 0.9
+		supply_limit = 6
+
+		terrain_override = {
+			19 25 27 28 29
+			30 31 35 46 47 48 49 50 51 52
+			53 54 55 64 70 71 72 77
+			115 116
+			117
+			124 125 143
+			146 154 155 156 159 178 179 180 182 183 187 188 189 190 191 199 200 201
+			202 203
+			275
+			312 317
+			318 321
+			322 323 324 327 332 333 334 335 336 337 338 339 341 342 344 345 346 347
+			348 351 352 353 354 355 356 357 358 359 360 361 362 363 364 365 366 367 370
+			371 372 373 374 375 380 395 398 402 403 441 442 447 448
+			449 450 452 455 456 457 458 459 461 463 464 469 532 546 547 548 565 602 603 605
+			607 608 611 613 623 655 656 662 663
+			674 677 678
+			679 680 681 682 683 684 686 687 688 689 691 692 693 694 695 696 698 699 700
+			701 707 713 714 722 723
+			724 725 726 727 728 729 730 732 733 734 774 775 776 777 792 793 794
+			797 801 851 852 853 882 883
+			902 903 905 906 907 908 911 912 918 922 923 927 994 998 999 1006
+			1921 1922 1923 1924 1925 1928
+			2131 2148 2149
+			2181
+			2191
+			2197 2198 2213 2216 2218 2231 2242 2246
+			2250 2251 2254 2259 2260 2275
+			2276 2277 2278 3972 3973 3978
+		}
+	}
+
+	mountain = {
+		color = { 105 24 4 }
+
+		type = mountains
+		sound_type = mountain
+
+		movement_cost = 1.5
+		defence = 2
+		local_defensiveness = 0.25
+		local_development_cost = 0.5
+		combat_width = -0.50
+		local_colonial_growth = -10
+		nation_designer_cost_multiplier = 0.75
+		supply_limit = 4
+
+		terrain_override = {
+			98 109 110 111 112 113 114 121
+			136 141 142 147 148
+			210 211 213
+			224 225 420 421 422 423 424
+			495 508
+			509 539 541 551 567 568 569 570 571
+			573 582
+			634
+			635
+			636 637
+			638
+			802 803 862 863 877 878 879 880
+			881 884 885 890 924 925 926 928
+			949 995 996
+			997 1000 1001 1002 1015
+			1032 1033 1034 1044 1045
+			1046
+			1047 1048 1055 1056 1075
+			1076 1093 1094
+			1129 1159 1167 1170
+			1174 1180 1181 1323 1325 1333 1457 1458 1478 1479 1523 1533 1545
+			1547 1553 1891 1892 1893 1927 1954 1957 1958 1964
+			1967 1978 1983 1984
+			1986 1987 1995 1997 2061 2062 2124 2125 2126 2129 2130
+			2133
+			2139 2145 2146 2147 2228
+			2300 2301 2303 2304 2305
+			819 1315 1317 1324 1326 1327 1328 1493 1496 1497 1498 1504 1506 1507
+			1509 1512 1513 1524 1525 1581
+			1583 1584 1592 1593 1596 1599 1600 1602 1605
+			1606
+			1607 1609 1617 1623 1646 1651 1652 1655 1656 1658 1663 1665
+			1669 1670
+			3960
+			1018 1023 1017 3968 #Korea
+		}
+	}
+
+	impassable_mountains = {
+		color = { 128 128 128 }
+
+		sound_type = desert
+
+		movement_cost = 8.0
+		defence = 6
+		local_development_cost = 10
+	}
+
+	grasslands = {
+		color = { 130 255 47 }
+
+		type = plains
+		sound_type = plains
+
+		movement_cost = 1.0
+		supply_limit = 8
+		allowed_num_of_buildings = 1
+		nation_designer_cost_multiplier = 1
+
+		terrain_override = {
+			23 197 245 304 305 306 310 316 319 320 325 330
+			343 377 379 400 460
+			466 477 478 479 480 481 486 487 489 497 503 504
+			505 506 511 512 526 533 558 560 590 653 660
+			664
+			668 690 709 710 711 855 858 953 954 958
+			959 963 971
+			973 977 978 991 992
+			1003
+			1011
+			1012
+			1013 1014
+			1031 1188
+			1190
+			1192 1196
+			1203 1334 1336 1346
+			1350 1354
+			1355
+			1357 1360 1364 1371 1374 1377
+			1396 1400 1403 1405 1406 1414 1419 1449 1463 1466 1469
+			1477 1897 1918 1919 1990 1992 2000 2001
+			2058 2085 2093 2153 2156 2170 2299
+			1028 1027 1020 1026 3966 3971
+		}
+	}
+
+	jungle = {
+		color = { 98 163 18 }
+
+		type = jungle
+		sound_type = jungle
+
+		movement_cost = 1.5
+		defence = 1
+		local_development_cost = 0.35
+		combat_width = -0.25
+		local_colonial_growth = -10
+		nation_designer_cost_multiplier = 0.8
+		supply_limit = 5
+
+		terrain_override = {
+			1113
+			1115 1116 1122
+			1124 1125
+			1126 1127 1128 1131 1132 1147 1155 1156 1158 1160 1162 1173 1177 1178 1179 1182 1183 1184 1185 1187 1193
+			1194 1195 1197 1198 1199 1200 1202 1251
+			1262 1263 1268 1269 1299 1330 1331 1332 1337 1338 1339 1340 1343 1344 1345 1347 1348 1352 1353
+			1372 1373 1375 1376 1379 1380 1391 1394 1397 1398 1399 1408 1476 1765 1784 1787 1797 1798
+			1883 1884 1885 1889 1890 1904 1905 2018
+			2020 2021 2040 2042
+			2044 2052 2063
+			2064 2065 2066
+			2067 2071 2076 2077 2083 2086 2096 2104 2105 2106 2314 2315 2316 2321 2322
+		}
+	}
+
+	marsh = {
+		color = { 13 189 130 }
+
+		type = marsh
+		sound_type = forest
+
+		movement_cost = 1.3
+		defence = 1
+		local_development_cost = 0.25
+		combat_width = -0.25
+		local_colonial_growth = -15
+		nation_designer_cost_multiplier = 0.85
+		supply_limit = 5
+
+		terrain_override = {
+			21 32
+			181 185			
+			269
+			273
+			462 1743
+			1753
+			1971 2004
+			2006
+			2031 2035 2049 2180 2200 2205 2234 2273
+			2285 2286
+			2287 2288
+		}
+	}
+
+	desert = {
+		color = { 242 242 111 }
+
+		type = desert
+		sound_type = desert
+
+		movement_cost = 1.05
+		supply_limit = 4
+		local_development_cost = 0.35
+		local_colonial_growth = -20
+		nation_designer_cost_multiplier = 0.8
+
+		terrain_override = {
+			756 807
+			809 830 839
+			840 865 866 867 868 869
+			870
+			873
+			874 875
+			886
+			887 888 889 891 897 1049 1052 1053 1425 1436 1437 1438 1440 1441 1442 1446 1453 1595 1597
+			1627 1628 1645 1679 2132 2140
+		}
+	}
+
+	coastal_desert = {
+		color = { 255 211 110 }
+
+		type = desert
+		sound_type = desert
+
+		movement_cost = 1.0
+		local_development_cost = 0.25
+		local_colonial_growth = -10
+		nation_designer_cost_multiplier = 0.9
+		supply_limit = 4
+
+		terrain_override = {
+			1566 1574
+			1575 1576 1578 1579 1585 1586 1587 1588 1590 1591 1625 1626
+			1640 1671 1672 1673
+			1700 1701 1702 1704 1705 1709 1710 1712 1713 1715
+			1834 1835
+			1953 1965 1968 1975
+			1981
+			1989 2135 2136
+		}
+	}
+
+	coastline = {
+		color = { 49 175 191 }
+
+		sound_type = sea
+
+		movement_cost = 1.0
+		local_development_cost = 0.25
+		nation_designer_cost_multiplier = 0.85
+		supply_limit = 6
+
+		terrain_override = {
+			57
+			107 108
+			186
+			537
+			552 576 577 617 618 1029 1204 1205
+			1206 1218 1219
+			1255 1270 1272 1314 1378 1644 1647 1648 1649 1654
+			1660 1661 1662 1664 1666 1714 1833 1863 1864
+			1865
+			1866
+			1867 1868 1869 1876 1877 1914 1915 1916 1917 1931 1934
+			1938 1940 1943 1944 1949 1951 1952 2245 2306 2317 2323 2324 2330 2331
+			2332 2333 2334 2335 3969
+			3959
+		}
+	}
+
+	drylands = {
+		color = { 232 172 102 }	
+
+		type = plains
+		sound_type = plains
+
+		movement_cost = 1.00
+		local_development_cost = 0.05
+		nation_designer_cost_multiplier = 0.95
+		supply_limit = 7
+		local_colonial_growth = -5
+		allowed_num_of_buildings = 1
+
+		terrain_override = {
+			88 89 90
+			91 92 95 96 97 99 100
+			101 102
+			103
+			104 105 106 599 600 604 609 615 619 620 621 624 625
+			627 628 629 633 764 765
+			766 768 822 823 824 864 871 872 1050 1051 1316 1362 1381 1384 1385 1388 1420 1421
+			1423
+			1424 1426 1429 1430 1435 1439 1443 1444 1445 1448 1481
+			1483 1494 1503 1508 1511 1514 1527 1529 1539
+			1540 1541 1542 1546 1549
+			1554 1555 1556 1558 1563 1616 1618
+			1619 1620 1621
+			1622 1657
+			1694 1706 1707 1716 1717 1718 1731 1813 1842 1894
+			1959 1961 1962 1970 2022 2023
+			2024 2025 2026 2027 2118
+			2127 2128 2134 2142 2143 2154
+			2174 3970
+		}
+	}
+
+	highlands = {
+		color = { 176 129 21 }
+
+		type = hills
+		sound_type = mountain
+
+		combat_width = -0.25
+		supply_limit = 6
+		movement_cost = 1.40
+		defence = 1
+		local_defensiveness = 0.1
+		local_development_cost = 0.2
+		local_colonial_growth = -5
+		nation_designer_cost_multiplier = 0.9
+
+		terrain_override = {
+			8 10 11 12 76 83 204 205 206 207 208 254
+			470 492 493 494 553 554 566 574 575 583 595 597
+			598 606
+			614 616 622
+			626 630 631 632
+			857 1054 1077 1106 1107 1108 1109 1110 1111 1112 1114
+			1172 1175 1176 1318 1319 1320 1321 1322 1358 1368
+			1370 1387 1395 1417 1428 1434
+			1454
+			1455
+			1456 1495 1518 1552
+			1650
+			1653 1659
+			1667 1668 1699 1703 1708 1711 1723
+			1724 1725 1727 1729
+			1734 1737 1740 1878 1879
+			1880 1881 1882 1886 1887 1888
+			2099 2100 2101 2102 2103 2108 2109 2110 2114 2115
+			2116 2117 2121 2138 2150 2152
+			3963 3964 #Korea
+		}
+	}
+
+	savannah = {
+		color = { 248 199 23  }
+
+		sound_type = plains
+
+		supply_limit = 6
+		movement_cost = 1.00
+		local_development_cost = 0.15
+		local_colonial_growth = -5
+		nation_designer_cost_multiplier = 0.95
+
+		terrain_override = {
+			1136 1137 1138 1144 1145 1146 1151 1153 1154 1168 1250
+			1720 1721 1741 1742 1748
+			1752 1754 1755 1759 1760 1761 1762 1763 1764 1766 1767 1769 1770 1771 1772 1773 1775 1777 1779 1780
+			1781 1783 1788 1789
+			1791 1792 1793 1794 1795 1796 1799 1800 1801 1807
+			1809 1812 1813 1814 1815 1816 1817 1818 1819 1820 1821 1824 1839 1840 1841 1843 1844 1845 1846
+			1847 1848
+			1849 1850 1851 1852 1853 1854 1855 1856 1857 1858
+			1859 1860 1861 1862 1870 1871
+			1872 1873 1874 1875 1899 1900 1901 1902 1903 1906 1907 1908 1909 1910 1911 2002 2003 2005
+			2007 2008 2009 2016 2017 2028 2029 2030 2051 2054
+			2055 2056 2057 2144 2177 2178 2182 2185 2187 2190 2193 2194 2201 2203 2206
+			2209 2225 2232 2293 2296 2298 2310 2311 2312 2313
+		}
+	}
+
+	steppe = {
+		color = { 147 200 83  }
+
+		type = plains
+		sound_type = plains
+
+		movement_cost = 1.00
+		local_development_cost = 0.20
+		local_colonial_growth = -5
+		nation_designer_cost_multiplier = 0.90
+		supply_limit = 6
+
+		terrain_override = {
+			498 499 500 514 515 516 518 640 641 642 643 644 645 646 647 648 649 650
+			651 652 717 718 719 720 721 739 740 741 742 743 744 746 747
+			748 749 750 751 752 753 754 755 757 758 759 760 761 762 763
+			769 770 771 772 773 798 799 800 804 805 806 810
+			811 812 831 834
+			835 836 837 838 841
+			842 843 844 845
+			846 847 848 849 850 861 876
+			892 893 894 895 896 898 899 900 901 904 1004 1005 1007 1008 1009 1010 1695 1696 1697 1698 1719
+			1722 1744 1745 1746 1747
+			1749 1750 1751
+			1756 1757
+			1758 1774 1776 1778 1790 1802
+			1803 1804 1805 1806 1808 1896 1898 1955 1956 1960 2151 2153 2155 2162 2164
+			2168 2173 2175
+			2176 2179
+		}
+	}
+}
+
+##################################################################
+### Graphical terrain
+###		type	=	refers to the terrain defined above, "terrain category"'s
+### 	color 	= 	index in bitmap color table (see terrain.bmp)
+###
+terrain = {
+	grasslands			= { type = grasslands		color = { 	0	 } }
+	hills				= { type = hills			color = { 	1	 } }
+	desert_mountain		= { type = mountain			color = { 	2	 } }
+	desert				= { type = desert			color = { 	3	 } }
+
+	plains				= { type = grasslands		color = { 	4	 } }
+	terrain_5			= { type = grasslands		color = { 	5	 } }
+	mountain			= { type = mountain			color = { 	6	 } }
+	desert_mountain_low	= { type = desert			color = { 	7	 } }
+
+	terrain_8			= { type = hills			color = { 	8	 } }
+	marsh				= { type = marsh			color = { 	9	 } }
+	terrain_10			= { type = farmlands		color = { 	10	 } }
+	terrain_11			= { type = farmlands		color = { 	11	 } }
+
+	forest_12			= { type = forest			color = { 	12	 } }
+	forest_13			= { type = forest			color = { 	13	 } }
+	forest_14			= { type = forest			color = { 	14	 } }
+	ocean				= { type = ocean			color = { 	15	 } }
+
+	snow				= { type = mountain 		color = { 	16	 } } # (SPECIAL CASE) Used to identify permanent snow
+	inland_ocean_17 	= { type = inland_ocean		color = {	17	 } }
+
+	coastal_desert_18	= { type = coastal_desert	color = { 	19	 } }
+	coastline			= { type = coastline		color = { 	35	 } }
+
+	savannah			= { type = savannah			color = { 	20	 } }
+	drylands			= { type = drylands			color = { 	22	 } }
+	highlands			= { type = highlands		color = { 	23	 } }
+	dry_highlands		= { type = highlands		color = { 	24	 } }
+
+	woods				= { type = woods			color = { 	255	 } }
+	jungle				= { type = jungle			color = { 	254	 } }
+
+	terrain_21			= { type = farmlands		color = { 	21	 } }
+}
+
+
+##################################################################
+### Tree terrain
+###		terrain	=	refers to the terrain tag defined above
+### 	color 	= 	index in bitmap color table (see tree.bmp)
+###
+
+tree = {
+	forest				= { terrain = forest 			color = { 	3 4 6 7 19 20	} }
+	woods				= { terrain = woods 			color = { 	2 5 8 18	} }
+	jungle				= { terrain = jungle 			color = { 	13 14 15	} }
+	palms				= { terrain = desert 			color = { 	12	} }
+	savana				= { terrain = grasslands 		color = { 	27 28 29 30	} }
+}

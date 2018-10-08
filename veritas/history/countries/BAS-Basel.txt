@@ -1,0 +1,108 @@
+government = theocracy add_government_reform = leading_clergy_reform
+government_rank = 2
+technology_group = western
+religion = catholic
+primary_culture = swiss
+capital = 278 # Basel
+fixed_capital = 278
+
+1309.1.1 = {
+	monarch = {
+		name = "Gerhard von Wippingen"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1325.1.1 = {
+	monarch = {
+		name = "Hartung Münch"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1332.1.1 = {
+	monarch = {
+		name = "Jean I Arley"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1335.1.1 = {
+	monarch = {
+		name = "Johann II von Munsingen"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1365.1.1 = {
+	monarch = {
+		name = "Jean III de Vienne"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1382.1.1 = {
+	monarch = {
+		name = "Imer von Ramstein"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1392.1.1 = {
+	monarch = {
+		name = "Friedrich von Blankenheim"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1393.1.1 = {
+	monarch = {
+		name = "Konrad Munch von Landskron"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1399.1.1 = {
+	monarch = {
+		name = "Humbrecht von Neuenburg"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1418.1.1 = {
+	monarch = {
+		name = "Hartmann II von Munchenstein"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1423.1.1 = {
+	monarch = {
+		name = "Johann IV von Fleckenstein"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1528.1.1 = { government = republic add_government_reform = swiss_canton religion = anabaptist }

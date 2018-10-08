@@ -1,0 +1,12 @@
+# Ottoman Early Modern Infantry
+
+unit_type = ottoman
+type = infantry
+
+maneuver = 1
+offensive_morale = 13
+defensive_morale = 12
+offensive_fire = 14
+defensive_fire = 14
+offensive_shock = 4
+defensive_shock = 5

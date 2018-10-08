@@ -1,0 +1,209 @@
+#Province IDs changed
+name = "National War"
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+	tag = HTM
+}
+
+1591.12.1 = {
+	add_attacker = ZAZ
+	add_defender = PLC
+}
+
+# Treaty of Rastatt
+1593.2.2 = {
+	rem_defender = PLC
+	rem_attacker = ZAZ
+}
+
+1594.1.1 = {
+	add_attacker = ZAZ
+	add_defender = PLC
+}
+
+# Treaty of Rastatt
+1596.2.2 = {
+	rem_defender = PLC
+	rem_attacker = ZAZ
+}
+
+1620.1.1 = {
+	add_attacker = TUR
+	add_defender = PLC
+}
+
+1621.1.1 = {
+	rem_defender = PLC
+	rem_attacker = TUR
+}
+      
+
+1625.1.1 = {
+	add_attacker = ZAZ
+	add_defender = PLC
+
+}
+
+1625.12.1 = {
+	rem_defender = PLC
+	rem_attacker = ZAZ
+}
+
+1630.1.1 = {
+	add_attacker = ZAZ
+	add_defender = PLC
+
+}
+
+1630.12.1 = {
+	rem_defender = PLC
+	rem_attacker = ZAZ
+}
+
+1635.8.3 = {
+	add_attacker = ZAZ
+	add_defender = PLC
+
+}
+
+1635.12.12 = {
+	rem_defender = PLC
+	rem_attacker = ZAZ
+}
+
+1637.10.11 = {
+	add_attacker = ZAZ
+	add_defender = PLC
+
+}
+
+1637.12.6 = {
+	rem_defender = PLC
+	rem_attacker = ZAZ
+}
+
+1638.4.1 = {
+	add_attacker = ZAZ
+	add_defender = PLC
+
+}
+
+1638.9.1 = {
+	rem_defender = PLC
+	rem_attacker = ZAZ
+}
+
+1648.1.21 = {
+	add_attacker = HTM
+	add_attacker = CRI
+	add_defender = PLC
+
+}
+
+1648.5.16 = {
+	battle = {
+		name = "Battle of Zhovti Vody"
+		location = 653
+		attacker = {
+			commander = "Bohdan Khmelnyckii"
+			infantry = 8000
+                        cavalry = 1000
+                        artillery = 3
+			losses = 1	# percent
+			country = HTM
+		}
+		defender = {
+			commander = "Stefan Charnetskii"
+			cavalry = 2500
+                        artillery = 9
+			losses = 30	# percent
+			country = PLC
+		}
+		result = yes
+	}
+}
+
+1648.5.26 = {
+	battle = {
+		name = "Battle of Korsun"
+		location = 653
+		attacker = {
+			commander = "Bohdan Khmelnyckii"
+			infantry = 15000
+  			cavalry = 3000
+			artillery = 26
+			losses = 1	# percent
+			country = HTM
+		}
+		defender = {
+			commander = "Stefan Charnetskii"
+                        infantry = 15000			
+                        cavalry = 5000
+                        artillery = 41
+			losses = 65	# percent
+			country = PLC
+		}
+		result = yes
+	}
+}
+
+1648.9.23 = {
+	battle = {
+		name = "Battle of Pylavtsi"
+		location = 668
+		attacker = {
+			commander = "Bohdan Khmelnyckii"
+			infantry = 30000
+                        cavalry = 4000
+                        artillery = 55
+			losses = 1	# percent
+			country = HTM
+		}
+		defender = {
+			commander = "Stefan Charnetskii"
+                        infantry = 32000			
+                        cavalry = 8000
+                        artillery = 92
+			losses = 75	# percent
+			country = PLC
+		}
+		result = yes
+	}
+}
+
+1649.8.17 = {
+	rem_defender = PLC
+}
+
+1651.1.1 = {
+	add_defender = PLC
+}
+
+1651.9.18 = {
+	rem_defender = PLC
+	rem_attacker = HTM
+}
+
+1652.4.1 = {
+	add_attacker = HTM
+	add_defender = PLC
+
+}
+
+1653.12.5 = {
+	rem_defender = PLC
+	rem_attacker = HTM
+}
+
+1654.4.1 = {
+	add_attacker = HTM
+	add_defender = PLC
+
+}
+
+1658.12.5 = {
+	rem_defender = PLC
+	rem_attacker = HTM
+	rem_attacker = CRI
+}

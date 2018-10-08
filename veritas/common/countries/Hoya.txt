@@ -1,0 +1,160 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 19  220  220 }
+
+historical_idea_groups = {
+	intimidatory_ideas
+	quantity_ideas
+	economic_ideas
+	mercantilist_ideas
+	offensive_ideas
+	expansion_ideas
+	gf1_ideas
+	standing_army_ideas
+}
+
+historical_units = { 
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+
+
+
+
+monarch_names = {
+	"Ernst August #0" = 20
+	"Georg #0" = 20
+	"Georg #0 August" = 20
+	"Georg #0 Ludwig" = 20
+	"Adolf Friedrich #0" = 15
+	"Alfred #0" = 15
+	"August Friedrich #0" = 10
+	"Christian #0" = 10
+	"Eduard August #0" = 10
+	"Friedrich #0 August" = 10
+	"Friedrich #0 Ludwig" = 10
+	"Georg #0 Wilhelm" = 10
+	"Karl Philipp #0" = 10
+	"Maximilian Wilhelm #0" = 10
+	"Octavius #0" = 10
+	"Wilhelm #0" = 10
+	"Wilhelm August #0" = 10
+	"Alexander #0" = 0
+	"Alois #0" = 0
+	"Anton #0" = 0
+	"Bruno #0" = 0
+	"Clemens #0" = 0
+	"Denis #0" = 0
+	"Gerfried #0" = 0
+	"Gottfried #0" = 0
+	"Günther #0" = 0
+	"Helmut #0" = 0
+	"Herbert #0" = 0
+	"Ignatz #0" = 0
+	"Isidor #0" = 0
+	"Jakob #0" = 0
+	"Konstantin #0" = 0
+	"Kuno #0" = 0
+	"Markus #0" = 0
+	"Martin #0" = 0
+	"Oskar #0" = 0
+	"Reinhard #0" = 0
+	"Silvester #0" = 0
+	"Stefan #0" = 0
+	"Waldemar #0" = 0
+	
+	"Amanda #0" = -1
+	"Beate #0" = -1
+	"Debora #0" = -1
+}
+
+leader_names = {
+	Aller
+	Detmold
+	Hamelm Hildesheim
+	Kapp
+	Minden
+	Oldenburg
+	Salzgitter
+	Werden Wernigerode
+}
+
+ship_names = {
+	"Georg von Calenberg" Leine Weser Deister
+	Süntel Wedemark Wunstorf Langenhagen
+	Stadthagen Lehrte Burgdorf Sarstedt
+}
+
+army_names = {
+	"Armee von $PROVINCE$" 
+}

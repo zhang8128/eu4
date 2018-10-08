@@ -1,0 +1,21 @@
+# Hanyang
+
+capital = "Wuchang"
+owner = YUN
+controller = YUN
+add_core = YUN
+culture = chihan
+religion = confucianism
+trade_goods = salt
+base_tax = 5
+base_production = 5
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1357.1.1 = { owner = MNG controller = MNG add_core = MNG remove_core = YUN add_core = CXI fort_15th = yes }
+1642.1.1 = { revolt = { type = anti_tax_rebels size = 2 } controller = REB } # Zhang Xianzhong rebellion
+1643.1.1 = { revolt = { } unrest = 0 controller = CXI } # The Xi dynasty of Zhang Xianzhong
+1645.6.14 = { owner = QNG controller = QNG add_core = QNG }
+1662.1.1 = { remove_core = MNG }

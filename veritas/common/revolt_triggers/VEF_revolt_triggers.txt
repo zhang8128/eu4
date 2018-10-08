@@ -1,0 +1,287 @@
+# Veritas Revolt Triggers
+
+HLR = { always = no } # Holy Roman Empire
+HSA = { always = no } # The Hansa
+ANV = { always = no } # Angevins
+IBE = { always = no } # Iberian Union
+ISC = { always = no } # Scots-Irish Confederacy
+LAE = { always = no } # Latin Empire
+NSE = { always = no } # North Sea Union
+PNG = { always = no } # Penguintopia
+ROM = { always = no } # Rome
+PQR = { always = no } # Rome
+
+#WOTR
+LAN = { always = no } # Lancaster
+YOR = { always = no } # York
+
+###################
+#Standard Formables; only once they are formed can there be rebels for them in their cores
+GBR = { is_core = GBR } # Great Britain
+SCA = { is_core = SCA } # Scandinavia
+GER = { is_core = GER } # Germany
+PRU = { is_core = PRU } # Prussia
+ITA = { is_core = ITA } # Italy
+NED = { is_core = NED } # Netherlands
+SPA = { is_core = SPA } # Spain
+IRE = { is_core = IRE } # Ireland
+SPI = { is_core = SPI } # Sardinia-Piedmont
+RUS = { is_core = RUS } # Russia
+DEC = { is_core = DEC } # Deccan
+ARB = { is_core = ARB } # Arabia
+BEL = { is_core = BEL } # Belgium
+BTR = { is_core = BTR } # Batavian Republic
+CLT = { is_core = CLT } # Celtic Empire
+CTG = { is_core = CTG } # Carthage
+FRY = { is_core = FRY } # Magna Frisia
+HAN = { is_core = HAN } # Hannover
+HAU = { is_core = HAU } # Hausa
+HTM = { is_core = HTM } # Hetmanshina
+JOM = { is_core = JOM } # Jomsvikings
+KRU = { is_core = KRU } # Rus
+KUR = { is_core = KUR } # Courland
+MSA = { is_core = MSA } # Malaya
+PLC = { is_core = PLC } # P-L Commonwealth
+RAJ = { is_core = RAJ } # Rajasthan
+RMV = { is_core = RMV } # Romuvan Empire
+SIK = { is_core = SIK } # Sikh Empire
+SLV = { is_core = SLV } # Slovenia
+THL = { is_core = THL } # Thule
+TUR = { is_core = TUR } # Turkey
+UKR = { is_core = UKR } # Ukraine
+WES = { is_core = WES } # Westfalia
+X01 = { is_core = X01 } # Mongols
+ZAZ = { is_core = ZAZ } # Zaporozhie
+SXN = { is_core = SXN } # Saxonia
+FRC = { is_core = FRC } # Franconia
+LOT = { is_core = LOT } # Lotharingia
+SWA = { is_core = SWA } # Swabia
+ADL = { is_core = ADL } # Andalucia
+ICE = { is_core = ICE } # Iceland
+###################
+
+#These nations don't coexist (mostly early nations that form later ones)
+ENG = { NOT = { is_core = GBR } NOT = { exists = GBR }} # England w/ Britain
+ARA = { NOT = { is_core = SPA } NOT = { exists = SPA }} # Aragon w/ Spain
+CAS = { NOT = { is_core = SPA } NOT = { exists = SPA }} # Castile w/ Spain
+GRA = { NOT = { is_core = ADL } NOT = { exists = ADL }} # Granada w/ Andalucia
+MCH = { NOT = { is_core = QNG } NOT = { exists = QNG }} # Manchu w/ Qing
+HIN = { NOT = { exists = BHR }} # Hindustan w/ Baharat
+BHR = { NOT = { exists = HIN }} # Baharat w/ Hindustan
+QNG = { NOT = { exists = MCH }} # Qing w/ Manchu
+OSM = { NOT = { exists = TUR }} # Osman w/ Turkey
+GRE = { NOT = { exists = BYZ }} # Greece w/ Byzantium
+BYZ = { OR = { is_core = BYZ NOT = { exists = GRE }}}	# Byzantium w/ Greece
+BAV = { NOT = { exists = LBV } NOT = { exists = UBV }} # Bavaria w/ Lower&Upper
+LBV = { NOT = { is_core = BAV } NOT = { exists = BAV }}
+UBV = { NOT = { is_core = BAV } NOT = { exists = BAV }}
+
+###################
+# Post-Colonial Nations
+BRZ	= {
+	OR = {
+		is_core = BRZ
+		owner = {
+			capital_scope = {
+				is_core = BRZ
+			}
+		}
+	}
+}
+CAN	= {
+	OR = {
+		is_core = CAN
+		owner = {
+			capital_scope = {
+				is_core = CAN
+			}
+		}
+	}
+}
+CHL	= {
+	OR = {
+		is_core = CHL
+		owner = {
+			capital_scope = {
+				is_core = CHL
+			}
+		}
+	}
+}
+COL	= {
+	OR = {
+		is_core = COL
+		owner = {
+			capital_scope = {
+				is_core = COL
+			}
+		}
+	}
+}
+HAT	= {
+	OR = {
+		is_core = HAT
+		owner = {
+			capital_scope = {
+				is_core = HAT
+			}
+		}
+	}
+}
+LAP	= {
+	OR = {
+		is_core = LAP
+		owner = {
+			capital_scope = {
+				is_core = LAP
+			}
+		}
+	}
+}
+LOU	= {
+	OR = {
+		is_core = LOU
+		owner = {
+			capital_scope = {
+				is_core = LOU
+			}
+		}
+	}
+}
+MEX	= {
+	OR = {
+		is_core = MEX
+		owner = {
+			capital_scope = {
+				is_core = MEX
+			}
+		}
+	}
+}
+PEU	= {
+	OR = {
+		is_core = PEU
+		owner = {
+			capital_scope = {
+				is_core = PEU
+			}
+		}
+	}
+}
+PRG	= {
+	OR = {
+		is_core = PRG
+		owner = {
+			capital_scope = {
+				is_core = PRG
+			}
+		}
+	}
+}
+QUE	= {
+	OR = {
+		is_core = QUE
+		owner = {
+			capital_scope = {
+				is_core = QUE
+			}
+		}
+	}
+}
+USA	= {
+	OR = {
+		is_core = USA
+		owner = {
+			capital_scope = {
+				is_core = USA
+			}
+		}
+	}
+}
+TEX	= {
+	NOT = { owner = USA }
+	OR = {
+		is_core = TEX
+		owner = {
+			capital_scope = {
+				is_core = TEX
+			}
+		}
+	}
+}
+VNZ	= {
+	OR = {
+		is_core = VNZ
+		owner = {
+			capital_scope = {
+				is_core = VNZ
+			}
+		}
+	}
+}
+###################
+
+
+################
+# Special Rules
+CSA = { owned_by = USA  is_core = CSA }
+KHA = { NOT = { exists = YUN }}
+YUN = { NOT = { exists = KHA }}
+GOL = { religion_group = muslim } # Golden Horde
+MUG = { religion_group = muslim } # Mughals
+# Tibet
+TIB = {
+	OR = {
+		is_core = TIB
+		owner = {
+			capital_scope = {
+				is_core = TIB
+			}
+		}
+	}
+}
+
+# Crusader States
+EGY = { has_global_flag = glory_of_byzantium }
+KOJ = { has_global_flag = glory_of_byzantium }
+SYR = { always = no }
+
+# Timurids
+TIM = {
+	culture = uzbehk
+	is_core = TIM
+}
+
+# Romania-Related
+RMN = {
+	OR = {
+		is_core = RMN
+		owner = {
+			capital_scope = {
+				is_core = RMN
+			}
+		}
+	}
+}
+WAL = { NOT = { is_core = RMN }} # Wallachia
+MOL = {
+	NOT = { is_core = RMN }
+	NOT = { province_id = 495 }
+}
+
+#Ilkanate-Related
+SRV = {
+	OR = {
+		NOT = { owned_by = ILK }
+		AND = {
+			owned_by = ILK
+			NOT = { is_core = CBN }
+		}
+	}
+}
+AFG = { NOT = { owned_by = ILK } }
+CBN = { owned_by = ILK }
+INJ = { owned_by = ILK }
+MZF = { owned_by = ILK }
+SRB = { owned_by = ILK }
+ILK = { exists = ILK is_core = ILK }

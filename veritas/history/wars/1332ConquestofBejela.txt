@@ -1,0 +1,24 @@
+name = "Conquest of Bejela"
+# Started by Tlemcen to take the coast as far as Tunis from the Hafsid dynasty
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 1653 # Bejela
+}
+
+1332.1.1 = {
+	add_attacker = TLM
+	add_defender = TUN
+	add_defender = BEJ
+}
+
+# Hafsids appeal to Morocco for aid; they lay siege to Tlemcen
+1335.1.1 = { add_defender = MOR }
+
+# Tlemcen falls and it's sultan is killed in the fighting
+1337.1.1 = {
+	rem_attacker = TLM
+	rem_defender = TUN
+	rem_defender = BEJ
+	rem_defender = MOR
+}

@@ -1,0 +1,31 @@
+government = monarchy add_government_reform = constitutional_monarchy
+government_rank = 3
+technology_group = western
+primary_culture = flemish
+religion = anabaptist
+capital = 193	# Brabant
+
+1831.7.21 = {
+	monarch = {
+		name = "Leopold I"
+		dynasty = "von Saxe-Coburg-Gotha"
+		birth_date = 1790.12.16
+		adm = 5
+		dip = 4
+		mil = 5
+	}
+}
+
+1835.4.9 = {
+	heir = {
+		name = "Leopold"
+		monarch_name = "Leopold II"
+		dynasty = "von Saxe-Coburg-Gotha"
+		birth_date = 1835.4.9
+		death_date = 1909.12.17
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}

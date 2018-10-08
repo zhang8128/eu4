@@ -1,0 +1,10 @@
+#Batil
+#model = barque
+#tech_level = 0
+type = transport
+unit_type = muslim
+
+hull_size = 4
+base_cannons = 2
+sail_speed = 10
+sailors = 150

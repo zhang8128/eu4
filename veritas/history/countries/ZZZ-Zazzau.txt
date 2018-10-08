@@ -1,0 +1,42 @@
+# Zazzau
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+primary_culture = hausa
+religion = maguzawa
+technology_group = sudanese_tech
+capital = 1772
+
+1309.1.1 = {
+	monarch = {
+		name = "Amina of Zazzau"
+		adm = 6
+		dip = 3
+		mil = 6
+		female = yes
+		birth_date = 1293.1.1
+		leader = { 
+			name = "Queen Amina"	
+			type = general
+			female = yes
+			fire = 4
+			shock = 4	
+			manuever = 6	
+			siege = 2 
+		}
+	}
+}
+
+1309.1.1 = {
+	heir = {
+		name = "Bakwa Turunku"
+		monarch_name = "Queen Bakwa Turunku"
+		female = yes
+		birth_date = 1308.1.1
+		death_date = 1380.12.31
+		claim = 70
+		adm = 5
+		dip = 4
+		mil = 4
+	}
+}

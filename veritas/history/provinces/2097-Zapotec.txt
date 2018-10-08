@@ -1,0 +1,29 @@
+# Zapotec
+
+capital = "Mitla"
+owner = ZAP
+controller = ZAP
+capital = "Totopec" add_core = ZAP
+culture = zapotek
+religion = xochiyaoyotl
+trade_goods = sugar
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+
+discovered_by = mesoamerican
+
+1400.1.1	= { capital = "Zaachila" }
+1500.1.1	= { base_tax = 4 base_production = 4 base_manpower = 5 }
+1524.1.1   = { discovered_by = SPA owner = SPA controller = SPA }
+1529.1.1   = { capital = "Oaxaca" culture = castillian religion = catholic } # First settlers
+1549.1.1   = { add_core = SPA }
+1567.1.1  = { add_core = SPA }
+1600.1.1  = { citysize = 3978 }
+1650.1.1  = { citysize = 4244 }
+1700.1.1  = { citysize = 4810 }
+1750.1.1  = { citysize = 5564 }
+1800.1.1  = { citysize = 6200 }
+1810.9.16 = { owner = MEX add_core = MEX controller = SPA } # Mexican War of Independence

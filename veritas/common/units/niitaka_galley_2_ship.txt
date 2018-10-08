@@ -1,0 +1,10 @@
+#Sekibune
+#model = galley
+#tech_level = 8
+type = galley
+unit_type = niitaka
+
+hull_size = 10
+base_cannons = 10
+sail_speed = 8
+sailors = 175

@@ -1,0 +1,3 @@
+# Tristan Da Cunha Islands
+#Province IDs changed
+1675.1.1 = { discovered_by = ENG }

@@ -1,0 +1,43 @@
+# Ardabil
+
+capital = "Ardabil"
+owner = ILK
+controller = ILK
+add_core = ILK
+add_core = CBN
+culture = azerbadjani
+religion = shiite
+trade_goods = dyes
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = indopersian
+discovered_by = ottoman
+discovered_by = byzantine
+
+1336.1.1	= { unrest = 0 owner = CBN controller = CBN remove_core = ILK } # collapse of Ilkhanate
+1357.1.1	= { owner = GOL controller = GOL remove_core = CBN } # Golden Horde ends the Chobanid line
+1358.1.1	= { owner = JAI controller = JAI add_core = JAI } # Golden Horde abandons the area
+1386.6.1	= { owner = TIM controller = TIM remove_core = JAI } # Timur takes Tabriz in the summer; Azerbaijan is firmly wrested from Jalayrids
+1406.1.1	= { owner = QAR controller = QAR add_core = QAR } # Qara Yusuf asserts dominance in Azerbaijan after Timur's death
+1458.9.1	= { revolt = { type = pretender_rebels size = 0 name = "Hasan Ali's Faction" leader = "Hasan Ali" } controller = REB } # Civil war in Qara Quyunlu
+1458.12.1	= { revolt = {} controller = QAR }
+1459.1.1	= { unrest = 3 } # Attacked by Safavids
+1460.1.1	= { unrest = 0 }
+1467.11.11	= { owner = AKK controller = AKK add_core = AKK remove_core = QAR } # The Ak Koyunlu expands on death of Jahan Shah
+1468.8.1	= { controller = TIM } #Invasion of Abu Said
+1469.2.4	= { controller = AKK } #Battle of Qarabagh
+1499.1.1 = { revolt = { type = religious_rebels size = 3 name = "Qizilbash Tribesmen" leader = "Ismail Safavid" } controller = REB }
+1501.7.1 = { owner = PER controller = PER remove_core = AKK revolt = { } } # Ismail conquers Tabriz and defeats Alwand
+1673.1.1 = { discovered_by = ENG }
+1707.5.12 = { discovered_by = GBR }
+1722.1.1 = { owner = RUS controller = RUS add_core = RUS remove_core = PER } # Occupied by Peter the Great
+1734.1.1 = { owner = PER controller = PER add_core = PER remove_core = RUS }
+1747.1.1 = { unrest = 3 } # Shah Nadir is killed, local khanates emerged
+1748.1.1 = { unrest = 4 } # The empire began to decline
+1779.1.1 = { unrest = 0 } # With the Qajar dynasty the situation stabilized

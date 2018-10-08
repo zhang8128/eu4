@@ -1,0 +1,25 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+primary_culture = castillian
+add_accepted_culture = andalucian
+religion = catholic
+technology_group = western
+historical_friend = CAS
+historical_rival = GRA
+capital = 92 # Cordoba
+fixed_capital = 92
+
+set_country_flag = starting_vassal 
+set_country_flag = vassal_flag
+set_variable = { which = vassal_progress value = 20.0 }
+
+1295.4.25 = {
+	monarch = {
+		name = "Alfonso I"
+		dynasty = "de Córdoba"
+		birth_date = 1285.12.6
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}

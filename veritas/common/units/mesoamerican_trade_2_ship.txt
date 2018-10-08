@@ -1,0 +1,11 @@
+#Mayan Tradeboat
+#model = cog
+#tech_level = 12
+type = light_ship
+unit_type = mesoamerican
+
+hull_size = 4
+base_cannons = 2
+sail_speed = 6
+trade_power = 0.75
+sailors = 25

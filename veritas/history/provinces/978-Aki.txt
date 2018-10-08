@@ -1,0 +1,33 @@
+# Aki
+#Province IDs changed
+
+
+owner = MRI
+controller = MRI
+culture = japanese
+religion = shinto
+capital = "Hiroshima"
+trade_goods = fish
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 5
+add_core = MRI
+is_city = yes
+discovered_by = chinese
+discovered_by = niitaka
+
+1400.1.1	= { base_manpower = 2.5 }
+1420.1.1	= { add_core = OUC }
+1466.1.1	= { add_core = MRI }
+1470.1.1	= { owner = OUC controller = OUC }
+1500.1.1	= { base_manpower = 3.5 }
+1520.1.1	= { add_core = AMA }
+1525.1.1	= { owner = MRI controller = MRI }
+1566.11.28	= { remove_core = AMA }
+1600.1.1	= { base_manpower = 4.5 }
+1603.3.24	= { owner = JAP controller = JAP add_core = JAP remove_core = TKG } # Tokugawa shogunate founded
+1650.1.1	= { base_manpower = 5 }
+1700.1.1	= { base_manpower = 6 }
+1750.1.1	= { base_manpower = 6 }
+1800.1.1	= { base_manpower = 5.75 }

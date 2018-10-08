@@ -1,0 +1,72 @@
+country_decisions = {
+
+	texas_nation = {
+		major = yes
+		potential = {
+			texas_area = { owned_by = ROOT }
+			is_random_new_world = no
+			is_nomad = no
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+			}
+			NOT = { exists = TEX }
+			OR = {
+				ai = no
+				num_of_cities = 3	
+			}
+			NOT = { has_country_flag = changed_from_colonial_nation }
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			is_former_colonial_nation = yes
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			capital_scope = {
+				area = texas_area
+				is_core = ROOT
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { area = texas_area }
+						AND = {
+							area = texas_area
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_texas
+			}
+		}
+		effect = {
+			change_tag = TEX
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			texas_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = TEX
+			}
+			add_prestige = 25
+			set_country_flag = changed_from_colonial_nation
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+}

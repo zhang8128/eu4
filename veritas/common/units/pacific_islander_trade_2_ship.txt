@@ -1,0 +1,11 @@
+#Tepukei
+#model = cog
+#tech_level = 16
+type = light_ship
+unit_type = pacific_islander
+
+hull_size = 6
+base_cannons = 2
+sail_speed = 6
+trade_power = 1.0
+sailors = 25

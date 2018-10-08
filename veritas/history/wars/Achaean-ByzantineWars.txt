@@ -1,0 +1,12 @@
+# Byzantine reconquest of Peloponese
+
+name = "First Achean-Byzantine War"
+
+war_goal = {
+	type = take_core
+	casus_belli = cb_core	
+	province = 574 # Achaea	
+}
+
+1430.1.1 = {	add_attacker = BYZ	add_defender = ACH	}
+1433.1.1 = {	rem_attacker = BYZ	rem_defender = ACH	} # Byzantium annexed Achaea and Messenia

@@ -1,0 +1,95 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+technology_group = western
+religion = catholic
+primary_culture = flemish
+historical_friend = ENG
+historical_rival = BUR
+capital = 194	# Brugge
+
+1267.1.1 = { add_country_modifier = { name = "hanseatic_league_member" duration = -1 }}
+
+1305.1.1 = {
+	monarch = {
+		name = "Robrecht III"
+		dynasty = "van Dampierre"
+		birth_date = 1249.1.1
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+	heir = {
+		name = "Heir Apparent" 
+		dynasty = "van Dampierre"
+		birth_date = 1272.1.1
+		death_date = 1346.8.26
+		claim = 95
+		female = yes
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1322.9.17 = {
+	monarch = { #Robert's grandson inherits
+		name = "Lodewijk I"
+		dynasty = "van Dampierre"
+		birth_date = 1304.1.1
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+	queen = {
+		country_of_origin = FRA
+		name = "Margaret"
+		dynasty = "Capet"
+		birth_date = 1310.1.1
+		death_date = 1382.5.9
+		female = yes
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}
+
+1330.10.15 = {
+	heir = {
+		name = "Lodewijk"
+		monarch_name = "Lodewijk II"
+		dynasty = "van Dampierre"
+		birth_date = 1330.10.15
+		death_date = 1384.1.30
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1346.8.26 = {
+	monarch = {
+		name = "Lodewijk II"
+		dynasty = "van Dampierre"
+		birth_date = 1330.10.15
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1347.1.1 = {
+	queen = {
+		country_of_origin = FRA
+		name = "Margaret"
+		dynasty = "Capet"
+		birth_date = 1323.2.9
+		death_date = 1380.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+#Union with Burgundy from 1384.1.30

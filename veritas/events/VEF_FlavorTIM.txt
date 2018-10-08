@@ -1,0 +1,799 @@
+########################################
+# Timurid Formation and Flavor
+# VEF
+########################################
+
+#Chagatai breakup and Timurids formation#
+#10000 The Beginning of the End
+#10001 The Parting of Chagatai
+#10002 Timurid rebels
+#10003 Reunion?
+
+#Timurids formation without Chagatai#
+#10010 Timur rises (No Chagatai)
+#10011 Timurids rise (No Chagatai) 
+
+#10100 Timur's conquest complete
+
+namespace = flavor_tim
+normal_or_historical_nations = yes
+
+# The Beginning of the End
+country_event = {
+	id = flavor_tim.10000
+	title = "flavor_tim.10000.t"
+	desc = "flavor_tim.10000.d"
+	picture = VEF_COURT_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		is_year = 1357
+		NOT = { is_year = 1358 }
+		NOT = { exists = TIM }
+		tag = CHG
+		OR = {
+			owns = 823
+			owns = 855
+			owns = 856
+			owns = 857
+			owns = 1479
+			owns = 1480
+			owns = 1481
+			owns = 1482
+			owns = 1483
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			every_province = {
+				limit = {
+					is_core = CHG
+					OR = {
+						area = jetysuu_area
+						region = tibet_region
+						region = mongolia_region
+						region = north_china_region
+					}
+				}
+				add_core = KSG
+			}
+			823 = { add_core = TIM }
+			855 = { add_core = TIM }
+			856 = { add_core = TIM }
+			857 = { add_core = TIM }
+			1479 = { add_core = TIM }
+			1480 = { add_core = TIM }
+			1481 = { add_core = TIM }
+			1482 = { add_core = TIM }
+			1483 = { add_core = TIM }
+			khiva_area = { add_core = TIM }
+			arys_area = { add_core = TIM }
+		}
+	}
+
+	option = {
+		name = "flavor_tim.10000.opta"
+		ai_chance = { factor = 100 }
+		define_general = {
+			name = "Timur"
+			fire = 2 
+			shock = 5 
+			manuever = 4 
+			siege = 3 
+		}
+		hidden_effect = {
+			set_country_flag = chg_timur_begins
+		}
+	}
+	
+	option = {
+		name = "flavor_tim.10000.optb"
+		ai_chance = { factor = 0 }
+		if = {
+			limit = {
+				owns = 863
+			}
+			863 = {
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				owns = 864
+			}
+			864 = {
+				hidden_effect = {
+					remove_core = KKH
+				}
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 1
+				}
+				hidden_effect = {
+					add_core = KKH
+				}
+			}
+		}
+		if = {
+			limit = {
+				owns = 867
+			}
+			867 = {
+				hidden_effect = {
+					remove_core = KKH
+				}
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 1
+				}
+				hidden_effect = {
+					add_core = KKH
+				}
+			}
+		}
+		if = {
+			limit = {
+				owns = 823
+			}
+			823 = {
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				owns = 857
+			}
+			857 = {
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				owns = 1483
+			}
+			1483 = {
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 1
+				}
+			}
+		}
+	}
+}
+
+# The Parting of Chagatai
+country_event = {
+	id = flavor_tim.10001
+	title = "flavor_tim.10001.t"
+	desc = "flavor_tim.10001.d"
+	picture = VEF_COURT_eventPicture
+	
+	fire_only_once = yes
+	major = yes
+	
+	trigger = {
+		is_year = 1360
+		NOT = { is_year = 1361 }
+		has_country_flag = chg_timur_begins
+	}
+	
+	immediate = {
+		set_global_flag = rise_of_timur
+		hidden_effect = {
+			kill_leader = { type = "Timur" }
+			clr_country_flag = chg_timur_begins
+		}
+	}
+
+	# Form Timurids, Kashgaria goes free
+	option = {
+		name = "flavor_tim.10001.opta"
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				any_owned_province = {
+					is_core = KSG
+				}
+				NOT = { exists = KSG }
+			}
+			release = KSG
+			
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							area = jetysuu_area
+							region = tibet_region
+							region = mongolia_region
+							region = north_china_region
+						}
+					}
+					cede_province = KSG
+				}
+			
+				every_province = {
+					limit = {
+					is_core = CHG
+						OR = {
+							area = jetysuu_area
+							region = tibet_region
+							region = mongolia_region
+							region = north_china_region
+						}
+					}
+					remove_core = CHG
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				863 = { owned_by = KSG }
+			}
+			KSG = { set_capital = 863 }	# Kashgar
+		}
+		
+		change_tag = TIM
+		
+		if = {
+			limit = {
+				ai = yes
+			}
+			every_province = {
+				limit = {
+					OR = {
+						province_id = 823
+						province_id = 855
+						province_id = 856
+						province_id = 857
+						province_id = 1479
+						province_id = 1480
+						province_id = 1481
+						province_id = 1482
+						province_id = 1483
+					}
+					NOT = { owned_by = TIM }
+					is_capital = no
+					owner = { ai = yes }
+				}
+				cede_province = TIM
+			}
+			
+			hidden_effect = {
+				every_country = {
+					limit = {
+						OR = {
+							owns = 823
+							owns = 855
+							owns = 856
+							owns = 857
+							owns = 1479
+							owns = 1480
+							owns = 1481
+							owns = 1482
+							owns = 1483
+						}
+						NOT = { tag = TIM }
+						ai = no
+					}
+					country_event = { id = flavor_tim.10002 days = 10 }
+				}
+			}
+		
+			hidden_effect = {
+				if = {
+					limit = { owns = 1481 }
+					set_capital = 1481
+					1481 = { build_to_forcelimit = { cavalry = 1 } }
+				}
+				if = {
+					limit = { NOT = { owns = 1481 } }
+					capital_scope = { build_to_forcelimit = { cavalry = 1 } }
+				}
+			}
+		}
+		
+		add_country_modifier = { name = "rise_of_timurids" duration = 18250 }
+		define_ruler = {
+			name = "Timur"
+			dynasty = "Timurid"
+			adm = 4
+			dip = 4
+			mil = 5
+			fixed = yes
+		}
+		hidden_effect = {
+			clear_existing_royals = yes
+			kill_heir = yes
+		}
+		define_ruler_to_general = {
+			fire = 2 
+			shock = 5 
+			manuever = 4 
+			siege = 3 
+		}
+		persia_region = { add_permanent_claim = ROOT }
+		khorasan_region = { add_permanent_claim = ROOT }
+		if = {
+			limit = {
+				ai = no
+				has_custom_ideas = no
+				NOT = { has_idea_group = TIM_ideas }
+			}
+			country_event = { id = "national_ideas.60000" days = 1 }
+		}
+		if = {
+			limit = {
+				ai = no
+			}
+			country_event = { id = flavor_tim.10003	days = 1 }
+		}
+	}
+	
+	# Form Kashgaria, allow Timurids to go free (Player only)
+	option = {
+		name = "flavor_tim.10001.optb"
+		ai_chance = { factor = 0 }
+		trigger = {
+			any_owned_province = {
+				is_core = KSG
+			}
+			NOT = { exists = KSG }
+		}
+		if = {
+			limit = {
+				863 = { owned_by = CHG }
+			}
+			set_capital = 863	# Kashgar
+		}
+		
+		release = TIM
+		
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 823
+					province_id = 855
+					province_id = 856
+					province_id = 857
+					province_id = 1479
+					province_id = 1480
+					province_id = 1481
+					province_id = 1482
+					province_id = 1483
+				}
+				NOT = { owned_by = TIM }
+				is_capital = no
+				owner = { ai = yes }
+			}
+			cede_province = TIM
+		}
+
+		TIM = {
+			hidden_effect = {
+				if = {
+					limit = { owns = 1481 }
+					set_capital = 1481
+					1481 = { build_to_forcelimit = { cavalry = 1 } }
+				}
+				if = {
+					limit = { NOT = { owns = 1481 } }
+					capital_scope = { build_to_forcelimit = { cavalry = 1 } }
+				}
+			}
+			add_country_modifier = { name = "rise_of_timurids" duration = 18250 }
+			define_ruler = {
+				name = "Timur"
+				dynasty = "Timurid"
+				adm = 4
+				dip = 4
+				mil = 5
+				fixed = yes
+			}
+			hidden_effect = {
+				clear_existing_royals = yes
+				kill_heir = yes
+			}
+			define_ruler_to_general = {
+				fire = 2 
+				shock = 5 
+				manuever = 4 
+				siege = 3 
+			}
+			persia_region = { add_permanent_claim = PREV }
+			khorasan_region = { add_permanent_claim = PREV }
+		}
+		change_tag = KSG
+		
+		hidden_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						owns = 823
+						owns = 855
+						owns = 856
+						owns = 857
+						owns = 1479
+						owns = 1480
+						owns = 1481
+						owns = 1482
+						owns = 1483
+					}
+					NOT = { tag = TIM }
+					ai = no
+				}
+				country_event = { id = flavor_tim.10002 days = 10 }
+			}
+		}
+		
+		if = {
+			limit = {
+				has_custom_ideas = no
+				NOT = { has_idea_group = KSG_ideas }
+			}
+			country_event = { id = "national_ideas.60000" days = 1 }
+		}
+		country_event = { id = flavor_tim.10003	days = 1 }
+	}
+}
+
+# Timurid rebels
+# Notify the player that Timur has risen and rebels are coming
+country_event = {
+	id = flavor_tim.10002
+	title = "flavor_tim.10002.t"
+	desc = "flavor_tim.10002.d"
+	picture = VEF_COURT_eventPicture
+
+	is_triggered_only = yes
+	
+	# Cede
+	option = {
+		name = "flavor_tim.10002.opta"
+		
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 823
+					province_id = 855
+					province_id = 856
+					province_id = 857
+					province_id = 1479
+					province_id = 1480
+					province_id = 1481
+					province_id = 1482
+					province_id = 1483
+				}
+				NOT = { owned_by = TIM }
+				is_capital = no
+			}
+			cede_province = TIM
+		}
+	}
+	
+	# Not cede, get rebels
+	option = {
+		name = "flavor_tim.10002.optb"
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 823
+					province_id = 855
+					province_id = 856
+					province_id = 857
+					province_id = 1479
+					province_id = 1480
+					province_id = 1481
+					province_id = 1482
+					province_id = 1483
+				}
+				NOT = { owned_by = TIM }
+				is_capital = no
+			}
+			spawn_rebels = {
+				size = 1
+				type = nationalist_rebels
+				friend = TIM
+			}
+		}
+	}
+}
+
+# Reunion?
+country_event = {
+	id = flavor_tim.10003
+	title = "flavor_tim.10003.t"
+	desc = "flavor_tim.10003.d"
+	picture = VEF_COURT_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_tim.10003.opta"
+		if = {
+			limit = { tag = TIM }
+			declare_war_with_cb = {
+				who = KSG
+				casus_belli = cb_reunite_breakaway
+			}
+		}
+		if = {
+			limit = { tag = KSG }
+			declare_war_with_cb = {
+				who = TIM
+				casus_belli = cb_reunite_breakaway
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_tim.10003.optb"
+		trigger = {
+			NOT = { has_country_flag = bide_our_time }
+		}
+		hidden_effect = {
+			set_country_flag = bide_our_time
+			country_event = { id = flavor_tim.10003 days = 1460 }
+		}
+	}
+	
+	option = {
+		name = "flavor_tim.10003.optc"
+		trigger = {
+			has_country_flag = bide_our_time
+		}
+		hidden_effect = {
+			clr_country_flag = bide_our_time
+		}
+	}
+}
+
+# Timur rises (No Chagatai)
+country_event = {
+	id = flavor_tim.10010
+	title = "flavor_tim.10010.t"
+	desc = "flavor_tim.10010.d"
+	picture = VEF_COURT_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		is_year = 1357
+		NOT = { is_year = 1358 }
+		OR = {
+			ai = yes
+			AND = {
+				ai = no
+				823 = { owner = { ai = no } }
+				855 = { owner = { ai = no } }
+				856 = { owner = { ai = no } }
+				857 = { owner = { ai = no } }
+				1479 = { owner = { ai = no } }
+				1480 = { owner = { ai = no } }
+				1481 = { owner = { ai = no } }
+				1482 = { owner = { ai = no } }
+				1483 = { owner = { ai = no } }
+			}
+		}
+		
+		NOT = { exists = TIM }
+		AND = {
+			NOT = { CHG = { owns = 823 } }
+			NOT = { CHG = { owns = 855 } }
+			NOT = { CHG = { owns = 856 } }
+			NOT = { CHG = { owns = 857 } }
+			NOT = { CHG = { owns = 1479 } }
+			NOT = { CHG = { owns = 1480 } }
+			NOT = { CHG = { owns = 1481 } }
+			NOT = { CHG = { owns = 1482 } }
+			NOT = { CHG = { owns = 1483 } }
+		}
+		OR = {
+			owns = 823
+			owns = 855
+			owns = 856
+			owns = 857
+			owns = 1479
+			owns = 1480
+			owns = 1481
+			owns = 1482
+			owns = 1483
+		}
+	}
+
+	option = {
+		name = "flavor_tim.10010.opta"
+		hidden_effect = {
+			823 = { add_core = TIM }
+			855 = { add_core = TIM }
+			856 = { add_core = TIM }
+			857 = { add_core = TIM }
+			1479 = { add_core = TIM }
+			1480 = { add_core = TIM }
+			1481 = { add_core = TIM }
+			1482 = { add_core = TIM }
+			1483 = { add_core = TIM }
+			khiva_area = { add_core = TIM }
+			arys_area = { add_core = TIM }
+		}
+		define_general = {
+			name = "Timur"
+			fire = 2 
+			shock = 5 
+			manuever = 4 
+			siege = 3 
+		}
+		hidden_effect = {
+			set_country_flag = timur_begins
+		}
+	}
+}
+
+# Timurids rise (No Chagatai) 
+country_event = {
+	id = flavor_tim.10011
+	title = "flavor_tim.10011.t"
+	desc = "flavor_tim.10011.d"
+	picture = VEF_COURT_eventPicture
+
+	fire_only_once = yes
+	major = yes
+	
+	trigger = {
+		is_year = 1360
+		NOT = { is_year = 1361 }
+		has_country_flag = timur_begins
+	}
+	
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = timur_begins
+		}
+	}
+
+	option = {
+		name = "flavor_tim.10011.opta"
+		set_global_flag = rise_of_timur
+		kill_leader = { type = "Timur" }
+		if = {
+			limit = {
+				ai = yes
+			}
+			release = TIM
+			
+		}
+		1481 = { cede_province = TIM }
+		
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 823
+					province_id = 855
+					province_id = 856
+					province_id = 857
+					province_id = 1479
+					province_id = 1480
+					# Not 1481 because already ceded to TIM
+					province_id = 1482
+					province_id = 1483
+				}
+				NOT = { owned_by = TIM }
+				is_capital = no
+				owner = { ai = yes }
+			}
+			cede_province = TIM
+		}
+			
+		hidden_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						owns = 823
+						owns = 855
+						owns = 856
+						owns = 857
+						owns = 1479
+						owns = 1480
+						owns = 1481
+						owns = 1482
+						owns = 1483
+					}
+					NOT = { tag = TIM }
+					ai = no
+				}
+				country_event = { id = flavor_tim.10002 days = 10 }
+			}
+		}
+		
+		TIM = {
+			hidden_effect = {
+				if = {
+					limit = { owns = 1481 }
+					set_capital = 1481
+					1481 = { build_to_forcelimit = { cavalry = 1 } }
+				}
+				if = {
+					limit = { NOT = { owns = 1481 } }
+					capital_scope = { build_to_forcelimit = { cavalry = 1 } }
+				}
+			}
+			add_country_modifier = { name = "rise_of_timurids" duration = 18250 }
+			define_ruler = {
+				name = "Timur"
+				dynasty = "Timurid"
+				adm = 4
+				dip = 4
+				mil = 5
+				fixed = yes
+			}
+			hidden_effect = {
+				clear_existing_royals = yes
+				kill_heir = yes
+			}
+			define_ruler_to_general = {
+				fire = 2 
+				shock = 5 
+				manuever = 4 
+				siege = 3 
+			}
+			persia_region = { add_permanent_claim = PREV }
+			khorasan_region = { add_permanent_claim = PREV }
+		}
+	}
+}
+
+# Timur's conquest complete
+country_event = {
+	id = flavor_tim.10100
+	title = "flavor_tim.10100.t"
+	desc = "flavor_tim.10100.d"
+	picture = VEF_COURT_eventPicture
+
+	trigger = {
+		tag = TIM
+		has_global_flag = rise_of_timur
+		OR = {
+			AND = {
+				NOT = { exists = ILK }
+				NOT = { exists = SRB }
+				NOT = { exists = JAI }
+				NOT = { exists = MZF }
+				NOT = { exists = INJ }
+				NOT = { exists = PER }
+			}
+			is_year = 1410
+		}
+	}
+	
+	immediate = { clr_global_flag = rise_of_timur }
+	
+	option = {
+		name = "flavor_tim.10100.opta"
+		add_prestige = 10
+		if = {
+			limit = {
+				persia_region = {
+					owns_or_subject_of = TIM
+				}
+				khorasan_region = {
+					owns_or_subject_of = TIM
+				}
+			}
+			set_government_rank = 4
+		}
+		
+	}
+}

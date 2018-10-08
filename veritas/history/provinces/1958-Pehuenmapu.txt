@@ -1,0 +1,27 @@
+# Pehuenmapu
+
+capital = "Pehuenmapu"
+native_size = 20
+native_ferocity = 2
+native_hostileness = 9
+culture = patagonian
+religion = animism
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no	
+
+1561.3.2  = {	discovered_by = SPA
+		owner = SPA
+		controller = SPA
+		capital = "Mendoza"
+		culture = castillian
+		 religion = catholic
+	    } # Founded by Pedro del Castillo
+1576.1.1  = { add_core = SPA is_city = yes trade_goods = grain }
+1816.7.9  = {	owner = LAP
+		controller = LAP
+		add_core = LAP
+		remove_core = SPA
+	    } # Argentina is declared independent

@@ -1,0 +1,3 @@
+# Coast Of Baja
+#Province IDs changed
+1533.1.1 = { discovered_by = SPA }

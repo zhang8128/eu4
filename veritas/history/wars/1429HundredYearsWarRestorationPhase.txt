@@ -1,0 +1,87 @@
+#Province IDs changed
+name = "Hundred Years War"
+war_goal = {
+	type = hyw_force_pu
+	casus_belli = cb_hundred_years_war
+	tag = FRA
+}
+
+# Charles VII crowned at Reims
+1429.7.17 = {
+	add_attacker = ENG
+	add_attacker = BUR
+	add_attacker = BRI
+	add_defender = FRA
+	add_defender = ORL
+	add_defender = AMG
+	add_defender = PRO
+	add_defender = BOU
+	add_defender = AUV
+	add_defender = FOI
+}
+
+# Treaty of Arras
+1435.9.21 = {
+	rem_attacker = BUR
+	rem_attacker = BRI
+	add_defender = BUR
+	add_defender = BRI
+}
+
+1439.1.1 = {
+	rem_defender = BUR
+	rem_defender = BRI
+}
+
+1450.4.15 = {
+	battle = {
+		name = "Formigny"
+		location = 166
+		attacker = {
+			commander = "Thomas Kyriell"	# Thomas Kyriell
+			infantry = 4000
+			losses = 63	# percent
+			country = ENG
+		}
+		defender = {
+			commander = "Comte de Clermont"	# Comte de Clermont
+			infantry = 5000
+			losses = 6	# percent
+			country = FRA
+		}
+		result = no
+	}
+}
+
+1453.7.17 = {
+	battle = {
+		name = "Castillon"
+		location = 117
+		attacker = {
+			commander = "John Talbot"	# John Talbot
+			infantry = 5000
+			cavalry = 500
+			losses = 60	# percent
+			country = ENG
+		}
+		defender = {
+			commander = "Jean Bureau"	# Jean Bureau
+			infantry = 10500
+			cavalry = 1000
+			losses = 1	# percent
+			country = FRA
+		}
+		result = no
+	}
+}
+
+1453.7.18 = {
+	rem_attacker = ENG
+	rem_defender = FRA
+	rem_defender = ORL
+	rem_defender = AMG
+	rem_defender = PRO
+	rem_defender = BOU
+	rem_defender = AUV
+	rem_defender = FOI
+}

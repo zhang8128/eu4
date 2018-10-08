@@ -1,0 +1,4 @@
+# Vilian Strait
+#Province IDs changed
+discovered_by = pacific_islander
+1770.2.27 = { discovered_by = GBR }

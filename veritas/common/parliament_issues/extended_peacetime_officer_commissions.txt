@@ -1,0 +1,34 @@
+extended_peacetime_officer_commissions = {
+
+	category = 1
+
+	allow = {
+		mil_tech = 37
+		dip_tech = 37
+	}
+	
+	on_issue_taken = {
+		change_variable = { which = parliament_debate value = 1 }
+	}
+	
+	effect = {
+		
+	}
+	
+	modifier = {
+		navy_tradition_decay = -0.01
+		army_tradition_decay = -0.01
+	}
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 2
+			is_at_war = yes
+		}
+	}
+
+	ai_will_do = {
+		factor = 1	
+	}	
+}

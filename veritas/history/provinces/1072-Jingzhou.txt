@@ -1,0 +1,17 @@
+# Jingzhou
+
+capital = "Jingzhou"
+owner = YUN
+controller = YUN
+add_core = YUN
+culture = chihan
+religion = confucianism
+trade_goods = spices
+base_tax = 2
+base_production = 2
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1357.1.1 = { owner = MNG controller = MNG add_core = MNG remove_core = YUN } #Red Turban Rebellion

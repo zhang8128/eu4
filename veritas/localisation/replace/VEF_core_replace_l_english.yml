@@ -1,0 +1,27 @@
+﻿l_english:
+
+ ###Modified localisations from vanilla's core_l_english###
+
+ HEAVY_SHIP: "Heavy Warship"
+ LIGHT_SHIP: "Trade Ship"
+ GALLEY: "Galley/Half-galley"
+ TRANSPORT: "Light Warship"
+ PIETY_DESCRIPTION: "Piety represents the religious devotion to the faith within your nation. Declaring war on infidels will increase your piety while declaring war on other nations following the same faith will decrease it."
+ PATRIARCH_DESCRIPTION: "Patriarch Authority represents the level of influence that the Church has on the nation. In provinces following the state religion, high Patriarch Authority will decrease local unrest and increase the number of recruits joining the army. But it will come at the cost of partially diverting local taxes to the Church."
+ INFLATION_DESC: "Inflation may come from having too much gold and silver income (in comparison to other income) or from taking loans."
+ WAR_OVERVIEW_ENEMY_TRANSPORT: "The enemy has $NUM|Y$ light warships."
+ WAR_OVERVIEW_WE_TRANSPORT: "Our side has $NUM|Y$ light warships."
+ WAR_OVERVIEW_ENEMY_LIGHTSHIPS: "The enemy has $NUM|Y$ trade ships."
+ WAR_OVERVIEW_WE_LIGHTSHIPS: "Our side has $NUM|Y$ trade ships."
+ WAR_OVERVIEW_ENEMY_BIGSHIPS: "The enemy has $NUM|Y$ heavy warships."
+ WAR_OVERVIEW_WE_BIGSHIPS: "Our side has $NUM|Y$ heavy warships."
+ WAR_OVERVIEW_ENEMY_TRANSPORT: "The enemy has $NUM|Y$ light warships."
+ WAR_OVERVIEW_WE_TRANSPORT: "Our side has $NUM|Y$ light warships."
+ ECOVIEW_MAINT_TP_PENALTY: "Trade Ship Trade Power: $VAL$"
+ BOOKMARK_COUNTRY_EASY: "§RThis country is a Challenge Country.§!"
+ INCOMEGOLD: "Gold/Silver"
+ CONDENSED_PROV_MOD: "Buildings and Modifiers in $NUM$ Provinces: $VAL$"
+ FE_LUCK_DESC: "§YLucky Nations§! have been disabled in Veritas et Fortitudo. It is recommended to keep the setting as §YNone§!."
+ FE_LUCK_DESC2: ""
+ FE_LUCK_DESC3: "" 
+ 

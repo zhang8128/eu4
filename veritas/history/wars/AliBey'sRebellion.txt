@@ -1,0 +1,18 @@
+name = "Ali Bey's Rebellion"
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+	tag = EGM
+}
+
+# Ali Bey leads Egypt in a revolt against Ottoman rule
+1770.1.1 = {
+	add_attacker = EGM
+	add_defender = TUR
+}
+
+# Ottoman control restored
+1772.1.1 = {
+	rem_attacker = EGM
+	rem_defender = TUR
+}

@@ -1,0 +1,32 @@
+# Sana'A
+
+capital = "Sana'a"
+owner = ADE
+controller = ADE
+add_core = ADE
+culture = yemeni_culture
+religion = shiite
+trade_goods = wool
+base_tax = 3
+base_production = 3
+base_manpower = 5
+is_city = yes
+hre = no
+fort_15th = yes #Thula Fortress
+discovered_by = muslim
+discovered_by = indopersian
+discovered_by = byzantine
+discovered_by = ZAN
+discovered_by = ILK
+discovered_by = AJU
+discovered_by = ADA
+
+set_local_autonomy = 40
+
+1515.1.1 = { discovered_by = POR }
+1517.1.1 = { owner = TUR controller = TUR add_core = TUR } # Part of the Ottoman empire
+1567.1.1 = { unrest = 4 } # Revolt against the Ottomans
+1570.1.1 = { unrest = 0 }
+1597.9.1 = { unrest = 5 } # Qasimi state, revolt against the Ottomans
+1602.1.1 = { unrest = 0 }
+1636.1.1 = { owner = ADE controller = ADE remove_core = TUR }

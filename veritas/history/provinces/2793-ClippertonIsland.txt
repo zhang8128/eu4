@@ -1,0 +1,3 @@
+# Clipperton Island
+#Province IDs changed
+1528.1.1 = { discovered_by = SPA }

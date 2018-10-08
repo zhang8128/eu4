@@ -1,0 +1,5302 @@
+#by Marco Dandolo
+
+#Events concerning venetian politics
+
+#Events 0-1: Setup events
+
+#0 Welcome message
+#1 A new Doge
+
+#Events 2-9: Competence struggle, influenced by Doge's personality and council's power
+
+#2 Diplomatic matters
+#3 Administrative matters
+#4 Military matters
+#5 Corruption matters
+#6 Trade matters
+#7 Juridicial matters
+#8 Financial matters
+#9 Naval matters
+
+#Events 10-19: Other institutions, completly random
+
+#10 Quarantia
+#11 Avogardori
+#12 Procuratori
+#13 Consiglieri
+#14 Inquisitori
+#15 Grandchancellor
+#16 Dogaressa
+#17 Collegio
+#18 Signoria
+#19 Provveditori
+
+#Events 20-29: Problems in the government, triggered by low republican tradition, influenced by institutions
+
+#20 Denunciation of a member of the Ten
+#21 Homosexual in Senate
+#22 Deadlock in Maggior consiglio
+#23 The Son of the Doge
+#24 An influential family in the X
+#25 An influential family in the Senate
+#26 An influential family in the Maggior Consiglio
+#27 Gift to the Doge?
+#28 Fraud in the X?
+
+#Event 29: Perfect Harmony
+
+#29 Everything balanced
+
+#Events 30-33: Doge personality and status
+
+#30 Strong Doge
+#31 Weak Doge, strong status
+#32 Normal Doge
+#33 Weak Doge
+
+#Events 34-40: Ambitious Doge
+
+#34 Dominating status, but still another strong institution or a considerable X
+#35 Strong status, in conflict with other strong institutions
+#36 Matters aftermath
+#37 First warning
+#38 Last warning
+#39 Process
+#40 Dominating status, without confrontation
+#41 A new order
+
+#Events 42-44: Conspiracys against dominant councils
+
+#42 Conspiracy starting
+#43 Conspiracy success
+#44 Conspiracy fails
+
+#Events 45-46: Procuratori and ambasciatori reforms
+
+#45 Procuratori reform
+#46 Ambasciatori reform
+
+#Events 47-49: Historical
+
+#47 Foscaris loss of power
+#48 Case nuove, case antiche
+#49 New families
+#50 Barnabotti
+
+#ADDITIONAL EVENTS
+
+#Events 61-69: Terraferma
+
+#61 New Terraferma province
+#62 Foreigner conquers Terraferma
+#63 Lost Terraferma province
+#64 Reserved
+#65 Reserved
+#66 Reserved
+#67 Reserved
+#68 Reserved
+#69 Reserved
+
+#Events 70-84 : Historical events
+
+#Military traditions
+
+#70 Crossbow training declining 1448
+#71 Crossbow training revival 1490
+#72 Crossbow training with handgun 1506
+
+#Terraferma events
+
+#73 Brescia: Loggia
+#74 Padua: Prato della Valle
+#75 Verona: Scipio Maffei
+
+#The City of Venice
+
+#76 Aldo Manuzio 1494
+#77 Ospedaletto 1522
+#78 Black Gondola 1562
+#79 Il Ridotto 1638
+#80 Columns from Morea
+#81 Murazzi 1716
+#82 Carlo Goldoni 1743
+
+#Casanova
+
+#83 Casanova imprisoned 1755
+#84 Casanova escapes!
+#85 Casanova's Grand tour
+#86 Casanova, our guest
+#87 Casanova, an advisor?
+#88 Casanova leaves I
+#89 Casanova leaves II 
+
+namespace = venetian_republic
+normal_or_historical_nations = yes
+
+################
+# Setup events #
+################
+
+#Welcome message
+country_event = {
+	id = venetian_republic.0
+	title = "venetian_republic.EVTNAME0"
+	desc = "venetian_republic.EVTDESC0"
+	picture = LEONE_VENEZIA_eventPicture
+
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		days = 3
+	}
+	
+	trigger = {
+		has_reform = venice_republic
+		ai = no
+		has_country_flag = italian_power
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA0"	#Power resides...
+		
+		trigger = {
+			NOT = { is_year = 1423 }
+		}
+
+		custom_tooltip = venetian_republic_setup
+		custom_tooltip = venetian_republic_start_1382
+		set_country_flag = Serenissima
+		
+		set_variable = {
+			which = "consiglio_x_power"
+			value = 35
+		}
+		set_variable = {
+			which = "consiglio_p_power"
+			value = 25
+		}
+		set_variable = {
+			which = "consiglio_m_power"
+			value = 20
+		}
+		set_variable = {
+			which = "doge_power"
+			value = 10
+		}
+		set_variable = {
+			which = "doge_crimes"
+			value = 0
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA0"	#Power resides...
+		trigger = {
+			is_year = 1423
+			NOT = { is_year = 1458 }
+		}
+		custom_tooltip = venetian_republic_setup
+		custom_tooltip = venetian_republic_start_1423
+		custom_tooltip = venetian_republic_ambitious_doge
+		set_country_flag = Serenissima
+		set_country_flag = ambitious_doge
+		set_variable = { which = "consiglio_x_power" value = 35 }
+		set_variable = { which = "consiglio_p_power" value = 25 }
+		set_variable = { which = "consiglio_m_power" value = 20 }
+		set_variable = { which = "doge_power" value = 15 }
+		set_variable = { which = "doge_crimes" value = 0 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA0"	#Power resides...
+		trigger = {
+			is_year = 1458
+			NOT = { is_year = 1486 }
+		}
+		custom_tooltip = venetian_republic_setup
+		custom_tooltip = venetian_republic_start_1458
+		set_country_flag = Serenissima
+		set_variable = { which = "consiglio_x_power" value = 38 }
+		set_variable = { which = "consiglio_p_power" value = 28 }
+		set_variable = { which = "consiglio_m_power" value = 23 }
+		set_variable = { which = "doge_power" value = 9 }
+		set_variable = { which = "doge_crimes" value = 0 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA0"	#Power resides...
+		trigger = {
+			is_year = 1486
+			NOT = { is_year = 1501 }
+		}
+		custom_tooltip = venetian_republic_setup
+		custom_tooltip = venetian_republic_start_1486
+		custom_tooltip = venetian_republic_ambitious_doge
+		set_country_flag = Serenissima
+		set_country_flag = ambitious_doge
+		set_variable = { which = "consiglio_x_power" value = 35 }
+		set_variable = { which = "consiglio_p_power" value = 28 }
+		set_variable = { which = "consiglio_m_power" value = 23 }
+		set_variable = { which = "doge_power" value = 17 }
+		set_variable = { which = "doge_crimes" value = 0 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA0"	#Power resides...
+		trigger = {
+			is_year = 1501
+			NOT = { is_year = 1591 }
+		}
+		custom_tooltip = venetian_republic_setup
+		custom_tooltip = venetian_republic_start_1501
+		set_country_flag = Serenissima
+		set_variable = { which = "consiglio_x_power" value = 43 }
+		set_variable = { which = "consiglio_p_power" value = 30 }
+		set_variable = { which = "consiglio_m_power" value = 25 }
+		set_variable = { which = "doge_power" value = 10 }
+		set_variable = { which = "doge_crimes" value = 0 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA0"	#Power resides...
+		trigger = {
+			is_year = 1591
+			NOT = { is_year = 1617 }
+		}
+		custom_tooltip = venetian_republic_setup
+		custom_tooltip = venetian_republic_start_1591
+		set_country_flag = Serenissima
+		set_variable = { which = "consiglio_x_power" value = 37 }
+		set_variable = { which = "consiglio_p_power" value = 33 }
+		set_variable = { which = "consiglio_m_power" value = 25 }
+		set_variable = { which = "doge_power" value = 10 }
+		set_variable = { which = "doge_crimes" value = 0 }
+	}
+	
+    option = {
+		name = "venetian_republic.EVTOPTA0"	#Power resides...
+		trigger = {
+			is_year = 1617
+			NOT = { is_year = 1644 }
+		}
+		custom_tooltip = venetian_republic_setup
+		custom_tooltip = venetian_republic_start_1617
+		set_country_flag = Serenissima
+		set_variable = { which = "consiglio_x_power" value = 30 }
+		set_variable = { which = "consiglio_p_power" value = 33 }
+		set_variable = { which = "consiglio_m_power" value = 25 }
+		set_variable = { which = "doge_power" value = 10 }
+		set_variable = { which = "doge_crimes" value = 0 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA0"	#Power resides...
+		trigger = {
+			is_year = 1644
+			NOT = { is_year = 1688 }
+		}
+		custom_tooltip = venetian_republic_setup
+		custom_tooltip = venetian_republic_start_1644
+		set_country_flag = Serenissima
+		set_variable = { which = "consiglio_x_power" value = 27 }
+		set_variable = { which = "consiglio_p_power" value = 34 }
+		set_variable = { which = "consiglio_m_power" value = 25 }
+		set_variable = { which = "doge_power" value = 10 }
+		set_variable = { which = "doge_crimes" value = 0 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA0"	#Power resides...
+		trigger = {
+			is_year = 1688
+			NOT = { is_year = 1694 }
+		}
+		custom_tooltip = venetian_republic_setup
+		custom_tooltip = venetian_republic_start_1688
+		custom_tooltip = venetian_republic_ambitious_doge
+		set_country_flag = Serenissima
+		set_country_flag = ambitious_doge
+		set_variable = { which = "consiglio_x_power" value = 23 }
+		set_variable = { which = "consiglio_p_power" value = 33 }
+		set_variable = { which = "consiglio_m_power" value = 23 }
+		set_variable = { which = "doge_power" value = 15 }
+		set_variable = { which = "doge_crimes" value = 0 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA0"	#Power resides...
+		trigger = { is_year = 1694 }
+		custom_tooltip = venetian_republic_setup
+		custom_tooltip = venetian_republic_start_1694
+		set_country_flag = Serenissima
+		set_variable = { which = "consiglio_x_power" value = 25 }
+		set_variable = { which = "consiglio_p_power" value = 30 }
+		set_variable = { which = "consiglio_m_power" value = 25 }
+		set_variable = { which = "doge_power" value = 10 }
+		set_variable = { which = "doge_crimes" value = 0 }
+	}
+}
+
+#A new doge
+country_event = {
+	id = venetian_republic.1
+	title = "venetian_republic.EVTNAME1"
+	desc = "venetian_republic.EVTDESC1"
+	picture = PIAZZA_SAN_MARCO_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+	}
+	
+	immediate = {
+		clr_country_flag = ambitious_doge
+	    clr_country_flag = doge_diplomatic_matters
+		clr_country_flag = doge_administrative_matters
+	    clr_country_flag = doge_military_matters
+		clr_country_flag = doge_corruption_matters
+		clr_country_flag = doge_trade_matters
+		clr_country_flag = doge_juridicial_matters
+		clr_country_flag = doge_financial_matters
+		clr_country_flag = doge_naval_matters
+		clr_country_flag = doge_warning_1
+		clr_country_flag = doge_warning_2
+		clr_country_flag = no_coup_d_etat
+		clr_country_flag = doge_is_procuratore
+		clr_country_flag = doge_is_ambasciatore
+		set_country_flag = new_doge
+		
+		set_variable = {
+			which = "doge_crimes"
+			value = 0
+		}
+		
+		# To make up for the stability loss due to new Monarch
+		#hidden_effect = { add_stability = 1 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA1"	#We will be generous
+		ai_chance = { 
+			factor = 40
+			modifier = {
+				factor = 2
+				NOT = { republican_tradition = 80 }
+			}			
+			modifier = {
+				factor = 3
+				NOT = { republican_tradition = 70 }
+			}
+			modifier = {
+				factor = 4
+				NOT = { republican_tradition = 60 }
+			}	
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 50 }
+			}		
+		}
+		add_years_of_income = -0.25
+		add_republican_tradition = 10
+		add_prestige = 5		
+	}
+
+	option = {
+		name = "venetian_republic.EVTOPTB1"     #Only standard
+		ai_chance = { 
+		    factor = 50 
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.3 }
+			}
+		}
+		add_years_of_income = -0.15
+		add_republican_tradition = 5
+		add_prestige = 1
+	}
+
+	option = {
+		name = "venetian_republic.EVTOPTC1"     #And you call yourself a merchant?
+		ai_chance = { factor = 10 }
+		add_republican_tradition = -5
+		add_prestige = -5
+	}
+}
+
+#############################################################################
+# Competence struggle, influenced by Doge's personality and council's power #
+#############################################################################
+
+#Diplomatic matters
+country_event = {
+	id = venetian_republic.2
+	title = "venetian_republic.EVTNAME2"
+	desc = "venetian_republic.EVTDESC2"
+	picture = CONSIGLIO_PREGADI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		NOT = { has_country_flag = doge_diplomatic_matters }
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 0.9
+			dip = 2
+		}
+		modifier = {
+			factor = 0.9
+			dip = 4
+		}
+		modifier = {
+			factor = 0.9
+			dip = 6
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = dominant_consiglio_dieci
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = strong_consiglio_dieci
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_consiglio_pregadi
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA2"	#The Senate
+		
+		add_republican_tradition = 3
+		add_dip_power = -10
+		add_prestige = 1
+		custom_tooltip = consiglio_p_add
+		change_variable = { which = "consiglio_p_power" value = 3 }
+	    custom_tooltip = consiglio_x_sub
+		change_variable = { which = "consiglio_x_power" value = -3 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB2"	#The Council of X
+
+		add_republican_tradition = -3
+		add_dip_power = 10
+		add_prestige = -1
+		
+		custom_tooltip = consiglio_p_sub
+		change_variable = { which = "consiglio_p_power" value = -3 }
+		custom_tooltip = consiglio_x_add
+		change_variable = { which = "consiglio_x_power" value = 3 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC2"	#The doge
+		trigger = { dip = 2 }
+		set_country_flag = doge_diplomatic_matters
+		add_republican_tradition = -10
+		add_dip_power = 25
+		custom_tooltip = doge_add		
+		change_variable = { which = "doge_power" value = 3 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTD2"	#The institutions will find a compromise
+		add_republican_tradition = 1
+		add_prestige = -3
+	}
+}
+
+#Administrative matters
+country_event = {
+	id = venetian_republic.3
+	title = "venetian_republic.EVTNAME3"
+	desc = "venetian_republic.EVTDESC3"
+	picture = CONSIGLIO_MAGGIORE_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		NOT = { has_country_flag = doge_administrative_matters }
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 0.9
+			adm = 2
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = dominant_consiglio_pregadi
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = dominant_consiglio_dieci
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = strong_consiglio_pregadi
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = strong_consiglio_dieci
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_maggior_consiglio
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA3"	#The Maggior consiglio
+		
+		add_republican_tradition = 5
+		add_adm_power = -10
+		add_prestige = 1
+		
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_p_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -3
+		}
+		custom_tooltip = consiglio_x_sub
+		change_variable = {
+			which = "consiglio_x_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB3"	#This should be dicussed elsewhere
+
+		add_republican_tradition = -5
+		add_adm_power = 10
+		add_prestige = -1
+		
+		custom_tooltip = consiglio_m_sub
+		change_variable = {
+			which = "consiglio_m_power"
+			value = -3
+		}
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC3"	#The doge is a capable man
+		trigger = { adm = 2 }
+		set_country_flag = doge_administrative_matters
+		add_republican_tradition = -10
+		add_adm_power = 25
+		custom_tooltip = doge_add
+		change_variable = { which = "doge_power" value = 3 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTD2"	#The institutions will find a compromise
+		add_republican_tradition = 1
+		add_prestige = -3
+	}
+}
+
+#Military matters
+country_event = {
+	id = venetian_republic.4
+	title = "venetian_republic.EVTNAME4"
+	desc = "venetian_republic.EVTDESC4"
+	picture = SERENISSIMA_DOGE_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		NOT = { has_country_flag = doge_military_matters }
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 0.9
+			mil = 2
+		}
+		modifier = {
+			factor = 0.9
+			mil = 4
+		}
+		modifier = {
+			factor = 0.9
+			mil = 6
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = dominant_consiglio_pregadi
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = dominant_maggior_consiglio
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = strong_consiglio_pregadi
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = strong_maggior_consiglio
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_doge
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA4"	#The Maggior consiglio decides war and peace
+		
+		add_prestige = -1
+		add_mil_power = 10
+		add_republican_tradition = -3
+		
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_p_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -3
+		}
+		custom_tooltip = doge_sub
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB4"	#The Senate is responsible for the military
+
+		add_prestige = 1
+		add_mil_power = -10
+		add_republican_tradition = 3
+		
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_m_sub
+		change_variable = {
+			which = "consiglio_m_power"
+			value = -3
+		}
+		custom_tooltip = doge_sub
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC4"	#The doge is our military leader
+		trigger = { mil = 2 }
+		set_country_flag = doge_military_matters
+		add_republican_tradition = -10
+		add_mil_power = 25
+		custom_tooltip = consiglio_m_sub
+		change_variable = { which = "consiglio_m_power" value = -3 }
+		custom_tooltip = consiglio_p_sub
+		change_variable = { which = "consiglio_p_power" value = -3 }
+		custom_tooltip = doge_add
+		change_variable = { which = "doge_power" value = 3 }
+	}
+	option = {
+		name = "venetian_republic.EVTOPTD2"	#The institutions will find a compromise
+		add_republican_tradition = 1
+		add_prestige = -3
+	}
+}
+
+#Corruption matters
+country_event = {
+	id = venetian_republic.5
+	title = "venetian_republic.EVTNAME5"
+	desc = "venetian_republic.EVTDESC5"
+	picture = CONSIGLIO_DIECI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		NOT = { has_country_flag = doge_corruption_matters }
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 0.9
+			adm = 2
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = considerable_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = strong_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = dominant_maggior_consiglio
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = strong_maggior_consiglio
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_consiglio_dieci
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA5"	#Bribing? Really? Never heard of it
+		
+		add_republican_tradition = -5
+		add_years_of_income = 0.5
+		add_country_modifier = { name = "government_corruption" duration = 365 }
+		custom_tooltip = consiglio_m_add
+		change_variable = { which = "consiglio_m_power" value = 3 }
+		custom_tooltip = consiglio_x_sub
+		change_variable = { which = "consiglio_x_power" value = -3 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB5"	#The Council of X will resolve that
+		add_republican_tradition = 5
+		add_years_of_income = -0.5
+		custom_tooltip = consiglio_x_add
+		change_variable = { which = "consiglio_x_power" value = 3 }
+		custom_tooltip = consiglio_m_sub
+		change_variable = { which = "consiglio_m_power" value = -3 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC5"	#The doge should be allowed to take a gift... or two.
+		trigger = { adm = 2 }
+		set_country_flag = doge_corruption_matters
+		add_republican_tradition = -10
+		add_years_of_income = 0.25
+		add_prestige = 3
+		add_country_modifier = { name = "government_corruption" duration = 180 }
+		custom_tooltip = consiglio_x_sub
+		change_variable = { which = "consiglio_x_power" value = -3 }
+		custom_tooltip = doge_add
+		change_variable = { which = "doge_power" value = 3 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTD2"	#The institutions will find a compromise
+		add_republican_tradition = 1
+		add_prestige = -3
+		add_years_of_income = -0.25
+	}
+}
+
+#Trade matters
+country_event = {
+	id = venetian_republic.6
+	title = "venetian_republic.EVTNAME6"
+	desc = "venetian_republic.EVTDESC6"
+	picture = CONSIGLIO_MAGGIORE_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		NOT = { has_country_flag = doge_trade_matters }
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 0.9
+			dip = 2
+		}
+		modifier = {
+			factor = 0.9
+			dip = 4
+		}
+		modifier = {
+			factor = 0.9
+			dip = 6
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = dominant_maggior_consiglio
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = strong_maggior_consiglio
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = dominant_consiglio_pregadi
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = strong_consiglio_pregadi
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA6"	#Venetians are travellers
+		add_republican_tradition = 3
+		add_country_modifier = { name = "global_trade_focus" duration = 180 }
+		custom_tooltip = consiglio_m_add
+		change_variable = { which = "consiglio_m_power" value = 3 }
+		custom_tooltip = consiglio_p_sub
+		change_variable = { which = "consiglio_p_power" value = -3 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB6"	#We should protect our own trade
+		add_republican_tradition = -3
+		add_country_modifier = { name = "local_trade_focus" duration = 365 }
+		custom_tooltip = consiglio_p_add
+		change_variable = { which = "consiglio_p_power" value = 3 }
+		custom_tooltip = consiglio_m_sub
+		change_variable = { which = "consiglio_m_power" value = -3 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC6"	#We should concentrate on both - says the doge.
+		trigger = { dip = 2 }
+		set_country_flag = doge_trade_matters
+		add_republican_tradition = -10
+		add_country_modifier = { name = "cooperation_with_merchant_class" duration = 365 }
+		custom_tooltip = consiglio_p_sub
+		change_variable = { which = "consiglio_p_power" value = -3 }
+		custom_tooltip = consiglio_m_sub
+		change_variable = { which = "consiglio_m_power" value = -3 }
+		custom_tooltip = doge_add
+		change_variable = { which = "doge_power" value = 3 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTD2"	#The institutions will find a compromise
+		add_republican_tradition = 1
+		add_country_modifier = { name = "unhappy_merchants" duration = 180 }
+	}
+}
+
+#Juridicial matters
+country_event = {
+	id = venetian_republic.7
+	title = "venetian_republic.EVTNAME7"
+	desc = "venetian_republic.EVTDESC7"
+	picture = CONSIGLIO_DIECI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		NOT = { has_country_flag = doge_juridicial_matters }
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 0.9
+			dip = 2
+		}
+		modifier = {
+			factor = 0.9
+			dip = 4
+		}
+		modifier = {
+			factor = 0.9
+			dip = 6
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = dominant_consiglio_pregadi
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = strong_consiglio_pregadi
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = dominant_consiglio_dieci
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = strong_consiglio_dieci
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA7"	#The X is the seat of justice
+		
+		add_republican_tradition = 3
+		add_dip_power = -10
+		add_prestige = 1
+		
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_p_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB7"	#The Senate is the seat of justice
+
+		add_republican_tradition = -3
+		add_dip_power = 10
+		add_prestige = -1
+		
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_x_sub
+		change_variable = {
+			which = "consiglio_x_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC7"	#Wouldn't the doge be a good judge? You know, like in the old times.
+
+		trigger = {
+			dip = 3
+		}
+		
+		set_country_flag = doge_juridicial_matters
+		add_republican_tradition = -10
+		add_dip_power = 25
+
+		custom_tooltip = consiglio_x_sub
+		change_variable = {
+			which = "consiglio_x_power"
+			value = -3
+		}
+		custom_tooltip = consiglio_p_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -3
+		}
+		custom_tooltip = doge_add
+		change_variable = {
+			which = "doge_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTD2"	#The institutions will find a compromise
+
+		add_republican_tradition = 1
+		add_prestige = -3
+	}
+}
+
+#Financial matters
+country_event = {
+	id = venetian_republic.8
+	title = "venetian_republic.EVTNAME8"
+	desc = "venetian_republic.EVTDESC8"
+	picture = CONSIGLIO_PREGADI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		NOT = { has_country_flag = doge_financial_matters }
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 0.9
+			adm = 2
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 6
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = dominant_consiglio_pregadi
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = strong_consiglio_pregadi
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = dominant_consiglio_dieci
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = strong_consiglio_dieci
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA8"	#The Seante should have the control
+		
+		add_republican_tradition = 3
+		add_adm_power = -10
+		add_prestige = 1
+		
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_x_sub
+		change_variable = {
+			which = "consiglio_x_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB8"	#The X should have control
+
+		add_republican_tradition = -3
+		add_adm_power = 10
+		add_prestige = -1
+		
+		custom_tooltip = consiglio_p_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -3
+		}
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC8"	#You should trust these delicate matters to the doge.
+
+		trigger = {
+			adm = 3
+		}
+		
+		set_country_flag = doge_financial_matters
+		add_republican_tradition = -10
+		add_adm_power = 25
+
+		custom_tooltip = consiglio_p_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -3
+		}
+		custom_tooltip = consiglio_x_sub
+		change_variable = {
+			which = "consiglio_x_power"
+			value = -3
+		}
+		custom_tooltip = doge_add
+		change_variable = {
+			which = "doge_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTD2"	#The institutions will find a compromise
+
+		add_republican_tradition = 1
+		add_prestige = -3
+	}
+}
+
+#Naval matters
+country_event = {
+	id = venetian_republic.9
+	title = "venetian_republic.EVTNAME9"
+	desc = "venetian_republic.EVTDESC9"
+	picture = SERENISSIMA_DOGE_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		NOT = { has_country_flag = doge_naval_matters }
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 0.9
+			mil = 2
+		}
+		modifier = {
+			factor = 0.9
+			mil = 4
+		}
+		modifier = {
+			factor = 0.9
+			mil = 6
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = dominant_consiglio_pregadi
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = strong_consiglio_pregadi
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_doge
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA9"	#The Senate should assign a captain
+		
+		add_republican_tradition = 3
+		add_prestige = 1
+		
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+		custom_tooltip = doge_sub
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB9"	#The Doge is the captain-general of the sea!
+		
+		set_country_flag = doge_naval_matters
+		add_mil_power = 10
+
+		custom_tooltip = consiglio_p_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -3
+		}
+		custom_tooltip = doge_add
+		change_variable = {
+			which = "doge_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTD2"	#The institutions will find a compromise
+
+		add_republican_tradition = 1
+		add_prestige = -3
+	}
+}
+
+########################################
+# Other institutions, completly random #
+########################################
+
+#Quarantia
+country_event = {
+	id = venetian_republic.10
+	title = "venetian_republic.EVTNAME10"
+	desc = "venetian_republic.EVTDESC10"
+	picture = CONSIGLIO_DIECI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+	}
+	
+	mean_time_to_happen = {
+		months = 800
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA10"	#Strengthen the Quarantia
+		
+		add_republican_tradition = 1
+		add_prestige = 1
+		add_dip_power = -10
+		
+		custom_tooltip = consiglio_x_sub
+		change_variable = {
+			which = "consiglio_x_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB10"	#Keep the balance
+		
+		add_republican_tradition = 3
+		add_dip_power = -5
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC10"	#Strengthen the X
+		
+		add_republican_tradition = -1
+		add_prestige = -1
+		add_dip_power = 10
+		
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+	}
+}
+
+#Avogardori
+country_event = {
+	id = venetian_republic.11
+	title = "venetian_republic.EVTNAME11"
+	desc = "venetian_republic.EVTDESC11"
+	picture = CONSIGLIO_PREGADI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+	}
+	
+	mean_time_to_happen = {
+		months = 800
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA11"	#Strengthen the Avogardori
+		
+		add_republican_tradition = 1
+		add_prestige = 1
+		add_adm_power = -10
+		
+		custom_tooltip = consiglio_p_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB10"	#Keep the balance
+		
+		add_republican_tradition = 3
+		add_adm_power = -5
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC11"	#Strengthen the Senate
+		
+		add_republican_tradition = -1
+		add_prestige = -1
+		add_adm_power = 10
+		
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+	}
+}
+
+#Procuratori
+country_event = {
+	id = venetian_republic.12
+	title = "venetian_republic.EVTNAME12"
+	desc = "venetian_republic.EVTDESC12"
+	picture = CONSIGLIO_MAGGIORE_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+	}
+	
+	mean_time_to_happen = {
+		months = 800
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA12"	#Strengthen the Procuratori
+		
+		add_republican_tradition = 1
+		add_prestige = 1
+		add_adm_power = -10
+		
+		custom_tooltip = consiglio_m_sub
+		change_variable = {
+			which = "consiglio_m_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB10"	#Keep the balance
+		
+		add_republican_tradition = 3
+		add_adm_power = -5
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC12"	#Strengthen the Maggior Consiglio
+		
+		add_republican_tradition = -1
+		add_prestige = -1
+		add_adm_power = 10
+		
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+	}
+}
+
+#Consiglieri
+country_event = {
+	id = venetian_republic.13
+	title = "venetian_republic.EVTNAME13"
+	desc = "venetian_republic.EVTDESC13"
+	picture = SERENISSIMA_DOGE_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+	}
+	
+	mean_time_to_happen = {
+		months = 800
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA13"	#Strengthen the Consiglieri
+		
+		add_republican_tradition = 1
+		add_prestige = 1
+		add_mil_power = -10
+		
+		custom_tooltip = doge_sub
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB10"	#Keep the balance
+		
+		add_republican_tradition = 3
+		add_adm_power = -5
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC13"	#Strengthen the Doge
+		
+		add_republican_tradition = -1
+		add_prestige = -1
+		add_mil_power = 10
+		
+		custom_tooltip = doge_add
+		change_variable = {
+			which = "doge_power"
+			value = 3
+		}
+	}
+}
+
+#Inquisitori
+country_event = {
+	id = venetian_republic.14
+	title = "venetian_republic.EVTNAME14"
+	desc = "venetian_republic.EVTDESC14"
+	picture = CONSIGLIO_DIECI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+	}
+	
+	mean_time_to_happen = {
+		months = 800
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA14"	#The X are strong enough!
+		
+		add_republican_tradition = 1
+		add_prestige = 1
+		add_dip_power = -10
+		
+		custom_tooltip = consiglio_x_sub
+		change_variable = {
+			which = "consiglio_x_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB10"	#Keep the balance
+		
+		add_republican_tradition = 3
+		add_dip_power = -5
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC14"	#The X should have more power
+		
+		add_republican_tradition = -1
+		add_prestige = -1
+		add_dip_power = 10
+		
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+	}
+}
+
+#Grandchancellor
+country_event = {
+	id = venetian_republic.15
+	title = "venetian_republic.EVTNAME15"
+	desc = "venetian_republic.EVTDESC15"
+	picture = CONSIGLIO_MAGGIORE_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+	}
+	
+	mean_time_to_happen = {
+		months = 800
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA15"	#Strengthen the Grandchancellor
+		
+		add_republican_tradition = 1
+		add_prestige = 1
+		add_adm_power = -10
+		
+		custom_tooltip = consiglio_m_sub
+		change_variable = {
+			which = "consiglio_m_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB10"	#Keep the balance
+		
+		add_republican_tradition = 3
+		add_adm_power = -5
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC15"	#Strenghthen the Maggior Consiglio
+		
+		add_republican_tradition = -1
+		add_prestige = -1
+		add_adm_power = 10
+		
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+	}
+}
+
+#Dogaressa
+country_event = {
+	id = venetian_republic.16
+	title = "venetian_republic.EVTNAME16"
+	desc = "venetian_republic.EVTDESC16"
+	picture = SERENISSIMA_DOGE_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+	}
+	
+	mean_time_to_happen = {
+		months = 800
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA16"	#That's against the republic!
+		
+		add_republican_tradition = 3
+		add_prestige = 1
+		add_mil_power = -20
+		
+		custom_tooltip = doge_sub
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB10"	#Find a compromise
+		
+		add_republican_tradition = 1
+		add_prestige = -1
+		add_mil_power = -10
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC16"	#The Doge has every right to do so
+		
+		add_republican_tradition = -3
+		add_mil_power = 10
+		
+		custom_tooltip = doge_add
+		change_variable = {
+			which = "doge_power"
+			value = 3
+		}
+	}
+}
+
+#Collegio
+country_event = {
+	id = venetian_republic.17
+	title = "venetian_republic.EVTNAME17"
+	desc = "venetian_republic.EVTDESC17"
+	picture = CONSIGLIO_PREGADI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+	}
+	
+	mean_time_to_happen = {
+		months = 800
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA17"	#The Senate shouldn't intervene
+		
+		add_republican_tradition = 3
+		add_dip_power = -10
+		
+		custom_tooltip = consiglio_p_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB10"	#Find a compromise
+		
+		add_republican_tradition = 1
+		add_prestige = -1
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC17"	#The Senate may intervene
+		
+		add_republican_tradition = -3
+		add_dip_power = 10
+		
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+	}
+}
+
+#Signoria
+country_event = {
+	id = venetian_republic.18
+	title = "venetian_republic.EVTNAME18"
+	desc = "venetian_republic.EVTDESC18"
+	picture = LEONE_VENEZIA_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+	}
+	
+	mean_time_to_happen = {
+		months = 800
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA18"	#We should strenghten the Maggior Consiglio
+		
+		add_republican_tradition = -1
+		add_adm_power = -10
+		add_dip_power = 20
+		add_mil_power = -10
+		
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB10"	#Things are good as they are
+		
+		add_republican_tradition = 3
+		add_prestige = 1
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC18"	#More power to the Signoria
+		
+		add_republican_tradition = -1
+		add_adm_power = 10
+		add_dip_power = -20
+		add_mil_power = 10
+		
+		custom_tooltip = doge_add
+		change_variable = {
+			which = "doge_power"
+			value = 3
+		}
+	}
+}
+
+#Provveditori
+country_event = {
+	id = venetian_republic.19
+	title = "venetian_republic.EVTNAME19"
+	desc = "venetian_republic.EVTDESC19"
+	picture = LEONE_VENEZIA_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+	}
+
+	mean_time_to_happen = {
+		months = 800
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA19"	#We should strenghten the Provveditori
+		
+		add_republican_tradition = 3
+		add_adm_power = 20
+		add_dip_power = -10
+		add_mil_power = -10
+		
+		custom_tooltip = consiglio_x_sub
+		change_variable = {
+			which = "consiglio_x_power"
+			value = -3
+		}
+		
+		custom_tooltip = consiglio_p_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB10"	#Things are good as they are
+		
+		add_republican_tradition = 1
+		add_prestige = 1
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC19"	#We should strenghten the councils
+		
+		add_republican_tradition = -3
+		add_adm_power = -20
+		add_dip_power = 10
+		add_mil_power = 10
+		
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+		
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+	}
+}
+
+#################################################################################################
+# Problems in the government, triggered by low republican tradition, influenced by institutions #
+#################################################################################################
+
+#Denunciation in the X
+country_event = {
+	id = venetian_republic.20
+	title = "venetian_republic.EVTNAME20"
+	desc = "venetian_republic.EVTDESC20"
+	picture = CONSIGLIO_DIECI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		NOT = { republican_tradition = 85}
+		OR = { 
+		    has_country_modifier = dominant_consiglio_dieci
+			has_country_modifier = strong_consiglio_dieci
+		}
+		NOT = { has_country_modifier = corrupt_bureaucracy }
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			factor = 0.9
+			NOT = { republican_tradition = 80 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { republican_tradition = 70 }
+		}
+		modifier = {
+			factor = 0.7
+			NOT = { republican_tradition = 60}
+		}
+		modifier = {
+			factor = 0.6
+			NOT = { republican_tradition = 50 }
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_consiglio_pregadi
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_maggior_consiglio
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA20"	#This is against the republic!
+		
+		add_stability = -1
+		add_adm_power = -50
+		add_prestige = 5
+		add_republican_tradition = 5
+		
+	    custom_tooltip = consiglio_x_medium_sub
+		change_variable = {
+			which = "consiglio_x_power"
+			value = -6
+		}
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB20"	#We will handle this problem when their term is up...
+
+		add_adm_power = -25
+		add_prestige = -5
+		add_country_modifier = {
+			name = "corrupt_bureaucracy"
+			duration = 365
+		}
+		
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC20"	#That's it, the Doge will intervene!
+
+		trigger = {
+			adm = 4
+		}
+		
+		set_country_flag = doge_administrative_matters
+		add_republican_tradition = -5
+		add_adm_power = 50
+		
+		custom_tooltip = doge_add		
+		change_variable = {
+			which = "doge_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_x_medium_sub
+		change_variable = {
+			which = "consiglio_x_power"
+			value = -6
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTD20"	#There is nothing we can do!
+
+		add_prestige = -5
+		add_republican_tradition = -3		
+		add_country_modifier = {
+			name = "corrupt_bureaucracy"
+			duration = 730
+		}
+	}
+}
+
+#Homosexual in the Senate
+country_event = {
+	id = venetian_republic.21
+	title = "venetian_republic.EVTNAME21"
+	desc = "venetian_republic.EVTDESC21"
+	picture = CONSIGLIO_PREGADI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		NOT = { republican_tradition = 85 }
+		has_country_flag = Serenissima
+		OR = { 
+		    has_country_modifier = dominant_consiglio_pregadi
+			has_country_modifier = strong_consiglio_pregadi
+		}
+		NOT = { has_country_modifier = diplo_fuax_pas }
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			factor = 0.9
+			NOT = { republican_tradition = 80 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { republican_tradition = 70 }
+		}
+		modifier = {
+			factor = 0.7
+			NOT = { republican_tradition = 60 }
+		}
+		modifier = {
+			factor = 0.6
+			NOT = { republican_tradition = 50 }
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_consiglio_dieci
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_maggior_consiglio
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA21"	#Oh, the scandal!
+		
+		add_stability = -1
+		add_dip_power = -50
+		add_prestige = 5
+		add_republican_tradition = 5
+		
+	    custom_tooltip = consiglio_p_medium_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -6
+		}
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB21"	#The Senate will find a solution. If not, others will...
+
+		add_dip_power = -25
+		add_prestige = -5
+		add_country_modifier = {
+			name = "diplo_fuax_pas"
+			duration = 365
+		}
+		
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC20"	#That's it, the Doge will intervene!
+
+		trigger = {
+			dip = 4
+		}
+		
+		set_country_flag = doge_diplomatic_matters
+		add_republican_tradition = -5
+		add_dip_power = 50
+		
+		custom_tooltip = doge_add		
+		change_variable = {
+			which = "doge_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_p_medium_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -6
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTD20"	#There is nothing we can do!
+
+		add_prestige = -5
+		add_republican_tradition = -3		
+		add_country_modifier = {
+			name = "diplo_fuax_pas"
+			duration = 730
+		}
+	}
+}
+
+#Deadlock in the Maggior Consiglio
+country_event = {
+	id = venetian_republic.22
+	title = "venetian_republic.EVTNAME22"
+	desc = "venetian_republic.EVTDESC22"
+	picture = CONSIGLIO_MAGGIORE_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		NOT = { republican_tradition = 85 }
+		OR = { 
+		    has_country_modifier = dominant_maggior_consiglio
+			has_country_modifier = strong_maggior_consiglio
+		}
+		NOT = { has_country_modifier = trade_income_loss }
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			factor = 0.9
+			NOT = { republican_tradition = 80 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { republican_tradition = 70 }
+		}
+		modifier = {
+			factor = 0.7
+			NOT = { republican_tradition = 60 }
+		}
+		modifier = {
+			factor = 0.6
+			NOT = { republican_tradition = 50 }
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_consiglio_dieci
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_consiglio_pregadi
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA22"	#If the council isn't capable, other council should debate the matter!
+		
+		add_stability = -1
+		add_dip_power = -50
+		add_prestige = 5
+		add_republican_tradition = 5
+		
+	    custom_tooltip = consiglio_m_medium_sub
+		change_variable = {
+			which = "consiglio_m_power"
+			value = -6
+		}
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB22"	#In the future, the Senate and the X should have a look...
+
+		add_dip_power = -25
+		add_prestige = -5
+		add_country_modifier = {
+			name = "trade_income_loss"
+			duration = 365
+		}
+		
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC20"	#That's it, the Doge will intervene!
+
+		trigger = {
+			dip = 4
+		}
+		
+		set_country_flag = doge_trade_matters
+		add_republican_tradition = -5
+		add_dip_power = 50
+		
+		custom_tooltip = doge_add		
+		change_variable = {
+			which = "doge_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_m_medium_sub
+		change_variable = {
+			which = "consiglio_m_power"
+			value = -6
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTD20"	#There is nothing we can do!
+
+		add_prestige = -5
+		add_republican_tradition = -3		
+		add_country_modifier = {
+			name = "trade_income_loss"
+			duration = 730
+		}
+	}
+}
+
+#The Son of the Doge
+country_event = {
+	id = venetian_republic.23
+	title = "venetian_republic.EVTNAME23"
+	desc = "venetian_republic.EVTDESC23"
+	picture = SERENISSIMA_DOGE_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		NOT = { republican_tradition = 85 }
+		OR = { 
+		    has_country_modifier = dominant_doge
+			has_country_modifier = strong_doge
+		}
+		NOT = { has_country_modifier = disorder }
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			factor = 0.9
+			NOT = { republican_tradition = 80 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { republican_tradition = 70 }
+		}
+		modifier = {
+			factor = 0.7
+			NOT = { republican_tradition = 60 }
+		}
+		modifier = {
+			factor = 0.6
+			NOT = { republican_tradition = 50 }
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_maggior_consiglio
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_consiglio_dieci
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_consiglio_pregadi
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA23"	#Right. That's against the republic.
+		
+		add_national_stability_or_adm_power = yes
+		add_mil_power = -50
+		add_prestige = 5
+		add_republican_tradition = 5
+		
+	    custom_tooltip = doge_medium_sub
+		change_variable = {
+			which = "doge_power"
+			value = -6
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB23"	#The other institutions will get more competences
+
+		add_mil_power = -25
+		add_dip_power = -25
+		add_adm_power = -25
+		add_prestige = -5
+		add_country_modifier = {
+			name = "disorder"
+			duration = 365
+		}
+
+	    custom_tooltip = doge_sub
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}		
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC23"	#Says who?
+
+		trigger = {
+			adm = 4
+			dip = 4
+			mil = 4
+		}
+		
+		set_country_flag = doge_military_matters
+		add_republican_tradition = -10
+		add_mil_power = 50
+		add_country_modifier = {
+			name = "disorder"
+			duration = 730
+		}
+	}
+}
+
+#An influential family in the X
+country_event = {
+	id = venetian_republic.24
+	title = "venetian_republic.EVTNAME24"
+	desc = "venetian_republic.EVTDESC24"
+	picture = CONSIGLIO_DIECI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		NOT = { republican_tradition = 80 }
+		NOT = { has_country_modifier = venetian_nepotism }
+		OR = { 
+		    has_country_modifier = dominant_consiglio_dieci
+			has_country_modifier = strong_consiglio_dieci
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 100
+		modifier = {
+			factor = 0.9
+			NOT = { republican_tradition = 70 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { republican_tradition = 60 }
+		}
+		modifier = {
+			factor = 0.7
+			NOT = { republican_tradition = 50 }
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_maggior_consiglio
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_consiglio_pregadi
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA24"	#Remove the brothers and start a process!
+		
+		add_years_of_income = -0.33
+		add_adm_power = -25
+		add_prestige = 5
+		add_republican_tradition = 10
+		
+	    custom_tooltip = consiglio_x_medium_sub
+		change_variable = { which = "consiglio_x_power" value = -6 }
+		custom_tooltip = consiglio_p_add
+		change_variable = { which = "consiglio_p_power" value = 3 }
+		custom_tooltip = consiglio_m_add
+		change_variable = { which = "consiglio_m_power" value = 3 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB24"	#We will deal with them later.
+
+		add_years_of_income = -0.25
+		add_adm_power = -10
+		add_republican_tradition = 5
+		add_country_modifier = {
+			name = "venetian_nepotism"
+			duration = 365
+		}
+		
+		custom_tooltip = consiglio_x_sub
+		change_variable = {
+			which = "consiglio_x_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTD20"	#There is nothing we can do!
+		
+		add_republican_tradition = -3
+		add_prestige = -5
+		add_stability = -1
+		add_country_modifier = {
+			name = "venetian_nepotism"
+			duration = 730
+		}
+	}
+}
+
+#An influential family in the Senate
+country_event = {
+	id = venetian_republic.25
+	title = "venetian_republic.EVTNAME25"
+	desc = "venetian_republic.EVTDESC25"
+	picture = CONSIGLIO_PREGADI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		NOT = { republican_tradition = 80 }
+		NOT = { has_country_modifier = venetian_nepotism }
+		OR = { 
+		    has_country_modifier = dominant_consiglio_pregadi
+			has_country_modifier = strong_consiglio_pregadi
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 100
+		modifier = {
+			factor = 0.9
+			NOT = { republican_tradition = 70 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { republican_tradition = 60 }
+		}
+		modifier = {
+			factor = 0.7
+			NOT = { republican_tradition = 50 }
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_consiglio_dieci
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_maggior_consiglio
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA25"	#Remove the uncle and his nephews and start a process!
+		
+		add_years_of_income = -0.33
+		add_dip_power = -25
+		add_prestige = 5
+		add_republican_tradition = 10
+		
+	    custom_tooltip = consiglio_p_medium_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -6
+		}
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB24"	#We will deal with them later.
+
+		add_years_of_income = -0.25
+		add_dip_power = -10
+		add_republican_tradition = 5
+		add_country_modifier = {
+			name = "venetian_nepotism"
+			duration = 365
+		}
+		
+		custom_tooltip = consiglio_p_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTD20"	#There is nothing we can do!
+
+		add_prestige = -5
+		add_stability = -1	
+		add_country_modifier = {
+			name = "venetian_nepotism"
+			duration = 730
+		}
+	}
+}
+
+#An influential family in the Maggior Consiglio
+country_event = {
+	id = venetian_republic.26
+	title = "venetian_republic.EVTNAME26"
+	desc = "venetian_republic.EVTDESC26"
+	picture = CONSIGLIO_MAGGIORE_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		NOT = { republican_tradition = 80 }
+		NOT = { has_country_modifier = venetian_nepotism }
+		OR = { 
+		    has_country_modifier = dominant_maggior_consiglio
+			has_country_modifier = strong_maggior_consiglio
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 100
+		modifier = {
+			factor = 0.9
+			NOT = { republican_tradition = 70 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { republican_tradition = 60 }
+		}
+		modifier = {
+			factor = 0.7
+			NOT = { republican_tradition = 50 }
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_consiglio_dieci
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_consiglio_pregadi
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA26"	#Remove the cousins and start a process!
+		
+		add_years_of_income = -0.33
+		add_dip_power = -25
+		add_prestige = 5
+		add_republican_tradition = 10
+		
+	    custom_tooltip = consiglio_m_medium_sub
+		change_variable = {
+			which = "consiglio_m_power"
+			value = -6
+		}
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB24"	#We will deal with them later.
+
+		add_years_of_income = -0.25
+		add_dip_power = -10
+		add_republican_tradition = 5
+		add_country_modifier = {
+			name = "venetian_nepotism"
+			duration = 365
+		}
+		
+		custom_tooltip = consiglio_p_sub
+		change_variable = {
+			which = "consiglio_m_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTD20"	#There is nothing we can do!
+		
+		add_republican_tradition = -3
+		add_prestige = -5
+		add_stability = -1	
+		add_country_modifier = {
+			name = "venetian_nepotism"
+			duration = 730
+		}
+	}
+}
+
+#A gift to the Doge?
+country_event = {
+	id = venetian_republic.27
+	title = "venetian_republic.EVTNAME27"
+	desc = "venetian_republic.EVTDESC27"
+	picture = SERENISSIMA_DOGE_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		NOT = { republican_tradition = 75 }
+		OR = { 
+		    has_country_modifier = dominant_doge
+			has_country_modifier = strong_doge
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+		modifier = {
+			factor = 0.9
+			NOT = { republican_tradition = 70 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { republican_tradition = 60 }
+		}
+		modifier = {
+			factor = 0.7
+			NOT = { republican_tradition = 50 }
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_maggior_consiglio
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_consiglio_dieci
+		}
+		modifier = {
+			factor = 0.8
+			has_country_modifier = weak_consiglio_pregadi
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA27"	#Right. That's against the republic.
+		
+		add_national_stability_or_adm_power = yes
+		add_mil_power = -50
+		add_prestige = 5
+		add_republican_tradition = 5
+		
+	    custom_tooltip = doge_medium_sub
+		change_variable = {
+			which = "doge_power"
+			value = -6
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB27"	#The other institutions will get more competences
+
+		add_mil_power = -25
+		add_dip_power = -25
+		add_adm_power = -25
+		add_prestige = -5
+
+	    custom_tooltip = doge_sub
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}		
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC27"	#I like the gift.
+
+		trigger = {
+			adm = 4
+			dip = 4
+			mil = 4
+		}
+		
+		set_country_flag = doge_corruption_matters
+		add_stability = -1
+		add_republican_tradition = -10
+		add_mil_power = 50
+	}
+}
+
+#Fraud?
+country_event = {
+	id = venetian_republic.28
+	title = "venetian_republic.EVTNAME28"
+	desc = "venetian_republic.EVTDESC28"
+	picture = CONSIGLIO_DIECI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		NOT = { republican_tradition = 70 }
+		OR = { 
+		    has_country_modifier = dominant_maggior_consiglio
+			has_country_modifier = dominant_consiglio_dieci
+			has_country_modifier = dominant_consiglio_pregadi
+			has_country_modifier = strong_doge
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+		modifier = {
+			factor = 0.8
+			NOT = { republican_tradition = 65 }
+		}
+		modifier = {
+			factor = 0.7
+			NOT = { republican_tradition = 60 }
+		}
+		modifier = {
+			factor = 0.6
+			NOT = { republican_tradition = 55 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { republican_tradition = 50 }
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA28"	#The council of X should investigate!
+		
+		add_republican_tradition = 20
+		add_adm_power = -10
+		add_years_of_income = -0.10
+		
+		custom_tooltip = consiglio_m_sub
+		change_variable = {
+			which = "consiglio_m_power"
+			value = -3
+		}
+		custom_tooltip = consiglio_p_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -3
+		}
+		custom_tooltip = doge_sub
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}
+		custom_tooltip = consiglio_x_medium_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 6
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB28"	#The Senate should investigate!
+
+		add_republican_tradition = 10
+		add_adm_power = -10
+		add_years_of_income = -0.10
+		
+		custom_tooltip = consiglio_p_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -3
+		}
+		custom_tooltip = consiglio_x_sub
+		change_variable = {
+			which = "consiglio_x_power"
+			value = -3
+		}
+		custom_tooltip = doge_sub
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}
+		custom_tooltip = consiglio_p_medium_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 6
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC28"	#The Doge is sure that an investigation would be pointless.
+
+		trigger = {
+			has_country_flag = ambitious_doge
+			OR = { 
+			    has_country_modifier = strong_doge
+			    has_country_modifier = dominant_doge 
+            }				
+		}
+		
+		set_country_flag = doge_juridicial_matters
+		add_republican_tradition = -5
+		add_stability = -1
+		add_adm_power = 25
+		
+		custom_tooltip = doge_add		
+		change_variable = {
+			which = "doge_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_x_sub
+		change_variable = {
+			which = "consiglio_x_power"
+			value = -3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTD28"	#The Maggior Consiglio should investigate!
+
+		add_republican_tradition = 10
+		add_adm_power = -10
+		add_years_of_income = -0.10
+		
+		custom_tooltip = consiglio_p_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -3
+		}
+		custom_tooltip = consiglio_x_sub
+		change_variable = {
+			which = "consiglio_x_power"
+			value = -3
+		}
+		custom_tooltip = doge_sub
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}
+		custom_tooltip = consiglio_m_medium_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 6
+		}
+	}
+}
+
+###################
+# Perfect Harmony #
+###################
+
+#Everything balanced
+country_event = {
+	id = venetian_republic.29
+	title = "venetian_republic.EVTNAME29"
+	desc = "venetian_republic.EVTDESC29"
+	picture = LEONE_VENEZIA_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		republican_tradition = 90 
+		has_country_modifier = considerable_maggior_consiglio
+	    has_country_modifier = considerable_consiglio_pregadi
+		has_country_modifier = considerable_consiglio_dieci
+		has_country_modifier = considerable_doge
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 0.9
+			stability = 0
+		}
+		modifier = {
+			factor = 0.8
+			stability = 1
+		}
+		modifier = {
+			factor = 0.7
+			stability = 2
+		}
+		modifier = {
+			factor = 0.7
+			stability = 3
+		}
+		modifier = {
+			factor = 0.5
+			is_at_war = no
+		}
+		modifier = {
+			factor = 0.5
+			prestige = 50
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA29"	#The good work of the Maggior consiglio
+		
+		add_years_of_income = 1
+		add_prestige = 5
+		add_republican_tradition = 5
+		
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB29"	#The competence of our Senators
+
+		add_dip_power = 100
+		add_prestige = 5
+		add_republican_tradition = 5
+
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC29"	#Thanks to our wise Council of X
+
+		add_adm_power = 100
+		add_prestige = 5
+		add_republican_tradition = 5
+
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTD29"	#It was the justice of our Doge
+
+		add_mil_power = 100
+		add_prestige = 5
+		add_republican_tradition = 5
+
+		custom_tooltip = doge_add
+		change_variable = {
+			which = "doge_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTE29"	#Saint Mark guided our way
+
+		add_national_stability_or_adm_power = yes
+		add_prestige = 5
+		add_republican_tradition = 5
+	}
+}
+
+###############################
+# Doge personality and status #
+###############################
+
+#Strong doge
+country_event = {
+	id = venetian_republic.30
+	title = "venetian_republic.EVTNAME30"
+	desc = "venetian_republic.EVTDESC30"
+	picture = LEONE_VENEZIA_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		has_country_flag = new_doge
+		OR = {
+		    adm = 5
+			dip = 5
+		}
+		OR = {
+		    NOT = { has_country_flag = procurati_reform_done }
+			AND = {
+			    has_country_flag = procuratori_reform_done
+				has_country_flag = doge_is_procuratore
+			}
+		}
+		OR = {
+		    NOT = { has_country_flag = ambasciatori_reform_done }
+			AND = {
+			    has_country_flag = ambasciatori_reform_done
+				has_country_flag = doge_is_ambasciatore
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 3
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA30"	#The Doge will have an active role
+		
+		add_prestige = 1
+		add_republican_tradition = -3
+		custom_tooltip = venetian_republic_ambitious_doge
+		set_country_flag = ambitious_doge
+		clr_country_flag = new_doge
+		
+		custom_tooltip = doge_add
+		change_variable = {
+			which = "doge_power"
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB30"	#The Doge will serve the republic
+
+		add_republican_tradition = 1
+		clr_country_flag = new_doge
+
+		custom_tooltip = doge_add
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}
+	}
+}
+
+#Weak doge, strong status
+country_event = {
+	id = venetian_republic.31
+	title = "venetian_republic.EVTNAME31"
+	desc = "venetian_republic.EVTDESC31"
+	picture = CONSIGLIO_DIECI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		has_country_flag = new_doge
+		OR = { 
+		    has_country_modifier = strong_doge
+			has_country_modifier = dominant_doge
+			}
+		NOT = { 
+		    adm = 2
+		    dip = 2
+		}
+		NOT = {
+		    OR = {
+		        adm = 4
+			    dip = 4
+				mil = 5
+		    }
+	    }
+	    OR = {
+		    NOT = { has_country_flag = procurati_reform_done }
+			AND = {
+			    has_country_flag = procuratori_reform_done
+				has_country_flag = doge_is_procuratore
+			}
+		}
+		OR = {
+		    NOT = { has_country_flag = ambasciatori_reform_done }
+			AND = {
+			    has_country_flag = ambasciatori_reform_done
+				has_country_flag = doge_is_ambasciatore
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 3
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB30"	#The Doge will serve the republic
+
+		add_republican_tradition = 1
+		clr_country_flag = new_doge
+		
+		custom_tooltip = doge_sub
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}
+
+	}
+}
+
+#Normal doge
+country_event = {
+	id = venetian_republic.32
+	title = "venetian_republic.EVTNAME32"
+	desc = "venetian_republic.EVTDESC32"
+	picture = SERENISSIMA_DOGE_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		has_country_flag = new_doge
+		
+		NOT = {
+		    OR = {
+			    adm = 5
+				dip = 5
+			}
+		}
+		OR = {
+		    NOT = { has_country_flag = procurati_reform_done }
+			AND = {
+			    has_country_flag = procuratori_reform_done
+				has_country_flag = doge_is_procuratore
+			}
+		}
+		OR = {
+		    NOT = { has_country_flag = ambasciatori_reform_done }
+			AND = {
+			    has_country_flag = ambasciatori_reform_done
+				has_country_flag = doge_is_ambasciatore
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 3
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA30"	#The Doge will have an active role
+		
+		trigger = { 
+		        adm = 2
+				dip = 2
+		        OR = {
+				    adm = 3
+					dip = 3
+					mil = 5
+				}
+		}
+		
+		add_prestige = 1
+		add_republican_tradition = -3
+		custom_tooltip = venetian_republic_ambitious_doge
+		set_country_flag = ambitious_doge
+		clr_country_flag = new_doge
+		
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB30"	#The Doge will serve the republic
+
+		add_republican_tradition = 1
+		clr_country_flag = new_doge
+
+	}
+}
+
+#Weak doge
+country_event = {
+	id = venetian_republic.33
+	title = "venetian_republic.EVTNAME33"
+	desc = "venetian_republic.EVTDESC33"
+	picture = MARIN_FALIER_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = new_doge
+		has_country_flag = Serenissima
+		NOT = { 
+		    has_country_modifier = dominant_doge
+			has_country_modifier = strong_doge
+		}
+		NOT = { 
+		    adm = 2
+		    dip = 2
+		}
+		NOT = {
+		    OR = {
+		        adm = 4
+			    dip = 4
+				mil = 6
+		    }
+		}
+	    OR = {
+		    NOT = { has_country_flag = procurati_reform_done }
+			AND = {
+			    has_country_flag = procuratori_reform_done
+				has_country_flag = doge_is_procuratore
+			}
+		}
+		OR = {
+		    NOT = { has_country_flag = ambasciatori_reform_done }
+			AND = {
+			    has_country_flag = ambasciatori_reform_done
+				has_country_flag = doge_is_ambasciatore
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 3
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB30"	#The Doge will serve the republic
+
+		add_republican_tradition = 1
+		clr_country_flag = new_doge
+		
+
+	}
+}
+
+##################
+# Ambitious Doge #
+##################
+
+#Dominating status, but still another strong institution or a considerable X
+country_event = {
+	id = venetian_republic.34
+	title = "venetian_republic.EVTNAME34"
+	desc = "venetian_republic.EVTDESC34"
+	picture = CONSIGLIO_DIECI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		has_country_modifier = dominant_doge
+		republican_tradition = 30
+		is_at_war = no
+		is_monarch_leader = no
+		OR = { 
+		    has_country_modifier = dominant_consiglio_dieci
+		    has_country_modifier = strong_consiglio_dieci			
+		    has_country_modifier = considerable_consiglio_dieci			
+			has_country_modifier = dominant_consiglio_pregadi
+			has_country_modifier = strong_consiglio_pregadi	
+		    has_country_modifier = dominant_maggior_consiglio
+			has_country_modifier = strong_maggior_consiglio
+        }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA34"	#Viva San Marco!
+
+		add_republican_tradition = 25
+		add_prestige = 1
+		
+		custom_tooltip = doge_medium_sub
+		change_variable = {
+			which = "doge_power"
+			value = -6
+		}
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB34"	#I don't think so.
+
+		add_republican_tradition = -20
+		add_prestige = -5
+		add_stability = -1
+		
+		trigger = { 
+		        NOT = { republican_tradition = 80 }
+                OR = { 
+				    adm = 4
+					dip = 4
+					mil = 6
+				}
+			    has_country_modifier = weak_consiglio_dieci
+		}
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC34"	#Who shall stop me?
+
+		add_prestige = -5
+		custom_tooltip = doge_against_constitution
+		change_variable = {
+			which = "doge_crimes"
+			value = 1
+		}		
+        
+
+	}
+}
+
+#Strong status, in conflict with other strong institutions
+country_event = {
+	id = venetian_republic.35
+	title = "venetian_republic.EVTNAME34"
+	desc = "venetian_republic.EVTDESC35"
+	picture = CONSIGLIO_DIECI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		has_country_modifier = strong_doge
+		republican_tradition = 50
+		OR = { 
+		    has_country_modifier = dominant_consiglio_dieci
+		    has_country_modifier = strong_consiglio_dieci		
+			has_country_modifier = dominant_consiglio_pregadi
+		    has_country_modifier = dominant_maggior_consiglio
+        }
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA34"	#Viva San Marco!
+
+		add_republican_tradition = 15
+		add_prestige = 1
+		
+		custom_tooltip = doge_sub
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB34"	#I don't think so.
+
+		add_republican_tradition = -10
+		add_prestige = -5
+		add_stability = -1
+		
+		trigger = { 
+		        NOT = { republican_tradition = 80 }
+                OR = { 
+				    adm = 4
+					dip = 4
+					mil = 6
+				}
+		}
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC34"	#Who shall stop me?
+
+		add_prestige = -5
+		custom_tooltip = doge_against_constitution
+		change_variable = {
+			which = "doge_crimes"
+			value = 1
+		}		
+        
+
+	}
+}
+
+#Matters aftermath
+country_event = {
+	id = venetian_republic.36
+	title = "venetian_republic.EVTNAME36"
+	desc = "venetian_republic.EVTDESC36"
+	picture = CONSIGLIO_MAGGIORE_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+	    OR = {
+		    has_country_flag = doge_diplomatic_matters
+		    has_country_flag = doge_administrative_matters
+	        has_country_flag = doge_military_matters
+		    has_country_flag = doge_corruption_matters
+		    has_country_flag = doge_trade_matters
+		    has_country_flag = doge_juridicial_matters
+		    has_country_flag = doge_financial_matters
+		    has_country_flag = doge_naval_matters
+		}
+		NOT = { has_country_flag = aftermath_tribunal }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = { set_country_flag = aftermath_tribunal }
+	
+	option = {
+		name = "venetian_republic.EVTOPTA36"	#The Doge is the slave of the republic
+
+		add_republican_tradition = 5
+		add_prestige = 1
+		clr_country_flag = aftermath_tribunal
+		clr_country_flag = doge_diplomatic_matters
+		clr_country_flag = doge_administrative_matters
+		clr_country_flag = doge_military_matters		
+		clr_country_flag = doge_corruption_matters
+		clr_country_flag = doge_trade_matters
+		clr_country_flag = doge_juridicial_matters
+		clr_country_flag = doge_financial_matters
+		clr_country_flag = doge_naval_matters		
+		
+		custom_tooltip = doge_sub
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB36"	#The Doge needs to balace the councils
+				
+		clr_country_flag = aftermath_tribunal
+		clr_country_flag = doge_diplomatic_matters
+		clr_country_flag = doge_administrative_matters
+		clr_country_flag = doge_military_matters		
+		clr_country_flag = doge_corruption_matters
+		clr_country_flag = doge_trade_matters
+		clr_country_flag = doge_juridicial_matters
+		clr_country_flag = doge_financial_matters
+		clr_country_flag = doge_naval_matters		
+		custom_tooltip = doge_against_constitution
+		change_variable = {
+			which = "doge_crimes"
+			value = 1
+		}	
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC36"	#It was the duty of the Doge to intervene. It won't happen twice
+
+		trigger = { 
+                OR = { 
+				    has_country_flag = doge_diplomatic_matters
+				    has_country_flag = doge_trade_matters
+				    has_country_flag = doge_juridicial_matters
+				}
+		}
+		clr_country_flag = aftermath_tribunal
+		clr_country_flag = doge_diplomatic_matters
+		clr_country_flag = doge_trade_matters
+		clr_country_flag = doge_juridicial_matters
+		
+		change_dip = 1
+		custom_tooltip = doge_against_constitution
+		change_variable = {
+			which = "doge_crimes"
+			value = 1
+		}
+		custom_tooltip = doge_sub
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}
+        
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC36"	#It was the duty of the Doge to intervene. It won't happen twice
+
+		trigger = {
+		        OR = {
+                    has_country_flag = doge_administrative_matters
+				    has_country_flag = doge_corruption_matters
+				    has_country_flag = doge_financial_matters
+				}
+		}
+		clr_country_flag = aftermath_tribunal
+		clr_country_flag = doge_administrative_matters
+		clr_country_flag = doge_corruption_matters
+		clr_country_flag = doge_financial_matters
+		
+		change_adm = 1
+		custom_tooltip = doge_against_constitution
+		change_variable = {
+			which = "doge_crimes"
+			value = 1
+		}
+		custom_tooltip = doge_sub
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}
+        
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC36"	#It was the duty of the Doge to intervene. It won't happen twice
+
+		trigger = {
+		        OR = {
+                    has_country_flag = doge_military_matters
+				    has_country_flag = doge_naval_matters
+			    }
+		}
+		clr_country_flag = aftermath_tribunal
+		clr_country_flag = doge_military_matters
+		clr_country_flag = doge_naval_matters
+		
+		change_mil = 1
+		custom_tooltip = doge_against_constitution
+		change_variable = {
+			which = "doge_crimes"
+			value = 1
+		}
+		custom_tooltip = doge_sub
+		change_variable = {
+			which = "doge_power"
+			value = -3
+		}
+        
+	}
+}
+
+#First Warning
+country_event = {
+	id = venetian_republic.37
+	title = "venetian_republic.EVTNAME37"
+	desc = "venetian_republic.EVTDESC37"
+	picture = CONSIGLIO_PREGADI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		check_variable = {
+			which = "doge_crimes"
+			value = 1
+		}
+		NOT = { has_country_flag = doge_warning_1 }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA37"	#Mi?
+
+		set_country_flag = doge_warning_1
+		
+
+	}
+}
+
+#Last Warning
+country_event = {
+	id = venetian_republic.38
+	title = "venetian_republic.EVTNAME38"
+	desc = "venetian_republic.EVTDESC38"
+	picture = CONSIGLIO_DIECI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		check_variable = {
+			which = "doge_crimes"
+			value = 2
+		}
+		has_country_flag = doge_warning_1
+		NOT = { has_country_flag = doge_warning_2 }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA37"	#Mi?
+
+		set_country_flag = doge_warning_2
+		
+
+	}
+}
+
+#Process
+country_event = {
+	id = venetian_republic.39
+	title = "venetian_republic.EVTNAME39"
+	desc = "venetian_republic.EVTDESC39"
+	picture = MARIN_FALIER_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		check_variable = {
+			which = "doge_crimes"
+			value = 3
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 3
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA39"	#The Doge is dead, but the Signoria is not.
+
+		add_republican_tradition = 35
+		add_prestige = 5
+		kill_ruler = yes
+		custom_tooltip = doge_big_sub
+		change_variable = {
+			which = "doge_power"
+			value = -9
+		}
+		custom_tooltip = consiglio_x_medium_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 6
+		}
+
+	}
+}
+
+#Dominating status, without confrontation
+country_event = {
+	id = venetian_republic.40
+	title = "venetian_republic.EVTNAME40"
+	desc = "venetian_republic.EVTDESC40"
+	picture = CIVIL_WAR_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		has_country_modifier = dominant_doge
+		has_country_modifier = weak_consiglio_dieci
+		NOT = { has_country_flag = no_coup_d_etat }
+		NOT = { republican_tradition = 50 }
+		NOT = { 
+		    OR = { 
+			    has_country_modifier = dominant_consiglio_pregadi
+			    has_country_modifier = strong_consiglio_pregadi	
+		        has_country_modifier = dominant_maggior_consiglio
+			    has_country_modifier = strong_maggior_consiglio
+			}
+        }
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA40"	#Power will be mine!
+		
+		add_stability = -1
+		custom_tooltip = venetian_coup_d_etat
+        country_event = { id = venetian_republic.41 }
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB40"	#Against the principles of the republic? Never!
+
+		add_republican_tradition = 10
+		add_prestige = 5
+		add_national_stability_or_adm_power = yes
+		set_country_flag = no_coup_d_etat
+	}
+}
+
+#A new order
+country_event = {
+	id = venetian_republic.41
+	title = "venetian_republic.EVTNAME41"
+	desc = "venetian_republic.EVTDESC41"
+	picture = REVOLUTION_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = "venetian_republic.EVTOPTA41"	#Dictator $MONARCH$. I like the sound of that.
+		
+        add_government_reform = republican_dictatorship
+		add_republican_tradition = 20
+		change_adm = 2
+		change_dip = 2
+		change_mil = 2
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB41"	#My dynasty shall rule forever!
+		
+        change_government = monarchy
+		add_republican_tradition = 20
+		change_adm = 2
+		change_dip = 2
+		change_mil = 2
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTC41"	#Abolish the Patriciate! Burn the libro d'oro! New times have come!
+
+		trigger = { 
+                is_year = 1750
+		}
+		
+		add_government_reform = revolutionary_republic
+		add_republican_tradition = 20
+	    change_adm = 2
+		change_dip = 2
+		change_mil = 2
+	}
+
+}
+
+##########################################
+# Conspiracies against dominant councils #
+##########################################
+
+#Conspiracy starting
+country_event = {
+	id = venetian_republic.42
+	title = "venetian_republic.EVTNAME42"
+	desc = "venetian_republic.EVTDESC42"
+	picture = CONSIGLIO_DIECI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		republican_tradition = 50
+        OR = {
+		    has_country_modifier = dominant_consiglio_pregadi	
+		    has_country_modifier = dominant_maggior_consiglio
+	        has_country_modifier = dominant_consiglio_dieci
+		}
+        NOT = { has_country_modifier = dominant_doge }
+	}
+	
+	mean_time_to_happen = {
+		months = 750
+		modifier = {
+			factor = 0.9
+			republican_tradition = 60
+		}
+		modifier = {
+			factor = 0.9
+			republican_tradition = 70
+		}
+		modifier = {
+			factor = 0.9
+			republican_tradition = 80
+		}
+		modifier = {
+			factor = 0.9
+			republican_tradition = 90
+		}
+		modifier = {
+			factor = 0.5
+			republican_tradition = 100
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = ambitious_doge
+		}
+		modifier = {
+			factor = 3
+			has_country_modifier = strong_doge
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA42"	#We should try it
+		
+        set_country_flag = conspiracy_against_council
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB42"	#Don't get involved
+	}
+}
+
+#Conspiracy success
+country_event = {
+	id = venetian_republic.43
+	title = "venetian_republic.EVTNAME43"
+	desc = "venetian_republic.EVTDESC43"
+	picture = LEONE_VENEZIA_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		has_country_flag = conspiracy_against_council
+	}
+	
+	mean_time_to_happen = {
+		days = 30
+		modifier = {
+			factor = 0.5
+			republican_tradition = 90
+		}
+		modifier = {
+			factor = 0.9
+			dip = 3
+		}
+		modifier = {
+			factor = 0.9
+			dip = 4
+		}
+		modifier = {
+			factor = 0.9
+			dip = 5
+		}
+		modifier = {
+			factor = 0.9
+			adm = 3
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 5
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA43"	#The republic is saved.
+
+		trigger = { has_country_modifier = dominant_consiglio_dieci }
+		
+		add_republican_tradition = 10
+		add_prestige = 5
+		clr_country_flag = conspiracy_against_council
+		custom_tooltip = consiglio_x_big_sub
+		change_variable = {
+			which = "consiglio_x_power"
+			value = -9
+		}
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+		custom_tooltip = doge_add
+		change_variable = {
+			which = "doge_power"
+			value = 3
+		}
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA43"	#The republic is saved.
+
+		trigger = { has_country_modifier = dominant_consiglio_pregadi }
+		
+		add_republican_tradition = 10
+		add_prestige = 5
+		clr_country_flag = conspiracy_against_council
+		custom_tooltip = consiglio_p_big_sub
+		change_variable = {
+			which = "consiglio_p_power"
+			value = -9
+		}
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+		custom_tooltip = doge_add
+		change_variable = {
+			which = "doge_power"
+			value = 3
+		}
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA43"	#The republic is saved.
+
+		trigger = { has_country_modifier = dominant_maggior_consiglio }
+		
+		add_republican_tradition = 10
+		add_prestige = 5
+		clr_country_flag = conspiracy_against_council
+		custom_tooltip = consiglio_m_big_sub
+		change_variable = {
+			which = "consiglio_m_power"
+			value = -9
+		}
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+		custom_tooltip = doge_add
+		change_variable = {
+			which = "doge_power"
+			value = 3
+		}
+
+	}
+}
+
+#Conspiracy fails
+country_event = {
+	id = venetian_republic.44
+	title = "venetian_republic.EVTNAME44"
+	desc = "venetian_republic.EVTDESC44"
+	picture = MARIN_FALIER_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		has_country_flag = conspiracy_against_council
+	}
+	
+	mean_time_to_happen = {
+		days = 40
+		modifier = {
+			factor = 0.5
+			NOT = { dip = 2}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { adm = 2}
+		}
+		modifier = {
+			factor = 2
+			republican_tradition = 90
+		}
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA44"	#Traitors everywhere!
+
+		trigger = { has_country_modifier = dominant_consiglio_dieci }
+		
+		add_republican_tradition = -10
+		add_prestige = -5
+		clr_country_flag = conspiracy_against_council
+		kill_ruler = yes
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA44"	#Traitors everywhere!
+
+		trigger = { has_country_modifier = dominant_consiglio_pregadi }
+		
+		add_republican_tradition = -10
+		add_prestige = -5
+		clr_country_flag = conspiracy_against_council
+		kill_ruler = yes
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA44"	#Traitors everywhere!
+
+		trigger = { has_country_modifier = dominant_maggior_consiglio }
+		
+		add_republican_tradition = -10
+		add_prestige = -5
+		clr_country_flag = conspiracy_against_council
+		kill_ruler = yes
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+
+	}
+}
+
+#######################################
+# Procuratori and ambasciatori reform #
+#######################################
+
+#Procuratori reform
+country_event = {
+	id = venetian_republic.45
+	title = "venetian_republic.EVTNAME45"
+	desc = "venetian_republic.EVTDESC45"
+	picture = CONSIGLIO_MAGGIORE_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		has_country_flag = procuratori_reform_done
+		has_country_flag = new_doge
+		NOT = { has_country_flag = doge_is_procuratore }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA45"	#We have high standards
+		
+	    change_adm = 1
+		set_country_flag = doge_is_procuratore
+
+	}
+}
+
+#Ambasciatori reform
+country_event = {
+	id = venetian_republic.46
+	title = "venetian_republic.EVTNAME46"
+	desc = "venetian_republic.EVTDESC46"
+	picture = CONSIGLIO_PREGADI_eventPicture
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		has_country_flag = ambasciatori_reform_done
+		has_country_flag = new_doge
+		NOT = { has_country_flag = doge_is_ambasciatore }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA46"	#Better than expected
+		
+	    change_dip = 1
+		set_country_flag = doge_is_ambasciatore
+
+	}
+}
+
+##############
+# Historical #
+##############
+
+#Foscaris loss of power
+country_event = {
+	id = venetian_republic.47
+	title = "venetian_republic.EVTNAME47"
+	desc = "venetian_republic.EVTDESC47"
+	picture = SERENISSIMA_DOGE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		is_year = 1450
+		NOT = { is_year = 1458 }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA47"	#Sic transit gloria mundi
+		
+		add_republican_tradition = 10
+		add_prestige = -5
+		add_national_stability_or_adm_power = yes
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+		custom_tooltip = doge_medium_sub
+		change_variable = {
+			which = "doge_power"
+			value = -6
+		}
+	}
+}
+
+#Case nuove, case antiche
+country_event = {
+	id = venetian_republic.48
+	title = "venetian_republic.EVTNAME48"
+	desc = "venetian_republic.EVTDESC48"
+	picture = CONSIGLIO_MAGGIORE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		is_year = 1550
+		NOT = { is_year = 1615 }
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA48"	#Support the new families
+		
+		add_republican_tradition = -5
+		add_national_stability_or_adm_power = yes
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+		custom_tooltip = doge_add
+		change_variable = {
+			which = "doge_power"
+			value = 3
+		}
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB48"	#Support the old families
+		
+		add_republican_tradition = 5
+		add_prestige = 5
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+
+	}
+}
+
+#New families
+country_event = {
+	id = venetian_republic.49
+	title = "venetian_republic.EVTNAME49"
+	desc = "venetian_republic.EVTDESC49"
+	picture = CONSIGLIO_MAGGIORE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		is_year = 1650
+		NOT = { is_year = 1715 }
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA49"	#They are welcome
+		
+		add_republican_tradition = 5
+		add_years_of_income = 0.5
+		custom_tooltip = consiglio_m_sub
+		change_variable = {
+			which = "consiglio_m_power"
+			value = -3
+		}
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB49"	#Never!
+		
+		add_republican_tradition = -5
+		add_stability = -1
+		add_prestige = 5
+
+	}
+}
+
+#Barnabotti
+country_event = {
+	id = venetian_republic.50
+	title = "venetian_republic.EVTNAME50"
+	desc = "venetian_republic.EVTDESC50"
+	picture = CONSIGLIO_MAGGIORE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_reform = venice_republic
+		has_country_flag = Serenissima
+		is_year = 1750
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTA50"	#They are still nobiluomini
+		
+        add_prestige = -5
+		add_republican_tradition = 3
+		custom_tooltip = consiglio_m_sub
+		change_variable = {
+			which = "consiglio_m_power"
+			value = -3
+		}
+
+	}
+	
+	option = {
+		name = "venetian_republic.EVTOPTB50"	#Exclude them!
+		
+		add_republican_tradition = -3
+		add_stability = -1
+		add_prestige = 5
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+	}
+}
+
+##############
+# Terraferma #
+##############
+
+#New Terraferma province
+province_event = {
+	id = venetian_republic.61
+	title = "venetian_republic.EVTNAME61"
+	desc = "venetian_republic.EVTDESC61"
+	picture = LEONE_VENEZIA_eventPicture
+
+	
+	trigger = {
+		owner = { 
+		    has_reform = venice_republic
+		}
+		NOT = { is_core = ITA }
+		NOT = { is_core = VEN }
+		has_port = no
+		is_overseas = no
+		NOT = { has_province_flag = venetian_terraferma }
+		NOT = {
+		    VEN = {
+			    has_country_flag = stato_da_tera
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA61"	#The lion has only one paw on land
+		
+		set_province_flag = venetian_terraferma
+		VEN = { add_republican_tradition = -10 }
+		VEN = {
+		    add_country_modifier = {
+			name = "ven_disputed_terraferma"
+			duration = 1825
+			}
+		}
+	}
+}
+
+#Foreigner conquers Terraferma
+province_event = {
+	id = venetian_republic.62
+	title = "venetian_republic.EVTNAME62"
+	desc = "venetian_republic.EVTDESC62"
+	picture = LEONE_VENEZIA_eventPicture
+
+	
+	trigger = {
+		has_province_flag = venetian_terraferma
+		NOT = { owned_by = VEN }
+		NOT = { owned_by = ITA }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA62"	#We don't need such administrations
+		
+		clr_province_flag = venetian_terraferma
+		owner = { add_prestige = 1 }
+		hidden_effect = {
+		    VEN = {
+			    country_event = { id = venetian_republic.63 days = 7200 }
+	        }
+		}
+	}
+}
+
+#Lost Terraferma province
+country_event = {
+	id = venetian_republic.63
+	title = "venetian_republic.EVTNAME63"
+	desc = "venetian_republic.EVTDESC63"
+	picture = LEONE_VENEZIA_eventPicture
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA63"	#At least... it calms down the political struggles
+		
+		add_republican_tradition = 3
+	}
+}
+
+#Events 64-69 are reserved for other Terraferma events
+
+#####################################################
+# Historical events, mostly harmless... er, culture #
+#####################################################
+
+#Crossbow training declining 1448
+country_event = {
+	id = venetian_republic.70
+	title = "venetian_republic.EVTNAME70"
+	desc = "venetian_republic.EVTDESC70"
+	picture = VEF_LAND_MILITARY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = VEN
+		is_year = 1450
+		NOT = { is_year = 1470 }
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA70"	#Keep the traditions strong
+		
+		add_army_tradition = -10
+		add_navy_tradition = 5
+		add_republican_tradition = 2
+		set_country_flag = ven_crossbow_kept
+		add_country_modifier = {
+			name = "naval_focus"
+			duration = 1000
+		}
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTB70"	#Our politics have changed
+		
+		add_navy_tradition = -10
+		add_army_tradition = 5
+		add_prestige = 5
+		add_country_modifier = {
+			name = "land_focus"
+			duration = 1000
+		}
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTC70"	#Yearly tournaments will keep them trained
+		
+		add_years_of_income = -0.25
+		add_prestige = 3
+		add_republican_tradition = 1
+		add_navy_tradition = 5
+		add_army_tradition = 5
+		set_country_flag = ven_crossbow_kept
+		custom_tooltip = consiglio_p_add
+		change_variable = {
+			which = "consiglio_p_power"
+			value = 3
+		}
+	}
+}
+
+#Crossbow training revival 1490
+country_event = {
+	id = venetian_republic.71
+	title = "venetian_republic.EVTNAME71"
+	desc = "venetian_republic.EVTDESC71"
+	picture = VEF_NAVAL_MILITARY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+	    tag = VEN
+		has_country_flag = ven_crossbow_kept
+		is_year = 1490
+		NOT = { is_year = 1500 }
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA71"	#Our decision was right
+		
+		add_navy_tradition = 5
+		add_republican_tradition = 3
+		add_mil_power = 30
+	}
+}
+
+#Crossbow training with handgun 1506
+country_event = {
+	id = venetian_republic.72
+	title = "venetian_republic.EVTNAME72"
+	desc = "venetian_republic.EVTDESC72"
+	picture = VEF_NAVAL_MILITARY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = VEN
+		is_year = 1510
+		NOT = { is_year = 1520 }
+		years_of_income = 0.5
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA72"	#We should invest
+		
+		add_republican_tradition = 2
+		add_years_of_income = -0.2
+		add_country_modifier = {
+			name = "naval_technical_developments"
+			duration = 1000
+		}
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTB72"	#Our troops are more important
+		
+		add_prestige = 5
+		add_years_of_income = -0.2
+		add_country_modifier = {
+			name = "land_investment"
+			duration = 1000
+		}
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTC72"	#This is too costly
+		
+		add_prestige = -3
+	}
+}
+
+###Terraferma events###
+
+#Brescia: Loggia
+country_event = {
+	id = venetian_republic.73
+	title = "venetian_republic.EVTNAME73"
+	desc = "venetian_republic.EVTDESC73"
+	picture = VEF_CITY_VIEW_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = VEN
+		266 = {
+			owned_by = ROOT
+			NOT = { is_core = MLO }
+			num_free_building_slots = 1
+			can_build = courthouse
+		}
+		is_year = 1500
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA73"	#Brescia is a daughter of Venice
+		
+		add_prestige = 5
+		266 = { add_building = courthouse }
+	}
+}
+
+#Padua: Prato della Valle
+country_event = {
+	id = venetian_republic.74
+	title = "venetian_republic.EVTNAME74"
+	desc = "venetian_republic.EVTDESC74"
+	picture = VEF_CITY_VIEW_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = VEN
+		owns = 249
+		is_year = 1700
+		NOT = { is_year = 1780 }
+		has_idea = patron_of_art
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA74"	#Another splendid attraction of culture
+		
+		add_prestige = 10
+		add_adm_power = 35
+		add_dip_power = 35
+	}
+}
+
+#Verona: Scipio Maffei (Verona illustrata)
+country_event = {
+	id = venetian_republic.75
+	title = "venetian_republic.EVTNAME75"
+	desc = "venetian_republic.EVTDESC75"
+	picture = VEF_ADVISOR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 250
+		is_year = 1731
+		NOT = { is_year = 1755 }
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA75"	#Archaeology is amazing
+		
+		add_prestige = 5
+		add_adm_power = 35
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTB75"	#We should hire this man
+		
+		define_advisor = {
+			type = philosopher
+			name = "Scipio Maffei"
+			location = 250
+			skill = 1
+		}
+	}
+}
+
+###The City of Venice###
+
+#Aldo Manuzio 1494
+country_event = {
+	id = venetian_republic.76
+	title = "venetian_republic.EVTNAME76"
+	desc = "venetian_republic.EVTDESC76"
+	picture = INVENTION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 269
+		is_year = 1494
+		NOT = { is_year = 1520 }
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA76"	#Venice will be a center of the printing press!
+		
+		add_adm_power = 50
+		add_prestige = 5
+	}
+}
+
+#Ospedaletto 1522
+country_event = {
+	id = venetian_republic.77
+	title = "venetian_republic.EVTNAME77"
+	desc = "venetian_republic.EVTDESC77"
+	picture = LEONE_VENEZIA_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+	    tag = VEN
+		owns = 269
+		is_year = 1520
+		NOT = { is_year = 1550 }
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA77"	#What an intelligent social system!
+		
+		add_adm_power = 35
+	}
+	option = {
+
+		name = "venetian_republic.EVTOPTB77"	#May I speak with the Maestro?
+		
+		create_advisor = composer
+	}
+}
+
+#Black Gondola 1562
+country_event = {
+	id = venetian_republic.78
+	title = "venetian_republic.EVTNAME78"
+	desc = "venetian_republic.EVTDESC78"
+	picture = FESTA_SENSA_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+	    tag = VEN
+		owns = 269
+		is_year = 1560
+		NOT = { is_year = 1590 }
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA78"	#Paint them black!
+		
+		add_adm_power = 15
+		change_variable = { which = vef_papal_influence value = 10 }
+		add_republican_tradition = 1
+		add_dip_power = -30
+		custom_tooltip = consiglio_m_sub
+		change_variable = {
+			which = "consiglio_m_power"
+			value = -3
+		}
+		custom_tooltip = consiglio_x_add
+		change_variable = {
+			which = "consiglio_x_power"
+			value = 3
+		}
+	}
+	option = {
+
+		name = "venetian_republic.EVTOPTB78"	#The state shouldn't interfere in private life
+		
+		add_prestige = 5
+		add_dip_power = 15
+		add_adm_power = -30
+		custom_tooltip = consiglio_m_add
+		change_variable = {
+			which = "consiglio_m_power"
+			value = 3
+		}
+		custom_tooltip = consiglio_x_sub
+		change_variable = {
+			which = "consiglio_x_power"
+			value = -3
+		}
+	}
+}
+
+#Il Ridotto 1638
+country_event = {
+	id = venetian_republic.79
+	title = "venetian_republic.EVTNAME79"
+	desc = "venetian_republic.EVTDESC79"
+	picture = LEONE_VENEZIA_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+	    tag = VEN
+		owns = 269
+		is_year = 1630
+		NOT = { is_year = 1670 }
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA79"	#Legalize it!
+		
+		add_years_of_income = 1
+		add_adm_power = -35
+		change_variable = { which = vef_papal_influence value = -20 }
+	}
+	option = {
+		name = "venetian_republic.EVTOPTB79"	#That's against all good habits!
+		change_variable = { which = vef_papal_influence value = 20 }
+		add_prestige = -3
+	}
+}
+
+#Murazzi 1716
+country_event = {
+	id = venetian_republic.81
+	title = "venetian_republic.EVTNAME81"
+	desc = "venetian_republic.EVTDESC81"
+	picture = VEF_FORT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+	    tag = VEN
+		owns = 269
+		is_year = 1700
+		NOT = { is_year = 1800 }
+		is_at_war = no
+		OR = {
+		   advisor = architect
+			advisor = fortification_expert
+		}
+		OR = {
+			269 = { has_building = fort_15th }
+		    269 = { has_building = fort_16th }
+			269 = { has_building = fort_17th }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+	
+		trigger = {
+	        269 = { has_building = fort_15th }
+		}
+
+		name = "venetian_republic.EVTOPTA81"	#We support this project
+		
+		269 = {
+			remove_building = fort_15th
+			add_building = fort_16th
+		}
+		add_prestige = 3
+		add_treasury = -50
+	}
+	
+	option = {
+	
+		trigger = {
+	        269 = { has_building = fort_16th }
+		}
+
+		name = "venetian_republic.EVTOPTA81"	#We support this project
+		
+		269 = {
+			remove_building = fort_16th
+			add_building = fort_17th
+		}
+		add_prestige = 3
+		add_treasury = -50
+	}
+	
+	option = {
+	
+		trigger = {
+	        269 = { has_building = fort_17th }
+		}
+
+		name = "venetian_republic.EVTOPTA81"	#We support this project
+		
+		269 = {
+			remove_building = fort_17th
+			add_building = fort_18th
+		}
+		add_prestige = 3
+		add_treasury = -50
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTB81"	#The lagoon is safe enough
+		
+		add_prestige = -5
+	}
+}
+
+#Carlo Goldoni 1743
+country_event = {
+	id = venetian_republic.82
+	title = "venetian_republic.EVTNAME82"
+	desc = "venetian_republic.EVTDESC82"
+	picture = VEF_CULTURE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 269
+		is_year = 1740
+		NOT = { is_year = 1790 }
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA82"	#Bravo!
+		
+		add_prestige = 15
+	}
+}
+
+###Casanova###
+
+#Casanova imprisoned 1755
+country_event = {
+	id = venetian_republic.83
+	title = "venetian_republic.EVTNAME83"
+	desc = "venetian_republic.EVTDESC83"
+	picture = GIACOMO_CASANOVA_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = VEN
+		owns = 269
+		is_year = 1755
+		NOT = { is_year = 1790 }
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA83"	#Imprison him!
+		
+		add_republican_tradition = 1
+		add_prestige = 3
+		change_variable = { which = vef_papal_influence value = 10 }
+		set_country_flag = casanova_imprisoned
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTB83"	#Let him go
+		
+		change_variable = { which = vef_papal_influence value = -10 }
+		add_prestige = -3
+		ai_chance = { factor = 0 }
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTC83"	#I want to know more about that "Cabala"-stuff he mentioned...
+		change_variable = { which = vef_papal_influence value = -10 }
+		add_stability = -1
+		define_advisor = {
+			type = natural_scientist
+			name = "Giacomo Casanova"
+			location = 269
+			skill = 1
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Casanova escapes!
+country_event = {
+	id = venetian_republic.84
+	title = "venetian_republic.EVTNAME84"
+	desc = "venetian_republic.EVTDESC84"
+	picture = GIACOMO_CASANOVA_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = casanova_imprisoned
+	}
+	
+	mean_time_to_happen = {
+		months = 15
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA84"	#But... but that's impossible!
+		
+		add_prestige = -5
+		set_global_flag = casanova_grand_tour
+	}
+}
+
+#Casanova's Grand tour
+country_event = {
+	id = venetian_republic.85
+	title = "venetian_republic.EVTNAME85"
+	desc = "venetian_republic.EVTDESC85"
+	picture = GIACOMO_CASANOVA_eventPicture
+	
+	trigger = {
+		has_global_flag = casanova_grand_tour
+		NOT = { is_year = 1790 }
+		any_country = {
+		    capital_scope = {
+			    continent = europe
+			}
+		}
+		religion_group = christian
+		NOT = { 
+			has_country_flag = casanova_invited
+			has_country_flag = casanova_excluded
+			tag = VEN
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+			modifier = {
+			    factor = 0.5
+				tag = FRA
+			}
+			modifier = {
+			    factor = 0.5
+				tag = HAB
+			}
+			modifier = {
+			    factor = 0.5
+				tag = GBR
+			}
+			modifier = {
+			    factor = 0.5
+				tag = PRU
+			}
+			modifier = {
+			    factor = 0.5
+				tag = RUS
+			}
+			modifier = {
+			    factor = 0.5
+				num_of_cities = 15
+			}
+	}
+	
+	immediate = { clr_global_flag = casanova_grand_tour }
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA85"	#He may stay
+		
+		add_prestige = 3
+		add_dip_power = 5
+		set_country_flag = casanova_invited
+		ai_chance = { factor = 75 }
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTB85"	#He should move on
+		
+		add_prestige = -1
+		add_dip_power = -3
+		set_country_flag = casanova_excluded
+		set_global_flag = casanova_grand_tour	
+		ai_chance = { factor = 25 }
+	}
+}
+
+#Casanova, our guest
+country_event = {
+	id = venetian_republic.86
+	title = "venetian_republic.EVTNAME86"
+	desc = "venetian_republic.EVTDESC86"
+	picture = GIACOMO_CASANOVA_eventPicture
+	
+	trigger = {
+		has_country_flag = casanova_invited
+		NOT = {
+		    has_country_flag = casanova_our_guest
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA86"	#I want to hear more!
+		
+		add_prestige = 3
+		add_adm_power = 5
+		set_country_flag = casanova_our_guest
+	}
+}
+
+#Casanova, an advisor?
+country_event = {
+	id = venetian_republic.87
+	title = "venetian_republic.EVTNAME87"
+	desc = "venetian_republic.EVTDESC87"
+	picture = GIACOMO_CASANOVA_eventPicture
+	
+	trigger = {
+		has_country_flag = casanova_our_guest
+		NOT = {
+		    has_country_flag = casanova_an_advisor
+			has_country_flag = casanova_no_advisor
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA87"	#He may talk and stay, but we are not interested
+		
+		add_prestige = 3
+		change_variable = { which = vef_papal_influence value = 5 }
+		set_country_flag = casanova_no_advisor
+		ai_chance = { factor = 99 }
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTC87"	#With his skills, he would be the perfect ambassador
+		change_variable = { which = vef_papal_influence value = -10 }
+		add_stability = -1
+		set_country_flag = casanova_an_advisor
+		define_advisor = {
+			type = diplomat
+			name = "Giacomo Casanova"
+			location = 269
+			skill = 2
+		}
+		ai_chance = { factor = 1 }
+	}
+}
+
+#Casanova leaves I
+country_event = {
+	id = venetian_republic.88
+	title = "venetian_republic.EVTNAME88"
+	desc = "venetian_republic.EVTDESC88"
+	picture = GIACOMO_CASANOVA_eventPicture
+	
+	trigger = {
+		has_country_flag = casanova_no_advisor
+		government = monarchy
+		NOT = {
+		    has_country_flag = casanova_left
+		}
+		is_female = no
+	}
+	
+	mean_time_to_happen = {
+		days = 3
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA88"	#This... this... this man!
+		
+		add_prestige = -5
+		add_years_of_income = -0.05
+		set_country_flag = casanova_left
+		set_global_flag = casanova_grand_tour
+		add_country_modifier = {
+			name = "enlightenment_movement"
+			duration = 365
+		}
+	}
+}
+
+#Casanova leaves II
+country_event = {
+	id = venetian_republic.89
+	title = "venetian_republic.EVTNAME88"
+	desc = "venetian_republic.EVTDESC89"
+	picture = GIACOMO_CASANOVA_eventPicture
+	
+	trigger = {
+		has_country_flag = casanova_no_advisor
+		NOT = {
+		    has_country_flag = casanova_left
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+
+		name = "venetian_republic.EVTOPTA89"	#We had a socratic dialogue
+		
+		add_prestige = 1
+		set_country_flag = casanova_left
+		set_global_flag = casanova_grand_tour
+		add_country_modifier = {
+			name = "enlightenment_movement"
+			duration = 365
+		}
+	}
+}

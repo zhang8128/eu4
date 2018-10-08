@@ -1,0 +1,24 @@
+# Ili
+
+capital = "Ili"
+owner = CHG
+controller = CHG
+add_core = CHG
+culture = uighur
+religion = tengri
+trade_goods = millet
+base_tax = 1
+base_production = 1
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = nomad_group
+
+1347.1.1 = { owner = KSG controller = KSG add_core = KSG remove_core = CHG }
+1359.1.1 = { religion = sunni }
+1462.1.1 = { owner = CHG controller = CHG add_core = CHG remove_core = KSG }
+1518.1.1 = { owner = OIR controller = OIR add_core = OIR }
+1622.1.1 = { discovered_by = RUS }
+#1635.1.1 = { owner = ZUN controller = ZUN add_core = ZUN }
+1755.1.1 = { owner = QNG controller = QNG add_core = QNG capital = "Yining" }
+1850.1.1 = { remove_core = OIR }

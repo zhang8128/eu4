@@ -1,0 +1,346 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+primary_culture = eastphalian
+religion = catholic
+technology_group = western
+capital = 346	# Hannover
+
+
+1529.1.1  = { religion = protestant }
+
+#Dukes of Braunschweig-Kalenberg
+1428.1.1 = {
+	monarch = {
+		name = "Wilhelm IV"
+		dynasty = "von Welf"
+		birth_date = 1392.1.1
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = BRA
+		name = "Cecilia"
+		dynasty = "von Hohenzollern"
+		birth_date = 1405.1.1
+		death_date = 1449.1.4
+		female = yes
+		adm = 2 
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Wilhelm"
+		monarch_name = "Wilhelm II"
+		dynasty = "von Welf"
+		birth_date = 1425.1.1
+		death_date = 1503.7.7
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+# William inherits all of Brunswick but BRU is the primary title; split again in 1503
+
+1503.7.7 = {
+	monarch = {
+		name = "Eric I"
+		dynasty = "von Welf"
+		birth_date = 1470.2.16
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+}
+
+1525.7.7 = {
+	queen = {
+		country_of_origin = BRA
+		name = "Elisabeth"
+		dynasty = "von Hohenzollern"
+		birth_date = 1510.8.24
+		death_date = 1558.5.25
+		female = yes
+		adm = 2 
+		dip = 2
+		mil = 2
+	}
+}
+
+1528.8.10 = {	
+	heir = {
+		name = "Eric"
+		monarch_name = "Eric II"
+		dynasty = "von Welf"
+		birth_date = 1528.8.10
+		death_date = 1584.11.17
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1540.7.30 = {
+	monarch = {
+		name = "Eric II"
+		dynasty = "von Welf"
+		birth_date = 1528.8.10
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+}
+
+1542.1.1 = { religion = protestant }
+
+1547.1.1 = { religion = catholic }
+
+# Eric II dies childless and Calenberg falls under Brunswick again 1584.11.17
+
+1634.8.11 = {
+	monarch = {
+		name = "Georg"
+		dynasty = "von Hannover"
+		birth_date = 1582.2.17
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = HES
+		name = "Anne Eleonore"
+		dynasty = "von Hessen"
+		birth_date = 1601.7.30
+		death_date = 1659.5.6
+		female = yes
+		adm = 2 
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Christian Ludwig"
+		monarch_name = "Christian Ludwig"
+		dynasty = "von Hannover"
+		birth_date = 1622.2.25
+		death_date = 1665.3.15
+		claim = 95
+		adm = 0
+		dip = 1
+		mil = 4
+	}
+}
+
+1641.4.12 = {
+	monarch = {
+		name = "Christian Ludwig"
+		dynasty = "von Hannover"
+		birth_date = 1622.2.25
+		dip = 1
+		adm = 0
+		mil = 4
+	}
+	heir = {
+		name = "Georg Wilhelm"
+		monarch_name = "Georg II Wilhelm"
+		dynasty = "von Hannover"
+		birth_date = 1624.1.26
+		death_date = 1705.8.28
+		claim = 95
+		adm = 2
+		dip = 4
+		mil = 3
+	}
+}
+
+# When he inherits Luneburg, Christian Louis takes up his seat there and cedes Calenberg to his brother
+1648.12.10 = {
+	monarch = {
+		name = "Georg II Wilhelm"
+		dynasty = "von Hannover"
+		birth_date = 1624.1.26
+		adm = 2
+		dip = 4
+		mil = 3
+	}
+	heir = {
+		name = "Johann Friedrich"
+		monarch_name = "Johann Friedrich"
+		dynasty = "von Hannover"
+		birth_date = 1625.4.25
+		death_date = 1679.12.18
+		claim = 95
+		adm = 4
+		dip = 5
+		mil = 3
+	}
+}
+
+1665.3.15 = {
+	monarch = {
+		name = "Johann Friedrich"
+		dynasty = "von Hannover"
+		birth_date = 1625.4.25
+		dip = 5
+		adm = 4
+		mil = 3
+	}
+	heir = {
+		name = "Ernst August"
+		monarch_name = "Ernst August"
+		dynasty = "von Hannover"
+		birth_date = 1629.11.20
+		death_date = 1698.1.23
+		claim = 95
+		adm = 3
+		dip = 4
+		mil = 3
+	}
+}
+
+1668.11.30 = {
+	queen = {
+		country_of_origin = PAL
+		name = "Benedicta Henrietta"
+		dynasty = "von Wittelsbach"
+		birth_date = 1652.3.14
+		death_date = 1730.8.12
+		female = yes
+		adm = 2 
+		dip = 2
+		mil = 2
+	}
+}
+
+1679.12.18 = {
+	monarch = {
+		name = "Ernst August"
+		dynasty = "von Hannover"
+		birth_date = 1629.11.20
+		dip = 4
+		adm = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = PAL
+		name = "Sophia"
+		dynasty = "von Wittelsbach"
+		birth_date = 1630.10.14
+		death_date = 1714.6.8
+		female = yes
+		adm = 2 
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Georg Ludwig"
+		monarch_name = "Georg I Ludwig"
+		dynasty = "von Hannover"
+		birth_date = 1660.5.28
+		death_date = 1727.6.11
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 5
+	}
+}
+
+1698.1.23 = {
+	monarch = {
+		name = "Georg I Ludwig"
+		dynasty = "von Hannover"
+		birth_date = 1660.5.28
+		dip = 3
+		adm = 3
+		mil = 5
+	}
+	heir = {
+		name = "Georg Augustus"
+		monarch_name = "Georg II"
+		dynasty = "von Hannover"
+		birth_date = 1683.11.9
+		death_date = 1760.10.25
+		claim = 95
+		adm = 4
+		dip = 3
+		mil = 4
+	}
+}
+
+1708.9.7 = { elector = yes }	
+
+# In union with Britain from 1714 when George ascends as George I of England until 1837.6.20
+
+1806.7.12 = { elector = no } # The HRE is formally abolished
+
+1814.10.1 = { government_rank = 3 }	# Kingdom of Hannover
+
+1837.6.20 = {
+	monarch = {
+		name = "Ernst August"
+		dynasty = "von Hannover"
+		birth_date = 1771.6.5
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = MKL
+		name = "Frederica"
+		dynasty = "von Mecklenburg"
+		birth_date = 1778.3.3
+		death_date = 1841.6.29
+		female = yes
+		adm = 2 
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Georg"
+		monarch_name = "Georg V"
+		dynasty = "von Hannover"
+		birth_date = 1819.5.27
+		death_date = 1878.6.12
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1851.11.18 = {
+	monarch = {
+		name = "Georg V"
+		dynasty = "von Hannover"
+		birth_date = 1819.5.27
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = PRU
+		name = "Marie"
+		dynasty = "von Saxe-Altenberg"
+		birth_date = 1818.4.14
+		death_date = 1907.1.9
+		female = yes
+		adm = 2 
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Ernst August"
+		monarch_name = "Ernst August II"
+		dynasty = "von Hannover"
+		birth_date = 1845.9.21
+		death_date = 1923.11.14
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+# Hannover annexed by Prussia in 1866 and never reconstituted

@@ -1,0 +1,44 @@
+# Tarnovo
+
+capital = "Tarnovo"
+owner = BUL
+controller = BUL
+add_core = BUL
+culture = bulgarian
+religion = orthodox
+trade_goods = salt
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = scandinavian_tech
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1347.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1393.1.1  = { owner = TUR controller = TUR add_territorial_core = TUR }
+#1402.1.1  = { revolt = { type = pretender_rebels size = 0 } controller = REB } # Interregnum
+1404.1.1  = { revolt = { type = pretender_rebels size = 0 } controller = REB }
+1413.1.1  = { revolt = {} controller = TUR }
+1450.1.1  = { citysize = 12070 }
+1500.1.1  = { citysize = 13100 }
+1550.1.1  = { citysize = 13870 }
+1555.1.1  = { unrest = 5 } # General discontent against the Janissaries' dominance
+1556.1.1  = { unrest = 2 }
+1598.1.1  = { unrest = 6 } # Oppositions around Tarnovo
+1600.1.1  = { citysize = 13440 unrest = 0 }
+1650.1.1  = { citysize = 14780 }
+1688.1.1  = { unrest = 6 } # Rebellion against Ottoman rule, centered on Chiprovtzi
+1689.1.1  = { unrest = 0 } # Brutally suppressed by Janissaries
+1700.1.1  = { citysize = 15773 }
+1750.1.1  = { citysize = 16980 }
+1793.1.1  = { unrest = 5 } # Pasvanoglu  Rebellion
+1798.1.1  = { unrest = 0 }
+1800.1.1  = { citysize = 17467 }

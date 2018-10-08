@@ -1,0 +1,81 @@
+# Hordes become Muslim
+namespace = vef_muslim_hordes
+
+province_event = {
+	id = vef_muslim_hordes.10000
+	title = "vef_muslim_hordes.10000.t"
+	desc = "vef_muslim_hordes.10000.d"
+
+	picture = VEF_RELIGION_eventPicture
+
+	trigger = {
+		religion = tengri
+		OR = {
+			culture_group = tartar
+			culture = uzbehk
+			culture = khazak
+			culture = kirgiz
+		}
+		NOT = { owner = { has_country_flag = horde_resisting_islam }}
+	}
+
+	mean_time_to_happen = {
+		months = 800
+		modifier = {
+			factor = 0.25
+			any_neighbor_province = { religion = sunni }
+		}
+		modifier = {
+			factor = 0.80
+			owner = { religion = sunni }
+		}
+	}
+	
+	option = {
+		name = "vef_muslim_hordes.10000.opta"
+		change_religion = sunni
+		add_province_modifier = { name = "religious_zeal_at_conv" duration = 4500 }
+	}
+}
+
+country_event = {
+	id = vef_muslim_hordes.10001
+	title = "vef_muslim_hordes.10001.t"
+	desc = "vef_muslim_hordes.10001.d"
+
+	picture = VEF_RELIGION_eventPicture
+
+	trigger = {
+		religion = tengri
+		culture_group = tartar
+		num_of_owned_provinces_with = {
+			religion = sunni
+			value = 20
+		}
+		NOT = { capital_scope = { religion = sunni } }
+		NOT = { has_country_flag = horde_resisting_islam }
+	}
+	
+	immediate = { 
+		if = {
+			limit = { capital_scope = { religion = tengri } }
+			capital_scope = { change_religion = sunni }
+		}
+	}
+
+	option = {
+		name = "vef_muslim_hordes.10001.opta"
+		ai_chance = { factor = 95 }
+		change_religion = sunni
+	}
+
+	option = {
+		name = "vef_muslim_hordes.10001.optb"
+		ai_chance = { factor = 5 }
+		every_owned_province = {
+			limit = { religion = sunni }
+			add_unrest = 2
+		}
+		set_country_flag = horde_resisting_islam
+	}
+}

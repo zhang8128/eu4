@@ -1,0 +1,11 @@
+#Large Bull Boat
+#model = galley
+#tech_level = 8
+type = light_ship
+unit_type = north_american
+
+hull_size = 4
+base_cannons = 2
+sail_speed = 1
+trade_power = 0.375
+sailors = 15

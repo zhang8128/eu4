@@ -1,0 +1,21 @@
+bookmark =
+{
+	name = "HYW_NAME"
+	desc = "HYW_DESC"
+	date = 1337.4.30
+
+	center = 170	#Paris
+	
+	country = ENG
+	country = FRA
+	country = BUR
+	country = FLA
+	country = UBV
+	country = SER
+	country = TUR
+	country = MZF
+	country = JAI
+	country = INJ
+	country = SRB
+	country = CBN	
+}

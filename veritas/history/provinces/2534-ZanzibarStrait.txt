@@ -1,0 +1,4 @@
+# Zanzibar Strait
+#Province IDs changed
+discovered_by = tribal_african_tech
+discovered_by = muslim

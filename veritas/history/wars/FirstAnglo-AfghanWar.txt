@@ -1,0 +1,17 @@
+name = "First Anglo-Afghan War"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 1493 #Quetta
+}
+
+1839.3.1 = {
+	add_attacker = GBR
+	add_defender = AFG
+}
+
+# Truce
+1843.1.1 = {
+	rem_attacker = GBR
+	rem_defender = AFG
+}

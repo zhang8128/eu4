@@ -1,0 +1,17 @@
+# Onan Gol
+
+capital = "Banda Aceh"
+owner = YUN
+controller = YUN
+add_core = YUN
+culture = mongol
+religion = tengri
+trade_goods = grain
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1368.1.1 = { owner = KHA controller = KHA add_core = KHA remove_core = YUN }

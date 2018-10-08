@@ -1,0 +1,27 @@
+# Føroyar
+
+capital = "Torshavn"
+owner = NOR
+controller = NOR 
+add_core = NOR
+culture = faroese
+religion = catholic
+trade_goods = fish
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+
+
+1400.1.1   = { base_manpower = 0.1 }
+1500.1.1   = { base_manpower = 0.1 }
+1536.1.1   = { owner = DAN controller = DAN add_core = DAN capital = "Thorshavn" religion = protestant  }
+1600.1.1   = { base_manpower = 0.1 }
+1650.1.1   = { base_manpower = 0.1 }
+1700.1.1   = { base_manpower = 0.1 }
+1750.1.1   = { base_manpower = 0.1 }
+1800.1.1   = { base_manpower = 0.1 }

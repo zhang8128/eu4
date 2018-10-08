@@ -1,0 +1,93 @@
+name = "Castillan Succession War"
+war_goal = {
+	type = take_capital_throne
+	casus_belli = cb_claim_throne
+	tag = CAS
+}
+
+# Illegitimate brother Henry Trastamara seeks to overthrow Pedro I of Castile
+1366.1.1 = {
+	add_attacker = TOL
+	add_attacker = ARA
+	add_defender = CAS
+	add_defender = LEO
+	add_defender = GAL
+	add_defender = CRD
+	add_defender = SEV
+}
+
+1367.1.1 = {
+	add_defender = ENG
+}
+
+1367.4.3 = {
+	battle = {
+		name = "Battle of Najera"
+		location = 76
+		attacker = {
+			commander = "Enrique II"
+			infantry = 4500
+			cavalry = 1000
+			losses = 50	# percent
+			country = TOL
+			country = ARA
+		}
+
+		defender = {
+			commander = "Edward, Black Prince of Wales"
+			infantry = 9000
+			cavalry = 1000
+			losses = 10	# percent
+			country = CAS
+			country = ENG
+		}
+
+		result = no
+	}
+}
+
+#Estimated; Black Prince returns home after not being paid by Pedro I
+1367.8.1 = { rem_defender = ENG }
+
+#Treaty of Toledo agrees French support in Spain in exchange for naval support against England
+1368.1.1 = { add_attacker = FRA }
+
+# Sources are not clear but suggest that losses were light on both sides with Pedro's army
+# fleeing/surrendering when the advantage was lost; Pedro takes shelter in the fortress
+1369.3.14 = {
+	battle = {
+		name = "Battle of Montiel"
+		location = 87
+		attacker = {
+			commander = "Betrand du Guesclin"
+			infantry = 12000
+			cavalry = 4000
+			losses = 10	# percent
+			country = TOL
+			country = FRA
+		}
+
+		defender = {
+			commander = "Pedro I"
+			infantry = 12000
+			cavalry = 3000
+			losses = 15	# percent
+			country = CAS
+		}
+
+		result = yes
+	}
+}
+
+# Assassination of Pedro ends the dispute though Galicia recognizes the crown of Portugal
+# as it's rightful lord for some time following.
+1369.3.23 = {
+	rem_attacker = TOL
+	rem_attacker = ARA
+	rem_attacker = FRA
+	rem_defender = CAS
+	rem_defender = LEO
+	rem_defender = GAL
+	rem_defender = CRD
+	rem_defender = SEV
+}

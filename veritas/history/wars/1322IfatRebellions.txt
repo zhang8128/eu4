@@ -1,0 +1,20 @@
+name = "Ifat Rebellions"
+war_goal = {
+	type = take_capital_disloyal
+	casus_belli = cb_disloyal_vassal
+}
+
+1322.1.1 = {
+	add_attacker = ETH
+	add_defender = ADA
+}
+
+1330.1.1 = { add_defender = DAW }
+
+# Campaigns of 1332 subjugate Adal and Dawaro (some sources date campaign to 1329; 1332 seems
+# to have greater historical support)
+1333.1.1 = {
+	rem_attacker = ETH
+	rem_defender = ADA
+	rem_defender = DAW
+}

@@ -1,0 +1,9 @@
+bookmark =
+{
+	name = "TREATY_OF_TROYES_NAME"
+	desc = "TREATY_OF_TROYES_DESC"
+	date = 1420.5.21
+	
+	country = ENG
+	country = DAU
+}

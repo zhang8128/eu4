@@ -1,0 +1,22 @@
+# Tondo
+
+capital = "Tondo"
+native_size = 50
+native_ferocity = 1
+native_hostileness = 3
+culture = filipino
+religion = animism
+trade_goods = unknown
+base_tax = 2
+base_production = 2
+base_manpower = 2
+hre = no
+
+1570.1.1 = {	owner = SPA
+		controller = SPA
+		culture = castillian
+		religion = catholic
+		is_city = yes
+		capital = "Nueva Segovia"
+	   }
+1595.1.1 = { add_core = SPA trade_goods = grain }

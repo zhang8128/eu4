@@ -1,0 +1,10 @@
+#Fregat
+#model = frigate
+#tech_level = 45
+type = transport
+unit_type = eastern
+
+hull_size = 24
+base_cannons = 44
+sail_speed = 8
+sailors = 250

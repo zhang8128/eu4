@@ -1,0 +1,76 @@
+#Country Name: Please seefilename.
+
+graphical_culture = africangfx
+
+color = { 215  215  125 }
+
+historical_idea_groups = {
+	mercantilist_ideas
+	defensive_ideas
+	economic_ideas
+	diplomatic_ideas
+	quantity_ideas
+	cultural_unity_ideas
+	gf1_ideas
+	drafted_army_ideas
+}
+
+historical_units = {
+	sub_saharan_cavalry_0_1
+	sub_saharan_cavalry_16_1
+	sub_saharan_cavalry_31_1
+	sub_saharan_cavalry_40_1
+	sub_saharan_infantry_0_1
+	sub_saharan_infantry_17_1
+	sub_saharan_infantry_25_1
+	sub_saharan_infantry_28_1
+	sub_saharan_infantry_34_1
+	sub_saharan_infantry_42_1
+	sub_saharan_infantry_6_1
+}
+
+monarch_names = {
+	"Sare #0" = 10
+	"N'Diklam #0" = 10
+	"Tyukuli #0" = 10
+	"Leeyti #0" = 20
+	"N'Dyelen Mbey #0" = 10
+	"Tase Daagulen #0" = 20
+	"Birayma #0" = 40
+	"Bukaar #0" = 20
+	"Leele #0" = 20
+	"al-Buri #0" = 20
+	"Lat #0" = 20
+	"Gireun #0" = 20
+	"Bakar #0" = 20
+	"Bakan #0" = 20
+	"Birawa #0" = 20
+	"Bakaa #0" = 20
+	"Mba #0" = 20
+	"Mbanyi #0" = 20
+	"Fatoumata Sall #0" = -1
+	"Ndoye Demba #0" = -1
+	"Fatim Beye #0" = -1
+	"Ndieumbeutt Mbodj #0" = -1
+	"Ndaté Yalla Mbodj #0" = -1
+}
+
+leader_names = {
+	Kompass
+	Birayamb
+	Keme
+	Bakar
+	Fak
+	"Kuran Kan"
+	Daagulen
+	Sare
+	Samba
+	Dyakher
+}
+
+ship_names = {
+	Kiringa Timbuktu "Koumbi Saleh" Gao
+	Jenne "Sundiata Keita" "Kankan Musa"
+	"Kouroukan Fouga" "Wali Keita" "Quati Keita"
+	"Khalifa Keita" Sakura
+}

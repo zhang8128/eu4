@@ -1,0 +1,408 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+primary_culture = pommeranian
+religion = catholic
+technology_group = western
+capital = 362	# Stettin
+
+# Pommern-Wolgast
+
+1267.1.1 = { add_country_modifier = { name = "hanseatic_league_member" duration = -1 } }
+
+1309.1.1 = {
+	monarch = {
+		name = "Wartislaw IV"
+		dynasty = "Gryf"
+		birth_date = 1285.1.1	# Made Up
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+
+1316.4.11 = {
+	queen = {
+		country_of_origin = BRA
+		name = "Elisabeth"
+		dynasty = "Lindow-Ruppin"
+		birth_date = 1290.1.1	# Made Up
+		death_date = 1330.1.1	# Made Up
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1318.1.1 = {
+	heir = {
+		name = "Bogislaw"
+		monarch_name = "Bogislaw V"
+		dynasty = "Gryf"
+		birth_date = 1318.1.1
+		death_date = 1374.4.23
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+
+1326.8.1 = {
+	monarch = {
+		name = "Bogislaw V"
+		dynasty = "Gryf"
+		birth_date = 1318.1.1
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+
+1343.2.28 = {
+	queen = {
+		country_of_origin = POL
+		name = "Elisabeth"
+		dynasty = "Piast"
+		birth_date = 1326.1.1
+		death_date = 1361.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1362.1.1 = {
+	queen = {
+		country_of_origin = BRU
+		name = "Adelheid"
+		dynasty = "von Welf"
+		birth_date = 1341.1.1
+		death_date = 1406.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1365.8.22 = {
+	monarch = {
+		name = "Wartislaw VI"
+		dynasty = "Gryf"
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+	queen = {
+		country_of_origin = MKL
+		name = "Anna"
+		dynasty = "von Mecklenburg"
+		birth_date = 1346.1.1	#Estimated
+		death_date = 1406.1.1	#Made Up
+		female = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+	heir = {
+		name = "Barnim"
+		monarch_name = "Barnim VI"
+		dynasty = "Gryf"
+		birth_date = 1365.1.1
+		death_date = 1405.9.22
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+
+1395.6.13 = {
+	monarch = {
+		name = "Barnim VI"
+		dynasty = "Gryf"
+		birth_date = 1365.1.1
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+	queen = {
+		country_of_origin = NUR
+		name = "Veronica"
+		dynasty = "von Hohenzollern"
+		birth_date = 1346.1.1	#Estimated
+		death_date = 1406.1.1	#Made Up
+		female = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1400.1.1 = {
+	heir = {
+		name = "Wartislaw"
+		monarch_name = "Wartislaw IX"
+		dynasty = "Gryf"
+		birth_date = 1400.1.1
+		death_date = 1457.4.17
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1405.9.22 = {
+	monarch = {
+		name "High Marshall Degener"
+		dynasty = "Gryf"
+		regent = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Wartislaw"
+		monarch_name = "Wartislaw IX"
+		dynasty = "Gryf"
+		birth_date = 1400.1.1
+		death_date = 1457.4.17
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+1417.1.1 = {
+	monarch = {
+		name = "Wartislaw IX"
+		dynasty = "Gryf"
+		birth_date = 1400.1.1
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1425.1.1 = {
+	heir = {
+		name = "Eryk"
+		monarch_name = "Eryk II"
+		dynasty = "Gryf"
+		birth_date = 1425.1.1
+		death_date = 1474.7.5
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 3
+	}
+}
+
+1457.4.17 = {
+	monarch = {
+		name = "Eryk II"
+		dynasty = "Gryf"
+		birth_date = 1425.1.1
+		adm = 1
+		dip = 2
+		mil = 3
+	}
+}
+
+1464.11.11 = {
+	heir = {
+		name = "Boguslaw"
+		monarch_name = "Boguslaw X"
+		dynasty = "Gryf"
+		birth_date = 1454.6.3
+		death_date = 1523.10.5
+		claim = 95
+		adm = 4
+		dip = 3
+		mil = 2
+	}
+}
+
+1474.7.6 = {
+	monarch = {
+		name = "Boguslaw X"
+		dynasty = "Gryf"
+		adm = 4
+		dip = 3
+		mil = 2
+	}
+}
+
+1501.12.2 = {
+	heir = {
+		name = "Barnim"
+		monarch_name = "Barnim XI"
+		dynasty = "Gryf"
+		birth_date = 1501.12.2
+		death_date = 1573.11.2
+		claim = 95
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1523.10.6 = {
+	monarch = {
+		name = "Barnim XI"
+		dynasty = "Gryf"
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1534.1.1 = { religion = protestant }
+
+1542.8.27 = {
+	heir = {
+		name = "Johann Friedrich"
+		monarch_name = "Johann Friedrich"
+		dynasty = "Gryf"
+		birth_date = 1542.8.27
+		death_date = 1600.2.9
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 0
+	}
+}
+
+1569.1.1 = {
+	monarch = {
+		name = "Johann Friedrich"
+		dynasty = "Gryf"
+		adm = 2
+		dip = 2
+		mil = 0
+	}
+}
+
+1569.1.1 = {
+	heir = {
+		name = "Barnim"
+		monarch_name = "Barnim XII"
+		dynasty = "Gryf"
+		birth_date = 1549.2.15
+		death_date = 1603.9.1
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 2
+	}
+}
+
+1600.1.1 = {
+	monarch = {
+		name = "Barnim XII"
+		dynasty = "Gryf"
+		adm = 1
+		dip = 2
+		mil = 2
+	}
+}
+
+1600.1.1 = {
+	heir = {
+		name = "Boguslaw"
+		monarch_name = "Boguslaw XIII"
+		dynasty = "Gryf"
+		birth_date = 1544.8.9
+		death_date = 1606.3.7
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1603.11.2 = {
+	monarch = {
+		name = "Boguslaw XIII"
+		dynasty = "Gryf"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1603.11.2 = {
+	heir = {
+		name = "Filip"
+		monarch_name = "Filip II"
+		dynasty = "Gryf"
+		birth_date = 1573.7.29
+		death_date = 1618.2.3
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+}
+
+1606.3.8 = {
+	monarch = {
+		name = "Filip II"
+		dynasty = "Gryf"
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+}
+
+1606.3.8 = {
+	heir = {
+		name = "Franciszek"
+		monarch_name = "Franciszek I"
+		dynasty = "Gryf"
+		birth_date = 1577.3.24
+		death_date = 1620.11.27
+		claim = 95
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1618.2.3 = {
+	monarch = {
+		name = "Franciszek I"
+		dynasty = "Gryf"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1618.2.3 = {
+	heir = {
+		name = "Boguslaw"
+		monarch_name = "Boguslaw XIV"
+		dynasty = "Gryf"
+		birth_date = 1580.3.31
+		death_date = 1637.3.10
+		claim = 95
+		adm = 3
+		dip = 1
+		mil = 0
+	}
+}
+
+1620.11.28 = {
+	monarch = {
+		name = "Boguslaw XIV"
+		dynasty = "Gryf"
+		adm = 3
+		dip = 1
+		mil = 0
+	}
+}

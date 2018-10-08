@@ -1,0 +1,30 @@
+# Karaman
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 2
+primary_culture = turkish
+religion = sunni
+technology_group = ottoman
+capital = 620	# Karaman
+historical_rival = TUR
+
+1308.1.1 = {
+	monarch = {
+		name = "Yashi I"
+		dynasty = "Karamanoglu"
+		adm = 4
+		dip = 1
+		mil = 2
+	}
+	add_piety = 0.1
+}
+
+1312.1.1 = {
+	monarch = {
+		name = "Ibrahim I"
+		dynasty = "Karamanoglu"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}

@@ -1,0 +1,180 @@
+#Province IDs changed
+government = monarchy add_government_reform = iqta
+government_rank = 2
+primary_culture = turkish
+religion = sunni
+technology_group = ottoman
+capital = 628	# Adana
+historical_friend = MAM
+
+1352.1.1 = {
+	monarch = {
+		name = "Ramazan I"
+		dynasty = "Ramazanoglu"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	add_piety = 0.25
+}
+
+1383.1.1 = {
+	monarch = {
+		name = "Ahmad I"
+		dynasty = "Ramazanoglu"
+		adm = 1
+		dip = 4
+		mil = 2
+	}
+	add_piety = 0.25
+}
+
+1416.1.1 = {
+	heir = {
+		name = "Ibrahim"
+		monarch_name = "Ibrahim II"
+		dynasty = "Ramazanoglu"
+		birth_date = 1399.1.1
+		death_date = 1418.1.1
+		claim = 80
+		adm = 1
+		dip = 1
+		mil = 2
+	}
+}
+
+1416.1.1 = {
+	monarch = {
+		name = "Ibrahim II"
+		dynasty = "Ramazanoglu"
+		adm = 1
+		dip = 1
+		mil = 2
+	}
+}
+1418.1.1 = {
+	monarch = {
+		name = "Hamza I"
+		dynasty = "Ramazanoglu"
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+1429.1.1 = {
+	monarch = {
+		name = "Mehmet I"
+		dynasty = "Ramazanoglu"
+		adm = 4
+		dip = 2
+		mil = 1
+	}
+}
+1439.1.1 = {
+	monarch = {
+		name = "Eylük I"
+		dynasty = "Ramazanoglu"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+1440.1.1 = {
+	monarch = {
+		name = "Dündar I"
+		dynasty = "Ramazanoglu"
+		adm = 2
+		dip = 1
+		mil = 4
+	}
+}
+1462.1.1 = {
+	monarch = {
+		name = "Ömer I"
+		dynasty = "Ramazanoglu"
+		adm = 2
+		dip = 4
+		mil = 3
+	}
+}
+1485.1.1 = {
+	monarch = {
+		name = "Khalil I"
+		dynasty = "Ramazanoglu"
+		adm = 2
+		dip = 5
+		mil = 2
+	}
+}
+1510.1.1 = {
+	monarch = {
+		name = "Mahmut I"
+		dynasty = "Ramazanoglu"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+1514.1.1 = {
+	monarch = {
+		name = "Selim I"
+		dynasty = "Ramazanoglu"
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+1517.1.1 = {
+	monarch = {
+		name = "Kubad I"
+		dynasty = "Ramazanoglu"
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+}
+1520.1.1 = {
+	monarch = {
+		name = "Piri Mehmet I"
+		dynasty = "Ramazanoglu"
+		adm = 4
+		dip = 4
+		mil = 4
+	}
+}
+1568.1.1 = {
+	monarch = {
+		name = "Dervis I"
+		dynasty = "Ramazanoglu"
+		adm = 1
+		dip = 3
+		mil = 2
+	}
+}
+1569.1.1 = {
+	monarch = {
+		name = "Ibrahim III"
+		dynasty = "Ramazanoglu"
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+1589.1.1 = {
+	monarch = {
+		name = "Mehmet II"
+		dynasty = "Ramazanoglu"
+		adm = 1
+		dip = 2
+		mil = 3
+	}
+}
+1594.1.1 = {
+	monarch = {
+		name = "Pir Mansur I"
+		dynasty = "Ramazanoglu"
+		adm = 2
+		dip = 1
+		mil = 3
+	}
+}

@@ -1,0 +1,399 @@
+# Events for the Schmalkaldic League and Evangelical Union
+# Has to be limited to Art of War since it uses religious leagues
+# Hypothetically it could be done with coalitions, but attempts have been messy/unpredictable
+
+# If the Emperor goes protestant there will be no Schmalkaldic league just the 30-Years War.
+# Sk League can achieve peace but that can be reversed if enough electors become Calvinist.
+# If Emperor wins against Sk league reform growth slows in the HRE but TYW can't be avoided. 
+# No winner of Sk War results Catholic supremacy but Calvinists are now the heretic religion.
+# If Schmalkaldic war isn't fought the league simply disbands for now
+# 30-Years War ends in a supremacy for one side or the other or PoW
+# Failure to fight 30-Years War ends in Imperial Supremacy
+# In the event of supremacy, heretic religion depends on the outcome of Schmalkaldic War
+
+#1 Schmalkaldic League
+#2 League Wins (Religious Peace)
+#3 Emperor Wins (Restricts Reformation Growth)
+#4 Peace of Augsburg (Catholic Supremacy but Protestants are Accepted)
+#5 League Disbands (If no war)
+#6 Evangelical Union
+#7 Union Wins (Lock Leader's religion)
+#8 Emperor Wins (Lock Emperor's Religion)
+#9 Peace of Westphalia (Religious Peace)
+#10 Imperial Diet (Lock to Emperor)
+
+namespace = vef_leaguewars
+
+# Formation of Schmalkaldic League (Historically formed 1531)
+country_event = {
+	id = vef_leaguewars.1
+	title = "vef_leaguewars.1.t"
+	desc = "vef_leaguewars.1.d"
+	picture = VEF_RELIGIOUS_WARS_eventPicture
+	major = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		is_emperor = yes
+		has_dlc = "Art of War"
+		NOT = { has_global_flag = vef_schmalkaldic_league }	
+		religion = catholic	
+		any_known_country = {
+			is_elector = yes
+			religion = protestant
+			is_free_or_tributary_trigger = yes
+		}
+		religion_years = { protestant = 10 }
+		NOT = { hre_reform_level = 6 }
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.2
+			is_year = 1530
+		}	
+	}
+	option = {
+		name = "vef_leaguewars.1.opta"
+		enable_hre_leagues = yes
+		set_global_flag = vef_schmalkaldic_league
+	}
+}
+
+# League Victory
+country_event = {
+	id = vef_leaguewars.2
+	title = "vef_leaguewars.2.t"
+	desc = "vef_leaguewars.2.d"
+	picture = VEF_RELIGIOUS_WARS_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "Art of War"
+		NOT = { has_global_flag = vef_evangelical_union }
+		hre_religion = catholic
+		OR = {
+			NOT = { has_country_flag = hre_religion_changed }
+			had_country_flag = { flag = hre_religion_changed days = 30 }
+		}
+	}
+	
+	immediate = { set_hre_religion_treaty = yes }
+	
+	option = {
+		name = "vef_leaguewars.2.opta"
+	}
+}
+
+# Imperial Victory
+country_event = {
+	id = vef_leaguewars.3
+	title = "vef_leaguewars.3.t"
+	desc = "vef_leaguewars.3.d"
+	picture = VEF_RELIGIOUS_WARS_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "Art of War"
+		NOT = { has_global_flag = vef_evangelical_union }
+		hre_religion = catholic
+	}
+	
+	immediate = { enable_hre_leagues = no }
+	
+	option = {
+		name = "vef_leaguewars.3.opta"
+		every_province = {
+			limit = { is_part_of_hre = yes }
+			add_province_modifier = { name = vef_schmalkaldic_defeat duration = 18250 }
+		}
+	}
+}
+
+# Peace of Augsburg
+country_event = {
+	id = vef_leaguewars.4
+	title = "vef_leaguewars.4.t"
+	desc = "vef_leaguewars.4.d"
+	picture = VEF_RELIGIOUS_WARS_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "Art of War"
+		NOT = { has_global_flag = vef_evangelical_union }
+		hre_religion = catholic
+	}
+	
+	immediate = {
+		set_hre_religion = catholic
+		set_hre_heretic_religion = reformed
+		enable_hre_leagues = no
+	}
+	
+	option = {
+		name = "vef_leaguewars.4.opta"
+	}
+}
+
+# Schmalkaldic League Disbands after 25 years
+country_event = {
+	id = vef_leaguewars.5
+	title = "vef_leaguewars.5.t"
+	desc = "vef_leaguewars.5.d"
+	picture = VEF_RELIGIOUS_WARS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_league_leader = yes
+		has_dlc = "Art of War"
+		NOT = { religion = catholic }
+		had_global_flag = { flag = vef_schmalkaldic_league days = 9125 }
+		NOT = { has_global_flag = vef_evangelical_union }
+		is_at_war = no
+		hre_religion = catholic
+		hre_leagues_enabled = yes
+		has_regency = no	
+		hre_religion_locked = no
+		hre_religion_treaty = no
+	}
+	
+	immediate = {
+		enable_hre_leagues = no
+	}
+	
+	option = {
+		name = "vef_leaguewars.5.opta"
+	}
+}
+
+# Formation of Evangelical Union
+country_event = {
+	id = vef_leaguewars.6
+	title = "vef_leaguewars.6.t"
+	desc = "vef_leaguewars.6.d"
+	picture = VEF_RELIGIOUS_WARS_eventPicture
+	major = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		is_emperor = yes
+		has_dlc = "Art of War"
+		NOT = { has_global_flag = vef_evangelical_union }	
+		hre_leagues_enabled = no
+		is_year = 1585
+		NOT = { is_year = 1625 }
+		OR = {
+			AND = {
+				hre_heretic_religion = reformed
+				any_known_country = {
+					is_elector = yes
+					OR = {
+						religion = reformed
+						religion = anabaptist
+					}
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AND = {
+				hre_religion_treaty = no
+				hre_heretic_religion = protestant
+				any_known_country = {
+					is_elector = yes
+					OR = {
+						religion = protestant
+						religion = reformed
+						religion = anabaptist
+					}
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AND = {
+				hre_religion_treaty = yes
+				any_known_country = {
+					is_elector = yes
+					OR = {
+						religion = reformed
+						religion = anabaptist
+					}
+					is_free_or_tributary_trigger = yes
+					any_neighbor_country = {
+						is_elector = yes
+						OR = {
+							religion = reformed
+							religion = anabaptist
+						}
+						is_free_or_tributary_trigger = yes
+					}
+				}
+			}
+		}
+		NOT = { hre_reform_level = 6 }
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+		modifier = {
+			factor = 0.3
+			is_year = 1600
+		}
+		modifier = {
+			factor = 0.1
+			is_year = 1610
+		}	
+	}
+	option = {
+		name = "vef_leaguewars.6.opta"
+		enable_hre_leagues = yes
+		set_global_flag = vef_evangelical_union
+	}
+}
+
+# Evangelical Union Victory
+country_event = {
+	id = vef_leaguewars.7
+	title = "vef_leaguewars.7.t"
+	desc = "vef_leaguewars.7.d"
+	picture = VEF_RELIGIOUS_WARS_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "Art of War"
+		hre_religion = catholic
+		has_global_flag = vef_evangelical_union
+	}
+	
+	immediate = {
+		set_hre_heretic_religion = catholic
+		if = {
+			limit = {
+				any_country = {
+					is_league_leader = yes
+					religion = protestant
+				}
+			}
+			set_hre_religion = protestant
+		}
+		if = {
+			limit = {
+				any_country = {
+					is_league_leader = yes
+					religion = reformed
+				}
+			}
+			set_hre_religion = reformed
+		}
+		if = {
+			limit = {
+				any_country = {
+					is_league_leader = yes
+					religion = anabaptist
+				}
+			}
+			set_hre_religion = anabaptist
+		}
+		set_hre_religion_locked = yes
+	}
+
+	option = {
+		name = "vef_leaguewars.7.opta"
+	}
+}
+
+# Imperial Victory
+country_event = {
+	id = vef_leaguewars.8
+	title = "vef_leaguewars.8.t"
+	desc = "vef_leaguewars.8.d"
+	picture = VEF_RELIGIOUS_WARS_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "Art of War"
+		has_global_flag = vef_evangelical_union
+	}
+	
+	immediate = {
+		set_hre_religion_locked = yes
+	}
+
+	option = {
+		name = "vef_leaguewars.8.opta"
+	}
+}
+
+# Peace of Westphalia
+country_event = {
+	id = vef_leaguewars.9
+	title = "vef_leaguewars.9.t"
+	desc = "vef_leaguewars.9.d"
+	picture = RELIGIOUS_WARS_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "Art of War"
+		has_global_flag = vef_evangelical_union
+	}
+	
+	immediate = {
+		set_hre_religion_treaty = yes
+		set_global_flag = peace_of_westphalia
+	}
+
+	option = {
+		name = "vef_leaguewars.9.opta"
+	}
+}
+
+# Imperial Diet
+country_event = {
+	id = vef_leaguewars.10
+	title = "vef_leaguewars.10.t"
+	desc = "vef_leaguewars.10.d"
+	picture = VEF_RELIGIOUS_WARS_eventPicture
+	major = yes
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor = yes
+		has_dlc = "Art of War"
+		is_at_war = no
+		NOT = { any_known_country = { is_in_league_war = yes }}
+		hre_religion_locked = no
+		hre_religion_treaty = no
+		OR = {
+			AND = {
+				hre_leagues_enabled = yes
+				had_global_flag = {
+					flag = vef_evangelical_union
+					days = 10950
+				}
+			}
+			AND = {
+				NOT = { has_global_flag = vef_evangelical_union }
+				is_year = 1625
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	option = {
+		name = "vef_leaguewars.10.opta"
+		set_hre_religion_locked = yes
+	}
+}

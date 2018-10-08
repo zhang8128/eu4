@@ -1,0 +1,29 @@
+government = monarchy add_government_reform = principality
+government_rank = 2
+primary_culture = byelorussian
+religion = orthodox
+technology_group = eastern
+capital = 658 # Chernigov
+fixed_capital = 658 # Cannot move capital away from this province & no power cost to move to it
+
+set_country_flag = russian_horde_tribute
+
+1295.1.1 = {
+	monarch = {
+		name = "Mikhail II"
+		dynasty = "Rurikovich"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1320.1.1 = {
+	monarch = {
+		name = "Mikhail III"
+		dynasty = "Rurikovich"
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}

@@ -1,0 +1,79 @@
+#Country Name: Please seefilename.
+
+graphical_culture = muslimgfx
+
+color = { 6 42 120 }
+
+historical_idea_groups = {
+	free_trade_ideas
+	defensive_ideas
+	religious_ideas
+	gf1_ideas
+	quantity_ideas
+	expansion_ideas
+	intimidatory_ideas
+	standing_army_ideas
+}
+
+historical_units = {
+	sub_saharan_cavalry_0_1
+	sub_saharan_cavalry_16_1
+	sub_saharan_cavalry_31_1
+	sub_saharan_cavalry_40_1
+	sub_saharan_infantry_0_1
+	sub_saharan_infantry_6_1
+	sub_saharan_infantry_17_1
+	sub_saharan_infantry_25_1
+	sub_saharan_infantry_28_1
+	sub_saharan_infantry_34_1
+	sub_saharan_infantry_42_1
+}
+
+monarch_names = {
+	"Arliqo #0" = 60
+	"Sarjelle #0" = 60
+	"Ajuran #1" = 40
+	"Fadumo #0" = 40
+	"Umar #0" = 40
+	"Muhammad #0" = 20
+	
+	"Zaynab #0" = -1
+	"Sadaf #0" = -1
+	"Amira #0" = -1
+}
+
+leader_names = {
+	Abdallah
+	Abdikarim
+	Abubakar
+	Ahmad
+	Ayub
+	Dalmar
+	Ghedi
+	Hassan
+	Khalid
+	Liban
+	Mahad
+	Mosa
+	Muhammad
+	Omar
+	Rahim
+	Saad
+	Sadiq
+	Sharif
+}
+
+ship_names = {
+	Afgooye Awash Baraawe Berahle Boocame
+	Dallol Dooloow Dubti Dulecha Elidar Ewa 
+	Geedo Gewane Gobolka Hawo Jubbada 
+	Kalabaydh Marka Semera Simurobi Yalo
+}
+
+army_names = {
+	"Army of $PROVINCE$"
+}
+
+fleet_names = {
+	"Fleet of $PROVINCE$"
+}

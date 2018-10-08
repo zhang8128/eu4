@@ -1,0 +1,503 @@
+OSM_against_byzantium = {
+	slot = 2 #upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = OSM
+	}
+	has_country_shield = yes
+	
+	osm_win_war_byzantium = {
+		icon = mission_non-western_soldiers
+		required_missions = {  } #None
+		completed_by = 1336.12.31
+		trigger = {
+			NOT = { war_with = BYZ }
+			owns = 602
+		}
+		provinces_to_highlight = {
+			province_id = 602
+		}
+		effect = {
+			add_permanent_claim = 611
+			add_permanent_claim = 612
+		}
+	}
+	osm_drive_byzantium_from_anatolia = {
+		icon = mission_war_chest
+		required_missions = { osm_win_war_byzantium }
+		position = 2
+		provinces_to_highlight = {
+			region = anatolia_region
+			owned_by = BYZ
+			NOT = { province_id = 589 }
+			NOT = { province_id = 591 }
+			NOT = { province_id = 592 }
+		}
+		trigger = {
+			NOT = {
+				BYZ = {
+					any_owned_province = {
+						region = anatolia_region
+						NOT = { province_id = 589 }
+						NOT = { province_id = 591 }
+						NOT = { province_id = 592 }
+					}
+				}
+			}
+		}
+		completed_by = 1337.1.1
+		effect = {
+			add_permanent_claim = 586
+			add_permanent_claim = 589
+			add_permanent_claim = 591
+			add_permanent_claim = 592
+		}
+	}
+	osm_foothold_in_europe = {
+		icon = mission_invade_island
+		required_missions = { osm_drive_byzantium_from_anatolia }
+		position = 3
+		
+		ai_weight = {
+			factor = 3
+		}
+		ai_priority = {
+			factor = 3
+		}
+		completed_by = 1460.1.1
+		provinces_to_highlight = {
+			province_id = 586
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 586
+		}
+		effect = {
+			thrace_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { province_id = 588 }}
+				add_permanent_claim = OSM
+			}
+		}
+	}
+	
+	osm_form_turkey = {
+		icon = mission_early_game_buildings
+		required_missions = {
+			turks_conquer_rum
+			turks_three_area
+			osm_foothold_in_europe
+		}
+		position = 4
+		trigger = {
+			always = yes
+		}
+		completed_by = 1865.1.1
+		effect = {
+			change_tag = TUR
+			swap_non_generic_missions = yes
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = {
+					NOT = { government = ottoman_government }
+					NOT = { government = janissary_government }
+				}
+				change_government = ottoman_government
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			add_prestige = 25
+			northern_greece_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = TUR
+			}
+			macedonia_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = TUR
+			}
+			morea_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = TUR
+			}
+			add_permanent_claim = 588
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = TUR_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+			TUR = { set_country_flag = turkey_formed }
+		}
+	}
+}
+
+turks_against_byzantium = {
+	slot = 2 #upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		primary_culture = turkish
+		capital_scope = { region = anatolia_region }
+		NOT = { tag = OSM }
+		NOT = { tag = TUR }
+		NOT = { tag = AKK }
+	}
+	has_country_shield = yes
+
+	drive_byzantium_from_anatolia = {
+		icon = mission_war_chest
+		required_missions = { win_war_byzantium }
+		position = 1
+		provinces_to_highlight = {
+			region = anatolia_region
+			owned_by = BYZ
+			NOT = { province_id = 589 }
+			NOT = { province_id = 591 }
+			NOT = { province_id = 592 }
+		}
+		trigger = {
+			NOT = {
+				BYZ = {
+					any_owned_province = {
+						region = anatolia_region
+						NOT = { province_id = 589 }
+						NOT = { province_id = 591 }
+						NOT = { province_id = 592 }
+					}
+				}
+			}
+		}
+		completed_by = 1865.1.1
+		effect = {
+			add_permanent_claim = 586
+			add_permanent_claim = 589
+			add_permanent_claim = 591
+			add_permanent_claim = 592
+		}
+	}
+	foothold_in_europe = {
+		icon = mission_invade_island
+		required_missions = { drive_byzantium_from_anatolia }
+		position = 3
+		
+		ai_weight = {
+			factor = 3
+		}
+		ai_priority = {
+			factor = 3
+		}
+		completed_by = 1865.1.1
+		provinces_to_highlight = {
+			province_id = 586
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 586
+		}
+		effect = {
+			thrace_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { province_id = 588 }}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	turks_form_turkey = {
+		icon = mission_early_game_buildings
+		required_missions = {
+			turks_conquer_rum
+			turks_three_area
+			foothold_in_europe
+		}
+		position = 4
+		trigger = {
+			always = yes
+		}
+		completed_by = 1865.1.1
+		effect = {
+			change_tag = TUR
+			swap_non_generic_missions = yes
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = {
+					NOT = { government = ottoman_government }
+					NOT = { government = janissary_government }
+				}
+				change_government = ottoman_government
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			add_prestige = 25
+			northern_greece_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = TUR
+			}
+			macedonia_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = TUR
+			}
+			morea_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = TUR
+			}
+			add_permanent_claim = 588
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = TUR_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+			TUR = { set_country_flag = turkey_formed }
+		}
+	}
+}
+
+turks_defeat_sultunate = {
+	slot = 3 #upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		primary_culture = turkish
+		capital_scope = { region = anatolia_region }
+		NOT = { tag = TUR }
+	}
+	has_country_shield = yes
+	
+	grow_home_base = {
+		icon = mission_unite_home_region
+		required_missions = {  } #None
+		completed_by = 1865.1.1
+		trigger = {
+			NOT = { capital_scope = { any_neighbor_province = { NOT = { owned_by = ROOT }}}}
+		}
+		effect = {
+			if = {
+				limit = { NOT = { tag = RUM }}
+				add_casus_belli = { target = RUM type = cb_annex }
+			}
+			else = {
+				add_country_modifier = {
+					name = army_enthusiasm
+					duration = 3650
+				}
+			}
+		}
+	}
+	turks_conquer_rum = {
+		icon = mission_non-western_cavalry_raid
+		required_missions = { grow_home_base }
+		position = 3
+		provinces_to_highlight = {
+			owned_by = RUM
+		}
+		trigger = {
+			OR = {
+				tag = RUM
+				NOT = { exists = RUM }
+				RUM = { is_subject_of = ROOT }
+				army_strength = { who = RUM value = 3 }
+			}
+		}
+		completed_by = 1865.1.1
+		effect = {
+			
+		}
+	}
+}
+
+turks_secure_anatolia = {
+	slot = 4 
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		primary_culture = turkish
+		capital_scope = { region = anatolia_region }
+		NOT = { tag = TUR }
+	}
+	has_country_shield = yes
+	
+	turks_one_area = {
+		icon = mission_conquer_50_development
+		required_missions = {  } #None
+		provinces_to_highlight = {
+			OR = {
+				area = hudavendigar_area
+				area = nicea_area
+				area = hamid_area
+				area = aydin_area
+				area = karesi_area
+				area = mentese_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		completed_by = 1865.1.1
+		trigger = {
+			OR = {
+				hudavendigar_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				nicea_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				hamid_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				aydin_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				karesi_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				mentese_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+		effect = {
+			hudavendigar_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			aydin_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	turks_two_area = {
+		icon = mission_build_up_to_force_limit
+		required_missions = { turks_one_area }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				area = hudavendigar_area
+				area = nicea_area
+				area = hamid_area
+				area = aydin_area
+				area = karesi_area
+				area = mentese_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		completed_by = 1865.1.1
+		trigger = {
+			hudavendigar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			OR = {
+				nicea_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				hamid_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				aydin_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				karesi_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				mentese_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+		effect = {
+			nicea_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			mentese_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	turks_three_area = {
+		icon = mission_cannons_firing
+		required_missions = { turks_two_area }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = hudavendigar_area
+				area = nicea_area
+				area = hamid_area
+				area = aydin_area
+				area = karesi_area
+				area = mentese_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		completed_by = 1865.1.1
+		trigger = {
+			hudavendigar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			nicea_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			OR = {
+				hamid_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				aydin_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				karesi_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				mentese_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+		effect = {
+			anatolia_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}

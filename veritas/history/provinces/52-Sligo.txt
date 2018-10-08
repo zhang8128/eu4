@@ -1,0 +1,37 @@
+# Sligo
+
+capital = "Sligo"
+owner = CNN
+controller = CNN
+add_core = CNN
+culture = irish
+religion = catholic
+trade_goods = fish
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1350.1.1	= { base_tax = 2 base_production = 2 base_manpower = 2 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death set_variable = { which = tax_growth value = 75 } set_variable = { which = prod_growth value = 75 }} # Black Death
+1360.1.1	= { remove_province_modifier = province_black_death }
+1400.1.1	= { base_tax = 3 base_production = 3 set_variable = { which = tax_growth value = 0 } set_variable = { which = prod_growth value = 0 }}
+1500.1.1	= { base_manpower = 3 }
+1585.1.1	= {	owner = IRE controller = IRE add_core = IRE seat_in_parliament = yes } #Composition of Connacht
+1642.6.7	= { remove_core = CNN seat_in_parliament = no } # Confederation of Kilkenny
+1650.1.1	= { base_tax = 4 base_production = 4 }
+1652.5.1	= { owner = ENG controller = ENG } # End of the Irish Confederates
+1660.5.1	= { owner = IRE controller = IRE seat_in_parliament = yes } # Restoration of Charles II
+1689.3.12	= { revolt = { type = pretender_rebels size = 0 } controller = REB } # James II Lands in Ireland
+1691.9.23	= { revolt = {} controller = IRE } # Capture of Limerick
+1725.1.1	= { courthouse = yes } # Estimated
+1750.1.1	= { base_manpower = 5 }
+1798.8.27	= { revolt = { type = nationalist_rebels size = 1 } controller = REB } # Republic of Connaught
+1798.9.8	= { revolt = {} controller = IRE }
+1800.1.1	= { base_tax = 5 base_production = 5 base_manpower = 6 }
+1801.1.1	= { owner = GBR controller = GBR add_core = GBR } #Acts of Union
+1850.1.1	= { base_manpower = 7 }

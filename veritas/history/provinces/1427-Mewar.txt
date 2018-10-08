@@ -1,0 +1,18 @@
+# Mewar
+#Province IDs changed
+
+owner = MER
+controller = MER
+culture = rajput
+religion = hinduism
+capital = "Kotharia"
+trade_goods = spices
+hre = no
+base_tax = 3
+base_production = 3
+base_manpower = 3
+add_core = MER
+is_city = yes
+discovered_by = nomad_group
+discovered_by = indian
+discovered_by = indopersian

@@ -1,0 +1,2208 @@
+########################################
+# Flavor Events for Crusades
+# VEF
+########################################
+
+namespace = vef_crusade 
+
+# Crusade Starter Event
+country_event = {
+	id = vef_crusade.10000
+	title = vef_crusade.10000.t
+	desc = vef_crusade.10000.d
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+
+	option = {	# Jerusalem
+		trigger = {
+			1611 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				check_variable = { which = support_crusade_jerusalem value = 1 }
+				factor = 2
+			}
+			modifier = {
+				check_variable = { which = support_crusade_jerusalem value = 2 }
+				factor = 1.5
+			}
+			modifier = {
+				check_variable = { which = support_crusade_jerusalem value = 3 }
+				factor = 1.5
+			}
+		}
+		name = "vef_crusade.10000.opta"
+		1611 = {
+			add_permanent_province_modifier = { name = crusade_goal duration = -1 }
+			owner = {
+				set_country_flag = crusade_target
+				country_event = { id = vef_crusade.10002 days = 1 }
+			}
+		} 
+	}
+	
+	option = {	# Alexandria
+		trigger = {
+			1635 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				check_variable = { which = support_crusade_alexandria value = 1 }
+				factor = 2
+			}
+			modifier = {
+				check_variable = { which = support_crusade_alexandria value = 2 }
+				factor = 1.5
+			}
+			modifier = {
+				check_variable = { which = support_crusade_alexandria value = 3 }
+				factor = 1.5
+			}
+		}
+		name = "vef_crusade.10000.optb"
+		1635 = {
+			add_permanent_province_modifier = { name = crusade_goal duration = -1 }
+			owner = {
+				set_country_flag = crusade_target
+				country_event = { id = vef_crusade.10002 days = 1 }
+			}
+		}
+	}
+	
+	option = {	# Tunis
+		trigger = {
+			1648 = {
+				owner = {
+					religion_group = muslim 
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 30
+			modifier = {
+				check_variable = { which = support_crusade_tunis value = 1 }
+				factor = 2
+			}
+			modifier = {
+				check_variable = { which = support_crusade_tunis value = 2 }
+				factor = 1.5
+			}
+			modifier = {
+				check_variable = { which = support_crusade_tunis value = 3 }
+				factor = 1.5
+			}
+		}
+		name = "vef_crusade.10000.optc"
+		1648 = {
+			add_permanent_province_modifier = { name = crusade_goal duration = -1 }
+			owner = {
+				set_country_flag = crusade_target
+				country_event = { id = vef_crusade.10002 days = 1 }
+			}
+		}
+	}
+	
+	option = {	# Constantinople
+		trigger = {
+			588 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 40
+			modifier = {
+				check_variable = { which = support_crusade_constantinople value = 1 }
+				factor = 2
+			}
+			modifier = {
+				check_variable = { which = support_crusade_constantinople value = 2 }
+				factor = 1.5
+			}
+			modifier = {
+				check_variable = { which = support_crusade_constantinople value = 3 }
+				factor = 1.5
+			}
+		}
+		name = "vef_crusade.10000.optd"
+		588 = {
+			add_permanent_province_modifier = { name = crusade_goal duration = -1 }
+			owner = {
+				set_country_flag = crusade_target
+				country_event = { id = vef_crusade.10002 days = 1 }
+			}
+		}
+	}
+	
+	option = {	# Antioch
+		trigger = {
+		1618 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				check_variable = { which = support_crusade_aleppo value = 1 }
+				factor = 2
+			}
+			modifier = {
+				check_variable = { which = support_crusade_aleppo value = 2 }
+				factor = 1.5
+			}
+			modifier = {
+				check_variable = { which = support_crusade_aleppo value = 3 }
+				factor = 1.5
+			}
+		}
+		name = "vef_crusade.10000.opte"
+		1618 = {
+			add_permanent_province_modifier = { name = crusade_goal duration = -1 }
+			owner = {
+				set_country_flag = crusade_target
+				country_event = { id = vef_crusade.10002 days = 1 }
+			}
+		}
+	}
+	
+	option = {	# Smyrna
+		trigger = {
+			593 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				check_variable = { which = support_crusade_smyrna value = 1 }
+				factor = 2
+			}
+			modifier = {
+				check_variable = { which = support_crusade_smyrna value = 2 }
+				factor = 1.5
+			}
+			modifier = {
+				check_variable = { which = support_crusade_smyrna value = 3 }
+				factor = 1.5
+			}
+		}
+		name = "vef_crusade.10000.optf"
+		593 = {
+			add_permanent_province_modifier = { name = crusade_goal duration = -1 }
+			owner = {
+				set_country_flag = crusade_target
+				country_event = { id = vef_crusade.10002 days = 1 }
+			}
+		}
+	}
+	
+	option = {	# Morea
+		trigger = {
+			575 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 30
+			modifier = {
+				check_variable = { which = support_crusade_morea value = 1 }
+				factor = 2
+			}
+			modifier = {
+				check_variable = { which = support_crusade_morea value = 2 }
+				factor = 1.5
+			}
+			modifier = {
+				check_variable = { which = support_crusade_morea value = 3 }
+				factor = 1.5
+			}
+		}
+		name = "vef_crusade.10000.optg"
+		575 = {
+			add_permanent_province_modifier = { name = crusade_goal duration = -1 }
+			owner = {
+				set_country_flag = crusade_target
+				country_event = { id = vef_crusade.10002 days = 1 }
+			}
+		}
+	}
+	
+	option = {	# Crete
+		trigger = {
+			577 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 40
+			modifier = {
+				check_variable = { which = support_crusade_crete value = 1 }
+				factor = 2
+			}
+			modifier = {
+				check_variable = { which = support_crusade_crete value = 2 }
+				factor = 1.5
+			}
+			modifier = {
+				check_variable = { which = support_crusade_crete value = 3 }
+				factor = 1.5
+			}
+		}
+		name = "vef_crusade.10000.opth"
+		577 = {
+			add_permanent_province_modifier = { name = crusade_goal duration = -1 }
+			owner = {
+				set_country_flag = crusade_target
+				country_event = { id = vef_crusade.10002 days = 1 }
+			}
+		}
+	}
+	
+	option = {	# Cyprus
+		trigger = {
+			618 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 30
+			modifier = {
+				check_variable = { which = support_crusade_cyprus value = 1 }
+				factor = 2
+			}
+			modifier = {
+				check_variable = { which = support_crusade_cyprus value = 2 }
+				factor = 1.5
+			}
+			modifier = {
+				check_variable = { which = support_crusade_cyprus value = 3 }
+				factor = 1.5
+			}
+		}
+		name = "vef_crusade.10000.opti"
+		618 = {
+			add_permanent_province_modifier = { name = crusade_goal duration = -1 }
+			owner = {
+				set_country_flag = crusade_target
+				country_event = { id = vef_crusade.10002 days = 1 }
+			}
+		}
+	}
+	
+	option = {	# Rhodes
+		trigger = {
+			596 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 40
+			modifier = {
+				check_variable = { which = support_crusade_rhodes value = 1 }
+				factor = 2
+			}
+			modifier = {
+				check_variable = { which = support_crusade_rhodes value = 2 }
+				factor = 1.5
+			}
+			modifier = {
+				check_variable = { which = support_crusade_rhodes value = 3 }
+				factor = 1.5
+			}
+		}
+		name = "vef_crusade.10000.optj"
+		596 = {
+			add_permanent_province_modifier = { name = crusade_goal duration = -1 }
+			owner = {
+				set_country_flag = crusade_target
+				country_event = { id = vef_crusade.10002 days = 1 }
+			}
+		}
+	}
+	
+	option = {	# Granada
+		trigger = {
+			100 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+			is_year = 1400
+		}
+		ai_chance = { factor = 10 }
+		name = "vef_crusade.10000.optk"
+		100 = {
+			add_permanent_province_modifier = { name = crusade_goal duration = -1 }
+			owner = {
+				set_country_flag = crusade_target
+				country_event = { id = vef_crusade.10002 days = 1 }
+			}
+		}
+	}
+	
+	option = {	# Sevilla
+		trigger = {
+			96 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		ai_chance = { factor = 40 }
+		name = "vef_crusade.10000.optl"
+		96 = {
+			add_permanent_province_modifier = { name = crusade_goal duration = -1 }
+			owner = {
+				set_country_flag = crusade_target
+				country_event = { id = vef_crusade.10002 days = 1 }
+			}
+		}
+	}
+	
+	option = {	# Southern Italy
+		trigger = {
+			any_province = {
+				OR = {
+					area = naples_area
+					area = apulia_area
+					area = calabria_area
+					area = sicily_area
+				}
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		ai_chance = { factor = 400 }
+		name = "vef_crusade.10000.optm"
+		random_province = {
+			limit = {
+				OR = {
+					area = naples_area
+					area = apulia_area
+					area = calabria_area
+					area = sicily_area
+				}
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+			add_permanent_province_modifier = { name = crusade_goal duration = -1 }
+			owner = {
+				set_country_flag = crusade_target
+				country_event = { id = vef_crusade.10002 days = 1 }
+			}
+		}
+	}
+}
+
+# Called to Crusade
+country_event = {
+id = vef_crusade.10001
+	title = vef_crusade.10001.t
+	desc = vef_crusade.10001.d
+	picture = VEF_POPE_PREACHING_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = committed_next_crusade }
+		NOT = { has_country_flag = vef_supports_avignon }
+	}
+
+	option = {	# Join Crusade
+		name = "vef_crusade.10001.opta"
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 20
+				FROM = { any_owned_province = { region = italy_region }}
+			}
+			modifier = {
+				factor = 0.01
+				any_known_country = { war_with = ROOT }
+			}
+		}
+		set_country_flag = crusade_member
+		add_prestige = 5
+		reverse_add_opinion = { who = PAP modifier = pap_took_crusade }
+		if = {
+			limit = {
+				has_country_modifier = ruler_excommunicated
+				NOT = { war_with = PAP }
+			}
+			country_event = { id = vef_crusade.10013 days = 1 }
+		}
+		change_variable = { which = vef_papal_influence value = 25 }
+	}
+	
+	option = {	# Send some knights
+		name = "vef_crusade.10001.optb"
+		ai_chance = { factor = 30 }
+		set_country_flag = crusading_knights
+		add_manpower = -3.5
+		change_variable = { which = vef_papal_influence value = 10 }
+	}
+	
+	option = {	# Make a donation
+		ai_chance = { factor = 30 }
+		name = "vef_crusade.10001.optc"
+		add_years_of_income = -0.20
+		change_variable = { which = vef_papal_influence value = 5 }
+	}
+	
+	option = {	# Not interested
+		ai_chance = { factor = 10 }
+		name = "vef_crusade.10001.optd"
+		add_prestige = -5
+		change_variable = { which = vef_papal_influence value = -10 }
+	}
+}
+
+# Hello, you are about to be crusaded against! 
+country_event = {
+	id = vef_crusade.10002
+	title = vef_crusade.10002.t
+	desc = vef_crusade.10002.d
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_crusade.10002.opta"
+		if = {
+			limit = { is_subject = yes }
+			overlord = { country_event = { id = vef_crusade.10014 days = 3 }}
+		}
+		if = {
+			limit = {
+				exists = ENG
+				ENG = {
+					religion = catholic
+					is_subject = no
+				}
+			}
+			ENG = { country_event = { id = vef_crusade.10001 days = 7 }}
+		}
+		if = {
+			limit = {
+				exists = FRA
+				FRA = {
+					religion = catholic
+					is_subject = no
+				}
+			}
+			FRA = { country_event = { id = vef_crusade.10001 days = 7 }}
+		}
+		if = {
+			limit = {
+				exists = CAS
+				CAS = {
+					religion = catholic
+					is_subject = no
+				}
+			}
+			CAS = { country_event = { id = vef_crusade.10001 days = 7 }}
+		}
+		if = {
+			limit = {
+				exists = ARA
+				ARA = {
+					religion = catholic
+					is_subject = no
+				}
+			}
+			ARA = { country_event = { id = vef_crusade.10001 days = 7 }}
+		} 
+		if = {
+			limit = {
+				exists = SPA
+				SPA = {
+					religion = catholic
+					is_subject = no
+				}
+			}
+			SPA = { country_event = { id = vef_crusade.10001 days = 7 }}
+		}
+		if = {
+			limit = {
+				exists = POR
+				POR = {
+					religion = catholic
+					is_subject = no
+				}
+			}
+			POR = { country_event = { id = vef_crusade.10001 days = 7 }}
+		}
+		if = {
+			limit = {
+				exists = TEU
+				TEU = {
+					religion = catholic
+					is_subject = no
+				}
+			}
+			TEU = { country_event = { id = vef_crusade.10001 days = 7 }}
+		}
+		if = {
+			limit = {
+				exists = PRU
+				PRU = {
+					religion = catholic
+					is_subject = no
+				}
+			}
+			PRU = { country_event = { id = vef_crusade.10001 days = 7 }}
+		} 
+		if = {
+			limit = {
+				exists = BOH
+				BOH = {
+					religion = catholic
+					is_subject = no
+				}
+			}
+			BOH = { country_event = { id = vef_crusade.10001 days = 7 }}
+		} 
+		if = {
+			limit = {
+				exists = HAB
+				HAB = {
+					religion = catholic
+					is_subject = no
+				}
+			}
+			HAB = { country_event = { id = vef_crusade.10001 days = 7 }}
+		} 
+		if = {
+			limit = {
+				exists = HUN
+				HUN = {
+					religion = catholic
+					is_subject = no
+				}
+			}
+			HUN = { country_event = { id = vef_crusade.10001 days = 7 }}
+		} 
+		if = {
+			limit = {
+				exists = SCL
+				SCL = {
+					religion = catholic
+					is_subject = no
+				}
+			}
+			SCL = { country_event = { id = vef_crusade.10001 days = 7 }}
+		}
+		if = {
+			limit = {
+				exists = VEN
+				VEN = {
+					religion = catholic
+					is_subject = no
+				}
+				OR = {
+					575 = { has_province_modifier = crusade_goal }
+					577 = { has_province_modifier = crusade_goal }
+					588 = { has_province_modifier = crusade_goal }
+					596 = { has_province_modifier = crusade_goal }
+					618 = { has_province_modifier = crusade_goal }
+					1635 = { has_province_modifier = crusade_goal }
+					ai = no
+				}
+			}
+			VEN = { country_event = { id = vef_crusade.10001 days = 7 }}
+		}
+		if = {
+			limit = {
+				exists = KNI
+				KNI = {
+					is_subject = no
+					religion_group = christian
+				}
+			}
+			KNI = { country_event = { id = vef_crusade.10003 days = 7 }}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = { exists = KNI }
+					NOT = { KNI = { religion_group = christian }}
+					KNI = { is_subject = yes }
+				}
+			}
+			PAP = { country_event = { id = vef_crusade.10004 days = 365 }}
+		}
+		every_country = {
+			limit = {
+				religion = catholic
+				OR = {
+					num_of_cities = 15
+					has_country_flag = crusader_state
+					ai = no
+				}
+				NOT = { capital_scope = { region = scandinavia_region }}
+				is_subject = no
+				NOT = { tag = ENG }
+				NOT = { tag = FRA }
+				NOT = { tag = CAS }
+				NOT = { tag = ARA }
+				NOT = { tag = SPA }
+				NOT = { tag = POR }
+				NOT = { tag = TEU }
+				NOT = { tag = PRU }
+				NOT = { tag = BOH }
+				NOT = { tag = HAB }
+				NOT = { tag = HUN }
+				NOT = { tag = SCL }
+				NOT = { tag = KNI }
+				NOT = { tag = VEN }
+				NOT = { tag = PAP }
+			}
+			country_event = { id = vef_crusade.10001 days = 7 } 
+		}
+	}
+}
+
+# Inform the Knights a crusade is imminent
+country_event = {
+	id = vef_crusade.10003
+	title = vef_crusade.10003.t
+	desc = vef_crusade.10003.d
+	picture = VEF_POPE_PREACHING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_crusade.10003.opta"
+		set_country_flag = crusade_member
+		add_years_of_income = 1.66
+		add_manpower = 4
+		PAP = { country_event = { id = vef_crusade.10004 days = 365 }}
+	}
+}
+
+# Pope Calls Crusade
+country_event = {
+	id = vef_crusade.10004
+	title = vef_crusade.10004.t
+	desc = vef_crusade.10004.d
+	picture = VEF_POPE_PREACHING_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			every_known_country = {
+				limit = { has_country_flag = committed_next_crusade }
+				clr_country_flag = committed_next_crusade
+				set_country_flag = crusade_member
+			}
+		}
+	}
+	
+	option = {
+		ai_chance = { factor = 0 }
+		name = "vef_crusade.10004.opta"
+		set_country_flag = crusade_member
+		add_years_of_income = 1
+		add_manpower = 5
+		every_known_country = {
+			limit = { has_country_flag = crusade_target }
+			country_event = { id = vef_crusade.10005 days = 1 }
+		}
+	}
+	
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_crusade.10004.optb"
+		every_known_country = {
+			limit = { has_country_flag = crusade_target }
+			country_event = { id = vef_crusade.10005 days = 1 }
+		}
+	}
+}
+
+# Crusade!
+country_event = {
+	id = vef_crusade.10005
+	title = vef_crusade.10005.t
+	desc = vef_crusade.10005.d
+	picture = VEF_POPE_PREACHING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_crusade.10005.opta"
+		every_country = {
+			limit = { has_country_flag = crusade_member }
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_vefcrusade
+			}
+			every_province = {
+				limit = { has_province_modifier = crusade_goal }
+				add_claim = PREV
+			}
+			country_event = { id = vef_crusade.10007 days = 1 }
+		}
+	}
+}
+
+# Crusade Over
+province_event = {
+	id = vef_crusade.10006
+	title = vef_crusade.10006.t
+	desc = vef_crusade.10006.d
+	picture = VEF_POPE_PREACHING_eventPicture
+	
+	trigger = {
+		has_province_modifier = crusade_goal
+		OR = {
+			NOT = { owner = { has_country_flag = crusade_target }}
+			had_global_flag = { flag = active_crusade days = 7300 }
+			owner = {
+				is_subject = yes
+				overlord = { religion_group = christian }
+			}
+		}
+	}
+	
+	hidden = yes
+	
+	option = {
+		trigger = {
+			OR = {
+				had_global_flag = { flag = active_crusade days = 7300 }
+				owner = { religion_group = christian }
+				owner = { overlord = { religion_group = christian }}
+			}
+		}
+		name = "vef_crusade.10006.opta"
+		if = {
+			limit = {
+				owner = {
+					NOT = { religion_group = christian }
+					overlord = { religion_group = christian }
+				}
+			}
+			owner = { overlord = { country_event = { id = vef_crusade.10015 }}}
+		}
+		if = {
+			limit = {
+				owned_by = BYZ
+				NOT = { had_global_flag = { flag = active_crusade days = 7300 }}
+			}
+			if = {
+				limit = { BYZ = { has_country_modifier = byzantine_decline1 }}
+				PAP = { country_event = { id = vef_crusade.10010 days = 7 }}
+			}
+			if = {
+				limit = { NOT = { BYZ = { has_country_modifier = byzantine_decline1 }}}
+				remove_province_modifier = crusade_goal
+				every_country = {
+					limit = { has_country_flag = crusade_member }
+					clr_country_flag = crusade_member
+					remove_claim = PREV
+				}
+				every_country = {
+					limit = { has_country_flag = crusade_target }
+					clr_country_flag  = crusade_target
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = { owned_by = BYZ }
+					had_global_flag = { flag = active_crusade days = 7300 }
+				}
+			}
+			remove_province_modifier = crusade_goal
+			every_country = {
+				limit = { has_country_flag = crusade_target }
+				clr_country_flag  = crusade_target
+			}
+			every_country = {
+				limit = { has_country_flag = crusade_member }
+				remove_claim = PREV
+				clr_country_flag  = crusade_member
+			}
+		}
+		if = { 
+			limit = { 
+				NOT = { religion_group = christian } 
+				owner = { religion_group = christian }
+				owner = { has_idea_group = religious_ideas }
+			}
+			add_province_modifier = { name = "crusader_missionary" duration = 1865 }
+		}
+	}
+	
+	option = {
+		trigger = {
+			NOT = { had_global_flag = { flag = active_crusade days = 7300 }}
+			NOT = { owner = { religion_group = christian }}
+			NOT = { owner = { overlord = { religion_group = christian }}}
+		}
+		name = "vef_crusade.10006.opta"
+		every_country = {
+			limit = { has_country_flag = crusade_target }
+			clr_country_flag = crusade_target
+			country_event = { id = vef_crusade.10016 days = 1 }
+		}
+		owner = {
+			set_country_flag = crusade_target
+			country_event = { id = vef_crusade.10009 days = 1 }
+		}
+	}
+}
+
+# Crusade Starts
+country_event = {
+	id = vef_crusade.10007
+	title = vef_crusade.10007.t
+	desc = vef_crusade.10007.d
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_crusade.10007.opta"
+	}
+}
+
+# Refresh Crusade
+country_event = {
+	id = vef_crusade.10008
+	title = vef_crusade.10008.t
+	desc = vef_crusade.10008.d
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	trigger = {
+		tag = PAP
+		had_global_flag = { flag = active_crusade days = 14000 }
+	}
+	
+	mean_time_to_happen = { months = 100 }
+	
+	option = {
+		name = "vef_crusade.10008.opta"
+		clr_global_flag = active_crusade
+		hidden_effect = {
+			set_variable = { which = crusade_decision_makers value = 0 }
+			set_variable = { which = support_crusade_jerusalem value = 0 }
+			set_variable = { which = support_crusade_alexandria value = 0 }
+			set_variable = { which = support_crusade_tunis value = 0 }
+			set_variable = { which = support_crusade_constantinople value = 0 }
+			set_variable = { which = support_crusade_aleppo value = 0 }
+			set_variable = { which = support_crusade_smyrna value = 0 }
+			set_variable = { which = support_crusade_crete value = 0 }
+			set_variable = { which = support_crusade_cyprus value = 0 }
+			set_variable = { which = support_crusade_rhodes value = 0 }
+		}
+	}
+}
+
+
+# You took the Crusade Goal
+country_event = {
+	id = vef_crusade.10009
+	title = vef_crusade.10009.t
+	desc = vef_crusade.10009.d
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_crusade.10009.opta"
+	}
+}
+
+# Papacy option to go after Byzantines if they take the Crusade goal
+country_event = {
+	id = vef_crusade.10010
+	title = vef_crusade.10010.t
+	desc = vef_crusade.10010.d
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		ai_chance = {
+			factor = 20
+			modifier = {
+				is_rival = BYZ
+				factor = 0
+			}
+			modifier = {
+				NOT = {
+					has_opinion = {
+						who = BYZ
+						value = 0
+					}
+				}
+				has_opinion = {
+					who = BYZ
+					value = -100
+				}
+				factor = 2
+			}
+			modifier = {
+				NOT = {
+					has_opinion = {
+						who = BYZ
+						value = 50
+					}
+				}
+				has_opinion = {
+					who = BYZ
+					value = 0
+				}
+				factor = 3
+			}
+			modifier = {
+				NOT = {
+					has_opinion = {
+						who = BYZ
+						value = 100
+					}
+				}
+				has_opinion = {
+					who = BYZ
+					value = 50
+				}
+				factor = 4
+			}
+			modifier = {
+				alliance_with = BYZ
+				factor = 5
+			}
+			modifier = {
+				has_opinion = {
+					who = BYZ
+					value = 100
+				}
+				factor = 5
+			}
+		}
+		name = "vef_crusade.10010.opta"
+		every_province = { 
+			limit = { has_province_modifier = crusade_goal }
+			remove_province_modifier = crusade_goal
+			every_country = {
+				limit = { has_country_flag = crusade_member }
+				clr_country_flag = crusade_member
+				remove_claim = PREV
+			}
+		}
+	}
+	
+	option = {
+		ai_chance = {
+			factor = 20
+			modifier = {
+				is_rival = BYZ
+				factor = 5
+			}
+			modifier = {
+				NOT = {
+					has_opinion = {
+						who = BYZ
+						value = -100
+					}
+				}
+				factor = 4
+			}
+			modifier = {
+				NOT = {
+					has_opinion = {
+						who = BYZ
+						value = 0
+					}
+				}
+				has_opinion = {
+					who = BYZ
+					value = -100
+				}
+				factor = 3
+			}
+			modifier = {
+				NOT = {
+					has_opinion = {
+						who = BYZ
+						value = 50
+					}
+				}
+				has_opinion = {
+					who = BYZ
+					value = 0
+				}
+				factor = 2
+			}
+			modifier = {
+				alliance_with = BYZ
+				factor = 0
+			}
+			modifier = {
+				has_opinion = {
+					who = BYZ
+					value = 100
+				}
+				factor = 0
+			}
+		}
+		name = "vef_crusade.10010.optb"
+		BYZ = {
+			set_country_flag = crusade_target
+			country_event = { id = vef_crusade.10011 days = 1 }
+		}
+		every_country = {
+			limit = { has_country_flag = crusade_member }
+			country_event = { id = vef_crusade.10012 days = 7 }
+		}
+		declare_war_with_cb = {
+			who = BYZ
+			casus_belli = cb_vefcrusade
+		}
+	}
+}
+
+# Inform Byzantines they're being attacked
+country_event = {
+	id = vef_crusade.10011
+	title = vef_crusade.10011.t
+	desc = vef_crusade.10011.d
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_crusade.10011.opta"
+	}
+}
+
+# Option for each crusading nation
+country_event = {
+	id = vef_crusade.10012
+	title = vef_crusade.10012.t
+	desc = vef_crusade.10012.d
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = {
+			factor = 20
+			modifier = {
+				is_rival = BYZ
+				factor = 5
+			}
+			modifier = {
+				NOT = {
+					has_opinion = {
+						who = BYZ
+						value = -100
+					}
+				}
+				factor = 4
+			}
+			modifier = {
+				NOT = {
+					has_opinion = {
+						who = BYZ
+						value = 0
+					}
+				}
+				has_opinion = {
+					who = BYZ
+					value = -100
+				}
+				factor = 3
+			}
+			modifier = {
+				NOT = {
+					has_opinion = {
+						who = BYZ
+						value = 50
+					}
+				}
+				has_opinion = {
+					who = BYZ
+					value = 0
+				}
+				factor = 2
+			}
+			modifier = {
+				alliance_with = BYZ
+				factor = 0
+			}
+			modifier = {
+				has_opinion = {
+					who = BYZ
+					value = 100
+				}
+				factor = 0
+			}
+		}
+		name = "vef_crusade.10012.opta"
+		clr_country_flag = crusade_member
+	}
+	
+	option = {
+		ai_chance = {
+			factor = 20
+			modifier = {
+				is_rival = BYZ
+				factor = 5
+			}
+			modifier = {
+				NOT = {
+					has_opinion = {
+						who = BYZ
+						value = -100
+					}
+				}
+				factor = 3
+			}
+			modifier = {
+				NOT = {
+					has_opinion = {
+						who = BYZ
+						value = 0
+					}
+				}
+				has_opinion = {
+					who = BYZ
+					value = -100
+				}
+				factor = 2
+			}
+			modifier = {
+				NOT = {
+					has_opinion = {
+						who = BYZ
+						value = 50
+					}
+				}
+				has_opinion = {
+					who = BYZ
+					value = 0
+				}
+				factor = 2
+			}
+			modifier = {
+				alliance_with = BYZ
+				factor = 0
+			}
+			modifier = {
+				has_opinion = {
+					who = BYZ
+					value = 100
+				}
+				factor = 0
+			}
+		}
+		name = "vef_crusade.10012.optb"
+		declare_war_with_cb = {
+			who = BYZ
+			casus_belli = cb_vefcrusade
+		}
+	}	
+}
+
+# Excommunication Lifted if you take up the crusade
+country_event = {
+	id = vef_crusade.10013
+	title = vef_crusade.10013.t
+	desc = vef_crusade.10013.d
+	picture = VEF_POPE_PREACHING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_crusade.10013.opta"
+		remove_country_modifier = ruler_excommunicated
+		add_legitimacy = 10
+	}
+}
+
+# Inform overlord of Crusade
+country_event = {
+	id = vef_crusade.10014
+	title = vef_crusade.10014.t
+	desc = vef_crusade.10014.d
+	picture = VEF_POPE_PREACHING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_crusade.10014.opta"
+	}
+}
+
+# Inform overlord of Crusade Over (Target vassalised)
+country_event = {
+	id = vef_crusade.10015
+	title = vef_crusade.10015.t
+	desc = vef_crusade.10015.d
+	picture = VEF_POPE_PREACHING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_crusade.10015.opta"
+		every_country = {
+			limit = { has_country_flag = crusade_member }
+			clr_country_flag = crusade_member
+			white_peace = ROOT
+		}
+	}
+}
+
+# Inform Target Crusade is Over (Lost province)
+country_event = {
+	id = vef_crusade.10016
+	title = vef_crusade.10016.t
+	desc = vef_crusade.10016.d
+	picture = VEF_POPE_PREACHING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_crusade.10016.opta"
+		every_country = {
+			limit = { has_country_flag = crusade_member }
+			clr_country_flag = crusade_member
+			white_peace = ROOT
+		}
+	}
+}
+
+
+#####################
+# Crusade Agitation #
+#####################
+# Give human players the opportunity to advance a crusade in their own interests.
+
+# Triggered By Pope
+country_event = {
+	id = vef_crusade.10100
+	title = vef_crusade.10100.t
+	desc = vef_crusade.10100.d
+	picture = VEF_POPE_PREACHING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {	# Jerusalem
+		trigger = {
+			1611 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		name = "vef_crusade.10100.opta"
+		change_variable = { which = vef_papal_influence value = -10 }
+		hidden_effect = {
+			PAP = {
+				change_variable = { which = support_crusade_jerusalem value = 1 }
+				change_variable = { which = decision_makers_crusade value = -1 }
+				if = {
+					limit = { NOT = { check_variable = { which = decision_makers_crusade value = 1 }}}
+					country_event = { id = vef_crusade.10000 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	# Alexandria
+		trigger = {
+			1635 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		name = "vef_crusade.10100.optb"
+		change_variable = { which = vef_papal_influence value = -10 }
+		hidden_effect = {
+			PAP = {
+				change_variable = { which = support_crusade_alexandria value = 1 }
+				change_variable = { which = decision_makers_crusade value = -1 }
+				if = {
+					limit = { NOT = { check_variable = { which = decision_makers_crusade value = 1 }}}
+					country_event = { id = vef_crusade.10000 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	# Tunis
+		trigger = {
+			1648 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		name = "vef_crusade.10100.optc"
+		change_variable = { which = vef_papal_influence value = -10 }
+		hidden_effect = {
+			PAP = {
+				change_variable = { which = support_crusade_tunis value = 1 }
+				change_variable = { which = decision_makers_crusade value = -1 }
+				if = {
+					limit = { NOT = { check_variable = { which = decision_makers_crusade value = 1 }}}
+					country_event = { id = vef_crusade.10000 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	# Constantinople
+		trigger = {
+			588 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		name = "vef_crusade.10100.optd"
+		change_variable = { which = vef_papal_influence value = -10 }
+		hidden_effect = {
+			PAP = {
+				change_variable = { which = support_crusade_constantinople value = 1 }
+				change_variable = { which = decision_makers_crusade value = -1 }
+				if = {
+					limit = { NOT = { check_variable = { which = decision_makers_crusade value = 1 }}}
+					country_event = { id = vef_crusade.10000 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	# Antioch
+		trigger = {
+			1618 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		name = "vef_crusade.10100.opte"
+		change_variable = { which = vef_papal_influence value = -10 }
+		hidden_effect = {
+			PAP = {
+				change_variable = { which = support_crusade_aleppo value = 1 }
+				change_variable = { which = decision_makers_crusade value = -1 }
+				if = {
+					limit = { NOT = { check_variable = { which = decision_makers_crusade value = 1 }}}
+					country_event = { id = vef_crusade.10000 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	# Smyrna
+		trigger = {
+			593 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		name = "vef_crusade.10100.optf"
+		change_variable = { which = vef_papal_influence value = -10 }
+		hidden_effect = {
+			PAP = {
+				change_variable = { which = support_crusade_smyrna value = 1 }
+				change_variable = { which = decision_makers_crusade value = -1 }
+				if = {
+					limit = { NOT = { check_variable = { which = decision_makers_crusade value = 1 }}}
+					country_event = { id = vef_crusade.10000 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	# Morea
+		trigger = {
+			575 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		name = "vef_crusade.10100.optg"
+		change_variable = { which = vef_papal_influence value = -10 }
+		hidden_effect = {
+			PAP = {
+				change_variable = { which = support_crusade_morea value = 1 }
+				change_variable = { which = decision_makers_crusade value = -1 }
+				if = {
+					limit = { NOT = { check_variable = { which = decision_makers_crusade value = 1 }}}
+					country_event = { id = vef_crusade.10000 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	# Crete
+		trigger = {
+			577 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		name = "vef_crusade.10100.opth"
+		change_variable = { which = vef_papal_influence value = -10 }
+		hidden_effect = {
+			PAP = {
+				change_variable = { which = support_crusade_crete value = 1 }
+				change_variable = { which = decision_makers_crusade value = -1 }
+				if = {
+					limit = { NOT = { check_variable = { which = decision_makers_crusade value = 1 }}}
+					country_event = { id = vef_crusade.10000 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	# Cyprus
+		trigger = {
+			618 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		name = "vef_crusade.10100.opti"
+		change_variable = { which = vef_papal_influence value = -10 }
+		hidden_effect = {
+			PAP = {
+				change_variable = { which = support_crusade_cyprus value = 1 }
+				change_variable = { which = decision_makers_crusade value = -1 }
+				if = {
+					limit = { NOT = { check_variable = { which = decision_makers_crusade value = 1 }}}
+					country_event = { id = vef_crusade.10000 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	# Rhodes
+		trigger = {
+			596 = {
+				owner = {
+					religion_group = muslim
+					NOT = { overlord = { religion_group = christian }}
+				}
+			}
+		}
+		name = "vef_crusade.10100.optj"
+		change_variable = { which = vef_papal_influence value = -10 }
+		hidden_effect = {
+			PAP = {
+				change_variable = { which = support_crusade_rhodes value = 1 }
+				change_variable = { which = decision_makers_crusade value = -1 }
+				if = {
+					limit = { NOT = { check_variable = { which = decision_makers_crusade value = 1 }}}
+					country_event = { id = vef_crusade.10000 days = 1 }
+				}
+			}
+		}
+	}
+	
+	option = {	# No Interest
+		name = "vef_crusade.10100.optk"
+		hidden_effect = {
+			PAP = {
+				change_variable = { which = decision_makers_crusade value = -1 }
+				if = {
+					limit = { NOT = { check_variable = { which = decision_makers_crusade value = 1 }}}
+					country_event = { id = vef_crusade.10000 days = 1 }
+				}
+			}
+		}
+	}
+}
+
+
+######################
+# Crusader State SYR #
+######################
+
+# Release Antioch
+country_event = {
+	id = vef_crusade.20100
+	title = vef_crusade.20100.t
+	desc = vef_crusade.20100.d
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = { add_ruler_modifier = { name = vef_defender_faith duration = -1 }}
+	
+	option = {	# Crown yourself King
+		trigger = { government = monarchy }
+		name = "vef_crusade.20100.opta"
+		every_province = {
+			limit = {
+				OR = {
+					area = syria_area
+					area = rakka_area
+					area = aleppo_area
+				}
+			}
+			add_core = SYR
+		}
+		release = SYR
+		SYR = {
+			change_religion = ROOT
+			change_government = monarchy
+			set_legacy_government = hereditary_monarchy
+			set_country_flag = crusader_state
+			change_primary_culture = ROOT
+		}
+		create_union = SYR
+		clr_country_flag = syrian_decision
+	}
+	
+	option = {	# Vassal Kingdom
+		name = "vef_crusade.20100.optb"
+		every_province = {
+			limit = {
+				OR = {
+					area = syria_area
+					area = rakka_area
+					area = aleppo_area
+				}
+			}
+			add_core = SYR
+		}
+		release = SYR
+		SYR = {
+			change_religion = ROOT
+			change_government = monarchy
+			set_legacy_government = hereditary_monarchy
+			set_country_flag = crusader_state
+			change_primary_culture = ROOT
+		}
+		vassalize = SYR
+		clr_country_flag = syrian_decision
+	}
+	
+	option = {	# Turn it over to the Knights
+		trigger = {
+			exists = KNI
+			NOT = { tag = KNI }
+		}
+		name = "vef_crusade.20100.optc"
+		every_owned_province = {
+			limit = {
+				OR = {
+					area = syria_area
+					area = rakka_area
+					area = aleppo_area
+				}
+			}
+			add_core = KNI
+			remove_core = ROOT
+			cede_province = KNI
+		}
+		clr_country_flag = syrian_decision
+	}
+	
+	option = {	# Independent Crusader State
+		name = "vef_crusade.20100.optd"
+		every_province = {
+			limit = {
+				OR = {
+					area = syria_area
+					area = rakka_area
+					area = aleppo_area
+				}
+			}
+			add_core = SYR
+		}
+		release = SYR
+		SYR = {
+			change_religion = ROOT
+			change_government = monarchy
+			set_legacy_government = hereditary_monarchy
+			set_country_flag = crusader_state
+			change_primary_culture = ROOT
+		}
+		clr_country_flag = syrian_decision
+	}
+	
+	option = {	# These are our rightful lands
+		trigger = { has_country_flag = crusader_state }
+		ai_chance = { factor = 100 }
+		name = "vef_crusade.20100.opte"
+		add_prestige = 5
+		every_owned_province = {
+			limit = {
+				OR = {
+					area = syria_area
+					area = rakka_area
+					area = aleppo_area
+				}
+			}
+			add_territorial_core = ROOT
+		}
+	}
+}
+
+######################
+# Crusader State KOJ #
+######################
+
+# Release Jerusalem
+country_event = {
+	id = vef_crusade.20200
+	title = vef_crusade.20200.t
+	desc = vef_crusade.20200.d
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = { add_ruler_modifier = { name = vef_defender_faith duration = -1 }}
+	
+	option = {	# Crown yourself King
+		trigger = { government = monarchy }
+		name = "vef_crusade.20200.opta"
+		every_province = {
+			limit = {
+				OR = {
+					area = jordan_area
+					area = palestine_area
+				}
+				NOT = { province_id = 1606 }
+			}
+			add_core = KOJ
+		}
+		release = KOJ
+		KOJ = {
+			change_religion = ROOT
+			change_government = monarchy
+			set_legacy_government = hereditary_monarchy
+			set_country_flag = crusader_state
+			change_primary_culture = ROOT
+		}
+		create_union = KOJ
+		clr_country_flag = koj_decision
+	}
+	
+	option = {	# Vassal Kingdom
+		name = "vef_crusade.20200.optb"
+		every_province = {
+			limit = {
+				OR = {
+					area = jordan_area
+					area = palestine_area
+				}
+				NOT = { province_id = 1606 }
+			}
+			add_core = KOJ
+		}
+		release = KOJ
+		KOJ = {
+			change_religion = ROOT
+			change_government = monarchy
+			set_legacy_government = hereditary_monarchy
+			set_country_flag = crusader_state
+			change_primary_culture = ROOT
+		}
+		vassalize = KOJ
+		clr_country_flag = koj_decision
+	}
+	
+	option = {	# Turn it over to the Knights
+		trigger = {
+			exists = KNI
+			NOT = { tag = KNI }
+		}
+		name = "vef_crusade.20200.optc"
+		every_owned_province = {
+			limit = {
+				OR = {
+					area = jordan_area
+					area = palestine_area
+				}
+				NOT = { province_id = 1606 }
+			}
+			add_core = KNI
+			remove_core = ROOT
+			cede_province = KNI
+		}
+		clr_country_flag = koj_decision
+	}
+	
+	option = {	# Independent Crusader State
+		name = "vef_crusade.20200.optd"
+		every_province = {
+			limit = {
+				OR = {
+					area = jordan_area
+					area = palestine_area
+				}
+				NOT = { province_id = 1606 }
+			}
+			add_core = KOJ
+		}
+		release = KOJ
+		KOJ = {
+			change_religion = ROOT
+			change_government = monarchy
+			set_legacy_government = hereditary_monarchy
+			set_country_flag = crusader_state
+			change_primary_culture = ROOT
+		}
+		clr_country_flag = koj_decision
+	}
+	
+	option = {	# These are our rightful lands
+		trigger = { has_country_flag = crusader_state }
+		ai_chance = { factor = 100 }
+		name = "vef_crusade.20200.opte"
+		add_prestige = 5
+		every_owned_province = {
+			limit = {
+				OR = {
+					area = jordan_area
+					area = palestine_area
+				}
+				NOT = { province_id = 1606 }
+			}
+			add_territorial_core = ROOT
+		}
+	}
+}
+
+######################
+# Crusader State LAE #
+######################
+
+# Latin Empire Established
+country_event = {
+	id = vef_crusade.20300
+	title = vef_crusade.20300.t
+	desc = vef_crusade.20300.d
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = { add_ruler_modifier = { name = vef_defender_faith duration = -1 }}
+	
+	option = {	# Crown yourself King
+		trigger = { government = monarchy }
+		name = "vef_crusade.20300.opta"
+		BYZ = { change_tag = LAE }
+		LAE = {
+			change_religion = catholic
+			set_country_flag = crusader_state
+			change_primary_culture = ROOT
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = LAE_ideas }
+				}
+				country_event = { id = "national_ideas.60000" days = 1 }
+			}
+		}
+		create_union = LAE
+	}
+	
+	option = {	# Vassal Kingdom
+		name = "vef_crusade.20300.optb"
+		BYZ = { change_tag = LAE }
+		LAE = {
+			change_religion = catholic
+			set_country_flag = crusader_state
+			change_primary_culture = ROOT
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = LAE_ideas }
+				}
+				country_event = { id = "national_ideas.60000" days = 1 }
+			}
+		}
+		vassalize = LAE
+	}
+	
+	option = {	# Take the empire
+		trigger = {
+			has_country_flag = crusader_state
+		}
+		name = "vef_crusade.20300.optc"
+		inherit = BYZ
+		change_tag = LAE
+		set_government_rank = 4
+		set_capital = 588
+		588 = { remove_province_modifier = "religious_center" }
+		# Ask about NIs
+		if = {
+			limit = {
+				has_custom_ideas = no
+				NOT = { has_idea_group = LAE_ideas }
+			}
+			country_event = { id = "national_ideas.60000" days = 1 }
+		}
+	}
+	
+	option = {	# Independent Crusader State
+		name = "vef_crusade.20300.optd"
+		BYZ = { change_tag = LAE }
+		LAE = {
+			change_religion = ROOT
+			change_government = monarchy
+			set_legacy_government = hereditary_monarchy
+			set_country_flag = crusader_state
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = LAE_ideas }
+				}
+				country_event = { id = "national_ideas.60000" days = 1 }
+			}
+		}
+	}
+	
+	option = {	# These are our rightful lands
+		trigger = { has_country_flag = crusader_state }
+		ai_chance = { factor = 100 }
+		name = "vef_crusade.20300.opte"
+		add_prestige = 5
+		every_province = {
+			limit = { is_core = BYZ }
+			add_claim = ROOT
+		}
+	}
+}
+
+# Latin Empire Falls if converted to Orthodoxy
+country_event = {
+	id = vef_crusade.20301
+	title = vef_crusade.20301.t
+	desc = vef_crusade.20301.d
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	trigger = {
+		tag = LAE
+		NOT = { exists = BYZ }
+		religion = orthodox
+	}
+
+	option = {
+		name = "vef_crusade.20301.opta"
+		clr_country_flag = crusader_state
+		change_tag = BYZ
+		if = {
+			limit = {
+				588 = {
+					owned_by = ROOT
+					religion = orthodox
+					NOT = { has_province_modifier = religious_center }
+				}
+			}
+			588 = { add_permanent_province_modifier = { name = religious_center duration = -1 } }
+		}
+		if = {
+			limit = {
+				is_lesser_in_union = yes 
+				overlord = { religion = catholic }
+			}
+			overlord = { break_union = BYZ }
+		}
+		if = {
+			limit = {
+				has_custom_ideas = no
+				NOT = { has_idea_group = BYZ_1_ideas }
+			}
+			country_event = { id = "national_ideas.60000" days = 1 }
+		}
+	}
+}
+
+######################
+# Crusader State EGY #
+######################
+
+# Release Egypt
+country_event = {
+	id = vef_crusade.20400
+	title = vef_crusade.20400.t
+	desc = vef_crusade.20400.d
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+		add_ruler_modifier = { name = vef_defender_faith duration = -1 }
+		every_province = {
+			limit = { is_core = EGM }
+			remove_core = EGM
+		}
+	}
+	
+	option = {	# Crown yourself King
+		trigger = { government = monarchy }
+		name = "vef_crusade.20400.opta"
+		every_province = {
+			limit = {
+				region = egypt_region
+				NOT = { area = lower_nubia_area }
+				NOT = { area = cyrenaica_area }
+			}
+			add_core = EGY
+		}
+		release = EGY
+		EGY = {
+			change_religion = ROOT
+			change_government = monarchy
+			set_legacy_government = hereditary_monarchy
+			set_country_flag = crusader_state
+			change_primary_culture = ROOT
+		}
+		create_union = EGY
+		clr_country_flag = egy_decision
+	}
+	
+	option = {	# Vassal Kingdom
+		name = "vef_crusade.20400.optb"
+		every_province = {
+			limit = {
+				region = egypt_region
+				NOT = { area = lower_nubia_area }
+				NOT = { area = cyrenaica_area }
+			}
+			add_core = EGY
+		}
+		release = EGY
+		EGY = {
+			change_religion = ROOT
+			change_government = monarchy
+			set_legacy_government = hereditary_monarchy
+			set_country_flag = crusader_state
+		}
+		vassalize = EGY
+		clr_country_flag = egy_decision
+	}
+	
+	option = {	# Turn it over to the Knights
+		trigger = {
+			exists = KNI
+			NOT = { tag = KNI }
+		}
+		name = "vef_crusade.20400.optc"
+		every_owned_province = {
+			limit = {
+				region = egypt_region
+				NOT = { area = lower_nubia_area }
+				NOT = { area = cyrenaica_area }
+			}
+			add_core = KNI
+			remove_core = ROOT
+			cede_province = KNI
+		}
+		clr_country_flag = egy_decision
+	}
+	
+	option = {	# Independent Crusader State
+		name = "vef_crusade.20400.optd"
+		every_province = {
+			limit = {
+				region = egypt_region
+				NOT = { area = lower_nubia_area }
+				NOT = { area = cyrenaica_area }
+			}
+			add_core = EGY
+		}
+		release = EGY
+		EGY = {
+			change_religion = ROOT
+			change_government = monarchy
+			set_legacy_government = hereditary_monarchy
+			set_country_flag = crusader_state
+		}
+		clr_country_flag = egy_decision
+	}
+	
+	option = {	# These are our rightful lands
+		trigger = { has_country_flag = crusader_state }
+		ai_chance = { factor = 100 }
+		name = "vef_crusade.20400.opte"
+		add_prestige = 5
+		every_owned_province = {
+			limit = {
+				region = egypt_region
+				NOT = { area = lower_nubia_area }
+				NOT = { area = cyrenaica_area }
+			}
+			add_territorial_core = ROOT
+		}
+	}
+}
+
+##########################
+# Generic Crusader State #
+##########################
+
+# Add province modifier for Orthodox
+country_event = {
+	id = vef_crusade.20900
+	title = vef_crusade.20900.t
+	desc = vef_crusade.20900.d
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	trigger = {
+		has_country_flag = crusader_state
+		religion = catholic
+		NOT = { has_country_modifier = crusader_conversion_policy }
+		any_owned_province = {
+			OR = { 
+				religion = orthodox
+				religion = nestorian
+			}
+			NOT = { has_province_modifier = orthodox_crusader_province }
+		}
+		OR = { 
+			capital_scope = { religion = orthodox }
+			capital_scope = { religion = nestorian }
+		}
+	}
+	
+	immediate = {
+		every_owned_province = {
+			limit = {
+				OR = {
+					religion = orthodox
+					religion = nestorian
+				}
+				NOT = { has_province_modifier = orthodox_crusader_province }
+			}
+			add_province_modifier = {
+				name = orthodox_crusader_province
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_crusade.20900.opta"
+	}	
+}
+
+# Remove province modifier when converted
+province_event = {
+	id = vef_crusade.20901
+	title = vef_crusade.20901.t
+	desc = vef_crusade.20901.d
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	trigger = {
+		OR = {
+			has_province_modifier = orthodox_crusader_province
+			has_province_modifier = orthodox_crusader_province1
+		}
+		NOT = { religion = orthodox }
+		NOT = { religion = nestorian }
+	}
+	
+	immediate = {
+		if = {
+			limit = { has_province_modifier = orthodox_crusader_province }
+			remove_province_modifier = orthodox_crusader_province
+		}
+		if = {
+			limit = { has_province_modifier = orthodox_crusader_province1 }
+			remove_province_modifier = orthodox_crusader_province1
+		}
+	}
+	
+	option = {
+		name = "vef_crusade.20901.opta"
+	}
+}
+
+# No Longer a Crusader State
+country_event = {
+	id = vef_crusade.20902
+	title = vef_crusade.20902.t
+	desc = vef_crusade.20902.d
+	picture = VEF_POPE_PREACHING_eventPicture
+
+	trigger = {
+		has_country_flag = crusader_state
+		NOT = { religion = catholic }
+	}
+	
+	immediate = { clr_country_flag = crusader_state }
+
+	option = {
+		name = "vef_crusade.20902.opta"
+		if = {
+			limit = { has_country_modifier = crusader_conversion_policy }
+			remove_country_modifier = crusader_conversion_policy
+		}
+		every_owned_province = {
+			limit = { has_province_modifier = orthodox_crusader_province }
+			remove_province_modifier = orthodox_crusader_province
+		}
+		every_owned_province = {
+			limit = { has_province_modifier = orthodox_crusader_province1 }
+			remove_province_modifier = orthodox_crusader_province1
+		}
+	}
+}

@@ -1,0 +1,36 @@
+# Stettin
+
+owner = POM
+controller = POM
+add_core = POM
+culture = pommeranian
+religion = catholic
+trade_goods = fish
+base_tax = 3
+base_production = 3
+base_manpower = 3
+capital = "Stettin"
+is_city = yes
+hre = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+extra_cost = 10
+add_permanent_province_modifier = { name = oder_estuary_modifier duration = -1 }
+
+1349.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1529.1.1   = { religion = protestant }
+1630.1.1   = { owner = SWE controller = SWE }
+1635.1.1   = { citysize = 11700 unrest = 7 }# Devastating population losses in Thirty Years War
+1650.1.1   = { citysize = 13000 }
+1675.1.1   = { citysize = 14500 courthouse = yes }
+1680.1.1   = { add_core = SWE }
+1700.1.1   = { citysize = 21000 courthouse = yes }
+1720.1.1 = { owner = PRU controller = PRU add_core = PRU }
+1725.1.1   = { citysize = 26500 base_tax = 8
+base_production = 8 }
+1750.1.1   = { citysize = 30500 base_manpower = 6 }
+1806.7.12  = { hre = no } # The Holy Roman Empire is dissolved

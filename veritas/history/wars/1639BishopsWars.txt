@@ -1,0 +1,52 @@
+#Province IDs changed
+name = "Bishops Wars"
+war_goal = {
+	type = take_capital_personal_union
+	casus_belli = cb_restore_personal_union
+	tag = SCO
+}
+# Sources say "early summer"
+1639.5.1 = {
+	add_attacker = ENG
+	add_defender = SCO
+}
+
+# Pacification of Berwick
+1639.6.19 = {
+	rem_attacker = ENG
+	rem_defender = SCO
+}
+
+# Hostilities resume
+1640.5.1 = {
+	add_attacker = ENG
+	add_defender = SCO
+}
+
+1640.8.28 = {
+	battle = {
+		name = "Newburn"
+		location = 21
+		attacker = {
+			commander = "Alexander Leslie"	
+			infantry = 18000
+			cavalry = 2000
+			losses = 1	# percent	
+			country = SCO
+		}
+		defender = {
+			commander = "Edward, Lord Conway"
+			infantry = 2000
+			cavalry = 1000
+			losses = 10	# percent
+			country = ENG
+		}
+		result = yes
+	}
+}
+
+# Reconciliation
+1641.8.1 = {
+	rem_attacker = ENG
+	rem_defender = SCO
+}

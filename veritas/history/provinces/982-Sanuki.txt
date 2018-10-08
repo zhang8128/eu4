@@ -1,0 +1,30 @@
+# Sanuki
+# Manpower revision complete
+#Province IDs changed
+
+owner = SGO
+controller = SGO
+culture = japanese
+religion = shinto
+capital = "Takamatsu"
+trade_goods = dyes
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 5
+add_core = SGO
+is_city = yes
+discovered_by = chinese
+discovered_by = niitaka
+
+1400.1.1	= { base_manpower = 2.5 }
+1500.1.1	= { base_manpower = 3.5 }
+1575.1.1	= { add_core = CSK}
+1580.1.1	= { owner = CSK controller = CSK remove_core = SGO }
+1585.8.23	= { owner = TKG controller = TKG add_core = TKG remove_core = CSK } #Hideyoshi's conquest of Shikoku
+1600.1.1	= { base_manpower = 4.5 }
+1603.3.24	= { owner = JAP controller = JAP add_core = JAP remove_core = TKG } # Tokugawa shogunate founded
+1650.1.1	= { base_manpower = 5 }
+1700.1.1	= { base_manpower = 6 }
+1750.1.1	= { base_manpower = 6 }
+1800.1.1	= { base_manpower = 5.75 }

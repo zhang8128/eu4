@@ -1,0 +1,10 @@
+#Sambuk
+#model = caravel
+#tech_level = 20
+type = transport
+unit_type = muslim
+
+hull_size = 6
+base_cannons = 6
+sail_speed = 10
+sailors = 200

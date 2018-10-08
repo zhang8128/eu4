@@ -1,0 +1,16 @@
+# Berbera
+
+capital = "Berbera"
+owner = ADA
+controller = ADA
+add_core = ADA
+culture = somali
+religion = sunni
+trade_goods = ivory
+base_tax = 1
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = sudanese_tech
+discovered_by = muslim

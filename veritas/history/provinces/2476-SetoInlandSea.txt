@@ -1,0 +1,6 @@
+# Seto Inland Sea
+#Province IDs changed
+discovered_by = chinese
+discovered_by = niitaka
+discovered_by = pacific_islander
+1542.1.1 = { discovered_by = POR }

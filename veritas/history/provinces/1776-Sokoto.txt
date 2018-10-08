@@ -1,0 +1,24 @@
+# Sokoto
+
+capital = "Sokoto"
+owner = KSN
+controller = KSN
+add_core = KSN
+culture = hausa
+religion = sunni
+trade_goods = livestock
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = sudanese_tech
+
+
+1400.1.1   = { base_manpower = 1.5 }
+1500.1.1   = { base_manpower = 1.75 }
+1600.1.1   = { base_manpower = 2 }
+1650.1.1   = { base_manpower = 1.75 }
+1700.1.1   = { base_manpower = 2 }
+1750.1.1   = { base_manpower = 2 }
+1800.1.1   = { base_manpower = 2 }

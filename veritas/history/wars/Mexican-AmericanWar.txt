@@ -1,0 +1,17 @@
+name = "Mexican-American War"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 2142 # Chumash/ San Diego
+}
+ # US Declares War
+1846.5.13 = {
+	add_attacker = USA
+	add_defender = MEX
+}
+
+# Treaty of Guadalupe-Hidalgo
+1848.2.2 = {
+	rem_attacker = USA
+	rem_defender = MEX
+}

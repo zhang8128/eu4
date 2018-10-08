@@ -1,0 +1,22 @@
+# Nakhon Thung Yai
+
+capital = "Nakhon Thung Yai"
+owner = KHM
+controller = KHM
+add_core = KHM
+add_core = AYU
+culture = central_thai
+religion = buddhism
+trade_goods = copper
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1388.1.1 = { owner = AYU controller = AYU remove_core = KHM }
+1535.1.1 = { discovered_by = POR }
+1630.1.1 = { capital = "Trat" }
+1767.4.1 = { unrest = 7 } # The Ayutthaya kingdom began to crumble
+1774.1.1 = { unrest = 0 }

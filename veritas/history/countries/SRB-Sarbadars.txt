@@ -1,0 +1,16 @@
+#######################################
+# Sarbadars
+#######################################
+#Province IDs changed
+government = tribal add_government_reform = steppe_horde
+government_rank = 3
+technology_group = muslim
+primary_culture = persian
+religion = shiite
+capital = 816 # Ashkabad
+
+set_country_flag = vef_newgov_start
+set_variable = { which = aristocratic_privilege value = 50 }
+set_variable = { which = vef_merit value = 10 }
+set_variable = { which = vef_rule_law value = 5 }
+set_variable = { which = vef_governance value = 5 }

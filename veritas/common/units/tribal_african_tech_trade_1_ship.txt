@@ -1,0 +1,11 @@
+#Kongolese Raft
+#model = cog
+#tech_level = 0
+type = light_ship
+unit_type = tribal_african_tech
+
+hull_size = 2
+base_cannons = 1
+sail_speed = 6
+trade_power = 0.4
+sailors = 20

@@ -1,0 +1,247 @@
+# Majaphit dominance of Indonesia 1309 to 1389, then decline to 1478
+vassal = {
+	first = MAJ
+	second = SVJ
+	start_date = 1309.1.1
+	end_date = 1478.12.31
+}
+
+vassal = {
+	first = MAJ
+	second = KUT
+	start_date = 1309.1.1
+	end_date = 1478.12.31
+}
+
+vassal = {
+	first = MAJ
+	second = BEI
+	start_date = 1309.1.1
+	end_date = 1404.1.1
+}
+
+vassal = {
+	first = MAJ
+	second = MKS
+	start_date = 1309.1.1
+	end_date = 1450.1.1
+}
+
+dependency = {
+	subject_type = tributary_state
+	first = MAJ
+	second = SGP
+	start_date = 1350.1.1
+	end_date = 1389.1.1		#Rule of Parameswara
+}
+
+dependency = {
+	subject_type = tributary_state
+	first = MAJ
+	second = MLC
+	start_date = 1350.1.1
+	end_date = 1400.1.1		#Definitely the Sultan Parameswara did not pay tribute to Majaphit
+}
+
+dependency = {
+	subject_type = tributary_state
+	first = MAJ
+	second = PAH
+	start_date = 1350.1.1
+	end_date = 1404.1.1		#Paregreg War sees Majaphit hold slip from Malaya
+}
+
+dependency = {
+	subject_type = tributary_state
+	first = MAJ
+	second = KDH
+	start_date = 1350.1.1
+	end_date = 1404.1.1		#Paregreg War sees Majaphit hold slip from Malaya
+}
+
+dependency = {
+	subject_type = tributary_state
+	first = MAJ
+	second = PSA
+	start_date = 1350.1.1	#Estimate; known to be in the rule of Pasai sultan ruling 1349-1406 and before 1357
+	end_date = 1404.1.1		#Paregreg War sees Majaphit hold slip
+}
+
+#Tonkin (Trinh Lords) and Annam (Nguyen Lords) Alliance
+
+alliance = {
+	first = TOK
+	second = ANN
+	start_date = 1558.1.1
+	end_date = 1627.1.1
+}
+
+# Vietnamese Countries vassalized Champa
+
+vassal = {
+	first = DAI
+	second = CHA
+	start_date = 1312.1.1
+	end_date = 1313.12.31
+}
+
+vassal = {
+	first = DAI
+	second = CHA
+	start_date = 1318.1.1
+	end_date = 1325.12.31
+}
+
+vassal = {
+	first = ANN
+	second = CHA
+	start_date = 1697.1.1
+	end_date = 1776.12.31
+}
+
+vassal = {
+	first = DAI
+	second = CHA
+	start_date = 1777.1.1
+	end_date = 1801.12.31
+}
+
+vassal = {
+	first = ANN
+	second = CHA
+	start_date = 1802.1.1
+	end_date = 1831.12.31
+}
+
+# Chey Chettha II and Sai Vuong's daughter
+royal_marriage = {
+	first = KHM
+	second = ANN
+	start_date = 1620.1.1
+	end_date = 1628.1.1
+}
+
+# Annam vassalized Khmer
+vassal = {
+	first = ANN
+	second = KHM
+	start_date = 1658.1.1
+	end_date = 1673.1.1
+}
+
+vassal = {
+	first = ANN
+	second = KHM
+	start_date = 1710.1.1
+	end_date = 1720.1.1
+}
+
+#Shan vassalized Taungu
+
+vassal = {
+	first = SST
+	second = TAU
+	start_date = 1399.1.1
+	end_date = 1469.1.1
+}
+
+#Burmese vassal
+vassal = {
+	first = TAU
+	second = AYU
+	start_date = 1564.2.1
+	end_date = 1584.5.3
+}
+
+#Burmese vassal
+vassal = {
+	first = TAU
+	second = LNA
+	start_date = 1558.1.1
+	end_date = 1578.1.1
+}
+
+# Burmese vassal
+vassal = {
+	first = TAU
+	second = LUA
+	start_date = 1771.1.1
+	end_date = 1778.1.1
+}
+
+# Ayutthaya and Sukhothai
+union = {
+	first = AYU
+	second = SUK
+	start_date = 1438.1.1
+	end_date = 1530.1.1
+}
+
+# Siamese vassal
+vassal = {
+	first = AYU
+	second = LNA
+	start_date = 1602.1.1
+	end_date = 1614.1.1
+}
+
+# Siam-Khmer vassalization
+vassal = {
+	first = AYU
+	second = KHM
+	start_date = 1431.1.1
+	end_date = 1618.1.1
+}
+
+vassal = {
+	first = AYU
+	second = KHM
+	start_date = 1697.1.1
+	end_date = 1710.1.1
+}
+
+vassal = {
+	first = AYU
+	second = KHM
+	start_date = 1720.1.1
+	end_date = 1834.1.1
+}
+
+# Pattani:Siamese vassal
+vassal = {
+	first = AYU
+	second = PAT
+	start_date = 1500.1.1
+	end_date = 1632.1.1
+}
+
+vassal = {
+	first = AYU
+	second = PAT
+	start_date = 1636.1.1
+	end_date = 1902.1.1
+}
+
+# Siamese vassals in Laos
+vassal = {
+	first = AYU
+	second = CHK
+	start_date = 1777.1.1
+	end_date = 1899.1.1
+}
+
+# Vassal of Siam
+vassal = {
+	first = AYU
+	second = VIE
+	start_date = 1778.1.1
+	end_date = 1828.1.1
+}
+
+# Vassal of Siam
+vassal = {
+	first = AYU
+	second = LUA
+	start_date = 1778.1.1
+	end_date = 1828.1.1
+}

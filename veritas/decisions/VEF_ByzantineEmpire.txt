@@ -1,0 +1,40 @@
+# VeF Byzantine Decision
+country_decisions = {
+	
+	# Embark on a game-long mission to recover all of Justinian's Realm
+	glory_of_byzantium = {
+		major = yes
+
+		potential = {
+			tag = BYZ
+			ai = no
+			normal_or_historical_nations = yes
+			NOT = { has_country_modifier = justinian_mission }
+			owns_core_province = 588 # Constantinople
+			is_subject = no
+		}
+
+		allow = {
+			NOT = { has_country_modifier = byzantine_decline1 }
+			NOT = { has_country_modifier = byzantine_decline2 }
+			army_size_percentage = 0.90
+			navy_size_percentage = 0.90
+			owns_core_province = 579 	# Attica
+			owns_core_province = 577 	# Crete
+			owns_core_province = 593 	# Thrakesion
+			owns_core_province = 638 	# Trebizond
+			owns_core_province = 615 	# Beysehir
+			owns_core_province = 1619 	# Aleppo
+			OR = {
+				has_factions = no	
+				faction_in_power = byz_militarist
+			}
+		}
+
+		effect = {
+			set_country_flag = restore_justinians_realm_flag
+			add_country_modifier = { name = "justinian_mission" duration = 18250 }
+		}
+	}
+
+}

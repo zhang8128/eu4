@@ -1,0 +1,17 @@
+#Caravel
+#model = caravel
+#tech_level = 12
+type = transport
+
+hull_size = 10
+base_cannons = 12
+sail_speed = 10
+sailors = 175
+
+trigger = {
+	OR = {
+		unit_type = western
+		technology_group = western
+		technology_group = high_american
+	}
+}

@@ -1,0 +1,12 @@
+# Byzantine civil war of 1341-1347
+
+name = "Second Byzantine-Serbian War"
+
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 583 # Macedonia	
+}
+
+1342.1.1 = {	add_attacker = SER	add_defender = BYZ	}
+1348.1.1 = {	rem_attacker = SER	rem_defender = BYZ	} # Serbia annexed Albania, Gjirokaster, Macedonia, Serres, Thessaly, Epirus and Aetolia

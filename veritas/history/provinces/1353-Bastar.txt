@@ -1,0 +1,26 @@
+# Bastar
+
+capital = "Jagdalpur"
+owner = ORI
+controller = ORI
+add_core = ORI
+add_core = BST
+culture = gondi
+religion = hinduism
+trade_goods = iron
+base_tax = 2
+base_production = 2
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = indian
+
+1323.1.1 = { owner = BST controller = BST remove_core = ORI } #Border pressure when Kakatiya dynasty falls to Delhi sees independent state form
+1690.1.1 = { discovered_by = ENG }
+1707.5.12 = { discovered_by = GBR }
+
+1750.1.1 = {
+	owner = NAG
+	controller = NAG
+	add_core = NAG
+} # Marathas (Bhonsle)

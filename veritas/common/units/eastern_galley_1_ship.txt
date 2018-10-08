@@ -1,0 +1,10 @@
+#Doshchatye Lodya
+#model = galley
+#tech_level = 0
+type = galley
+unit_type = eastern
+
+hull_size = 4
+base_cannons = 6
+sail_speed = 10
+sailors = 150

@@ -1,0 +1,12 @@
+# Muslim Rifle Infantry
+
+unit_type = muslim
+type = infantry
+
+maneuver = 1
+offensive_morale = 10
+defensive_morale = 9
+offensive_fire = 11
+defensive_fire = 7
+offensive_shock = 1
+defensive_shock = 4

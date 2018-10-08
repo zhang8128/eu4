@@ -1,0 +1,16 @@
+# Display Encyclopedia
+country_decisions = {
+	display_encyclopedia = {
+		major = yes
+
+		potential = { 
+			ai = no 
+		}
+
+		effect = {
+			country_event = { id = vef_encyclopedia.1 }
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+}

@@ -1,0 +1,11 @@
+#Jalibut
+#model = merchantman
+#tech_level = 35
+type = light_ship
+unit_type = sudanese_tech
+
+hull_size = 10
+base_cannons = 4
+sail_speed = 6
+trade_power = 3.25
+sailors = 40

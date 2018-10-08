@@ -1,0 +1,17 @@
+name = "Venetian Conquest of Aquileia"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 271
+}
+
+1419.1.1 = {
+	add_attacker = VEN
+	add_defender = AQU
+}
+
+# Rest of the patriarchate falls swiftly after Udine taken 1420.6.7
+1420.8.1 = {
+	rem_attacker = VEN
+	rem_defender = AQU
+}

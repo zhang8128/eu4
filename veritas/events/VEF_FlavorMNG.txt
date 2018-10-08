@@ -1,0 +1,546 @@
+# Ming events
+namespace = flavor_mng
+normal_or_historical_nations = yes
+
+country_event = {
+	id = flavor_mng.10001
+	title = "flavor_mng.10001.t"
+	desc = "flavor_mng.10001.d"
+
+	picture = VEF_ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		tag = YUN
+		NOT = { exists = MNG }
+		is_at_war = no
+		is_year = 1355
+		1068 = { owned_by = YUN }
+	}
+
+	# 100 years - to be less predictable. More likely if mandate of heaven is
+	# lost. Cut time after 1375.
+	mean_time_to_happen = { 
+		months = 1200 
+		modifier = {
+			factor = 0.50
+			has_disaster = mandate_of_heaven_lost
+		}
+		modifier = { 
+			factor = 0.20
+			is_year = 1375
+		}
+		modifier = { 
+			factor = 0.20
+			is_year = 1405
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			1068 = { 
+				add_core = MNG
+				if = {
+					limit = { is_core = YUN }
+					remove_core = YUN
+				}
+			}
+			release = MNG
+
+			MNG = {
+				# Make sure they have correct government.
+				add_government_reform = celestial_empire
+				# Government change lowers legitimacy. We do not want Ming to
+				# appear already losing the Mandate of Heaven.
+				add_legitimacy = 100 
+
+				# The first Ming Emperor. Will give +1 stability.
+				define_ruler = {
+					name = "Yuanzhang" # Hongwu Emperor
+					dynasty = "Zhu"
+					adm = 6
+					dip = 4
+					mil = 6
+					age = 57 # Cannot set date of birth :( Age in 1385.
+					fixed = yes
+				}
+
+				# Second Ming emperor as heir if event happens between 1378 and 1398
+				if = {
+					limit = { 
+						is_year = 1378
+						NOT = { is_year = 1398 }
+					}
+					define_heir = {
+						claim = 100
+						name = "Yunwen" # Jianwen Emperor
+						dynasty = "Zhu"
+						adm = 3
+						dip = 1
+						mil = 1
+						birth_date = 1377.12.5
+					}
+				}
+
+				# Puts stability at +3. So AI doesn't spend on Stability right
+				# away. And may help against possible Bankruptcy.
+				add_stability = 2
+				add_treasury = 250
+				add_manpower = 30
+				set_country_flag = vef_newgov_start
+				set_variable = { which = aristocratic_privilege value = 30 }
+				set_variable = { which = vef_merit value = 40 }
+				set_variable = { which = vef_rule_law value = 5 }
+				set_variable = { which = vef_governance value = 50 }
+			}
+		}
+	}
+
+	option = {
+		name = "flavor_mng.10001.opta"
+		ai_chance = { factor = 10 } # Results in very ugly China and can hurt Ming.
+		set_global_flag = han_rebellionflag
+		add_country_modifier = { name = "the_han_rebellion" duration = 3650 }
+		custom_tooltip = han_rebellion_10001a
+		hidden_effect = {
+			every_owned_province = {
+				limit = { province_group = red_turban_group }
+				add_unrest = 10
+				# Rebels will be very large due to high overextension
+				add_core = MNG
+				if = {
+					limit = {
+						YUN = { ai = yes }
+						OR = {
+							area = henan_area
+							area = shandong_area
+							area = jiangsu_area
+							area = anhui_area
+							area = shaanxi_area
+						}
+					}
+					cede_province = MNG
+				}
+				if = {
+					limit = { owned_by = YUN }
+					spawn_rebels = { type = nationalist_rebels size = 2 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "flavor_mng.10001.optb"
+		ai_chance = { factor = 65 }
+		add_prestige = -50	
+		custom_tooltip = han_rebellion_10001b
+		hidden_effect = {
+			set_global_flag = han_rebellionflag
+			every_owned_province = {
+				limit = { province_group = red_turban_group }
+				add_core = MNG
+				add_unrest = -1 # Lower revolt risk
+				cede_province = MNG
+				if = {
+					limit = { is_core = YUN }
+					remove_core = YUN
+				}
+			}
+			MNG = { 1068 = { build_to_forcelimit = { infantry = 0.7 cavalry = 0.3 }}}
+		}
+	}
+
+	option = {
+		name = "flavor_mng.10001.optc"
+		ai_chance = { factor = 25 }
+		add_prestige = -50
+		custom_tooltip = han_rebellion_10001c
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					region = tibet_region
+					NOT = { area = tarim_basin_area }
+				}
+				add_core = TIB
+				add_unrest = -1 # Lower revolt risk
+				if = {
+					limit = { exists = TIB }
+					cede_province = TIB
+				}
+				if = {
+					limit = { is_core = YUN }
+					remove_core = YUN
+				}
+			}
+			if = {
+				limit = { NOT = { exists = TIB } }
+				release = TIB
+			}
+			every_owned_province = {
+				limit = { region = korea_region }
+				add_core = KOR
+				add_unrest = -1 # Lower revolt risk
+				if = {
+					limit = { exists = KOR }
+					cede_province = KOR
+				}
+				if = {
+					limit = { is_core = YUN }
+					remove_core = YUN
+				}
+			}
+			if = {
+				limit = { NOT = { exists = KOR } }
+				release = KOR
+			}
+			every_owned_province = {
+				limit = { area = shan_hill_area }	
+				add_core = SST
+				add_unrest = -2 # Lower revolt risk
+				if = {
+					limit = { exists = SST }
+					cede_province = SST
+				}
+				if = {
+					limit = { is_core = YUN }
+					remove_core = YUN
+				}
+			}
+			if = {
+				limit = { NOT = { exists = SST } }
+				release = SST
+			}
+			every_owned_province = {
+				limit = { region = manchuria_region }
+				add_core = MCH
+				add_unrest = -2 # Lower revolt risk
+				if = {
+					limit = { exists = MCH}
+					cede_province = MCH
+				}
+				if = {
+					limit = { is_core = YUN }
+					remove_core = YUN
+				}
+			}
+			if = {
+				limit = { NOT = { exists = MCH } }
+				release = MCH
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						region = north_china_region
+						region = south_china_region
+						region = xinan_region
+					}
+				}
+				add_core = MNG
+				add_unrest = -2 # Lower revolt risk
+				cede_province = MNG
+				if = {
+					limit = { is_core = YUN }
+					remove_core = YUN
+				}
+			}
+		}
+		change_tag = KHA
+		change_government = tribal
+		add_government_reform = steppe_horde
+		hidden_effect = {
+			country_event = { id = national_ideas.60000 }
+			remove_country_modifier = ruler_trait_yun_mongolian
+			remove_country_modifier = ruler_trait_yun_chinese
+			remove_country_modifier = da_yuan_tong_zhi
+			remove_country_modifier = mongol_generals_pleased
+			add_legitimacy = 100
+			add_horde_unity = 100
+			KHA = { 
+				every_owned_province = {
+					add_core = KHA
+					add_unrest = -2 # Lower revolt risk
+					if = {
+						limit = { is_core = YUN }
+						remove_core = YUN
+					}
+				}
+			}
+		}
+	}
+	
+	option = {	#Continue As Ming
+		trigger = { ai = no }
+		name = "flavor_mng.10001.optd"
+		hidden_effect = {
+			every_owned_province = {
+				limit = { province_group = red_turban_group }
+				add_core = MNG
+				remove_core = YUN
+				add_unrest = 10
+			}
+		
+			every_owned_province = {
+				limit = {
+					OR = {
+						area = henan_area
+						area = shandong_area
+						area = jiangsu_area
+						area = anhui_area
+						area = shaanxi_area
+					}
+				}
+				cede_province = MNG
+			}
+			MNG = {
+				every_owned_province = {
+					add_unrest = -15
+					if = {
+						limit = { is_capital = yes }
+						infantry = MNG
+						infantry = MNG
+						infantry = MNG
+						infantry = MNG
+						infantry = MNG
+						infantry = MNG
+						infantry = MNG
+						infantry = MNG
+						infantry = MNG
+						infantry = MNG
+						infantry = MNG
+						infantry = MNG
+						infantry = MNG
+						infantry = MNG
+						infantry = MNG
+						cavalry = MNG
+						cavalry = MNG
+						cavalry = MNG
+						cavalry = MNG
+						cavalry = MNG
+						cavalry = MNG
+						cavalry = MNG
+						cavalry = MNG
+					}
+				}
+			}
+		}
+		switch_tag = MNG
+		YUN = {
+			declare_war = MNG		
+			remove_accepted_culture = hanyu
+			remove_accepted_culture = chihan
+		}
+	}
+	
+	option = {	#Forsake Mongol Heritage
+		trigger = { ai = no }
+		name = "flavor_mng.10001.opte"
+		custom_tooltip = yun_abondon_mongols
+		remove_country_modifier = ruler_trait_yun_mongolian
+		remove_country_modifier = ruler_trait_yun_chinese
+		remove_country_modifier = da_yuan_tong_zhi
+		remove_country_modifier = mongol_generals_pleased
+		hidden_effect = {
+			every_owned_province = {
+				limit = { province_group = red_turban_group }
+				add_core = MNG
+				add_unrest = 5
+			}
+			release = OIR
+			every_owned_province = {
+				limit = { region = mongolia_region }
+				add_core = KHA
+				cede_province = KHA
+			}
+			every_owned_province = {
+				limit = { region = korea_region }
+				add_core = KOR
+				cede_province = KOR
+			}
+			every_owned_province = {
+				limit = { region = manchuria_region }
+				add_core = MCH
+				cede_province = MCH
+			}
+			every_owned_province = {
+				limit = { region = tibet_region }
+				add_core = TIB
+				cede_province = TIB
+			}
+		}
+	}
+}
+
+# On average at 5 years of the rebellion, give cores to factions in their territories.
+country_event = {
+	id = flavor_mng.10002
+	title = "flavor_mng.10002.t"
+	desc = "flavor_mng.10002.d"
+	
+	picture = VEF_ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = YUN
+		has_global_flag = han_rebellionflag
+	}
+
+	mean_time_to_happen = { months = 60 }
+
+	option = {
+		name = "flavor_mng.10002.opta"
+		add_country_modifier = { name = "yuan_unrest" duration = 365 }
+		custom_tooltip = han_rebellion_10002
+		hidden_effect = {
+			MNG = { 
+				every_owned_province = {
+					add_core = MNG
+					if = {
+						limit = { is_core = YUN }
+						remove_core = YUN
+					}
+				}
+			}
+			every_owned_province = {
+				limit = {
+					region = tibet_region
+					NOT = { area = tarim_basin_area }
+				}	
+				add_core = TIB
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						region = north_china_region
+						region = south_china_region
+						region = xinan_region
+					}
+				} 
+				add_core = MNG
+			}
+			every_owned_province = {
+				limit = { region = korea_region }	
+				add_core = KOR
+			}
+			every_owned_province = {
+				limit = { region = manchuria_region }	
+				add_core = MCH
+			}
+			every_owned_province = {
+				limit = { area = shan_hill_area }	
+				add_core = SST
+			}
+			every_owned_province = {
+				limit = { culture = chihan }
+				add_unrest = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = flavor_mng.10004
+	title = "flavor_mng.10004.t"
+	desc = "flavor_mng.10004.d"
+
+	picture = VEF_ADVISOR_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = YUN
+		is_at_war = no
+		has_global_flag = han_rebellionflag
+		NOT = { 
+			num_of_owned_provinces_with = {
+				value = 10
+				culture = chihan
+			}
+		}
+		mongolia_region = { owned_by = ROOT }
+	}
+
+	mean_time_to_happen = { months = 60 }
+
+	option = {
+		name = "flavor_mng.10004.opta"
+		change_tag = KHA
+		change_government = tribal
+		add_government_reform = steppe_horde
+		hidden_effect = {
+			country_event = { id = national_ideas.60000 }
+			add_legitimacy = 100
+			add_horde_unity = 100
+			every_owned_province = {
+				add_core = KHA
+				if = {
+					limit = { is_core = YUN }
+					remove_core = YUN
+				}
+				add_unrest = -15
+			}
+			remove_country_modifier = the_han_rebellion
+			remove_country_modifier = yuan_unrest
+			remove_country_modifier = ruler_trait_yun_mongolian
+			remove_country_modifier = ruler_trait_yun_chinese
+			remove_country_modifier = da_yuan_tong_zhi
+			remove_country_modifier = mongol_generals_pleased
+			clr_global_flag = han_rebellionflag
+		}
+	}
+
+	option = {
+		name = "flavor_mng.10004.optb"
+		trigger = { ai = no }
+		custom_tooltip = han_rebellion_10002
+		hidden_effect = {
+			every_owned_province = {
+				limit = { culture = chihan }
+				add_unrest = 2
+			}
+			clr_global_flag = han_rebellionflag
+		}
+	}
+}
+
+country_event = {
+	id = flavor_mng.10010
+	title = "flavor_mng.10010.t"
+	desc = "flavor_mng.10010.d"
+
+	picture = VEF_ADVISOR_eventPicture
+
+	is_triggered_only = yes #diasters/mandate_of_heaven start
+	
+	trigger = {
+		tag = MNG
+	}
+
+	option = {
+		name = "flavor_mng.10010.opta"
+		capital_scope = { add_unrest = 5 }
+	}
+}
+
+country_event = {
+	id = flavor_mng.10011
+	title = "flavor_mng.10011.t"
+	desc = "flavor_mng.10011.d"
+
+	picture = VEF_ADVISOR_eventPicture
+
+	is_triggered_only = yes #diasters/mandate_of_heaven end
+	
+	trigger = {
+		tag = MNG
+	}
+
+	option = {
+		name = "flavor_mng.10011.opta"
+		capital_scope = { add_unrest = -5 }
+	}
+}
+

@@ -1,0 +1,158 @@
+#Smolensk
+
+graphical_culture = easterngfx
+
+color = { 136  100  243 }
+
+historical_idea_groups = {
+	offensive_ideas
+	intimidatory_ideas
+	religious_ideas
+	quantity_ideas
+	land_trade_ideas
+	expansion_ideas
+	drafted_army_ideas
+	land_ideas
+}
+
+historical_units = { 
+	eastern_artillery_16_1
+	eastern_artillery_22_1
+	eastern_artillery_29_1
+	eastern_artillery_35_1
+	eastern_artillery_40_1
+	eastern_artillery_44_1
+	eastern_artillery_48_1
+	eastern_artillery_48_2
+	eastern_artillery_52_1
+	eastern_artillery_55_1
+	eastern_artillery_55_2
+	eastern_artillery_9_1
+	eastern_cavalry_0_1
+	eastern_cavalry_0_2
+	eastern_cavalry_21_1
+	eastern_cavalry_21_2
+	eastern_cavalry_27_1
+	eastern_cavalry_31_1
+	eastern_cavalry_36_1
+	eastern_cavalry_40_1
+	eastern_cavalry_44_1
+	eastern_cavalry_44_2
+	eastern_cavalry_48_1
+	eastern_cavalry_48_2
+	eastern_cavalry_51_1
+	eastern_cavalry_51_2
+	eastern_cavalry_55_1
+	eastern_cavalry_55_2
+	eastern_cavalry_58_1
+	eastern_cavalry_58_2
+	eastern_cavalry_16_1
+	eastern_cavalry_16_2
+	eastern_infantry_0_1
+	eastern_infantry_0_2
+	eastern_infantry_17_1
+	eastern_infantry_17_2
+	eastern_infantry_25_1
+	eastern_infantry_25_2
+	eastern_infantry_28_1
+	eastern_infantry_28_2
+	eastern_infantry_31_1
+	eastern_infantry_31_2
+	eastern_infantry_34_1
+	eastern_infantry_34_2
+	eastern_infantry_39_1
+	eastern_infantry_39_2
+	eastern_infantry_42_1
+	eastern_infantry_42_2
+	eastern_infantry_45_1
+	eastern_infantry_45_2
+	eastern_infantry_48_1
+	eastern_infantry_48_2
+	eastern_infantry_50_1
+	eastern_infantry_50_2
+	eastern_infantry_53_1
+	eastern_infantry_53_2
+	eastern_infantry_55_1
+	eastern_infantry_55_2
+	eastern_infantry_57_1
+	eastern_infantry_57_2
+	eastern_infantry_59_1
+	eastern_infantry_59_2
+	eastern_infantry_63_1
+	eastern_infantry_63_2
+	eastern_infantry_6_1
+	eastern_infantry_6_2
+	eastern_infantry_14_1
+	eastern_infantry_14_2
+}
+
+
+
+
+monarch_names = {
+	"Svyatoslav #2" = 25
+	"Mstislav #3" = 20
+	"Roman #1" = 20
+	"Davyd #1" = 20
+	"Fedor #1" = 20
+	"Mikhail #1" = 20
+	"Gleb #2" = 20
+	"Ivan #1" = 15
+	"Rostislav #2" = 15
+	"Vsevolod #1" = 10
+	"Iaropolk #1" = 10
+	"Aleksandr #1" = 10
+	"Vladimir #1" = 10
+	"Yury #0" = 5
+	"Olgierd #0" = 5
+	"Bryachislav #0" = 5
+	"Vasiliy #0" = 5
+	"Izyaslav #0" = 5
+	"Vseslav #0" = 5
+	"Boris #0" = 5
+	"Adrian #0" = 0
+	"Afanasiy #0" = 0
+	"Daniil #0" = 0
+	"Dmitriy #0" = 0
+	"Dorofey #0" = 0
+	"Faddey #0" = 0
+	"Feodosiy #0" = 0
+	"Feofil #0" = 0
+	"Foma #0" = 0
+	"Gavriil #0" = 0
+	"Grigoriy #0" = 0
+	"Igor #0" = 0
+	"Mefodiy #0" = 0
+	"Naum #0" = 0
+	"Nikita #0" = 0
+	"Nikolai #0" = 0
+	"Pankrati #0" = 0
+	"Prokhor #0" = 0
+	"Pyotr #0" = 0
+	"Radoslav #0" = 0
+	"Ruslan #0" = 0
+	"Semen #0" = 0
+	"Serafim #0" = 0
+	"Sevastian #0" = 0
+	"Stanislav #0" = 0
+	"Timofeiy #0" = 0
+	"Varfolomeiy #0" = 0
+	"Vikentiy #0" = 0
+	"Yaroslav #0" = 0
+	
+	"Faina #0" = -1
+	"Arina #0" = -1
+	"Taisiya #0" = -1
+}
+
+leader_names = { 
+	Vitebsky Izyaslavsky Dursky Galisky Borovsky Vereisky Volotsky Galitsky
+	Mozhaisky Uglisky Shemyakin Satin Aladyin Beznosov Bokeev Burukhin Vnukov Korobyin
+	Zabolotsky Dalmatov Kisleevsky Travin Tsyplyatev Shukalovsky
+}
+
+ship_names = {
+	Velikaya Chudskoye Pskovskoye Polotsk Smolensk Bryansk
+	Rakovor Bolotovo Kulikovo Ostrov Izborsk
+	Pechory Porhov "Velikiye Luki" Sebezh
+}

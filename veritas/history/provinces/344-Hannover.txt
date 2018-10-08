@@ -1,0 +1,26 @@
+# Hannover
+
+capital = "Hannover"
+owner = BRU
+controller = BRU
+add_core = BRU
+culture = lowersaxon
+religion = catholic
+trade_goods = cloth
+base_tax = 4
+base_production = 4
+base_manpower = 3
+is_city = yes
+hre = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1	= { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1	= { remove_province_modifier = province_black_death }
+1432.1.1	= { owner = HAN controller = HAN add_core = HAN } # Calenberg divided from Brunswick
+1529.1.1	= { religion = protestant }
+1806.7.12	= { hre = no } # The Holy Roman Empire is dissolved
+1807.7.9	= {	owner = WES controller = WES add_core = WES } # The Second Treaty of Tilsit, the kingdom of Westfalia
+1813.10.14	= {	owner = HAN controller = HAN remove_core = WES } # Westfalia is dissolved after the Battle of Leipsig

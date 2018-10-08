@@ -1,0 +1,29 @@
+# Finnmárku
+
+capital = "Vardø"
+native_size = 5
+native_ferocity = 2
+native_hostileness = 1
+culture = sapmi
+religion = shamanism
+trade_goods = fish
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+
+
+1450.1.1	= { culture = norwegian }
+1480.1.1	= { owner = NOR controller = NOR  add_core = NOR } 
+1536.1.1	= { religion = protestant owner = DAN controller = DAN add_core = DAN }
+1600.1.1	= { base_manpower = 0.15 }
+1650.1.1	= { base_manpower = 0.15 }
+1700.1.1	= { base_manpower = 0.2 }
+1750.1.1	= { base_manpower = 0.25 }
+1800.1.1	= { base_manpower = 0.25 }
+1814.1.14	= {	owner = SWE revolt = { type = nationalist_rebels size = 0 } controller = REB remove_core = DAN } # Norway is ceded to Sweden following the Treaty of Kiel
+1814.5.17	= { revolt = {} owner = NOR controller = NOR } # Norway declares itself independent and elects Christian Frederik as king

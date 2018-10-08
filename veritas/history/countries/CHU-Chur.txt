@@ -1,0 +1,116 @@
+government = theocracy add_government_reform = leading_clergy_reform
+government_rank = 2
+technology_group = western
+religion = catholic
+primary_culture = swiss
+capital = 283	# Chur
+
+1298.1.1 = {
+	monarch = {
+		name = "Siegfried von Geilnhausen"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1321.1.1 = {
+	monarch = {
+		name = "Rudolf II Graf von Montfort"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1324.1.1 = {
+	monarch = {
+		name = "Hermann von Eichenbach"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1325.1.1 = {
+	monarch = {
+		name = "Johann I von Pfefferhart"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1331.1.1 = {
+	monarch = {
+		name = "Ulrich V von Lenzburg"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1355.1.1 = {
+	monarch = {
+		name = "Peter Gelyto"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1368.1.1 = {
+	monarch = {
+		name = "Friedrich II von Erdingen"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1376.1.1 = {
+	monarch = {
+		name = "Johann II von Ehingen"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1388.1.1 = {
+	monarch = {
+		name = "Bartholomew"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1390.1.1 = {
+	monarch = {
+		name = "Hartmann II Graf von Werdenberg-Sargans"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1416.1.1 = {
+	monarch = {
+		name = "Johann III Ambundi"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1420.1.1 = {
+	monarch = {
+		name = "Johann IV Naso"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1528.1.1 = { government = republic add_government_reform = swiss_canton religion = anabaptist }

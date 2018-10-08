@@ -1,0 +1,12 @@
+# Reformed Grenadery
+
+unit_type = eastern
+type = infantry
+
+maneuver = 1
+offensive_morale = 8
+defensive_morale = 14
+offensive_fire = 12
+defensive_fire = 13
+offensive_shock = 7
+defensive_shock = 3

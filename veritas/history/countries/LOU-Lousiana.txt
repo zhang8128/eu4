@@ -1,0 +1,10 @@
+#Province IDs changed
+government = republic
+government_rank = 3
+technology_group = western
+primary_culture = english
+religion = reformed
+capital = 2201	# Mobile
+
+1720.1.1 = { capital = 2200 } # Biloxi
+

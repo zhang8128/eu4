@@ -1,0 +1,97 @@
+country_decisions = {
+
+	croatian_nation = {
+		major = yes
+		potential = {
+			primary_culture = croatian
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = HLR }
+			NOT = { tag = CRO }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			OR = {
+				NOT = { exists = CRO}
+				ai = no
+			}
+			OR = {
+				ai = no
+				num_of_cities = 5
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			NOT = { exists = CRO }
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no	
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}		
+			owns_core_province = 532			# Lika
+			532 = { NOT = { nationalism = 1 } }
+			owns_core_province = 533			# Zagreb
+			533 = { NOT = { nationalism = 1 } }
+			owns_core_province = 535			# Dalmatia
+			535 = { NOT = { nationalism = 1 } }
+			owns_core_province = 537			# Ragusa
+			537 = { NOT = { nationalism = 1 } }
+			owns_core_province = 544			# Varasd
+			544 = { NOT = { nationalism = 1 } }
+			owns_core_province = 545			# Slavonia
+			545 = { NOT = { nationalism = 1 } }
+		}
+		effect = {
+			change_tag = CRO
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { government = republic }
+				change_government = monarchy
+				set_legacy_government = hereditary_monarchy
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			croatia_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = CRO
+			}
+			east_adriatic_coast_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = CRO
+			}
+			add_prestige = 25
+			set_capital = 533 # Zagreb
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = CRO_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}

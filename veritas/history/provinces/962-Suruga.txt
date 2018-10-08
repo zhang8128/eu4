@@ -1,0 +1,29 @@
+#1028 - Suruga
+
+capital = "Yokohama"
+owner = HJO
+controller = HJO
+add_core = HJO
+culture = japanese
+religion = shinto
+trade_goods = tea
+base_tax = 5
+base_production = 5
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = chinese
+discovered_by = niitaka
+
+1333.1.1   = { owner = ASK controller ASK add_core = ASK remove_core = HJO }
+1400.1.1	= { base_manpower = 3.5 }
+1500.1.1	= { base_manpower = 4.5 }
+1524.1.1	= { add_core = HJO }
+1546.5.19	= { owner = HJO controller = HJO }
+1590.8.10	= { remove_core = HJO add_core = TKG owner = TKG controller = TKG }
+1600.1.1	= { base_manpower = 6 }
+1603.3.24	= { owner = JAP controller = JAP add_core = JAP remove_core = TKG } # Tokugawa shogunate founded
+1650.1.1	= { base_manpower = 7 }
+1700.1.1	= { base_manpower = 8 }
+1750.1.1	= { base_manpower = 8 }
+1800.1.1	= { base_manpower = 7.5 }

@@ -1,0 +1,6 @@
+# Gulf Of Zambeze
+#Province IDs changed
+discovered_by = tribal_african_tech
+discovered_by = muslim
+
+1505.1.1 = { discovered_by = POR }

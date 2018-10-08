@@ -1,0 +1,44 @@
+# Royalists
+gbr_royalist = {
+	monarch_power = ADM
+	always = yes
+	modifier = {
+		prestige_decay = -0.005
+		legitimacy = 2
+		global_unrest = 1
+		cavalry_cost = -0.2
+		infantry_cost = 0.25
+		global_manpower_modifier = -0.1
+	}
+}
+
+# Republicans
+gbr_republican = {
+	monarch_power = ADM
+	always = yes
+	modifier = {
+		prestige_decay = 0.005
+		legitimacy = -2
+		global_unrest = -1
+		land_morale = 0.10
+		global_manpower_modifier = 0.2
+		naval_forcelimit_modifier = -0.1
+	}
+}
+
+# East Indian Company (Merchants)
+gbr_east_india_co = {
+	monarch_power = ADM
+	always = yes
+	modifier = {
+		light_ship_cost = -0.125
+		heavy_ship_cost = 0.05
+		global_trade_power = 0.1
+		trade_efficiency = 0.25
+		naval_maintenance_modifier = -0.25
+		land_maintenance_modifier = 0.1
+		naval_forcelimit_modifier = 0.20
+		land_forcelimit_modifier = -0.1
+		merchants = 1
+	}
+}

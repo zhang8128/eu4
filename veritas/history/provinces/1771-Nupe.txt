@@ -1,0 +1,16 @@
+# Nupe
+
+capital = "Nupe"
+owner = NUP
+controller = NUP
+add_core = NUP
+culture = edo_igbo
+religion = odinani
+trade_goods = copper
+base_tax = 2
+base_production = 2
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = sudanese_tech
+discovered_by = sub_saharan

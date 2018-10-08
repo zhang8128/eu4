@@ -1,0 +1,18 @@
+name = "Second Italian War"
+war_goal = {
+	type = take_core
+	casus_belli = cb_core
+	province = 263 # Lombardia
+}
+
+1499.8.10 = {
+	add_attacker = FRA
+	add_attacker = VEN
+	add_defender = MLO
+}
+
+1500.4.1 = { # Swiss mercenaries, not keen to fight one another, turn over Ludovico to the French
+	rem_attacker = FRA
+	rem_attacker = VEN
+	rem_defender = MLO
+}

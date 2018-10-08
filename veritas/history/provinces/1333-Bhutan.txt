@@ -1,0 +1,27 @@
+# Bhutan
+
+capital = "Punakha"
+owner = YUN
+controller = YUN
+add_core = YUN
+add_core = TIB
+add_core = BHU
+culture = bhutanese
+religion = vajrayana
+trade_goods = wool
+base_tax = 2
+base_production = 2
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = nomad_group
+discovered_by = indian
+discovered_by = chinese
+
+set_local_autonomy = 80
+
+add_permanent_province_modifier = { name = "himalayas" duration = -1 }
+
+1354.1.1 = { owner = TIB controller = TIB remove_core = YUN set_local_autonomy = 0 }
+1616.1.1 = { owner = BHU controller = BHU }
+1634.1.1 = { discovered_by = POR }

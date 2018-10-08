@@ -1,0 +1,10 @@
+#Yap Vaka
+#model = galley
+#tech_level = 0
+type = galley
+unit_type = pacific_islander
+
+hull_size = 6
+base_cannons = 4
+sail_speed = 6
+sailors = 30

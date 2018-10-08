@@ -1,0 +1,15 @@
+# Koumbi Saleh
+
+capital = "Koumbi"
+owner = MAL
+controller = MAL
+add_core = MAL
+culture = fulbe
+religion = sunni
+trade_goods = gold
+base_tax = 1
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = sudanese_tech

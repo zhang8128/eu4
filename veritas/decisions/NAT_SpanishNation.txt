@@ -1,0 +1,313 @@
+# Spain
+country_decisions = {
+
+	spanish_nation = {
+		major = yes
+		potential = {
+			OR = {
+				culture_group = iberian
+				primary_culture = basque
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				is_playing_custom_nation = no
+				ai = no
+			}
+			NOT = { primary_culture = maltese }
+			NOT = { religion_group = muslim }
+			NOT = { tag = SPA }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = FRA }	# Basque is a valid culture for both FRA and SPA
+			NOT = { tag = IBE }
+			NOT = { tag = ADL }
+			OR = {
+				ai = no
+				AND = {
+					tag = CAS
+					ARA = { ai = yes }
+				}
+				AND = {
+					tag = ARA
+					CAS = { ai = yes }
+				}
+			}
+			OR = {
+				AND = {
+					NOT = { exists = SPA }
+					num_of_cities = 3
+				}
+				ai = no
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			NOT = { exists = SPA }
+			stability = 1
+			adm_tech = 19
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			iberia_region = {
+				type = all
+				NOT = { owner = { religion_group = muslim } }
+			}
+			owns_core_province = 81		# Salamanca
+			81 = { NOT = { nationalism = 1 } }
+			owns_core_province = 82		# Castilla La Vieja
+			82 = { NOT = { nationalism = 1 } }
+			owns_core_province = 87		# Toledo
+			87 = { NOT = { nationalism = 1 } }
+			owns_core_province = 96		# Sevilla
+			96 = { NOT = { nationalism = 1 } }		
+			owns_core_province = 100	# Granada
+			100 = { NOT = { nationalism = 1 } }
+			owns_core_province = 103	# Valencia
+			103 = { NOT = { nationalism = 1 } }
+			owns_core_province = 106	# Zaragoza
+			106 = { NOT = { nationalism = 1 } }
+			owns_core_province = 107	# Barcelona
+			107 = { NOT = { nationalism = 1 } }
+		}
+		effect = {
+			change_tag = SPA
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			custom_tooltip = spanish_unification_effect.tooltip
+			hidden_effect = {
+				iberia_region = {
+					limit = {
+						NOT = { area = macaronesia_area }
+						NOT = { area = alentejo_area }
+						NOT = { area = beieras_area }
+					}
+					add_permanent_claim = SPA
+				}
+			}
+			add_prestige = 25
+			hidden_effect = {
+				set_variable = { which = vassal_boost value = 0.00 }
+				clr_country_flag = vassal_boost_set
+				every_owned_province = {
+					limit = { is_core = GRA }
+					remove_core = GRA	# Then end of Granada in Iberia
+				}
+				every_owned_province = {
+					limit = { is_core = LEO }
+					remove_core = LEO	
+				}
+				every_owned_province = {
+					limit = { is_core = CRD }
+					remove_core = CRD	
+				}
+				every_owned_province = {
+					limit = { is_core = TOL }
+					remove_core = TOL	
+				}
+				every_owned_province = {
+					limit = { is_core = SEV }
+					remove_core = SEV	
+				}
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = SPA_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 1000
+	}
+	
+	spanish_nation_diplomatically = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					tag = CAS
+					OR = {
+						ai = no
+						AND = {
+							ai = yes
+							OR = {
+								ARA = {	junior_union_with = CAS	}
+								ARA = {	vassal_of = CAS	}
+							}
+							#This overlaps with allow for AI, is meant to negate do_not_integrate
+							ARA = { NOT = { num_of_cities = 41 } } #Keep this number the same as in allow
+						}
+					}
+				}
+				AND = {
+					tag = ARA
+					OR = {
+						ai = no
+						AND = {
+							ai = yes
+							OR = {
+								CAS = {	junior_union_with = ARA	}
+								CAS = {	vassal_of = ARA	}
+							}
+							#This overlaps with allow for AI, is meant to negate do_not_integrate
+							CAS = { NOT = { num_of_cities = 60 } } #Keep this number the same as in allow
+						}
+					}
+				}
+			}
+			normal_or_historical_nations = yes
+			capital_scope = {
+				region = iberia_region
+			}
+			is_tutorial_active = no
+			NOT = { exists = SPA }
+		}
+		allow = {
+			stability = 1
+			adm_tech = 19
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			legitimacy = 100
+			iberia_region = {
+				type = all
+				NOT = { owner = { religion_group = muslim } }
+			}
+			custom_trigger_tooltip = {
+				tooltip = forming_spain_diplomatically_tooltip
+				OR = {
+					AND = {
+						tag = CAS
+						ARA = {	junior_union_with = CAS	}
+					}
+					AND = {
+						tag = CAS
+						ARA = {	vassal_of = CAS	}
+					}
+					AND = {
+						tag = ARA
+						CAS = {	junior_union_with = ARA	}
+					}
+					AND = {
+						tag = ARA
+						CAS = {	vassal_of = ARA	}
+					}
+				}
+			}
+			OR = {
+				AND = {
+					tag = CAS
+					ARA = { NOT = { num_of_cities = 41 } }  #Keep this number the same as above. Original 21 + 12 (Naples) + 7
+				}
+				AND = {
+					tag = ARA
+					CAS = { NOT = { num_of_cities = 60 } }  #Keep this number the same as above.
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			if = {
+				limit = {
+					tag = CAS
+					ARA = { ai = yes }
+				}
+				inherit = ARA
+			}
+			if = {
+				limit = {
+					tag = ARA
+					CAS = { ai = yes }
+				}
+				inherit = CAS
+			}
+			change_tag = SPA
+			custom_tooltip = spanish_unification_effect.tooltip
+			hidden_effect = {
+				iberia_region = {
+					limit = {
+						NOT = { area = macaronesia_area }
+						NOT = { area = alentejo_area }
+						NOT = { area = beieras_area }
+					}
+					add_permanent_claim = SPA
+				}
+			}
+			hidden_effect = {
+				set_variable = { which = vassal_boost value = 0.00 }
+				clr_country_flag = vassal_boost_set
+				every_owned_province = {
+					limit = { is_core = GRA }
+					remove_core = GRA	# The end of Granada in Iberia
+				}
+				every_owned_province = {
+					limit = { is_core = LEO }
+					remove_core = LEO	
+				}
+				every_owned_province = {
+					limit = { is_core = CRD }
+					remove_core = CRD	
+				}
+				every_owned_province = {
+					limit = { is_core = TOL }
+					remove_core = TOL	
+				}
+				every_owned_province = {
+					limit = { is_core = SEV }
+					remove_core = SEV	
+				}
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = SPA_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 400
+		do_not_integrate = ARA
+		do_not_integrate = CAS
+	}	
+
+}

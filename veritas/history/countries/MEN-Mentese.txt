@@ -1,0 +1,52 @@
+# Menteshe
+#Province IDs changed
+government = monarchy add_government_reform = iqta
+government_rank = 2
+primary_culture = turkish
+religion = sunni
+technology_group = ottoman
+capital = 595	# Mylasa
+historical_rival = BYZ
+
+1282.1.1 = {
+	monarch = {
+		name = "Mesud"
+		dynasty = Menteseli
+		adm = 2
+		dip = 1
+		mil = 4
+	}
+	heir = {
+		name = "Orhan"
+		monarch_name = "Orhan I"
+		dynasty = "Menteseli"
+		birth_date = 1282.1.1
+		death_date = 1348.1.1
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1319.1.1 = {
+	monarch = {
+		name = "Orhan I"
+		dynasty = Menteseli
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1402.8.1 = {
+	monarch = {
+		name = "Ilyas I"
+		dynasty = Menteseli
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+#Vassals of Ottomans from 1390 - 1402 and again in 1414 until annexation in 1426.

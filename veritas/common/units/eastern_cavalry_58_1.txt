@@ -1,0 +1,12 @@
+# Late Ulany Cavalry
+
+unit_type = eastern
+type = cavalry
+
+maneuver = 2
+offensive_morale = 13
+defensive_morale = 12
+offensive_fire = 3
+defensive_fire = 2
+offensive_shock = 8
+defensive_shock = 8

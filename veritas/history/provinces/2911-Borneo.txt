@@ -1,0 +1,12 @@
+# Borneo
+#Province IDs changed
+
+discovered_by = MKS
+discovered_by = MLC
+discovered_by = ATJ
+discovered_by = MAJ
+discovered_by = BEI
+discovered_by = KUT
+discovered_by = BLI
+discovered_by = SUN
+discovered_by = SVJ

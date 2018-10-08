@@ -1,0 +1,139 @@
+country_decisions = {
+
+	english_nation = {
+		major = yes
+		potential = {
+			primary_culture = english
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			capital_scope = { region = british_isles_region }
+			OR = {
+				NOT = { tag = ANV }
+				AND = {
+					tag = ANV 
+					NOT = { any_owned_province = { region = france_region } }
+				}
+			}
+			NOT = { exists = ENG }
+			NOT = { exists = GBR }
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			OR = {
+				ai = no
+				num_of_cities = 3
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { region = british_isles_region }
+						AND = {
+							region = british_isles_region
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_britain
+			}
+			owns_core_province = 34 # Middlesex
+			owns_core_province = 30 # Oxford
+			owns_core_province = 38 # Hampshire
+			owns_core_province = 36 # Kent
+			owns_core_province = 33 # Essex
+			owns_core_province = 26 # Lincoln
+			OR = {
+				owns_core_province = 23 # Lancaster
+				owns_core_province = 22 # York
+			}
+		}
+		effect = {
+			change_tag = ENG
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			add_government_reform = english_monarchy
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			northern_england_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ENG
+			}
+			home_counties_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ENG
+			}
+			west_midlands_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ENG
+			}
+			east_midlands_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ENG
+			}
+			east_anglia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ENG
+			}
+			wales_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ENG
+			}
+			wessex_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ENG
+			}
+			add_prestige = 25
+			set_capital = 34
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = ENG_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 400
+	}
+}

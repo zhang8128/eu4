@@ -1,0 +1,21 @@
+# Tingzhou
+
+capital = "Tingzhou"
+owner = YUN
+controller = YUN
+add_core = YUN
+culture = ganyu
+religion = confucianism
+trade_goods = opium
+base_tax = 2
+base_production = 2
+base_manpower = 7
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1356.8.1 = { owner = CZH controller = CZH add_core = CZH remove_core = YUN add_core = MNG }
+1366.1.1 = { owner = MNG controller = MNG }
+1637.1.1 = { revolt = { type = anti_tax_rebels size = 2 } controller = REB } # Zhang Xianzhong rebellion
+1647.1.2  = {	owner = QNG controller = QNG add_core = QNG } # The Qing Dynasty
+1662.1.1 = { remove_core = MNG }

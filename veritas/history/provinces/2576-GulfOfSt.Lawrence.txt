@@ -1,0 +1,3 @@
+# Gulf Of St. Lawrence
+#Province IDs changed
+1534.1.1 = { discovered_by = FRA } # Jacques Cartier

@@ -1,0 +1,140 @@
+country_decisions = {
+
+	scandinavian_nation = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			culture_group = scandinavian
+			normal_or_historical_nations = yes
+			NOT = { exists = SCA }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			is_colonial_nation = no
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { region = scandinavia_region }
+						AND = {
+							region = scandinavia_region
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_scandinavia
+			}
+			owns_core_province = 385		# Midtjylland
+			owns_core_province = 390		# Sjaelland
+			owns_core_province = 392		# Skane
+			owns_core_province = 399		# Vastergotland
+			owns_core_province = 403		# Sodermanland
+			owns_core_province = 417		# Viken
+		}
+		effect = {
+			change_tag = SCA
+			if = {
+				limit = {
+					is_part_of_hre = yes
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			set_government_rank = 4
+			scandinavia_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = SCA
+			}
+			add_prestige = 10
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = SCA_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+	
+	#scandinavian_nation_diplomatic = {
+	#	major = yes
+	#	potential = {
+	#		normal_or_historical_nations = yes
+	#		is_playing_custom_nation = no
+	#		culture_group = scandinavian
+	#		has_country_flag = baltic_leads_kalmar_union
+	#		is_subject = no
+	#		NOT = { exists = SCA }
+	#		NOT = { tag = PAP }
+	#		NOT = { tag = HLR }
+	#	}
+	#	allow = {
+	#		stability = 1
+	#		has_regency = no
+	#		is_at_war = no
+	#		all_owned_province = { NOT = { unrest = 10 } }
+	#
+	#		OR = {
+    #			owns_core_province = 403		# Sodermanland
+	#			owns_core_province = 390		# Sjaelland
+	#			owns_core_province = 417		# Viken
+	#		}        
+	#		had_country_flag = { flag = baltic_leads_kalmar_union days = 1 } #27375 
+	#		OR = {
+	#			tag = SWE
+	#			senior_union_with = SWE
+	#		}
+	#		OR = {
+	#			tag = NOR
+	#			senior_union_with = NOR
+	#		}
+	#		OR = {
+	#			tag = DAN
+	#			senior_union_with = DAN
+	#		}
+	#	}
+	#	effect = {
+	#		change_tag = SCA
+	#		scandinavian_region = { add_claim = SCA }
+	#		add_prestige = 5
+	#		add_legitimacy = 25
+	#		set_government_rank = 4
+	#		country_event = { id = "national_ideas.60000" }
+	#		if = {
+	#			limit = { NOT = { tag = NOR } }
+	#			inherit = NOR
+	#		}
+	#		if = {
+	#			limit = { NOT = { tag = DAN } }
+	#			inherit = DAN
+	#		}
+	#		if = {
+	#			limit = { NOT = { tag = SWE } }
+	#			inherit = SWE
+	#		}
+	#	}
+	#	ai_will_do = { factor = 0 }
+	#}
+
+}

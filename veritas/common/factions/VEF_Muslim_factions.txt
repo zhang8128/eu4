@@ -1,0 +1,83 @@
+# Ottoman Eyalets - muslim vassals
+# Clergy - the Imams
+eyalet_clergy = {
+	monarch_power = DIP
+	always = yes
+	modifier = {
+		tolerance_heathen = -1
+	}
+}
+
+# Beys - the local administrators for the Sultan
+eyalet_beys = {
+	monarch_power = ADM
+	always = yes
+	modifier = {
+		advisor_cost = -0.10
+	}
+}
+
+# The tribes - local groups seeking independence
+eyalet_tribes = {
+	monarch_power = MIL
+	always = yes
+	modifier = {
+		land_forcelimit_modifier = 0.10
+	}
+}
+
+# Ottoman Ethnarchies - christian vassals
+# The Pashas - The Sultan's administrators
+ethnarchy_pashas = {
+	monarch_power = ADM
+	always = yes
+	modifier = {
+		global_tax_modifier = 0.10
+	}
+}
+
+# The Boyars - local aristocrats seeking autonomy
+ethnarchy_boyars = {
+	monarch_power = MIL
+	always = yes
+	modifier = {
+		global_manpower_modifier = 0.10
+	}
+}
+
+# The Christian (mostly Orthodox, Coptic and Nestorian) clergy
+ethnarchy_clergy = {
+	monarch_power = DIP
+	always = yes
+	modifier = {
+		tolerance_heathen = -1
+	}
+}
+
+# Turkish Bureaucracies
+# The Phanariotes - Rich individuals, nominally loyal to the Sultan
+turkish_phanariotes = {
+	monarch_power = ADM
+	always = yes
+	modifier = {
+		advisor_cost = 0.10
+	}
+}
+
+# Eteria - seeking independence
+turkish_eteria = {
+	monarch_power = MIL
+	always = yes
+	modifier = {
+		global_manpower_modifier = 0.10
+	}
+}
+
+# The Christian (Orthodox) clergy
+turkish_clergy = {
+	monarch_power = DIP
+	always = yes
+	modifier = {
+		tolerance_heathen = -1
+	}
+}

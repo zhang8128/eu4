@@ -1,0 +1,29 @@
+# Chikuzen
+# Manpower revision complete
+#Province IDs changed
+
+owner = OTM
+controller = OTM
+culture = japanese
+religion = shinto
+capital = "Kitakyushu"
+trade_goods = chinaware
+hre = no
+base_tax = 4
+base_production = 4
+base_manpower = 4
+add_core = OTM
+is_city = yes
+discovered_by = chinese
+discovered_by = niitaka
+
+1400.1.1	= { base_manpower = 2.5 }
+1500.1.1	= { base_manpower = 3.5 }
+1564.1.1	= { owner = HJO controller = HJO add_core = HJO remove_core = OTM } # Battle of Konodai
+1590.8.10	= { remove_core = HJO add_core = TKG owner = TKG controller = TKG }
+1600.1.1	= { base_manpower = 4.5 }
+1603.3.24	= { owner = JAP controller = JAP add_core = JAP remove_core = TKG } # Tokugawa shogunate founded
+1650.1.1	= { base_manpower = 5 }
+1700.1.1	= { base_manpower = 6 }
+1750.1.1	= { base_manpower = 6 }
+1800.1.1	= { base_manpower = 5.75 }

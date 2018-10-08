@@ -1,0 +1,10 @@
+#Medium Makoro
+#model = galley
+#tech_level = 6
+type = galley
+unit_type = tribal_african_tech
+
+hull_size = 5
+base_cannons = 4
+sail_speed = 6
+sailors = 100

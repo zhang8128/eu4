@@ -1,0 +1,126 @@
+#Province IDs changed
+government = monarchy add_government_reform = iqta
+government_rank = 3
+technology_group = muslim
+religion = sunni
+primary_culture = bedouin_arabic
+historical_friend = TUN
+capital = 1898	# Tripoli
+
+1399.1.1 = {
+	monarch = {
+		name = "Berber Tribes"
+		regent = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	add_piety = 0.1
+}
+	
+
+1711.7.30 = {
+	monarch = {
+		name = "Ahmad I"
+		dynasty = "Karamanoglu"
+		adm = 4
+		dip = 1
+		mil = 3
+	}
+}
+
+1711.7.30 = {
+	heir = {
+		name = "Mehmed"
+		monarch_name = "Mehmed I"
+		dynasty = "Karamanoglu"
+		birth_date = 1700.1.1
+		death_Date = 1754.7.25
+		claim = 95
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}
+
+1745.11.4 = {
+	monarch = {
+		name = "Mehmed I"
+		dynasty = "Karamanoglu"
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}
+
+1745.11.4 = {
+	heir = {
+		name = "'Alî"
+		monarch_name = "'Alî I"
+		dynasty = "Karamanoglu"
+		birth_date = 1730.1.1
+		death_date = 1793.7.30
+		claim = 95
+		adm = 3
+		dip = 1
+		mil = 1
+	}
+}
+
+1754.7.25 = {
+	monarch = {
+		name = "'Alî I"
+		dynasty = "Karamanoglu"
+		adm = 3
+		dip = 1
+		mil = 1
+	}
+}
+
+1754.7.25 = {
+	heir = {
+		name = "'Alî Borgul"
+		monarch_name = "'Alî Borgul"
+		dynasty = "Karamanoglu"
+		birth_date = 1750.1.1
+		death_date = 1795.1.22
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 0
+	}
+}
+
+1793.7.30 = {
+	monarch = {
+		name = "'Alî Borgul"
+		dynasty = "Karamanoglu"
+		adm = 1
+		dip = 2
+		mil = 0
+	}
+}
+
+1793.7.30 = {
+	heir = {
+		name = "Yusuf"
+		monarch_name = "Yusuf"
+		dynasty = "Karamanoglu"
+		birth_date = 1780.1.1
+		death_date = 1832.1.1
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 2
+	}
+}
+
+1795.1.22 = {
+	monarch = {
+		name = "Yusuf"
+		dynasty = "Karamanoglu"
+		adm = 1
+		dip = 2
+		mil = 2
+	}
+}

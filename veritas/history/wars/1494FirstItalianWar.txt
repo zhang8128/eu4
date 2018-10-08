@@ -1,0 +1,56 @@
+#Province IDs changed
+name = "First Italian War"
+war_goal = {
+	type = take_capital_throne
+	casus_belli = cb_claim_throne
+	tag = NAP
+}
+
+1494.8.1 = {
+	add_attacker = FRA
+	add_defender = NAP
+}
+
+# The Holy League
+1495.3.31 = {
+	add_defender = PAP
+	add_defender = TUS
+	add_defender = MLO
+	add_defender = VEN
+	add_defender = HAB
+	add_defender = ARA
+}
+
+1495.7.6 = {
+	battle = {
+		name = "Fornovo"
+		location = 252
+		attacker = {
+			commander = "Charles VIII"	# Charles VIII
+			infantry = 8000
+			cavalry = 2000
+			losses = 10	#percent
+			country = FRA
+		}
+		defender = {
+			commander = "Francesco II of Gonzaga"	# Francesco II of Gonzaga
+			infantry = 18000
+			cavalry = 2000
+			losses = 10	#percent
+			country = VEN #Francesco is Marquis of Mantua but is fighting as a Condottiero 
+		}
+		result = no
+	}
+}
+
+# Peace
+1495.7.10 = {
+	rem_attacker = FRA
+	rem_defender = NAP
+	rem_defender = VEN
+	rem_defender = MLO
+	rem_defender = PAP
+	rem_defender = TUS
+	rem_defender = HAB
+	rem_defender = ARA
+}

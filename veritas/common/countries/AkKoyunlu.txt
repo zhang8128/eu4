@@ -1,0 +1,124 @@
+#Country Name: Please see filename.
+
+graphical_culture = muslimgfx
+
+color = { 31 49 138 }
+
+historical_idea_groups = {
+	quantity_ideas
+	intimidatory_ideas
+	religious_ideas
+	offensive_ideas
+	land_trade_ideas
+	expansion_ideas
+	drafted_army_ideas
+	land_ideas
+}
+
+historical_units = {
+	nomad_artillery_0_1
+	nomad_artillery_20_1
+	nomad_artillery_32_1
+	nomad_artillery_44_1
+	nomad_cavalry_0_1
+	nomad_cavalry_5_1
+	nomad_cavalry_10_1
+	nomad_cavalry_15_1
+	nomad_cavalry_20_1
+	nomad_cavalry_25_1
+	nomad_cavalry_30_1
+	nomad_cavalry_35_1
+	nomad_cavalry_40_1
+	nomad_infantry_0_1
+	nomad_infantry_10_1
+	nomad_infantry_20_1
+	nomad_infantry_28_1
+	nomad_infantry_36_1
+	nomad_infantry_42_1
+}
+
+monarch_names = {
+	"Qara Yülüq Osman #0" = 10
+	"Ali #0" = 20
+	"Yaqûb #0" = 20
+	"Cihangir #0" = 20
+	"Uzun Hasan #0" = 20
+	"Halîl #0" = 20
+	"Baysungur #0" = 20
+	"Rüstem #0" = 20
+	"Ahmed Gövde #0" = 20
+	"Murâd #0" = 20
+	"Elvend Mehmed #0" = 20
+	"Hamza #0" = 10
+	"Tur Ali #0" = 10
+	"Fahreddîn Qutlu #0" = 10
+	"Hasan #0" = 10
+	"Qara Hasan #0" = 10
+	"Muhammed Mirzâ #1" = 20
+	
+	"Salwah #1" = -1
+	"Halima #1" = -1
+	"Aisha #1" = -1
+	"Melis #0" = -1
+	"Rabia #0" = -1
+	"Safiye #0" = -1
+	"Umut #0" = -1
+	"Ziynet #0" = -1
+	"Zübeyde #0" = -1
+}
+
+leader_names = {
+	Ali
+	Ahmed 
+	Cihangir
+	Elvend
+	Fahreddîn
+	Gövde
+	Halil
+	Hamza
+	Hasan
+	Mirzâ
+	Muhammed
+	Murâd
+	Osman
+	Qara
+	Qutlu
+	Rüstem
+	Uzun
+	Yaqûb
+	Yülüq
+}
+
+ship_names = {
+	Ahlat
+	Ardabîl
+	Basra
+	Bayburt
+	Bayîndîr
+	"Diyar Baqr"
+	Erzincan
+	Esfahan
+	"Fahreddîn Qutlu"
+	Gilan
+	Hamadan
+	Hasan
+	Hazar
+	Karbala
+	Mardin
+	Musul
+	"Qara Yülüq"
+	Sirvan
+	Sultan
+	"Tur Ali"
+	Urfa
+	Van
+	Yazd
+}
+
+army_names = {
+	"Army of $PROVINCE$"
+}
+
+fleet_names = {
+	"Black Sea fleet" "Caspian Sea fleet" "Persian Gulf Fleet"
+}

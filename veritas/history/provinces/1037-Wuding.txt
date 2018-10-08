@@ -1,0 +1,18 @@
+# Wuding
+
+capital = "Wuding"
+owner = YUN
+controller = YUN
+add_core = YUN
+culture = chihan
+religion = confucianism
+trade_goods = fish
+base_tax = 2
+base_production = 2
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = chinese
+discovered_by = niitaka
+
+1368.4.1 = { owner = MNG controller = MNG add_core = MNG remove_core = YUN add_core = CSH }

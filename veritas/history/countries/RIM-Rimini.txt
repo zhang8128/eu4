@@ -1,0 +1,220 @@
+# Rimini
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+primary_culture = umbrian
+religion = catholic
+technology_group = western
+capital = 233
+
+set_country_flag = starting_vassal 
+set_country_flag = vassal_flag
+set_variable = { which = vassal_progress value = 1.0 }
+set_country_flag = romagna_vassal
+
+1295.1.1 = {	
+	monarch = {
+		name = "Malatesta I"
+		dynasty = "Malatesta"
+		birth_date = "1212.1.1"
+		adm = 5
+		dip = 4
+		mil = 4
+	}
+	heir = {
+		name = "Malatestino"
+		monarch_name = "Malatesta II"
+		dynasty = "Malatesta"
+		birth_date = 1265.1.1
+		death_date = 1317.10.14
+		claim = 95
+		adm = 2
+		dip = 1
+		mil = 3
+	}
+}
+
+1312.1.1 = {
+	monarch = {
+		name = "Malatesta II"
+		dynasty = "Malatesta"
+		birth_date = "1265.1.1"
+		adm = 2
+		dip = 1
+		mil = 3
+	}
+	heir = {
+		name = "Pandolfo"
+		monarch_name = "Pandolfo I"
+		dynasty = "Malatesta"
+		birth_date = 1267.1.1
+		death_date = 1326.4.6
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 4
+	}
+}
+
+1317.1.1 = {
+	monarch = {
+		name = "Pandolfo I"
+		dynasty = "Malatesta"
+		birth_date = "1267.1.1"
+		adm = 2
+		dip = 2
+		mil = 4
+	}
+	heir = {
+		name = "Malatesta"
+		monarch_name = "Malatesta III"
+		dynasty = "Malatesta"
+		birth_date = 1299.1.1
+		death_date = 1364.8.18
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1326.4.6 = {
+	monarch = {
+		name = "Malatesta III"
+		dynasty = "Malatesta"
+		birth_date = "1299.1.1"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1327.6.1 = {
+	heir = {
+		name = "Malatesta"
+		monarch_name = "Malatesta IV"
+		dynasty = "Malatesta"
+		birth_date = 1327.6.1
+		death_date = 1372.7.1
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 5
+	}
+}
+
+1364.8.18 = {
+	monarch = {
+		name = "Malatesta IV"
+		dynasty = "Malatesta"
+		birth_date = "1327.6.1"
+		adm = 2
+		dip = 2
+		mil = 5
+	}
+	queen = {
+		country_of_origin = FER
+		name = "Constanza"
+		dynasty = "d'Este"
+		birth_date = 1343.7.25
+		death_date = 1391.2.14
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1372.7.1 = {
+	monarch = {
+		name = "Galeotto I"
+		dynasty = "Malatesta"
+		birth_date = "1299.1.1"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	heir = {
+		name = "Carlo"
+		monarch_name = "Carlo I"
+		dynasty = "Malatesta"
+		birth_date = 1368.1.1
+		death_date = 1429.9.14
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 5
+	}
+}
+
+1385.1.1 = {
+	monarch = {
+		name = "Carlo I"
+		dynasty = "Malatesta"
+		birth_date = "1368.1.1"
+		adm = 5
+		dip = 4
+		mil = 5
+	}
+}
+
+1386.11.1 = {
+	queen = {
+		country_of_origin = MAN
+		name = "Elisabetta"
+		dynasty = "Gonzaga"
+		birth_date = 1370.1.1	# Made Up
+		death_date = 1420.1.1	# Made Up
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1411.1.1 = {
+	heir = {
+		name = "Galeotto"
+		monarch_name = "Galeotto II"
+		dynasty = "Malatesta"
+		birth_date = 1411.1.1
+		death_date = 1432.8.1
+		claim = 95
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1429.9.13 = {
+	monarch = {
+		name = "Galeotto II"
+		dynasty = "Malatesta"
+		birth_date = 1411.1.1
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+	heir = {
+		name = "Sigismondo Pandolfo"
+		monarch_name = "Sigismondo I"
+		dynasty = "Malatesta"
+		birth_date = 1417.6.19
+		death_date = 1429.9.14
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 5
+	}
+}
+
+1432.8.1 = {
+	monarch = {
+		name = "Sigismondo I"
+		dynasty = "Malatesta"
+		birth_date = 1417.6.19
+		adm = 3
+		dip = 3
+		mil = 5
+	}
+}

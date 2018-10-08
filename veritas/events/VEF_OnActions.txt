@@ -1,0 +1,38 @@
+namespace = vef_onactions
+
+country_event = {
+	id = vef_onactions.1
+	title = "vef_onactions.1.t"
+	desc = "vef_onactions.1.d"
+	picture = VEF_DEBATE_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = { change_variable = { which = previous_count which = FROM }}
+	}
+	
+	option = {
+		name = "vef_onactions.1.opta"
+		add_country_modifier = {
+			name = "annexers_legacy"
+			duration = 3650
+		}
+		every_owned_province = {
+			limit = { has_province_flag = integrate_was_capital }
+			remove_core = ROOT
+			add_territorial_core = ROOT
+			clr_province_flag = integrate_was_capital
+		}
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					is_core = FROM
+					NOT = { months_since_defection = 1 }
+					NOT = { has_province_modifier = lib_building_cooldown }
+				}
+				add_province_modifier = { name = lib_building_cooldown duration = 45 hidden = yes }
+			}
+		}
+	}
+}

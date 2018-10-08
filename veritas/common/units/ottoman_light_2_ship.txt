@@ -1,0 +1,10 @@
+#Karavele
+#model = caravel
+#tech_level = 14
+type = transport
+unit_type = ottoman
+
+hull_size = 12
+base_cannons = 12
+sail_speed = 10
+sailors = 175

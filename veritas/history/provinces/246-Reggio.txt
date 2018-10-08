@@ -1,0 +1,44 @@
+# Reggio
+
+capital = "Reggio" 
+owner = FER
+controller = FER
+add_core = FER
+add_core = MOD
+culture = emilian
+religion = catholic 
+trade_goods = wine
+base_tax = 3
+base_production = 3  
+base_manpower = 3
+is_city = yes 
+hre = no
+local_assembly = yes
+citizens_80 = yes
+church_20 = yes
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = scandinavian_tech
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+set_province_flag = guelph_ghibelline_factions
+set_variable = { which = guelph_sympathies value = 10 }
+set_variable = { which = ghibelline_sympathies value = 65 }
+
+1306.1.1   = { set_local_autonomy = 100 } # Republic asserts it's independence from the Este.
+1348.1.1	= { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1	= { remove_province_modifier = province_black_death }
+1560.1.1	= { clr_province_flag = guelph_ghibelline_factions }
+1600.1.1	= { base_manpower = 2.5 }
+1650.1.1	= { base_manpower = 2.5 }
+1700.1.1	= { base_manpower = 2.75 }
+1750.1.1	= { base_manpower = 3.5 }
+1800.1.1	= { base_manpower = 5 }
+1802.6.10	= { owner = ITA controller = ITA add_core = ITA } # Italian Republic
+1806.7.12	= { hre = no } # The Holy Roman Empire is dissolved
+1814.4.11	= { owner = MOD controller = MOD remove_core = ITA }
+1860.3.20	= { owner = SPI controller = SPI add_core = SPI remove_core = MOD } # Victor Emmanuel II exchanges Savoy and Nice for French support in his annexation of northern Italian states
+1861.3.17	= { owner = ITA controller = ITA add_core = ITA remove_core = SPI } # Victor Emmanuel II proclaimed King of Italy

@@ -1,0 +1,31 @@
+# Vendsyssel
+
+capital = "Skagen"
+owner = DAN
+controller = DAN
+add_core = DAN
+culture = danish
+religion = catholic
+trade_goods = livestock
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1350.1.1	= { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1	= { remove_province_modifier = province_black_death }
+1534.8.15	= { revolt = { type = revolutionary_rebels size = 1 } controller = REB } # 'Grevefejden'(Christofer of Oldenburg)
+1534.11.2	= { revolt = {} controller = DAN } # Liberated by Christian III
+1536.1.1 	= { religion = protestant }
+1600.1.1	= { base_manpower = 0.5 }
+1644.1.25	= { controller = SWE } # Torstenssons War- Captured by Lennart Torstensson
+1645.8.13	= { controller = DAN } # The Peace of Br�msebro
+1650.1.1	= { base_manpower = 0.5 }
+1700.1.1	= { base_manpower = 0.75 }
+1750.1.1	= { base_manpower = 0.75 }
+1800.1.1	= { base_manpower = 1 }

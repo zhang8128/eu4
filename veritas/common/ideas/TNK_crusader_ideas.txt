@@ -1,0 +1,40 @@
+# The Knights
+
+# Naxos has unique national ideas
+
+crusader_ideas = {
+	start = {
+		enemy_core_creation = 0.5
+		global_ship_cost = -0.10
+	}
+	bonus = {
+		global_manpower_modifier = 0.20
+	}
+	trigger = {
+		tag = MOE
+		religion = catholic
+	}
+	free = yes
+
+	defender_of_christendom = {
+		defensiveness = 0.25
+	}
+	divine_glory_of_conquest = {
+		global_manpower_modifier = 0.25
+	}
+	onward_crusaders = {
+		global_garrison_growth = 0.1
+	}
+	pilgrims_revenues = {
+		trade_efficiency = 0.05
+	}
+	reform_of_crusader_army = {
+		discipline = 0.05
+	}
+	harass_ottomans = {
+		blockade_efficiency = 0.33
+	}
+	crusader_diplomacy = {
+		diplomatic_upkeep = 1
+	}
+}

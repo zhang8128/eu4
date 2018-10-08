@@ -1,0 +1,47 @@
+# Picardie
+
+capital = "Amiens"
+owner = FLA
+controller = FLA 
+add_core = FLA
+culture = picard
+religion = catholic
+trade_goods = grain
+base_tax = 5
+base_production = 5
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1   = { base_manpower = 4 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1384.1.30  = { owner = BUR controller = BUR add_core = BUR } # Burgundy inherits county of Flanders
+1399.1.1   = { add_core = ENG }
+1400.1.1   = { base_manpower = 4 }
+1444.1.1   = { add_core = FRA }
+1475.8.29  = { remove_core = ENG } # Treaty of Picquigny
+1477.1.5   = { owner = FRA controller = FRA add_core  = FRA remove_core = BUR } # Charles the Bold dies and transfers Picardie to France
+1500.1.1   = { base_manpower = 5 }
+1513.8.16  = { controller = ENG } # Henry VIII defeats La Palice at Guinnegate and sacks Therouanne
+1514.5.5   = { controller = FRA } # Henry VIII concludes a seperate peace with France
+1544.7.5   = { controller = ENG } # English forces take hold of parts of Picardie in the Anglo-French War (1542-1546)
+1546.8.1   = { controller = FRA } # Peace is concluded, back to status quo
+1588.12.1  = { unrest = 5 } # Henri de Guise assassinated at Blois, Ultra-Catholics into a frenzy
+1594.1.1   = { unrest = 0 } # 'Paris vaut bien une messe!', Henri converts to Catholicism
+1600.1.1   = { base_manpower = 3.25 }
+1628.1.1   = { unrest = 3 }
+1630.1.1   = { unrest = 0 }
+1638.1.1   = { unrest = 3 }
+1640.1.1   = { unrest = 0 }
+1642.1.1   = { unrest = 3 }
+1644.1.1   = { unrest = 0 }
+1650.1.1   = { base_manpower = 3.5 }
+1700.1.1   = { base_manpower = 3.7 }
+1750.1.1   = { base_manpower = 4 }
+1786.1.1   = { base_tax = 5
+base_production = 5 } # The Eden Agreement
+1800.1.1   = { base_manpower = 4.75 }

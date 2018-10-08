@@ -1,0 +1,104 @@
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+technology_group = western
+religion = catholic
+primary_culture = cosmopolitan_french
+capital = 2318	# Port-Au-Prince
+
+
+1804.1.1 = {
+	monarch = {
+		name = "Jean-Jacques"
+		dynasty = "Dessalines"
+		birth_date = 1758.9.20
+		adm = 3
+		dip = 1
+		mil = 4
+	}
+}
+
+1806.10.17 = {
+	monarch = {
+		name = "Henri"
+		dynasty = "Christophe"
+		birth_date = 1767.10.6
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1820.10.8 = {
+	government = republic
+	monarch = {
+		name = "Jean Pierre Boyer"
+		birth_date = 1776.2.15
+		adm = 4
+		dip = 2
+		mil = 2
+	}
+}
+
+1843.4.4 = {
+	monarch = {
+		name = "Charles Rivière-Hérard"
+		birth_date = 1789.2.16
+		adm = 1
+		dip = 3
+		mil = 2
+	}
+}
+
+1844.5.3 = {
+	monarch = {
+		name = "Philippe Guerrier"
+		birth_date = 1757.12.19
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+}
+
+1845.4.16 = {
+	monarch = {
+		name = "Jean-Louis Pierrot"
+		birth_date = 1761.1.1
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1846.3.1 = {
+	monarch = {
+		name = "Jean-Baptiste Riché"
+		birth_date = 1780.1.1
+		adm = 4
+		dip = 1
+		mil = 2
+	}
+}
+
+1847.3.1 = {
+	monarch = {
+		name = "Faustin"
+		dynasty = "Soulouque"
+		birth_date = 1782.8.15
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}
+
+1849.8.25 = { government = monarchy add_government_reform = autocracy_reform }
+
+1859.1.15 = {
+	government = republic
+	monarch = {
+		name = "Fabre Geffrard"
+		birth_date = 1806.9.19
+		adm = 4
+		dip = 3
+		mil = 1
+	}
+}

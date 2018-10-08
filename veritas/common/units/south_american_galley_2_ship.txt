@@ -1,0 +1,10 @@
+#Dalca
+#model = galley
+#tech_level = 6
+type = galley
+unit_type = south_american
+
+hull_size = 4
+base_cannons = 2
+sail_speed = 4
+sailors = 40

@@ -1,0 +1,99 @@
+#Province IDs changed
+name = "American Civil War"
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+	tag = CSA
+}
+
+# US Ships violate sovereign Confederate waters in Charleston Harbour
+1861.4.12 = {
+	add_attacker = USA
+	add_defender = CSA
+}
+
+1861.7.21 = {
+	battle = {
+		name = "First Manassas/Bull Run"
+		location = 2236
+		attacker = {
+			commander = "Irvin McDowell"
+			infantry = 18000
+			losses = 15	# percent
+			country = USA
+		}
+		defender = {
+			commander = "P.T. Beauregard"
+			infantry = 18000
+			losses = 10	# percent
+			country = CSA
+		}
+		result = no
+	}
+}
+
+1862.8.30 = {
+	battle = {
+		name = "Second Manassas/Bull Run"
+		location = 2236
+		attacker = {
+			commander = "Robert E. Lee"
+			infantry = 50000
+			losses = 12	# percent
+			country = CSA
+		}
+		defender = {
+			commander = "John Pope"
+			infantry = 62000
+			losses = 15	# percent
+			country = USA
+		}
+		result = no
+	}
+}
+
+1862.9.17 = {
+	battle = {
+		name = "Sharpsburg/Antietam"
+		location = 2239
+		attacker = {
+			commander = "George McClellan"
+			infantry = 75500
+			losses = 15	# percent
+			country = USA
+		}
+		defender = {
+			commander = "Robert E. Lee"
+			infantry = 38000
+			losses = 23	# percent
+			country = CSA
+		}
+		result = yes
+	}
+}
+
+1863.7.3 = {
+	battle = {
+		name = "Gettysburg"
+		location = 2238
+		attacker = {
+			commander = "Robert E. Lee"
+			infantry = 71500
+			losses = 32	# percent
+			country = CSA
+		}
+		defender = {
+			commander = "George Meade"
+			infantry = 94000
+			losses = 25	# percent
+			country = USA
+		}
+		result = yes
+	}
+}
+
+# Nathan Bedford Forest surrenders some of the last Confederate forces
+1865.5.9 = {
+	rem_attacker = USA
+	rem_defender = CSA
+}

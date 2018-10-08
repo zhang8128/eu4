@@ -1,0 +1,6 @@
+# Gulf Of Nigeria
+#Province IDs changed
+discovered_by = tribal_african_tech
+discovered_by = sub_saharan
+
+1472.1.1 = { discovered_by = POR }

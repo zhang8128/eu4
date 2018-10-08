@@ -1,0 +1,15 @@
+# Mbwele
+#Province IDs changed
+
+capital = "Mbwele"
+native_size =   5
+native_ferocity =   3
+native_hostileness =   4
+culture = baluba
+religion = bantu
+base_tax = 1
+base_production = 1
+base_manpower = 3
+trade_goods = iron
+discovered_by = tribal_african_tech
+hre = no

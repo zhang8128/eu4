@@ -1,0 +1,114 @@
+name = "War of the Roses"
+war_goal = {
+	type = take_capital_personal_union
+	casus_belli = cb_restore_personal_union
+	tag = YOR
+}
+
+1459.1.1 = {
+	add_attacker = LAN
+	add_attacker = ENG
+	add_attacker = ORD
+	add_defender = YOR
+	add_defender = DMS
+}
+
+1459.7.10 = {
+	battle = {
+		name = "Blore Heath"
+		location = 25
+		attacker = {
+			commander = "James Tuchet, Lord Audley"	
+			infantry = 8000
+			cavalry = 2000
+			losses = 20	# percent	
+			country = LAN
+		}
+		defender = {
+			commander = "Richard Neville"
+			infantry = 5000
+			losses = 20	# percent
+			country = YOR
+		}
+		result = no
+	}
+}
+
+#Losses are extremely light due to betrayal by Lord Grey on the Lancastrian left flank
+1460.7.10 = {
+	battle = {
+		name = "Northampton"
+		location = 30
+		attacker = {
+			commander = "Edward, Earl of March"	
+			infantry = 19000
+			losses = 1	# percent	
+			country = YOR
+		}
+		defender = {
+			commander = "Henry VI"
+			infantry = 5000
+			losses = 8	# percent
+			country = LAN
+		}
+		result = yes
+	}
+}
+
+#Estimates for troop number vary to a ludicrous degree
+1460.12.30 = {
+	battle = {
+		name = "Wakefield"
+		location = 22
+		attacker = {
+			commander = "Richard, Duke of York"	
+			infantry = 2500
+			losses = 70	# percent	
+			country = YOR
+		}
+		defender = {
+			commander = "Henry Beaufort"
+			infantry = 9000
+			losses = 3	# percent
+			country = LAN
+		}
+		result = no
+	}
+}
+
+# Edward IV (Yorkist) Proclaimed King
+1461.3.4 = {
+	rem_attacker = ENG
+	add_defender = ENG
+}
+
+1461.3.29 = {
+	battle = {
+		name = "Towton"
+		location = 22
+		attacker = {
+			commander = "Edward York"	
+			infantry = 24000
+			cavalry = 1000
+			losses = 33	# percent	
+			country = YOR
+		}
+		defender = {
+			commander = "Henry Beaufort"
+			infantry = 29000
+			cavalry = 1000
+			losses = 66	# percent
+			country = LAN
+		}
+		result = no
+	}
+}
+
+# Battle of Tewkesbury
+1471.5.4 = {
+	rem_attacker = LAN
+	rem_attacker = ORD
+	rem_defender = ENG
+	rem_defender = YOR
+	rem_defender = DMS
+}

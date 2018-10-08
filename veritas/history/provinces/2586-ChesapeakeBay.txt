@@ -1,0 +1,3 @@
+# Chesapeake Bay
+#Province IDs changed
+1524.1.1 = { discovered_by = FRA } # Giovanni da Verrazzano

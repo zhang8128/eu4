@@ -1,0 +1,15 @@
+# Blue Nile
+
+capital = "Soba"
+owner = ALW
+controller = ALW
+add_core = ALW
+culture = nubian
+religion = coptic
+trade_goods = millet
+base_tax = 2
+base_production = 2
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = sudanese_tech

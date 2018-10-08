@@ -1,0 +1,217 @@
+#Country Name: Please see filename.
+
+graphical_culture = easterngfx
+
+color = { 136  157  23 }
+
+historical_idea_groups = {
+	defensive_ideas
+	mercantilist_ideas
+	religious_ideas
+	quantity_ideas
+	spy_ideas
+	administrative_ideas
+	drafted_army_ideas
+	mm1_ideas
+}
+
+historical_units = { 
+	eastern_artillery_16_1
+	eastern_artillery_22_1
+	eastern_artillery_29_1
+	eastern_artillery_35_1
+	eastern_artillery_40_1
+	eastern_artillery_44_1
+	eastern_artillery_48_1
+	eastern_artillery_48_2
+	eastern_artillery_52_1
+	eastern_artillery_55_1
+	eastern_artillery_55_2
+	eastern_artillery_9_1
+	eastern_cavalry_0_1
+	eastern_cavalry_0_2
+	eastern_cavalry_21_1
+	eastern_cavalry_21_2
+	eastern_cavalry_27_1
+	eastern_cavalry_31_1
+	eastern_cavalry_36_1
+	eastern_cavalry_40_1
+	eastern_cavalry_44_1
+	eastern_cavalry_44_2
+	eastern_cavalry_48_1
+	eastern_cavalry_48_2
+	eastern_cavalry_51_1
+	eastern_cavalry_51_2
+	eastern_cavalry_55_1
+	eastern_cavalry_55_2
+	eastern_cavalry_58_1
+	eastern_cavalry_58_2
+	eastern_cavalry_16_1
+	eastern_cavalry_16_2
+	eastern_infantry_0_1
+	eastern_infantry_0_2
+	eastern_infantry_17_1
+	eastern_infantry_17_2
+	eastern_infantry_25_1
+	eastern_infantry_25_2
+	eastern_infantry_28_1
+	eastern_infantry_28_2
+	eastern_infantry_31_1
+	eastern_infantry_31_2
+	eastern_infantry_34_1
+	eastern_infantry_34_2
+	eastern_infantry_39_1
+	eastern_infantry_39_2
+	eastern_infantry_42_1
+	eastern_infantry_42_2
+	eastern_infantry_45_1
+	eastern_infantry_45_2
+	eastern_infantry_48_1
+	eastern_infantry_48_2
+	eastern_infantry_50_1
+	eastern_infantry_50_2
+	eastern_infantry_53_1
+	eastern_infantry_53_2
+	eastern_infantry_55_1
+	eastern_infantry_55_2
+	eastern_infantry_57_1
+	eastern_infantry_57_2
+	eastern_infantry_59_1
+	eastern_infantry_59_2
+	eastern_infantry_63_1
+	eastern_infantry_63_2
+	eastern_infantry_6_1
+	eastern_infantry_6_2
+	eastern_infantry_14_1
+	eastern_infantry_14_2
+}
+
+
+
+
+monarch_names = {
+	"Alexandru #0" = 280
+	"Stefan #1" = 180
+	"Constantin #0" = 120
+	"Mihail #0" = 80
+	"Grigore #0" = 60
+	"Ioan #0" = 60
+	"Petru #2" = 40
+	"Bogdan #1" = 40
+	"Antioh #0" = 40
+	"Ilias #0" = 40
+	"Scarlat #0" = 40
+	"Stefãnitã #0" = 40
+	"George #0" = 40
+	"Petru #2 Aron" = 20
+	"Aron #0" = 20
+	"Dimitrie #0" = 20
+	"Dumitrascu #0" = 20
+	"Emanuel #0" = 20
+	"Eustratius #0" = 20
+	"Gaspar #0" = 20
+	"George Stefan #0" = 20
+	"Iancu #0" = 20
+	"Ilias Alexandru #0" = 20
+	"Ioan #0 Iacob" = 20
+	"Ioan Teodor #0" = 20
+	"Iuga #0" = 20
+	"Ieremia #0" = 20
+	"Matei #0" = 20
+	"Milos #0" = 20
+	"Moise #0" = 20
+	"Nicolae #0" = 20
+	"Radu #0" = 20
+	"Simion #0" = 20
+	"Vasile #0" = 20
+	"Ioan #0 Bogdan" = 15
+	"Sergiu #0" = 10
+	"Roman #2" = 5
+	"Andrei #0" = 0
+	"Iulian #0" = 0
+	"Mircea #0" = 0
+	
+	"Elisabeta #0" = 0
+	"Elena #0" = 0
+	"Maria #0" = 0
+	"Camelia #0" = -1
+	"Doina #0" = -1
+	"Olga #0" = -1	
+}
+
+leader_names = {
+	Antonescu Apostol
+	Basarab Brâncoveanu Bãlcescu Barbu Blaga Brãtianu Bibescu
+	Cantacuzino Caragea Craiovescu Cãlinescu Chirilã Constantinescu Cosma Costache Crãciun Cristea Cuza Cantemir Calimachi Creangã
+	Duca Dinescu Dumitriu Dobre Dragomir Dumitrescu Dracul Dãnescu
+	Ene Enescu
+	Florea Florescu Filip
+	Ghica Golescu Gheorghiu Georgescu Goga
+	Hagi Hajdeu Hurmuzachi Hasdeu
+	Ilias Ipsilanti Iliescu Iancu Ionescu Iordache
+	Kogãlniceanu
+	Lupu
+	Mavrocordat Moruzi Maniu Mihalache Minea Mironescu Moldovan Morar Morariu Munteanu Movilã
+	Nãstase Nechita Nica Niculescu Nicolãiescu Nistor Noica
+	Olaru Olteanu
+	Pavel Pescariu Pîrvu Petrescu Prunea
+	Racovitã Roman Rãducanu
+	Sutu Serbãnescu Stãnescu Sãndulescu Sturza
+	Tãtãrescu Tomescu
+	Ungureanu
+	Vacarescu Vladimirescu Voinea
+}
+
+ship_names = {
+	"Atletul lui Hristos"
+	"Fecioara Maria"
+	"Maica Domnului"
+	Baia
+	Bogdan
+	Iuga
+	Moldova
+	"Râul Prut"
+	"Târgul Moldovei"
+	"Puterea Mãrii"
+	Sperietoarea
+	"Frumusetea Valurilor"
+	Posada
+	Calugãreni
+	Rovine
+	Sarmizegetusa
+	Burebista
+	Decebal
+	Deceneu
+	Traian
+	"Atacul de noapte"
+	Litovoi
+	Basarabia
+	Bezerenbam
+	Miselav
+	Thocomerius
+	"Radu Negru"
+	Bãrbat
+	Tihomir
+	Seneslav
+	Comosicus
+	Coson
+	Cotiso
+	Cothelas
+	Dapyx
+	Dicomes
+	Dromichaetes
+	Dual
+	Duras
+	Moskon
+	Oroles
+	Rhemaxos
+	Rholes
+	Rubobostes
+	Scorillo
+	Zalmodegicus
+	Zyraxes
+}
+
+army_names = {
+	"Oastea din $PROVINCE$" 
+}

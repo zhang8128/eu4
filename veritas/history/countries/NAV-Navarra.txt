@@ -1,0 +1,280 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+primary_culture = basque
+religion = catholic
+technology_group = western
+capital = 114	# Pamplona
+
+
+1328.2.1 = {
+	monarch = {
+		name = "Joan II"
+		dynasty = "Capet"
+		adm = 3
+		dip = 3
+		mil = 2
+		female = yes
+	}
+	queen = {
+		country_of_origin = FRA
+		name = "Filipe"
+		dynasty = "d'Évreux"
+		birth_date = 1306.3.27
+		death_date = 1343.9.16
+		female = no
+		adm = 4
+		dip = 2
+		mil = 2
+	}
+}
+
+1332.10.10 = {
+	heir = {
+		name = "Carlos"
+		monarch_name = "Carlos II"
+		dynasty = "d'Évreux"
+		birth_date = 1332.10.10
+		death_date = 1387.1.1
+		claim = 100
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1349.10.6 = {
+	monarch = {
+		name = "Carlos II"
+		dynasty = "d'Évreux"
+		birth_date = 1332.10.10
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1352.2.12 = {
+	queen = {
+		country_of_origin = FRA
+		name = "Joan"
+		dynasty = "de Valois"
+		birth_date = 1343.6.24
+		death_date = 1373.11.3
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1361.1.1 = {
+	heir = {
+		name = "Carlos"
+		monarch_name = "Carlos III"
+		dynasty = "d'Évreux"
+		birth_date = 1332.10.10
+		death_date = 1425.9.8
+		claim = 100
+		adm = 1
+		dip = 2
+		mil = 2
+	}
+}
+
+1387.1.1 = {
+	monarch = {
+		name = "Carlos III"
+		dynasty = "d'Évreux"
+		birth_date = 1332.10.10
+		adm = 1
+		dip = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = CAS
+		name = "Leonor"
+		dynasty = "de Trastámara"
+		birth_date = 1363.1.1
+		death_date = 1416.2.27
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1387.7.6 = {
+	heir = {
+		name = "Blanche"
+		monarch_name = "Blanche I"
+		dynasty = "d'Évreux"
+		birth_date = 1387.7.6
+		death_date = 1441.4.1
+		female = yes
+		claim = 100
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1425.9.8 = {
+	monarch = {
+		name = "Blanche I"
+		dynasty = "d'Évreux"
+		birth_date = 1387.7.6
+		female = yes
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+# John withholds the crown from his son Charles and rules it in a union with Aragon
+# 1444.4.1 - 1479.1.20 Union with Aragon
+
+1479.1.20 = {
+	monarch = {
+		name = "Leonor I"
+		dynasty = "de Trastámara"
+		adm = 1
+		dip = 2
+		mil = 0
+		female = yes
+	}
+}
+
+1479.1.20 = {
+	heir = {
+		name = "Francisco"
+		monarch_name = "Francisco I Febo"
+		dynasty = "de Foix"
+		birth_date = 1469.1.1
+		death_date = 1483.1.1
+		claim = 80
+		adm = 0
+		dip = 1
+		mil = 0
+	}
+}
+
+1479.2.12 = {
+	monarch = {
+		name = "Francisco I Febo"
+		dynasty = "de Foix"
+		adm = 0
+		dip = 1
+		mil = 0
+	}
+}
+
+1479.2.12 = {
+	heir = {
+		name = "Catalina"
+		monarch_name = "Catalina I"
+		dynasty = "de Foix"
+		birth_date = 1468.1.1
+		death_date = 1518.2.18
+		claim = 95
+		adm = 0
+		dip = 1
+		mil = 0
+		female = yes
+	}
+}
+
+1483.1.1 = {
+	monarch = {
+		name = "Catalina I"
+		dynasty = "de Foix"
+		adm = 0
+		dip = 1
+		mil = 0
+		female = yes
+	}
+}
+
+1503.4.18 = {
+	heir = {
+		name = "Enrique"
+		monarch_name = "Enrique II"
+		dynasty = "d'Albret"
+		birth_date = 1503.4.18
+		death_date = 1555.5.25
+		claim = 95
+		adm = 3
+		dip = 4
+		mil = 1
+	}
+}
+
+1506.12.3 = { leader = {	name = "Cesare Borgia"             	type = general fire = 3	shock = 2	manuever = 2	siege = 3	death_date = 1507.3.12 } }
+
+1512.9.1 = { capital = 118 government = monarchy add_government_reform = autocracy_reform } # Bearn/Foix 
+  
+1517.1.1 = {
+	monarch = {
+		name = "Enrique II"
+		dynasty = "d'Albret"
+		adm = 3
+		dip = 4
+		mil = 1
+	}
+}
+
+1528.1.7 = {
+	heir = {
+		name = "Juana"
+		monarch_name = "Juana III"
+		dynasty = "d'Albret"
+		birth_date = 1528.1.7
+		death_date = 1572.6.9
+		claim = 95
+		adm = 4
+		dip = 4
+		mil = 1
+		female = yes
+	}
+}
+
+1555.5.25 = {
+	monarch = {
+		name = "Juana III"
+		dynasty = "d'Albret"
+		adm = 4
+		dip = 4
+		mil = 1
+		female = yes
+	}
+}
+
+1555.5.25 = {
+	heir = {
+		name = "Enrique"
+		monarch_name = "Enrique III"
+		dynasty = "de Bourbon"
+		birth_date = 1553.12.13
+		death_date = 1610.5.14
+		claim = 95
+		adm = 5
+		dip = 5
+		mil = 5
+		leader = { 	name = "Enrique III"		type = general fire = 4	shock = 4	manuever = 2	siege = 0 }
+	}
+}
+
+1560.1.1 = { religion = reformed government = monarchy add_government_reform = feudalism_reform }
+
+1562.1.1 = { leader = {	name = "Louis I de Condé"	type = general fire = 2	shock = 3	manuever = 4	siege = 3	death_date = 1569.1.1 } }
+
+1572.6.9 = {
+	monarch = {
+		name = "Enrique III"
+		dynasty = "de Bourbon"
+		adm = 5
+		dip = 5
+		mil = 5
+		leader = { 	name = "Enrique III"		type = general fire = 4	shock = 4	manuever = 2	siege = 0 }
+	}
+}

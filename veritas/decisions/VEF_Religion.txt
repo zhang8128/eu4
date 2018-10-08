@@ -1,0 +1,230 @@
+# VEF Religion decisions
+
+country_decisions = {
+
+	# While the event is mostly beneficial prima facie, having the modifier will now trigger
+	# events such as the Dacke wars and Pilgrimage of Grace
+	dissolution_of_the_monasteries = {
+		potential = {
+			religion_group = christian
+			NOT = { religion = catholic }
+			NOT = { religion = orthodox }
+			NOT = { religion = coptic }
+			NOT = { religion = nestorian }
+			NOT = { has_country_modifier = the_dissolution_of_the_monasteries }
+			NOT = { has_country_modifier = forced_monasteries_restored }
+		}
+		allow = {
+			OR = {
+				full_idea_group = administrative_ideas
+				full_idea_group = delegative_ideas
+				full_idea_group = innovativeness_ideas
+			}
+		}
+		effect = {
+			add_years_of_income = 1
+			add_country_modifier = { name = "the_dissolution_of_the_monasteries" duration = -1 }
+			custom_tooltip = monastery_dissolution
+			hidden_effect = {
+				every_owned_province = {
+					limit = { has_building = church_20 }
+					remove_building = church_20
+					set_province_flag = was_church_20
+				}
+				every_owned_province = {
+					limit = { has_building = church_40 }
+					remove_building = church_40
+					set_province_flag = was_church_40
+				}
+				every_owned_province = {
+					limit = { has_building = church_60 }
+					remove_building = church_60
+					set_province_flag = was_church_60
+				}
+				every_owned_province = {
+					limit = { has_building = church_80 }
+					remove_building = church_80
+					set_province_flag = was_church_80
+				}
+				if = {
+					limit = { any_owned_province = { has_building = grand_priory }}
+					country_event = { id = theknights.100 days = 10 }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				NOT = { stability = 1 }
+				factor = 0
+			}
+		}
+	}
+
+	support_athonite_monasteries = {
+		potential = { 
+			religion = orthodox
+			NOT = { has_country_modifier = athonite_monasteries }
+		}
+		allow = {
+			religion = orthodox
+			OR = {
+				patriarch_authority = 0.75
+				has_idea_group = religious_ideas
+			}
+			years_of_income = 0.20
+		}
+		effect = {
+			add_country_modifier = { name = "athonite_monasteries" duration = -1 }
+			add_years_of_income = -0.165
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	doctrine_of_two_swords = {
+		potential = { 
+			religion = orthodox
+			owns = 588		# Constantinople
+			NOT = { has_country_modifier = two_swords }
+		}
+		allow = {
+			religion = orthodox
+			OR = {
+				patriarch_authority = 0.60
+				has_idea_group = religious_ideas
+			}
+		}
+		effect = {
+			add_country_modifier = { name = "two_swords" duration = -1 }
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	support_iconography = {
+		potential = { 
+			religion = orthodox
+			NOT = { has_country_modifier = "iconoclast" }
+			NOT = { has_country_modifier = "iconodule" }
+		}
+		allow = {
+			OR = {
+				patriarch_authority = 0.35
+				has_idea_group = religious_ideas
+			}
+			NOT = { has_country_modifier = "iconoclast" }
+		}
+		effect = {
+			add_ruler_modifier = { name = "iconodule" duration = -1 }
+			add_patriarch_authority = 0.20
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	support_iconoclasm = {
+		potential = { 
+			religion = orthodox
+			NOT = { has_country_modifier = "iconoclast" }
+			NOT = { has_country_modifier = "iconodule" }
+		}
+		allow = {
+			OR = {
+				NOT = { patriarch_authority = 0.25 }
+				NOT = { has_idea_group = religious_ideas }
+			}
+			NOT = { has_country_modifier = "iconodule" }
+		}
+		effect = {
+			add_ruler_modifier = { name = "iconoclast" }
+			add_patriarch_authority = -0.25
+			random = {
+				chance = 75
+				random_owned_province = { spawn_rebels = { type = orthodox_rebels size =1 } }
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	support_hesychasm = {
+		potential = {
+			religion = orthodox
+			NOT = { has_country_modifier = hesychasm }
+			NOT = { has_country_modifier = no_hesychasm }
+		}
+		allow = {
+			patriarch_authority = 0.50
+			NOT = { has_country_modifier = no_hesychasm }
+		}
+		effect = {
+			add_country_modifier = { name = "hesychasm" duration = -1 }
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	condemn_hesychasm = {
+		potential = { 
+			religion = orthodox
+			NOT = { has_country_modifier = hesychasm }
+			NOT = { has_country_modifier = no_hesychasm }
+		}
+		allow = {
+			patriarch_authority = 0.50
+			NOT = { has_country_modifier = hesychasm }
+		}
+		effect = {
+			add_country_modifier = { name = "no_hesychasm" duration = -1 }
+			add_patriarch_authority = -0.25
+		}
+		ai_will_do = { factor = 0 }
+	}
+	
+	close_knights_priories = {
+		potential = {
+			religion = catholic
+			war_with = KNI
+			any_owned_province = { has_building = grand_priory }
+			NOT = { has_country_flag = knights_priory_decision }
+		}
+		
+		allow = { war_with = KNI }
+		
+		effect = {
+			country_event = { id = theknights.101 }
+			set_country_flag = knights_priory_decision
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+	
+	found_knights_priories = {
+		potential = {
+			religion = catholic
+			exists = KNI
+			NOT = { has_country_modifier = knights_priory_cooldown }
+			NOT = { tag = KNI }
+		}
+		
+		allow = {
+			has_opinion = { who = KNI value = 120 }
+			reverse_has_opinion = { who = KNI value = 120 }
+			any_owned_province = {
+				development = 15
+				NOT = { has_building = grand_priory }
+				has_province_flag = crown_lands
+			}
+		}
+		
+		effect = {
+			random_owned_province = {
+				limit = {
+					development = 15
+					NOT = { has_building = grand_priory }
+					has_province_flag = crown_lands
+				}
+				add_building = grand_priory
+			}
+			hidden_effect = { add_country_modifier = { name = knights_priory_cooldown duration = 18250 hidden = yes }}
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+}

@@ -1,0 +1,1776 @@
+# Barbary Pirates Events to replace TNK
+namespace = vef_barbarossa
+normal_or_historical_nations = yes
+###########
+# 50 - Moslems control all of N. Africa
+# 65 - 50 + Barbarossa active
+# 75 - 70 + Turkish support
+# 90 - 70 + Malta and Sicily(2) or Sardinia or Baleares or foothold in Spain/Italy
+# 100 - 70 + Malta, Sicily, Sardinia, and Baleares, Corsica, or foothold
+#
+# 25 - Raid Sicily, Islands, south Naples, south Spain
+# 60 - Raid  25 + Greece, Naples (NMC), Spain (NMC)
+# 80 - Raid 60 + French Med Coast, Adriatic, N. Italy
+# 90 - Raid any Med province, Portugal
+############
+
+#Initialise
+#1 AI Setup
+#2 Inform Christians
+#3 Inform Moslems
+
+#N. African Support
+#10 New Monarch
+
+#Raids
+#100 Raid Master Calculation
+#101 Raid Region 1
+#102 Raid Region 2
+#103 Raid Region 3
+#104 Raid Region 4
+
+#Oruc Barbarossa
+#200 Seizes Djerba
+#201 Seizes Algiers
+#202 Turkish Aid? (TUR)
+#203 Turkish Aid - Pirates
+#204 Turkish Vassal? - Pirates
+#205 Accept Vassal? (TUR)
+#206 Capital Seized - Ends Pirates Government
+
+#Maintenance
+#90000 Pirates Strength Calculation
+
+
+##############
+# Initialise #
+##############
+
+country_event = {
+	id = vef_barbarossa.1
+	title = "vef_barbarossa.1.t"
+	desc = "vef_barbarossa.1.d"
+	picture = PIRATE1_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes # triggered by vef_setup.1
+
+	trigger = {
+		NOT = { has_dlc = "Mare Nostrum" }
+		ai = yes
+		NOT = { has_global_flag = pirates_setup }
+		NOT = { has_global_flag = pirates_sunset }
+	}
+	
+	immediate = {
+		set_global_flag = pirates_setup
+	}
+
+	option = {
+		name = vef_barbarossa.1.opta
+		# 	Barbary Pirates National startup events
+		every_country = {
+			limit = {
+				OR = {
+					any_owned_province = { province_group = barbary_pirate_targets_group }
+					tag = CAS
+				}
+			}
+			trigger_switch = {
+				on_trigger = religion_group
+				christian = { country_event = { id = vef_barbarossa.2 } }
+				muslim = { country_event = { id = vef_barbarossa.3 } }
+			}
+		}
+	}
+}
+
+# Inform Christians
+country_event = {
+	id = vef_barbarossa.2
+	title = "vef_barbarossa.2.t"
+	desc = "vef_barbarossa.2.d"
+	picture = PIRATE1_eventPicture
+
+	is_triggered_only = yes # triggered by vef_barbarossa.1
+	
+	trigger = {
+		NOT = { has_dlc = "Mare Nostrum" }
+	}
+
+	option = {
+		name = "vef_barbarossa.2.opta" #We will sink them!
+	}
+
+}
+
+# Inform Moslems
+country_event = {
+	id = vef_barbarossa.3
+	title = "vef_barbarossa.3.t"
+	desc = "vef_barbarossa.3.d"
+	picture = PIRATE1_eventPicture
+
+	is_triggered_only = yes # triggered by vef_barbarossa.1
+	
+	trigger = {
+		NOT = { has_dlc = "Mare Nostrum" }
+	}
+
+	option = {
+		name = "vef_barbarossa.3.opta" #We will sink them!
+	}
+}
+
+
+######################
+# N. African Support #
+######################
+
+# Every new monarch
+country_event = {
+	id = vef_barbarossa.10
+	title = "vef_barbarossa.10.t"
+	desc = "vef_barbarossa.10.d"
+	picture = PIRATE1_eventPicture
+
+	is_triggered_only = yes # on_new_monarch
+	
+	trigger = {
+		religion_group = muslim
+		NOT = { has_dlc = "Mare Nostrum" }
+		OR = {
+			tag = MOR
+			tag = ALG
+			tag = TUN
+			tag = TLM
+			tag = TRP
+		}
+		NOT = { government = barbary_pirates }
+		NOT = { has_global_flag = pirates_sunset }
+	}
+
+	option = {	# Support
+		ai_chance = {
+			factor = 80
+			modifier = {
+				OR = {
+					overlord = {
+						religion_group = christian
+						dynasty = ROOT
+					}
+					government = vassal_governorship
+				}
+				factor = 0
+			}
+			modifier = {
+				overlord = { religion_group = christian }
+				factor = 0.125
+			}
+		}
+		name = "vef_barbarossa.10.opta"
+		add_ruler_modifier = { name = nafrica_support_pirates duration = -1 }
+	}
+	
+	option = {	# Ignore
+		ai_chance = { factor = 20 }
+		name = "vef_barbarossa.10.optb"
+		every_owned_province = {
+			limit = {
+				has_port = yes
+				NOT = { local_autonomy = 40 }
+			}
+			add_local_autonomy = 10
+		}
+	}
+	
+	option = {	#Hunt Down
+		ai_chance = {
+			factor = 80
+			modifier = {
+				NOT = {
+					overlord = {
+						religion_group = christian
+						dynasty = ROOT
+					}
+				}
+				NOT = { government = vassal_governorship }
+				factor = 0
+			}
+		}
+		name = "vef_barbarossa.10.optc"
+		add_ruler_modifier = { name = nafrica_hunt_pirates duration = -1 }
+	}
+}
+
+# Overlord Angered By Support
+country_event = {
+	id = vef_barbarossa.11
+	title = "vef_barbarossa.11.t"
+	desc = "vef_barbarossa.11.d"
+	picture = PIRATE1_eventPicture
+
+	trigger = {
+		has_country_modifier = nafrica_support_pirates
+		NOT = { has_dlc = "Mare Nostrum" }
+		is_subject = yes
+		religion_group = muslim
+		overlord = {
+			religion_group = christian
+			NOT = { has_country_modifier = tolerating_pirates }
+		}
+	}
+	
+	mean_time_to_happen = { months = 120 }	
+
+	option = {	#Withdraw Support
+		name = "vef_barbarossa.11.opta"
+		ai_chance = { factor = 5 }
+		remove_country_modifier = nafrica_support_pirates
+		add_prestige = -5
+	}
+	
+	option = {	#Hide it better
+		name = "vef_barbarossa.11.optb"
+		ai_chance = { factor = 80 }
+		trigger = { NOT = { has_country_modifier = hidden_pirate_support }}
+		add_ruler_modifier = { name = hidden_pirate_support duration = -1 hidden = yes }
+		custom_tooltip = hiding_pirates
+	}
+	
+	option = { #Spite them
+		name = "vef_barbarossa.11.optc"
+		ai_chance = { factor = 15 }
+		overlord = { country_event = { id = vef_barbarossa.12 days = 7 }}
+		custom_tooltip = spiting_overlord
+	}
+}
+
+# Vassal Refusing to end support for pirates
+country_event = {
+	id = vef_barbarossa.12
+	title = "vef_barbarossa.12.t"
+	desc = "vef_barbarossa.12.d"
+	picture = PIRATE1_eventPicture
+
+	is_triggered_only = yes # vef_barbarossa.11
+	
+	trigger = { 
+		NOT = { has_dlc = "Mare Nostrum" }
+	}
+	
+	option = {	#Invade
+		ai_chance = {
+			factor = 90
+			modifier = {
+				is_at_war = yes
+				factor = 0
+			}
+		}
+		name = "vef_barbarossa.12.opta"
+		FROM = {
+			declare_war_with_cb = { who = ROOT casus_belli = cb_independence_war }
+			remove_country_modifier = nafrica_support_pirates
+		}
+	}
+
+	option = {	#Let them
+		ai_chance = { factor = 10 }
+		name = "vef_barbarossa.12.optb"
+		add_country_modifier = { name = tolerating_pirates duration = 7300 }
+		add_prestige = -5
+	}
+}
+
+#Particularly Large Raid
+country_event = {
+	id = vef_barbarossa.13
+	title = "vef_barbarossa.13.t"
+	desc = "vef_barbarossa.13.d"
+	picture = PIRATE1_eventPicture
+
+	is_triggered_only = yes # on_bi_yearly_pulse
+	
+	trigger = {
+		has_country_modifier = nafrica_support_pirates
+		NOT = { has_dlc = "Mare Nostrum" }
+		religion_group = muslim
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "vef_barbarossa.13.opta"
+		random_owned_province = {
+			limit = { has_port = yes }
+			add_province_modifier = { name = successful_raid duration = 1825 }
+		}
+	}
+}
+
+#Pirates Out of Control
+country_event = {
+	id = vef_barbarossa.14
+	title = "vef_barbarossa.14.t"
+	desc = "vef_barbarossa.14.d"
+	picture = PIRATE1_eventPicture
+
+	is_triggered_only = yes # on_bi_yearly_pulse
+	
+	trigger = {
+		religion_group = muslim
+		NOT = { has_dlc = "Mare Nostrum" }
+		OR = {
+			tag = MOR
+			tag = ALG
+			tag = TUN
+			tag = TLM
+			tag = TRP
+		}
+		NOT = { has_country_modifier = nafrica_hunt_pirates }
+		NOT = { has_global_flag = pirates_sunset }
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		ai_chance = { factor = 50 }
+		name = "vef_barbarossa.14.opta"
+		random_owned_province = {
+			limit = { has_port = yes }
+			add_province_modifier = { name = cracking_down duration = 1825 }
+		}
+	}
+	
+	option = {
+		ai_chance = { factor = 50 }
+		name = "vef_barbarossa.14.optb"
+		every_owned_province = {
+			limit = { has_port = yes }
+			add_local_autonomy = 5
+			add_unrest = 2
+		}
+	}
+}
+
+
+#########
+# Raids #
+#########
+
+# Raid Master
+country_event = {
+	id = vef_barbarossa.100
+	title = "vef_barbarossa.100.t"
+	desc = "vef_barbarossa.100.d"
+	picture = PIRATE1_eventPicture
+	
+	trigger = {
+		REB = { NOT = { has_country_modifier = pirates_raid_run }}
+		NOT = { has_dlc = "Mare Nostrum" }
+		ai = yes
+		NOT = { has_global_flag = pirates_sunset }
+		REB = { check_variable = { which = barbarossa_strength value = 25 }}
+		is_month = 4
+	}
+	
+	immediate = {
+		REB = { add_country_modifier = { name = pirates_raid_run duration = 300 }}
+	}
+	
+	option = {	#Typical
+		name = "vef_barbarossa.100.opta"
+		ai_chance = { factor = 75 }
+		every_province = {
+			limit = {
+				province_group = barbary_pirates_risk_1_group
+				owner = { religion_group = christian }
+			}
+			if = {
+				limit = {
+					NOT = { owner = { navy_size_percentage = 0.8 }}
+					NOT = { fort_level = 2 }
+				}
+				random = {
+					chance = 10
+					province_event = { id = vef_barbarossa.101 days = 60 random = 1 }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owner = { navy_size_percentage = 0.8 }
+						fort_level = 2
+					}
+				}
+				random = {
+					chance = 7
+					province_event = { id = vef_barbarossa.101 days = 60 random = 1 }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owner = { navy_size_percentage = 1.25 }
+						AND = {
+							owner = { navy_size_percentage = 0.8 }
+							fort_level = 2
+						}
+					}
+				}
+				random = {
+					chance = 4
+					province_event = { id = vef_barbarossa.101 days = 60 random = 1 }
+				}
+			}
+		}
+		if = {
+			limit = {
+				REB = { check_variable = { which = barbarossa_strength value = 60 }}
+			}
+			every_province = {
+				limit = {
+					province_group = barbary_pirates_risk_2_group
+					owner = { religion_group = christian }
+				}
+				if = {
+					limit = {
+						NOT = { owner = { navy_size_percentage = 0.8 }}
+						NOT = { fort_level = 2 }
+					}
+					random = {
+						chance = 10
+						province_event = { id = vef_barbarossa.102 days = 60 random = 1 }
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							owner = { navy_size_percentage = 0.8 }
+							fort_level = 2
+						}
+					}
+					random = {
+						chance = 7
+						province_event = { id = vef_barbarossa.102 days = 60 random = 1 }
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							owner = { navy_size_percentage = 1.25 }
+							AND = {
+								owner = { navy_size_percentage = 0.8 }
+								fort_level = 2
+							}
+						}
+					}
+					random = {
+						chance = 4
+						province_event = { id = vef_barbarossa.102 days = 60 random = 1 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				REB = { check_variable = { which = barbarossa_strength value = 80 }}
+			}
+			every_province = {
+				limit = {
+					province_group = barbary_pirates_risk_3_group
+					owner = { religion_group = christian }
+				}
+				if = {
+					limit = {
+						NOT = { owner = { navy_size_percentage = 0.8 }}
+						NOT = { fort_level = 2 }
+					}
+					random = {
+						chance = 10
+						province_event = { id = vef_barbarossa.103 days = 60 random = 1 }
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							owner = { navy_size_percentage = 0.8 }
+							fort_level = 2
+						}
+					}
+					random = {
+						chance = 7
+						province_event = { id = vef_barbarossa.103 days = 60 random = 1 }
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							owner = { navy_size_percentage = 1.25 }
+							AND = {
+								owner = { navy_size_percentage = 0.8 }
+								fort_level = 2
+							}
+						}
+					}
+					random = {
+						chance = 4
+						province_event = { id = vef_barbarossa.103 days = 60 random = 1 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				REB = { check_variable = { which = barbarossa_strength value = 90 }}
+			}
+			every_province = {
+				limit = {
+					province_group = barbary_pirates_risk_4_group
+					owner = { religion_group = christian }
+				}
+				if = {
+					limit = {
+						NOT = { owner = { navy_size_percentage = 0.8 }}
+						NOT = { fort_level = 2 }
+					}
+					random = {
+						chance = 10
+						province_event = { id = vef_barbarossa.104 days = 60 random = 1 }
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							owner = { navy_size_percentage = 0.8 }
+							fort_level = 2
+						}
+						OR = {
+							NOT = { owner = { navy_size_percentage = 0.8 }}
+							NOT = { fort_level = 2 }
+						}
+						NOT = { owner = { navy_size_percentage = 1.25 }}
+					}
+					random = {
+						chance = 7
+						province_event = { id = vef_barbarossa.104 days = 60 random = 1 }
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							owner = { navy_size_percentage = 1.25 }
+							AND = {
+								owner = { navy_size_percentage = 0.8 }
+								fort_level = 2
+							}
+						}
+					}
+					random = {
+						chance = 4
+						province_event = { id = vef_barbarossa.104 days = 60 random = 1 }
+					}
+				}
+			}
+		}
+	}
+	
+	option = {	#Aggressive
+		name = "vef_barbarossa.100.optb"
+		ai_chance = { factor = 25 }
+		every_province = {
+			limit = {
+				province_group = barbary_pirates_risk_1_group
+				owner = { religion_group = christian }
+			}
+			if = {
+				limit = {
+					NOT = { owner = { navy_size_percentage = 0.8 }}
+					NOT = { fort_level = 2 }
+				}
+				random = {
+					chance = 15
+					province_event = { id = vef_barbarossa.101 days = 60 random = 1 }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owner = { navy_size_percentage = 0.8 }
+						fort_level = 2
+					}
+				}
+				random = {
+					chance = 10
+					province_event = { id = vef_barbarossa.101 days = 60 random = 1 }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owner = { navy_size_percentage = 1.25 }
+						AND = {
+							owner = { navy_size_percentage = 0.8 }
+							fort_level = 2
+						}
+					}
+				}
+				random = {
+					chance = 6
+					province_event = { id = vef_barbarossa.101 days = 60 random = 1 }
+				}
+			}
+		}
+		if = {
+			limit = {
+				REB = { check_variable = { which = barbarossa_strength value = 60 }}
+			}
+			every_province = {
+				limit = {
+					province_group = barbary_pirates_risk_2_group
+					owner = { religion_group = christian }
+				}
+				if = {
+					limit = {
+						NOT = { owner = { navy_size_percentage = 0.8 }}
+						NOT = { fort_level = 2 }
+					}
+					random = {
+						chance = 15
+						province_event = { id = vef_barbarossa.102 days = 60 random = 1 }
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							owner = { navy_size_percentage = 0.8 }
+							fort_level = 2
+						}
+					}
+					random = {
+						chance = 10
+						province_event = { id = vef_barbarossa.102 days = 60 random = 1 }
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							owner = { navy_size_percentage = 1.25 }
+							AND = {
+								owner = { navy_size_percentage = 0.8 }
+								fort_level = 2
+							}
+						}
+					}
+					random = {
+						chance = 6
+						province_event = { id = vef_barbarossa.102 days = 60 random = 1 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				REB = { check_variable = { which = barbarossa_strength value = 80 }}
+			}
+			every_province = {
+				limit = {
+					province_group = barbary_pirates_risk_3_group
+					owner = { religion_group = christian }
+				}
+				if = {
+					limit = {
+						NOT = { owner = { navy_size_percentage = 0.8 }}
+						NOT = { fort_level = 2 }
+					}
+					random = {
+						chance = 15
+						province_event = { id = vef_barbarossa.103 days = 60 random = 1 }
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							owner = { navy_size_percentage = 0.8 }
+							fort_level = 2
+						}
+					}
+					random = {
+						chance = 10
+						province_event = { id = vef_barbarossa.103 days = 60 random = 1 }
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							owner = { navy_size_percentage = 1.25 }
+							AND = {
+								owner = { navy_size_percentage = 0.8 }
+								fort_level = 2
+							}
+						}
+					}
+					random = {
+						chance = 6
+						province_event = { id = vef_barbarossa.103 days = 60 random = 1 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				REB = { check_variable = { which = barbarossa_strength value = 90 }}
+			}
+			every_province = {
+				limit = {
+					province_group = barbary_pirates_risk_4_group
+					owner = { religion_group = christian }
+				}
+				if = {
+					limit = {
+						NOT = { owner = { navy_size_percentage = 0.8 }}
+						NOT = { fort_level = 2 }
+					}
+					random = {
+						chance = 15
+						province_event = { id = vef_barbarossa.104 days = 60 random = 1 }
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							owner = { navy_size_percentage = 0.8 }
+							fort_level = 2
+						}
+						OR = {
+							NOT = { owner = { navy_size_percentage = 0.8 }}
+							NOT = { fort_level = 2 }
+						}
+						NOT = { owner = { navy_size_percentage = 1.25 }}
+					}
+					random = {
+						chance = 10
+						province_event = { id = vef_barbarossa.104 days = 60 random = 1 }
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							owner = { navy_size_percentage = 1.25 }
+							AND = {
+								owner = { navy_size_percentage = 0.8 }
+								fort_level = 2
+							}
+						}
+					}
+					random = {
+						chance = 6
+						province_event = { id = vef_barbarossa.104 days = 60 random = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# Raid region 1
+province_event = {
+	id = vef_barbarossa.101
+	title = "vef_barbarossa.101.t"
+	desc = "vef_barbarossa.101.d"
+	picture = PIRATE1_eventPicture
+	
+	is_triggered_only = yes # event vef_barbarossa.100
+	
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_dlc = "Mare Nostrum" }
+	}
+	
+	option = {
+		name = "vef_barbarossa.101.opta"
+		if = {
+			limit = { NOT = { has_global_flag = barbarossa_active }}
+			add_province_modifier = { name = province_raided1 duration = 365 }
+		}
+		if = {
+			limit = {
+				has_global_flag = barbarossa_active
+				REB = { NOT = { check_variable = { which = barbarossa_strength value = 70 }}}
+			}
+			add_province_modifier = { name = province_raided2 duration = 365 }
+		}
+		if = {
+			limit = {
+				has_global_flag = barbarossa_active
+				REB = { check_variable = { which = barbarossa_strength value = 70 }}
+			}
+			add_province_modifier = { name = province_raided3 duration = 365 }
+		}
+		owner = { country_event = { id = vef_barbarossa.105 days = 90 }}
+	}
+}
+
+# Raid region 2
+province_event = {
+	id = vef_barbarossa.102
+	title = "vef_barbarossa.102.t"
+	desc = "vef_barbarossa.102.d"
+	picture = PIRATE1_eventPicture
+
+	is_triggered_only = yes # event vef_barbarossa.100
+	
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_dlc = "Mare Nostrum" }
+	}
+	
+	option = {
+		name = "vef_barbarossa.102.opta"
+		if = {
+			limit = { NOT = { has_global_flag = barbarossa_active }}
+			add_province_modifier = { name = province_raided1 duration = 365 }
+		}
+		if = {
+			limit = {
+				has_global_flag = barbarossa_active
+				REB = { NOT = { check_variable = { which = barbarossa_strength value = 80 }}}
+			}
+			add_province_modifier = { name = province_raided2 duration = 365 }
+		}
+		if = {
+			limit = {
+				has_global_flag = barbarossa_active
+				REB = { check_variable = { which = barbarossa_strength value = 80 }}
+			}
+			add_province_modifier = { name = province_raided3 duration = 365 }
+		}
+		owner = { country_event = { id = vef_barbarossa.105 days = 90 }}
+	}
+}
+
+# Raid region 3
+province_event = {
+	id = vef_barbarossa.103
+	title = "vef_barbarossa.103.t"
+	desc = "vef_barbarossa.103.d"
+	picture = PIRATE1_eventPicture
+
+	is_triggered_only = yes # event vef_barbarossa.100
+	
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_dlc = "Mare Nostrum" }
+	}
+	
+	option = {
+		name = "vef_barbarossa.103.opta"
+		if = {
+			limit = { NOT = { has_global_flag = barbarossa_active }}
+			add_province_modifier = { name = province_raided1 duration = 365 }
+		}
+		if = {
+			limit = {
+				has_global_flag = barbarossa_active
+				REB = { NOT = { check_variable = { which = barbarossa_strength value = 90 }}}
+			}
+			add_province_modifier = { name = province_raided2 duration = 365 }
+		}
+		if = {
+			limit = {
+				has_global_flag = barbarossa_active
+				REB = { check_variable = { which = barbarossa_strength value = 90 }}
+			}
+			add_province_modifier = { name = province_raided3 duration = 365 }
+		}
+		owner = { country_event = { id = vef_barbarossa.105 days = 90 }}
+	}
+}
+
+# Raid region 4
+province_event = {
+	id = vef_barbarossa.104
+	title = "vef_barbarossa.104.t"
+	desc = "vef_barbarossa.104.d"
+	picture = PIRATE1_eventPicture
+
+	is_triggered_only = yes # event vef_barbarossa.100
+	
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_dlc = "Mare Nostrum" }
+	}
+	
+	option = {
+		name = "vef_barbarossa.104.opta"
+		if = {
+			limit = { NOT = { has_global_flag = barbarossa_active }}
+			add_province_modifier = { name = province_raided1 duration = 365 }
+		}
+		if = {
+			limit = {
+				has_global_flag = barbarossa_active
+				REB = { NOT = { check_variable = { which = barbarossa_strength value = 100 }}}
+			}
+			add_province_modifier = { name = province_raided2 duration = 365 }
+		}
+		if = {
+			limit = {
+				has_global_flag = barbarossa_active
+				REB = { check_variable = { which = barbarossa_strength value = 100 }}
+			}
+			add_province_modifier = { name = province_raided3 duration = 365 }
+		}
+		owner = { country_event = { id = vef_barbarossa.105 days = 90 }}
+	}
+}
+
+# Raid Notification
+country_event = {
+	id = vef_barbarossa.105
+	title = "vef_barbarossa.105.t"
+	desc = "vef_barbarossa.105.d"
+	picture = PIRATE1_eventPicture
+
+	is_triggered_only = yes #vef_barbarossa.101/102/103/104
+	
+	trigger = {
+		NOT = { has_country_modifier = raid_notice_timer }
+		NOT = { has_dlc = "Mare Nostrum" }
+	}
+	
+	immediate = {
+		add_country_modifier = { name = raid_notice_timer duration = 180 hidden = yes }
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = province_raided1
+					has_province_modifier = province_raided2
+					has_province_modifier = province_raided3
+				}
+			}
+			custom_tooltip = raid_list_tooltip
+		}
+	}
+	
+	option = {
+		name = "vef_barbarossa.105.opta"
+	}
+}
+
+
+###################
+# Oruc Barbarossa #
+###################
+
+# Oruc Barbarossa seizes Djerba
+country_event = {
+	id = vef_barbarossa.200
+	title = "vef_barbarossa.200.t"
+	desc = "vef_barbarossa.200.d"
+	picture = PIRATE1_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 1643
+		is_year = 1503
+		NOT = { is_year = 1504 }
+		NOT = { tag = ALG }
+		NOT = { tag = TRP }
+		OR = {
+			NOT = { exists = ALG }
+			NOT = { exists = TRP }
+		}
+		NOT = { any_country = { government = barbary_pirates } }
+	}
+	
+	immediate = {
+		set_global_flag = barbarossa_active
+		if = {
+			limit = {
+				exists = ALG
+				NOT = { exists = TRP }
+			}
+			1643 = { add_core = TRP }
+			release = TRP
+			TRP = {
+				change_government = republic
+				add_government_reform = pirate_republic
+				hidden_effect = {	# Control Display Length
+					define_admiral = {	
+						name = "Oruc Barbarossa" 	
+						fire = 2	
+						shock = 3	
+						manuever = 5	
+					}
+					define_ruler = {
+						name = "Oruc"
+						dynasty = "Reis"
+						adm = 1
+						dip = 1
+						mil = 6
+						attach_leader = "Oruc Barbarossa"
+					}
+				}
+			}
+			if = {
+				limit = { NOT = { tag = TUN }}
+				1643 = { remove_core = TUN }
+			}
+			if = {
+				limit = { NOT = { tag = SIC }}
+				1643 = { remove_core = SIC }
+			}
+		}
+		if = {
+			limit = { NOT = { exists = ALG }}
+			1643 = { add_core = ALG }
+			release = ALG
+			ALG = {
+				change_government = republic
+				add_government_reform = pirate_republic
+				hidden_effect = {	# Control Display Length
+					define_admiral = {	
+						name = "Oruc Barbarossa" 	
+						fire = 2	
+						shock = 3	
+						manuever = 5	
+					}
+					define_ruler = {
+						name = "Oruc"
+						dynasty = "Reis"
+						adm = 1
+						dip = 1
+						mil = 6
+						attach_leader = "Oruc Barbarossa"
+					}
+				}
+			}
+			if = {
+				limit = { NOT = { tag = TUN }}
+				1643 = { remove_core = TUN }
+			}
+			if = {
+				limit = { NOT = { tag = SIC }}
+				1643 = { remove_core = SIC }
+			}
+		}
+	}
+	
+	option = { # Anyone can fight them; AI won't
+		ai_chance = { factor = 0 }
+		name = "vef_barbarossa.200.opta"
+		if = {
+			limit = { ALG = { government = barbary_pirates }}
+			declare_war = ALG
+		}
+		if = {
+			limit = { TRP = { government = barbary_pirates }}
+			declare_war = TRP
+		}
+	}
+	
+	option = { # Tunis likes pirates
+		trigger = { tag = TUN }
+		ai_chance = { factor = 100 }
+		name = "vef_barbarossa.200.optb"
+		1643 = { remove_core = ROOT }
+		add_country_modifier = {
+			name = "pirate_slave_trade"
+			duration = 9125
+		}
+	}
+	
+	option = { # Sicily is glad to be rid of the problem
+		trigger = { tag = SIC }
+		ai_chance = { factor = 100 }
+		name = "vef_barbarossa.200.optc"
+		1643 = { remove_core = SIC }
+	}
+	
+	option = { # Where is this place?
+		trigger = {
+			NOT = { tag = TUN }
+			NOT = { tag = SIC }
+		}
+		ai_chance = { factor = 100 }
+		name = "vef_barbarossa.200.optd"
+		if = {
+			limit = { 1643 = { is_core = ROOT }}
+			1643 = { remove_core = ROOT }
+		}
+	}
+}
+
+# Oruc Barbarossa seizes Algiers
+country_event = {
+	id = vef_barbarossa.201
+	title = "vef_barbarossa.201.t"
+	desc = "vef_barbarossa.201.d"
+	picture = PIRATE1_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 1654
+		is_year = 1516
+		NOT = { is_year = 1517 }
+		NOT = { government = barbary_pirates }
+		any_country = { government = barbary_pirates }
+	}
+	
+	immediate = {
+		if = {
+			limit = { ALG = { government = barbary_pirates }}
+			1654 = {
+				add_core = ALG
+				cede_province = ALG
+			}
+		}
+		if = {
+			limit = { TRP = { government = barbary_pirates }}
+			1654 = {
+				add_core = TRP
+				cede_province = TRP
+			}
+		}
+		if = {
+			limit = { NOT = { tag = TUN }}
+			1654 = { remove_core = TUN }
+		}
+		if = {
+			limit = {
+				NOT = { tag = TLM }
+				1654 = { is_core = TLM }
+			}
+			1654 = { remove_core = TLM }
+		}
+		if = {
+			limit = { exists = TUR }
+			TUR = { country_event = { id = vef_barbarossa.202 days = 180 }}
+		}
+	}
+	
+	option = { # Anyone can fight them; AI won't
+		ai_chance = { factor = 0 }
+		name = "vef_barbarossa.201.opta"
+		if = {
+			limit = { ALG = { government = barbary_pirates }}
+			declare_war = ALG
+		}
+		if = {
+			limit = { TRP = { government = barbary_pirates }}
+			declare_war = TRP
+		}
+	}
+	
+	option = { # Tunis can demand vassalage; AI won't
+		trigger = { tag = TUN }
+		ai_chance = { factor = 0 }
+		name = "vef_barbarossa.201.optb"
+		if = {
+			limit = { ALG = { government = barbary_pirates }}
+			vassalize = ALG
+			ALG = { set_capital = 1654 }
+		}
+		if = {
+			limit = { TRP = { government = barbary_pirates }}
+			vassalize = TRP
+			TRP = { set_capital = 1654 }
+		}
+	}
+	
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_barbarossa.201.optc"
+		1654 = { remove_core = ROOT }
+		if = {
+			limit = { ALG = { government = barbary_pirates }}
+			ALG = { set_capital = 1654 }
+		}
+		if = {
+			limit = { TRP = { government = barbary_pirates }}
+			TRP = { set_capital = 1654 }
+		}
+	}
+}
+
+# Turkish Aid for Oruc?
+country_event = {
+	id = vef_barbarossa.202
+	title = "vef_barbarossa.202.t"
+	desc = "vef_barbarossa.202.d"
+	picture = PIRATE1_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = TUR
+		any_country = {
+			government = barbary_pirates
+			is_subject = no
+		}
+	}
+	
+	option = {  # Send money and Janissaries
+		ai_chance = { factor = 100 }
+		name = "vef_barbarossa.202.opta"
+		set_country_flag = turkey_funds_barbarossa
+		if = {
+			limit = { ALG = { government = barbary_pirates }}
+			ALG = { country_event = { id = vef_barbarossa.203 days = 1 }}
+			algiers_area = { add_core = ALG }
+			create_alliance = ALG
+		}
+		if = {
+			limit = { TRP = { government = barbary_pirates }}
+			TRP = { country_event = { id = vef_barbarossa.203 days = 1 }}
+			algiers_area = { add_core = TRP }
+			create_alliance = TRP
+		}
+	}
+	
+	option = {  # We are not pirates
+		ai_chance = { factor = 0 }
+		name = "vef_barbarossa.202.optb"
+	}
+}
+
+# Turkish Aid for Oruc
+country_event = {
+	id = vef_barbarossa.203
+	title = "vef_barbarossa.203.t"
+	desc = "vef_barbarossa.203.d"
+	picture = PIRATE1_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_barbarossa.203.opta"
+		capital_scope = { 
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+		}
+		add_years_of_income = 1
+	}
+}
+
+# Turkish Vassal?
+country_event = {
+	id = vef_barbarossa.204
+	title = "vef_barbarossa.204.t"
+	desc = "vef_barbarossa.204.d"
+	picture = PIRATE1_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		government = barbary_pirates
+		exists = TUR
+		is_subject = no
+		NOT = { is_year = 1521 }
+		is_year = 1520
+		TUR = { has_country_flag = turkey_funds_barbarossa }
+	}
+	
+	option = {  # Seek Turkish protection
+		ai_chance = { factor = 100 }
+		name = "vef_barbarossa.204.opta"
+		TUR = { country_event = { id = vef_barbarossa.205 days = 1 }}
+	}
+	
+	option = {  # Preserve our independence
+		ai_chance = { factor = 0 }
+		name = "vef_barbarossa.204.optb"
+		add_prestige = 5
+	}
+}
+
+# Turkish Vassal?
+country_event = {
+	id = vef_barbarossa.205
+	title = "vef_barbarossa.205.t"
+	desc = "vef_barbarossa.205.d"
+	picture = PIRATE1_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {  # Accept
+		ai_chance = { factor = 100 }
+		name = "vef_barbarossa.205.opta"
+		vassalize = FROM
+		FROM = {
+			add_government_reform = ottoman_eyalet
+			set_country_flag = starting_vassal
+		}
+	}
+	
+	option = {  # Decline
+		ai_chance = { factor = 0 }
+		name = "vef_barbarossa.205.optb"
+		add_prestige = -5
+	}
+}
+
+# Capturing Pirate Capital - Ends Barbarossa_Active Flag
+country_event = {
+	id = vef_barbarossa.206
+	title = "vef_barbarossa.206.t"
+	desc = "vef_barbarossa.206.d"
+	picture = PIRATE1_eventPicture
+
+	trigger = {
+		government = barbary_pirates
+		any_country = {
+			war_with = ROOT
+			religion_group = christian
+		}
+		any_owned_province = {
+			is_capital = yes
+			NOT = { controlled_by = ROOT }
+			NOT = { controlled_by = REB }
+		}
+	}
+	
+	option = {
+		name = "vef_barbarossa.206.opta"
+		change_government = monarchy
+		clr_global_flag = barbarossa_active
+	}
+}
+
+
+########################
+# Maintenance Routines #
+########################
+
+# Determine Pirates Strength
+country_event = {
+	id = vef_barbarossa.90000
+	title = "vef_barbarossa.90000.t"
+	desc = "vef_barbarossa.90000.d"
+	picture = PIRATE1_eventPicture	
+	
+	trigger = {
+		REB = { NOT = { has_country_modifier = pirates_calc_run }}
+		NOT = { has_dlc = "Mare Nostrum" }
+		ai = yes
+		NOT = { has_global_flag = pirates_sunset }
+	}
+	
+	immediate = {
+		REB = { add_country_modifier = { name = pirates_calc_run duration = 28 }}
+	}
+	
+	option = {
+		name = "vef_barbarossa.90000.opta"
+		REB = { set_variable = { which = barbarossa_strength value = 0 } }
+		REB = { set_variable = { which = vef_pirates_supporters value = 0 } }
+		# Countries
+		if = {
+			limit = { TUN = { has_country_modifier = nafrica_support_pirates }}
+			REB = { change_variable = { which = vef_pirates_supporters value = 1 }}
+		}
+		if = {
+			limit = { MOR = { has_country_modifier = nafrica_support_pirates }}
+			REB = { change_variable = { which = vef_pirates_supporters value = 1 }}
+		}
+		if = {
+			limit = { TLM = { has_country_modifier = nafrica_support_pirates }}
+			REB = { change_variable = { which = vef_pirates_supporters value = 1 }}
+		}
+		if = {
+			limit = { ALG = { has_country_modifier = nafrica_support_pirates }}
+			REB = { change_variable = { which = vef_pirates_supporters value = 1 }}
+		}
+		if = {
+			limit = { TRP = { has_country_modifier = nafrica_support_pirates }}
+			REB = { change_variable = { which = vef_pirates_supporters value = 1 }}
+		}
+		if = {
+			limit = { REB = { check_variable = { which = vef_pirates_supporters value = 1 }}}
+			REB = { change_variable = { which = barbarossa_strength value = 4 }}
+		}
+		if = {
+			limit = { REB = { check_variable = { which = vef_pirates_supporters value = 2 }}}
+			REB = { change_variable = { which = barbarossa_strength value = 5 }}
+		}
+		if = {
+			limit = { REB = { check_variable = { which = vef_pirates_supporters value = 3 }}}
+			REB = { change_variable = { which = barbarossa_strength value = 7 }}
+		}
+		# North Africa
+		if = { # Tangiers
+			limit = { 1662 = { owner = { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 3 }}
+			if = {
+				limit = {
+					1662 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 2 }}
+			}
+		}
+		if = { # Mellila
+			limit = { 1660 = { owner = { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 2 }}
+			if = {
+				limit = {
+					1660 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			}
+		}
+		if = { # Tlemcen
+			limit = { 1658 = { owner = { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 2 }}
+			if = {
+				limit = {
+					1658 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 2 }}
+			}
+		}
+		if = { # Oran
+			limit = { 1657 = { owner = { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 2 }}
+			if = {
+				limit = {
+					1657 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			}
+		}
+		if = { # Algiers
+			limit = { 1654 = { owner = { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 4 }}
+			if = {
+				limit = {
+					1654 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 2 }}
+			}
+		}
+		if = { # Tunis
+			limit = { 1648 = { owner = { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 4 }}
+			if = {
+				limit = {
+					1648 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 2 }}
+			}
+		}
+		if = { # Djerba
+			limit = { 1643 = { owner = { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 2 }}
+			if = {
+				limit = {
+					1643 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			}
+		}
+		if = { # Tripoli
+			limit = { 1641 = { owner = { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 2 }}
+			if = {
+				limit = {
+					1641 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 2 }}
+			}
+		}
+		# Barbarossa
+		if = {
+			limit = { has_global_flag = barbarossa_active }
+			REB = { change_variable = { which = barbarossa_strength value = 10 }}
+		}
+		if = {
+			limit = { any_country = { government = barbary_pirates }}
+			REB = { change_variable = { which = barbarossa_strength value = 5 }}
+		}
+		# Turks
+		if = {
+			limit = {
+				OR = {
+					MOR = { has_country_modifier = turkish_support_pirates }
+					ALG = { has_country_modifier = turkish_support_pirates }
+					TLM = { has_country_modifier = turkish_support_pirates }
+					TUN = { has_country_modifier = turkish_support_pirates }
+					TRP = { has_country_modifier = turkish_support_pirates }
+					MOR = { is_subject_of = TUR }
+					ALG = { is_subject_of = TUR }
+					TLM = { is_subject_of = TUR }
+					TUN = { is_subject_of = TUR }
+					TRP = { is_subject_of = TUR }
+				}
+			}
+			REB = { change_variable = { which = barbarossa_strength value = 10 }}
+		}
+		# Conquests
+		if = { # Malta
+			limit = { 209 = { owner =  { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 6 }}
+			if = {
+				limit = {
+					209 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 4 }}
+			}
+		}
+		if = { # Messina
+			limit = { 213 = { owner = { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			if = {
+				limit = {
+					213 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			}
+		}
+		if = { # Palermo
+			limit = { 212 = { owner = { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			if = {
+				limit = {
+					212 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			}
+		}
+		if = { # Syracuse
+			limit = { 210 = { owner = { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			if = {
+				limit = {
+					210 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			}
+		}
+		if = { # Catania
+			limit = { 211 = { owner = { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			if = {
+				limit = {
+					211 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			}
+		}
+		if = { # Cagliari
+			limit = { 208 = { owner = { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			if = {
+				limit = {
+					208 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			}
+		}
+		if = { # Sassari
+			limit = { 206 = { owner = { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			if = {
+				limit = {
+					206 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			}
+		}
+		if = { # Oristano
+			limit = { 207 = { owner = { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			if = {
+				limit = {
+					207 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 1 }}
+			}
+		}
+		if = { # Baleares
+			limit = { 108 = { owner = { religion_group = muslim }} }
+			REB = { change_variable = { which = barbarossa_strength value = 3 }}
+			if = {
+				limit = {
+					108 = {
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 2 }}
+			}
+		}
+		if = { # Naples
+			limit = {
+				any_province = {
+					area = naples_area
+					owner = { religion_group = muslim }
+				}
+			}
+			REB = { change_variable = { which = barbarossa_strength value = 4 }}
+			if = {
+				limit = {
+					any_province = {
+						area = naples_area
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 3 }}
+			}
+		}
+		if = { # Spain
+			limit = {
+				any_province = {
+					region = iberia_region
+					owner = {
+						religion_group = muslim
+						NOT = { tag = GRA }
+					}
+				}
+			}
+			REB = { change_variable = { which = barbarossa_strength value = 5 }}
+			if = {
+				limit = {
+					any_province = {
+						region = iberia_region
+						owner = {
+							OR = {
+								has_country_modifier = nafrica_support_pirates
+								government = barbary_pirates
+							}
+						}
+					}
+				}
+				REB = { change_variable = { which = barbarossa_strength value = 3 }}
+			}
+		}
+	}
+}

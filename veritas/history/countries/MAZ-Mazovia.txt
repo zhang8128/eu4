@@ -1,0 +1,150 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+technology_group = eastern
+religion = catholic
+historical_friend = LIT
+primary_culture = polish
+capital = 465	# Warsaw
+
+
+# Mazovian Dukes# (in fact the dukes of Warsaw as Mazovia had more duchies)
+
+
+1294.1.1 = {
+	monarch = {
+		name = "Boleslaw II"
+		dynasty = "Piast"
+		dip = 1
+		adm = 2
+		mil = 1
+	}
+}
+
+1313.4.20 = {
+	monarch = {
+		name = "Siemowit II"
+		dynasty = "Piast"
+		dip = 1
+		adm = 2
+		mil = 1
+	}
+}
+
+1343.1.1= {
+	monarch = {
+		name = "Siemowit III"
+		dynasty = "Piast"
+		dip = 1
+		adm = 2
+		mil = 1
+	}
+}
+
+1373.1.1 = {
+	monarch = {
+		name = "Janusz I"
+		dynasty = "Piast"
+		dip = 1
+		adm = 2
+		mil = 1
+	}
+}
+
+1421.1.1 = {
+	heir = {
+		name = "Boleslaw"
+		monarch_name = "Boleslaw IV"
+		dynasty = "Piast"
+		birth_date = 1421.1.1
+		death_date = 1454.9.10
+		claim = 95
+		adm = 3
+		dip = 2
+		mil = 0
+	}
+}
+
+1429.12.8 = {
+	monarch = {
+		name = "Boleslaw IV"
+		dynasty = "Piast"
+		dip = 2
+		adm = 3
+		mil = 0
+	}
+}
+
+1448.1.1 = {
+	heir = {
+		name = "Konrad Rudy"
+		monarch_name = "Konrad III Rudy"
+		dynasty = "Piast"
+		birth_date = 1448.1.1
+		death_date = 1503.10.28
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 0
+	}
+}
+
+1454.9.10 = {
+	monarch = {
+		name = "Konrad III Rudy"
+		dynasty = "Piast"
+		dip = 2
+		adm = 2
+		mil = 0
+	}
+}
+
+1500.1.1 = {
+	heir = {
+		name = "Stanislaw"
+		monarch_name = "Stanislaw I"
+		dynasty = "Piast"
+		birth_date = 1500.1.1
+		death_date = 1524.1.1
+		claim = 95
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1503.10.28 = {
+	monarch = {
+		name = "Stanislaw"
+		dynasty = "Piast"
+		dip = 0
+		adm = 0
+		mil = 0
+	}
+}
+
+1503.10.28 = {
+	heir = {
+		name = "Janusz"
+		monarch_name = "Janusz III"
+		dynasty = "Piast"
+		birth_date = 1502.1.1
+		death_date = 1526.1.1
+		claim = 95
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1524.8.8 = {
+	monarch = {
+		name = "Janusz III"
+		dynasty = "Piast"
+		dip = 0
+		adm = 0
+		mil = 0
+	}
+}
+
+# Merged with Poland 1526.3.9

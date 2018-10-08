@@ -1,0 +1,48 @@
+# Mogostan
+
+capital = "Gamrun"
+owner = ILK
+controller = ILK
+add_core = ILK
+add_core = INJ
+culture = persian
+religion = shiite
+trade_goods = spices
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = muslim
+discovered_by = byzantine
+discovered_by = indopersian
+discovered_by = indian
+discovered_by = nomad_group
+
+1336.1.1	= { unrest = 0 owner = INJ controller = INJ remove_core = ILK } # collapse of Ilkhanate
+1353.6.1	= { owner = MZF controller = MZF add_core = MZF } # Conquered by Muzaffarids
+1385.1.1	= { owner = TIM controller = TIM add_core = TIM remove_core = MZF remove_core = INJ } # Tamerlane's conquest of Persia
+1449.1.1 = {
+	owner = KHO
+	controller = KHO
+	add_core = KHO
+	remove_core = TIM
+} # The Timurid Successor state, ruled by Babur Ibn-Baysunkur
+1460.1.1 = { controller = TIM }
+1461.1.1 = { owner = TIM add_core = TIM }
+1469.2.4 = { controller = AKK owner = AKK add_core = AKK remove_core = TIM } #Battle of Qarabagh
+1496.2.8 = { controller = REB revolt = { type = pretender_rebels size = 0 name = "Muhammad's Faction" leader = "Muhammad Ak Koyunlu" } } # Civil war in Ak Koyunlu
+1501.7.1 = { controller = AKK revolt = { } }
+1504.1.1 = {
+	owner = PER
+	add_core = PER
+	controller = PER
+	remove_core = KHO
+} # The Safavids take over, Shi'ism becomes the state religion
+1614.1.1 = { capital = "Bandar-e Abbas" }
+1622.2.9 = { 
+	center_of_trade = 1
+}
+1747.1.1 = { unrest = 3 } # Shah Nadir is killed, local khanates emerged
+1748.1.1 = { unrest = 4 } # The empire began to decline
+1779.1.1 = { unrest = 0 } # With the Qajar dynasty the situation stabilized

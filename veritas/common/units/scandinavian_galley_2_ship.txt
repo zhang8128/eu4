@@ -1,0 +1,10 @@
+#Galär
+#model = galley
+#tech_level = 10
+type = galley
+unit_type = scandinavian_tech
+
+hull_size = 8
+base_cannons = 8
+sail_speed = 8
+sailors = 200

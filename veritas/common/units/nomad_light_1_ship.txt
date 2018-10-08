@@ -1,0 +1,10 @@
+#Lembos
+#model = galley
+#tech_level = 0
+type = transport
+unit_type = nomad_group
+
+hull_size = 2
+base_cannons = 1
+sail_speed = 4
+sailors = 50

@@ -1,0 +1,49 @@
+# Frýdlantsko
+
+capital = "Frýdlant"
+owner = BOH
+controller = BOH
+add_core = BOH
+culture = czech
+religion = catholic
+trade_goods = glassware
+base_tax = 5
+base_production = 5
+base_manpower = 6
+is_city = yes
+hre = yes
+discovered_by = eastern
+discovered_by = indopersian
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1348.1.1   = { base_manpower = 5 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1427.1.1   = { religion = hussite }
+1457.1.1   = { unrest = 5 } # George of Podiebrand had to secure recognition from the German and Catholic towns
+1464.1.1   = { unrest = 1 } # The Catholic nobility still undermines the crown.
+1471.1.1   = { unrest = 0 }
+1526.8.30  = {	owner = HAB
+		controller = HAB
+		add_core = HAB
+		remove_core = BOH
+	     } # Battle of Mohac where Lajos II dies -> Habsburg succession
+1550.1.1   = { citysize = 7500 }
+1576.1.1   = { religion = protestant }
+1600.1.1   = { citysize = 9000 }
+1618.5.23  = { # Defenstration of Prague
+		owner = BOH
+		controller = BOH
+		add_core = BOH
+		}
+1620.11.8  = {	owner = HAB
+		controller = HAB
+		remove_core = BOH
+	     } # Tilly beats the Winterking. Deus Vult!
+1621.1.1  = { courthouse = yes } # ... and let us start this session by executing the most inconvenient nobles....
+1627.1.1  = { citysize = 8000 religion = catholic } # Order from Ferdinand II to reconvert to Catholicism, many Protestant leave the country  
+1700.1.1  = { citysize = 9000 }
+1750.1.1  = { citysize = 11000 }
+1800.1.1  = { citysize = 11400 }
+1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved

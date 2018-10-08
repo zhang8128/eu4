@@ -1,0 +1,11 @@
+#Jahazy
+#model = barque
+#tech_level = 12
+type = light_ship
+unit_type = sub_saharan
+
+hull_size = 6
+base_cannons = 2
+sail_speed = 6
+trade_power = 1.0
+sailors = 30

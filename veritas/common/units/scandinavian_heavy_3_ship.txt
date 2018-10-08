@@ -1,0 +1,10 @@
+#Krigsgaleon
+#model = wargalleon
+#tech_level = 28
+type = heavy_ship
+unit_type = scandinavian_tech
+
+hull_size = 30
+base_cannons = 60
+sail_speed = 4
+sailors = 600

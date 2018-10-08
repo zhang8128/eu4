@@ -1,0 +1,10 @@
+#Agribar
+#model = carrack
+#tech_level = 14
+type = heavy_ship
+unit_type = ottoman
+
+hull_size = 22
+base_cannons = 18
+sail_speed = 6
+sailors = 500

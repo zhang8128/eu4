@@ -1,0 +1,353 @@
+ven_mediterranean_ambitions = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = VEN
+	}
+	has_country_shield = yes
+	
+	ven_reclaim_corfu = {
+		icon = mission_galleys_in_port
+		required_missions = {  }
+		completed_by = 1395.1.1
+		provinces_to_highlight = {
+			province_id = 572
+		}
+		trigger = {
+			572 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			579 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	ven_capture_athens = {
+		icon = mission_invade_island
+		required_missions = { ven_reclaim_corfu }
+		completed_by = 1489.1.1
+		provinces_to_highlight = {
+			province_id = 579
+		}
+		trigger = {
+			579 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			618 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	ven_conquer_cyprus = {
+		icon = mission_have_two_subjects
+		required_missions = { ven_capture_athens }
+		provinces_to_highlight = {
+			province_id = 618
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			618 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "mediterranean_ambition"
+				duration = 3650
+			}
+			1635 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	ven_capture_alexandria = {
+		icon = mission_trade_company_region_abroad
+		required_missions = { ven_conquer_cyprus }
+		provinces_to_highlight = {
+			province_id = 1635
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			1635 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "hegemonic_ambition"
+				duration = 3650
+			}
+		}
+	}
+}
+
+ven_encroach_milan = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = VEN
+	}
+	has_country_shield = yes
+
+	ven_take_brescia = {
+		icon = mission_build_up_to_force_limit
+		required_missions = { ven_push_aquileia }
+		position = 6
+		completed_by = 1426.1.1
+		provinces_to_highlight = {
+			province_id = 266
+		}
+		trigger = {
+			266 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			lombardy_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+}
+
+ven_terra_firma = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = VEN
+	}
+	has_country_shield = yes
+	
+	ven_verona_mission = {
+		icon = mission_unite_home_region
+		required_missions = {  }
+		position = 1
+		completed_by = 1420.1.1
+		provinces_to_highlight = {
+			OR = {
+				province_id = 249
+				province_id = 250
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			249 = { country_or_non_sovereign_subject_holds = ROOT }
+			250 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			271 = { add_permanent_claim = ROOT }
+			272 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	ven_push_aquileia = {
+		icon = mission_conquer_50_development
+		required_missions = { ven_verona_mission }
+		position = 5
+		completed_by = 1504.1.1
+		provinces_to_highlight = {
+			OR = {
+				province_id = 271
+				province_id = 272
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			271 = { country_or_non_sovereign_subject_holds = ROOT }
+			272 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			233 = { add_permanent_claim = ROOT }
+			235 = { add_permanent_claim = ROOT }
+			266 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	ven_invade_romagna = {
+		icon = mission_invade_island
+		required_missions = { ven_push_aquileia }
+		position = 6
+		completed_by = 1504.1.1
+		provinces_to_highlight = {
+			OR = {
+				province_id = 233
+				province_id = 235
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			233 = { country_or_non_sovereign_subject_holds = ROOT }
+			235 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			romagna_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+ven_adriatic_coast = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = VEN
+	}
+	has_country_shield = yes
+
+	ven_reconquer_split = {
+		icon = mission_unite_home_region
+		required_missions = { ven_push_aquileia }
+		position = 6
+		completed_by = 1420.1.1
+		provinces_to_highlight = {
+			area = east_adriatic_coast_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			east_adriatic_coast_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = army_enthusiasm
+				duration = 3650
+			}
+		}
+	}
+}
+
+ven_against_genoa = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = VEN
+	}
+	has_country_shield = yes
+	
+	ven_black_sea_trade = {
+		icon = mission_sea_battles
+		required_missions = {  }
+		provinces_to_highlight = {
+			province_id = 2394
+		}
+		trigger = {
+			638 = { is_strongest_trade_power = ROOT }
+		}
+		effect = {
+			add_dip_power = 100
+			add_mercantilism = 2
+			640 = {
+				if = {
+					limit = {
+						NOT = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			641 = {
+				if = {
+					limit = {
+						NOT = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			592 = {
+				if = {
+					limit = {
+						NOT = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	ven_sieze_kaffa = {
+		icon = mission_conquer_50_development
+		required_missions = { ven_black_sea_trade }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 640
+				province_id = 641
+				province_id = 643
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			640 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			641 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			643 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_mercantilism = 2
+			588 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 7300
+					power = 20
+					key = genoese_trade_concession
+				}
+			}
+		}
+	}
+	
+	ven_constantinople_trade = {
+		icon = mission_dominate_home_trade_node
+		required_missions = { ven_sieze_kaffa }
+		trigger = {
+			588 = { is_strongest_trade_power = ROOT }
+		}
+		effect = {
+			add_dip_power = 100
+			add_mercantilism = 2
+			269 = {
+				add_province_modifier = {
+					name = "dominant_trade_hub"
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	ven_build_fleet = {
+		icon = mission_establish_high_seas_navy
+		required_missions = { ven_constantinople_trade }
+		trigger = { 
+			OR = {
+				num_of_heavy_ship = 10 
+				num_of_galley = 30
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "naval_enthusiasm_mission"
+				duration = 9125 #25 years
+			}
+		}
+	}
+}

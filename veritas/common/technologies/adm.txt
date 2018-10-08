@@ -1,0 +1,489 @@
+monarch_power = ADM
+
+# applied when a country is ahead of time in this technology
+ahead_of_time = {
+	production_efficiency = 0.2
+	yearly_corruption = -0.05
+}
+
+technology = {
+	# Tech 0
+	year = 1198
+
+	tribal_despotism_legacy = yes 	
+	tribal_federation_legacy = yes 
+	despotic_monarchy = yes
+	oligarchic_republic = yes
+
+	native_earthwork = yes
+	native_palisade = yes
+	native_fortified_house = yes
+	native_three_sisters_field = yes
+	native_irrigation = yes
+	native_storehouse = yes
+	native_longhouse = yes
+	native_sweat_lodge = yes
+	native_great_trail = yes
+	native_ceremonial_fire_pit = yes
+}
+
+technology = {
+	# Tech 1
+	year = 1209
+	
+}
+
+technology = {
+	# Tech 2
+	year = 1220
+	
+}
+
+technology = {
+	# Tech 3
+	year = 1231
+	
+}
+
+technology = {
+	# Tech 4
+	year = 1242
+	
+}
+
+technology = {
+	# Tech 5
+	year = 1253
+	
+}
+
+technology = {
+	# Tech 6
+	year = 1264
+	
+}
+
+technology = {
+	# Tech 7
+	year = 1275
+	
+}
+
+technology = {
+	# Tech 8
+	year = 1286
+	
+}
+
+technology = {
+	# Tech 9
+	year = 1297
+	
+}
+
+technology = {
+	# Tech 10
+	year = 1308
+	
+	
+	allowed_idea_groups = 1 
+}
+
+technology = {
+	# Tech 11
+	year = 1320
+	
+	blacksmith = yes
+}
+
+technology = {
+	# Tech 12
+	year = 1331
+
+	allowed_idea_groups = 2
+}
+
+technology = {
+	# Tech 13
+	year = 1342
+	
+	sheriffs_office = yes
+}
+
+technology = {
+	# Tech 14
+	year = 1353
+
+	allowed_idea_groups = 3
+	
+	temple = yes
+}
+
+technology = {
+	# Tech 15
+	year = 1364
+
+	may_support_rebels = yes
+	
+	farm_estate = yes
+}
+
+technology = {
+	# Tech 16
+	year = 1375
+	
+	production_efficiency = 0.05
+}
+
+technology = {
+	# Tech 17
+	year = 1386
+	
+	seminary = yes
+}
+
+technology = {
+	# Tech 18
+	year = 1397
+
+	allowed_idea_groups = 4
+}
+
+technology = {
+	# Tech 19
+	year = 1408
+	
+	production_efficiency = 0.05
+}
+
+technology = {
+	# Tech 20
+	year = 1419
+	
+	royal_palace = yes
+}
+
+technology = {
+	# Tech 21
+	year = 1430
+
+	production_efficiency = 0.05
+}
+
+technology = {
+	# Tech 22
+	year = 1441
+
+	allowed_idea_groups = 5
+}
+
+technology = {
+	# Tech 23
+	year = 1452
+
+	production_efficiency = 0.05
+}
+
+technology = {
+	# Tech 24
+	year = 1463
+	
+	workshop = yes
+}
+
+technology = {
+	# Tech 25
+	year = 1473
+
+	development_efficiency = 0.15
+	administrative_efficiency = 0.075
+	
+	fine_arts_academy = yes
+}
+
+technology = {
+	# Tech 26
+	year = 1483
+
+	allowed_idea_groups	= 6
+}
+
+technology = {
+	# Tech 27
+	year = 1492
+
+	courthouse = yes
+}
+
+technology = {
+	# Tech 28
+	year = 1505
+	
+	college = yes
+}
+
+technology = {
+	# Tech 29
+	year = 1517
+
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 30
+	year = 1529
+
+	allowed_idea_groups	= 7
+	theocratic_government = yes
+}
+
+technology = {
+	# Tech 31
+	year = 1540
+
+}
+
+technology = {
+	# Tech 32
+	year = 1551
+	
+	cathedral = yes
+}
+
+technology = {
+	# Tech 33
+	year = 1562
+	
+	administrative_republic	= yes
+}
+
+technology = {
+	# Tech 34
+	year = 1573
+
+	allowed_idea_groups	= 8
+}
+
+technology = {
+	# Tech 35
+	year = 1584
+
+	administrative_efficiency = 0.075
+	plantations = yes
+}
+
+technology = {
+	# Tech 36
+	year = 1595
+
+	may_force_march = yes
+}
+
+technology = {
+	# Tech 37
+	year = 1606
+	
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 38
+	year = 1617
+
+	allowed_idea_groups	= 9
+}
+
+technology = {
+	# Tech 39
+	year = 1628
+	
+	university = yes
+}
+
+technology = {
+	# Tech 40
+	year = 1639
+	
+	revenue_service = yes
+}
+
+technology = {
+	# Tech 41
+	year = 1650
+
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 42
+	year = 1661
+
+	allowed_idea_groups	= 10
+	
+	republican_dictatorship = yes
+}
+
+technology = {
+	# Tech 43
+	year = 1672
+
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 44
+	year = 1682
+
+	constitutional_monarchy = yes
+	constitutional_republic = yes
+
+	town_hall = yes
+}
+
+technology = {
+	# Tech 45
+	year = 1691
+
+	development_efficiency = 0.15
+	administrative_efficiency = 0.075
+}
+
+technology = {
+	# Tech 46
+	year = 1700
+
+	allowed_idea_groups	= 11
+}
+
+technology = {
+	# Tech 47
+	year = 1712
+	
+	counting_house = yes  
+}
+
+technology = {
+	# Tech 48
+	year = 1725
+
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 49
+	year = 1737
+
+	allowed_idea_groups = 12
+}
+
+technology = {
+	# Tech 50
+	year = 1749
+
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 51
+	year = 1760
+
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 52
+	year = 1771
+
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 53
+	year = 1782
+
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 54
+	year = 1793
+
+}
+
+technology = {
+	# Tech 55
+	year = 1804
+
+	administrative_efficiency = 0.075
+}
+
+technology = {
+	# Tech 56
+	year = 1815
+
+	revolutionary_republic = yes
+	revolutionary_empire = yes
+}
+
+technology = {
+	# Tech 57
+	year = 1825
+
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 58
+	year = 1835
+
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 59
+	year = 1840
+
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 60
+	year = 1845
+
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 61
+	year = 1850
+
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 62
+	year = 1855
+
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 63
+	year = 1860
+
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 64
+	year = 1865
+
+	production_efficiency = 0.025
+}
+
+technology = {
+	# Tech 65
+	year = 1870
+
+	production_efficiency = 0.025
+}

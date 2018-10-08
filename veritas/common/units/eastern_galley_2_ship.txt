@@ -1,0 +1,10 @@
+#Shnek
+#model = galley
+#tech_level = 6
+type = galley
+unit_type = eastern
+
+hull_size = 8
+base_cannons = 8
+sail_speed = 8
+sailors = 175

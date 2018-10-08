@@ -1,0 +1,4 @@
+# Trobrian Islands
+#Province IDs changed
+discovered_by = pacific_islander
+1643.1.1 = { discovered_by = NED }

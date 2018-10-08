@@ -1,0 +1,17 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+primary_culture = schlesian
+religion = catholic
+technology_group = western
+capital = 479
+
+1308.6.21 = {
+	monarch = {
+		name = "Wladislaw II"
+		dynasty = "Piast"
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}

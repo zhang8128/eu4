@@ -1,0 +1,137 @@
+########################################
+# Events for Mali
+#
+# written by Henrik Lohmander
+########################################
+
+namespace = flavor_mal
+normal_or_historical_nations = yes
+
+# Rise of Fulo
+# flavor_mal.1 Removed from VeF
+# flavor_mal.2 Removed from VeF
+# flavor_mal.3 Removed from VeF
+
+# The Wangara and the Portuguese
+country_event = {
+	id = flavor_mal.4
+	title = flavor_mal.4.t
+	desc = flavor_mal.4.d
+	picture = VEF_ECONOMY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MAL
+		is_year = 1455 #ie after the initial, more violent encounters.
+		exists = POR
+		any_owned_province = {
+			has_port = yes
+			has_discovered = POR
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	option = {
+		name = flavor_mal.4.a
+		add_country_modifier = {
+			name = mal_portuguese_traders
+			duration = -1
+		}
+	}
+}
+
+#Portuguese Traders Meddle in Local Politics.
+country_event = {
+	id = flavor_mal.5
+	title = flavor_mal.5.t
+	desc = flavor_mal.5.d
+	picture = VEF_ACCUSATION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MAL
+		has_country_modifier = mal_portuguese_traders
+		is_year = 1465
+		exists = POR
+		any_owned_province = { has_port = yes }
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+
+	option = {
+		name = flavor_mal.5.a	#Act decisively to limit Portuguese influence
+		add_country_modifier = {
+			name = mal_wangaras_upset
+			duration = -1
+		}
+		remove_country_modifier = mal_portuguese_traders
+		POR = {
+			add_opinion = { who = MAL modifier = trade_conflict }
+		}
+	}
+	
+	option = {
+		name = flavor_mal.5.b	#The problem lies with the disloyal chiefs
+		add_national_stability_or_adm_power = yes
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_port = yes
+					province_id = 1814	# Bonduy
+					province_id = 1811	# Futa Jallon
+					province_id = 1812	# Bambuk
+				}
+	 		}
+			add_province_modifier = {
+				name = "mal_portuguese_meddling"
+				duration = 3650
+			}
+		}
+	}
+}
+
+#Increasing Islamisation of the Aristocracy
+country_event = {
+	id = flavor_mal.6
+	title = flavor_mal.6.t
+	desc = flavor_mal.6.d
+	picture = VEF_RELIGIOUS_TURMOIL_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MAL
+		religion_group = muslim
+	}
+	
+	mean_time_to_happen = {
+		months = 450
+	}
+
+	option = {
+		name = flavor_mal.6.a	#Convert our people!
+		add_piety = 0.15
+		add_country_modifier = {
+			name = mal_islamisation_of_the_aristocracy
+			duration = -1
+		}
+	}
+	
+	option = {
+		name = flavor_mal.6.b	#Let us not rock the boat.
+		add_national_stability_or_adm_power = yes
+		add_piety = -0.15
+	}
+}
+
+#Unsafe Roads
+#flavor_mal.7 Removed
+#Rise of Kaabu
+#flavor_mal.8 Removed

@@ -1,0 +1,100 @@
+#Country Name: See the Name of this File.
+
+graphical_culture = indiangfx
+
+color = { 47 132 124 }
+
+historical_idea_groups = {
+	defensive_ideas
+	religious_ideas
+	free_trade_ideas
+	quantity_ideas
+	administrative_ideas
+	diplomatic_ideas
+	standing_army_ideas
+	expansion_ideas
+}
+
+historical_units = {
+   indian_artillery_8_1
+   indian_artillery_16_1
+   indian_artillery_24_1
+   indian_artillery_32_1
+   indian_artillery_38_1
+   indian_artillery_42_1
+   indian_cavalry_0_1
+   indian_cavalry_16_1
+   indian_cavalry_21_1
+   indian_cavalry_27_1
+   indian_cavalry_31_1
+   indian_cavalry_36_1
+   indian_cavalry_48_1
+   indian_infantry_0_1
+   indian_infantry_6_1
+   indian_infantry_17_1
+   indian_infantry_21_1
+   indian_infantry_25_1
+   indian_infantry_34_1
+   indian_infantry_42_1
+   indian_infantry_45_1
+   indian_infantry_48_1
+   indian_infantry_50_1
+}
+
+monarch_names = {
+	"Ganapati #1" = 10
+	"Prataparudra #2" = 10
+	"Anavota #0" = 20
+	"Anavema #0" = 20
+	"Kumaragiri #0" = 20
+	"Prolaya Vema #0" = 20
+	"Kataya Vema #0" = 20
+	"Pedakomati Vema #0" = 20
+	"Racha Vema #0" = 20
+	"Allada #0" = 20
+	"Gondesi Allada #0" = 20
+	"Veerabhadra #0" = 20
+	"Devendravarman #0" = 0
+	"Anantavarman #0" = 0
+	"Ananga #0" = 0
+	"Bhima #0" = 0
+	"Narasimha #0" = 0
+	"Bhanu #0" = 0
+	"Narayan #0" = 0
+	"Gopinath #0" = 0
+	"Rudra #0" = 0
+	"Mukunda #0" = 0
+	"Bira #0" = 0
+	"Jagat #0" = 0
+	"Saheb #0" = 0
+	"Kumar #0" = 0
+	"Rudrama Devi #1" = -5
+	"Giriraj Kumari #0" = -1
+	"Suratarangini Devi #0" = -1
+	"Krishnapriya #0" = -1
+	"Bishnupriya #0" = -1
+	"Tikayet Devi #0" = -1
+}
+
+leader_names = {
+	Velama
+	Reddy
+	Kakatiya
+	Gona 
+	Rai
+	Gannaiah
+	Roy
+	Ambadeva
+	Pandava
+	Racha
+	Suryavamsa
+}
+
+ship_names = {
+	Rakshasa Naga Rahu
+	Hidimba Rajahmundry Masulipatnam Vizianagaram
+	Rachakonda Devarakonda Warangal Kataya
+	Kumar Anantavarman Konark Lakshmi
+	Godavari Bishnupriya Paradeep Parvati
+	Krishnapriya Radha Sarasvati Satapada
+}

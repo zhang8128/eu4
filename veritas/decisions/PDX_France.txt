@@ -1,0 +1,54 @@
+country_decisions = {
+
+	move_the_court_to_versailles = {
+	
+		potential = {
+			tag = FRA
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = versailles_court }
+			capital = 170	#Ile-de-France
+			government = monarchy
+		}
+		allow = {
+			adm_tech = 38
+		}
+		effect = {
+			set_country_flag = versailles_court
+			add_prestige = 33
+			170 = { add_base_tax = 2 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	say_the_state_is_me = {
+		potential = {
+			tag = FRA
+			normal_or_historical_nations = yes
+			NOT = { has_country_modifier = the_state_is_me }
+			government = monarchy
+		}
+		allow = {
+			adm_tech = 34
+			adm = 5
+			monthly_income = 100
+		}
+		effect = {
+			add_country_modifier = {
+				name = "the_state_is_me"
+				duration = -1
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}	
+	}
+
+	# Edict of Nantes moved to VEF_Reformation
+	
+}

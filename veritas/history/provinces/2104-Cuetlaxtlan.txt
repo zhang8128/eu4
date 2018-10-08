@@ -1,0 +1,23 @@
+# Cuetlaxtlan
+
+capital = "Cuetlaxtlan"
+owner = TOT
+controller = TOT
+add_core = TOT
+culture = totonac
+religion = xochiyaoyotl
+trade_goods = sugar
+base_tax = 2
+base_production = 2
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = mesoamerican
+
+extra_cost = 15
+center_of_trade = 1
+
+1450.1.1 = { owner = AZT controller = AZT add_core = AZT } #Moctezuma I expand the empire along the coast		
+1519.4.22  = { owner = SPA controller = SPA add_core = SPA capital = "Veracruz" culture = castillian religion = catholic } # Founded by Hernán Cortés
+1810.9.16  = { owner = MEX add_core = MEX controller = SPA } # Mexican War of Independence
+1821.9.27 = { controller = MEX remove_core = SPA } # Mexican Independence

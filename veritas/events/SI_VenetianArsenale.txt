@@ -1,0 +1,698 @@
+#Venetian Arsenal events
+#by Marco Dandolo
+#Modified for VeF
+
+#1 Setup
+#2 Arsenal Damaged
+#3 Arsenal Reconquered
+#4 The Explosion of [GetYear] (1440)
+#5 The Explosion of [GetYear] (1568)
+#6 Fire in the Arsenal
+#7 The Power of the Arsenal
+#8 Against the Infidels!
+#9 Angelo Emo's Reforms
+#10 The Corderie
+#11 Antique Columns from Morea
+
+namespace = venetian_arsenale
+normal_or_historical_nations = yes
+
+#Setup
+province_event = {
+	id = venetian_arsenale.1
+	title = "venetian_arsenale.1.t"
+	desc = "venetian_arsenale.1.d"
+	picture = ARSENALE_eventPicture
+	
+	hidden = yes
+
+	fire_only_once = yes
+	is_triggered_only = yes	# vef_setup.1
+
+	trigger = {
+		province_id = 269
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { has_building = shipyard }
+				remove_building = shipyard
+			}
+			if = {
+				limit = { has_building = grand_shipyard }
+				remove_building = grand_shipyard
+			}
+			if = {
+				limit = { NOT = { is_year = 1325 } }
+				add_building = arsenale_first
+			}
+			if = {
+				limit = {
+					is_year = 1325
+					NOT = { is_year = 1473 }
+				}
+				add_building = arsenale_second
+			}
+			if = {
+				limit = {
+					is_year = 1473
+					NOT = { is_year = 1535 }
+				}
+				add_building = arsenale_third
+			}
+			if = {
+				limit = {
+					is_year = 1535
+					NOT = { is_year = 1570 }
+				}
+				add_building = arsenale_fourth
+			}
+			if = {
+				limit = {
+					is_year = 1570
+					NOT = { is_year = 1810 }
+				}
+				add_building = arsenale_fifth
+			}
+			if = {
+				limit = { is_year = 1810 }
+				add_building = arsenale_sixth
+			}
+		}
+	}
+
+	option = { name = "venetian_arsenale.1.opta" }
+}
+
+#Arsenal Damaged
+province_event = {
+	id = venetian_arsenale.2
+	title = "venetian_arsenale.2.t"
+	desc = "venetian_arsenale.2.d"
+	picture = ARSENALE_eventPicture
+
+	is_triggered_only = yes # on_siege_lost_province
+
+	trigger = {
+		province_id = 269
+		NOT = { owned_by = FROM }
+		NOT = { FROM = { tag = REB } }
+		OR = {
+			has_building = arsenale_first
+			has_building = arsenale_second
+			has_building = arsenale_third
+			has_building = arsenale_fourth
+			has_building = arsenale_fifth
+			has_building = arsenale_sixth
+		}
+		NOT = { owner = { has_country_flag = venetian_arsenale_occupied } }
+	}
+
+	immediate = {
+		owner = { set_country_flag = venetian_arsenale_occupied }
+	}
+
+	option = {
+		trigger = { has_building = arsenale_first }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		owner = { add_navy_tradition = -5 }
+		remove_building = arsenale_first
+		add_building = arsenale_base
+	}
+
+	option = {
+		trigger = { has_building = arsenale_second }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		owner = { add_navy_tradition = -5 }
+		remove_building = arsenale_second
+		add_building = arsenale_first
+	}
+
+	option = {
+		trigger = { has_building = arsenale_third }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		owner = { add_navy_tradition = -5 }
+		remove_building = arsenale_third
+		add_building = arsenale_second
+	}
+
+	option = {
+		trigger = { has_building = arsenale_fourth }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		owner = { add_navy_tradition = -5 }
+		remove_building = arsenale_fourth
+		add_building = arsenale_third
+	}
+
+	option = {
+		trigger = { has_building = arsenale_fifth }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		owner = { add_navy_tradition = -5 }
+		remove_building = arsenale_fifth
+		add_building = arsenale_fourth
+	}
+
+	option = {
+		trigger = { has_building = arsenale_sixth }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		owner = { add_navy_tradition = -5 }
+		remove_building = arsenale_sixth
+		add_building = arsenale_fifth
+	}
+}
+
+#Arsenal Reconquered
+province_event = {
+	id = venetian_arsenale.3
+	title = "venetian_arsenale.3.t"
+	desc = "venetian_arsenale.3.d"
+	picture = ARSENALE_eventPicture
+
+	is_triggered_only = yes #on_siege_won_province
+
+	trigger = {
+		province_id = 269
+		owner = { has_country_flag = venetian_arsenale_occupied }
+		controlled_by = owner
+		OR = {
+			has_building = arsenale_base
+			has_building = arsenale_first
+			has_building = arsenale_second
+			AND = {
+				owner = {
+					OR = {
+						tag = VEN
+						has_country_flag = ven_formed_italy
+					}
+				}
+				OR = {
+					has_building = arsenale_third
+					has_building = arsenale_fourth
+					has_building = arsenale_fifth
+					has_building = arsenale_sixth
+				}
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_country = { clr_country_flag = venetian_arsenale_occupied }
+		}
+	}
+
+	option = {
+		name = "venetian_arsenale.3.opta"	#The Lion will rise again!
+		owner = { add_navy_tradition = 1 }
+	}
+}
+
+#The Explosion of [GetYear] (1440)
+country_event = {
+	id = venetian_arsenale.4
+	title = "venetian_arsenale.4.t"
+	desc = "venetian_arsenale.4.d"
+	picture = ARSENALE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 269
+		is_year = 1380
+		NOT = { is_year = 1440 }
+		269 = {
+			OR = {
+				has_building = arsenale_second
+				has_building = arsenale_third
+				has_building = arsenale_fourth
+				has_building = arsenale_fifth
+				has_building = arsenale_sixth
+			}
+		}
+		is_at_war = no
+	}
+
+	mean_time_to_happen = {
+		months = 500
+	}
+
+	option = {
+		trigger = { 269 = { has_building = arsenale_second } }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		add_prestige = -3
+		269 = {
+			remove_building = arsenale_second
+			add_building = arsenale_first
+		}
+	}
+
+	option = {
+		trigger = { 269 = { has_building = arsenale_third } }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		add_prestige = -3
+		269 = {
+			remove_building = arsenale_third
+			add_building = arsenale_second
+		}
+	}
+
+	option = {
+		trigger = { 269 = { has_building = arsenale_fourth } }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		add_prestige = -3
+		269 = {
+			remove_building = arsenale_fourth
+			add_building = arsenale_third
+		}
+	}
+
+	option = {
+		trigger = { 269 = { has_building = arsenale_fifth } }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		add_prestige = -3
+		269 = {
+			remove_building = arsenale_fifth
+			add_building = arsenale_fourth
+		}
+	}
+
+	option = {
+		trigger = { 269 = { has_building = arsenale_sixth } }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		add_prestige = -3
+		269 = {
+			remove_building = arsenale_sixth
+			add_building = arsenale_fifth
+		}
+	}
+}
+
+#The Explosion of [GetYear] (1568)
+country_event = {
+	id = venetian_arsenale.5
+	title = "venetian_arsenale.5.t"
+	desc = "venetian_arsenale.5.d"
+	picture = ARSENALE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 269
+		is_year = 1510
+		NOT = { is_year = 1570 }
+		269 = {
+			OR = {
+				has_building = arsenale_third
+				has_building = arsenale_fourth
+				has_building = arsenale_fifth
+				has_building = arsenale_sixth
+			}
+		}
+		is_at_war = no
+	}
+
+	mean_time_to_happen = {
+		months = 500
+	}
+
+	option = {
+		trigger = { 269 = { has_building = arsenale_third } }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		add_prestige = -5
+		269 = {
+			remove_building = arsenale_third
+			add_building = arsenale_second
+		}
+	}
+
+	option = {
+		trigger = { 269 = { has_building = arsenale_fourth } }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		add_prestige = -5
+		269 = {
+			remove_building = arsenale_fourth
+			add_building = arsenale_third
+		}
+	}
+
+	option = {
+		trigger = { 269 = { has_building = arsenale_fifth } }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		add_prestige = -5
+		269 = {
+			remove_building = arsenale_fifth
+			add_building = arsenale_fourth
+		}
+	}
+
+	option = {
+		trigger = { 269 = { has_building = arsenale_sixth } }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		add_prestige = -5
+		269 = {
+			remove_building = arsenale_sixth
+			add_building = arsenale_fifth
+		}
+	}
+}
+
+#Fire in the Arsenal
+country_event = {
+	id = venetian_arsenale.6
+	title = "venetian_arsenale.6.t"
+	desc = "venetian_arsenale.6.d"
+	picture = ARSENALE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 269
+		is_year = 1600
+		NOT = { is_year = 1700 }
+		269 = {
+			OR = {
+				has_building = arsenale_fourth
+				has_building = arsenale_fifth
+				has_building = arsenale_sixth
+			}
+		}
+		is_at_war = no
+	}
+
+	mean_time_to_happen = {
+		months = 500
+	}
+
+	option = {
+		trigger = { 269 = { has_building = arsenale_fourth } }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		add_prestige = -10
+		269 = {
+			remove_building = arsenale_fourth
+			add_building = arsenale_third
+		}
+	}
+
+	option = {
+		trigger = { 269 = { has_building = arsenale_fifth } }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		add_prestige = -10
+		269 = {
+			remove_building = arsenale_fifth
+			add_building = arsenale_fourth
+		}
+	}
+
+	option = {
+		trigger = { 269 = { has_building = arsenale_sixth } }
+		name = "venetian_arsenale.2.opta"	#A disaster!
+
+		add_prestige = -10
+		269 = {
+			remove_building = arsenale_sixth
+			add_building = arsenale_fifth
+		}
+	}
+}
+
+#The Power of the Arsenal
+country_event = {
+	id = venetian_arsenale.7
+	title = "venetian_arsenale.7.t"
+	desc = "venetian_arsenale.7.d"
+	picture = ARSENALE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = VEN
+		owns = 269
+		dip_tech = 36
+		269 = {
+			OR = {
+				has_building = arsenale_fourth
+				has_building = arsenale_fifth
+				has_building = arsenale_sixth
+			}
+		}
+		religion_group = christian
+		war_with = TUR
+		TUR = { religion_group = muslim }
+		NOT = { is_year = 1669 }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = "venetian_arsenale.7.opta"	#Viva San Marco!		
+		add_prestige = 3
+		add_navy_tradition = 5
+		define_admiral = {
+			name = "Lorenzo Marcello"
+			shock = 3
+			fire = 3
+			manuever = 2
+			siege = 0
+		}
+		galley = 269
+		galley = 269
+		galley = 269
+		galley = 269
+		galley = 269
+	}
+}
+
+#Against the Infidels!
+country_event = {
+	id = venetian_arsenale.8
+	title = "venetian_arsenale.8.t"
+	desc = "venetian_arsenale.8.d"
+	picture = ARSENALE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = VEN
+		owns = 269
+		is_year = 1750
+		NOT = { is_year = 1800 }
+		OR = {
+		    war_with = TUR
+			war_with = TUN
+			war_with = TLM
+			war_with = MOR
+			war_with = MAM
+			war_with = ALG
+		}
+		269 = { has_building = arsenale_sixth }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = "venetian_arsenale.7.opta"	#Viva San Marco!
+		set_country_flag = angelo_emo_fought
+		define_admiral = {
+			name = "Angelo Emo"
+			shock = 2
+			fire = 4
+			manuever = 2
+			siege = 0
+		}
+		heavy_ship = 269
+		heavy_ship = 269
+		heavy_ship = 269
+		heavy_ship = 269
+		heavy_ship = 269
+	}
+}
+
+#Angelo Emo's Reforms
+country_event = {
+	id = venetian_arsenale.9
+	title = "venetian_arsenale.9.t"
+	desc = "venetian_arsenale.9.d"
+	picture = ARSENALE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = VEN
+		has_leader = "Angelo Emo"
+		has_country_flag = angelo_emo_fought
+		is_at_war = no
+		owns = 269
+		269 = { has_building = arsenale_sixth }
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	immediate = { clr_country_flag = angelo_emo_fought }
+
+	option = {
+		name = "venetian_arsenale.9.opta"	#He should do his job as admiral
+
+		add_prestige = 5
+		add_navy_tradition = 15
+	}
+
+	option = {
+		name = "venetian_arsenale.9.optb"	#He would be a good advisor
+
+		define_advisor = {
+			type = naval_reformer
+			name = "Angelo Emo"
+			location = 269
+			skill = 3
+			discount = yes
+		}
+		custom_tooltip = emo_becomes_advisor
+		hidden_effect = {
+			kill_leader = { type = "Angelo Emo" }
+		}
+	}
+
+	option = {
+		name = "venetian_arsenale.9.optc"	#He should reform the navy
+
+		add_country_modifier = {
+			name = "naval_reform"
+			duration = 3650
+		}
+	}
+}
+
+#The Corderie
+country_event = {
+	id = venetian_arsenale.10
+	title = "venetian_arsenale.10.t"
+	desc = "venetian_arsenale.10.d"
+	picture = ARSENALE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = VEN
+		owns = 269
+		any_owned_province = {
+		    trade_goods = hemp
+		}
+		269 = {
+			OR = {
+				has_building = arsenale_first
+				has_building = arsenale_second
+				has_building = arsenale_third
+				has_building = arsenale_fourth
+				has_building = arsenale_fifth
+				has_building = arsenale_sixth
+			}
+		}
+		is_at_war = no
+	}
+
+	mean_time_to_happen = {
+		months = 360
+	}
+
+	option = {
+		name = "venetian_arsenale.10.opta"	#They will fly over the sea, like a winged lion!
+
+		add_country_modifier = {
+			name = "faster_ships"
+			duration = 3650
+		}
+	}
+}
+
+#Antique Columns from Morea
+country_event = {
+	id = venetian_arsenale.11
+	title = "venetian_arsenale.11.t"
+	desc = "venetian_arsenale.11.d"
+	picture = ARSENALE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+	    tag = VEN
+		owns = 269 # Venice
+		owns = 574 # Achaia
+		owns = 575 # Messenia
+		owns = 576 # Laconia
+		is_at_war = no
+	}
+
+	mean_time_to_happen = {
+		days = 7
+	}
+
+	option = {
+		name = "venetian_arsenale.11.opta"	#Arrange an exhibition
+		
+		add_prestige = 25
+	}
+
+	option = {
+	    trigger = { 269 = { has_building = arsenale_base } }
+		name = "venetian_arsenale.11.optb"	#We should use this to extend the Arsenale
+
+		269 = { 
+		    remove_building = arsenale_base
+			add_building = arsenale_first
+		}
+	}
+
+	option = {
+	    trigger = { 269 = { has_building = arsenale_first } }
+		name = "venetian_arsenale.11.optb"	#We should use this to extend the Arsenale
+
+		269 = { 
+		    remove_building = arsenale_first
+			add_building = arsenale_second
+		}
+	}
+
+	option = {
+	    trigger = { 269 = { has_building = arsenale_second } }
+		name = "venetian_arsenale.11.optb"	#We should use this to extend the Arsenale
+
+		269 = { 
+		    remove_building = arsenale_second
+			add_building = arsenale_third
+		}
+	}
+
+	option = {
+	    trigger = { 269 = { has_building = arsenale_third } }
+		name = "venetian_arsenale.11.optb"	#We should use this to extend the Arsenale
+
+		269 = { 
+		    remove_building = arsenale_third
+			add_building = arsenale_fourth
+		}
+	}
+}

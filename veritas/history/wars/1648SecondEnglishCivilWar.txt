@@ -1,0 +1,57 @@
+name = "English Civil War"
+war_goal = {
+	type = take_capital_personal_union
+	casus_belli = cb_restore_personal_union
+	tag = ENG
+}
+
+1647.12.28 = {
+	add_attacker = SCO
+	add_defender = ENG
+}
+
+1648.6.1 = {
+	battle = {
+		name = "Maidstone"
+		location = 36
+		attacker = {
+			commander = "Thomas Fairfax"	
+			infantry = 4000
+			losses = 2	# percent	
+			country = ENG
+		}
+		defender = {
+			commander = "George, Earl of Norwich"
+			infantry = 2000
+			losses = 40	# percent
+			country = SCO
+		}
+		result = no
+	}
+}
+
+1648.8.19 = {
+	battle = {
+		name = "Preston"
+		location = 23
+		attacker = {
+			commander = "Oliver Cromwell"	
+			infantry = 8600
+			losses = 2	# percent	
+			country = ENG
+		}
+		defender = {
+			commander = "James, Duke of Hamilton"
+			infantry = 11000
+			losses = 18	# percent
+			country = SCO
+		}
+		result = no
+	}
+}
+
+#Covenanters retake the government
+1648.9.1 = {
+	rem_attacker = SCO
+	rem_defender = ENG
+}

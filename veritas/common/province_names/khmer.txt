@@ -1,0 +1,3 @@
+1141 = "Sri Nakorn Lamduan"
+1153 = "Koreach"
+1205 = "Nokor Sri Thommareach"

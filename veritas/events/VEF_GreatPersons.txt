@@ -1,0 +1,3464 @@
+# Great Persons
+# NOTE: For clarity and understanding, the Reformers are found in VEF_Reformers.txt:
+
+#Great Persons - Advisors with Decisions for permanent modifiers
+#10000 
+
+#Lesser Persons - Only Advisors
+#20000 Paracelsus - SWI
+
+
+namespace = vef_people
+normal_or_historical_nations = yes
+
+# Andrei Rublev
+country_event = {
+	id = vef_people.10000
+	title = "vef_people.10000.t"
+	desc = "vef_people.10000.d"
+	picture = VEF_ARTWORK_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			tag = MOS
+			tag = RUS
+		}
+		715 = { owned_by = ROOT }
+		is_year = 1405
+		NOT = { is_year = 1420 }
+	}
+
+	mean_time_to_happen = { months = 6 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10000.opta"
+		define_advisor = {
+			type = andrei_rublev
+			discount = yes
+			skill = 2
+			location = 715
+			name = "Andrei Rublev"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit. Lower costs since AI isn't able
+	# to plan for this
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10000.opta"
+		add_adm_power = -5
+		add_treasury = -5
+		add_prestige = 25
+		add_country_modifier = {
+			name = "annunciation_cathedral"
+			duration = -1
+		}
+		715 = {
+			if = {
+				limit = { NOT = { has_building = cathedral } }
+				if = {
+					limit = { has_building = temple }
+					remove_building = temple
+				}
+				add_building = cathedral
+			}
+		}
+	}
+}
+
+# Arrival of Henry the Navigator
+country_event = {
+	id = vef_people.10001
+	title = "vef_people.10001.t"
+	desc = "vef_people.10001.d"
+	picture = VEF_EXPLORERS_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = POR
+		is_year = 1418
+		NOT = { is_year = 1438 }
+	}
+
+	mean_time_to_happen = { months = 6 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10001.opta"
+		define_advisor = {
+			type = prince_henry
+			discount = yes
+			skill = 1
+			name = "Prince Henry the Navigator"
+		}
+	}
+
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10001.opta"
+		add_country_modifier = { name = "ai_henry_the_navigator" duration = 5475 }
+	}
+}
+
+# Christoper Columbus
+country_event = {
+	id = vef_people.10002
+	title = "vef_people.10002.t"
+	desc = "vef_people.10002.d"
+	picture = VEF_SHIP_SAILING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			tag = CAS
+			tag = SPA
+		}
+		is_year = 1490
+		NOT = { is_year = 1503 }
+	}
+
+	mean_time_to_happen = { months = 6 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10002.opta"
+		define_advisor = {
+			type = cristobol_colon
+			discount = yes
+			skill = 2
+			name = "Christopher Columbus"
+		}
+	}
+
+	# Just give AI the modifier as it has trouble hiring correct advisors
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10002.opta"
+		add_country_modifier = { name = "ai_cristobol_colon" duration = 3650 }
+	}
+}
+
+# Liu Ji
+country_event = {
+	id = vef_people.10003
+	title = "vef_people.10003.t"
+	desc = "vef_people.10003.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		1068 = { owned_by = ROOT } # Whoever controls Dadu/Beijing
+		is_year = 1368
+		NOT = { is_year = 1390 }
+	}
+
+	mean_time_to_happen = { months = 6 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10003.opta"
+		define_advisor = {
+			type = liu_ji
+			discount = yes
+			skill = 1
+			location = 1068
+			name = "Liu Ji"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10003.opta"
+		add_treasury = -5
+		add_prestige = 5
+		add_country_modifier = { name = "the_huolongjing" duration = -1 }
+		1068 = {
+			if = {
+				limit = { NOT = { has_building = training_fields } }
+				if = {
+					limit = { has_building = barracks }
+					remove_building = barracks
+				}
+				add_building = training_fields
+			}
+		}
+	}
+}
+
+# Geoffrey Chaucer
+country_event = {
+	id = vef_people.10004
+	title = "vef_people.10004.t"
+	desc = "vef_people.10004.d"
+	picture = VEF_CULTURE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		34 = { owned_by = ROOT } # Whoever controls London
+		is_year = 1372
+		NOT = { is_year = 1390 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10004.opta"
+		define_advisor = {
+			type = geoffrey_chaucer
+			discount = yes
+			skill = 2
+			location = 34
+			name = "Geoffrey Chaucer"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10004.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "canterbury_tales" duration = -1 }
+	}
+}
+
+# Giotto di Bondone - Random City (requires 2 events)
+country_event = {
+	id = vef_people.10005
+	title = "vef_people.10005.t"
+	desc = "vef_people.10005.d"
+	picture = VEF_CULTURE_eventPicture
+
+	fire_only_once = yes
+	hidden = yes
+
+	trigger = {
+		is_year = 1335
+		NOT = { is_year = 1350 }
+		ai = yes
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				15 = { 269 = { owner = { country_event = { id = vef_people.10006 } } } } # Venice
+				15 = { 237 = { owner = { country_event = { id = vef_people.10006 } } } } # Florece
+				15 = { 227 = { owner = { country_event = { id = vef_people.10006 } } } } # Rome
+				15 = { 263 = { owner = { country_event = { id = vef_people.10006 } } } } # Milan
+				8 = { 253 = { owner = { country_event = { id = vef_people.10006 } } } } # Genoa
+				8 = { 242 = { owner = { country_event = { id = vef_people.10006 } } } } # Pisa
+				8 = { 250 = { owner = { country_event = { id = vef_people.10006 } } } } # Verona
+				8 = { 248 = { owner = { country_event = { id = vef_people.10006 } } } } # Ferrara
+				8 = { 222 = { owner = { country_event = { id = vef_people.10006 } } }  } # Naples
+			}
+		}
+	}
+
+	option = {
+      name = "vef_people.10005.opta"
+	}
+}
+
+# Giotto - second event
+country_event = {
+	id = vef_people.10006
+	title = "vef_people.10006.t"
+	desc = "vef_people.10006.d"
+	picture = VEF_CULTURE_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10006.opta"
+		define_advisor = {
+			type = giotto_di_bondone
+			discount = yes
+			skill = 2
+			name = "Giotto di Bondone"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10006.opta"
+		add_treasury = -10
+		random_owned_province = {
+			add_permanent_province_modifier = {
+				name = "giotto_fresco"
+				duration = -1
+			}
+			add_base_tax = 1
+		}
+	}
+}
+
+# Dante Alighieri - Random City (requires 2 events)
+country_event = {
+	id = vef_people.10007
+	title = "vef_people.10007.t"
+	desc = "vef_people.10007.d"
+	picture = VEF_CULTURE_eventPicture
+
+	fire_only_once = yes
+	hidden = yes
+
+	trigger = {
+		is_year = 1318
+		NOT = { is_year = 1330 }
+		ai = yes
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				15 = { 269 = { owner = { country_event = { id = vef_people.10008 } } } } # Venice
+				15 = { 237 = { owner = { country_event = { id = vef_people.10008 } } } } # Florece
+				15 = { 227 = { owner = { country_event = { id = vef_people.10008 } } } } # Rome
+				15 = { 263 = { owner = { country_event = { id = vef_people.10008 } } } } # Milan
+				8 = { 253 = { owner = { country_event = { id = vef_people.10008 } } } } # Genoa
+				8 = { 242 = { owner = { country_event = { id = vef_people.10008 } } } } # Pisa
+				8 = { 250 = { owner = { country_event = { id = vef_people.10008 } } } } # Verona
+				8 = { 248 = { owner = { country_event = { id = vef_people.10008 } } } } # Ferrara
+				8 = { 222 = { owner = { country_event = { id = vef_people.10008 } } }  } # Naples
+			}
+		}
+	}
+
+	option = {
+      name = "vef_people.10007.opta"
+	}
+}
+
+# Dante - second event
+country_event = {
+   id = vef_people.10008
+   title = "vef_people.10008.t"
+   desc = "vef_people.10008.d"
+   picture = VEF_CULTURE_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10008.opta"
+		define_advisor = {
+			type = dante_alighieri
+			discount = yes
+			skill = 2
+			name = "Dante Alighieri"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10008.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "the_divine_comedy"
+			duration = -1
+		}
+	}
+}
+
+# Afanasy Nikitin - convert from plain event to Great Person + event
+country_event = {
+	id = vef_people.10009
+	title = "vef_people.10009.t"
+	desc = "vef_people.10009.d"
+	picture = VEF_MERCHANTS_TALKING_eventPicture
+	
+	trigger = {
+		OR = {
+			advisor = afanasy_nikitin
+			has_country_modifier = ai_afanasy_nikitin
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { months = 36 }
+	
+	option = {
+		name = "vef_people.10009.opta"
+			# Volga River - most likely already discovered, but for completeness
+			discover_province = 711 # Tver
+			discover_province = 713 # Rostov
+			discover_province = 714 # Yuryev
+			discover_province = 727 # Suzdal
+			discover_province = 726 # Starodub
+			discover_province = 725 # Nijni-Novgorod
+			discover_province = 739 # VedaSuvar
+			discover_province = 740 # Kazan
+			discover_province = 743 # Bulgar
+			discover_province = 747 # Samara
+			discover_province = 748 # Pensa
+			discover_province = 754 # Saratow
+			discover_province = 753 # Borisoglebsk
+			discover_province = 757 # Sarai-Berke
+			discover_province = 758 # Sarai
+			discover_province = 763 # Sarai-Batu
+			discover_province = 764 # Astrakhan
+			# Caspian Sea
+			discover_province = 2412 # Caspian Sea
+			# Persia
+			discover_province = 1521 # Mazandaran
+			discover_province = 1523 # Ray
+			discover_province = 1516 # Yazd
+			discover_province = 815 # Shahpur
+			discover_province = 1514 # Shiraz
+			discover_province = 1420 # Khonj
+			discover_province = 1426 # Lamerd
+			discover_province = 1508 # Mogostan
+			# Arabian Sea + Coast
+			discover_province = 2420 # Straits of Hormuz
+			discover_province = 2869 # Hormuz
+			discover_province = 1506 # Kohistan
+			discover_province = 1511 # Bandar Abbas
+			discover_province = 2419 # Mascate Coast
+			discover_province = 2538 # Arabian Sea
+			discover_province = 2422 # Coas of Makran
+			discover_province = 2423 # Coast of Gujarat
+			discover_province = 2424 # Laquedive Islands
+			discover_province = 2421 # Karachi
+			discover_province = 1425 # Kutch
+			discover_province = 1423 # Rajkot
+			# India
+			discover_province = 1422 # North Konkan
+			discover_province = 1421 # Malvana
+			discover_province = 1419 # Bijapur
+			discover_province = 1433 # Dehli
+			# Arabia/Africa, including coast
+			discover_province = 1584 # Muscat
+			discover_province = 2418 # Sea of Oman
+			discover_province = 2417 # Gulf of Aden
+			discover_province = 1713 # Majeerteen (for Somalia)
+			discover_province = 2532 # Horn of Africa
+			# Other bits
+			discover_province = 638 # Trebizond
+			discover_province = 2410 # Black Sea (just for completeness)
+	}
+}
+
+# Afanasy Nikitin
+country_event = {
+	id = vef_people.10010
+	title = "vef_people.10010.t"
+	desc = "vef_people.10010.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		711 = { owned_by = ROOT } # He was from Tver - whoever controls gets this
+		is_year = 1466
+		NOT = { is_year = 1480 }
+	}
+
+   mean_time_to_happen = { months = 24 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10010.opta"
+		define_advisor = {
+			type = afanasy_nikitin
+			discount = yes
+			skill = 2
+			location = 711
+			name = "Afanasy Nikitin"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10010.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "ai_afanasy_nikitin" duration = 10950 } # 15 years
+	}
+}
+
+# Filippo Brunelleschi
+country_event = {
+	id = vef_people.10011
+	title = "vef_people.10011.t"
+	desc = "vef_people.10011.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		237 = { owned_by = ROOT } #  Appears in Florence
+   		NOT = { is_year = 1455 }
+		is_year = 1434
+	}
+
+	mean_time_to_happen = { months = 24 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10011.opta"
+		define_advisor = {
+			type = filippo_brunelleschi
+			discount = yes
+			skill = 2
+			location = 237
+			name = "Filippo Brunelleschi"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10011.opta"
+		add_treasury = -10
+		237 = {
+			add_permanent_province_modifier = { name = "florence_cathedral" duration = -1 }
+			if = {
+				limit = { NOT = { has_building = cathedral } }
+				if = {
+					limit = { has_building = temple }
+					remove_building = temple
+				}
+				add_building = cathedral
+			}
+		}
+	}
+}
+
+# Jan van Eyck
+country_event = {
+	id = vef_people.10012
+	title = "vef_people.10012.t"
+	desc = "vef_people.10012.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		195 = { owned_by = ROOT } #  Appears in Dunkerque
+		is_year = 1430
+		NOT = { is_year = 1455 }
+	}
+
+	mean_time_to_happen = { months = 24 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10012.opta"
+		define_advisor = {
+			type = jan_van_eyck
+			discount = yes
+			skill = 2
+			location = 195
+			name = "Jan van Eyck"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10012.opta"
+		add_treasury = -10
+		195 = { add_permanent_province_modifier = { name = "ghent_altarpiece" duration = -1 } }
+		if = {
+			limit = { NOT = { 195 = { has_building = temple } } }
+			195 = { add_building = temple }
+		}
+	}
+}
+
+# Johannes Gutenberg
+country_event = {
+	id = vef_people.10013
+	title = "vef_people.10013.t"
+	desc = "vef_people.10013.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		328 = { owned_by = ROOT } #  Appears in Mainz
+		is_year = 1445
+		NOT = { is_year = 1465 }
+	}
+
+	mean_time_to_happen = { months = 48 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10013.opta"
+		define_advisor = {
+			type = johannes_gutenberg
+			discount = yes
+			skill = 2
+			location = 328
+			name = "Johannes Gutenberg"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10013.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "gutenberg_bible" duration = -1 }
+	}
+}
+
+# Hua Sui
+country_event = {
+	id = vef_people.10014
+	title = "vef_people.10014.t"
+	desc = "vef_people.10014.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		1063 = { owned_by = ROOT } #  Appears in Huai'an
+		is_year = 1486
+		NOT = { is_year = 1500 }
+	}
+
+	mean_time_to_happen = { months = 24 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10014.opta"
+		define_advisor = {
+			type = hua_sui
+			discount = yes
+			skill = 2
+			location = 1063
+			name = "Hua Sui"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10014.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "zhu_chen_zou_yi"
+			duration = -1
+		}
+	}
+}
+
+country_event = {
+	id = vef_people.10015
+	title = "vef_people.10015.t"
+	desc = "vef_people.10015.d"
+	picture = VEF_BIG_BOOK_eventPicture
+	
+	trigger = {
+		advisor = johannes_gutenberg
+		NOT = { has_country_modifier = gutenberg_bible }
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	option = {
+		name = "vef_people.10015.opta"
+		add_country_modifier = {
+			name = "gutenberg_bible"
+			duration = -1
+		}
+	}
+}
+
+country_event = {
+	id = vef_people.10016
+	title = "vef_people.10016.t"
+	desc = "vef_people.10016.d"
+	picture = VEF_BIG_BOOK_eventPicture
+	
+	trigger = {
+		advisor = hua_sui
+		NOT = { has_country_modifier = zhu_chen_zou_yi }
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	option = {
+		name = "vef_people.10016.opta"
+		add_country_modifier = {
+			name = "zhu_chen_zou_yi"
+			duration = -1
+		}
+	}
+}
+
+# Sir Walter Raleigh
+country_event = {
+	id = vef_people.10017
+	title = "vef_people.10017.t"
+	desc = "vef_people.10017.d"
+	picture = VEF_SHIP_SAILING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		34 = { owned_by = ROOT } #  London
+		is_year = 1580
+		NOT = { is_year = 1600 }
+	}
+
+	mean_time_to_happen = { months = 48 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10017.opta"
+		define_advisor = {
+			type = sir_walter_raleigh
+			discount = yes
+			skill = 2
+			location = 34
+			name = "Sir Walter Raleigh"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10017.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "ai_walter_raleigh"
+			duration = 3650
+		}
+	}
+}
+
+# Raliegh reveals Virginia after being hired.
+country_event = {
+	id = vef_people.10018
+	title = "vef_people.10018.t"
+	desc = "vef_people.10018.d"
+	picture = VEF_COLONIZATION_eventPicture
+	
+	trigger = {
+		OR = {
+			advisor = sir_walter_raleigh
+			has_country_modifier = ai_walter_raleigh
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 36
+	}
+	
+	option = {
+		name = "vef_people.10018.opta"
+		discover_province = 2232 # Pamlico
+		discover_province = 2234 # Powhatan
+		discover_province = 2236 # Rockall
+		discover_province = 2586 # Chessapeake Bay
+		discover_province = 2587 # Cape Hattaras
+		discover_province = 2650 # Eastern Gibbs Fracture
+		discover_province = 2651 # Western Gibbs Fracture
+		discover_province = 2655 # Sable Island Bank
+		discover_province = 2656 # New England Seamounts
+		discover_province = 2659 # East Bermuda Sea
+		hidden_effect = { 2234 = { change_trade_goods = tobacco } }
+	}
+}
+
+# Jacques Cartier
+country_event = {
+   id = vef_people.10019
+   title = "vef_people.10019.t"
+   desc = "vef_people.10019.d"
+   picture = VEF_SHIP_SAILING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		161 = { owned_by = ROOT } #  Finistere, Brittany (no matter who owns it)
+		is_year = 1532
+		NOT = { is_year = 1550 }
+	}
+
+	mean_time_to_happen = { months = 48 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10019.opta"
+		define_advisor = {
+			type = jacques_cartier
+			discount = yes
+			skill = 2
+			location = 161
+			name = "Jacques Cartier"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10019.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "ai_jacques_cartier" duration = 3650 }
+	}
+}
+
+# Cartier reveals Eastern Canada after being hired.
+country_event = {
+	id = vef_people.10020
+	title = "vef_people.10020.t"
+	desc = "vef_people.10020.d"
+	picture = VEF_COLONIZATION_eventPicture
+	
+	trigger = {
+		OR = {
+			advisor = jacques_cartier
+			has_country_modifier = ai_jacques_cartier
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 36
+	}
+	
+	option = {
+		name = "vef_people.10020.opta"
+		discover_province = 2258 # Beothuk
+		discover_province = 2257 # Taqamkuk
+		discover_province = 2259 # Acadia
+		discover_province = 2260 # Micmac
+		discover_province = 2262 # Kespek
+		discover_province = 2263 # Batu Pahat
+		discover_province = 2265 # Stadacona
+		discover_province = 2261 # Atikamekw
+		discover_province = 2267 # Tinnu
+		discover_province = 2576 # Gulf of St. Lawrence
+		discover_province = 2577 # Cabot Strait
+		discover_province = 2580 # Fortune Bay
+		discover_province = 2581 # Notre Dame Bay
+		discover_province = 2649 # Hatton Bank
+		discover_province = 2650 # Eastern Gibbs Fracture
+		discover_province = 2651 # Western Gibbs Fracture
+	}
+}
+
+# Pedro Álvares Cabral
+country_event = {
+	id = vef_people.10021
+	title = "vef_people.10021.t"
+	desc = "vef_people.10021.d"
+	picture = VEF_SHIP_SAILING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		65 = { owned_by = ROOT } #  Baira, Portugal
+		is_year = 1499
+		NOT = { is_year = 1525 }
+		# AI can't doub-up with Da Gama
+		OR = {
+			NOT = { has_country_modifier = ai_vasco_da_gama }
+			ai = no
+		}
+	}
+
+   mean_time_to_happen = { months = 24 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10021.opta"
+		define_advisor = {
+			type = pedro_cabral
+			discount = yes
+			skill = 2
+			location = 65
+			name = "Pedro Álvares Cabral"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10021.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "ai_pedro_cabral" duration = 3650 }
+	}
+}
+
+# Cabral finds Brazil 
+country_event = {
+	id = vef_people.10022
+	title = "vef_people.10022.t"
+	desc = "vef_people.10022.d"
+	picture = VEF_COLONIZATION_eventPicture
+	
+	trigger = {
+		OR = {
+			advisor = pedro_cabral
+			has_country_modifier = ai_pedro_cabral
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 36
+	}
+	
+	option = {
+		name = "vef_people.10022.opta"
+		discover_province = 2024 # Itamaraca
+		discover_province = 2023 # Pernambuco
+		discover_province = 2022 # Bahia
+		discover_province = 2616 # Coast Of Brazil
+		discover_province = 2617 # Coast Of Recife
+		discover_province = 2670 # Romanche Gap
+	}
+}
+
+# Vasco da Gama 
+country_event = {
+	id = vef_people.10023
+	title = "vef_people.10023.t"
+	desc = "vef_people.10023.d"
+	picture = VEF_SHIP_SAILING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		65 = { owned_by = ROOT } #  Baira, Portugal
+		is_year = 1495
+		NOT = { is_year = 1525 }
+		# AI can't doub-up with Cabral
+		OR = {
+			NOT = { has_country_modifier = ai_pedro_cabral }
+			ai = no
+		}
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10023.opta"
+		define_advisor = {
+			type = vasco_da_gama
+			discount = yes
+			skill = 2
+			location = 65
+			name = "Vasco da Gama"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10023.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "ai_vasco_da_gama" duration = 3650 }
+	}
+}
+
+# da Gama finds a way to India
+country_event = {
+	id = vef_people.10024
+	title = "vef_people.10024.t"
+	desc = "vef_people.10024.d"
+	picture = VEF_COLONIZATION_eventPicture
+	
+	trigger = {
+		OR = {
+			advisor = vasco_da_gama
+			has_country_modifier = ai_vasco_da_gama
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 36
+	}
+	
+	option = {
+		name = "vef_people.10024.opta"
+		discover_province = 1379 # Malabar
+		discover_province = 1897 # Western Cape
+		discover_province = 1895 # Karoo
+		discover_province = 1896 # Eastern Cape
+		discover_province = 1898 # Natal
+		discover_province = 1884 # Baia Da Lagoa
+		discover_province = 1877 # Sofala
+		discover_province = 1876 # Qelimane
+		discover_province = 1869 # Mozambique
+		discover_province = 1867 # Kilwa
+		discover_province = 2425 # Coast of Malabar
+		discover_province = 2534 # Zanzibar Strait
+		discover_province = 2535 # Mozambique Channel
+		discover_province = 2536 # Diego Suarez Bay
+		discover_province = 2539 # The Seychelles
+		discover_province = 2542 # Gulf of Zambeze
+		discover_province = 2543 # Coast of Natal
+		discover_province = 2544 # Coast of Transkei
+		discover_province = 2545 # Coast of Ciskei
+		discover_province = 2546 # Cape of Good Hope
+		discover_province = 2547 # Coast of Namibia
+		discover_province = 2548 # Coast of Guinea
+		discover_province = 2556 # Mauretanian Coast
+		discover_province = 2557 # Canarian Sea
+		discover_province = 2682 # North Brazil Current
+		discover_province = 2684 # Central South Atlantic
+		discover_province = 2686 # South St. Helena
+		discover_province = 2688 # South Benguela Current
+		discover_province = 2701 # Coast of Maldives
+		discover_province = 2702 # North Indian Ocean
+	}
+}
+
+# Zheng He
+country_event = {
+	id = vef_people.10025
+	title = "vef_people.10025.t"
+	desc = "vef_people.10025.d"
+	picture = VEF_SHIP_SAILING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		1068 = { owned_by = ROOT } #  Nanjing
+		is_year = 1405
+		NOT = { is_year = 1450 }
+	}
+
+	mean_time_to_happen = { months = 60 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10025.opta"
+		define_advisor = {
+			type = zheng_he
+			discount = yes
+			skill = 2
+			location = 1068
+			name = "Zheng He"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10025.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "ai_zheng_he"
+			duration = 3650
+		}
+	}
+}
+
+# Zheng He finds India and Africa
+country_event = {
+	id = vef_people.10026
+	title = "vef_people.10026.t"
+	desc = "vef_people.10026.d"
+	picture = VEF_COLONIZATION_eventPicture
+	
+	trigger = {
+		OR = {
+			advisor = zheng_he
+			has_country_modifier = ai_zheng_he
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	option = {
+		name = "vef_people.10026.opta"
+		every_province = {
+			limit = {
+				OR = {
+					region = indonesia_region
+					region = malaya_region
+					region = bengal_region
+					region = deccan_region
+					region = coromandel_region
+					region = west_india_region
+					region = hindusthan_region
+				}
+				has_port = yes
+			}
+			ROOT = { discover_province = PREV }
+		}
+		discover_province = 1600 # Mecca
+		discover_province = 1591 # Aden
+		discover_province = 1581 # Qawasim
+		discover_province = 2869 # Hormoz
+		discover_province = 1507 # Chabahar
+		discover_province = 1865 # Mombassa
+		discover_province = 1719 # Maqadishu
+		discover_province = 2415 # Red Sea
+		discover_province = 2416 # Bab El Mandeb
+		discover_province = 2417 # Gulf of Aden
+		discover_province = 2418 # Sea of Oman
+		discover_province = 2419 # Mascate Coast
+		discover_province = 2420 # Straits of Hormuz
+		discover_province = 2422 # Coast of Makran
+		discover_province = 2423 # Coast of Gujarat
+		discover_province = 2424 # Laquedive Islands
+		discover_province = 2425 # Coast of Malabar
+		discover_province = 2426 # Comorin Cape
+		discover_province = 2532 # Horn of Africa
+		discover_province = 2533 # Coast of Pepper
+		discover_province = 2534 # Zanzibar Strait
+		discover_province = 2537 # Western Arabian Sea
+		discover_province = 2538 # Eastern Arabian Sea
+		discover_province = 2701 # Coast of Maldives
+		discover_province = 2707 # North Indian Ocean
+		discover_province = 2708 # Equitorial Counter Current
+	}
+}
+
+# Hāfez
+country_event = {
+	id = vef_people.10027
+	title = "vef_people.10027.t"
+	desc = "vef_people.10027.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = PER
+		1514 = { owned_by = ROOT } #  Pars
+		is_year = 1360
+		NOT = { is_year = 1390 }
+	}
+
+	mean_time_to_happen = { months = 24 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10027.opta"
+		define_advisor = {
+			type = hafez
+			discount = yes
+			skill = 2
+			location = 1514
+			name = "Hāfez"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10027.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "diwan_of_hafez" duration = -1 }
+	}
+}
+
+# de Machaut
+country_event = {
+	id = vef_people.10028
+	title = "vef_people.10028.t"
+	desc = "vef_people.10028.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		175 = { owned_by = ROOT } #  Reims (Champagne)
+		is_year = 1360
+		NOT = { is_year = 1380 }
+	}
+
+	mean_time_to_happen = { months = 24 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10028.opta"
+		define_advisor = {
+			type = de_machaut
+			discount = yes
+			skill = 2
+			location = 175
+			name = "Guillaume de Machaut"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10028.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "le_voir_dit" duration = -1 }
+	}
+}
+
+# Petrarch
+country_event = {
+	id = vef_people.10029
+	title = "vef_people.10029.t"
+	desc = "vef_people.10029.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		237 = { owned_by = ROOT } # Florence
+		is_year = 1350
+		NOT = { is_year = 1380 }
+	}
+
+	mean_time_to_happen = { months = 60 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10029.opta"
+		define_advisor = {
+			type = petrarch
+			discount = yes
+			skill = 2
+			location = 237
+			name = "Petrarch"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10029.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "il_canzoniere"
+			duration = -1
+		}
+	}
+}
+
+# Copernicus
+country_event = {
+	id = vef_people.10030
+	title = "vef_people.10030.t"
+	desc = "vef_people.10030.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		460 = { owned_by = ROOT } # Torun
+		is_year = 1540
+		NOT = { is_year = 1570 }
+	}
+
+	mean_time_to_happen = { months = 60 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10030.opta"
+		define_advisor = {
+			type = copernicus
+			discount = yes
+			skill = 2
+			location = 460
+			name = "Nikolaus Kopernikus"
+		}
+		add_adm_power = 40
+		add_dip_power = 40
+		add_mil_power = 40
+		add_prestige = 10
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10030.opta"
+		add_treasury = -10
+		change_variable = { which = vef_papal_influence value = -10 }
+		add_country_modifier = { name = "de_revolutionibus" duration = -1 }
+	}
+}
+
+# da Vinci
+country_event = {
+	id = vef_people.10031
+	title = "vef_people.10031.t"
+	desc = "vef_people.10031.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		government = republic
+		italy_region = { owned_by = ROOT }
+		is_at_war = no
+		is_vassal = no
+		is_year = 1475
+		NOT = { is_year = 1495 }
+	}
+
+	mean_time_to_happen = { months = 24 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10031.opta"
+		define_advisor = {
+			type = da_vinci
+			discount = yes
+			skill = 3
+			name = "Leonardo da Vinci"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10031.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "ai_da_vinci"
+			duration = 7300
+		}
+	}
+}
+
+# Shi Nai'an
+country_event = {
+	id = vef_people.10032
+	title = "vef_people.10032.t"
+	desc = "vef_people.10032.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		1089 = { owned_by = ROOT } #  Suzhou
+		is_year = 1360
+		NOT = { is_year = 1390 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10032.opta"
+		define_advisor = {
+			type = shi_naian
+			discount = yes
+			skill = 2
+			location = 1089
+			name = "Shi Nai'an"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10032.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "water_margin" duration = -1 }
+	}
+}
+
+# Luo Guanzhong
+country_event = {
+	id = vef_people.10033
+	title = "vef_people.10033.t"
+	desc = "vef_people.10033.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		1057 = { owned_by = ROOT } #  Shaanxi
+		is_year = 1380
+		NOT = { is_year = 1410 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10033.opta"
+		define_advisor = {
+			type = luo_guanzhong
+			discount = yes
+			skill = 2
+			location = 1057
+			name = "Luo Guanzhong"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10033.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "romance_of_the_three_kingdoms" duration = -1 }
+	}
+}
+
+# Sandro Botticelli - Random City (requires 2 events)
+country_event = {
+	id = vef_people.10034
+	title = "vef_people.10034.t"
+	desc = "vef_people.10034.d"
+	picture = VEF_CULTURE_eventPicture
+
+	fire_only_once = yes
+	hidden = yes
+
+	trigger = {
+		is_year = 1468
+		NOT = { is_year = 1480 }
+		ai = yes
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				15 = { 269 = { owner = { country_event = { id = vef_people.10035 } } } } # Venice
+				15 = { 237 = { owner = { country_event = { id = vef_people.10035 } } } } # Florece
+				15 = { 227 = { owner = { country_event = { id = vef_people.10035 } } } } # Rome
+				15 = { 263 = { owner = { country_event = { id = vef_people.10035 } } } } # Milan
+				8 = { 253 = { owner = { country_event = { id = vef_people.10035 } } } } # Genoa
+				8 = { 242 = { owner = { country_event = { id = vef_people.10035 } } } } # Pisa
+				8 = { 250 = { owner = { country_event = { id = vef_people.10035 } } } } # Verona
+				8 = { 248 = { owner = { country_event = { id = vef_people.10035 } } } } # Ferrara
+				8 = { 222 = { owner = { country_event = { id = vef_people.10035 } } }  } # Naples
+			}
+		}
+	}
+
+	option = {
+      name = "vef_people.10034.opta"
+	}
+}
+
+# Botticelli - second event
+country_event = {
+	id = vef_people.10035
+	title = "vef_people.10035.t"
+	desc = "vef_people.10035.d"
+	picture = VEF_BOTTICELLI_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10035.opta"
+		define_advisor = {
+			type = botticelli
+			discount = yes
+			skill = 2
+			name = "Sandro Botticelli"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10035.opta"
+		add_treasury = -10
+		random_owned_province = {
+			add_permanent_province_modifier = {
+				name = "botticelli_painting"
+				duration = -1
+			}
+			add_base_tax = 1
+		}
+	}
+}
+
+# Thomas More
+country_event = {
+	id = vef_people.10036
+	title = "vef_people.10036.t"
+	desc = "vef_people.10036.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		34 = { owned_by = ROOT } #  London
+		is_year = 1510
+		NOT = { is_year = 1526 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10036.opta"
+		define_advisor = {
+			type = thomas_more
+			discount = yes
+			skill = 2
+			location = 34
+			name = "Sir Thomas More"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10036.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "utopia_published"
+			duration = -1
+		}
+	}
+}
+
+# Niccolo Tartaglia
+country_event = {
+	id = vef_people.10037
+	title = "vef_people.10037.t"
+	desc = "vef_people.10037.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		266 = { owned_by = ROOT } #  Brescia
+		is_year = 1534
+		NOT = { is_year = 1554 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10037.opta"
+		define_advisor = {
+			type = niccolo_tartaglia
+			discount = yes
+			skill = 2
+			location = 266
+			name = "Niccolo Tartaglia"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10037.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "nova_scientia" duration = -1 }
+	}
+}
+
+# Raphael
+country_event = {
+	id = vef_people.10038
+	title = "vef_people.10038.t"
+	desc = "vef_people.10038.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		227 = { owned_by = ROOT } # Roma
+		is_year = 1507
+		NOT = { is_year = 1527 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10038.opta"
+		define_advisor = {
+			type = raphael
+			discount = yes
+			skill = 2
+			location = 227
+			name = "Raphael"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10038.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "school_of_athens_painting" duration = -1 }
+	}
+}
+
+# William Shakespeare
+country_event = {
+	id = vef_people.10039
+	title = "vef_people.10039.t"
+	desc = "vef_people.10039.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		34 = { owned_by = ROOT } #  London
+		is_year = 1585
+		NOT = { is_year = 1600 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10039.opta"
+		define_advisor = {
+			type = william_shakespeare
+			discount = yes
+			skill = 2
+			location = 34
+			name = "William Shakespeare"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10039.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "shakespeare_histories"
+			duration = -1
+		}
+		add_country_modifier = {
+			name = "shakespeare_comedies"
+			duration = -1
+		}
+		add_country_modifier = {
+			name = "shakespeare_tragedies"
+			duration = -1
+		}
+	}
+}
+
+# Miyamoto Musashi
+country_event = {
+	id = vef_people.10040
+	title = "vef_people.10040.t"
+	desc = "vef_people.10040.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		969 = { owned_by = ROOT } # Kyoto
+		is_year = 1630
+		NOT = { is_year = 1650 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10040.opta"
+		define_advisor = {
+			type = miyamoto_musashi
+			discount = yes
+			skill = 2
+			location = 969
+			name = "Miyamoto Musashi"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10040.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "book_of_five_rings"
+			duration = -1
+		}
+	}
+}
+
+# Gerardus Mercator
+country_event = {
+	id = vef_people.10041
+	title = "vef_people.10041.t"
+	desc = "vef_people.10041.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		194 = { owned_by = ROOT } # Vlaandern (Flanders)
+		is_year = 1569
+		NOT = { is_year = 1590 }
+   }
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10041.opta"
+		define_advisor = {
+			type = gerardus_mercator
+			discount = yes
+			skill = 2
+			location = 194
+			name = "Gerardus Mercator"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10041.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "mercator_atlas"
+			duration = -1
+		}
+	}
+}
+
+# Sir Francis Drake
+country_event = {
+	id = vef_people.10042
+	title = "vef_people.10042.t"
+	desc = "vef_people.10042.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		41 = { owned_by = ROOT } # Cornwall
+		is_year = 1580
+		NOT = { is_year = 1600 }
+   }
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10042.opta"
+		define_advisor = {
+			type = francis_drake
+			discount = yes
+			skill = 2
+			location = 41
+			name = "Francis Drake"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10042.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "ai_francis_drake"
+			duration = 5475
+		}
+	}
+}
+
+# Ferdinand Magellan
+country_event = {
+	id = vef_people.10043
+	title = "vef_people.10043.t"
+	desc = "vef_people.10043.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		65 = { owned_by = ROOT } # Huelva
+		is_year = 1510
+		NOT = { is_year = 1525 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10043.opta"
+		define_advisor = {
+			type = magellan
+			discount = yes
+			skill = 2
+			location = 65
+			name = "Ferdinand Magellan"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10043.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "ai_magellan"
+			duration = 3650
+		}
+	}
+}
+
+# Magellan's Voyage
+country_event = {
+	id = vef_people.10044
+	title = "vef_people.10044.t"
+	desc = "vef_people.10044.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = { 
+			advisor = magellan
+			has_country_modifier = ai_magellan
+		}
+		is_year = 1520
+   }
+
+	option = {
+		name = "vef_people.10044.opta"
+		ai_chance = { factor = 100 }
+		add_treasury = -100
+		ROOT = {
+			discover_province = 2622
+			discover_province = 2623
+			discover_province = 2624
+			discover_province = 2625
+			discover_province = 2626
+			discover_province = 2627
+			discover_province = 2628
+			discover_province = 2681
+			discover_province = 2790
+			discover_province = 2796
+			discover_province = 2799
+			discover_province = 2825
+			discover_province = 2811
+			discover_province = 2824
+			discover_province = 2819
+			discover_province = 2818
+			discover_province = 2820
+			discover_province = 2784
+			discover_province = 2759
+			discover_province = 2489
+			discover_province = 2488
+			discover_province = 1306
+			discover_province = 2484
+			discover_province = 2445
+			discover_province = 2444
+			discover_province = 2446
+			discover_province = 2438
+			discover_province = 2728
+			discover_province = 2730
+			discover_province = 2731
+			discover_province = 2732
+			discover_province = 2733
+			discover_province = 2541
+			discover_province = 2540
+			discover_province = 2713
+			discover_province = 2544
+			discover_province = 2545
+			discover_province = 2546
+      	}
+      	kill_advisor = magellan 	
+	}
+
+	option = {
+		name = "vef_people.10044.optb"
+		ai_chance = { factor = 0 }
+		add_prestige = -5
+	}
+}
+
+# See: VEF_Reformers.txt
+# Jan Hus - vef_reformation.11000
+# Martin Luther - vef_reformation.11001
+# Ulrich Zwingli = vef_reformation.11002
+# John Calvin = vef_reformation.11003
+# John Knox = vef_reformation.11003
+# See: decisions/vef_Anglican Church.txt
+# Thomas Cranmer = first_act_royal_supremacy
+# See: vef_FlavorGBR.txt
+# John Wycliffe = flavor_gbr.10012 (event not advisor)
+
+# Ignatius of Loyola
+country_event = {
+	id = vef_people.10049
+	title = "vef_people.10049.t"
+	desc = "vef_people.10049.d"
+	picture = VEF_RELIGION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		85 = { owned_by = ROOT } # Madrid
+		is_year = 1541
+		NOT = { is_year = 1571 }
+   }
+
+	mean_time_to_happen = { months = 12 }
+   
+	option = {
+		name = "vef_people.10049.opta"
+		define_advisor = {
+			type = ignatius_loyola
+			discount = yes
+			skill = 2
+			location = 85
+			name = "Ignatius of Loyola"
+		}
+		set_global_flag = ignatius_loyola
+		add_reform_desire = -0.05
+	}
+}
+
+# Kepler
+country_event = {
+	id = vef_people.10050
+	title = "vef_people.10050.t"
+	desc = "vef_people.10050.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		295 = { owned_by = ROOT } # Graz
+		is_year = 1594
+		NOT = { is_year = 1610 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10050.opta"
+		define_advisor = {
+			type = johannes_kepler
+			discount = yes
+			skill = 2
+			location = 295
+			name = "Johannes Kepler"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10050.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "ai_great_scientist"
+			duration = 3650
+		}
+	}
+}
+
+# Galileo
+country_event = {
+	id = vef_people.10051
+	title = "vef_people.10051.t"
+	desc = "vef_people.10051.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		242 = { owned_by = ROOT } # Pisa
+		is_year = 1594
+		NOT = { is_year = 1610 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10051.opta"
+		define_advisor = {
+			type = galileo_galilei
+			discount = yes
+			skill = 2
+			location = 242
+			name = "Galileo Galilei"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10051.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "ai_great_scientist" duration = 3650 }
+	}
+}
+
+# Bacon
+country_event = {
+	id = vef_people.10052
+	title = "vef_people.10052.t"
+	desc = "vef_people.10052.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		34 = { owned_by = ROOT } # London
+		is_year = 1584
+		NOT = { is_year = 1605 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10052.opta"
+		define_advisor = {
+			type = francis_bacon
+			discount = yes
+			skill = 2
+			location = 34
+			name = "Francis Bacon"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10052.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "ai_great_scientist"
+			duration = 3650
+		}
+	}
+}
+
+# Yi Sun-Sin
+country_event = {
+	id = vef_people.10053
+	title = "vef_people.10053.t"
+	desc = "vef_people.10053.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		is_year = 1590
+		NOT = { is_year = 1599 }
+		1022 = { owned_by = ROOT } # Seoul
+		tag = KOR
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10053.opta"
+		define_advisor = {
+			type = yi_sun_sin
+			discount = yes
+			skill = 2
+			location = 1022
+			name = "Yi Sun-Sin"
+		}
+		define_admiral = {
+			name = "Yi Sun-Sin"
+			shock = 6
+			fire = 6
+			manuever = 6
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10053.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "ai_admiral_yi"
+			duration = 2920
+		}
+		define_admiral = {
+			name = "Yi Sun-Sin"
+			shock = 6
+			fire = 6
+			manuever = 6
+		}
+	}
+}
+
+# Tycho Brahe
+country_event = {
+	id = vef_people.10054
+	title = "vef_people.10054.t"
+	desc = "vef_people.10054.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		392 = { owned_by = ROOT } # Skane
+		is_year = 1570
+		NOT = { is_year = 1597 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10054.opta"
+		define_advisor = {
+			type = tycho_brahe
+			discount = yes
+			skill = 2
+			location = 392
+			name = "Tycho Brahe"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10054.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "ai_great_scientist" duration = 3650 }
+	}
+}
+
+# Tycho Brahe moves to Prague
+country_event = {
+	id = vef_people.10055
+	title = "vef_people.10055.t"
+	desc = "vef_people.10055.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		392 = { owned_by = ROOT } # Skane
+		is_year = 1597
+		NOT = { is_year = 1601 }
+	}
+
+	mean_time_to_happen = { months = 3 }
+	
+	option = {
+    	name = "vef_people.10055.opta"
+		kill_advisor = tycho_brahe
+		488 = { owner = { country_event = { id = vef_people.10056 } } }
+	}
+}
+
+# Tycho Brahe moves to Prague 2
+country_event = {
+	id = vef_people.10056
+	title = "vef_people.10056.t"
+	desc = "vef_people.10056.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10056.opta"
+		define_advisor = {
+			type = tycho_brahe
+			discount = yes
+			skill = 2
+			location = 488 # Bohemia
+			name = "Tycho Brahe"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10056.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "brahe_observatory" duration = -1 }
+	}
+}
+
+# Titian
+country_event = {
+	id = vef_people.10057
+	title = "vef_people.10057.t"
+	desc = "vef_people.10057.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		269 = { owned_by = ROOT } # Venezia
+		is_year = 1540
+		NOT = { is_year = 1560 }
+	}
+
+	mean_time_to_happen = { months = 6 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10057.opta"
+		define_advisor = {
+			type = titian
+			discount = yes
+			skill = 2
+			location = 269 # Venezia
+			name = "Titian"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10057.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "titian_painting" duration = -1 }
+	}
+}
+
+# Donato Bramante
+country_event = {
+	id = vef_people.10058
+	title = "vef_people.10058.t"
+	desc = "vef_people.10058.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		227 = { owned_by = ROOT } # Roma
+		is_year = 1502
+		NOT = { is_year = 1514 }
+	}
+
+	mean_time_to_happen = { months = 3 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10058.opta"
+		define_advisor = {
+			type = donato_bramante
+			discount = yes
+			skill = 2
+			location = 227 # Roma
+			name = "Donato Bramante"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10058.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "sistine_chapel"
+			duration = -1
+		}
+	}
+}
+
+# Qui Ying
+country_event = {
+	id = vef_people.10059
+	title = "vef_people.10059.t"
+	desc = "vef_people.10059.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		1089 = { owned_by = ROOT } # Suzhou
+		is_year = 1523
+		NOT = { is_year = 1530 }
+	}
+
+   mean_time_to_happen = { months = 3 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10059.opta"
+		define_advisor = {
+			type = qui_ying
+			discount = yes
+			skill = 2
+			location = 1089
+			name = "Qui Ying"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10059.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "gongbi_painting"
+			duration = -1
+		}
+	}
+}
+
+# El Greco
+country_event = {
+	id = vef_people.10060
+	title = "vef_people.10060.t"
+	desc = "vef_people.10060.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		87 = { owned_by = ROOT } # Toledo
+		is_year = 1577
+		NOT = { is_year = 1585 }
+	}
+
+	mean_time_to_happen = { months = 3 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10060.opta"
+		define_advisor = {
+			type = el_greco
+			discount = yes
+			skill = 2
+			location = 87
+			name = "El Greco"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10060.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "el_espolio" duration = -1 }
+	}
+}
+
+# Andrea Palladio
+country_event = {
+	id = vef_people.10061
+	title = "vef_people.10061.t"
+	desc = "vef_people.10061.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		269 = { owned_by = ROOT } # Venezia
+		is_year = 1548
+		NOT = { is_year = 1555 }
+	}
+
+   mean_time_to_happen = { months = 3 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10061.opta"
+		define_advisor = {
+			type = andrea_palladio
+			discount = yes
+			skill = 2
+			location = 269
+			name = "Andrea Palladio"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10061.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "palladian_villas" duration = -1 }
+	}
+}
+
+# Michelangelo - Random City (requires 2 events)
+country_event = {
+	id = vef_people.10062
+	title = "vef_people.10062.t"
+	desc = "vef_people.10062.d"
+	picture = VEF_CULTURE_eventPicture
+
+	fire_only_once = yes
+	hidden = yes
+
+	trigger = {
+		is_year = 1500
+		NOT = { is_year = 1510 }
+		ai = yes
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				15 = { 269 = { owner = { country_event = { id = vef_people.10063 } } } } # Venice
+				15 = { 237 = { owner = { country_event = { id = vef_people.10063 } } } } # Florece
+				15 = { 227 = { owner = { country_event = { id = vef_people.10063 } } } } # Rome
+				15 = { 263 = { owner = { country_event = { id = vef_people.10063 } } } } # Milan
+				8 = { 253 = { owner = { country_event = { id = vef_people.10063 } } } } # Genoa
+				8 = { 242 = { owner = { country_event = { id = vef_people.10063 } } } } # Pisa
+				8 = { 250 = { owner = { country_event = { id = vef_people.10063 } } } } # Verona
+				8 = { 248 = { owner = { country_event = { id = vef_people.10063 } } } } # Ferrara
+				8 = { 222 = { owner = { country_event = { id = vef_people.10063 } } }  } # Naples
+			}
+		}
+	}
+
+	option = {
+      name = "vef_people.10062.opta"
+	}
+}
+
+# Michelangelo - second event
+country_event = {
+	id = vef_people.10063
+	title = "vef_people.10063.t"
+	desc = "vef_people.10063.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10063.opta"
+		define_advisor = {
+			type = michelangelo
+			discount = yes
+			skill = 2
+			name = "Michelangelo"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10063.opta"
+		add_treasury = -10
+		random_owned_province = {
+			add_permanent_province_modifier = { name = "michelangelo_david" duration = -1 }
+			add_base_tax = 1
+		}
+	}
+}
+
+# Niccolo Machiavelli - Random City (requires 2 events)
+country_event = {
+	id = vef_people.10064
+	title = "vef_people.10064.t"
+	desc = "vef_people.10064.d"
+	picture = VEF_CULTURE_eventPicture
+
+	fire_only_once = yes
+	hidden = yes
+
+	trigger = {
+		is_year = 1500
+		NOT = { is_year = 1510 }
+		ai = yes
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				15 = { 269 = { owner = { country_event = { id = vef_people.10065 } } } } # Venice
+				15 = { 237 = { owner = { country_event = { id = vef_people.10065 } } } } # Florece
+				15 = { 227 = { owner = { country_event = { id = vef_people.10065 } } } } # Rome
+				15 = { 263 = { owner = { country_event = { id = vef_people.10065 } } } } # Milan
+				8 = { 253 = { owner = { country_event = { id = vef_people.10065 } } } } # Genoa
+				8 = { 242 = { owner = { country_event = { id = vef_people.10065 } } } } # Pisa
+				8 = { 250 = { owner = { country_event = { id = vef_people.10065 } } } } # Verona
+				8 = { 248 = { owner = { country_event = { id = vef_people.10065 } } } } # Ferrara
+				8 = { 222 = { owner = { country_event = { id = vef_people.10065 } } }  } # Naples
+			}
+		}
+	}
+
+	option = {
+      name = "vef_people.10064.opta"
+	}
+}
+
+# Machiavelli - second event
+country_event = {
+	id = vef_people.10065
+	title = "vef_people.10065.t"
+	desc = "vef_people.10065.d"
+	picture = VEF_BOTTICELLI_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10065.opta"
+		define_advisor = {
+			type = niccolo_machiavelli
+			discount = yes
+			skill = 2
+			name = "Niccolo Machiavelli"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10065.opta"
+		add_country_modifier = { name = "ai_machiavelli" duration = 5475 }
+		add_treasury = -10
+		random_owned_province = {
+			add_permanent_province_modifier = { name = "machiavelli_prince" duration = -1 }
+			add_base_tax = 1
+		}
+	}
+}
+
+# Hans Holbein - Random Event
+country_event = {
+	id = vef_people.10066
+	title = "vef_people.10066.t"
+	desc = "vef_people.10066.d"
+	picture = VEF_CULTURE_eventPicture
+
+	fire_only_once = yes
+	hidden = yes
+
+	trigger = {
+		is_year = 1500
+		NOT = { is_year = 1501 }
+		ai = yes
+	}
+
+	mean_time_to_happen = { months = 1 }
+
+
+	option = {
+		name = "vef_people.10066.opta"
+    	random_country = {
+    	  	limit = {
+      			prestige = 30
+      			capital_scope = { continent = europe }
+      			religion_group = christian
+      			NOT = { has_country_flag = holbein_arrived }
+      		}
+      		country_event = { id = vef_people.10071 days = 7 }
+		}
+	}
+}
+
+country_event = {
+	id = vef_people.10067
+	title = "vef_people.10067.t"
+	desc = "vef_people.10067.d"
+	picture = VEF_CULTURE_eventPicture
+
+	fire_only_once = yes
+	hidden = yes
+
+	trigger = {
+		is_year = 1502
+		NOT = { is_year = 1503 }
+		ai = yes
+	}
+
+	mean_time_to_happen = { months = 1 }
+
+	immediate = {
+		hidden_effect = {
+			every_known_country = {
+				limit = { advisor = hans_holbein }
+				kill_advisor = hans_holbein
+			}
+		}
+	}
+
+	option = {
+		name = "vef_people.10067.opta"
+    	random_country = {
+    	  	limit = {
+      			prestige = 30
+      			capital_scope = { continent = europe }
+      			religion_group = christian
+      			NOT = { has_country_flag = holbein_arrived }
+      		}
+      		country_event = { id = vef_people.10071 days = 7 }
+		}
+	}
+}
+
+# Hans Holbein - Random Event
+country_event = {
+	id = vef_people.10068
+	title = "vef_people.10068.t"
+	desc = "vef_people.10068.d"
+	picture = VEF_CULTURE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		is_year = 1504
+		NOT = { is_year = 1505 }
+		ai = yes
+	}
+
+	mean_time_to_happen = { months = 1 }
+
+	immediate = {
+		hidden_effect = {
+			every_known_country = {
+				limit = { advisor = hans_holbein }
+				kill_advisor = hans_holbein
+			}
+		}
+	}
+
+	option = {
+		name = "vef_people.10068.opta"
+    	random_country = {
+    	  	limit = {
+      			prestige = 30
+      			capital_scope = { continent = europe }
+      			religion_group = christian
+      			NOT = { has_country_flag = holbein_arrived }
+      		}
+      		country_event = { id = vef_people.10071 days = 7 }
+		}
+	}
+}
+
+# Hans Holbein - Random Event
+country_event = {
+	id = vef_people.10069
+	title = "vef_people.10069.t"
+	desc = "vef_people.10069.d"
+	picture = VEF_CULTURE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		is_year = 1506
+		NOT = { is_year = 1507 }
+		ai = yes
+	}
+
+	mean_time_to_happen = { months = 1 }
+
+	immediate = {
+		hidden_effect = {
+			every_known_country = {
+				limit = { advisor = hans_holbein }
+				kill_advisor = hans_holbein
+			}
+		}
+	}
+
+	option = {
+		name = "vef_people.10069.opta"
+    	random_country = {
+    	  	limit = {
+      			prestige = 30
+      			capital_scope = { continent = europe }
+      			religion_group = christian
+      			NOT = { has_country_flag = holbein_arrived }
+      		}
+      		country_event = { id = vef_people.10071 days = 7 }
+		}
+	}
+}
+
+# Hans Holbein - Random Event
+country_event = {
+	id = vef_people.10070
+	title = "vef_people.10070.t"
+	desc = "vef_people.10070.d"
+	picture = VEF_CULTURE_eventPicture
+
+	fire_only_once = yes
+	hidden = yes
+
+	trigger = {
+		is_year = 1508
+		NOT = { is_year = 1509 }
+		ai = yes
+   }
+
+	mean_time_to_happen = { months = 1 }
+
+	immediate = {
+		hidden_effect = {
+			every_known_country = {
+				limit = { advisor = hans_holbein }
+				kill_advisor = hans_holbein
+			}
+		}
+	}
+
+	option = {
+		name = "vef_people.10070.opta"
+    	random_country = {
+    	  	limit = {
+      			prestige = 30
+      			capital_scope = { continent = europe }
+      			religion_group = christian
+      			NOT = { has_country_flag = holbein_arrived }
+      		}
+      		country_event = { id = vef_people.10071 days = 7 }
+		}
+	}
+}
+
+# Holbein = actual arrival
+country_event = {
+	id = vef_people.10071
+	title = "vef_people.10071.t"
+	desc = "vef_people.10071.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = { set_country_flag = holbein_arrived }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10071.opta"
+		define_advisor = {
+			type = hans_holbein
+			discount = yes
+			skill = 2
+			name = "Hans Holbein"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10071.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "holbein_portrait"
+			duration = -1
+		}
+	}
+}
+
+# Hans Holbein - Random Event
+country_event = {
+	id = vef_people.10072
+	title = "vef_people.10072.t"
+	desc = "vef_people.10072.d"
+	picture = VEF_CULTURE_eventPicture
+
+	fire_only_once = yes
+	hidden = yes
+
+	trigger = {
+		is_year = 1510
+		NOT = { is_year = 1511 }
+		ai = yes
+	}
+
+	mean_time_to_happen = { months = 1 }
+
+	immediate = {
+		hidden_effect = {
+			every_known_country = {
+				limit = { advisor = hans_holbein }
+				kill_advisor = hans_holbein
+			}
+		}
+	}
+
+	option = {
+		name = "vef_people.10072.opta"
+    	random_country = {
+    	  	limit = {
+      			prestige = 30
+      			capital_scope = { continent = europe }
+      			religion_group = christian
+      			NOT = { has_country_flag = holbein_arrived }
+      		}
+      		country_event = { id = vef_people.10071 days = 7 }
+		}
+	}
+}
+
+# Nostradamus
+country_event = {
+	id = vef_people.10073
+	title = "vef_people.10073.t"
+	desc = "vef_people.10073.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		133 = { owned_by = ROOT }
+		is_year = 1540
+	}
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10073.opta"
+		define_advisor = {
+			type = nostradamus
+			discount = yes
+			skill = 2
+			location = 133
+			name = "Nostradamus"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10073.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "nostradamus_prophecies" duration = -1 }
+	}
+}
+
+# Jacapo Peri - Random City (requires 2 events)
+country_event = {
+	id = vef_people.10074
+	title = "vef_people.10074.t"
+	desc = "vef_people.10074.d"
+	picture = VEF_CULTURE_eventPicture
+
+	fire_only_once = yes
+	hidden = yes
+
+	trigger = {
+		is_year = 1580
+		NOT = { is_year = 1590 }
+		ai = yes
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				15 = { 269 = { owner = { country_event = { id = vef_people.10075 } } } } # Venice
+				15 = { 237 = { owner = { country_event = { id = vef_people.10075 } } } } # Florece
+				15 = { 227 = { owner = { country_event = { id = vef_people.10075 } } } } # Rome
+				15 = { 263 = { owner = { country_event = { id = vef_people.10075 } } } } # Milan
+				8 = { 253 = { owner = { country_event = { id = vef_people.10075 } } } } # Genoa
+				8 = { 242 = { owner = { country_event = { id = vef_people.10075 } } } } # Pisa
+				8 = { 250 = { owner = { country_event = { id = vef_people.10075 } } } } # Verona
+				8 = { 248 = { owner = { country_event = { id = vef_people.10075 } } } } # Ferrara
+				8 = { 222 = { owner = { country_event = { id = vef_people.10075 } } }  } # Naples
+			}
+		}
+	}
+
+	option = {
+		name = "vef_people.10074.opta"
+	}
+}
+
+# Jacapo Peri - second event
+country_event = {
+	id = vef_people.10075
+	title = "vef_people.10075.t"
+	desc = "vef_people.10075.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10075.opta"
+		define_advisor = {
+			type = jacapo_peri
+			discount = yes
+			skill = 2
+			name = "Jacapo Peri"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10075.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "peri_opera" duration = -1 }
+	}
+}
+
+# Vasco Nunes de Balboa
+country_event = {
+	id = vef_people.10076
+	title = "vef_people.10076.t"
+	desc = "vef_people.10076.d"
+	picture = VEF_ADVISOR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		86 = { owned_by = ROOT }
+		NOT = { is_year = 1519 }
+		is_year = 1500
+	}
+	
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10076.opta"
+		define_advisor = {
+			type = balboa
+			discount = yes
+			skill = 2
+			location = 86
+			name = "Vasco Nunez de Balboa"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10076.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "ai_balboa" duration = 3650 }
+	}
+}
+
+# Joao Rodrigues
+country_event = {
+	id = vef_people.10077
+	title = "vef_people.10077.t"
+	desc = "vef_people.10077.d"
+	picture = VEF_ADVISOR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = JAP
+		is_year = 1585
+		NOT = { is_year = 1608 }
+		has_country_flag = jesuits_arrived_japan
+	}
+	
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10077.opta"
+		define_advisor = {
+			type = joao_rodrigues
+			discount = yes
+			skill = 2
+			name = "Joao Rodrigues"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10077.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "ai_joao_rodrigues" duration = 3650 }
+	}
+}
+
+# William Adams
+country_event = {
+	id = vef_people.10078
+	title = "vef_people.10078.t"
+	desc = "vef_people.10078.d"
+	picture = VEF_ADVISOR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = JAP
+		is_year = 1600
+		NOT = { is_year = 1620 }
+	}
+	
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10078.opta"
+		define_advisor = {
+			type = william_adams
+			discount = yes
+			skill = 2
+			name = "Miura Anjin"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10078.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "ai_william_adams" duration = 3650 }
+	}
+}
+
+# Cardinal Richelieu
+country_event = {
+	id = vef_people.10079
+	title = "vef_people.10079.t"
+	desc = "vef_people.10079.d"
+	picture = VEF_ADVISOR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = FRA
+		is_year = 1616
+		NOT = { is_year = 1642 }
+	}
+	
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10079.opta"
+		define_advisor = {
+			type = cardinal_richelieu
+			discount = yes
+			skill = 2
+			name = "Cardinal Richelieu"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10079.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "ai_richelieu" duration = 3650 }
+	}
+}
+
+# Cardinal Mazarin
+country_event = {
+	id = vef_people.10080
+	title = "vef_people.10080.t"
+	desc = "vef_people.10080.d"
+	picture = VEF_ADVISOR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = FRA
+		is_year = 1642
+		NOT = { is_year = 1661 }
+	}
+	
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10080.opta"
+		define_advisor = {
+			type = cardinal_mazarin
+			discount = yes
+			skill = 2
+			name = "Cardinal Mazarin"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10080.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "ai_mazarin" duration = 3650 }
+	}
+}
+
+# Semyon Ivanovich Dezhnyov - explored Alaska
+country_event = {
+	id = vef_people.10081
+	title = "vef_people.10081.t"
+	desc = "vef_people.10081.d"
+	picture = VEF_MERCHANTS_TALKING_eventPicture
+	
+	trigger = {
+		OR = {
+			advisor = semyon_dezhnyov 
+			has_country_modifier = ai_semyon_dezhnyov 
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { months = 12 }
+	
+	option = {
+		name = "vef_people.10081.opta"
+		every_province = {
+			limit = {
+				OR = {
+					region = west_siberia_region
+					region = east_siberia_region
+				}
+			}
+			ROOT = { discover_province = PREV }
+		}
+		# Alaska + Sea Passage
+		discover_province = 2529 # Bay Of Oljut
+		discover_province = 2646 # Kodiak Island
+		discover_province = 2647 # Coast of Alaska
+		discover_province = 2752 # Kamtchatka Basin
+		discover_province = 2753 # Komandorskie Islands
+		discover_province = 2765 # Bowers Ridge
+		discover_province = 2766 # Aleuts Basin
+		discover_province = 2767 # Unalaska Islands
+		discover_province = 2306 # Alaska
+	}
+}
+
+# Semyon Ivanovich Dezhnyov 
+country_event = {
+	id = vef_people.10082
+	title = "vef_people.10082.t"
+	desc = "vef_people.10082.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		735 = { owned_by = ROOT } # He was from Ustyg - controller gets this event
+		is_year = 1640
+		NOT = { is_year = 1700 }
+	}
+
+	mean_time_to_happen = { months = 24 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10082.opta"
+		define_advisor = {
+			type = semyon_dezhnyov 
+			discount = yes
+			skill = 2
+			location = 735
+			name = "Semyon Ivanovich Dezhnyov"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10082.opta"
+		add_treasury = -10
+		# add_country_modifier = { name = "ai_semyon_dezhnyov " duration = 7300 }
+	}
+}
+
+# Michiel de Ruyter
+country_event = {
+	id = vef_people.10083
+	title = "vef_people.10083.t"
+	desc = "vef_people.10083.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		186 = { owned_by = ROOT } # Zeeland
+		is_year = 1650
+		NOT = { is_year = 1676 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10083.opta"
+		define_advisor = {
+			type = michiel_de_ruyter
+			discount = yes
+			skill = 2
+			location = 186
+			name = "Michiel de Ruyter"
+		}
+		define_admiral = {
+			name = "Michiel de Ruyter"
+			shock = 3
+			fire = 4
+			manuever = 4
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10083.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "ai_admiral_ruyter"
+			duration = 2920
+		}
+		define_admiral = {
+			name = "Yi Sun-Sin"
+			shock = 3
+			fire = 4
+			manuever = 4
+		}
+	}
+}
+
+# Johann Bach
+country_event = {
+	id = vef_people.10084
+	title = "vef_people.10084.t"
+	desc = "vef_people.10084.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		350 = { owned_by = ROOT } # Leipzig
+		is_year = 1715
+		NOT = { is_year = 1750 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10084.opta"
+		define_advisor = {
+			type = johann_bach
+			discount = yes
+			skill = 2
+			location = 350
+			name = "Johann Bach"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10084.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "ai_composer"
+			duration = 2920
+		}
+	}
+}
+
+# George Handel
+country_event = {
+	id = vef_people.10085
+	title = "vef_people.10085.t"
+	desc = "vef_people.10085.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		34 = { owned_by = ROOT } # London
+		is_year = 1727
+		NOT = { is_year = 1759 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10085.opta"
+		define_advisor = {
+			type = george_handel
+			discount = yes
+			skill = 2
+			location = 34
+			name = "George Handel"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10085.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "ai_composer"
+			duration = 2920
+		}
+	}
+}
+
+# Beethoven
+country_event = {
+	id = vef_people.10086
+	title = "vef_people.10086.t"
+	desc = "vef_people.10086.d"
+	picture = VEF_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		298 = { owned_by = ROOT } # Vienna
+		is_year = 1800
+		NOT = { is_year = 1827 }
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10086.opta"
+		define_advisor = {
+			type = ludwig_beethoven
+			discount = yes
+			skill = 2
+			location = 298
+			name = "Ludwig von Beethoven"
+		}
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10086.opta"
+		add_treasury = -10
+		add_country_modifier = {
+			name = "ai_composer"
+			duration = 2920
+		}
+	}
+}
+
+# Francesco Griffo
+country_event = {
+	id = vef_people.10087
+	title = "vef_people.10087.t"
+	desc = "vef_people.10087.d"
+
+	picture = VEF_GRIFFO_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		269 = { owned_by = ROOT } #  Appears in Venice
+		is_year = 1480
+		NOT = { is_year = 1520 }
+	}
+
+	mean_time_to_happen = { months = 48 }
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10087.opta"
+		define_advisor = {
+			type = francesco_griffo
+			discount = yes
+			skill = 2
+			location = 269
+			name = "Francesco Griffo"
+		}
+		add_prestige = -5
+	}
+
+	option = {
+		trigger = { ai = no }
+		name = "vef_people.10087.optb"
+	}
+
+	# AI has trouble with great persons. Give them the benefit.
+	option = {
+		trigger = { ai = yes }
+		name = "vef_people.10087.opta"
+		add_treasury = -10
+		add_country_modifier = { name = "griffo_typeface" duration = -1 }
+	}
+}
+
+country_event = {
+	id = vef_people.10088
+	title = "vef_people.10088.t"
+	desc = "vef_people.10088.d"
+
+	picture = VEF_GRIFFO_eventPicture
+	
+	trigger = {
+		advisor = francesco_griffo
+		NOT = { has_country_modifier = griffo_typeface }
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	option = {
+		name = "vef_people.10088.opta"
+		add_country_modifier = { name = "griffo_typeface" duration = -1 }
+	}
+}
+
+
+##################
+# Lesser Persons #
+##################
+
+#Paracelsus
+country_event = {
+	id = vef_people.20000
+	title = "vef_people.20000.t"
+	desc = "vef_people.20000.d"
+	picture = VEF_ADVISOR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 278
+		is_year = 1525
+		NOT = { is_year = 1541 }
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.1
+			tag = BAS
+		}
+	}
+
+	option = {
+		name = "vef_people.20000.opta"
+		define_advisor = {
+			type = natural_scientist
+			name = "Paracelsus"
+			discount = yes
+			skill = 2
+		}
+	}
+}

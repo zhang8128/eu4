@@ -1,0 +1,580 @@
+#by Marco Dandolo
+
+###############
+# SERENISSIMA #
+###############
+
+venetian_nepotism = {
+	prestige = -0.1
+	global_tax_modifier = -0.01
+	build_cost = 0.05
+}
+
+violated_promessione = {
+    prestige = -0.1
+}
+
+preparing_sensa = {
+    global_tax_modifier = -0.01
+}
+
+festivating_sensa = {
+	global_unrest = -1
+	prestige = 3
+	republican_tradition = 1
+}
+
+glorious_sensa = {
+	prestige = 0.25
+	republican_tradition = 0.05
+}
+
+#################
+# MEDICI SYSTEM #
+#################
+
+gonfaloniere_popolo = {
+	global_tax_modifier = -0.1
+	trade_efficiency = -0.05
+	global_unrest = -1
+}
+
+gonfaloniere_artigiani = {
+	global_tax_modifier = -0.05
+	trade_efficiency = -0.1
+}
+
+gonfaloniere_mercanti = {
+	trade_efficiency = 0.05
+	global_unrest = 2
+}
+
+provincial_medici_bank = {
+	inflation_reduction = 0.01
+	interest = -0.02
+}
+
+yearly_papal_dividends = {
+	inflation_reduction = 0.005
+}
+
+yearly_milan_dividends = {
+	inflation_reduction = 0.005
+}
+
+yearly_venice_dividends = {
+	inflation_reduction = 0.005
+}
+
+yearly_naples_dividends = {
+	inflation_reduction = 0.005
+}
+
+anti_medici_sentiment = {
+	global_unrest = 1
+}
+
+pisan_heroes = {
+    local_defensiveness = 2
+	local_hostile_attrition = 0.5
+}
+
+failed_florentine_attempt = {
+    prestige = -0.05
+}
+
+#########
+# PALIO #
+#########
+
+preparing_palio = {
+    global_tax_modifier = -0.01
+}
+
+festivating_palio = {
+	prestige = 2
+	global_unrest = -1
+	legitimacy = 0.5
+	republican_tradition = 0.5
+}
+
+glorious_palio = {
+	prestige = 0.1
+	legitimacy = 0.01
+	republican_tradition = 0.05
+}
+
+#####Siena tradition!
+
+preparing_palio_republic = {
+    global_tax_modifier = -0.02
+}
+
+festivating_palio_republic = {
+	prestige = 3
+	global_unrest = -1
+	legitimacy = 0.5
+	republican_tradition = 1
+}
+
+glorious_palio_republic = {
+	prestige = 0.2
+	legitimacy = 0.01
+	republican_tradition = 0.1
+}
+
+##########
+# Calcio #
+##########
+
+preparing_calcio = {
+    global_tax_modifier = -0.01
+}
+
+festivating_calcio = {
+	prestige = 2
+	global_unrest = -2
+}
+
+glorious_calcio = {
+	prestige = 0.1
+	global_unrest = -0.5
+}
+
+################
+# Jeu de paume #
+################
+
+preparing_jeu_de_paume = {
+    global_tax_modifier = -0.01
+}
+
+festivating_jeu_de_paume = {
+	prestige = 0.2
+	diplomatic_reputation = 1
+	legitimacy = 0.5
+}
+
+glorious_jeu_de_paume = {
+	prestige = 0.05
+	legitimacy = 0.1
+}
+
+lost_jeu_de_paume = {
+	prestige = -0.05
+	legitimacy = -0.1
+}
+
+won_jeu_de_paume = {
+	prestige = 0.05
+}
+
+jeu_paume_hall = {
+	local_unrest = -1
+	local_tax_modifier = 0.03
+}
+
+jeu_de_paume_grouch = {
+	prestige = -0.05
+}
+
+
+###########
+# TUSCANY #
+###########
+
+order_of_santo_stefano = {
+#	papal_influence = 1
+	galley_power = 0.1
+}
+
+medici_porcelain = {
+    prestige = 2
+	diplomatic_reputation = 1
+}
+
+#########
+# Music #
+#########
+
+musica_in_opera = {
+        prestige = 0.05
+		  global_unrest = -1
+}
+
+opera_house = {
+      local_unrest = -2
+		local_tax_modifier = 0.05
+		picture = "prestige"
+}
+
+working_on_opera = {
+}
+
+opera_perfomance = {
+        prestige = 0.75
+        global_unrest = -1
+		diplomatic_reputation = 1
+}
+
+working_on_madrigal = {
+}
+
+madrigal_perfomance = {
+	prestige = 0.25
+	legitimacy = 0.01
+	republican_tradition = 0.05
+}
+
+working_on_symphony = {
+}
+
+cancionero_de_palacio = {
+        prestige = 0.1
+        legitimacy = 0.01
+}
+
+############################################
+# Italian power status                     #
+############################################
+
+local_italian_power = {
+	prestige = -0.1
+	trade_efficiency = 0.10
+	merc_maintenance_modifier = -0.10
+	idea_cost = -0.05
+	advisor_cost = -0.5
+}
+
+regional_italian_power = {
+	trade_efficiency = 0.075
+	merc_maintenance_modifier = -0.05
+	idea_cost = -0.025
+    advisor_cost = -0.33
+}
+
+major_italian_power = {
+	prestige = 0.1
+	diplomatic_reputation = 0.25
+	diplomatic_upkeep = 1
+	spy_offence = 0.2
+	idea_cost = -0.01
+	advisor_cost = -0.25
+}
+
+dominant_italian_power = {
+	prestige = 0.2
+	trade_efficiency = -0.05
+	improve_relation_modifier = -0.1
+}
+
+menacing_italian_power = {
+	prestige = 0.5
+	diplomatic_upkeep = -1
+	trade_efficiency = -0.1
+	diplomatic_reputation = -0.25
+	improve_relation_modifier = -0.25
+	fabricate_claims_cost = 0.15
+}
+
+italian_power_admin = { }
+
+#####################
+# COLOGNE CATHEDRAL #
+#####################
+
+cologne_cathedral_ruin = {
+	trade_efficiency = 0.01
+	picture = "tolerance_own"
+}
+
+cologne_cathedral_wip = {
+	prestige = 0.2
+	production_efficiency = 0.05
+	global_tax_modifier = -0.01
+}
+
+cologne_cathedral_stopped = {
+	prestige = -0.1
+}
+
+cologne_cathedral_finished = {
+	prestige = 2
+#	papal_influence = 2
+	tolerance_own = 0.5
+	production_efficiency = 0.05
+	trade_efficiency = 0.5
+	local_tax_modifier = 0.5
+	picture = "tolerance_own"
+}
+
+cologne_cathedral_one = {
+	trade_efficiency = 0.01
+	picture = "build_cost"
+}
+
+cologne_cathedral_two = {
+	picture = "build_cost"
+}
+
+cologne_cathedral_three = {
+	picture = "build_cost"
+}
+
+cologne_cathedral_four = {
+	picture = "build_cost"
+}
+
+cologne_cathedral_five = {
+	picture = "build_cost"
+}
+
+cologne_cathedral_sponsor = {
+	prestige = 0.5
+#	papal_influence = 1
+	picture = "tolerance_own"
+}
+
+cologne_imperial_city = {
+    prestige = 0.1
+	republican_tradition = 0.1
+	trade_efficiency = 0.05
+	global_unrest = -1
+}
+
+cologne_golden_chamber = {
+    prestige = 0.1
+#	papal_influence = 1
+	trade_value = 2
+	picture = "missionaries"
+}
+
+enormous_revolt_risk = {
+    global_unrest = 10
+}
+
+############
+# CARNIVAL #
+############
+
+festivating_carnival = {
+	prestige = 2
+}
+
+glorious_carnival = {
+	prestige = 0.1
+}
+
+carnival_peasants_upset = {
+    local_unrest = 1
+	picture = "local_unrest"
+}
+
+carnival_nobles_upset = {
+	production_efficiency = -0.1
+	local_tax_modifier = -0.1
+	picture = "local_unrest"
+}
+
+carnival_excess = {
+    local_unrest = 1
+	production_efficiency = -0.1
+	local_tax_modifier = -0.1
+	picture = "local_unrest"
+}
+
+carnival_masks = {
+    global_spy_defence = -0.1
+	defensiveness = -0.05
+}
+
+################
+# ARCHITECTURE #
+################
+
+renaissance_city = {
+	prestige = 0.25
+	trade_efficiency = 0.05
+	picture = "renaissance_architecture"
+}
+
+renaissance_city_wip = {
+	production_efficiency = 0.01
+	local_tax_modifier = -0.05
+	picture = "build_cost"
+}
+
+baroque_city = {
+	prestige = 0.25
+	production_efficiency = 0.05
+	trade_efficiency = 0.05
+	picture = "baroque_architecture"
+}
+
+baroque_city_wip = {
+	production_efficiency = 0.01
+	local_tax_modifier = -0.05
+	picture = "build_cost"
+}
+
+rokoko_city = {
+	prestige = 0.3
+	production_efficiency = 0.05
+    global_tax_modifier = 0.05
+	trade_efficiency = 0.05
+	picture = "rokoko_architecture"
+}
+
+rokoko_city_wip = {
+	production_efficiency = 0.01
+	local_tax_modifier = -0.05
+	picture = "build_cost"
+}
+
+classical_city = {
+	prestige = 0.3
+	production_efficiency = 0.05
+    global_tax_modifier = 0.05
+	trade_efficiency = 0.05
+	local_unrest = -1
+	picture = "classical_architecture"
+}
+
+classical_city_wip = {
+	production_efficiency = 0.01
+	local_tax_modifier = -0.05
+	picture = "build_cost"
+}
+
+######################
+
+renaissance_palazzo = {
+	prestige = 0.1
+	heir_chance = 0.1
+	republican_tradition = 0.05
+	picture = "renaissance_palazzo"
+}
+
+baroque_garden = {
+	prestige = 0.1
+	local_unrest = -1
+	picture = "baroque_garden"
+}
+
+rokoko_ideal_city = {
+	prestige = 0.2
+	tax_income = 1.0
+	trade_value = 2
+	picture = "rokoko_ideal_city"
+}
+
+classical_museum = {
+	prestige = 0.2
+    advisor_pool = 1
+	trade_value = 1
+	picture = "classical_museum"
+}
+
+#########################
+# TERRAFERMA DI VENEXIA #
+#########################
+
+ven_disputed_terraferma = {
+		  global_unrest = 1
+}
+
+stato_da_tera = {
+		  global_unrest = -1
+}
+
+################################
+# MINOR ITALIAN HOLDINGS (MIH) #
+################################
+
+ven_zeta = {
+	tax_income = -1.5
+    local_manpower = -0.025
+	trade_goods_size_modifier = -0.1
+	local_ship_cost = 0.1 #Venice controlled all important ports on the coastline
+	prestige = -0.03 #having only partial control over a province make us look weak in the world
+	province_trade_power_value = -1
+	trade_value = 2
+}
+
+ven_albania = {
+	tax_income = -0.5
+    local_manpower = -0.01
+	trade_goods_size_modifier = -0.05
+	prestige = -0.01 #having only partial control over a province make us look weak in the world
+	province_trade_power_value = -1
+	trade_value = 1
+}
+
+ven_achaia = {
+	tax_income = -1
+    local_manpower = -0.025
+	trade_goods_size_modifier = -0.05
+	prestige = -0.03 #having only partial control over a province make us look weak in the world
+	province_trade_power_value = -1
+	trade_value = 2
+}
+
+ven_morea = {
+	tax_income = -1
+    local_manpower = -0.01
+	trade_goods_size_modifier = -0.05
+	prestige = -0.02 #having only partial control over a province make us look weak in the world
+	province_trade_power_value = -1
+	trade_value = 1
+}
+
+gen_focea = {
+	tax_income = -1
+    local_manpower = -0.01
+	trade_goods_size_modifier = -0.1
+	prestige = -0.02 #having only partial control over a province make us look weak in the world
+	province_trade_power_value = -1
+	trade_value = 1
+}
+
+gen_amasra = {
+	tax_income = -1.5
+    local_manpower = -0.03
+	trade_goods_size_modifier = -0.1
+    local_ship_cost = 0.1 #Amasra was an important port which wasn't under the control of the local owner
+	prestige = -0.03 #having only partial control over a province make us look weak in the world
+	province_trade_power_value = -1
+	trade_value = 2
+}
+
+mih_guarantee_ven = {
+		diplomatic_reputation = 0.5
+		trade_efficiency = 0.01
+		prestige = 0.1
+}
+
+mih_guarantee_gen = {
+		diplomatic_reputation = 0.5
+		trade_efficiency = 0.01
+		prestige = 0.1
+}
+
+mih_trade_ven = {
+		diplomatic_reputation = 1
+}
+
+mih_trade_gen = {
+		diplomatic_reputation = 1
+}
+
+mih_attack_failed_ven = {
+		prestige = -0.1
+}
+
+mih_attack_failed_gen = {
+		prestige = -0.1
+}
+
+mih_integrating = {
+	    trade_efficiency = -0.01
+}

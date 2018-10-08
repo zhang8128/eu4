@@ -1,0 +1,25 @@
+# Reykjavik
+
+capital = "Reykjavik"
+owner = NOR
+controller = NOR
+add_core = NOR
+culture = icelandic
+religion = norse_pagan_reformed
+trade_goods = whales
+base_tax = 2
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = scandinavian_tech
+discovered_by = western
+
+1490.1.1   = { temple = yes } # Established during the 12th century
+1536.1.1   = { religion = protestant owner = DAN controller = DAN add_core = DAN }
+1600.1.1   = { base_manpower = 0.3 }
+1650.1.1   = { base_manpower = 0.3 }
+1700.1.1   = { base_manpower = 0.3 }
+1750.1.1   = { base_manpower = 0.3 }
+1752.1.1   = { trade_goods = wool } # Wool becomes more important.
+1800.1.1   = { base_manpower = 0.3 }

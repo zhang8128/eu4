@@ -1,0 +1,90 @@
+# FRA/RFR Events
+namespace = flavor_fra
+normal_or_historical_nations = yes
+
+# 10002 France/Brittany Union
+# 80001 French Government Change
+
+# Union of France and Brittany
+country_event = {
+	id = flavor_fra.10002
+	title = "flavor_fra.10002.t"
+	desc = "flavor_fra.10002.d"
+	picture = VEF_DIPLOMACY_eventPicture
+
+	major = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = FRA
+		is_year = 1470
+		NOT = { is_year = 1570 }
+		is_subject = no
+		BRI = {
+			exists = yes
+			ai = yes
+			was_player = no
+			is_subject = no
+			is_neighbor_of = ROOT
+			is_female = yes
+		}
+		NOT = { war_with = BRI }
+		is_female = no
+	}
+
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	option = {		# Let us acquire their lands through marriage
+		name = "flavor_fra.10002.opta"
+		ai_chance = { factor = 100 }
+		create_union = BRI
+		BRI = {
+			random_owned_province = {
+				limit = { is_capital = no }
+				spawn_rebels = { type = noble_rebels size = 3 }
+			}
+		}
+	}
+	option = {		# Bretons?  I think not.
+		name = "flavor_fra.10002.optb"
+		ai_chance = { factor = 0 }
+		add_national_stability_or_adm_power = yes
+	}
+}
+
+# Remove the French Disunity malus....
+country_event = {
+	id = flavor_fra.80001
+	title = "flavor_fra.80001.t"
+	desc = "flavor_fra.80001.d"
+	picture = VEF_ADMIN_CAPACITY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_modifier = french_disunity
+		num_of_owned_provinces_with = {
+			value = 28
+			region = france_region
+		}
+		OR = {
+			NOT = { france_region = { controlled_by = ENG }}
+			has_country_flag = 100war_over
+		}
+	}
+
+	option = {
+		name = "flavor_fra.80001.opta"
+		add_prestige = 20
+		remove_country_modifier = french_disunity
+		remove_government_reform = french_monarchy
+		add_government_reform = feudalism_reform
+		every_country = {
+			limit = { has_country_flag = french_feudal_vassal }
+			clr_country_flag = french_feudal_vassal
+		}
+	}
+}

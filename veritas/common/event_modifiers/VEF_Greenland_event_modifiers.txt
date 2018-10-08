@@ -1,0 +1,12 @@
+greenland_struggle = {
+    local_tax_modifier = -0.5
+    local_production_efficiency = -0.5
+    local_manpower_modifier = -0.5
+    province_trade_power_modifier = -0.5
+    local_unrest = -0.1
+	local_institution_spread = -0.5
+}
+greenland_province = {
+    local_unrest = -0.2
+    local_defensiveness = 0.2
+}

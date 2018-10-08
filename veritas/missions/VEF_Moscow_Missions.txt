@@ -1,0 +1,527 @@
+mos_secure_minors = {
+	slot = 1
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = MOS
+	}
+	has_country_shield = yes
+	
+	mos_buyout_minors = {
+		icon = mission_war_chest
+		required_missions = {  } #None
+		completed_by = 1342.1.1
+		provinces_to_highlight = {
+			OR = {
+				province_id = 709
+				province_id = 730
+				province_id = 734
+				province_id = 735
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			709 = { country_or_non_sovereign_subject_holds = ROOT }
+			730 = { country_or_non_sovereign_subject_holds = ROOT }
+			734 = { country_or_non_sovereign_subject_holds = ROOT }
+			735 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			if = {
+				limit = { NOT = { BZK = { is_subject_of = ROOT }}}
+				BZK = { every_owned_province = { add_permanent_claim = ROOT }}
+			}
+		}
+	}
+	
+	mos_beloozersk = {
+		icon = mission_empire
+		required_missions = { mos_buyout_minors }
+		position = 2
+		completed_by = 1350.1.1
+		provinces_to_highlight = {
+			area = beloozero_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			beloozero_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		completed_by = 1337.1.1
+		effect = {
+			galich_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mos_galich = {
+		icon = mission_conquer_5_states
+		required_missions = { mos_beloozersk }
+		position = 3
+		completed_by = 1360.1.1
+		provinces_to_highlight = {
+			area = galich_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			galich_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			kadom_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mos_nov_seversk = {
+		icon = mission_have_two_subjects
+		required_missions = { mos_galich }
+		position = 4
+		completed_by = 1360.1.1
+		provinces_to_highlight = {
+			owned_by = NVS
+		}
+		trigger = {
+			OR = { 
+				NOT = { exists = NSV }
+				NSV = {
+					is_subject_of = ROOT
+					is_subject_other_than_tributary_trigger = yes
+				}
+			}
+		}
+		effect = {
+			sloboda_ukraine_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}	
+	}
+}
+
+mos_tver_path = {
+	slot = 2
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = MOS
+	}
+	has_country_shield = yes
+	
+	mos_tver_rival = {
+		icon = mission_cannons_firing
+		required_missions = {  } #None
+		trigger = {
+			is_rival = TVE
+		}
+		effect = {
+			697 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	mos_zubitsov = {
+		icon = mission_conquer_50_development
+		required_missions = { mos_tver_rival }
+		position = 2
+		provinces_to_highlight = {
+			province_id = 697
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			is_rival = TVE
+			697 = { owned_by = ROOT }
+		}
+		effect = {
+			tver_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mos_all_tver = {
+		icon = mission_assemble_an_army
+		required_missions = { mos_zubitsov }
+		position = 4
+		provinces_to_highlight = {
+			area = tver_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tver_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			yaroslavl_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+mos_smolensk_path = {
+	slot = 3
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = MOS
+	}
+	has_country_shield = yes
+	
+	mos_smolensk_rival = {
+		icon = mission_assemble_an_army
+		required_missions = {  } #None
+		trigger = {
+			is_rival = SMO
+		}
+		effect = {
+			694 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	mos_vyazama = {
+		icon = mission_have_manufactories
+		required_missions = { mos_smolensk_rival }
+		position = 2
+		provinces_to_highlight = {
+			province_id = 694
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			is_rival = SMO
+			694 = { owned_by = ROOT }
+		}
+		effect = {
+			smolensk_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mos_all_smolensk = {
+		icon = mission_cannons_firing
+		required_missions = { mos_vyazama }
+		position = 3
+		provinces_to_highlight = {
+			owned_by = SMO
+		}
+		trigger = {
+			OR = {
+				NOT = { exists = SMO }
+				SMO = {
+					is_subject_of = ROOT
+					is_subject_other_than_tributary_trigger = yes
+				}
+			}
+		}
+		effect = {
+			oka_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+mos_form_russia = {
+	slot = 3
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = MOS
+	}
+	has_country_shield = yes
+	
+	mos_end_tribute = {
+		icon = mission_non-western_soldiers
+		required_missions = {  } #None
+		completed_by = 1472.1.1
+		position = 4
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = tt_is_enforcer
+				event_target:horde_enforcer_tag = { tag = ROOT }
+			}
+			OR = {
+				NOT = { GOL = { num_of_cities = 20 }}
+				war_score_against = { who = GOL value = 60 }
+			}
+		}
+		effect = {
+			hidden_effect = {
+				every_country = { clr_country_flag = russian_horde_tribute }
+				clear_global_event_target = horde_enforcer_tag
+				every_subject_country = {
+					limit = { is_subject_of_type = russian_tribute }
+					grant_independence = yes
+				}
+			}
+			remove_country_modifier = horde_enforcer
+			GOL = {
+				ROOT = { grant_independence = yes }
+				every_subject_country = {
+					limit = { is_subject_of_type = russian_tribute }
+					grant_independence = yes
+				}
+			}
+			686 = { add_permanent_claim = ROOT }
+			690 = { add_permanent_claim = ROOT }
+			711 = { add_permanent_claim = ROOT }
+			720 = { add_permanent_claim = ROOT }
+			722 = { add_permanent_claim = ROOT }
+			725 = { add_permanent_claim = ROOT }
+			728 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	mos_form_russia = {
+		icon = mission_empire
+		required_missions = {
+			mos_end_tribute
+			mos_nov_seversk
+			mos_conquer_novgorod
+		}
+		position = 5
+		trigger = {
+			NOT = { exists = RUS }
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			OR = {
+				NOT = { exists = NOV }
+				NOV = { is_subject = yes }
+			}
+			num_of_owned_provinces_with = {
+				value = 20
+				region = russia_region 
+				is_core = ROOT
+				NOT = { nationalism = 1 }
+			}
+			owns_core_province = 715	# Moskva
+			calc_true_if = {
+				owns_core_province = 686	# Novgorod
+				owns_core_province = 690	# Smolensk
+				owns_core_province = 711	# Tver
+				owns_core_province = 720	# Ryazan
+				owns_core_province = 722	# Vladimir
+				owns_core_province = 725	# Nijni-Novgorod
+				owns_core_province = 728	# Yaroslavl
+				amount = 5
+			}
+		}
+		effect = {
+			change_tag = RUS
+			set_government_rank = 4
+			change_government = russian_empire
+			swap_non_generic_missions = yes
+			add_prestige = 25
+			russia_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = RUS
+			}
+		}
+	}
+}
+
+mos_ancillary = {
+	slot = 4
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = MOS
+	}
+	has_country_shield = yes
+	
+	mos_smolensk_area = {
+		icon = mission_trade_company_region_abroad
+		required_missions = { mos_vyazama }
+		position = 3
+		provinces_to_highlight = {
+			area = smolensk_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			smolensk_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			ryazan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mos_karelia_area = {
+		icon = mission_invade_island
+		required_missions = { mos_pomor_area }
+		position = 4
+		provinces_to_highlight = {
+			area = karelia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			karelia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			neva_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+mos_against_novgorod = {
+	slot = 5
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = MOS
+	}
+	has_country_shield = yes
+	
+	mos_torzhok = {
+		icon = mission_early_game_buildings
+		required_missions = { }
+		completed_by = 1341.1.1
+		position = 1
+		provinces_to_highlight = {
+			province_id = 698
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			698 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			699 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	mos_bezhetsk = {
+		icon = mission_conquer_50_development
+		required_missions = { mos_torzhok }
+		completed_by = 1478.1.15
+		position = 2
+		provinces_to_highlight = {
+			province_id = 699
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			699 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			pomor_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+					is_empty = no
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mos_pomor_area = {
+		icon = mission_build_up_to_force_limit
+		required_missions = { mos_bezhetsk }
+		completed_by = 1478.1.15
+		position = 3
+		provinces_to_highlight = {
+			area = pomor_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			is_empty = no
+		}
+		trigger = {
+			pomor_area = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_empty = yes
+				}
+			}
+		}
+		effect = {
+			novgorod_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mos_conquer_novgorod = {
+		icon = mission_unite_home_region
+		required_missions = { mos_pomor_area }
+		completed_by = 1478.1.15
+		position = 4
+		provinces_to_highlight = {
+			province_id = 686
+		}
+		trigger = {
+			686 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			neva_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			pskov_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}

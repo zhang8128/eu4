@@ -1,0 +1,12 @@
+# Reformed Lancer
+
+unit_type = ottoman
+type = cavalry
+
+maneuver = 2
+offensive_morale = 10
+defensive_morale = 6
+offensive_fire = 1
+defensive_fire = 4
+offensive_shock = 5
+defensive_shock = 5

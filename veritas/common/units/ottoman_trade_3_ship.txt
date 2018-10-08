@@ -1,0 +1,11 @@
+#Kotra
+#model = barque
+#tech_level = 22
+type = light_ship
+unit_type = ottoman
+
+hull_size = 8
+base_cannons = 6
+sail_speed = 8
+trade_power = 1.75
+sailors = 25

@@ -1,0 +1,10 @@
+#Corvetta
+#model = frigate
+#tech_level = 30
+type = transport
+unit_type = byzantine
+
+hull_size = 16
+base_cannons = 20
+sail_speed = 10
+sailors = 200

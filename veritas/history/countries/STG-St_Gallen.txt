@@ -1,0 +1,134 @@
+government = theocracy add_government_reform = leading_clergy_reform
+government_rank = 1
+technology_group = western
+religion = catholic
+primary_culture = swiss
+capital = 286 # Bern
+
+1301.1.1 = {
+	monarch = {
+		name = "Heinrich I von Ramstein"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1318.1.1 = {
+	monarch = {
+		name = "Hitbold von Werstein"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1329.1.1 = {
+	monarch = {
+		name = "Rudolf von Montfort"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1333.1.1 = {
+	monarch = {
+		name = "Hermann von Bonstetten"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1360.1.1 = {
+	monarch = {
+		name = "George von Wildenstein"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1379.1.1 = {
+	monarch = {
+		name = "Kuno von Stoffeln"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1411.1.1 = {
+	monarch = {
+		name = "Heinrich II von Gundelfingen"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1418.1.1 = {
+	monarch = {
+		name = "Konrad von Pegau"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1419.1.1 = {
+	monarch = {
+		name = "Heinrich III von Mansdorf"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1426.1.1 = {
+	monarch = {
+		name = "Egolf Blarer"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1442.1.1 = {
+	monarch = {
+		name = "Kaspar"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1463.1.1 = {
+	monarch = {
+		name = "Ulrich"
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1491.1.1 = {
+	monarch = {
+		name = "Gotthard von Glattburg"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1504.1.1 = {
+	monarch = {
+		name = "Franz Gaisberg"
+		adm = 1
+		dip = 1
+		mil = 2
+	}
+}
+
+1528.1.1 = { government = republic add_government_reform = swiss_canton religion = anabaptist }

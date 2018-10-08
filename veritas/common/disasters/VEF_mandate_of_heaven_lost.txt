@@ -1,0 +1,95 @@
+# Losing the Mandate of Heaven
+
+mandate_of_heaven_lost = {
+	potential = {
+		tag = MNG
+		NOT = { has_dlc = "Mandate of Heaven" }
+		normal_or_historical_nations = yes
+		has_factions = yes
+		num_of_cities = 20
+		NOT = { technology_group = western }
+		uses_doom = no
+	}
+
+	can_start = {
+		NOT = { has_country_modifier = the_mandate_of_heaven }
+	}
+	
+	can_stop = {
+		has_country_modifier = the_mandate_of_heaven
+	}
+	
+	progress = {
+		modifier = {
+			factor = 1
+			NOT = { num_of_cities = 20 }
+		}
+		modifier = {
+			factor = 1
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 1
+			NOT = { legitimacy = 60 }
+		}
+		modifier = {
+			factor = 0.25
+			custom_trigger_tooltip = {
+				has_regency_trigger = yes
+				tooltip = yes_regency
+			}
+		}
+		modifier = {
+			factor = 0.10
+			NOT = { ADM = 4 }
+		}		
+		modifier = {
+			factor = 0.10
+			NOT = { ADM = 3 }
+		}		
+		modifier = {
+			factor = 0.10
+			NOT = { ADM = 2 }
+		}		
+	}
+	
+	# Got the modifier back
+	can_end = {
+		has_country_modifier = the_mandate_of_heaven
+	}
+
+	modifier = {
+		discipline = -0.1
+		stability_cost_modifier = 0.5
+		global_unrest = 10
+	}	
+
+	on_start = flavor_mng.10010
+	on_end = flavor_mng.10011
+	
+	on_monthly = {
+		events = {
+		}
+		random_events = { 
+			1000 = 0
+			100 = china_events.8
+			100 = china_events.33
+			100 = china_events.44
+			100 = china_events.45
+			100 = china_events.47
+			100 = china_events.48
+			100 = china_events.49
+			100 = china_events.50
+			100 = china_events.51
+			100 = china_events.52
+			100 = china_events.53
+			100 = china_events.54
+			100 = china_events.55
+			100 = china_events.56
+			100 = china_events.57
+			100 = china_events.58
+			100 = china_events.59
+			100 = china_events.60
+		}
+	}
+}

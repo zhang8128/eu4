@@ -1,0 +1,71 @@
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+technology_group = indian
+religion = hinduism
+primary_culture = tamil
+capital = 1372 # Vanni
+
+1302.1.1 = {
+	monarch = {
+		name = "Varodaya"
+		dynasty = "Aryacakravarti"
+		adm = 4
+		dip = 4
+		mil = 4
+	}
+}
+1325.1.1 = {
+	monarch = {
+		name = "Pararasasekaram III"
+		dynasty = "Aryacakravarti"
+		adm = 4
+		dip = 4
+		mil = 4
+	}
+}
+1347.1.1 = {
+	monarch = {
+		name = "Gunabhooshana"
+		dynasty = "Aryacakravarti"
+		adm = 5
+		dip = 3
+		mil = 1
+	}
+}
+1371.1.1 = {
+	monarch = {
+		name = "Virodaya"
+		dynasty = "Aryacakravarti"
+		adm = 3
+		dip = 1
+		mil = 2
+	}
+}
+1380.1.1 = {
+	monarch = {
+		name = "Jeyaveera"
+		dynasty = "Aryacakravarti"
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+}
+1410.1.1 = {
+	monarch = {
+		name = "Gunaveera"
+		dynasty = "Aryacakravarti"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+1440.1.1 = {
+	monarch = {
+		name = "Kanakasooriya"
+		dynasty = "Aryacakravarti"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}

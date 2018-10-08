@@ -1,0 +1,163 @@
+From;To;Type;Through;start_x;start_y;stop_x;stop_y;Comment
+8;9;sea;2369;2715;1683;2705;1688;Wick-Western Isles
+8;7;sea;2368;2757;1705;2757;1710;Wick-Orkney
+17;11;sea;2370;2731;1630;2727;1639;Ayrshire-Argyll
+17;55;sea;2370;2725;1621;2718;1616;Ayrshire-Ulster
+17;18;sea;2370;2740;1618;2737;1609;Ayrshire-Isle Of Man
+18;55;sea;2370;2734;1606;2718;1608;Isle Of Man-Ulster
+18;19;sea;2370;2738;1607;2749;1612;Isle Of Man-Cumberland
+18;45;sea;2370;2736;1604;2745;1585;Isle Of Man-Gwynedd
+45;46;sea;2370;2734;1578;2708;1587;Gwynedd-Meath
+185;181;sea;2355;2890;1581;2886;1576;Holland-Friesland
+186;192;sea;2355;-1;-1;-1;-1;Zeeland-Antwerpen
+186;185;sea;2355;2868;1557;2870;1560;Zeeland-Holland
+186;194;sea;2355;2861;1548;2858;1545;Zeeland-Vlaanderen
+204;205;sea;2384;-1;-1;-1;-1;Corsica-Gallura
+214;213;sea;2393;3050;1286;3045;1284;Calabria-Messina
+269;270;sea;2394;3008;1633;3000;1630;Venezia-Treviso
+269;249;sea;2394;3008;1633;3000;1630;Venezia-Padua
+269;271;sea;2394;3008;1633;3000;1630;Venezia-Friuli
+269;268;sea;2394;3008;1633;3000;1630;Venezia-Vicenza
+269;272;sea;2394;3008;1633;3000;1630;Venezia-Aquileia
+378;382;sea;2354;2945;1599;2943;1597;Bremen-Verden-Holstein
+384;388;sea;2344;2954;1623;2962;1627;Nordslesvig-Fyn
+388;385;sea;2344;2965;1635;2963;1641;Fyn-Midtjylland
+388;389;sea;2344;2975;1618;2978;1619;Fyn-Lolland
+390;388;sea;2344;2980;1631;2975;1631;Sjælland-Fyn
+390;389;sea;2344;2983;1619;2986;1626;Sjælland-Lolland
+391;392;sea;2343;3035;1628;3028;1633;Bornholm-Skåne
+392;390;sea;2344;3008;1633;3000;1630;Skåne-Sjælland
+395;396;sea;2341;3063;1669;3068;1669;Småland-Öland
+403;404;sea;2341;3071;1720;3074;1725;Södermanland-Uppland
+404;416;sea;2872;3099;1736;3111;1740;Uppland-Åland
+416;434;sea;2339;3131;1745;3140;1750;Åland-Finland
+440;443;sea;2870;3171;1709;3165;1709;Reval-Ösel
+443;444;sea;2342;3157;1684;3158;1694;Ösel-Kurland
+572;571;sea;2397;3115;1314;3122;1316;Corfu-Epirus
+572;570;sea;2397;3115;1316;3118;1319;Corfu-Argyrokastro
+574;573;sea;2398;3141;1293;3141;1289;Achaea-Aetolia
+579;578;sea;2405;3199;1270;3186;1279;Attica-Cyclades
+579;580;sea;2405;3199;1270;3186;1279;Attica-Euboea
+580;578;sea;2405;-1;-1;-1;-1;Euboea-Cyclades
+586;590;sea;2406;3229;1332;3228;1335;Gallipoli-Troas
+588;611;sea;2406;3261;1343;3258;1344;Constantinople-Optimaton
+589;590;sea;2405;3203;1321;3214;1321;Limnos-Troas
+589;586;sea;2405;-1;-1;-1;-1;Limnos-Gallipoli
+590;591;sea;2405;3214;1315;3215;1312;Troas-Lesbos
+593;591;sea;2405;3217;1298;3217;1304;Thakesion-Lesbos
+593;592;sea;2405;3213;1293;3215;1293;Thakesion-Chios
+594;591;sea;2405;3224;1305;3220;1306;Neokastra-Lesbos
+596;595;sea;2405;3245;1262;3245;1257;Rhodes-Mylasa
+641;640;sea;2409;3378;1422;3375;1423;Anapa-Kaffa
+927;994;sea;2465;5011;1558;5018;1559;Deren-Sakhalin
+945;946;sea;2527;-1;-1;-1;-1;The Kurils-Tokachi
+3960;3959;sea;2473;4999;1357;5005;1351;Mutsu-Oshima
+978;985;sea;2476;4881;1219;4880;1214;Aki-Iyo
+981;992;sea;2476;4853;1213;4848;1208;Nagato-Chikuzen
+982;972;sea;2477;4905;1216;4919;1223;Sanuki-Settsu
+986;985;sea;2476;4861;1198;4872;1202;Bungo-Iyo
+1123;1124;sea;2456;4525;976;4526;972;Leichow-Kingchow
+1214;1232;sea;2447;4403;657;4415;672;Johor-Siak
+1214;1216;sea;2447;4432;667;4435;664;Johor-Bintan
+1217;1234;sea;2447;4435;636;4433;631;Riau-Jambi
+1219;1218;sea;2446;4486;606;4471;609;Belitung-Bangka
+1237;1218;sea;2446;4456;607;4459;608;Palembang-Bangka
+1238;1239;sea;2438;4457;558;4460;555;Lampung-Banten
+1248;1250;sea;2441;4565;534;4567;537;Surabaya-Madura
+1252;1251;sea;2440;4594;517;4591;517;Bali-Blambangan
+1252;1253;sea;2441;4611;517;4618;515;Bali-Lombok
+1254;1253;sea;2441;4629;513;4626;514;Sumbawa-Lombok
+1254;1255;sea;2441;4661;509;4666;500;Sumbawa-Sumba
+1254;1256;sea;2443;4663;516;4678;515;Sumbawa-Flores
+1255;1256;sea;2442;4685;496;4694;508;Sumba-Flores
+1256;1258;sea;2487;4752;517;4759;512;Flores-East Timor
+1270;1271;sea;2487;4820;597;4816;593;Ceram-Ambom
+1272;1270;sea;2487;4792;595;4802;598;Buru-Ceram
+1273;1274;sea;2486;4797;640;4800;645;Tidore-Halmahera
+1275;1274;sea;2486;4803;675;4806;672;Ternate-Halmahera
+1281;1282;sea;2443;4715;579;4718;574;Bone-Buton
+1305;1306;sea;2484;4763;803;4757;808;Butuan-Visayas
+1306;1308;sea;2483;4746;848;4743;850;Visayas-Bikol
+1306;1307;sea;2483;4748;829;4728;831;Visayas-Panay
+1370;1372;sea;2426;4038;796;4054;789;Madurai-Jaffna
+1628;1626;sea;2734;3320;1079;3329;1084;Qus-Al Qusayr
+1674;1816;sea;2734;2627;978;2595;924;Saqiyah Al-Hamra'a-Tekrur
+1674;1677;sea;2734;-1;-1;-1;-1;Saqiyah Al-Hamra'a-Taoudeni
+1675;1805;sea;2734;2693;928;2698;914;Walata-Koumbi Saleh
+1675;1676;sea;2734;-1;-1;-1;-1;Walata-Arawan
+1675;1674;sea;2734;2679;942;2639;976;Walata-Saqiyah Al-Hamra'a
+1676;1677;sea;2734;-1;-1;2744;993;Arawan-Taoudeni
+1676;1802;sea;2734;2750;944;2755;935;Arawan-Timbuktu
+1678;1669;sea;2734;-1;-1;-1;-1;Tuat-Sijilmassa
+1678;1680;sea;2734;-1;-1;-1;-1;Tuat-Wargla
+1678;1677;sea;2734;-1;-1;-1;-1;Tuat-Taoudeni
+1679;1652;sea;2734;2850;1190;2881;1214;Laghwat-Biskra
+1679;1669;sea;2734;2829;1181;2766;1165;Laghwat-Sijilmassa
+1679;1680;sea;2734;-1;-1;-1;-1;Laghwat-Wargla
+1681;1687;sea;2734;2967;1148;-1;-1;Ghadammes-Zella
+1681;1641;sea;2734;-1;-1;2998;1181;Ghadammes-Tripoli
+1681;1680;sea;2734;-1;-1;-1;-1;Ghadammes-Wargla
+1681;1678;sea;2734;-1;-1;2800;1110;Ghadammes-Tuat
+1682;1676;sea;2734;-1;-1;-1;-1;Tadmekka-Arawan
+1682;1790;sea;2734;-1;-1;-1;-1;Tadmekka-Gao
+1682;1778;sea;2734;-1;-1;2852;896;Tadmekka-Dendi
+1682;1683;sea;2734;2861;948;-1;-1;Tadmekka-Agadez
+1683;1758;sea;2734;-1;-1;2949;902;Agadez-Zinder
+1683;1684;sea;2734;-1;-1;-1;-1;Agadez-Bilma
+1684;1685;sea;2734;-1;-1;-1;-1;Bilma-Ghat
+1684;1751;sea;2734;3014;950;3043;917;Bilma-Kanem
+1686;1687;sea;2734;-1;-1;3060;1116;Murzuq-Zella
+1686;1685;sea;2734;-1;-1;-1;-1;Murzuq-Ghat
+1688;1632;sea;2734;3217;1122;-1;-1;Siwa-Fayum
+1688;1636;sea;2734;-1;-1;3224;1153;Siwa-Matruh
+1688;1687;sea;2734;3200;1118;3082;1119;Siwa-Zella
+1689;1690;sea;2734;3286;1046;-1;-1;Kharga-Nobatia
+1689;1629;sea;2734;-1;-1;3293;1080;Kharga-Asyut
+1689;1632;sea;2734;3281;1058;-1;-1;Kharga-Fayum
+1689;1688;sea;2734;3278;1054;-1;-1;Kharga-Siwa
+1705;1592;sea;2415;3480;852;-1;-1;Taadjuura-Mocha
+1765;1768;sea;2881;-1;-1;2900;730;Calabar-Benin
+1766;1768;sea;2881;2912;757;2906;757;Igbo-Ukwu-Benin
+1766;1769;sea;2881;2913;777;2907;777;Igbo-Ukwu-Ife
+1771;1769;sea;2882;2906;790;2903;785;Nupe-Ife
+1771;1770;sea;2883;2879;805;2874;803;Nupe-Borgu
+1777;1770;sea;2883;2877;829;2875;825;Kebbi-Borgu
+1777;1779;sea;2884;2859;843;2854;841;Kebbi-Nikki
+1778;1789;sea;2884;2838;869;2835;865;Dendi-Gurma
+1790;1791;sea;2885;2807;911;2802;909;Gao-Haayre
+1802;1791;sea;2886;2764;922;-1;-1;Timbuktu-Haayre
+1803;1791;sea;2886;2746;906;2753;904;Macina-Haayre
+1803;1801;sea;2887;2734;881;2734;875;Macina-Djenne
+1804;1801;sea;2887;2716;873;2719;869;Segou-Djenne
+1806;1801;sea;2888;2690;860;2694;856;Kaarta-Djenne
+1807;1801;sea;2888;2680;852;2684;849;Bamako-Djenne
+1807;1800;sea;2888;2671;842;2676;837;Bamako-Mande
+1867;1866;sea;2534;3415;546;3419;551;Kilwa-Zanzibar
+1867;1868;sea;2534;1361;4435;636;4433;Kilwa-Boina
+1867;1865;sea;2534;4457;558;4460;555;Kilwa-Mombasa
+1928;1927;sea;2509;-1;-1;5540;114;Taranaki-Timaru
+1953;1955;sea;2625;-1;-1;-1;-1;Tierra Del Fuego-Patagonia Oriental
+2217;2216;sea;2748;1479;1656;1478;1650;Menominee-North Michigan
+2282;2217;sea;2749;1484;1675;1480;1667;Sault-Menominee
+2302;2149;sea;2644;882;1708;891;1704;Nootka-Salish
+2302;2301;sea;2644;870;1725;875;1729;Nootka-Kwakiutl
+2304;2303;sea;2645;765;1843;765;1845;Tlingit-Tsimshian
+2306;2305;sea;2647;-1;-1;-1;-1;Aleut-Yakutat
+2311;2310;sea;2604;1505;1230;1511;1224;Havana-Nueva Gerona
+2326;2327;sea;2609;-1;-1;1826;1150;St. Barthélemy-St. Kitts
+2328;2327;sea;2609;-1;-1;-1;-1;Antigua-St. Kitts
+2328;2329;sea;2609;-1;-1;-1;-1;Antigua-Guadeloupe
+2330;2329;sea;2609;1846;1121;1844;1125;Dominica-Guadeloupe
+2330;2331;sea;2609;1848;1113;-1;-1;Dominica-Martinique
+2332;2331;sea;2608;-1;-1;1855;1100;St. Lucia-Martinique
+2332;2333;sea;2608;-1;-1;-1;-1;St. Lucia-Grenadine
+2335;2049;sea;2608;1840;1030;1839;1027;Trinidad-Cumana
+2354;2344;canal;382;-1;-1;-1;-1;Helgoland Bight-Storebælt
+2414;2402;canal;1624;-1;-1;-1;-1;Gulf Of Suez-Palestinian Coast
+2634;2601;canal;2066;-1;-1;-1;-1;Gulf Of Panama-Gulf Of Darien
+1508;2869;sea;2420;3693;1091;3689;1089;Mogostan-Hormuz
+1581;2869;sea;2420;3686;1080;3684;1084;Qawasim-Hormuz
+3979;9;sea;2369;-1;-1;-1;-1;Inner Hebrides-Outer Hebrides
+3979;8;sea;2369;-1;-1;-1;-1;Inner Hebrides-Sutherland
+3979;11;sea;2369;2718;1654;2721;1655;Inner Hebrides-Argyll
+-1;-1;;-1;-1;-1;-1;-1;-1

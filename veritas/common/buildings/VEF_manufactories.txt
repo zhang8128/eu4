@@ -1,0 +1,581 @@
+############## Manufactory ##############
+## Farm Estate
+## Luxury Manuactory
+## Plantations
+## Fishery
+## Naval Equipment Manufactory
+## Trade Company
+## Textile Manufactory
+## Arms Factory
+## Refinery
+#########################################
+manufactory = {
+	cost = 500
+	time = 60
+	modifier = {
+		trade_goods_size = 1.0
+	}
+}
+
+farm_estate = {	#ADM 5
+	manufactory = {
+		grain
+		rice
+		maize
+		millet
+		livestock
+		wax
+	}
+	onmap = yes
+	show_separate = yes
+	
+	ai_will_do = {
+		factor = 1000
+		modifier = {
+			factor = 0.95 
+			local_autonomy = 10
+		}
+		modifier = {
+			factor = 0.95 
+			local_autonomy = 20
+		}
+		modifier = {
+			factor = 0.95 
+			local_autonomy = 30
+		}
+		modifier = {
+			factor = 0.95 
+			local_autonomy = 40
+		}
+		modifier = {
+			factor = 0.95 
+			local_autonomy = 50
+		}
+		modifier = {
+			factor = 0.95 
+			local_autonomy = 60
+		}
+		modifier = {
+			factor = 0.95 
+			local_autonomy = 70
+		}	
+		modifier = {
+			factor = 0.95 
+			local_autonomy = 80
+		}	
+		modifier = {
+			factor = 0.95 
+			local_autonomy = 90
+		}
+		modifier = {
+			NOT = { num_free_building_slots  = 3 }
+			factor = 1.5
+		}
+	}
+}
+
+fine_arts_academy = {	#Luxury Manufactory - ADM 15
+	manufactory = {
+		glassware
+		chinaware
+		marble
+		ebony
+		jade
+	}
+	onmap = yes
+	show_separate = yes
+
+	ai_will_do = {
+		factor = 1000
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 10
+		}			
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 20
+		}		
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 30
+		}			
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 40
+		}		
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 50
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 60
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 70
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 80
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 90
+		}
+		modifier = {
+			NOT = { num_free_building_slots  = 3 }
+			factor = 1.5
+		}
+	}
+}
+
+plantations = {	#ADM 25
+	manufactory = {
+		coffee
+		cotton
+		tobacco
+		cocoa
+		opium
+	}
+	onmap = yes
+	show_separate = yes
+	
+	ai_will_do = {
+		factor = 1000
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 10
+		}			
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 20
+		}		
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 30
+		}			
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 40
+		}		
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 50
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 60
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 70
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 80
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 90
+		}
+		modifier = {
+			NOT = { num_free_building_slots  = 3 }
+			factor = 1.5
+		}
+	}
+}
+
+fishery = {	#DIP 5
+	manufactory = {
+		fish
+		whales
+		pearls
+	}
+	
+	show_separate = yes
+	
+	ai_will_do = {
+		factor = 1000
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 10
+		}			
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 20
+		}		
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 30
+		}			
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 40
+		}		
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 50
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 60
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 70
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 80
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 90
+		}
+		modifier = {
+			NOT = { num_free_building_slots  = 3 }
+			factor = 1.5
+		}
+	}
+}
+
+wharf = {	#Naval Equipment Manufactory - DIP 15
+	manufactory = {
+		naval_supplies
+		hemp
+	}
+	onmap = yes
+	show_separate = yes
+	
+	ai_will_do = {
+		factor = 1000
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 10
+		}			
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 20
+		}		
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 30
+		}			
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 40
+		}		
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 50
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 60
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 70
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 80
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 90
+		}
+		modifier = {
+			NOT = { num_free_building_slots  = 3 }
+			factor = 1.5
+		}
+	}
+}
+
+tradecompany = {	#DIP 25
+	manufactory = {
+		ivory
+		cinnamon
+		cloves
+		nutmeg
+		spices
+		tea
+		fur
+		brazilwood
+		slaves
+		gems
+	}
+	onmap = yes
+	show_separate = yes
+	
+	ai_will_do = {
+		factor = 1000
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 10
+		}			
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 20
+		}		
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 30
+		}			
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 40
+		}		
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 50
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 60
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 70
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 80
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 90
+		}
+		modifier = {
+			NOT = { num_free_building_slots  = 3 }
+			factor = 1.5
+		}
+	}
+}
+
+textile = {	#MIL 5
+	manufactory = {
+		wool
+		cloth
+		silk
+		dyes
+	}
+	onmap = yes
+	show_separate = yes
+	
+	ai_will_do = {
+		factor = 1000
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 10
+		}			
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 20
+		}		
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 30
+		}			
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 40
+		}		
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 50
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 60
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 70
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 80
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 90
+		}
+		modifier = {
+			NOT = { num_free_building_slots  = 3 }
+			factor = 1.5
+		}
+	}
+}
+
+weapons = {	#Arms Factory - MIL 15
+	manufactory = {
+		copper
+		iron
+		lead
+		coal
+	}
+	onmap = yes	
+	show_separate = yes
+	
+	ai_will_do = {
+		factor = 1000
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 10
+		}			
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 20
+		}		
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 30
+		}			
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 40
+		}		
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 50
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 60
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 70
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 80
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 90
+		}
+		modifier = {
+			NOT = { num_free_building_slots  = 3 }
+			factor = 1.5
+		}
+	}
+}
+
+refinery = {	#MIL 25
+	manufactory = {
+		beer
+		spirits
+		olive
+		palm
+		sandalwood
+		wine
+		sugar
+		salt
+	}
+	onmap = yes
+	show_separate = yes
+	
+	ai_will_do = {
+		factor = 1000
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 10
+		}			
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 20
+		}		
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 30
+		}			
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 40
+		}		
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 50
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 60
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 70
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 80
+		}	
+		modifier = { 
+			factor = 0.95 
+			local_autonomy = 90
+		}
+		modifier = {
+			NOT = { num_free_building_slots  = 3 }
+			factor = 1.5
+		}
+	}
+}
+
+
+hansa_kontor = {
+
+	trigger = {
+		owner = { has_country_modifier = hanseatic_league_member }
+	}
+
+	manufactory = {
+		grain
+		millet
+		naval_supplies
+		wax
+		fur
+		cloth
+		wool
+		fish
+		wine
+		whales
+		copper
+	}
+
+	modifier = {
+		local_production_efficiency = 0.10
+		province_trade_power_modifier = 0.30
+		trade_value_modifier = 0.40
+	}
+
+	destroy_on_conquest = no
+	spare_on_core = yes
+
+	onmap = no
+	show_separate = yes
+	category = 7
+	
+	ai_will_do = { factor = 0 }
+}
+
+furnace = {
+	manufactory = {
+		coal
+	}
+
+	potential = {
+		has_dlc = "Rule Britannia"
+	}
+
+	modifier = {
+		global_trade_goods_size_modifier = 0.05 #National Bonus
+	}
+	onmap = yes
+	show_separate = yes # Means as a manufactory it will be shown according to the old way
+	
+	ai_will_do = {
+		factor = 1
+	}
+}

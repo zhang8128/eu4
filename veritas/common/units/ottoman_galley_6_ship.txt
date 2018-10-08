@@ -1,0 +1,10 @@
+#Bastarde
+#model = archipelago_frigate
+#tech_level = 42
+type = galley
+unit_type = ottoman
+
+hull_size = 20
+base_cannons = 48
+sail_speed = 8
+sailors = 350

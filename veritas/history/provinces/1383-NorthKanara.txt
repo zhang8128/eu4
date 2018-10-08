@@ -1,0 +1,29 @@
+# North Kanara
+
+capital = "Bhatkal"
+owner = VIJ
+controller = VIJ
+add_core = VIJ
+culture = kannada
+religion = hinduism
+trade_goods = spices
+base_tax = 3
+base_production = 3
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = indopersian
+discovered_by = indian
+discovered_by = muslim
+
+1336.1.1	= { owner = DLH controller = DLH remove_core = VIJ } # Full occupation not until 1343 but the tag is shared
+1347.1.1	= { owner = VIJ controller = VIJ add_core = VIJ } # Delhi contracts
+1405.1.1	= { discovered_by = chinese }
+1469.1.1	= { controller = BAH } # Taken by Bahmanis
+1470.1.1	= { owner = BAH } # Taken by Bahmanis
+1490.1.1	= { owner = BIJ controller = BIJ } # The Breakup of the Bahmani sultanate
+1498.1.1	= { discovered_by = POR }
+1650.1.1	= { add_core = MAR }
+1686.1.1	= { owner = KLN controller = KLN add_core = KLN capital = "Karwar" }
+1783.1.1	= { owner = GBR controller = GBR }
+1818.6.3	= { remove_core = MAR }

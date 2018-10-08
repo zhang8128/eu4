@@ -1,0 +1,19 @@
+# Malenadu
+
+capital = "Ikkeri"
+owner = VIJ
+controller = VIJ
+add_core = VIJ
+culture = kannada
+religion = hinduism
+trade_goods = wool
+base_tax = 2
+base_production = 2
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = indian
+discovered_by = muslim
+
+1336.1.1   = { owner = DLH controller = DLH remove_core = VIJ } # Full occupation not until 1343 but the tag is shared
+1347.1.1   = { owner = VIJ controller = VIJ add_core = VIJ } # Delhi contracts

@@ -1,0 +1,45 @@
+########################################
+# Navarre Events
+# VEF
+########################################
+
+namespace = vef_navarre
+normal_or_historical_nations = yes
+
+#1 Adapt Culture?
+
+# Option to adopt Gascon culture 
+country_event = {
+	id = vef_navarre.1
+	title = "vef_navarre.1.t"
+	desc = "vef_navarre.1.d"
+	picture = VEF_KING_DIES_eventPicture
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		primary_culture = basque
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = "vef_navarre.1.opta"
+		change_culture = gascon
+		add_accepted_culture = basque
+		115 = { change_culture = gascon }
+		every_owned_province = {
+			limit = { culture = basque }
+			add_unrest = 10
+		}
+	}
+	
+	option = {
+		name = "vef_navarre.1.optb"
+		add_stability = 1
+	}
+}

@@ -1,0 +1,64 @@
+# Opinion Modifiers for VeF by RivtalDM
+
+
+feudal_homage_paid = {
+	opinion = -25
+	yearly_decay = 1
+}
+
+refused_feudal_homage = {
+	opinion = -100
+	yearly_decay = 2
+}
+
+meddled_in_galicia = {
+	opinion = -25
+	yearly_decay = 1
+}
+
+pope_rejected_france = {
+	opinion = -100
+	yearly_decay = 1
+}
+
+pap_took_crusade = {
+	opinion = 50
+	yearly_decay = 1
+}
+
+pap_excommunicated_us = {
+	opinion = -75
+	yearly_decay = 1
+}
+
+friendly_pope = {
+	opinion = 50
+	yearly_decay = 5
+}
+
+opposite_side_schism = {
+	opinion = -10
+}
+
+avisupporter_opinion_rome = {
+	opinion = -100
+}
+
+rmsupporter_opinion_avi = {
+	opinion = -100
+}
+
+hundred_years_war = {
+	opinion = -100
+	yearly_decay = 1
+}
+
+mam_turks_opinion = {
+	opinion = -100
+	yearly_decay = 1
+}
+
+angry_vassal = {
+	opinion = -150
+	yearly_decay = 15
+}

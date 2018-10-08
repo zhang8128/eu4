@@ -1,0 +1,256 @@
+government = monarchy
+add_government_reform = autocracy_reform
+government_rank = 4
+primary_culture = greek
+religion = orthodox
+technology_group = byzantine
+capital = 588 # Constantinople
+fixed_capital = 588
+historical_rival = PAP
+historical_rival = SER
+historical_rival = TRE
+historical_rival = OSM
+historical_rival = TUR
+historical_friend = VEN
+historical_friend = GEN
+
+
+add_faction_influence = { faction = byz_mercantilist influence = -20 }
+add_faction_influence = { faction = byz_militarist influence = 40 }
+add_patriarch_authority = 0.25
+set_country_flag = vef_newgov_start
+set_variable = { which = last_free_subjects value = 3 }
+set_variable = { which = aristocratic_privilege value = 10 }
+set_variable = { which = vef_merit value = 25 }
+set_variable = { which = vef_rule_law value = 25 }
+add_corruption = 35
+
+1282.1.1 = {
+	monarch = {
+		name = "Andronikos II"
+		dynasty = "Palaiologos"
+		birth_date = 1259.3.25
+		adm = 1
+		dip = 1
+		mil = 0
+	}
+}
+
+1282.1.1 = {
+	heir = {
+		name = "Michael"
+		monarch_name = "Michael IX"
+		dynasty = "Palaiologos"
+		birth_date = 1277.4.17
+		death_date = 1320.10.12
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1284.1.1 = {
+	queen = {
+		country_of_origin = MFT
+		name = "Violante"
+		dynasty = "Aleramici"
+		birth_date = 1274.1.1
+		death_date = 1317.1.1
+		female = yes
+		adm = 2 
+		dip = 3
+		mil = 1
+	}
+}
+
+1309.1.1 = {
+	define_advisor = { type = orthodox_monk skill = 1 }
+	define_advisor = { type = statesman skill = 1 }
+	add_country_modifier = { name = byzantine_army_1 duration = 3650 }
+	add_country_modifier = { name = byzantine_army_2 duration = 1825 }
+}
+
+1320.10.12 = {
+	heir = {
+		name = "Andronikos"
+		monarch_name = "Andronikos III"
+		dynasty = "Palaiologos"
+		birth_date = 1297.3.25
+		death_date = 1341.6.15
+		claim = 100
+		adm = 3
+		dip = 4
+		mil = 5
+	}
+}
+
+1328.5.24 = {
+	monarch = {
+		name = "Andronikos III"
+		dynasty = "Palaiologos"
+		birth_date = 1297.3.25
+		adm = 3
+		dip = 4
+		mil = 5
+	}
+	queen = {
+		country_of_origin = SAV
+		name = "Anna"
+		dynasty = "di Savoia"
+		birth_date = 1306.1.1
+		death_date = 1365.1.1
+		adm = 3 
+		dip = 2
+		mil = 1
+	}
+}
+
+1332.6.18 = {
+	heir = {
+		name = "Iohannes"
+		monarch_name = "Iohannes V"
+		dynasty = "Palaiologos"
+		birth_date = 1332.6.18
+		death_date = 1391.2.16
+		claim = 100
+		adm = 2
+		dip = 4
+		mil = 2
+	}
+}
+
+1341.6.15 = {
+	monarch = {
+		name = "Iohannes V"
+		dynasty = "Palaiologos"
+		birth_date = 1332.6.18
+		adm = 3
+		dip = 2
+		mil = 4
+	}
+}
+
+1348.1.1 = {
+	queen = {
+		country_of_origin = BYZ
+		name = "Helena"
+		dynasty = "Kantakouzenos"
+		birth_date = 1333.1.1
+		death_date = 1396.12.10
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1350.6.27 = {
+	heir = {
+		name = "Manuel"
+		monarch_name = "Manuel II"
+		dynasty = "Palaiologos"
+		birth_date = 1350.6.27
+		death_date = 1432.7.21
+		claim = 100
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+}
+
+1391.2.16 = {
+	monarch = {
+		name = "Manuel II"
+		dynasty = "Palaiologos"
+		birth_date = 1350.6.27		
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+
+1392.2.10 = {
+	queen = {
+		country_of_origin = SER
+		name = "Helena"
+		dynasty = "Kantakouzenos"
+		birth_date = 1372.1.1
+		death_date = 1450.3.23
+		adm = 4
+		dip = 4
+		mil = 1
+	}
+}
+
+1392.12.18 = {
+	heir = {
+		name = "Ioannes"
+		monarch_name = "Ioannes VIII"
+		dynasty = "Palaiologos"
+		birth_date = 1392.12.18
+		death_date = 1448.10.31
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1425.7.21 = {
+	monarch = {
+		name = "Ioannes VIII"
+		dynasty = "Palaiologos"
+		birth_date = 1392.12.18
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = MFT
+		name = "Sofia"
+		dynasty = "Palaiologos"
+		birth_date = 1398.1.1	# Estimated
+		death_date = 1426.8.1	# Flees Constantinople for Montferrat; John remarries the next year
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Konstantinos"
+		monarch_name = "Konstantinos XI"
+		dynasty = "Palaiologos"
+		birth_date = 1405.2.8
+		death_date = 1453.5.29
+		claim = 95
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1427.9.1 = {
+	queen = {
+		country_of_origin = TRE
+		name = "Maria"
+		dynasty = "Komnenos"
+		birth_date = 1404.1.1
+		death_date = 1439.12.17
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1448.10.31 = {
+	monarch = {
+		name = "Konstantinos XI"
+		dynasty = "Palaiologos"
+		birth_date = 1405.2.8
+		adm = 3
+		dip = 2
+		mil = 2
+		leader = {	name = "Konstantinos XI"	type = general fire = 3	shock = 3	manuever = 4	siege = 0 }
+	}
+}
+
+1452.1.1 = { leader = {	name = "Giovanni Giustiniani"	type = general fire = 2	shock = 2	manuever = 3	siege = 0	death_date = 1453.5.29 } }

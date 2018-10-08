@@ -1,0 +1,10 @@
+#Grab
+#model = heavy_frigate
+#tech_level = 42
+type = transport
+unit_type = indian
+
+hull_size = 22
+base_cannons = 32
+sail_speed = 10
+sailors = 250

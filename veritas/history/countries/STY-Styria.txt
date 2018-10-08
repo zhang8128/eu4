@@ -1,0 +1,49 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+technology_group = western
+religion = catholic
+primary_culture = austrian
+capital = 295	# Graz
+
+
+1379.1.1 = {
+	monarch = {
+		 name = "Leopold III"
+		 dynasty = "von Habsburg"
+		 adm = 2
+		 dip = 1
+		 mil = 2
+	}
+}
+
+1386.7.10 = {
+	monarch = {
+		name = "Wilhelm I"
+		dynasty = "von Habsburg"
+		adm = 3
+		dip = 1
+		mil = 1
+	}
+}
+
+1406.7.16 = {
+	monarch = {
+		name = "Ernst I"
+		dynasty = "von Habsburg"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1424.6.11 = {
+	monarch = {
+		name = "Friedrich III"
+		dynasty = "von Habsburg"
+		adm = 2
+		dip = 5
+		mil = 1
+	}
+}
+

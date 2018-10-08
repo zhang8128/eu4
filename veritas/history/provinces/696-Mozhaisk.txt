@@ -1,0 +1,42 @@
+# Mozhaisk
+#Province IDs changed
+
+owner = MOS
+controller = MOS     
+culture = russian
+religion = orthodox
+hre = no
+base_tax = 2
+base_production = 2
+base_manpower = 3
+trade_goods = grain
+capital = "Mozhaisk"
+citysize = 2010
+is_city = yes
+add_core = SMO
+add_core = MOS
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = GOL
+discovered_by = KAZ
+discovered_by = western
+discovered_by = byzantine
+
+1450.1.1  = { citysize = 3450 discovered_by = SIB }
+1500.1.1  = { citysize = 4412 }
+1503.4.1 = {	owner = RUS controller = RUS add_core = RUS remove_core = MOS }
+1550.1.1  = { citysize = 7543 }
+1598.1.7  = { unrest = 5 } # "Time of troubles"
+1600.1.1  = { citysize = 8874 }
+1610.7.1  = { controller = POL } # Polish-Lithuanian occupation
+1613.1.1  = { controller = RUS } # Poles driven out
+1613.3.3  = { unrest = 0 } # Order returned, Romanov dynasty
+1650.1.1  = { citysize = 10440 }
+1700.1.1  = { citysize = 12283 }
+1711.1.1  = { base_tax = 3
+base_production = 3 } # Governmental reforms and the absolutism
+1750.1.1  = { citysize = 14450 }
+1767.1.1  = { base_tax = 4
+base_production = 4 } # Legislative reform
+1800.1.1  = { citysize = 17000 }

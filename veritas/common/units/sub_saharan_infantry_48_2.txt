@@ -1,0 +1,12 @@
+# Line Infantry
+
+unit_type = sub_saharan
+type = infantry
+
+maneuver = 1
+offensive_morale = 6
+defensive_morale = 5
+offensive_fire = 3
+defensive_fire = 5
+offensive_shock = 2
+defensive_shock = 3

@@ -1,0 +1,163 @@
+#Country Name: Please see filename.
+
+graphical_culture = muslimgfx
+
+color = { 224  146  113 } 
+
+revolutionary_colors = { 8  0  5 } #Alleged Tricolor of the Republic of Salé
+
+historical_score = 100
+
+historical_idea_groups = {
+	mercenary_ideas
+	mm1_ideas
+	religious_ideas
+	quantity_ideas
+	intimidatory_ideas
+	expansion_ideas
+	offensive_ideas
+	mercantilist_ideas
+}
+
+historical_units = {
+	muslim_artillery_10_1
+	muslim_artillery_16_1
+	muslim_artillery_23_1
+	muslim_artillery_29_1
+	muslim_artillery_35_1
+	muslim_artillery_40_1
+	muslim_artillery_44_1
+	muslim_artillery_48_1
+	muslim_artillery_52_1
+	muslim_artillery_55_1
+	muslim_artillery_55_2
+	muslim_cavalry_0_1
+	muslim_cavalry_0_2
+	muslim_cavalry_21_1
+	muslim_cavalry_21_2
+	muslim_cavalry_27_1
+	muslim_cavalry_31_1
+	muslim_cavalry_36_1
+	muslim_cavalry_40_1
+	muslim_cavalry_44_1
+	muslim_cavalry_48_1
+	muslim_cavalry_48_2
+	muslim_cavalry_51_1
+	muslim_cavalry_51_2
+	muslim_cavalry_55_1
+	muslim_cavalry_55_2
+	muslim_cavalry_58_1
+	muslim_cavalry_58_2
+	muslim_cavalry_16_1
+	muslim_cavalry_16_2
+	muslim_infantry_0_1
+	muslim_infantry_0_2
+	muslim_infantry_17_1
+	muslim_infantry_17_2
+	muslim_infantry_21_1
+	muslim_infantry_21_2
+	muslim_infantry_25_1
+	muslim_infantry_25_2
+	muslim_infantry_28_1
+	muslim_infantry_28_2
+	muslim_infantry_31_1
+	muslim_infantry_31_2
+	muslim_infantry_34_1
+	muslim_infantry_34_2
+	muslim_infantry_39_1
+	muslim_infantry_39_2
+	muslim_infantry_42_1
+	muslim_infantry_42_2
+	muslim_infantry_45_1
+	muslim_infantry_45_2
+	muslim_infantry_48_1
+	muslim_infantry_48_2
+	muslim_infantry_50_1
+	muslim_infantry_50_2
+	muslim_infantry_53_1
+	muslim_infantry_53_2
+	muslim_infantry_55_1
+	muslim_infantry_55_2
+	muslim_infantry_6_1
+	muslim_infantry_6_2
+	muslim_infantry_57_1
+	muslim_infantry_57_2
+	muslim_infantry_59_1
+	muslim_infantry_59_2
+	muslim_infantry_63_1
+	muslim_infantry_63_2
+	muslim_infantry_14_1
+	muslim_infantry_14_2
+}
+
+monarch_names = {
+	"Muhammad #0" = 200
+	"Ahmad #0" = 80
+	"'Abdallâh #0" = 60
+	"'Abd al-Malik #0" = 40
+	"'Alî #0" = 40
+	"'Uthmân #2" = 20
+	"'Abd al-Haqq #1" = 20
+	"Isma'îl #1" = 20
+	"Yahyâ #1" = 20
+	"'al-Walîd #0" = 20
+	"al-Mustadî #0" = 20
+	"al-Rashîd #0" = 20
+	"Hishâm #0" = 20
+	"Idrîsid #0" = 20
+	"Sulaymân #0" = 20
+	"Zaydân #0" = 20
+	"Zayn #0" = 20
+	"'Abd ar-Rahmân #0" = 15
+	"al-Yazîd #0" = 15
+	"Mansur #0" = 15
+	"Muhraz #0" = 15
+	"Nasir #0" = 15
+	"Abû Faris #0" = 10
+	"Abbas #0" = 10
+	"Abû Merwan #0" = 10
+	"al-Talib #0" = 10
+	"Hammada #0" = 10
+	"Hasam #0" = 10
+	"Hashim #0" = 10
+	"Ibrahim #0" = 10
+	"Ja'far #0" = 10
+	"Maimun #0" = 10
+	"Maslama #0" = 10
+	"Said #0" = 10
+	"Umar #0" = 10
+	"Yûsuf #0" = 10
+	"Ataullah #0" = 0
+	"Jabril #0" = 0
+	"Rasul #0" = 0
+	"Zulfiqar #0" = 0
+	
+	"Thamina #0" = -1
+	"Widad #0" = -1
+	"Aisha #0" = -1
+	"Zaidana #0" = -5
+	"Khnata #0" = -5
+	"Bilqis #0" = -1
+	"Halima #0" = -1
+	"Alwa #0" = -1
+}
+
+leader_names = {
+	Sahiri
+	Haida
+	Sellami
+	Arazi
+	Berui
+	Lahsini
+	Skah
+	Barek
+	Alami
+	Behar
+}
+
+ship_names = {
+	Tawwab Muntaqim Afuww Fa'uf "Malik Mulk"
+	"Jalal Ikram" Muqsit Jami Ghani Mughni
+	Mani Darr Nafi Nur Hadi Badi Baqi Warith
+	Rashid Sabur "Fazl Azim"
+}

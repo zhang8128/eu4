@@ -1,0 +1,31 @@
+# Nong Khai
+
+capital = "Nong Khai"
+owner = KHM
+controller = KHM
+add_core = KHM
+culture = lao
+religion = buddhism
+trade_goods = silk 
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1354.1.1 = { owner = LXA controller = LXA add_core = LXA remove_core = KHM }
+1380.1.1 = { add_core = AYU }
+1535.1.1 = { discovered_by = POR }
+1579.1.1 = { unrest = 5 } # Revolt against vassalization
+1580.1.1 = { unrest = 0 }
+1593.1.1 = { unrest = 4 } # Revolt against Burmese vassalization
+1603.1.1 = { unrest = 0 }
+#1694.1.1 = { add_core = AYU } # Siamnese Intervention
+1707.1.1 = {
+	owner = VIE
+	controller = VIE
+	add_core = VIE
+	remove_core = LXA
+} # Lan Xangs declared itself independent, partitioned into three kingdoms; Vientiane, Champasak & Luang Prabang
+1828.11.12 = { owner = AYU controller = AYU add_core = AYU remove_core = VIE }

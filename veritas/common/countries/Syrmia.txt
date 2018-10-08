@@ -1,0 +1,162 @@
+#Country Name: Please see filename.
+
+graphical_culture = easterngfx
+
+color = { 158  128  156 }
+
+historical_idea_groups = {
+	quantity_ideas
+	mercantilist_ideas
+	religious_ideas
+	defensive_ideas
+	spy_ideas
+	cultural_unity_ideas
+	drafted_army_ideas
+	mm1_ideas
+}
+
+historical_units = { 
+	eastern_artillery_16_1
+	eastern_artillery_22_1
+	eastern_artillery_29_1
+	eastern_artillery_35_1
+	eastern_artillery_40_1
+	eastern_artillery_44_1
+	eastern_artillery_48_1
+	eastern_artillery_48_2
+	eastern_artillery_52_1
+	eastern_artillery_55_1
+	eastern_artillery_55_2
+	eastern_artillery_9_1
+	eastern_cavalry_0_1
+	eastern_cavalry_0_2
+	eastern_cavalry_21_1
+	eastern_cavalry_21_2
+	eastern_cavalry_27_1
+	eastern_cavalry_31_1
+	eastern_cavalry_36_1
+	eastern_cavalry_40_1
+	eastern_cavalry_44_1
+	eastern_cavalry_44_2
+	eastern_cavalry_48_1
+	eastern_cavalry_48_2
+	eastern_cavalry_51_1
+	eastern_cavalry_51_2
+	eastern_cavalry_55_1
+	eastern_cavalry_55_2
+	eastern_cavalry_58_1
+	eastern_cavalry_58_2
+	eastern_cavalry_16_1
+	eastern_cavalry_16_2
+	eastern_infantry_0_1
+	eastern_infantry_0_2
+	eastern_infantry_17_1
+	eastern_infantry_17_2
+	eastern_infantry_25_1
+	eastern_infantry_25_2
+	eastern_infantry_28_1
+	eastern_infantry_28_2
+	eastern_infantry_31_1
+	eastern_infantry_31_2
+	eastern_infantry_34_1
+	eastern_infantry_34_2
+	eastern_infantry_39_1
+	eastern_infantry_39_2
+	eastern_infantry_42_1
+	eastern_infantry_42_2
+	eastern_infantry_45_1
+	eastern_infantry_45_2
+	eastern_infantry_48_1
+	eastern_infantry_48_2
+	eastern_infantry_50_1
+	eastern_infantry_50_2
+	eastern_infantry_53_1
+	eastern_infantry_53_2
+	eastern_infantry_55_1
+	eastern_infantry_55_2
+	eastern_infantry_57_1
+	eastern_infantry_57_2
+	eastern_infantry_59_1
+	eastern_infantry_59_2
+	eastern_infantry_63_1
+	eastern_infantry_63_2
+	eastern_infantry_6_1
+	eastern_infantry_6_2
+	eastern_infantry_14_1
+	eastern_infantry_14_2
+}
+
+
+
+
+monarch_names = {
+	"Stefan #2" = 60
+	"Lazar #1" = 20
+	"Djorde #0" = 20
+	"Djuradj #0" = 20
+	"Milosh #0" = 20
+	"Djordje #0" = 20
+	"Alexa #0" = 15
+	"Grgur #0" = 15
+	"Petrija #0" = 15
+	"Todor #0" = 15
+	"Aleksandar #0" = 10
+	"Mihailo #0" = 10
+	"Milan #0" = 10
+	"Bogdan #0" = 0
+	"Branko #0" = 0
+	"Bratislav #0" = 0
+	"Darko #0" = 0
+	"Dragan #0" = 0
+	"Dubravko #0" = 0
+	"Dusan #0" = 0
+	"Filip #0" = 0
+	"Goran #0" = 0
+	"Ivan #0" = 0
+	"Josif #0" = 0
+	"Konstantin #0" = 0
+	"Luka #0" = 0
+	"Marko #0" = 0
+	"Mateja #0" = 0
+	"Miroslav #0" = 0
+	"Mladen #0" = 0
+	"Nebojsa #0" = 0
+	"Nemanja #0" = 0
+	"Nenad #0" = 0
+	"Nikola #0" = 0
+	"Pedrag #0" = 0
+	"Stanko #0" = 0
+	"Toma #0" = 0
+	"Vinko #0" = 0
+	"Vjekoslav #0" = 0
+	"Zdravko #0" = 0
+	"Zvonimir #0" = 0
+	
+	"Branka #0" = -1
+	"Jagoda #0" = -1
+	"Mirna #0" = -1
+}
+
+leader_names = {
+	Bojovic
+	Drascovic
+	Gingic
+	Hracovec
+	Lazarevic
+	Marcovic
+	Obilic
+	Pertrovic Postek Putnik
+}
+
+ship_names = {
+	Raska
+	Bosnia
+	Duklja
+	Zahumlje
+	Travunia
+	Pagania
+	"Stefan Nemanja"
+	"Stefan Prvovencani"
+	"Stefan Dusan"
+	Milutin
+}

@@ -1,0 +1,12 @@
+# Juan Manuel's rebellion against the crown
+
+name = "Juan Manuel's Rebellion"
+
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+	tag = TOL
+}
+
+1328.1.1 = { add_attacker = TOL add_attacker = ARA add_attacker = MJC add_attacker = SIC add_defender = CAS add_defender = LEO add_defender = SEV }
+1340.1.1 = { rem_attacker = TOL rem_attacker = ARA rem_attacker = MJC rem_attacker = SIC rem_defender = CAS rem_defender = LEO rem_defender = SEV } # Reconciliation sees the Duke retire

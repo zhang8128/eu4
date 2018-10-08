@@ -1,0 +1,4 @@
+# Malayan Sea
+#Province IDs changed
+discovered_by = chinese
+1516.1.1 = { discovered_by = POR }

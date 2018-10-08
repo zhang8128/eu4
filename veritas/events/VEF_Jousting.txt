@@ -1,0 +1,2029 @@
+###################
+# Jousting Events #
+###################
+
+namespace = vef_jousting
+
+# Tournament Start
+country_event = {
+	id = vef_jousting.1
+	title = vef_jousting.1.t
+	desc = vef_jousting.1.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	trigger = {
+		ai = no
+		technology_group = western
+		government = monarchy
+		NOT = { government = steppe_horde }
+		NOT = { government = elective_monarchy }
+		NOT = { government = ottoman_government }
+		is_at_war = no
+		NOT = { has_country_flag = last_jousting_tournament_held }
+		is_month = 4
+		NOT = { is_month = 9 }
+		NOT = { is_year = 1600 }
+		NOT = { has_regency_trigger = yes }
+		is_lesser_in_union = no
+	}
+	
+	mean_time_to_happen = { months = 120 }
+	
+	immediate = { clr_ruler_flag = monarch_jousting }
+	
+	option = {	# Joust
+		trigger = {
+			is_female = no
+		}
+		name = "vef_jousting.1.opta"
+		set_ruler_flag = monarch_jousting
+		if = {
+			limit = { NOT = { ruler_age = 40 }}
+			country_event = { id = vef_jousting.2 days = 7 }
+		}
+		if = {
+			limit = {
+				ruler_age = 40
+				NOT = { ruler_age = 60 }
+			}
+			country_event = { id = vef_jousting.3 days = 7 }
+		}
+		if = {
+			limit = { ruler_age = 60 }
+			country_event = { id = vef_jousting.4 days = 7 }
+		}		
+	}
+	
+	option = {	# Attend
+		name = "vef_jousting.1.optb"
+		country_event = { id = vef_jousting.100 days = 7 }
+	}
+	
+	option = {	# Not this time
+		name = "vef_jousting.1.optc"
+		add_adm_power = 5
+	}
+}
+
+# King Enters the Lists
+country_event = {
+	id = vef_jousting.2
+	title = vef_jousting.2.t
+	desc = vef_jousting.2.d
+	picture = VEF_TOURNAMENT_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = { has_ruler_flag = monarch_jousting }
+	
+	option = {	# Joust the champion
+		name = "vef_jousting.2.opta"
+		add_prestige = 4
+		hidden_effect = {
+			if = {
+				limit = { NOT = { mil = 2 }}
+				random_list = {
+					15 = { country_event = { id = vef_jousting.5 days = 3 }}	# Victory
+					65 = { country_event = { id = vef_jousting.6 days = 3 }}	# Fair Loss
+					19 = { country_event = { id = vef_jousting.7 days = 3 }}	# Unhorsed
+					1  = { country_event = { id = vef_jousting.8 days = 3 }}	# Killed
+				}
+			}
+			if = {
+				limit = {
+					mil = 2
+					NOT = { mil = 5 }
+				}
+				random_list = {
+					30 = { country_event = { id = vef_jousting.5 days = 3 }}	# Victory
+					60 = { country_event = { id = vef_jousting.6 days = 3 }}	# Fair Loss
+					9  = { country_event = { id = vef_jousting.7 days = 3 }}	# Unhorsed
+					1  = { country_event = { id = vef_jousting.8 days = 3 }}	# Killed
+				}
+			}
+			if = {
+				limit = { mil = 5 }
+				random_list = {
+					50 = { country_event = { id = vef_jousting.5 days = 3 }}	# Victory
+					45 = { country_event = { id = vef_jousting.6 days = 3 }}	# Fair Loss
+					4  = { country_event = { id = vef_jousting.7 days = 3 }}	# Unhorsed
+					1  = { country_event = { id = vef_jousting.8 days = 3 }}	# Killed
+				}
+			}
+		}
+	}
+	
+	option = {	# Joust a Friend
+		name = "vef_jousting.2.optb"
+		add_prestige = 1
+		hidden_effect = {
+			if = {
+				limit = { NOT = { mil = 2 }}
+				random_list = {
+					30 = { country_event = { id = vef_jousting.5 days = 3 }}	# Victory
+					65 = { country_event = { id = vef_jousting.6 days = 3 }}	# Fair Loss
+					4  = { country_event = { id = vef_jousting.7 days = 3 }}	# Unhorsed
+					1  = { country_event = { id = vef_jousting.8 days = 3 }}	# Killed
+				}
+			}
+			if = {
+				limit = {
+					mil = 2
+					NOT = { mil = 5 }
+				}
+				random_list = {
+					50 = { country_event = { id = vef_jousting.5 days = 3 }}	# Victory
+					47 = { country_event = { id = vef_jousting.6 days = 3 }}	# Fair Loss
+					2  = { country_event = { id = vef_jousting.7 days = 3 }}	# Unhorsed
+					1  = { country_event = { id = vef_jousting.8 days = 3 }}	# Killed
+				}
+			}
+			if = {
+				limit = { mil = 5 }
+				random_list = {
+					70 = { country_event = { id = vef_jousting.5 days = 3 }}	# Victory
+					28 = { country_event = { id = vef_jousting.6 days = 3 }}	# Fair Loss
+					1  = { country_event = { id = vef_jousting.7 days = 3 }}	# Unhorsed
+					1  = { country_event = { id = vef_jousting.8 days = 3 }}	# Killed
+				}
+			}
+		}
+	}
+	
+	option = {	# Joust a Rival
+		name = "vef_jousting.2.optc"
+		add_prestige = 2
+		hidden_effect = {
+			if = {
+				limit = { NOT = { mil = 2 }}
+				random_list = {
+					25 = { country_event = { id = vef_jousting.5 days = 3 }}	# Victory
+					55 = { country_event = { id = vef_jousting.6 days = 3 }}	# Fair Loss
+					19 = { country_event = { id = vef_jousting.7 days = 3 }}	# Unhorsed
+					1  = { country_event = { id = vef_jousting.8 days = 3 }}	# Killed
+				}
+			}
+			if = {
+				limit = {
+					mil = 2
+					NOT = { mil = 5 }
+				}
+				random_list = {
+					40 = { country_event = { id = vef_jousting.5 days = 3 }}	# Victory
+					50 = { country_event = { id = vef_jousting.6 days = 3 }}	# Fair Loss
+					9  = { country_event = { id = vef_jousting.7 days = 3 }}	# Unhorsed
+					1  = { country_event = { id = vef_jousting.8 days = 3 }}	# Killed
+				}
+			}
+			if = {
+				limit = { mil = 5 }
+				random_list = {
+					65 = { country_event = { id = vef_jousting.5 days = 3 }}	# Victory
+					30 = { country_event = { id = vef_jousting.6 days = 3 }}	# Fair Loss
+					4  = { country_event = { id = vef_jousting.7 days = 3 }}	# Unhorsed
+					1  = { country_event = { id = vef_jousting.8 days = 3 }}	# Killed
+				}
+			}
+		}
+	}
+}
+
+# King Enters the Lists
+country_event = {
+	id = vef_jousting.3
+	title = vef_jousting.3.t
+	desc = vef_jousting.3.d
+	picture = VEF_TOURNAMENT_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = { has_ruler_flag = monarch_jousting }
+	
+	option = {	# Joust the champion
+		name = "vef_jousting.3.opta"
+		add_prestige = 4
+		set_country_flag = vef_joust_champion
+		hidden_effect = {
+			if = {
+				limit = { NOT = { mil = 2 }}
+				random_list = {
+					85 = { country_event = { id = vef_jousting.9 days = 3 }} # Tilts Away
+					15 = { country_event = { id = vef_jousting.10 days = 3 }} # Fair Pass
+				}
+			}
+			if = {
+				limit = {
+					mil = 2
+					NOT = { mil = 5 }
+				}
+				random_list = {
+					70 = { country_event = { id = vef_jousting.9 days = 3 }} # Tilts Away
+					30 = { country_event = { id = vef_jousting.10 days = 3 }} # Fair Pass
+				}
+			}
+			if = {
+				limit = { mil = 5 }
+				random_list = {
+					60 = { country_event = { id = vef_jousting.9 days = 3 }} # Tilts Away
+					40 = { country_event = { id = vef_jousting.10 days = 3 }} # Fair Pass
+				}
+			}
+		}
+	}
+	
+	option = {	# Joust a Friend
+		name = "vef_jousting.3.optb"
+		add_prestige = 1
+		set_country_flag = vef_joust_friend
+		hidden_effect = {
+			if = {
+				limit = { NOT = { mil = 2 }}
+				random_list = {
+					95 = { country_event = { id = vef_jousting.9 days = 3 }} # Tilts Away
+					5  = { country_event = { id = vef_jousting.10 days = 3 }} # Fair Pass
+				}
+			}
+			if = {
+				limit = {
+					mil = 2
+					NOT = { mil = 5 }
+				}
+				random_list = {
+					60 = { country_event = { id = vef_jousting.9 days = 3 }} # Tilts Away
+					40 = { country_event = { id = vef_jousting.10 days = 3 }} # Fair Pass
+				}
+			}
+			if = {
+				limit = { mil = 5 }
+				random_list = {
+					25 = { country_event = { id = vef_jousting.9 days = 3 }} # Tilts Away
+					75 = { country_event = { id = vef_jousting.10 days = 3 }} # Fair Pass
+				}
+			}
+		}
+	}
+	
+	option = {	# Joust a Rival
+		name = "vef_jousting.3.optc"
+		add_prestige = 2
+		set_country_flag = vef_joust_rival
+		hidden_effect = {
+			if = {
+				limit = { NOT = { mil = 2 }}
+				random_list = {
+					60 = { country_event = { id = vef_jousting.9 days = 3 }} # Tilts Away
+					40 = { country_event = { id = vef_jousting.10 days = 3 }} # Fair Pass
+				}
+			}
+			if = {
+				limit = {
+					mil = 2
+					NOT = { mil = 5 }
+				}
+				random_list = {
+					40 = { country_event = { id = vef_jousting.9 days = 3 }} # Tilts Away
+					60 = { country_event = { id = vef_jousting.10 days = 3 }} # Fair Pass
+				}
+			}
+			if = {
+				limit = { mil = 5 }
+				random_list = {
+					10 = { country_event = { id = vef_jousting.9 days = 3 }} # Tilts Away
+					90 = { country_event = { id = vef_jousting.10 days = 3 }} # Fair Pass
+				}
+			}
+		}
+	}
+	
+	option = {	# Withdraw
+		name = "vef_jousting.3.optd"
+		hidden_effect = {
+			country_event = { id = vef_jousting.12 days = 3 }
+		}
+	}
+}
+
+# King Enters the Lists
+country_event = {
+	id = vef_jousting.4
+	title = vef_jousting.4.t
+	desc = vef_jousting.4.d
+	picture = VEF_TOURNAMENT_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = { has_ruler_flag = monarch_jousting }
+	
+	option = {	# Joust the champion
+		name = "vef_jousting.4.opta"
+		add_prestige = 3
+		hidden_effect = {
+			country_event = { id = vef_jousting.11 days = 3 }
+		}
+	}
+	
+	option = {	# Joust a Friend
+		name = "vef_jousting.4.optb"
+		add_prestige = 1
+		hidden_effect = {
+			country_event = { id = vef_jousting.11 days = 3 }
+		}
+	}
+	
+	option = {	# Joust a Rival
+		name = "vef_jousting.4.optc"
+		add_prestige = 2
+		hidden_effect = {
+			country_event = { id = vef_jousting.11 days = 3 }
+		}
+	}
+	
+	option = {	# Withdraw
+		name = "vef_jousting.4.optd"
+		country_event = { id = vef_jousting.12 days = 3 }
+	}
+}
+
+# Victory!
+country_event = {
+	id = vef_jousting.5
+	title = vef_jousting.5.t
+	desc = vef_jousting.5.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = { has_ruler_flag = monarch_jousting }
+	
+	option = {
+		name = "vef_jousting.5.opta"
+		add_prestige = 3
+	}
+}
+
+# A Loss!
+country_event = {
+	id = vef_jousting.6
+	title = vef_jousting.6.t
+	desc = vef_jousting.6.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = { has_ruler_flag = monarch_jousting }
+	
+	option = {
+		name = "vef_jousting.6.opta"
+		add_prestige = -1
+	}
+}
+
+# Unhorsed!
+country_event = {
+	id = vef_jousting.7
+	title = vef_jousting.7.t
+	desc = vef_jousting.7.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = { has_ruler_flag = monarch_jousting }
+	
+	option = {
+		name = "vef_jousting.7.opta"
+		add_prestige = -3
+		random = {
+			chance = 40
+			add_ruler_modifier = { name = jousting_injury duration = -1 }
+		}
+	}
+}
+
+# The King is Dead!
+country_event = {
+	id = vef_jousting.8
+	title = vef_jousting.8.t
+	desc = vef_jousting.8.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = { has_ruler_flag = monarch_jousting }
+	
+	option = {
+		name = "vef_jousting.8.opta"
+		kill_ruler = yes
+		if = {
+			limit = { is_year = 1500 }
+			country_event = { id = vef_jousting.13 days = 7 }
+		}
+	}
+}
+
+# Tilts Away!
+country_event = {
+	id = vef_jousting.9
+	title = vef_jousting.9.t
+	desc = vef_jousting.9.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = { has_ruler_flag = monarch_jousting }
+	
+	option = {	# How Noble!
+		name = "vef_jousting.9.opta"
+		clr_country_flag = vef_joust_champion
+		clr_country_flag = vef_joust_friend
+		clr_country_flag = vef_joust_rival
+		country_event = { id = vef_jousting.5 days = 1 }
+	}
+	
+	option = {	# Another Pass
+		name = "vef_jousting.9.optb"
+		if = {
+			limit = {
+				NOT = { ruler_age = 50 }
+				mil = 3
+			}
+			country_event = { id = vef_jousting.10 days = 1 }
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = { mil = 3 }
+					ruler_age = 50
+				}
+			}
+			country_event = { id = vef_jousting.11 days = 1 }
+		}
+	}
+}
+
+# A Fair Pass
+country_event = {
+	id = vef_jousting.10
+	title = vef_jousting.10.t
+	desc = vef_jousting.10.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = { has_ruler_flag = monarch_jousting }
+	
+	option = {
+		name = "vef_jousting.10.opta"
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = vef_joust_champion }
+				if = {
+					limit = {
+						NOT = { mil = 5 }
+					}
+					random_list = {
+						20 = { country_event = { id = vef_jousting.5 days = 3 }}	# Victory
+						55 = { country_event = { id = vef_jousting.6 days = 3 }}	# Fair Loss
+						15  = { country_event = { id = vef_jousting.7 days = 3 }}	# Unhorsed
+						10  = { country_event = { id = vef_jousting.8 days = 3 }}	# Killed
+					}
+				}
+				if = {
+					limit = { mil = 5 }
+					random_list = {
+						30 = { country_event = { id = vef_jousting.5 days = 3 }}	# Victory
+						55 = { country_event = { id = vef_jousting.6 days = 3 }}	# Fair Loss
+						10  = { country_event = { id = vef_jousting.7 days = 3 }}	# Unhorsed
+						5  = { country_event = { id = vef_jousting.8 days = 3 }}	# Killed
+					}
+				}
+			}
+			if = {
+				limit = { has_country_flag = vef_joust_friend }
+				if = {
+					limit = {
+						NOT = { mil = 5 }
+					}
+					random_list = {
+						25 = { country_event = { id = vef_jousting.5 days = 3 }}	# Victory
+						55 = { country_event = { id = vef_jousting.6 days = 3 }}	# Fair Loss
+						10  = { country_event = { id = vef_jousting.7 days = 3 }}	# Unhorsed
+						10  = { country_event = { id = vef_jousting.8 days = 3 }}	# Killed
+					}
+				}
+				if = {
+					limit = { mil = 5 }
+					random_list = {
+						40 = { country_event = { id = vef_jousting.5 days = 3 }}	# Victory
+						50 = { country_event = { id = vef_jousting.6 days = 3 }}	# Fair Loss
+						5  = { country_event = { id = vef_jousting.7 days = 3 }}	# Unhorsed
+						5  = { country_event = { id = vef_jousting.8 days = 3 }}	# Killed
+					}
+				}
+			}
+			if = {
+				limit = { has_country_flag = vef_joust_rival }
+				if = {
+					limit = {
+						NOT = { mil = 5 }
+					}
+					random_list = {
+						20 = { country_event = { id = vef_jousting.5 days = 3 }}	# Victory
+						45 = { country_event = { id = vef_jousting.6 days = 3 }}	# Fair Loss
+						20  = { country_event = { id = vef_jousting.7 days = 3 }}	# Unhorsed
+						15  = { country_event = { id = vef_jousting.8 days = 3 }}	# Killed
+					}
+				}
+				if = {
+					limit = { mil = 5 }
+					random_list = {
+						35 = { country_event = { id = vef_jousting.5 days = 3 }}	# Victory
+						40 = { country_event = { id = vef_jousting.6 days = 3 }}	# Fair Loss
+						15  = { country_event = { id = vef_jousting.7 days = 3 }}	# Unhorsed
+						10  = { country_event = { id = vef_jousting.8 days = 3 }}	# Killed
+					}
+				}
+			}
+		}
+		clr_country_flag = vef_joust_champion
+		clr_country_flag = vef_joust_friend
+		clr_country_flag = vef_joust_rival
+	}
+}
+
+# No Joust
+country_event = {
+	id = vef_jousting.11
+	title = vef_jousting.11.t
+	desc = vef_jousting.11.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = { has_ruler_flag = monarch_jousting }
+	
+	option = {
+		name = "vef_jousting.11.opta"
+		add_prestige = -1
+	}
+}
+
+# Withdrawl
+country_event = {
+	id = vef_jousting.12
+	title = vef_jousting.12.t
+	desc = vef_jousting.12.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = { has_ruler_flag = monarch_jousting }
+	
+	option = {	# Watch
+		name = "vef_jousting.12.opta"
+		country_event = { id = vef_jousting.100 days = 1 }
+	}
+	
+	option = {	# That's All
+		name = "vef_jousting.12.optb"
+		add_adm_power = 10
+	}
+}
+
+# Outlawed
+country_event = {
+	id = vef_jousting.13
+	title = vef_jousting.13.t
+	desc = vef_jousting.13.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_jousting.13.opta"
+		set_country_flag = last_jousting_tournament_held
+		custom_tooltip = jousting_banned
+	}
+}
+
+##############
+# Spectating #
+##############
+
+#A101	A drink?	1,2
+#B102		# Too much
+#C103 	A wager?	1,2
+#D104		# Won
+#E105		# Lost
+#F106	Heir asks	1,2
+#G107		# Hier granted
+#H108		# Heir sulks
+#I109		# Heir defies
+#J110	Hier rides	1,2
+#K111		# Heir shows prowess
+#L112		# Heir shows sportsmanship
+#M113		# Heir unsportsmanlike
+#N114		# Heir killed
+#O115	A lady	A (chance of heir)
+#P116	A petition	A
+#Q117	Daughter asked for favour A	(-spy defense or chance of heir scolding event)
+#R118	Great herald (prestige for gold) A
+#S119	New Champion  3
+
+
+#1	A,B/C,D/E/S
+#2	C,O,D/E		Male King
+#3	A,B/R,S
+#4	F,G/H/I,P	Under 18 Male Heir
+#5	F,G/H/I,R	Under 18 Male Heir
+#6	F,G/H/I,O	Under 18 Male Heir: Male King
+#7	R,J,KLMN	Over 18 Male Heir
+#8	J,O,KLMN	Over 18 Male Heir; Male King
+#9	A,B/J,S/KLMNOver 18 Male Heir
+#10	Q,C,D/E		Over 15 Female Heir
+#11	P,Q,S		Over 15 Female Heir
+#12	R,A,B/Q		Over 15 Female Heir
+#13	P,C,D/E
+
+# Tournament Day
+country_event = {
+	id = vef_jousting.100
+	title = vef_jousting.100.t
+	desc = vef_jousting.100.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = jousting_counter value = 1 }
+			clr_country_flag = jousting_won_bet
+			clr_country_flag = jousting_lost_bet
+			clr_country_flag = heir_may_joust
+			clr_country_flag = heir_not_joust
+			clr_country_flag = jousting_heir_prowess
+			clr_country_flag = jousting_heir_sportsman
+			clr_country_flag = jousting_heir_unsportsman
+			clr_country_flag = jousting_heir_killed
+			clr_country_flag = jousting_sequence_set
+			if = {
+				limit = {
+					has_heir = yes
+					has_female_heir = no
+					heir_age = 12
+					NOT = { heir_age = 18 }
+				}
+				random = {
+					chance = 10
+					set_variable = { which = jousting_sequence value = 4 }
+					set_country_flag = jousting_sequence_set
+				}
+				if = {
+					limit = { NOT = { has_country_flag = jousting_sequence_set }}
+					random = {
+						chance = 10
+						set_variable = { which = jousting_sequence value = 5 }
+						set_country_flag = jousting_sequence_set
+					}
+					if = {
+						limit = {
+							NOT = { has_country_flag = jousting_sequence_set }
+							is_female = no
+						}
+						random = {
+							chance = 10
+							set_variable = { which = jousting_sequence value = 6 }
+							set_country_flag = jousting_sequence_set
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_heir = yes
+					has_female_heir = no
+					heir_age = 18
+					NOT = { has_country_flag = jousting_sequence_set }
+				}
+				random = {
+					chance = 10
+					set_variable = { which = jousting_sequence value = 7 }
+					set_country_flag = jousting_sequence_set
+				}
+				if = {
+					limit = { NOT = { has_country_flag = jousting_sequence_set }}
+					random = {
+						chance = 10
+						set_variable = { which = jousting_sequence value = 9 }
+						set_country_flag = jousting_sequence_set
+					}
+					if = {
+						limit = {
+							NOT = { has_country_flag = jousting_sequence_set }
+							is_female = no
+						}
+						random = {
+							chance = 10
+							set_variable = { which = jousting_sequence value = 8 }
+							set_country_flag = jousting_sequence_set
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_heir = yes
+					NOT = { has_female_heir = no }
+					heir_age = 15
+					NOT = { has_country_flag = jousting_sequence_set }
+				}
+				random = {
+					chance = 10
+					set_variable = { which = jousting_sequence value = 10 }
+					set_country_flag = jousting_sequence_set
+				}
+				if = {
+					limit = { NOT = { has_country_flag = jousting_sequence_set }}
+					random = {
+						chance = 10
+						set_variable = { which = jousting_sequence value = 11 }
+						set_country_flag = jousting_sequence_set
+					}
+					if = {
+						limit = { NOT = { has_country_flag = jousting_sequence_set }}
+						random = {
+							chance = 10
+							set_variable = { which = jousting_sequence value = 12 }
+							set_country_flag = jousting_sequence_set
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = jousting_sequence_set }
+					is_female = no
+				}
+				random = {
+					chance = 10
+					set_variable = { which = jousting_sequence value = 2 }
+					set_country_flag = jousting_sequence_set
+				}
+			}
+			if = {
+				limit = { NOT = { has_country_flag = jousting_sequence_set }}
+				random_list = {
+					33 = { set_variable = { which = jousting_sequence value = 1 }}
+					33 = { set_variable = { which = jousting_sequence value = 3 }}
+					33 = { set_variable = { which = jousting_sequence value = 13 }}
+				}
+			}
+		}
+	}
+	
+	option = {	# A nice day for sport
+		name = "vef_jousting.100.opta"
+		hidden_effect = {
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+		}
+	}
+}
+
+# A Drink?
+country_event = {
+	id = vef_jousting.101
+	title = vef_jousting.101.t
+	desc = vef_jousting.101.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 1 }
+				is_variable_equal = { which = jousting_counter value = 1 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 3 }
+				is_variable_equal = { which = jousting_counter value = 1 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 9 }
+				is_variable_equal = { which = jousting_counter value = 1 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 12 }
+				is_variable_equal = { which = jousting_counter value = 2 }
+			}
+		}
+	}
+	
+	option = {	#Certainly
+		name = "vef_jousting.101.opta"
+		add_dip_power = 5
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			random_list = {
+				30 = { country_event = { id = vef_jousting.102 days = 5 }}
+				70 = {
+					hidden_effect = {
+						country_event = { id = vef_jousting.101 days = 5 }
+						country_event = { id = vef_jousting.103 days = 5 }
+						country_event = { id = vef_jousting.104 days = 5 }
+						country_event = { id = vef_jousting.105 days = 5 }
+						country_event = { id = vef_jousting.106 days = 5 }
+						country_event = { id = vef_jousting.110 days = 5 }
+						country_event = { id = vef_jousting.111 days = 5 }
+						country_event = { id = vef_jousting.112 days = 5 }
+						country_event = { id = vef_jousting.113 days = 5 }
+						country_event = { id = vef_jousting.114 days = 5 }
+						country_event = { id = vef_jousting.115 days = 5 }
+						country_event = { id = vef_jousting.116 days = 5 }
+						country_event = { id = vef_jousting.117 days = 5 }
+						country_event = { id = vef_jousting.118 days = 5 }
+						country_event = { id = vef_jousting.119 days = 5 }
+						country_event = { id = vef_jousting.200 days = 5 }
+					}
+				}
+			}
+		}
+	}
+	
+	option = {	#No
+		name = "vef_jousting.101.optb"
+		add_adm_power = 3
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+
+# Too much to drink
+country_event = {
+	id = vef_jousting.102
+	title = vef_jousting.102.t
+	desc = vef_jousting.102.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = vef_jousting.102.opta
+		add_prestige = -3
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+
+# A Wager?
+country_event = {
+	id = vef_jousting.103
+	title = vef_jousting.103.t
+	desc = vef_jousting.103.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 1 }
+				is_variable_equal = { which = jousting_counter value = 2 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 2 }
+				is_variable_equal = { which = jousting_counter value = 1 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 10 }
+				is_variable_equal = { which = jousting_counter value = 2 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 13 }
+				is_variable_equal = { which = jousting_counter value = 2 }
+			}
+		}
+	}
+	
+	option = {	#The most prestigious
+		name = "vef_jousting.103.opta"
+		hidden_effect = {
+			random_list = {
+				50 = { set_country_flag = jousting_won_bet }
+				50 = { set_country_flag = jousting_lost_bet }
+			}
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+	
+	option = {	#The most experienced
+		name = "vef_jousting.103.optb"
+		hidden_effect = {
+			random_list = {
+				50 = { set_country_flag = jousting_won_bet }
+				50 = { set_country_flag = jousting_lost_bet }
+			}
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+	
+	option = {	#Try our luck
+		name = "vef_jousting.103.optc"
+		hidden_effect = {
+			random_list = {
+				50 = { set_country_flag = jousting_won_bet }
+				50 = { set_country_flag = jousting_lost_bet }
+			}
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+
+# Wager Won
+country_event = {
+	id = vef_jousting.104
+	title = vef_jousting.104.t
+	desc = vef_jousting.104.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = jousting_won_bet
+		OR = {
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 1 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 2 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 10 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 13 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_jousting.104.opta"
+		add_treasury = 5
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+
+# Wager Lost
+country_event = {
+	id = vef_jousting.105
+	title = vef_jousting.105.t
+	desc = vef_jousting.105.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = jousting_lost_bet
+		OR = {
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 1 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 2 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 10 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 13 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_jousting.105.opta"
+		add_treasury = -5
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+
+# Heir Asks to Joust
+country_event = {
+	id = vef_jousting.106
+	title = vef_jousting.106.t
+	desc = vef_jousting.106.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_variable_equal = { which = jousting_counter value = 1 }
+		OR = {
+			is_variable_equal = { which = jousting_sequence value = 4 }
+			is_variable_equal = { which = jousting_sequence value = 5 }
+			is_variable_equal = { which = jousting_sequence value = 6 }
+		}
+	}
+
+	option = {	# Grant permission
+		name = "vef_jousting.106.opta"
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.107 days = 5 }
+		}
+	}
+	
+	option = {	# Say no
+		name = "vef_jousting.106.optb"
+		hidden_effect ={
+			change_variable = { which = jousting_counter value = 1 }
+			random_list = {
+				70 = { country_event = { id = vef_jousting.108 days = 5 }}
+				30 = { country_event = { id = vef_jousting.109 days = 5 }}
+			}
+		}
+	}
+}
+
+# Heir Rides
+country_event = {
+	id = vef_jousting.107
+	title = vef_jousting.107.t
+	desc = vef_jousting.107.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_jousting.107.opta"
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+
+# Heir Sulks
+country_event = {
+	id = vef_jousting.108
+	title = vef_jousting.108.t
+	desc = vef_jousting.108.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_jousting.108.opta"
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+
+# Heir Defies
+country_event = {
+	id = vef_jousting.109
+	title = vef_jousting.109.t
+	desc = vef_jousting.109.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_jousting.109.opta"
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+
+# Heir to Compete
+country_event = {
+	id = vef_jousting.110
+	title = vef_jousting.110.t
+	desc = vef_jousting.110.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 7 }
+				is_variable_equal = { which = jousting_counter value = 2 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 8 }
+				is_variable_equal = { which = jousting_counter value = 1 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 9 }
+				is_variable_equal = { which = jousting_counter value = 2 }
+			}
+		}
+	}
+
+	option = {
+		name = "vef_jousting.110.opta"
+		random_list = {
+			60 = { set_country_flag = jousting_heir_prowess } 
+			29 = { set_country_flag = jousting_heir_sportsman } 
+			10 = { set_country_flag = jousting_heir_unsportsman } 
+			1 =  { set_country_flag = jousting_heir_killed }
+		}
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}	
+}
+
+# Heir shows prowess
+country_event = {
+	id = vef_jousting.111
+	title = vef_jousting.111.t
+	desc = vef_jousting.111.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = jousting_heir_prowess
+		OR = {
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 7 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 8 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 9 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_jousting.111.opta"
+		add_heir_claim = 5
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+
+# Heir sportsman
+country_event = {
+	id = vef_jousting.112
+	title = vef_jousting.112.t
+	desc = vef_jousting.112.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = jousting_heir_sportsman
+		OR = {
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 7 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 8 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 9 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_jousting.112.opta"
+		add_heir_claim = 3
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+
+# Heir unsportsmanlike
+country_event = {
+	id = vef_jousting.113
+	title = vef_jousting.113.t
+	desc = vef_jousting.113.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = jousting_heir_unsportsman
+		OR = {
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 7 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 8 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 9 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_jousting.113.opta"
+		add_heir_claim = -3
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+
+# Heir killed
+country_event = {
+	id = vef_jousting.114
+	title = vef_jousting.114.t
+	desc = vef_jousting.114.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = jousting_heir_killed
+		OR = {
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 7 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 8 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 9 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_jousting.114.opta"
+		vef_kill_heir = yes
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+
+# A Lady
+country_event = {
+	id = vef_jousting.115
+	title = vef_jousting.115.t
+	desc = vef_jousting.115.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 2 }
+				is_variable_equal = { which = jousting_counter value = 2 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 6 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 8 }
+				is_variable_equal = { which = jousting_counter value = 2 }
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_jousting.115.opta"
+		add_dip_power = 3
+		if = {
+			limit = { has_heir = no }
+			random = {
+				chance = 30
+				define_heir = { claim = 30 }
+			}
+		}
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+	
+	option = {
+		name = "vef_jousting.115.optb"
+		add_adm_power = 3
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+
+# A Petition
+country_event = {
+	id = vef_jousting.116
+	title = vef_jousting.116.t
+	desc = vef_jousting.116.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 4 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 11 }
+				is_variable_equal = { which = jousting_counter value = 1 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 13 }
+				is_variable_equal = { which = jousting_counter value = 1 }
+			}
+		}
+	}
+
+	option = {
+		name = "vef_jousting.116.opta"
+		country_event = { id = 5089 days = 30 }
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+	
+	option = {
+		name = "vef_jousting.116.optb"
+		random = {
+			chance = 33
+			random_owned_province = {
+				limit = {
+					NOT = { is_colony = yes }
+					NOT = { is_overseas = yes }
+				}
+				anti_tax_rebels = 1
+			}
+		}
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+
+# Daughter Asked For Favour
+country_event = {
+	id = vef_jousting.117
+	title = vef_jousting.117.t
+	desc = vef_jousting.117.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 10 }
+				is_variable_equal = { which = jousting_counter value = 1 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 11 }
+				is_variable_equal = { which = jousting_counter value = 2 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 12 }
+				is_variable_equal = { which = jousting_counter value = 3 }
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_jousting.117.opta"
+		add_country_modifier = { name = watching_daughter duration = 365 }
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+	
+	option = {
+		name = "vef_jousting.117.optb"
+		random = {
+			chance = 30
+			country_event = { id = vef_random.50001 days = 60 }
+		}
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+
+# Herald
+country_event = {
+	id = vef_jousting.118
+	title = vef_jousting.118.t
+	desc = vef_jousting.118.d
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 3 }
+				is_variable_equal = { which = jousting_counter value = 2 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 7 }
+				is_variable_equal = { which = jousting_counter value = 1 }
+			}
+			AND = {
+				is_variable_equal = { which = jousting_sequence value = 12 }
+				is_variable_equal = { which = jousting_counter value = 1 }
+			}
+		}
+	}
+	
+	option = {
+		trigger = { NOT = { has_country_modifier = hired_herald }}
+		name = "vef_jousting.118.opta"
+		add_ruler_modifier = { name = hired_herald duration = -1 }
+		add_treasury = -10
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+	
+	option = {
+		name = "vef_jousting.118.optb"
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+	
+	option = {
+		trigger = { has_country_modifier = hired_herald }
+		name = "vef_jousting.118.optc"
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+# A new champion of the joust
+country_event = {
+	id = vef_jousting.119
+	title = "vef_jousting.119.t"
+	desc = "vef_jousting.119.d"
+	picture = VEF_TOURNAMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_variable_equal = { which = jousting_counter value = 3 }
+		OR = {
+			is_variable_equal = { which = jousting_sequence value = 1 }
+			is_variable_equal = { which = jousting_sequence value = 3 }
+			is_variable_equal = { which = jousting_sequence value = 9 }
+		}
+		NOT = { has_country_flag = jousting_won_bet }
+		NOT = { has_country_flag = jousting_lost_bet }
+		NOT = { has_country_flag = jousting_heir_prowess }
+		NOT = { has_country_flag = jousting_heir_sportsman }
+		NOT = { has_country_flag = jousting_heir_unsportsman }
+		NOT = { has_country_flag = jousting_heir_killed }
+	}
+	
+	option = {
+		name = "vef_jousting.119.opta"
+		create_general = { tradition = 100 }
+		add_prestige = -25
+		add_legitimacy = -10
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+	option = {
+		name = "vef_jousting.119.optb"
+		add_legitimacy = 10
+		hidden_effect = {
+			change_variable = { which = jousting_counter value = 1 }
+			country_event = { id = vef_jousting.101 days = 5 }
+			country_event = { id = vef_jousting.103 days = 5 }
+			country_event = { id = vef_jousting.104 days = 5 }
+			country_event = { id = vef_jousting.105 days = 5 }
+			country_event = { id = vef_jousting.106 days = 5 }
+			country_event = { id = vef_jousting.110 days = 5 }
+			country_event = { id = vef_jousting.111 days = 5 }
+			country_event = { id = vef_jousting.112 days = 5 }
+			country_event = { id = vef_jousting.113 days = 5 }
+			country_event = { id = vef_jousting.114 days = 5 }
+			country_event = { id = vef_jousting.115 days = 5 }
+			country_event = { id = vef_jousting.116 days = 5 }
+			country_event = { id = vef_jousting.117 days = 5 }
+			country_event = { id = vef_jousting.118 days = 5 }
+			country_event = { id = vef_jousting.119 days = 5 }
+			country_event = { id = vef_jousting.200 days = 5 }
+		}
+	}
+}
+
+# Tournament Ends
+country_event = {
+	id = vef_jousting.200
+	title = vef_jousting.200.t
+	desc = vef_jousting.200.d
+	picture = VEF_TOURNAMENT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_variable_equal = { which = jousting_counter value = 4 }
+	}
+
+	option = {	
+		name = "vef_jousting.200.opta"
+		add_prestige = 2
+	}
+}
+
+
+###########
+# The End #
+###########
+
+# The Last Jousting Tournament
+country_event = {
+	id = vef_jousting.900
+	title = vef_jousting.900.t
+	desc = vef_jousting.900.d
+	picture = VEF_TOURNAMENT_eventPicture
+
+	trigger = {
+		technology_group = western
+		government = monarchy
+		is_year = 1560
+		NOT = { is_year = 1600 }
+		NOT = { has_country_flag = last_jousting_tournament_held }
+		adm_power = 30
+		years_of_income = 0.2
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+	}
+	
+	immediate = {
+		set_country_flag = last_jousting_tournament_held
+	}
+	
+	option = {
+		name = vef_jousting.900.a
+		add_country_modifier = {
+			name = "the_last_joust"
+			duration = 7300
+		}
+		add_adm_power = -30
+		add_years_of_income = -0.2
+	}
+	option = {
+		name = vef_jousting.900.b
+		add_prestige = -5
+	}
+}

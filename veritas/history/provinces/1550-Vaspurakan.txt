@@ -1,0 +1,49 @@
+# Vaspurakan
+
+capital = "Vas"
+owner = ILK
+controller = ILK
+add_core = ILK
+add_core = CBN
+culture = armenian
+religion = nestorian
+trade_goods = opium
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = indopersian
+discovered_by = byzantine
+
+add_province_modifier = { name = "nestorian_fidelity" duration = 7300 }
+
+1336.1.1	= { unrest = 0 owner = CBN controller = CBN remove_core = ILK } # Ilkhanate collpases
+1347.1.1	= { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1	= { remove_province_modifier = province_black_death }
+1357.1.1	= { owner = GOL controller = GOL remove_core = CBN } # Golden Horde ends the Chobanid line
+1358.1.1	= { owner = JAI controller = JAI add_core = JAI } # Golden Horde abandons the area
+1380.1.1    = { owner = QAR controller = QAR add_core = QAR remove_core = JAI } # Qara Koyunla
+1387.1.1	= { owner = TIM controller = TIM } # Timur expands his influence east as Kars surrenders
+1406.1.1	= { owner = QAR controller = QAR add_core = QAR } # Qara Yusuf is released on Timur's death and reestablishes himself in Tabriz
+1435.1.1	= { unrest = 25 } #Ak Koyunlu Civil War
+1453.1.1	= { unrest = 0 } #Ak Koyunlu Civil War
+1467.11.11	= { owner = AKK controller = AKK add_core = AKK remove_core = QAR } # The Ak Koyunlu expands on death of Jahan Shah
+1496.2.8	= { controller = REB revolt = { type = pretender_rebels size = 1 name = "Qasim Jahangir's Faction" leader = "Qasim Jahangir Ak Koyunlu" } } # Civil war in Ak Koyunlu
+1507.1.1	= {	owner = PER controller = PER add_territorial_core = PER revolt = { } remove_core = AKK } # The Safavids took over
+1514.8.23	= { add_territorial_core = TUR } # Diyarbakir conquered by Ottomans, Van remains Persian
+1534.7.1	= { controller = TUR } # Wartime occupation
+1535.1.1	= { controller = PER } # Persians recapture Van
+1548.8.25	= { controller = TUR }
+1549.12.1	= {	owner = TUR remove_territorial_core = PER } # Part of the Ottoman empire
+1600.1.1	= { base_manpower = 1 }
+1650.1.1	= { base_manpower = 1 }
+1700.1.1	= { base_manpower = 1 }
+1722.1.1	= { unrest = 5 } # Rebellion against the Ottomans
+1730.1.1	= { unrest = 0 }
+1750.1.1	= { base_manpower = 1 }
+1800.1.1	= { base_manpower = 1.25 }

@@ -1,0 +1,15 @@
+# Calabar
+
+capital = "Calabar"
+owner = BEN
+controller = BEN
+add_core = BEN
+culture = edo_igbo
+religion = odinani
+trade_goods = slaves
+base_tax = 2
+base_production = 2
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = sub_saharan

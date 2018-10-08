@@ -1,0 +1,11 @@
+#Ghanjah
+#model = eastindiaman
+#tech_level = 38
+type = light_ship
+unit_type = muslim
+
+hull_size = 12
+base_cannons = 6
+sail_speed = 8
+trade_power = 5.0
+sailors = 40

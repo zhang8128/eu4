@@ -1,0 +1,21 @@
+# Uaymil
+
+capital = "Uaymil"
+owner = COC
+controller = COC
+add_core = COC
+culture = yucatec
+religion = popol
+trade_goods = cocoa
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+
+discovered_by = mesoamerican
+add_local_autonomy = 25
+
+1547.1.1  = { owner = SPA controller = SPA unrest = 5 } # final defeat of eastern Yucatan alliance
+1572.1.1  = { unrest = 0 add_core = SPA culture = castillian religion = catholic }
+1810.9.16  = { owner = MEX add_core = MEX controller = SPA } # Mexican War of Independence

@@ -1,0 +1,5 @@
+﻿l_english:
+ vef_economy.40000.t: "Good Harvest"
+ vef_economy.40000.d: "$YEAR$ was considered a particularly good year for $COUNTRY$ due to good harvests generating higher incomes than ever before."
+ vef_economy.40000.opta: "Put into the treasury"
+ vef_economy.40000.optb: "Invest the money"

@@ -1,0 +1,158 @@
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+technology_group = byzantine
+primary_culture = bulgarian
+religion = orthodox
+capital = 557	# Sofia
+historical_rival = SER
+historical_rival = BYZ
+
+1300.1.1 = {
+	monarch = {
+		name = "Todor Svetoslav"
+		dynasty = "Terter"
+		birth_date = 1270.1.1
+		adm = 4
+		dip = 3
+		mil = 3
+	}
+}
+
+1305.1.1 = {
+	heir = {
+		name = "Georgi"
+		monarch_name = "Georgi II"
+		dynasty = "Terter"
+		birth_date = 1305.1.1
+		death_date = 1323.1.1
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+}
+
+1308.1.1 = {
+	queen = {
+		country_of_origin = BYZ
+		name = "Theodora"
+		dynasty = "Palaiologos"
+		birth_date = 1301.1.1	#Made up
+		death_date = 1340.1.1	#Made up
+		female = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+	
+1322.1.1 = {
+	monarch = {
+		name = "Georgi II"
+		dynasty = "Terter"
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+}
+
+1323.1.1 = {
+	monarch = {
+		name = "Mihail Asen III"
+		dynasty = "Shishman"
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+	queen = {
+		country_of_origin = BYZ
+		name = "Theodora"
+		dynasty = "Palaiologos"
+		birth_date = 1301.1.1	#Made up
+		death_date = 1340.1.1	#Made up
+		female = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+	heir = {
+		name = "Ivan"
+		monarch_name = "Ivan Stefan"
+		dynasty = "Shishman"
+		birth_date = 1301.1.1
+		death_date = 1373.1.1
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+}
+
+1330.7.31 = {
+	monarch = {
+		name = "Ivan Stefan"
+		dynasty = "Shishman"
+		birth_date = 1301.1.1
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+}
+
+1331.3.1 = {
+	monarch = {
+		name = "Ivan Aleksandar"
+		dynasty = "Shishman"
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+	queen = {
+		country_of_origin = WAL
+		name = "Theodora"
+		dynasty = "Basarab"
+		birth_date = 1310.1.1
+		death_date = 1345.1.1	#Not dead, but divorced and confined to a nunnery
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+	heir = {
+		name = "Ivan Sratsimir"
+		monarch_name = "Ivan Sratsimir"
+		dynasty = "Shishman"
+		birth_date = 1324.1.1
+		death_date = 1397.1.1
+		claim = 95
+		adm = 2
+		dip = 3
+		mil = 4
+	}
+}
+
+1331.12.1 = { remove_historical_rival = SER }
+
+1355.1.1 = {
+	heir = {
+		name = "Ivan"
+		monarch_name = "Ivan"
+		dynasty = "Shishman"
+		birth_date = 1350.1.1
+		death_date = 1397.1.1
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1371.2.17 = {
+	monarch = {
+		name = "Ivan"
+		dynasty = "Shishman"
+		birth_date = 1350.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}

@@ -1,0 +1,43 @@
+imports_exports = {
+#Restrict imports and support exports
+
+	category = 2
+
+	allow = {
+		always = yes
+	}
+	
+	on_issue_taken = {
+		change_variable = { which = parliament_debate value = 1 }
+	}
+	
+	effect = {
+		add_mercantilism = 2
+	}
+	
+	modifier = {
+		global_own_trade_power = 0.05
+	}
+	
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2
+			OR = {
+				has_idea_group = plutocracy_ideas
+				has_idea_group = free_trade_ideas
+				has_idea_group = land_trade_ideas
+				has_idea_group = mercantilist_ideas
+				has_idea_group = economic_ideas
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 1	
+		modifier = {
+			factor = 0
+			has_idea_group = free_trade_ideas
+		}
+	}	
+}

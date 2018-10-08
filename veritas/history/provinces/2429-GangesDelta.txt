@@ -1,0 +1,6 @@
+# Ganges Delta
+discovered_by = PEG
+discovered_by = MLC
+discovered_by = TAU
+discovered_by = ARK
+discovered_by = indian

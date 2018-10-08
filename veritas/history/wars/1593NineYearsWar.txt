@@ -1,0 +1,75 @@
+name = "Tyrone's Rebellion"
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+	tag = TYR
+}
+
+1593.4.1 = {
+	add_attacker = TYR
+	add_defender = IRE
+}
+
+1598.8.14 = {
+	battle = {
+		name = "Yellow Ford"
+		location = 54
+		attacker = {
+			commander = "Hugh O'Neill"	
+			infantry = 5000
+			losses = 5	# percent	
+			country = TYR
+		}
+		defender = {
+			commander = "Sir Henry Bagenal"
+			infantry = 4000
+			losses = 40	# percent
+			country = IRE
+		}
+		result = no
+	}
+}
+
+#War escalates in the face of the victory at Yellow Ford
+1598.10.12 = {
+	add_attacker = DMS
+	add_attacker = MCM
+	add_attacker = LEI
+	add_defender = ENG
+}
+
+#Earl of Desmond disbands his forces
+1600.10.1 = {
+	rem_attacker = DMS
+}
+
+1602.1.5 = {
+	battle = {
+		name = "Kinsale"
+		location = 49
+		attacker = {
+			commander = "Hugh Roe O'Donnell"	
+			infantry = 5000
+			cavalry = 1000
+			losses = 40	# percent	
+			country = TYR
+		}
+		defender = {
+			commander = "Charles Blount"
+			infantry = 6000
+			cavalry = 1000
+			losses = 5	# percent
+			country = ENG
+		}
+		result = yes
+	}
+}
+
+# End of the Rebellion
+1603.3.31 = {
+	rem_attacker = TYR
+	rem_attacker = MCM
+	rem_attacker = LEI
+	rem_defender = ENG
+	rem_defender = IRE
+}

@@ -1,0 +1,17 @@
+# Mora
+#Province IDs changed
+
+capital = "Mora"
+owner = ETH
+controller = ETH
+add_core = ETH
+culture = somali
+religion = sunni
+base_tax = 2
+base_production = 2
+base_manpower = 3
+trade_goods = millet
+discovered_by = sudanese_tech
+discovered_by = muslim
+hre = no
+is_city = yes

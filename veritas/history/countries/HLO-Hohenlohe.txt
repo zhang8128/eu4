@@ -1,0 +1,300 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+technology_group = western
+religion = catholic
+primary_culture = alemannic
+capital = 310
+
+#Hohenlohe-Weikersheim
+
+1266.1.1 = {
+	monarch = {
+		name = "Kraft I"
+		dynasty = "von Hohenlohe"
+		birth_date = 1240.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1290.1.1 = {
+	heir = {
+		name = "Kraft"
+		monarch_name = "Kraft II"
+		dynasty = "von Hohenlohe"
+		birth_date = 1290.1.1
+		death_date = 1344.5.8
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1313.9.19 = {
+	monarch = {
+		name = "Kraft II"
+		dynasty = "von Hohenlohe"
+		birth_date = 1290.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1318.1.1 = {
+	heir = {
+		name = "Kraft"
+		monarch_name = "Kraft III"
+		dynasty = "von Hohenlohe"
+		birth_date = 1318.1.1
+		death_date = 1371.11.16
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1344.5.8 = {
+	monarch = {
+		name = "Kraft III"
+		dynasty = "von Hohenlohe"
+		birth_date = 1318.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1368.1.1 = {
+	heir = {
+		name = "Albrecht"
+		monarch_name = "Albrecht I"
+		dynasty = "von Hohenlohe"
+		birth_date = 1368.1.1
+		death_date = 1429.6.15
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1371.11.16 = {
+	monarch = {
+		name = "Albrecht I"
+		dynasty = "von Hohenlohe"
+		birth_date = 1368.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1416.1.1 = {
+	heir = {
+		name = "Kraft"
+		monarch_name = "Kraft V"
+		dynasty = "von Hohenlohe"
+		birth_date = 1416.1.1
+		death_date = 1472.3.31
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1429.6.15 = {
+	monarch = {
+		name = "Kraft V"
+		dynasty = "von Hohenlohe"
+		birth_date = 1416.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1452.1.1 = {
+	heir = {
+		name = "Kraft"
+		monarch_name = "Kraft VI"
+		dynasty = "von Hohenlohe"
+		birth_date = 1452.1.1
+		death_date = 1503.8.2
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1472.3.31 = {
+	monarch = {
+		name = "Kraft VI"
+		dynasty = "von Hohenlohe"
+		birth_date = 1452.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1503.8.2 = {
+	monarch = {
+		name = "Georg I"
+		dynasty = "von Hohenlohe"
+		birth_date = 1488.1.17
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1517.1.12 = {
+	heir = {
+		name = "Ludwig Casimir"
+		monarch_name = "Ludwig Casimir"
+		dynasty = "von Hohenlohe"
+		birth_date = 1517.1.12
+		death_date = 1568.8.24
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+#Hohenlohe-Neuenstein
+1551.3.16 = {
+	religion = protestant
+	monarch = {
+		name = "Ludwig Casimir"
+		dynasty = "von Hohenlohe"
+		birth_date = 1517.1.12
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Philipp"
+		monarch_name = "Philipp"
+		dynasty = "von Hohenlohe"
+		birth_date = 1550.2.17
+		death_date = 1606.3.6
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1568.8.24 = {
+	monarch = {
+		name = "Philipp"
+		dynasty = "von Hohenlohe"
+		birth_date = 1550.2.17
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1606.3.6 = {
+	monarch = {
+		name = "Wolfgang II"
+		dynasty = "von Hohenlohe"
+		birth_date = 1546.6.14
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Kraft"
+		monarch_name = "Kraft VII"
+		dynasty = "von Hohenlohe"
+		birth_date = 1582.11.14
+		death_date = 1641.9.11
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1610.3.28 = {
+	monarch = {
+		name = "Kraft VII"
+		dynasty = "von Hohenlohe"
+		birth_date = 1582.11.14
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1617.7.31 = {
+	heir = {
+		name = "Johann Friedrich"
+		monarch_name = "Johann Friedrich I"
+		dynasty = "von Hohenlohe"
+		birth_date = 1617.7.31
+		death_date = 1702.10.17
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1641.9.11 = {
+	monarch = {
+		name = "Johann Friedrich I"
+		dynasty = "von Hohenlohe"
+		birth_date = 1617.7.31
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1683.1.1 = {
+	heir = {
+		name = "Johann Friedrich"
+		monarch_name = "Johann Friedrich II"
+		dynasty = "von Hohenlohe"
+		birth_date = 1683.1.1
+		death_date = 1765.1.1
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1702.10.17 = {
+	monarch = {
+		name = "Johann Friedrich II"
+		dynasty = "von Hohenlohe"
+		birth_date = 1683.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1765.1.1 = {
+	monarch = {
+		name = "Ludwig Friedrich"
+		dynasty = "von Hohenlohe"
+		birth_date = 1723.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+# 1806.7.12 - Mediatised into Württemberg

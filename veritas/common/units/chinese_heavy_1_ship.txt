@@ -1,0 +1,10 @@
+#Louchuan
+#model = carrack
+#tech_level = 0
+type = heavy_ship
+unit_type = chinese
+
+hull_size = 16
+base_cannons = 16
+sail_speed = 4
+sailors = 300

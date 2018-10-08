@@ -1,0 +1,38 @@
+government = republic
+government_rank = 3
+technology_group = western
+primary_culture = american
+religion = protestant
+capital = 2234 # Richmond
+
+1861.2.18 = {
+	monarch = {
+		name = "Jefferson Davis"
+		adm = 4	
+		dip = 3	
+		mil = 3
+	}
+}
+
+1861.4.17  = { 
+	leader = {	
+		name = "Robert E. Lee"
+		type = general	
+		fire = 3	
+		shock = 3	
+		manuever = 4	
+		siege = 0 
+		death_date = 1870.10.12
+	} 
+}
+1861.4.17  = { 
+	leader = {	
+		name = "Thomas 'Stonewall' Jackson"
+		type = general	
+		fire = 3	
+		shock = 4	
+		manuever = 3	
+		siege = 0 
+		death_date = 1863.5.10
+	} 
+}

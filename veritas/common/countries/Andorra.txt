@@ -1,0 +1,164 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 179  167  87 }
+
+historical_idea_groups = {
+	mercenary_ideas
+	mercantilist_ideas
+	economic_ideas
+	defensive_ideas
+	diplomatic_ideas
+	cultural_unity_ideas
+	quantity_ideas
+	gf1_ideas
+}
+
+historical_units = { 
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+
+
+historical_score = 400
+
+
+
+monarch_names = {
+	"Ferran #0" = 40
+	"Alfons #3" = 20
+	"Joan #1" = 20
+	"Carles #0" = 10
+	"Pere #3" = 5
+	"Sanç #1" = 5
+	"Enric #0" = 5
+	"Jaume #2" = 5
+	"Martí #0" = 20
+	"Andreu #0" = 0
+	"Antoni #0" = 0
+	"Arnau #0" = 0
+	"Ausiàs #0" = 0
+	"Bartomeu #0" = 0
+	"Bernat #0" = 0
+	"Cèsar #0" = 0
+	"Domènec #0" = 0
+	"Felip #0" = 0
+	"Francesc #0" = 0
+	"Frederic #0" = 0
+	"Gaspar #0" = 0
+	"Gil #0" = 0
+	"Gonçal #0" = 0
+	"Guillem #0" = 0
+	"Hug #0" = 0
+	"Ignasi #0" = 0
+	"Ildefons #0" = 0
+	"Jeroni #0" = 0
+	"Jordi #0" = 0
+	"Josep #0" = 0
+	"Llorenç #0" = 0
+	"Lluís #0" = 0
+	"Pere Lluís #0" = 0
+	"Ponç #0" = 0
+	"Ramon #0" = 0
+	"Roderic #0" = 0
+	"Simeó #0" = 0
+	"Tomàs #0" = 0
+	"Dídac #0" = 0
+	"García #0" = 0
+	
+	"Alejandra #0" = -5
+	"Candela #0" = -5
+	"Estrella #0" = -5
+}
+
+leader_names = {
+	"de Alagón" Amic d'Aragó Arbués d'Àustria "de Ayerbe"
+	Balaguer Barceló "de Belchite" Berguedà Bielsa "de Borja" "de Cabrera" Cajal Colom
+	Domènec d'Empúries "Fernández de Hijar" Ferrer "Folc de Cardona" Franco
+	Galindo "Gil de Biedma" Gisbert "de Guimerà" "de Gotor" "de Gurrea" d'Ixer Loaisa "de Luna"
+	Martorell "de Montcada" Monteagudo Muntaner Oliva Ordovás d'Ors Peña "Pérez de Coloma" Piquer
+	"de Requesens" "de la Riba" Ripoll "de Ripperdá" 
+	Sastre d'Urgell Vallès Veldrán Vilamarí Villarroya "de Zaporta" 
+}
+
+ship_names = {
+	"Blanca Aurora" "Sant Jacob" Flama Lleona Falcó "La Bonaventura" "Sant Antoni" 
+	"Sant Miquel" "Sant Bernat" "Sant Francesc" "Santa Ágata" "Santa Eulàlia" 
+	"Sant Gabriel" "Sant Climent" "Sant Jordi" "La Reial" Trinitat "Santa Creu" 
+	"Santa Maria" "Santa Caterina" "Sant Joan Evangelista" "Santa Bàrbara" 
+	"Sant Pere de Roma" "La Gasela" "Santa Magdalena" "Sant Víctor" Magnana 
+	"Santa Ventura" "Santa Coloma" "Sant Ambrós" "La Garsa"  
+}
+
+army_names = {
+	"Terç de $PROVINCE$"
+}

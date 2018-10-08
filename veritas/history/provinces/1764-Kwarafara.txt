@@ -1,0 +1,16 @@
+# Kwarafara
+
+capital = "Kwarafara"
+owner = NRI
+controller = NRI
+add_core = NRI
+culture = edo_igbo
+religion = odinani
+trade_goods = grain
+base_tax = 1
+base_production = 1
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = sudanese_tech
+discovered_by = sub_saharan

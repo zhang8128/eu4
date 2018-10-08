@@ -1,0 +1,10 @@
+#Iki Ambarli
+#model = twodecker
+#tech_level = 38
+type = heavy_ship
+unit_type = ottoman
+
+hull_size = 54
+base_cannons = 88
+sail_speed = 5
+sailors = 700

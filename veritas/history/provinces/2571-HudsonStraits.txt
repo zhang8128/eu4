@@ -1,0 +1,3 @@
+# Hudson Straits
+#Province IDs changed
+1610.1.1 = { discovered_by = ENG }

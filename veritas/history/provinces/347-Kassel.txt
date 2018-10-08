@@ -1,0 +1,38 @@
+# Kassel
+
+owner = HES
+controller = HES
+add_core = HES
+capital = "Kassel"
+trade_goods = grain
+culture = rhinefranconian
+religion = catholic
+base_tax = 4
+base_production = 4
+base_manpower = 3
+is_city = yes
+hre = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1500.1.1   = { citysize = 7000 }
+1536.1.1   = { religion = protestant }
+1550.1.1   = { citysize = 9000 }
+1685.1.1   = { citysize = 14000 base_manpower = 2}
+1730.3.23  = { owner = SWE controller = SWE courthouse = yes } # Friedrich I is nominally King in Sweden, even thogh he has little power there.
+1751.4.5   = { owner = HES controller = HES citysize = 16000}
+1806.7.12  = { hre = no } # The Holy Roman Empire is dissolved
+1807.7.9   = {	owner = WES
+		controller = WES
+		add_core = WES		
+	     } # The Second Treaty of Tilsit, the kingdom of Westfalia
+1813.9.1   = { controller = RUS } # Occupied by Russian troops
+1813.10.14 = {	owner = HES
+		controller = HES
+		remove_core = WES
+	     } # Westfalia is dissolved after the Battle of Leipsig

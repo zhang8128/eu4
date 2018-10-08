@@ -1,0 +1,17 @@
+# Nasirabad
+#Province IDs changed
+
+owner = BNG
+controller = BNG
+culture = bengali
+religion = buddhism
+capital = "Nasirabad"
+trade_goods = silk
+hre = no
+base_tax = 4
+base_production = 4
+base_manpower = 1
+add_core = BNG
+is_city = yes
+discovered_by = chinese
+discovered_by = indian

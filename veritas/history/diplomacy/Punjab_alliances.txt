@@ -1,0 +1,6 @@
+union = {
+	first = MSU
+	second = MKY
+	start_date = 1796.1.1
+	end_date = 1801.4.12
+}

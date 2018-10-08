@@ -1,0 +1,16 @@
+# Welamo
+#Province IDs changed
+
+owner = ETH
+controller = ETH
+add_core = ETH
+culture = oromo
+religion = waaq
+capital = "Welamo"
+is_city = yes
+hre = no
+base_tax = 1
+base_production = 1
+base_manpower = 2
+trade_goods = coffee
+discovered_by = sudanese_tech

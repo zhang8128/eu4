@@ -1,0 +1,87 @@
+#English Decisions
+country_decisions = {
+	laws_in_wales_act = {
+		potential = {
+			tag = ENG
+			OR = {
+				AND = {
+					has_parliament = yes
+					any_owned_province = { area = wales_area has_seat_in_parliament = no }
+				}
+				NOT = { accepted_culture = welsh }
+			}
+			NOT = { current_age = late_medieval_age }
+			NOT = { has_country_flag = vef_laws_in_wales }
+		}
+
+		allow = {
+			current_age = age_of_reformation
+			has_any_disaster = no
+		}
+
+		effect = {
+			if = {
+				limit = { NOT = { accepted_culture = welsh }}
+				add_accepted_culture = welsh
+			}
+			if = {
+				limit = { has_parliament = yes }
+				every_owned_province = {
+					limit = { area = wales_area }
+					set_seat_in_parliament = yes
+				}
+			}
+			set_country_flag = vef_laws_in_wales
+		}
+
+		ai_will_do = { 
+			factor = 1 
+		}
+
+		ai_importance = 1000
+	}
+	
+	crown_of_ireland_act = {
+		major = yes
+		potential = {
+			tag = ENG
+			is_subject = no
+			any_owned_province = {
+				province_group = ireland_group
+			}
+			NOT = { current_age = late_medieval_age }
+			NOT = { exists = IRE }
+			NOT = { has_country_flag = vef_irish_crown }
+		}
+
+		allow = {
+			current_age = age_of_reformation
+			has_any_disaster = no
+		}
+
+		effect = {
+			every_owned_province = {
+				limit = { province_group = ireland_group }
+				cede_province = IRE
+				add_core = IRE
+			}
+			create_union = IRE
+			IRE = {
+				change_government = monarchy
+				if = {
+					limit = { ROOT = { has_reform = english_monarchy }}
+					add_government_reform = english_monarchy
+					set_legacy_government = english_monarchy_legacy
+					every_owned_province = { set_seat_in_parliament = yes }
+				}
+			}
+			set_country_flag = vef_irish_crown
+		}
+
+		ai_will_do = { 
+			factor = 1 
+		}
+
+		ai_importance = 1000
+	}
+}

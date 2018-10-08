@@ -1,0 +1,45 @@
+government = tribal add_government_reform = steppe_horde
+government_rank = 3
+technology_group = nomad_group
+primary_culture = persian
+religion = shiite
+capital = 1531
+ 
+add_country_modifier = { name = "silk_road_modifier" duration = -1 }
+set_country_flag = horde_collapse
+add_stability = -2
+
+1304.1.1 = {
+	monarch = {
+		name = "Oljaitu"
+		dynasty = "Ilkhanid"
+		adm = 1
+		dip = 2
+		mil = 5
+	}
+}
+
+1305.6.2 = {
+	heir = {
+		name = "Abu Sa'id"
+		monarch_name = "Abu Sa'id"
+		dynasty = "Ilkhanid"
+		birth_date = 1305.6.2
+		death_date = 1335.12.1
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 4
+	}
+}
+
+1316.12.16 = {
+	monarch = {
+		name = "Abu Sa'id"
+		dynasty = "Ilkhanid"
+		birth_date = 1305.6.2
+		adm = 1
+		dip = 2
+		mil = 4
+	}
+}

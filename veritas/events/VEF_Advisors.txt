@@ -1,0 +1,118 @@
+# Advisor events
+namespace = vef_advisors
+
+# Random chance of new event-driven advisors - start at ADM 5
+#
+# Monk
+country_event = {
+	id = vef_advisors.71000
+	title = "vef_advisors.71000.t"
+	desc = "vef_advisors.71000.d"
+
+	picture = VEF_ADVISOR_eventPicture
+
+	trigger = {
+		OR = {
+			religion = orthodox
+			secondary_religion = orthodox
+		}
+		adm_tech = 15
+	}
+
+	# On average, every 50 years
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			factor = 0.75
+			patriarch_authority = 0.75
+		}
+
+		modifier = {
+			factor = 0.75
+			faction_in_power = byz_patriarchal
+		}
+	}
+
+	option = {
+		name = "vef_advisors.71000.opta"
+		random_list = {
+			50 = { define_advisor = { type = orthodox_monk skill = 1 }}
+			35 = { define_advisor = { type = orthodox_monk skill = 2 }}
+			15 = { define_advisor = { type = orthodox_monk skill = 3 }}
+		}
+	}
+}
+
+# Jesuit
+country_event = {
+	id = vef_advisors.71001
+	title = "vef_advisors.71001.t"
+	desc = "vef_advisors.71001.d"
+
+	picture = VEF_ADVISOR_eventPicture
+
+	trigger = { 
+		has_global_flag = jesuit_order
+		OR = {
+			religion = catholic
+			secondary_religion = catholic
+		}
+		adm_tech = 15
+	}
+
+	# On average, every 50 years
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			has_country_modifier = jesuit_influence
+		}
+	}
+
+	option = {
+		name = "vef_advisors.71000.opta"
+		random_list = {
+			50 = { define_advisor = { type = jesuit skill = 1 }}
+			35 = { define_advisor = { type = jesuit skill = 2 }}
+			15 = { define_advisor = { type = jesuit skill = 3 }}
+		}
+	}
+}
+
+# Imam
+country_event = {
+	id = vef_advisors.71002
+	title = "vef_advisors.71002.t"
+	desc = "vef_advisors.71002.d"
+
+	picture = VEF_ADVISOR_eventPicture
+
+	trigger = { 
+		OR = {
+			religion_group = muslim
+			secondary_religion = sunni
+			secondary_religion = shiite
+			secondary_religion = ibadi
+		}
+		adm_tech = 15
+	}
+
+	# On average, every 50 years
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.5
+			NOT = { piety = 0 }
+		}
+	}
+
+	option = {
+		name = "vef_advisors.71002.opta"
+		random_list = {
+			50 = { define_advisor = { type = imam skill = 1 }}
+			35 = { define_advisor = { type = imam skill = 2 }}
+			15 = { define_advisor = { type = imam skill = 3 }}
+		}
+	}
+}

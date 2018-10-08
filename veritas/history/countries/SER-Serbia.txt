@@ -1,0 +1,376 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+primary_culture = serbian
+religion = orthodox
+technology_group = byzantine
+capital = 554 # Skopje
+
+historical_friend = HUN
+historical_rival = BUL
+historical_rival = BYZ
+
+1282.1.1 = {
+	monarch = {
+		name = "Urosh II"
+		dynasty = "Nemanjic"
+		birth_date = 1253.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1285.1.1 = {
+	heir = {
+		name = "Urosh"
+		monarch_name = "Urosh III"
+		dynasty = "Nemanjic"
+		birth_date = 1285.1.1
+		death_date = 1331.11.11
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 5
+	}
+}
+
+1321.10.29 = {
+	monarch = {
+		name = "Urosh III"
+		dynasty = "Nemanjic"
+		birth_date = 1285.1.1
+		adm = 3
+		dip = 3
+		mil = 5
+	}
+	queen = {
+		country_of_origin = BUL
+		name = "Theodora"
+		dynasty = "Basarab"
+		birth_date = 1280.1.1	#Made up
+		death_date = 1322.12.20	#Possibly dead or divorced and exiled; sources differ
+		female = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+	heir = {
+		name = "Urosh"
+		monarch_name = "Urosh VI"
+		dynasty = "Nemanjic"
+		birth_date = 1308.1.1
+		death_date = 1355.12.20
+		claim = 95
+		adm = 4
+		dip = 4
+		mil = 5
+	}
+}
+
+1324.1.1 = {
+	queen = {
+		country_of_origin = BYZ
+		name = "Maria"
+		dynasty = "Palaiologos"
+		birth_date = 1305.1.1	#Made up
+		death_date = 1355.4.7
+		female = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1331.11.11 = {
+	monarch = {
+		name = "Urosh IV"
+		dynasty = "Nemanjic"
+		birth_date = 1308.1.1
+		adm = 4
+		dip = 4
+		mil = 5
+	}
+}
+
+# Urosh IV's policy was of alliance with the new monarch of Bulgaria but dispute with the
+# Hungarians over control of Belgrade and Bosnia.
+1331.12.1 = { remove_historical_rival = BUL remove_historical_friend = HUN }
+
+1332.4.26 = {
+	queen = {
+		country_of_origin = BUL
+		name = "Helena"
+		dynasty = "Shishman"
+		birth_date = 1316.1.1
+		death_date = 1359.1.1
+		female = yes
+		adm = 4
+		dip = 3
+		mil = 1
+	}
+}
+
+1336.1.1 = {
+	heir = {
+		name = "Urosh"
+		monarch_name = "Urosh V"
+		dynasty = "Nemanjic"
+		birth_date = 1336.1.1
+		death_date = 1371.12.4
+		claim = 95
+		adm = 0
+		dip = 1
+		mil = 0
+	}
+}
+
+1355.12.20 = {
+	monarch = {
+		name = "Urosh V"
+		dynasty = "Nemanjic"
+		birth_date = 1336.1.1
+		adm = 0
+		dip = 1
+		mil = 0
+	}
+}
+
+1360.6.1 = {
+	queen = {
+		country_of_origin = WAL
+		name = "Anna"
+		dynasty = "Basarab"
+		birth_date = 1340.1.1	#Made up
+		death_date = 1390.1.1	#Made up
+		female = yes
+		adm = 4
+		dip = 3
+		mil = 1
+	}
+}
+
+1371.12.3 = {
+	government_rank = 2
+	monarch = {
+		name = "Lazar"
+		dynasty = "Lazarevic"
+		birth_date = 1329.1.1
+		adm = 4
+		dip = 3
+		mil = 4
+	}
+}
+
+1373.1.1 = { capital = 546 } #Belgrade
+
+1389.6.15 = {
+	monarch = {
+		name = "Stefan II"
+		dynasty = "Lazarevic"
+		birth_date = 1377.1.1
+		adm = 5
+		dip = 3
+		mil = 4
+	}
+}
+
+1397.6.24 = {
+	heir = {
+		name = "Ðurad"
+		monarch_name = "Ðurad I"
+		dynasty = "Brankovic"
+		birth_date = 1377.1.1
+		death_date = 1456.12.24
+		claim = 85
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1402.7.1 = {
+	government_rank = 3
+}	
+
+1427.7.20 = {
+	monarch = {
+		name = "Ðurad I"
+		dynasty = "Brankovic"
+		birth_date = 1377.1.1
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1427.7.20 = {
+	heir = {
+		name = "Lazar"
+		monarch_name = "Lazar II"
+		dynasty = "Brankovic"
+		birth_date = 1421.1.1
+		death_date = 1458.2.20
+		claim = 95
+		adm = 2
+		dip = 1
+		mil = 1
+	}
+}
+
+1456.12.25 = {
+	monarch = {
+		name = "Lazar II"
+		dynasty = "Brankovic"
+		birth_date = 1421.1.1
+		adm = 2
+		dip = 1
+		mil = 1
+	}
+}
+
+1456.12.25 = {
+	heir = {
+		name = "Stefan"
+		monarch_name = "Stefan III"
+		dynasty = "Brankovic"
+		birth_date = 1417.1.1
+		death_date = 1476.10.9
+		claim = 85
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1458.1.21 = {
+	monarch = {
+		name = "Stefan III"
+		dynasty = "Brankovic"
+		birth_date = 1417.1.1
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1459.4.9 = {
+	monarch = {
+		name = "Stjepan Tomaševic"
+		dynasty = "Kotromanic"
+		birth_date = 1438.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1781.1.1 = { leader = {	name = "Peter I"               	type = general fire = 2	shock = 3	manuever = 3	siege = 1	death_date = 1830.10.18 } }
+
+1804.2.14 = {
+	monarch = {
+		name = "Ðorde I Petrovic"
+		dynasty = "Karadordevic"
+		birth_date = 1762.11.16
+		adm = 5
+		dip = 4
+		mil = 4
+	}
+}
+
+1806.10.11 = {
+	heir = {
+		name = "Alexander"
+		monarch_name = "Alexander I"
+		dynasty = "Karadordevic"
+		claim = 95
+		birth_date = 1806.10.11
+		death_date = 1885.5.3
+		adm = 2
+		dip = 1
+		mil = 0
+	}
+}
+
+1813.10.4 = {
+	monarch = {
+		name = "Milosh I"
+		dynasty = "Obrenovic"
+		birth_date = 1806.10.11
+		adm = 4
+		dip = 5
+		mil = 5
+	}
+}
+
+1819.10.21 = {
+	heir = {
+		name = "Milan"
+		monarch_name = "Milan"
+		dynasty = "Obrenovic"
+		birth_date = 1819.10.21
+		death_date = 1839.7.6
+		claim = 95
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1839.6.25 = {
+	monarch = {
+		name = "Milan"
+		dynasty = "Obrenovic"
+		birth_date = 1819.10.21
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1839.6.25 = {
+	heir = {
+		name = "Mihailo"
+		monarch_name = "Mihailo"
+		dynasty = "Obrenovic"
+		birth_date = 1823.9.16
+		death_date = 1868.6.10
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+
+1839.7.8 = {
+	monarch = {
+		name = "Mihailo"
+		dynasty = "Obrenovic"
+		birth_date = 1823.9.16
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+
+1842.9.14 = {
+	monarch = {
+		name = "Aleksandar"
+		dynasty = "Karadjordjevic"
+		birth_date = 1806.10.11
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1858.12.23 = {
+	monarch = {
+		name = "Milosh I"
+		dynasty = "Obrenovic"
+		birth_date = 1806.10.11
+		adm = 4
+		dip = 5
+		mil = 5
+	}
+}

@@ -1,0 +1,5 @@
+# Lake Michigan
+#Province IDs changed
+discovered_by = north_american
+
+1634.1.1 = { discovered_by = FRA }

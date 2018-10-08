@@ -1,0 +1,26 @@
+# Sind Sagar
+
+capital = "Karor"
+owner = DLH
+controller = DLH
+add_core = DLH
+add_core = MUL
+culture = panjabi
+religion = sunni
+trade_goods = cotton
+base_tax = 2
+base_production = 2
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = nomad_group
+discovered_by = muslim
+discovered_by = indopersian
+discovered_by = indian
+
+1398.1.1	= { owner = TIM controller = TIM } #Timur's invasion of India
+1399.1.1	= { owner = MUL controller = MUL remove_core = DLH }
+1544.1.1 = {	owner = BNG controller = BNG } # Sur Expansionism
+1545.1.1 = {	owner = SND controller = SND } # Sher Shah dies
+1591.1.1 = {	owner = MUG controller = MUG add_core = MUG } # Integrated into Mughal Empire
+1739.1.1 = {	owner = SND controller = SND remove_core = MUG }

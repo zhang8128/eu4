@@ -1,0 +1,10 @@
+#Paraw
+#model = galley
+#tech_level = 0
+type = galley
+unit_type = chinese
+
+hull_size = 4
+base_cannons = 2
+sail_speed = 6
+sailors = 100

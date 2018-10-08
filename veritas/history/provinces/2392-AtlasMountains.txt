@@ -1,0 +1,3 @@
+# Atlas Mountains
+#Province IDs changed
+discovered_by = muslim

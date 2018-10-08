@@ -1,0 +1,31 @@
+# Echizen
+# Manpower revision complete
+#Province IDs changed
+
+owner = MUR
+controller = MUR
+culture = japanese
+religion = shinto
+capital = "Fukui"
+trade_goods = glassware
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 5
+add_core = MUR
+is_city = yes
+discovered_by = chinese
+discovered_by = niitaka
+
+1400.1.1	= { base_manpower = 2.5 }
+1460.1.1	= { add_core = ASA }
+1471.7.1	= { owner = ASA controller = ASA }
+1487.1.1	= { remove_core = MUR }
+1500.1.1	= { base_manpower = 3.5 }
+1568.1.1	= { add_core = ODA }
+1573.7.1	= { add_core = JAP owner = JAP controller = JAP remove_core = ASA remove_core = ODA }
+1600.1.1	= { base_manpower = 4.5 }
+1650.1.1	= { base_manpower = 5 }
+1700.1.1	= { base_manpower = 6 }
+1750.1.1	= { base_manpower = 6 }
+1800.1.1	= { base_manpower = 5.75 }

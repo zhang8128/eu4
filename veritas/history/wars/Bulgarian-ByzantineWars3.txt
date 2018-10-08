@@ -1,0 +1,12 @@
+# Byzantine reconquest of Burgas
+
+name = "Third Bulgarian-Byzantine War"
+
+war_goal = {
+	type = take_core
+	casus_belli = cb_core	
+	province = 562 # Burgas	
+}
+
+1330.7.1 = {	add_attacker = BYZ	add_defender = BUL	}
+1332.7.18 = {	rem_attacker = BYZ	rem_defender = BUL	} # Status quo

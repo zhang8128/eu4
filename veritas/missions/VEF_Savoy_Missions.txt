@@ -1,0 +1,93 @@
+sav_missions = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = SAV
+	}
+	has_country_shield = yes
+	
+	sav_mediterranean_port = {
+		icon = mission_galleys_in_port
+		required_missions = { }
+		completed_by = 1562.1.1
+		provinces_to_highlight = {
+			OR = {
+				province_id = 132
+				province_id = 255
+			}
+		}
+		trigger = {
+			132 = { country_or_non_sovereign_subject_holds = ROOT }
+			255 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			256 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	sav_take_saluzzo = {
+		icon = mission_have_two_subjects
+		required_missions = { sav_mediterranean_port }
+		completed_by = 1631.1.1
+		provinces_to_highlight = {
+			province_id = 256
+		}
+		trigger = {
+			256 = { country_or_non_sovereign_subject_holds = ROOT }
+			OR = {
+				NOT = { exists = SAL }
+				SAL = { is_subject_of = ROOT }
+			}
+		}
+		effect = {
+			259 = { add_permanent_claim = ROOT }
+			260 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	sav_montferrat_expansion = {
+		icon = mission_conquer_50_development
+		required_missions = { sav_take_saluzzo }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 259
+				province_id = 260
+			}
+		}
+		trigger = {
+			259 = { country_or_non_sovereign_subject_holds = ROOT }
+			260 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			corsica_sardinia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	sav_invade_sardinia = {
+		icon = mission_invade_island
+		required_missions = { sav_montferrat_expansion }
+		provinces_to_highlight = {
+			area = corsica_sardinia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			corsica_sardinia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "mediterranean_ambition"
+				duration = 3650
+			}
+		}
+	}
+}

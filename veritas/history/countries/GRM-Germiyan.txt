@@ -1,0 +1,54 @@
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 2
+primary_culture = turkish
+religion = sunni
+technology_group = ottoman
+capital = 604	# Germiyan
+
+1300.1.1 = {
+	monarch = {
+		name = "Yakub I"
+		dynasty = "Germiyanoglu"
+		adm = 4
+		dip = 1
+		mil = 2
+	}
+	add_piety = 0.1
+}
+
+1340.1.1 = {
+	monarch = {
+		name = "Mehmed I"
+		dynasty = "Germiyanoglu"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+	add_piety = 0.1
+}
+
+1363.1.1 = {
+	monarch = {
+		name = "Suleyman I"
+		dynasty = "Germiyanoglu"
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+	add_piety = 0.1
+}
+
+1376.1.1 = { capital = 609 } #Kutahya given to Ottomans as a dowry
+
+1388.1.1 = {
+	monarch = {
+		name = "Yakub II"
+		dynasty = "Germiyanoglu"
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+	add_piety = 0.1
+}
+
+# Annexed by the Ottoman Empire

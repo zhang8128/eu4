@@ -1,0 +1,41 @@
+# Diyarbakir
+#Province IDs changed
+
+owner = ILK
+controller = ILK
+culture = kurdish
+religion = sunni
+capital = "Diyar Bekir"
+trade_goods = copper
+hre = no
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+add_core = ILK
+add_core = DUL
+fort_15th = yes #Fortress City of Amed/Diyarbakir as well as the Citadel of Mardin which withstood repeated sieges by Timur and was frequently seiged in Ottoman-Safavid conflicts.
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = indopersian
+discovered_by = indian
+discovered_by = byzantine
+discovered_by = ottoman
+
+1336.1.1	= { unrest = 0 owner = DUL controller = DUL remove_core = ILK } # Ilkhanate collpases
+1347.1.1	= { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1	= { remove_province_modifier = province_black_death }
+1375.1.1	= { controller = QAR owner = QAR add_core = QAR remove_core = DUL }
+1402.1.1	= { controller = AKK owner = AKK add_core = AKK remove_core = QAR } # Given to Aq Qoyunlu by Tamerlane
+1435.1.1 = { unrest = 10 } #Ak Koyunlu Civil War
+1453.1.1 = { unrest = 0 discovered_by = western } #Ak Koyunlu Civil War
+1496.2.8 = { controller = REB revolt = { type = pretender_rebels size = 1 name = "Qasim Jahangir's Faction" leader = "Qasim Jahangir Ak Koyunlu" } } # Civil war in Ak Koyunlu
+1507.1.1 = { owner = PER controller = PER add_territorial_core = PER revolt = { } remove_core = AKK } # The Safavids took over
+1514.8.23 = { add_territorial_core = TUR } # Diyarbakir conquered by Ottomans, Van remains Persian
+1534.7.1 = { controller = TUR } # Wartime occupation
+1535.1.1 = { controller = PER } # Persians recapture Van
+1548.8.25 = { controller = TUR }
+1549.12.1 = { owner = TUR remove_territorial_core = PER } # Part of the Ottoman empire
+1722.1.1 = { unrest = 5 } # Rebellion against the Ottomans
+1730.1.1 = { unrest = 0 }

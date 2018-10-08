@@ -1,0 +1,82 @@
+country_decisions = {
+	eyalet_in_egypt = {
+		potential = {
+			tag = TUR
+			normal_or_historical_nations = yes
+			OR = {
+				MAM = { is_subject_of = ROOT }
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 4
+						region = egypt_region
+						NOT = { area = lower_nubia_area }
+					}
+					NOT = { exists = EGM }
+				}
+			}
+			is_subject = no
+			NOT = { has_country_flag = egy_decision }
+		}		
+		allow = {
+			OR = {
+				MAM = { is_subject_of = ROOT }
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 6
+						region = egypt_region
+						NOT = { area = lower_nubia_area }
+					}
+					NOT = { exists = EGM }
+				}
+			}
+		}		
+		effect = {
+			hidden_effect = {
+				every_province = {
+					limit = {
+						region = egypt_region
+						NOT = { area = lower_nubia_area }
+					}
+					add_core = EGM
+				}
+			}
+			set_country_flag = egy_decision
+			country_event = { id = flavor_tur.10000 days = 1 }
+		}		
+		ai_will_do = { factor = 1 }
+		ai_importance = 1000
+	}
+	
+	eyalet_in_tunis = {
+		potential = {
+			tag = TUR
+			normal_or_historical_nations = yes
+			OR = {
+				TUN = { is_subject_of = ROOT }
+				AND = {
+					num_of_owned_provinces_with = { value = 4 is_core = TUN }
+					NOT = { exists = TUN }
+					owns = 1648	# Tunis
+				}
+			}
+			is_subject = no
+			NOT = { has_country_flag = tunis_decision }
+		}		
+		allow = {
+			OR = {
+				TUN = { is_subject_of = ROOT }
+				AND = {
+					num_of_owned_provinces_with = { value = 6 is_core = TUN }
+					NOT = { exists = TUN }
+				}
+			}
+		}		
+		effect = {
+			set_country_flag = tunis_decision
+			country_event = { id = flavor_tur.10001 days = 1 }
+		}		
+		ai_will_do = { factor = 1 }
+		ai_importance = 1000
+	}
+
+}

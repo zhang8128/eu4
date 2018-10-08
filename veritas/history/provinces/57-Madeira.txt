@@ -1,0 +1,31 @@
+# Madeira
+
+capital = "Madeira"
+native_size = 0
+native_ferocity = 0
+native_hostileness = 0
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+
+1419.1.1 = { 
+	discovered_by = western 
+	discovered_by = scandinavian_tech
+} # João Gonçalves Zarco
+1420.1.1 = { owner = POR
+	    controller = POR
+	    add_core = POR
+	    citysize = 500
+	    culture = portugese
+	    religion = catholic
+	    discovered_by = POR
+	    trade_goods = sugar
+}
+1425.1.1  = {
+	discovered_by = muslim
+	citysize = 1000
+	trade_goods = sugar	
+}
+1497.1.1	= { capital = "Funchal" }

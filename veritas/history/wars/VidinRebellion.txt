@@ -1,0 +1,12 @@
+# Bulgarian reconquest of Vidin
+
+name = "War of Bulgarian Suzerainty"
+
+war_goal = {
+	type = take_capital_personal_union
+	casus_belli = cb_restore_personal_union
+	tag = VDN
+}
+
+1332.4.1 = { add_attacker = BUL	add_defender = VDN	}
+1337.1.1 = { rem_attacker = BUL	rem_defender = VDN	} # Bulgaria subjugates Vidin

@@ -1,0 +1,10 @@
+#Ou-junku
+#model = cog
+#tech_level = 12
+type = transport
+unit_type = niitaka
+
+hull_size = 8
+base_cannons = 10
+sail_speed = 10
+sailors = 175

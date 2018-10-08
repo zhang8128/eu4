@@ -1,0 +1,25 @@
+# Kebbi
+
+capital = "Kebbi"
+owner = KSN
+controller = KSN
+add_core = KSN
+culture = hausa
+religion = maguzawa
+trade_goods = millet
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = sudanese_tech
+discovered_by = sub_saharan
+
+
+1400.1.1   = { base_manpower = 2.5 }
+1500.1.1   = { base_manpower = 2.2 }
+1600.1.1   = { base_manpower = 3.2 }
+1650.1.1   = { base_manpower = 3 }
+1700.1.1   = { base_manpower = 2.5 }
+1750.1.1   = { base_manpower = 3 }
+1800.1.1   = { base_manpower = 3.4 }

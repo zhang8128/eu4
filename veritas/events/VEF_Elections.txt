@@ -1,0 +1,461 @@
+namespace = vef_elections
+
+########################################
+# Vassal Governorships                 #
+########################################
+
+# Overlord decides
+
+# Governor term ends
+country_event = {
+	id = vef_elections.10000
+	title = "vef_elections.10000.t"
+	desc = "vef_elections.10000.d"
+	picture = VEF_ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			government = vassal_governorship
+			government = ottoman_eyalet
+		}
+	}
+	
+	option = {
+		name = "elections.EVTOPTA702"	# Ask to keep GOVERNOR
+		trigger = { republican_tradition = 50}
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 60 }
+			}				
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 75 }
+			}	
+			modifier = {
+				factor = 2.0
+				republican_tradition = 90
+			}				
+		}
+		set_country_flag = asked_to_keep_governor
+		hidden_effect = {
+			overlord = {
+				country_event = { id = vef_elections.10003 days = 1 }
+			}
+		}
+	}
+	option = {
+		name = "elections.EVTOPTB702"	# Ask them to send a new GOVERNOR
+		ai_chance = { factor = 50 }
+		set_country_flag = asked_to_replace_governor
+		hidden_effect = {
+			overlord = {
+				country_event = { id = vef_elections.10004 days = 1 }
+			}
+		}
+	}
+}
+
+# GOVERNOR Dies!
+country_event = {
+	id = vef_elections.10001
+	title = "vef_elections.10001.t"
+	desc = "vef_elections.10001.d" 
+	picture = VEF_ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			government = vassal_governorship
+			government = ottoman_eyalet
+		}
+	}
+	
+	immediate = {
+		define_ruler = {
+			name = "Vacancy"
+			adm = 0
+			dip = 0
+			mil = 0
+			fixed = yes
+		}
+	}
+
+	option = {
+		name = "elections.EVTOPTB709"	# Let us pray
+		hidden_effect = {
+			overlord = {
+				country_event = { id = vef_elections.10002 days = 1 }
+			}
+		}
+	}
+}
+
+# GOVERNOR Dies!
+country_event = {
+	id = vef_elections.10002
+	title = "vef_elections.10002.t"
+	desc = "vef_elections.10002.d"
+	
+	picture = VEF_ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "elections.EVTOPTB703"	# Send a Bureaucrat Candidate
+		ai_chance = { factor = 40 }
+		FROM = {
+			define_ruler = {
+				adm = 4
+				dip = 1
+				mil = 1
+				fixed = yes
+			}
+		}
+	}
+	option = {
+		name = "elections.EVTOPTC703"	# Send a Diplomatic Candidate
+		ai_chance = { factor = 30 }
+		FROM = {
+			define_ruler = {
+				adm = 1
+				dip = 4
+				mil = 1
+				fixed = yes
+			}
+		}
+	}
+	option = {
+		name = "elections.EVTOPTD703"	# Send a Military Candidate
+		ai_chance = { factor = 30 }
+		FROM = {
+			define_ruler = {
+				adm = 1
+				dip = 1
+				mil = 4
+				fixed = yes
+			}
+		}
+	}
+}
+
+# Asked to keep governor
+country_event = {
+	id = vef_elections.10003
+	title = "vef_elections.10003.t"
+	desc = "vef_elections.10003.d"
+	picture = VEF_ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "elections.EVTOPTA703"	# Keep GOVERNOR
+		ai_chance = { 
+			factor = 70	
+		}
+		tooltip = {
+			FROM = {
+				custom_tooltip = "remains_governor_from"
+				change_adm = 1
+				change_dip = 1
+				change_mil = 1
+				add_scaled_republican_tradition = -10
+			}
+		}
+		hidden_effect = {
+			FROM = {
+				country_event = { id = vef_elections.10005 }
+			}
+		}
+	}
+	option = {
+		name = "elections.EVTOPTB703"	# Send a Bureaucrat Candidate
+		ai_chance = { factor = 10 }
+		tooltip = {
+			FROM = {
+				add_ruler_modifier = { name = unhappy_with_governor }
+				add_liberty_desire = 15
+			}
+		}
+		hidden_effect = {
+			FROM = {
+				set_country_flag = new_governor_bureaucrat
+				country_event = { id = vef_elections.10006 }
+			}
+		}
+	}
+	option = {
+		name = "elections.EVTOPTC703"	# Send a Diplomatic Candidate
+		ai_chance = { factor = 10 }
+		tooltip = {
+			FROM = {
+				add_ruler_modifier = { name = unhappy_with_governor }
+				add_liberty_desire = 15
+			}
+		}
+		hidden_effect = {
+			FROM = {
+				set_country_flag = new_governor_diplomatic
+				country_event = { id = vef_elections.10006 }
+			}
+		}
+	}
+	option = {
+		name = "elections.EVTOPTD703"	# Send a Military Candidate
+		ai_chance = { factor = 10 }
+		tooltip = {
+			FROM = {
+				add_ruler_modifier = { name = unhappy_with_governor }
+				add_liberty_desire = 15
+			}
+		}
+		hidden_effect = {
+			FROM = {
+				set_country_flag = new_governor_military
+				country_event = { id = vef_elections.10006 }
+			}
+		}
+	}
+}
+
+# Asked to replace governor
+country_event = {
+	id = vef_elections.10004
+	title = "vef_elections.10004.t"
+	desc = "vef_elections.10004.d"
+	picture = VEF_ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "elections.EVTOPTA704"	# Keep GOVERNOR
+		trigger = { FROM = { republican_tradition = 50 } }
+		ai_chance = { 
+			factor = 30		
+		}
+		tooltip = {
+			FROM = {
+				custom_tooltip = "remains_governor_from"
+				change_adm = 1
+				change_dip = 1
+				change_mil = 1
+				add_scaled_republican_tradition = -10
+				add_liberty_desire = 15
+				add_ruler_modifier = { name = unhappy_with_governor }
+			}
+		}
+		hidden_effect = {
+			FROM = {
+				country_event = { id = vef_elections.10005 }
+			}
+		}
+	}
+	option = {
+		name = "elections.EVTOPTB704"	# Send a Bureaucrat Candidate
+		ai_chance = { factor = 30 }
+		tooltip = {
+			FROM = {
+				define_ruler = {
+					adm = 4
+					dip = 1
+					mil = 1
+					fixed = yes
+				}
+			}
+		}
+		hidden_effect = {
+			FROM = {
+				set_country_flag = new_governor_bureaucrat
+				country_event = { id = vef_elections.10006 }
+			}
+		}
+	}
+	option = {
+		name = "elections.EVTOPTC704"	# Send a Diplomatic Candidate
+		ai_chance = { factor = 20 }
+		tooltip = {
+			FROM = {
+				define_ruler = {
+					adm = 1
+					dip = 4
+					mil = 1
+					fixed = yes
+				}
+			}
+		}
+		hidden_effect = {
+			FROM = {
+				set_country_flag = new_governor_diplomatic
+				country_event = { id = vef_elections.10006 }
+			}
+		}
+	}
+	option = {
+		name = "elections.EVTOPTD704"	# Send a Military Candidate
+		ai_chance = { factor = 20 }
+		tooltip = {
+			FROM = {
+				define_ruler = {
+					adm = 1
+					dip = 1
+					mil = 4
+					fixed = yes
+				}
+			}
+		}
+		hidden_effect = {
+			FROM = {
+				set_country_flag = new_governor_military
+				country_event = { id = vef_elections.10006 }
+			}
+		}
+	}
+}
+
+ # Governor stays
+country_event = {
+	id = vef_elections.10005
+	title = "vef_elections.10005.t"
+	desc = "vef_elections.10005.d"
+	picture = VEF_ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "elections.EVTOPTA705"	# Excellent!
+		trigger = {
+			has_country_flag = asked_to_keep_governor
+		}
+		custom_tooltip = "remains_governor"
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+		add_scaled_republican_tradition = -10
+		clr_country_flag = asked_to_keep_governor
+	}
+	option = {
+		name = "elections.EVTOPTB705"	# Damn them!
+		trigger = {
+			has_country_flag = asked_to_replace_governor
+		}
+		custom_tooltip = "remains_governor"
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+		add_scaled_republican_tradition = -10
+		add_ruler_modifier = { name = unhappy_with_governor }
+		add_liberty_desire = 15
+		clr_country_flag = asked_to_replace_governor
+	}
+}
+
+# Governor replaced
+country_event = {
+	id = vef_elections.10006
+	title = "vef_elections.10006.t"
+	desc = "vef_elections.10006.d"
+	picture = VEF_ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "elections.EVTOPTA706"	# Excellent!
+		trigger = {
+			has_country_flag = asked_to_replace_governor
+			has_country_flag = new_governor_bureaucrat
+		}
+		define_ruler = {
+			adm = 4
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		clr_country_flag = asked_to_replace_governor
+		clr_country_flag = new_governor_bureaucrat
+	}
+	option = {
+		name = "elections.EVTOPTA706"	# Excellent!
+		trigger = {
+			has_country_flag = asked_to_replace_governor
+			has_country_flag = new_governor_diplomatic
+		}
+		define_ruler = {
+			adm = 1
+			dip = 4
+			mil = 1
+			fixed = yes
+		}
+		clr_country_flag = asked_to_replace_governor
+		clr_country_flag = new_governor_diplomatic
+	}
+	option = {
+		name = "elections.EVTOPTA706"	# Excellent!
+		trigger = {
+			has_country_flag = asked_to_replace_governor
+			has_country_flag = new_governor_military
+		}
+		define_ruler = {
+			adm = 1
+			dip = 1
+			mil = 4
+			fixed = yes
+		}
+		clr_country_flag = asked_to_replace_governor
+		clr_country_flag = new_governor_military
+	}
+	option = {
+		name = "elections.EVTOPTB706"	# Damn them!
+		trigger = {
+			has_country_flag = asked_to_keep_governor
+			has_country_flag = new_governor_bureaucrat
+		}
+		define_ruler = {
+			adm = 4
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		add_ruler_modifier = { name = unhappy_with_governor }
+		add_liberty_desire = 15
+		clr_country_flag = asked_to_keep_governor
+		clr_country_flag = new_governor_bureaucrat
+	}
+	option = {
+		name = "elections.EVTOPTB706"	# Damn them!
+		trigger = {
+			has_country_flag = asked_to_keep_governor
+			has_country_flag = new_governor_diplomatic
+		}
+		define_ruler = {
+			adm = 1
+			dip = 4
+			mil = 1
+			fixed = yes
+		}
+		add_ruler_modifier = { name = unhappy_with_governor }
+		add_liberty_desire = 15
+		clr_country_flag = asked_to_keep_governor
+		clr_country_flag = new_governor_diplomatic
+	}
+	option = {
+		name = "elections.EVTOPTB706"	# Damn them!
+		trigger = {
+			has_country_flag = asked_to_keep_governor
+			has_country_flag = new_governor_military
+		}
+		define_ruler = {
+			adm = 1
+			dip = 1
+			mil = 4
+			fixed = yes
+		}
+		add_ruler_modifier = { name = unhappy_with_governor }
+		add_liberty_desire = 15
+		clr_country_flag = asked_to_keep_governor
+		clr_country_flag = new_governor_military
+	}
+}

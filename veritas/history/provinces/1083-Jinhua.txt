@@ -1,0 +1,22 @@
+# Jinhua
+#Province IDs changed
+
+owner = YUN
+controller = YUN
+culture = wuhan
+religion = confucianism
+capital = "Jinhua"
+trade_goods = wine
+hre = no
+base_tax = 4
+base_production = 4
+base_manpower = 4
+add_core = YUN
+is_city = yes
+discovered_by = chinese
+
+1356.8.1 = { owner = CZH controller = CZH add_core = CZH remove_core = YUN add_core = MNG }
+1366.1.1 = { owner = MNG controller = MNG }
+1637.1.1 = { revolt = { type = anti_tax_rebels size = 2 } controller = REB } # Zhang Xianzhong rebellion
+1647.1.2  = {	owner = QNG controller = QNG add_core = QNG } # The Qing Dynasty
+1662.1.1 = { remove_core = MNG }

@@ -1,0 +1,10 @@
+#Xebec
+#model = archipelago_frigate
+#tech_level = 44
+type = galley
+unit_type = muslim
+
+hull_size = 24
+base_cannons = 42
+sail_speed = 6
+sailors = 200

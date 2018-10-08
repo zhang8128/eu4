@@ -1,0 +1,1912 @@
+# VEF Special Advisors
+# If you add advisortypes, and use those tags, do not change them without changing everywhere they are used.
+#
+# Additional arguments: allow_only_male/allow_only_female
+#
+# Uses all 'modifiers' possible that are exported as a Modifier.
+
+# Note that ai_will_do calculates a priority.
+# An advisor may be chosen over another if its random priority exceeds it. RandomPriority(advisor) := rand[1, 2[ * Priority(advisor).
+
+######################################################
+economist = {
+	monarch_power = ADM
+
+	build_cost = -0.1
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 1 }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+######################################################
+banker = {
+	monarch_power = ADM
+
+	interest = -1
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 1 }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+######################################################
+orthodox_monk = {
+	monarch_power = ADM
+	allow_only_male = yes
+
+	global_missionary_strength = 0.01
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+######################################################
+jesuit = {
+	monarch_power = ADM
+	allow_only_male = yes
+
+	global_missionary_strength = 0.01
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+######################################################
+imam = {
+	monarch_power = ADM
+	allow_only_male = yes
+
+	war_exhaustion = -0.025
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			is_at_war = yes
+		}
+	}
+}
+
+######################################################
+administrator = {
+	monarch_power = ADM
+
+	core_creation = -0.05
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 1 }
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			overextension_percentage = 0.5
+		}
+	}
+}
+
+######################################################
+cartographer = {
+	monarch_power = DIP
+
+	range = 0.50
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+######################################################
+bureaucrat = {
+	monarch_power = ADM
+
+	vassal_income = 0.25
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 1 }
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = { vassal = 1 }
+		}
+		modifier = {
+			factor = 1.5
+			vassal = 2
+		}
+	}
+}
+
+######################################################
+investigator = {
+	monarch_power = ADM
+
+	yearly_corruption = -0.2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 1 }
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+######################################################
+# Great Person Advisors 
+#####################################################
+
+prince_henry = {
+	monarch_power = DIP
+
+	navy_tradition = 0.1
+	naval_attrition = -0.25
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+andrei_rublev = {
+	monarch_power = ADM
+
+	global_missionary_strength = 0.015
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+cristobol_colon = {
+	monarch_power = DIP
+
+	colonists = 1
+	range = 0.50
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+liu_ji = {
+	monarch_power = MIL
+
+	mil_tech_cost_modifier = -0.25
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+# Chaucer was Collector of Customs in London, and a successful one at that! :-)
+geoffrey_chaucer = {
+	monarch_power = ADM
+
+	global_tariffs = 0.25
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+giotto_di_bondone = {
+	monarch_power = ADM
+
+	legitimacy = 0.25
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+dante_alighieri = {
+	monarch_power = ADM
+
+	legitimacy = 0.25
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+afanasy_nikitin = {
+	monarch_power = DIP
+
+	trade_range_modifier = 1.0
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+semyon_dezhnyov = {
+	monarch_power = DIP
+
+	range = 1.0
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+filippo_brunelleschi = {
+	monarch_power = ADM
+
+	build_cost = -0.15
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+jan_van_eyck = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+johannes_gutenberg = {
+	monarch_power = ADM
+
+	production_efficiency = 0.10
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+hua_sui = {
+	monarch_power = ADM
+
+	production_efficiency = 0.10
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+sir_walter_raleigh = {
+	monarch_power = DIP
+
+	colonists = 1
+	range = 0.50
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+jacques_cartier = {
+	monarch_power = DIP
+
+	colonists = 1
+	range = 0.50
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+vasco_da_gama = {
+	monarch_power = DIP
+
+	colonists = 1
+	range = 0.50
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+pedro_cabral = {
+	monarch_power = DIP
+
+	colonists = 1
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+zheng_he = {
+	monarch_power = DIP
+
+	colonists = 1
+	range = 0.50
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+hafez = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+de_machaut = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+petrarch = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+# Copernicus espoused several economic principles (most famously the Quantity 
+# Theory of Money and a precursor of Gresham's law) which makes Keynesians 
+# about as ignorant as the geocentrists who challenged Copernicus' heliocentric 
+# observations
+copernicus = {
+	monarch_power = ADM
+
+	inflation_reduction = 0.03
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+} 
+
+da_vinci = {
+	monarch_power = ADM
+
+	technology_cost = -0.25
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+shi_naian = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+luo_guanzhong = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+botticelli = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+dionisius = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+thomas_malory = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+thomas_more = {
+	monarch_power = ADM
+	
+	global_heretic_missionary_strength = 0.015
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+thomas_cranmer = {
+	monarch_power = ADM
+	
+	global_heretic_missionary_strength = 0.015
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+erasmus = {
+	monarch_power = ADM
+	
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+niccolo_tartaglia = {
+	monarch_power = MIL
+	
+	leader_land_fire = 1
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+raphael = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+william_shakespeare = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+ignatius_loyola = {
+	monarch_power = ADM
+	
+	global_heretic_missionary_strength = 0.015
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+francis_drake = {
+	monarch_power = DIP
+	
+	global_foreign_trade_power = 0.15
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+magellan = {
+	monarch_power = DIP
+	
+	colonists = 1
+	range = 0.50
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+miyamoto_musashi = {
+	monarch_power = MIL
+	
+	discipline = 0.1
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+gerardus_mercator = {
+	monarch_power = DIP
+	
+	colonists = 1
+	range = 0.50
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+martin_luther = {
+	monarch_power = DIP
+	
+	global_heretic_missionary_strength = 0.015
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+john_calvin = {
+	monarch_power = ADM
+	
+	global_heretic_missionary_strength = 0.015
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+zwingli = {
+	monarch_power = ADM
+	
+	global_heretic_missionary_strength = 0.015
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+jan_hus = {
+	monarch_power = ADM
+	
+	global_heretic_missionary_strength = 0.015
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+john_knox = {
+	monarch_power = ADM
+	
+	global_heretic_missionary_strength = 0.015
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+piotr_skarga = {
+	monarch_power = ADM
+	
+	global_heretic_missionary_strength = 0.015
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+niccolo_machiavelli = {
+	monarch_power = ADM
+	
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = {factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+michelangelo = {
+	monarch_power = ADM
+	
+	advisor_cost = -0.25
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = {factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+hans_holbein = {
+	monarch_power = ADM
+	
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = {factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+johannes_kepler = {
+	monarch_power = ADM
+	
+	technology_cost = -0.10
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = {factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+galileo_galilei = {
+	monarch_power = ADM
+	
+	technology_cost = -0.10
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = {factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+francis_bacon = {
+	monarch_power = ADM
+	
+	technology_cost = -0.1
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = {factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+yi_sun_sin = {
+	monarch_power = DIP
+	
+	naval_morale = 0.25
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = {factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+tycho_brahe = {
+	monarch_power = ADM
+	
+	technology_cost = -0.1
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = {factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+titian = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+donato_bramante = {
+	monarch_power = ADM
+
+	build_cost = -0.15
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+qui_ying = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+el_greco = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+andrea_palladio = {
+	monarch_power = ADM
+
+	build_cost = -0.15
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+nostradamus = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+jacapo_peri = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+arminius = {
+	monarch_power = ADM
+	
+	global_heretic_missionary_strength = 0.015
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+balboa = {
+	monarch_power = DIP
+	
+	colonists = 1
+	range = 0.50
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+joao_rodrigues = {
+	monarch_power = ADM
+	
+	adm_tech_cost_modifier = -0.25
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+william_adams = {
+	monarch_power = DIP
+	
+	dip_tech_cost_modifier = -0.25
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+cardinal_richelieu = {
+	monarch_power = ADM
+	
+	spy_offence = 0.50
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+cardinal_mazarin = {
+	monarch_power = ADM
+	
+	core_creation = -0.15
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+tomas_de_torquemada = {
+	monarch_power = ADM
+
+	global_missionary_strength = 0.015
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+michiel_de_ruyter = {
+	monarch_power = DIP
+
+	naval_morale = 0.2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+johann_bach = {
+	monarch_power = ADM
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+george_handel = {
+	monarch_power = DIP
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+ludwig_beethoven = {
+	monarch_power = DIP
+
+	prestige = 2
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+	
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+francesco_griffo = {
+	monarch_power = ADM
+
+	production_efficiency = 0.10
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = { factor = 0 }
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}
+
+#########################################################
+# Knight of St John
+KoSJ_advisor_1 = {
+	monarch_power = MIL
+	allow_only_male = yes
+
+	# Bonus
+	discipline = 0.05
+	land_morale = 0.05
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = {
+		factor = 0.5
+
+		modifier = {
+			factor = 5
+			owner = { tag = KNI }
+		}
+
+		modifier = {
+			factor = 0
+			NOT = { exists = KNI }
+		}
+		
+		modifier = {
+		    factor = 0
+			owner = {
+				KNI = { has_country_flag = KoSJ_collapse }
+			}
+		}
+
+		modifier = {
+		    factor = 2
+			has_province_flag = KoSJ_priory_here
+		}
+		
+		modifier = {
+			factor = 0
+			NOT = { religion_group = christian }
+		}
+		
+		modifier = {
+			factor = 0.8#dont want them flooding Europe so give a lesser chance for AI countries
+			owner = { ai = yes }
+			NOT = { owner = { tag = KNI } }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { has_idea_group = quantity_ideas }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { 
+				OR = {
+					has_idea_group = land_trade_ideas 
+					has_idea_group = free_trade_ideas 
+					has_idea_group = mercantilist_ideas 
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			owner = { has_idea_group = innovativeness_ideas } 
+		}
+		modifier = {
+			factor = 0.5
+			owner = {
+				OR = {
+					alliance_with = MOR
+					alliance_with = ALG
+					alliance_with = TUN
+					alliance_with = MAM
+					alliance_with = TUR
+				}
+			}
+		}
+		modifier = {
+			factor = 1.2
+			owner = { dominant_religion = catholic }
+			KNI = { religion = catholic }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { any_neighbor_country = { religion_group = muslim } }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { religion = catholic is_defender_of_faith = yes }
+			KNI = { religion = catholic }
+		}
+		modifier = {
+			factor = 0.5
+			owner = { has_country_flag = pirate_pact }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = MOR }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = ALG }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = TUN }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = MAM }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = TUR }
+		}
+		modifier = {
+			factor = 0
+			owner = { 
+				NOT = {
+					has_opinion = {
+						who = KNI
+						value = 0
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			owner = { 
+				NOT = {
+					has_opinion = {
+						who = KNI
+						value = 25
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			owner = { 
+				NOT = {
+					has_opinion = {
+						who = KNI
+						value = 50
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1.2
+			owner = { 
+				has_opinion = {
+					who = KNI
+					value = 150
+				}
+			}
+		}
+		modifier = {
+			factor = 1.2
+			owner = { 
+				has_opinion = {
+					who = KNI
+					value = 175
+				}
+			}
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1.8
+	}
+}
+
+#Knight Commander of St John
+KoSJ_advisor_2 = {
+	monarch_power = ADM
+	allow_only_male = yes
+
+	# Bonus
+	naval_morale = 0.05
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = {
+		factor = 0.5
+
+		modifier = {
+			factor = 5
+			owner = { tag = KNI }
+		}
+
+		modifier = {
+			factor = 0
+			NOT = { exists = KNI }
+		}
+		
+		modifier = {
+		    factor = 0
+			owner = {
+				KNI = { has_country_flag = KoSJ_collapse }
+			}
+		}
+
+		modifier = {
+		    factor = 2
+			has_province_flag = KoSJ_priory_here
+		}
+
+		modifier = {
+			factor = 0
+			NOT = { religion_group = christian }
+		}
+		modifier = {
+			factor = 0.8#dont want them flooding Europe so give a lesser chance for AI countries
+			owner = { ai = yes }
+			NOT = { owner = { tag = KNI } }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { has_idea_group = quantity_ideas }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { 
+				OR = {
+					has_idea_group = land_trade_ideas 
+					has_idea_group = free_trade_ideas 
+					has_idea_group = mercantilist_ideas 
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			owner = { has_idea_group = innovativeness_ideas } 
+		}
+		modifier = {
+			factor = 0.5
+			owner = {
+				OR = {
+					alliance_with = MOR
+					alliance_with = ALG
+					alliance_with = TUN
+					alliance_with = MAM
+					alliance_with = TUR
+				}
+			}
+		}
+#		modifier = {
+#			factor = 0.9
+#			OR = {
+#				advisor = jewish_advisor_1
+#				advisor = jewish_advisor_2
+#				advisor = jewish_advisor_3
+#				advisor = jewish_advisor_4
+#				advisor = jewish_advisor_5
+#				advisor = jewish_advisor_6
+#			}
+#		}
+		modifier = {
+			factor = 1.2
+			owner = { dominant_religion = catholic }
+			KNI = { religion = catholic }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { any_neighbor_country = { religion_group = muslim } }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { religion = catholic is_defender_of_faith = yes }
+			KNI = { religion = catholic }
+		}
+		modifier = {
+			factor = 0.5
+			owner = { has_country_flag = pirate_pact }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = MOR }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = ALG }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = TUN }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = MAM }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = TUR }
+		}
+		modifier = {
+			factor = 0
+			owner = { 
+				NOT = {
+					has_opinion = {
+						who = KNI
+						value = 0
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			owner = { 
+				NOT = {
+					has_opinion = {
+						who = KNI
+						value = 25
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			owner = { 
+				NOT = {
+					has_opinion = {
+						who = KNI
+						value = 50
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1.2
+			owner = { 
+				has_opinion = {
+					who = KNI
+					value = 150
+				}
+			}
+		}
+		modifier = {
+			factor = 1.2
+			owner = { 
+				has_opinion = {
+					who = KNI
+					value = 175
+				}
+			}
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+#Knight Chaplain of St John
+KoSJ_advisor_3 = {
+	monarch_power = DIP
+	allow_only_male = yes
+
+	# Bonus
+	diplomatic_reputation = 1
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = {
+		factor = 0.5
+
+		modifier = {
+			factor = 5
+			owner = { tag = KNI }
+		}
+
+		modifier = {
+			factor = 0
+			NOT = { exists = KNI }
+		}
+		
+		modifier = {
+		    factor = 0
+			owner = {
+				KNI = { has_country_flag = KoSJ_collapse }
+			}
+		}
+
+		modifier = {
+		    factor = 2
+			has_province_flag = KoSJ_priory_here
+		}
+
+		modifier = {
+			factor = 0
+			NOT = { religion_group = christian }
+		}
+		modifier = {
+			factor = 0.8#dont want them flooding Europe so give a lesser chance for AI countries
+			owner = { ai = yes }
+			NOT = { owner = { tag = KNI } }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { has_idea_group = quantity_ideas }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { 
+				OR = {
+					has_idea_group = land_trade_ideas 
+					has_idea_group = free_trade_ideas 
+					has_idea_group = mercantilist_ideas 
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			owner = { has_idea_group = innovativeness_ideas } 
+		}
+		modifier = {
+			factor = 0.5
+			owner = {
+				OR = {
+					alliance_with = MOR
+					alliance_with = ALG
+					alliance_with = TUN
+					alliance_with = MAM
+					alliance_with = TUR
+				}
+			}
+		}
+#		modifier = {
+#			factor = 0.9
+#			OR = {
+#				advisor = jewish_advisor_1
+#				advisor = jewish_advisor_2
+#				advisor = jewish_advisor_3
+#				advisor = jewish_advisor_4
+#				advisor = jewish_advisor_5
+#				advisor = jewish_advisor_6
+#			}
+#		}
+		modifier = {
+			factor = 1.2
+			owner = { dominant_religion = catholic }
+			KNI = { religion = catholic }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { any_neighbor_country = { religion_group = muslim } }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { religion = catholic is_defender_of_faith = yes }
+			KNI = { religion = catholic }
+		}
+		modifier = {
+			factor = 0.5
+			owner = { has_country_flag = pirate_pact }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = MOR }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = ALG }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = TUN }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = MAM }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = TUR }
+		}
+		modifier = {
+			factor = 0
+			owner = { 
+				NOT = {
+					has_opinion = {
+						who = KNI
+						value = 0
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			owner = { 
+				NOT = {
+					has_opinion = {
+						who = KNI
+						value = 25
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			owner = { 
+				NOT = {
+					has_opinion = {
+						who = KNI
+						value = 50
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1.2
+			owner = { 
+				has_opinion = {
+					who = KNI
+					value = 150
+				}
+			}
+		}
+		modifier = {
+			factor = 1.2
+			owner = { 
+				has_opinion = {
+					who = KNI
+					value = 175
+				}
+			}
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+#Knight Bailli of St John
+KoSJ_advisor_4 = {
+	monarch_power = MIL
+	allow_only_male = yes
+
+	# Bonus
+	siege_ability = 0.1
+	
+	skill_scaled_modifier = { meritocracy = 0.5 }
+
+	chance = {
+		factor = 0.5
+
+		modifier = {
+			factor = 5
+			owner = { tag = KNI }
+		}
+
+		modifier = {
+			factor = 0
+			NOT = { exists = KNI }
+		}
+		
+		modifier = {
+		    factor = 0
+			owner = {
+				KNI = { has_country_flag = KoSJ_collapse }
+			}
+		}
+
+		modifier = {
+		    factor = 2
+			has_province_flag = KoSJ_priory_here
+		}
+
+		modifier = {
+			factor = 0
+			NOT = { religion_group = christian }
+		}
+		modifier = {
+			factor = 0.8#dont want them flooding Europe so give a lesser chance for AI countries
+			owner = { ai = yes }
+			NOT = { owner = { tag = KNI } }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { has_idea_group = quantity_ideas }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { 
+				OR = {
+					has_idea_group = land_trade_ideas 
+					has_idea_group = free_trade_ideas 
+					has_idea_group = mercantilist_ideas 
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			owner = { has_idea_group = innovativeness_ideas } 
+		}
+		modifier = {
+			factor = 0.5
+			owner = {
+				OR = {
+					alliance_with = MOR
+					alliance_with = ALG
+					alliance_with = TUN
+					alliance_with = MAM
+					alliance_with = TUR
+				}
+			}
+		}
+#		modifier = {
+#			factor = 0.9
+#			OR = {
+#				advisor = jewish_advisor_1
+#				advisor = jewish_advisor_2
+#				advisor = jewish_advisor_3
+#				advisor = jewish_advisor_4
+#				advisor = jewish_advisor_5
+#				advisor = jewish_advisor_6
+#			}
+#		}
+		modifier = {
+			factor = 1.2
+			owner = { dominant_religion = catholic }
+			KNI = { religion = catholic }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { any_neighbor_country = { religion_group = muslim } }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { religion = catholic is_defender_of_faith = yes }
+			KNI = { religion = catholic }
+		}
+		modifier = {
+			factor = 0.5
+			owner = { has_country_flag = pirate_pact }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = MOR }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = ALG }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = TUN }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = MAM }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { war_with = TUR }
+		}
+		modifier = {
+			factor = 0
+			owner = { 
+				NOT = {
+					has_opinion = {
+						who = KNI
+						value = 0
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			owner = { 
+				NOT = {
+					has_opinion = {
+						who = KNI
+						value = 25
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			owner = { 
+				NOT = {
+					has_opinion = {
+						who = KNI
+						value = 50
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1.2
+			owner = { 
+				has_opinion = {
+					who = KNI
+					value = 150
+				}
+			}
+		}
+		modifier = {
+			factor = 1.2
+			owner = { 
+				has_opinion = {
+					who = KNI
+					value = 175
+				}
+			}
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1.5
+	}
+}

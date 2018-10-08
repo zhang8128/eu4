@@ -1,0 +1,31 @@
+government = republic
+add_government_reform = hanseatic_union
+government_rank = 1
+mercantilism = 25
+technology_group = western
+religion = catholic
+primary_culture = lowersaxon
+capital = 379	# Hamburg
+fixed_capital = 379 # Cannot move capital away from this province & no power cost to move to it
+historical_friend = LUB #Lübeck
+historical_friend = BRM #Bremen
+historical_friend = RIG #Riga
+
+1267.1.1 = {
+    add_country_modifier = { name = "hanseatic_league_member" duration = -1 }
+    add_country_modifier = { name = "hansa_city_state_modifier" duration = -1 }
+    set_country_flag = hansa_city_state
+}
+
+1309.1.1 = {
+	monarch = {
+		name = "Weissel"
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+}
+
+1529.1.1 = { religion = protestant }
+
+1529.1.1 = { government = republic add_government_reform = administrative_republic }

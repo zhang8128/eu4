@@ -1,0 +1,17 @@
+# Micronesia
+
+capital = "Palikir"
+native_size = 1
+native_ferocity = 2
+native_hostileness = 1
+culture = polynesian
+religion = animism
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+discovered_by = pacific_islander
+
+# Ferdinand Magellanm unknown date
+1522.1.1 = { discovered_by = SPA }

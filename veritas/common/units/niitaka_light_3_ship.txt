@@ -1,0 +1,10 @@
+#Wokou
+#model = barque
+#tech_level = 20
+type = transport
+unit_type = niitaka
+
+hull_size = 12
+base_cannons = 14
+sail_speed = 10
+sailors = 200

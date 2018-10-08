@@ -1,0 +1,9 @@
+# Sea Of Oman
+#Province IDs changed
+discovered_by = muslim
+discovered_by = indian
+discovered_by = indopersian
+discovered_by = byzantine
+discovered_by = sudanese_tech
+
+1488.1.1 = { discovered_by = POR }

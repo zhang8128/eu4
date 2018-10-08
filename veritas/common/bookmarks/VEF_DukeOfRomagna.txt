@@ -1,0 +1,8 @@
+bookmark =
+{
+	name = "DUKE_OF_ROMAGNA_NAME"
+	desc = "DUKE_OF_ROMAGNA_DESC"
+	date = 1503.1.1
+	
+	country = RMG
+}

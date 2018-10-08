@@ -1,0 +1,10 @@
+#Small Makoro
+#model = galley
+#tech_level = 0
+type = galley
+unit_type = tribal_african_tech
+
+hull_size = 2
+base_cannons = 2
+sail_speed = 6
+sailors = 50

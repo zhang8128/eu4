@@ -1,0 +1,26 @@
+# Cirebon
+
+capital = "Cirebon"
+owner = SUN
+controller = SUN
+add_core = SUN
+culture = javanese
+religion = hinduism
+trade_goods = cloves
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = MKS
+discovered_by = MLC
+discovered_by = ATJ
+discovered_by = MAJ
+discovered_by = BEI
+discovered_by = KUT
+discovered_by = BLI
+discovered_by = SUN
+discovered_by = SVJ
+
+1405.1.1 = { discovered_by = MNG }
+1509.1.1 = { discovered_by = POR }

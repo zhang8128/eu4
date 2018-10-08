@@ -1,0 +1,42 @@
+# Pensacola
+
+capital = "Pensacola"
+native_size = 5
+native_ferocity = 1
+native_hostileness = 6
+culture = creek
+religion = totemism
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+
+discovered_by = north_american
+
+
+1519.1.1   = { discovered_by = SPA } # Alvarez de Piñeda explored the Gulf Coast
+1698.1.1   = {	owner = SPA
+		controller = SPA
+		culture = castillian
+		religion = catholic
+		citysize = 1500
+}
+1723.1.1   = { add_core = SPA }
+1750.1.1   = { citysize = 4857 }
+1763.2.10  = {	owner = GBR
+		controller = GBR
+		remove_core = SPA
+		culture = english
+		religion = protestant
+	     } # Part of British West Florida after the Treaty of Paris
+1783.9.3   = { owner = SPA controller = SPA } # Part of Spanish West Florida
+1784.1.1   = { unrest = 7 } # Controversy over the Treaty of Versaille & the Treaty of Paris, Spanish or American?
+1800.1.1   = { citysize = 5600 }
+1808.1.1   = { add_core = SPA }
+1819.2.22  = {	owner = USA
+		controller = USA
+		add_core = USA
+		remove_core = SPA
+	   } # The Adams-Onís Treaty
+1861.1.10 = { owner = CSA controller = CSA add_core = CSA remove_core = USA } # Florida declares Independence

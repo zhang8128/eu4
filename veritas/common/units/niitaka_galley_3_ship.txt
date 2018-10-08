@@ -1,0 +1,10 @@
+#Gozabune
+#model = galleass
+#tech_level = 16
+type = galley
+unit_type = niitaka
+
+hull_size = 10
+base_cannons = 14
+sail_speed = 8
+sailors = 200

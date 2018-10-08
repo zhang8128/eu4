@@ -1,0 +1,21 @@
+# Smoothbore Howitzer
+
+type = artillery
+
+maneuver = 2
+offensive_morale = 2
+defensive_morale = 8
+offensive_fire = 42
+defensive_fire = 8
+offensive_shock = 0
+defensive_shock = 0
+
+trigger = {
+	OR = {
+		unit_type = western
+		technology_group = western
+		technology_group = scandinavian_tech
+		technology_group = byzantine
+		technology_group = high_american
+	}
+}

@@ -1,0 +1,192 @@
+# Norway
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+primary_culture = norwegian
+add_accepted_culture = icelandic
+add_accepted_culture = faroese
+add_accepted_culture = norn
+religion = catholic
+technology_group = scandinavian_tech
+historical_friend = DAN
+historical_friend = SCN
+capital = 417 #Akershus
+
+
+1299.7.15 = {
+	monarch = {
+		name = "Håkon V"
+		dynasty = "Magnusson"
+		birth_date = 1270.4.10
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1316.4.15 = {
+	heir = {
+		name = "Magnus Eriksson"
+		monarch_name = "Magnus IV Eriksson"
+		dynasty = "Bjälbo"
+		birth_date = 1316.4.15
+		claim = 80
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	set_heir_flag = heir_magnus
+	set_ruler_flag = magnus_not_yet_king
+}
+
+1319.7.8 = {
+	monarch = {
+		name = "Mats Kettilmundsson"
+		regent = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1336.7.21 = {
+	monarch = {
+		name = "Magnus IV Eriksson"
+		dynasty = "Bjälbo"
+		birth_date = 1316.4.15
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1336.7.22 = {
+	queen = {
+		country_of_origin = FLA
+		name = "Blanche"
+		dynasty = "van Dampierre"
+		birth_date = 1320.1.1
+		death_date = 1355.8.1
+		female = yes
+		adm = 3
+		dip = 4
+		mil = 1
+	}
+}
+
+1340.8.1 = {
+	heir = {
+		name = "Håkon Magnusson"
+		monarch_name = "Håkon VI Magnusson"
+		dynasty = "Bjälbo"
+		birth_date = 1340.8.1
+		claim = 60
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+#settlement with Norweigian nobility
+1343.8.15 = {
+	monarch = {
+		name = "Magnus IV Eriksson"
+		dynasty = "Bjälbo"
+		regent = yes
+		birth_date = 1316.4.15
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Håkon Magnusson"
+		monarch_name = "Håkon VI Magnusson"
+		dynasty = "Bjälbo"
+		birth_date = 1340.8.1
+		claim = 60
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1355.8.1 = {
+	monarch = {
+		name = "Håkon VI Magnusson"
+		dynasty = "Bjälbo"
+		birth_date = 1340.8.1
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1360.1.1 = { add_country_modifier = { name = "hanseatic_league_member" duration = -1 } }
+
+# Localize name?
+1363.4.9 = {
+	queen = {
+		country_of_origin = DAN
+		name = "Margaret"
+		dynasty = "Estridsen"
+		birth_date = 1353.3.1
+		death_date = 1412.10.28
+		female = yes
+		adm = 5
+		dip = 6
+		mil = 3
+	}
+}
+
+1370.12.1 = {
+	heir = {
+		name = "Olav Håkonsson"
+		monarch_name = "Olav II Håkonsson"
+		dynasty = "Bjälbo"
+		birth_date = 1370.12.1
+		death_date = 1387.8.23
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+#Union under Denmark in 1380
+
+1436.1.1 = { 
+	leader = { 
+		name = "Amund Bolt"
+		type = general 
+		fire = 1 
+		shock = 2 
+		manuever = 2 
+		siege = 0 
+		death_date = 1440.1.1 
+	} 
+}
+
+1520.1.1 = { 
+	leader = { 
+		name = "Olav Galle" 
+		type = general 
+		fire = 1 
+		shock = 2 
+		manuever = 2 
+		siege = 0 
+		death_date = 1530.1.1 
+	} 
+}
+
+1521.1.1 = { leader = { name = "Engelbriktsson"         type = general fire = 1 shock = 1 manuever = 3 siege = 0 death_date = 1538.2.7 } }
+
+1537.1.1 = { religion = protestant } # Christian III decrees Lutheranism as State Church
+
+1814.2.16 = {
+ monarch = {
+  name = "Christian Frederik"
+  dynasty = "Oldenburg"
+  adm = 0
+  dip = 0
+  mil = 0
+ }
+}

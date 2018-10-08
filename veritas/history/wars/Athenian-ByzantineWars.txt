@@ -1,0 +1,12 @@
+# Byzantine reconquest of Athens
+
+name = "Athenian-Byzantine War"
+
+war_goal = {
+	type = take_core
+	casus_belli = cb_core	
+	province = 579 # Athens	
+}
+
+1344.1.1 = {	add_attacker = BYZ	add_defender = ATH	}
+1344.1.1 = {	rem_attacker = BYZ	rem_defender = ATH	} # Byzantium vassalized Athens

@@ -1,0 +1,14 @@
+# Ultimate Cossak Mod
+cossack_act = {
+	infantry_power = 0.10
+	cavalry_power = -0.10
+}
+
+cossack_reestr = {
+	land_forcelimit_modifier = 0.50
+}
+
+hetmanat_nation_bonus = {
+	infantry_power = 0.125
+	infantry_cost = -0.125
+}

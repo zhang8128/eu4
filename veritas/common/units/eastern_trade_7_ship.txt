@@ -1,0 +1,10 @@
+#Shkoat
+#model = eastindiaman
+#tech_level = 44
+type = light_ship
+unit_type = eastern
+
+hull_size = 16
+base_cannons = 18
+sail_speed = 8
+trade_power = 5.625

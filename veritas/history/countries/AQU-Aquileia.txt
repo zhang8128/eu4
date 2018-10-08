@@ -1,0 +1,124 @@
+government = theocracy add_government_reform = leading_clergy_reform
+government_rank = 2
+primary_culture = venetian
+religion = catholic
+technology_group = western
+capital = 271 # Friuli
+
+1302.1.1 = {
+	monarch = {
+		name = "Ottobuono"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1315.1.1 = {
+	monarch = {
+		name = "Gillo"
+		adm = 1
+		dip = 2
+		mil = 2
+	}
+}
+
+1316.1.1 = {
+	monarch = {
+		name = "Gastone"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1319.1.1 = {
+	monarch = {
+		name = "Pagano"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1334.1.1 = {
+	monarch = {
+		name = "Bertrando"
+		adm = 4
+		dip = 3
+		mil = 4
+	}
+}
+
+1350.1.1 = {
+	monarch = {
+		name = "Niccolò"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1359.1.1 = {
+	monarch = {
+		name = "Lodovico"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1365.1.1 = {
+	monarch = {
+		name = "Marquardo"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1381.1.1 = {
+	monarch = {
+		name = "Filippo II"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1388.1.1 = {
+	monarch = {
+		name = "Giovanni Sobieslaw"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1394.1.1 = {
+	monarch = {
+		name = "Antonio I"
+		adm = 3
+		dip = 1
+		mil = 1
+	}
+}
+
+1402.1.1 = {
+	monarch = {
+		name = "Antonio II"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1412.1.1 = {
+	monarch = {
+		name = "Lodovico II"
+		adm = 2
+		dip = 1
+		mil = 0
+	}
+}
+# To Venice in 1420

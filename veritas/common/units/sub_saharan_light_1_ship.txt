@@ -1,0 +1,10 @@
+#Ashanti Light Canoe
+#model = barque
+#tech_level = 0
+type = transport
+unit_type = sub_saharan
+
+hull_size = 6
+base_cannons = 8
+sail_speed = 10
+sailors = 50

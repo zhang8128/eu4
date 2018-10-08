@@ -1,0 +1,26 @@
+# Zeila
+
+capital = "Zayla"
+owner = ADA
+controller = ADA
+add_core = ADA
+culture = somali
+religion = sunni
+trade_goods = slaves
+base_tax = 1
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+fort_15th = yes
+discovered_by = sudanese_tech
+discovered_by = muslim
+
+extra_cost = 15
+center_of_trade = 1
+
+1517.8.15 = {  unrest = 6 } # Portuguese attack Zeila, occupy it, depart
+1528.1.1  = { unrest = 4 } # Portuguese attack Zeila
+1529.1.1  = { unrest = 0 }
+#1559.1.1 = { owner = HAR controller = HAR add_core = HAR}
+#1577.1.1 = { owner = ADE controller = ADE }

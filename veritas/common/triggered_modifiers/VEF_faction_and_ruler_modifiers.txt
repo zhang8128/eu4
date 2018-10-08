@@ -1,0 +1,191 @@
+# Factions
+# BYZ Militarist
+byz_mil_leader_mod = {
+
+	potential = {
+		tag = BYZ
+		normal_or_historical_nations = yes
+		has_factions = yes
+	}
+
+	trigger = {
+		mil = 5
+	}
+
+	war_exhaustion = -0.01
+}
+
+# BYZ Patriarchal
+
+byz_pat_war_mod = {
+	
+	potential = {
+		tag = BYZ
+		normal_or_historical_nations = yes
+		has_factions = yes
+	}
+
+	trigger = {
+		faction_in_power = byz_patriarchal
+		at_war_with_religious_enemy = yes
+	}
+
+	land_morale = 0.05
+	global_unrest = -2
+}
+
+# BYZ Mercantilist
+
+byz_merc_war_mod = {
+	
+	potential = {
+		tag = BYZ
+		normal_or_historical_nations = yes
+		has_factions = yes
+	}
+
+	trigger = {
+		faction_in_power = byz_mercantilist
+		any_known_country = { defensive_war_with = BYZ }
+		OR = {
+			NOT = { has_country_modifier = byz_merc_trade_war }
+			AND = {
+				has_country_modifier = byz_merc_trade_war
+				any_known_country = {
+					has_country_modifier = byz_merc_trade_war_timer
+					defensive_war_with = BYZ
+				}
+			}
+		}
+	}
+
+	war_exhaustion = 0.25
+	trade_efficiency = -0.20
+}
+
+# Loss of influence
+byz_militarists_out_of_favor = {
+	potential = {
+		tag = BYZ
+		normal_or_historical_nations = yes
+		has_factions = yes
+		NOT = { faction_influence = { faction = byz_militarist influence = 5 } }
+	}
+
+	trigger = {
+		NOT = { faction_influence = { faction = byz_militarist influence = 5 } }
+	}
+
+	land_morale = -0.025
+	naval_morale = -0.025
+}
+
+# Republicans gain power all the time unless crushed
+gbr_republicans = {
+	potential = {
+		tag = GBR
+		normal_or_historical_nations = yes
+		has_factions = yes
+	}
+
+	trigger = {
+		custom_trigger_tooltip = {
+			NOT = { has_regency_trigger = yes }
+			tooltip = no_regency
+		}
+	}
+
+	gbr_republican_influence = 0.01
+}
+
+# Especially during a regency
+gbr_republicans_regency = {
+	potential = {
+		tag = GBR
+		normal_or_historical_nations = yes
+		has_factions = yes
+	}
+
+	trigger = {
+		custom_trigger_tooltip = {
+			has_regency_trigger = yes
+			tooltip = yes_regency
+		}
+	}
+
+	gbr_republican_influence = 0.025
+}
+
+# Or with a monarch of low ADM skill
+gbr_republicans_poor_monarch = {
+	potential = {
+		tag = GBR
+		normal_or_historical_nations = yes
+		has_factions = yes
+	}
+
+	trigger = {
+		custom_trigger_tooltip = {
+			NOT = { has_regency_trigger = yes }
+			tooltip = no_regency
+		}
+		NOT = { adm = 3 }
+	}
+
+	gbr_republican_influence = 0.02
+}
+
+# EIC Gains when a colonist is working in Asia
+gbr_eastern_colonist = {
+	potential = {
+		tag = GBR
+		normal_or_historical_nations = yes
+		has_factions = yes
+	}
+
+	trigger = {
+		any_owned_province = {
+			has_colonist = yes
+			OR = {
+				region = indonesia_region
+				region = malaya_region
+				region = moluccas_region
+				region = australia_region
+			}
+		}
+	}
+
+	gbr_east_india_co_influence = 0.01
+}
+
+# EIC Gains when at war in Asia
+gbr_eastern_war = {
+	potential = {
+		tag = GBR
+		normal_or_historical_nations = yes
+		has_factions = yes
+	}
+
+	trigger = {
+		any_known_country = {
+			war_with = ROOT
+			OR = {
+				capital_scope = { region = japan_region }
+				capital_scope = { region = north_china_region }
+				capital_scope = { region = south_china_region }
+				capital_scope = { region = bengal_region }
+				capital_scope = { region = hindusthan_region }
+				capital_scope = { region = deccan_region }
+				capital_scope = { region = coromandel_region }
+				capital_scope = { region = west_india_region }
+				capital_scope = { region = malaya_region }
+				capital_scope = { region = moluccas_region }
+				capital_scope = { region = indonesia_region }
+				capital_scope = { region = indo_china_region }
+			}
+		}
+	}
+
+	gbr_east_india_co_influence = 0.02
+}
+

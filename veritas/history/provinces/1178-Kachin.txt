@@ -1,0 +1,27 @@
+# Kachin
+
+capital = "Mong Yang"
+owner = SST	#Mong Yang
+controller = SST
+add_core = SST
+culture = shan
+religion = buddhism
+trade_goods = copper
+base_tax = 3
+base_production = 3
+base_manpower = 5
+is_city = yes
+hre = no
+fort_15th = yes
+discovered_by = chinese
+discovered_by = indian
+
+1406.1.1 = { owner = AVA controller = AVA add_core = AVA } #Taken in 40 Years' War
+1482.1.1 = { owner = SST controller = SST remove_core = AVA } #Mohnyin State successfully breaks free
+1557.3.6 = { controller = TAU }
+1563.4.1 = { owner = TAU }
+1599.1.1 = { owner = SST controller = SST }
+1605.1.1 = { owner = TAU controller = TAU add_core = TAU }
+1655.1.1 = { discovered_by = SPA }#Novus Atlas Sinensis
+1752.1.1 = { owner = SST controller = SST }
+1754.1.1 = { owner = TAU controller = TAU }

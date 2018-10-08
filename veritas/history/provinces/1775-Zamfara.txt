@@ -1,0 +1,15 @@
+# Zamfara
+
+capital = "Zamfara"
+owner = ZZZ
+controller = ZZZ
+add_core = ZZZ
+culture = hausa
+religion = sunni
+trade_goods = livestock
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = sudanese_tech

@@ -1,0 +1,16 @@
+# Kasanje
+#Province IDs changed
+
+capital = "Kasanje"
+owner = NDO
+controller = NDO
+add_core = NDO
+is_city = yes
+culture = bakongo
+religion = bantu
+base_tax = 2
+base_production = 2
+base_manpower = 5
+trade_goods = salt
+discovered_by = tribal_african_tech
+hre = no

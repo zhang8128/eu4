@@ -1,0 +1,10 @@
+#Fregata
+#model = frigate
+#tech_level = 38
+type = transport
+unit_type = byzantine
+
+hull_size = 20
+base_cannons = 32
+sail_speed = 10
+sailors = 250

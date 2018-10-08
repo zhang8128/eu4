@@ -1,0 +1,120 @@
+country_decisions = {
+
+	romanian_nation = {
+		major = yes
+		potential = {
+			OR = {
+				primary_culture = wallachian
+				primary_culture = transylvanian
+				primary_culture = moldavian
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = RMN }
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			NOT = { exists = BYZ }
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { area = moldavia_area }
+						AND = {
+							area = moldavia_area
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				all_owned_province = {
+					OR = {
+						NOT = { area = wallachia_area }
+						AND = {
+							area = wallachia_area
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				all_owned_province = {
+					OR = {
+						NOT = { area = transylvania_area }
+						AND = {
+							area = transylvania_area
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_romania
+			}
+			owns_core_province = 496	# Bucovina
+			owns_core_province = 501	# Tara de Jos
+			owns_core_province = 503	# Baragan
+			owns_core_province = 504	# Dambovita
+			owns_core_province = 505	# Arges
+			owns_core_province = 506	# Oltenia
+			owns_core_province = 513	# Temes
+			owns_core_province = 559	# Dobrogea
+		}
+		effect = {
+			change_tag = RMN
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			add_prestige = 25
+			504 = {
+				add_base_tax = 1
+				add_base_production = 1
+			}
+			set_capital = 504
+			moldavia_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = RMN
+			}
+			wallachia_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = RMN
+			}
+			transylvania_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = RMN
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = RMN_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+}

@@ -1,0 +1,13 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+technology_group = western
+religion = catholic
+primary_culture = dutch
+capital = 185	# Amsterdam
+
+#1299-1354 Union under Hainaut
+#1354-1429 Union under Bavaria-Straubing
+#1429-1432 Union under Hainaut
+#Afterwards under Burgundy
+
+1580.1.1 = { government = republic add_government_reform = administrative_republic } # Constitutionalism and the General Estates

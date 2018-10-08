@@ -1,0 +1,146 @@
+################## UNIQUE ##################
+## Palace
+## Revenue Service
+## Embassy
+## Admiralty
+## War College
+############################################
+
+royal_palace = {
+	cost = 600
+	time = 12
+	trigger = {
+		is_capital = yes
+		owner = { is_nomad = no }
+	}
+	modifier = {
+		legitimacy = 0.5
+		republican_tradition = 0.25
+		devotion = 0.5
+		prestige = 0.5
+		allowed_num_of_buildings = 1
+	}
+	one_per_country = yes
+	
+	ai_will_do = {
+		factor = 4500
+	}
+}
+
+revenue_service = {
+	cost = 600
+	time = 12
+	trigger = {
+		OR = {
+			is_capital = yes
+			development = 20
+		}
+	}
+	modifier = {
+		inflation_reduction = 0.05
+		global_tax_income = 1
+		allowed_num_of_buildings = 1
+	}
+	one_per_country = yes
+	
+	ai_will_do = {
+		factor = 3000
+		modifier = {
+			factor = 0
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 1.5
+			is_capital = yes
+		}
+	}
+}
+
+embassy = {
+	cost = 600
+	time = 12
+	modifier = {
+		diplomats = 1
+		allowed_num_of_buildings = 1
+	}
+	one_per_country = yes
+	
+	ai_will_do = {
+		factor = 3000
+		modifier = {
+			factor = 0
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 1.5
+			is_capital = yes
+		}
+	}
+}
+
+admiralty = {
+	cost = 600
+	time = 12
+	trigger = {
+		has_port = yes
+	}
+	modifier = {
+		navy_tradition = 0.5
+		leader_naval_fire = 1
+		allowed_num_of_buildings = 1
+	}
+	one_per_country = yes
+	
+	ai_will_do = {
+		factor = 3000
+		modifier = {
+			factor = 0
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 1.5
+			is_capital = yes
+		}
+	}
+}
+
+war_college = {
+	cost = 600
+	time = 12
+	modifier = {
+		army_tradition = 0.5
+		free_leader_pool = 1
+		allowed_num_of_buildings = 1
+	}
+	one_per_country = yes
+	
+	ai_will_do = {
+		factor = 3000
+		modifier = {
+			factor = 0
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 1.5
+			is_capital = yes
+		}
+	}
+}
+
+nomad_palace = {
+	cost = 100
+	time = 11
+	trigger = {
+		is_capital = yes
+		owner = { is_nomad = yes }
+	}
+	indestructible = yes
+	modifier = {
+		allowed_num_of_buildings = 1
+	}
+	one_per_country = yes
+	
+	ai_will_do = {
+		factor = 0
+	}
+}

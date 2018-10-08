@@ -1,0 +1,24 @@
+# Pune
+
+capital = "Pune"
+owner = AHM
+controller = AHM
+add_core = AHM
+culture = marathi
+religion = hinduism
+trade_goods = cotton
+base_tax = 5
+base_production = 5
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = indian
+
+1317.1.1	= { owner = DLH controller = DLH } # Last Yadava sultan killed in rebellion against Delhi
+1347.1.1	= { controller = BAH owner = BAH add_core = BAH } #Bahmani Sultanate
+1490.1.1	= { owner = AHM controller = AHM remove_core = BAH } # The Breakup of the Bahmani sultanate
+1498.1.1	= { discovered_by = POR }
+1633.7.27	= { owner = MUG controller = MUG add_core = MUG } # Conquered by Shah Jahan
+1650.1.1	= { add_core = MAR }
+1657.1.1	= { owner = MAR controller = MAR remove_core = MUG } # Inheritance of Shivaj
+1818.6.3	= { owner = GBR controller = GBR }

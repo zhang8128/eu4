@@ -1,0 +1,10 @@
+#Sambuk
+#model = caravel
+#tech_level = 22
+type = transport
+unit_type = sudanese_tech
+
+hull_size = 6
+base_cannons = 6
+sail_speed = 10
+sailors = 200

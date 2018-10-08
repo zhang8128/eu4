@@ -1,0 +1,10 @@
+#Meng Chong
+#model = galleass
+#tech_level = 20
+type = galley
+unit_type = chinese
+
+hull_size = 14
+base_cannons = 14
+sail_speed = 8
+sailors = 250

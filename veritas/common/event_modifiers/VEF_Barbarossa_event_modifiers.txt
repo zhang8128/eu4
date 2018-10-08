@@ -1,0 +1,72 @@
+###########################
+# Barbary Coast Modifiers #
+###########################
+
+province_raided1 = {
+	trade_goods_size_modifier = -0.075
+	local_tax_modifier = -0.075
+	regiment_recruit_speed = 0.1
+	ship_recruit_speed = 0.1
+	supply_limit_modifier = -0.1
+
+	picture = "raided_for_slaves"
+}
+
+province_raided2 = {
+	trade_goods_size_modifier = -0.15
+	local_tax_modifier = -0.15
+	regiment_recruit_speed = 0.2
+	ship_recruit_speed = 0.2
+	supply_limit_modifier = -0.1
+
+	picture = "raided_for_slaves"
+}
+
+province_raided3 = {
+	trade_goods_size_modifier = -0.25
+	local_tax_modifier = -0.25
+	regiment_recruit_speed = 0.3
+	ship_recruit_speed = 0.3
+	supply_limit_modifier = -0.1
+
+	picture = "raided_for_slaves"
+}
+
+pirate_slave_trade = {
+	galley_cost = -0.33
+	trade_efficiency = 0.05
+}
+
+turkish_support_pirates = {}
+
+nafrica_support_pirates = {
+	galley_cost = -0.05
+	trade_efficiency = 0.025
+}
+
+nafrica_hunt_pirates = {
+	diplomatic_reputation = 1
+	trade_efficiency = -0.025
+}
+
+tolerating_pirates = {
+	diplomatic_reputation = -1
+	prestige = -0.005
+}
+
+successful_raid = {
+	local_tax_modifier = 0.25
+	local_production_efficiency = 0.25
+}
+
+cracking_down = {
+	local_tax_modifier = -0.1
+	local_production_efficiency = -0.25
+	local_unrest = -2
+}
+
+# Timers/Markers
+pirates_calc_run = {}
+pirates_raid_run = {}
+hidden_pirate_support = {}
+raid_notice_timer = {}

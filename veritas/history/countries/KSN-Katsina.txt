@@ -1,0 +1,36 @@
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+primary_culture = hausa
+religion = sunni
+technology_group = sudanese_tech
+capital = 1773
+
+1309.1.1 = {
+	monarch = {
+		name = "Sarkin Bagani Jargo"
+		adm = 4
+		dip = 1
+		mil = 2
+	}
+	
+}
+
+1322.1.1 = {
+	monarch = {
+		name = "Sarkin Sanaawu"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+
+}
+
+1328.1.1 = {
+	monarch = {
+		name = "Sarkin Muhammadu Jan-hazo"
+		adm = 4
+		dip = 2
+		mil = 2
+	}
+}

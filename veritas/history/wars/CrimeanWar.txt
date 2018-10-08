@@ -1,0 +1,46 @@
+#Province IDs changed
+name = "Crimean War"
+war_goal = {
+	type = superiority_insult_mutual
+	casus_belli = cb_insult
+}
+
+1853.10.1 = {
+	add_attacker = RUS
+	add_defender = TUR
+}
+
+1853.11.30 = {
+	battle = {
+		name = "Sinope"
+		location = 2358
+		attacker = {
+			commander = "Pavel Nakhimov"
+			heavy_ship = 11
+			losses = 0	# percent
+			country = RUS
+		}
+		defender = {
+			commander = "Osman Pasha"
+			heavy_ship = 9
+			losses = 90	# percent
+			country = TUR
+		}
+		result = yes
+	}
+}
+
+1854.3.1 = { 
+	add_defender = GBR
+	add_defender = RFR
+	add_defender = SPI
+}
+
+# Treaty of Paris
+1856.3.1 = {
+	rem_attacker = RUS
+	rem_defender = TUR
+	rem_defender = GBR
+	rem_defender = RFR
+	rem_defender = SPI
+}

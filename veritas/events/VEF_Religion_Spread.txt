@@ -1,0 +1,97 @@
+# Forced Conversion from Purity Finisher
+namespace = vef_religion_spread
+
+province_event = {
+	id = vef_religion_spread.1
+	title = "vef_religion_spread.1.title"
+	desc = "vef_religion_spread.1.desc"
+	picture = VEF_ADMIN_CAPACITY_eventPicture
+
+	trigger = {
+		owner = {
+			has_active_policy = vef_purityf
+		}
+		NOT = { religion = owner }
+		NOT = { religion = secondary }
+		is_reformation_center = no
+		NOT = { has_province_modifier = religious_zeal_at_conv }
+		any_neighbor_province = {
+			religion = owner
+		}
+		is_city = yes
+	}
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.75
+			any_neighbor_province = {
+				religion = owner
+				culture_group = owner
+			}
+		}
+		modifier = {
+			factor = 0.75
+			owner = { 
+				full_idea_group = religious_ideas
+			}
+		}	
+		modifier = {
+			factor = 0.75
+			owner = { 
+				is_defender_of_faith = yes
+			}
+		}
+		modifier = {
+			factor = 1.25
+			owner = {
+				has_idea_group = innovativeness_ideas
+			}
+		}
+		modifier = {
+			factor = 2.00
+			is_year = 1650
+		}
+		modifier = {
+			factor = 2.25
+			is_year = 1675
+		}
+		modifier = {
+			factor = 2.50
+			is_year = 1700
+		}
+		modifier = {
+			factor = 2.75
+			is_year = 1725
+		}
+		modifier = {
+			factor = 3.00
+			is_year = 1750
+		}
+		modifier = {
+			factor = 3.25
+			is_year = 1775
+		}		
+		modifier = {
+			factor = 3.50
+			is_year = 1800
+		}
+		modifier = {
+			factor = 3.75
+			is_year = 1825
+		}
+		modifier = {
+			factor = 4.00
+			is_year = 1850
+		}
+		modifier = {
+			factor = 5.00
+			is_overseas = yes
+		}
+	}
+	
+	option = {
+		name = "vef_religion_spread.1a"
+		change_religion = owner
+		add_province_modifier = { name = "religious_zeal_at_conv" duration = 4500 }
+	}
+}

@@ -1,0 +1,23 @@
+# Kham
+
+capital = "Tachienlu"
+owner = YUN
+controller = YUN
+add_core = YUN
+add_core = TIB	#Kham
+culture = tibetan
+religion = vajrayana
+trade_goods = tea
+base_tax = 1
+base_production = 1
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = chinese
+discovered_by = nomad_group
+
+set_local_autonomy = 80
+
+1354.1.1 = { owner = TIB controller = TIB remove_core = YUN set_local_autonomy = 0 }
+1709.1.1 = { discovered_by = SPA }
+1776.1.1 = { owner = QNG controller = QNG add_core = QNG }

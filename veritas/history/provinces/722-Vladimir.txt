@@ -1,0 +1,41 @@
+# Vladimir
+
+capital = "Vladimir"
+owner = VLD
+controller = VLD  
+add_core = VLD 
+culture = russian
+religion = orthodox
+trade_goods = wax
+base_tax = 4
+base_production = 4
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = GOL
+discovered_by = KAZ
+discovered_by = western
+discovered_by = byzantine
+
+1331.1.1 = { owner = MOS controller = MOS add_core = MOS }	#Vladimir-Suzdal dissolved
+1450.1.1  = { citysize = 6730 discovered_by = SIB }
+1500.1.1  = { citysize = 7920 }
+1503.1.1  = { temple = yes } # Assumption cathedral, destroyed in 1185, but rebuilt
+1503.4.1 = {	owner = RUS controller = RUS add_core = RUS remove_core = MOS }
+1550.1.1  = { citysize = 9318 }
+1598.1.7  = { unrest = 5 } # "Time of troubles"
+1600.1.1  = { citysize = 10962 }
+1613.3.3  = { unrest = 0 } # Order returned, Romanov dynasty
+1650.1.1  = { citysize = 12897 }
+1700.1.1  = { citysize = 15173 }
+1711.1.1  = { base_tax = 4
+base_production = 4 } # Governmental refoms and the absolutism
+1750.1.1  = { citysize = 17850 }
+1767.1.1  = { base_tax = 5
+base_production = 5 } # Legislative reform
+1773.1.1  = { unrest = 5 } # Emelian Pugachev, Cossack insurrection
+1774.9.14 = { unrest = 0 } # Pugachev is captured
+1800.1.1  = { citysize = 21000 }

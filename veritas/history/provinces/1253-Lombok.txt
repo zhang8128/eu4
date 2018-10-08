@@ -1,0 +1,25 @@
+# Lombok
+
+capital = "Lombok"
+native_size = 50
+native_ferocity = 7
+native_hostileness = 7
+culture = papuan
+religion = animism
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 2
+hre = no
+discovered_by = MKS
+discovered_by = MLC
+discovered_by = ATJ
+discovered_by = MAJ
+discovered_by = BEI
+discovered_by = KUT
+discovered_by = BLI
+discovered_by = SUN
+discovered_by = SVJ
+
+1512.1.1 = { discovered_by = POR }
+1750.1.1 = { owner = BLI controller = BLI add_core = BLI is_city = yes trade_goods = cotton } # Under the Balinese influence

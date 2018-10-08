@@ -1,0 +1,10 @@
+#Yu Ting
+#model = galleass
+#tech_level = 28
+type = galley
+unit_type = chinese
+
+hull_size = 20
+base_cannons = 26
+sail_speed = 8
+sailors = 300

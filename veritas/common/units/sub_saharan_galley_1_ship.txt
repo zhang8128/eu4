@@ -1,0 +1,10 @@
+#Pinasse
+#model = galley
+#tech_level = 0
+type = galley
+unit_type = sub_saharan
+
+hull_size = 4
+base_cannons = 2
+sail_speed = 6
+sailors = 50

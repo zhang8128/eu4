@@ -1,0 +1,28 @@
+government = republic add_government_reform = administrative_republic
+government_rank = 3
+technology_group = byzantine
+primary_culture = greek
+religion = orthodox
+capital = 579	# Athens
+
+1820.1.1 = {
+	monarch = {
+		name = "First Hellenic Republic"
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+}
+
+1832.1.1 = {
+	government = monarchy add_government_reform = feudalism_reform
+	monarch = {
+		name = "Othon I"
+		dynasty = "von Wittelsbach"
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1843.1.1 = { government = monarchy add_government_reform = constitutional_monarchy }

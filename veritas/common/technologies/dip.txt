@@ -1,0 +1,851 @@
+monarch_power = DIP
+
+# applied when a country is ahead of time in this technology
+ahead_of_time = {
+	trade_efficiency = 0.2
+	yearly_corruption = -0.05
+}
+
+technology = {
+	# Tech 0
+	year = 1198
+	
+	naval_maintenance = 0.1
+	naval_morale = 2.0
+	trade_range = 100
+	range = 80
+	global_colonial_growth = 10
+
+	may_fabricate_claims = yes
+	merchants = yes
+
+	enable = byzantine_galley_1_ship
+	enable = byzantine_light_1_ship
+	enable = byzantine_trade_1_ship
+	enable = chinese_galley_1_ship
+	enable = chinese_light_1_ship
+	enable = chinese_trade_1_ship
+	enable = eastern_galley_1_ship
+	enable = eastern_light_1_ship
+	enable = eastern_trade_1_ship
+	enable = indian_galley_1_ship
+	enable = indian_light_1_ship
+	enable = indian_trade_1_ship
+	enable = mesoamerican_galley_1_ship
+	enable = mesoamerican_light_1_ship
+	enable = mesoamerican_trade_1_ship
+	enable = muslim_galley_1_ship
+	enable = muslim_light_1_ship
+	enable = muslim_trade_1_ship
+	enable = niitaka_galley_1_ship
+	enable = niitaka_light_1_ship
+	enable = niitaka_trade_1_ship
+	enable = nomad_galley_1_ship
+	enable = nomad_light_1_ship
+	enable = nomad_trade_1_ship
+	enable = north_american_galley_1_ship
+	enable = north_american_light_1_ship
+	enable = north_american_trade_1_ship
+	enable = ottoman_galley_1_ship
+	enable = ottoman_light_1_ship
+	enable = ottoman_trade_1_ship
+	enable = pacific_islander_galley_1_ship
+	enable = pacific_islander_light_1_ship
+	enable = pacific_islander_trade_1_ship
+	enable = scandinavian_galley_1_ship
+	enable = scandinavian_light_1_ship
+	enable = scandinavian_trade_1_ship
+	enable = south_american_galley_1_ship
+	enable = south_american_light_1_ship
+	enable = south_american_trade_1_ship
+	enable = sub_saharan_galley_1_ship
+	enable = sub_saharan_light_1_ship
+	enable = sub_saharan_trade_1_ship
+	enable = western_galley_1_ship
+	enable = western_light_1_ship
+	enable = western_trade_1_ship
+	enable = chinese_heavy_1_ship
+	enable = indian_heavy_1_ship
+	enable = south_american_heavy_1_ship
+	enable = sudanese_tech_galley_1_ship
+	enable = sudanese_tech_light_1_ship
+	enable = sudanese_tech_trade_1_ship
+	enable = tribal_african_tech_galley_1_ship
+	enable = tribal_african_tech_light_1_ship
+	enable = tribal_african_tech_trade_1_ship
+}
+
+technology = {
+	# Tech 1
+	year = 1209
+
+}
+
+technology = {
+	# Tech 2
+	year = 1220
+
+}
+
+technology = {
+	# Tech 3
+	year = 1231
+
+}
+
+technology = {
+	# Tech 4
+	year = 1242
+
+}
+
+technology = {
+	# Tech 5
+	year = 1253
+
+}
+
+technology = {
+	# Tech 6
+	year = 1264
+
+}
+
+technology = {
+	# Tech 7
+	year = 1275
+
+}
+
+technology = {
+	# Tech 8
+	year = 1286
+
+}
+
+technology = {
+	# Tech 9
+	year = 1297
+
+}
+
+technology = {
+	# Tech 10
+	year = 1308
+
+}
+
+technology = {
+	# Tech 11
+	year = 1320
+
+	trade_range = 10
+
+	dock = yes
+}
+
+technology = {
+	# Tech 12
+	year = 1331
+
+	trade_range = 10
+
+	enable = north_american_light_2_ship
+}
+
+technology = {
+	# Tech 13
+	year = 1342
+
+	trade_range = 10
+	trade_efficiency = 0.05
+}
+
+technology = {
+	# Tech 14
+	year = 1353
+
+	trade_range = 10
+	marketplace = yes
+
+	enable = north_american_galley_2_ship
+}
+
+technology = {
+	# Tech 15
+	year = 1364
+
+	trade_range = 10
+	naval_morale = 0.05
+
+	fishery = yes
+}
+
+technology = {
+	# Tech 16
+	year = 1375
+
+	trade_range = 10
+	shipyard = yes
+
+	enable = mesoamerican_galley_2_ship
+	enable = south_american_galley_2_ship
+	enable = sub_saharan_trade_2_ship
+	enable = eastern_galley_2_ship
+	enable = sub_saharan_galley_2_ship
+	enable = tribal_african_tech_galley_2_ship
+	enable = tribal_african_tech_trade_2_ship
+}
+
+technology = {
+	# Tech 17
+	year = 1386
+	
+	trade_range = 10
+	naval_morale = 0.05
+	naval_maintenance = 0.05
+
+	enable = north_american_trade_2_ship
+	enable = north_american_galley_3_ship
+	enable = sub_saharan_light_2_ship
+	enable = niitaka_galley_2_ship
+	enable = indian_trade_2_ship
+	enable = indian_galley_2_ship
+	enable = nomad_light_2_ship
+	enable = ottoman_galley_2_ship
+}
+
+technology  = {
+	# Tech 18
+	year = 1397
+	
+	global_colonial_growth = 10
+	trade_range = 10
+	range = 10
+	num_accepted_cultures = 1
+}
+
+technology = {
+	# Tech 19
+	year = 1408
+	
+	range = 10
+	trade_range = 10
+
+	enable = byzantine_galley_2_ship
+	enable = chinese_galley_2_ship
+	enable = muslim_galley_2_ship
+	enable = nomad_galley_2_ship
+	enable = scandinavian_galley_2_ship
+	enable = western_galley_2_ship
+	enable = south_american_light_2_ship
+	enable = pacific_islander_light_2_ship
+	enable = tribal_african_tech_light_2_ship
+}
+
+technology = {
+	# Tech 20
+	year = 1419
+
+	trade_range = 10
+	may_steal_maps = yes
+}
+
+technology = {
+	# Tech 21
+	year = 1430
+	
+	global_colonial_growth = 10
+	range = 10
+
+	enable = chinese_light_2_ship
+	enable = indian_light_2_ship
+	enable = muslim_light_2_ship
+	enable = niitaka_light_2_ship
+	enable = western_heavy_1_ship
+	enable = western_light_2_ship
+	enable = mesoamerican_trade_2_ship
+	enable = south_american_galley_3_ship
+	enable = north_american_galley_4_ship
+	enable = mesoamerican_galley_3_ship
+	enable = south_american_trade_2_ship
+	enable = nomad_trade_2_ship
+	enable = sub_saharan_trade_3_ship
+	enable = chinese_heavy_2_ship
+	enable = indian_heavy_2_ship
+	enable = south_american_heavy_2_ship
+	enable = sudanese_tech_galley_2_ship
+	enable = tribal_african_tech_trade_3_ship
+}
+
+technology = {
+	# Tech 22
+	year = 1441
+	
+	range = 10
+	trade_range = 10
+	trade_efficiency = 0.05
+	naval_morale = 0.05
+	naval_maintenance = 0.05
+}
+
+technology = {
+	# Tech 23
+	year = 1452
+	
+	trade_range = 10
+	naval_morale = 0.1
+
+	embassy = yes
+
+	enable = pacific_islander_galley_2_ship
+	enable = niitaka_heavy_1_ship
+	enable = ottoman_trade_2_ship
+	enable = ottoman_light_2_ship
+	enable = ottoman_heavy_1_ship
+	enable = scandinavian_trade_2_ship
+	enable = scandinavian_light_2_ship
+	enable = western_trade_2_ship
+	enable = byzantine_light_2_ship
+	enable = byzantine_heavy_1_ship
+	enable = sudanese_tech_light_2_ship
+}
+
+technology = {
+	# Tech 24
+	year = 1463
+
+	trade_efficiency = 0.05
+	trade_range = 20
+
+	enable = byzantine_trade_2_ship
+}
+
+technology = {
+	# Tech 25
+	year = 1473
+
+	range = 15
+
+	wharf = yes
+	
+	enable = chinese_trade_2_ship
+	enable = muslim_trade_2_ship
+	enable = niitaka_trade_2_ship
+	enable = pacific_islander_trade_2_ship
+	enable = north_american_trade_3_ship
+	enable = mesoamerican_light_2_ship
+	enable = north_american_galley_5_ship
+	enable = pacific_islander_light_3_ship
+	enable = niitaka_galley_3_ship
+	enable = indian_galley_3_ship
+	enable = nomad_light_3_ship
+	enable = ottoman_galley_3_ship
+	enable = eastern_trade_2_ship
+	enable = scandinavian_heavy_1_ship
+}
+
+technology = {
+	# Tech 26
+	year = 1483
+
+	trade_efficiency = 0.05
+}
+
+technology = {
+	# Tech 27
+	year = 1492
+
+	range = 100
+	naval_morale = 0.2
+
+	enable = byzantine_galley_3_ship
+	enable = eastern_galley_3_ship
+	enable = muslim_galley_3_ship
+	enable = western_galley_3_ship
+	enable = north_american_light_3_ship
+	enable = mesoamerican_heavy_1_ship
+	enable = indian_trade_3_ship
+	enable = sub_saharan_galley_3_ship
+	enable = sudanese_tech_trade_2_ship
+	enable = tribal_african_tech_galley_3_ship
+}
+
+technology = {
+	# Tech 28
+	year = 1505
+	
+	num_accepted_cultures = 1
+	
+	naval_morale = 0.2
+	trade_range = 10
+	naval_maintenance = 0.1
+
+	enable = indian_light_3_ship
+}
+
+technology = {
+	# Tech 29
+	year = 1517
+
+	range = 50
+	may_study_technology = yes
+
+	enable = chinese_light_3_ship
+	enable = muslim_light_3_ship
+	enable = niitaka_light_3_ship
+	enable = ottoman_light_3_ship
+	enable = western_light_3_ship
+	enable = mesoamerican_galley_4_ship
+	enable = chinese_galley_3_ship
+	enable = scandinavian_galley_3_ship
+	enable = sudanese_tech_galley_3_ship
+}
+
+technology = {
+	# Tech 30
+	year = 1529
+
+	trade_range = 20
+	global_colonial_growth = 10
+
+	enable = niitaka_heavy_2_ship
+	enable = western_heavy_2_ship
+	enable = mesoamerican_trade_3_ship
+	enable = pacific_islander_trade_3_ship
+	enable = chinese_heavy_3_ship
+	enable = ottoman_trade_3_ship
+	enable = eastern_trade_3_ship
+	enable = scandinavian_trade_3_ship
+	enable = scandinavian_light_3_ship
+	enable = byzantine_light_3_ship
+	enable = sudanese_tech_light_3_ship
+}
+
+technology = {
+	# Tech 31
+	year = 1540
+	
+	range = 100
+	trade_efficiency = 0.05
+}
+
+technology = {
+	# Tech 32
+	year = 1551
+
+	naval_morale = 0.1
+	may_slander_merchants = yes
+
+	enable = mesoamerican_light_3_ship
+	enable = pacific_islander_light_4_ship
+	enable = south_american_light_3_ship
+	enable = ottoman_heavy_2_ship
+	enable = ottoman_galley_4_ship
+	enable = eastern_light_2_ship
+	enable = scandinavian_heavy_2_ship
+	enable = western_trade_3_ship
+	enable = eastern_galley_4_ship
+	enable = byzantine_heavy_2_ship
+}
+
+technology = {
+	# Tech 33
+	year = 1562
+
+	naval_morale = 0.3
+}
+
+technology = {
+	# Tech 34
+	year = 1573
+
+	
+	admiralty = yes
+
+	enable = byzantine_heavy_3_ship
+	enable = byzantine_trade_3_ship
+	enable = chinese_trade_3_ship
+	enable = muslim_trade_3_ship
+	enable = niitaka_heavy_3_ship
+	enable = niitaka_trade_3_ship
+	enable = western_heavy_3_ship
+	enable = indian_trade_4_ship
+	enable = sub_saharan_light_3_ship
+	enable = ottoman_light_4_ship
+	enable = tribal_african_tech_light_3_ship
+}
+
+technology = {
+	# Tech 35
+	year = 1584
+	
+	tradecompany = yes
+}
+
+technology = {
+	# Tech 36
+	year = 1595
+	
+	naval_maintenance = 0.1
+	range = 50
+	global_colonial_growth = 10
+	
+	trade_depot = yes
+	may_sabotage_recruitment = yes
+
+	enable = byzantine_galley_4_ship
+	enable = chinese_galley_4_ship
+	enable = chinese_light_4_ship
+	enable = indian_light_4_ship
+	enable = muslim_galley_4_ship
+	enable = muslim_light_4_ship
+	enable = niitaka_light_4_ship
+	enable = scandinavian_light_4_ship
+	enable = western_galley_4_ship
+	enable = western_light_4_ship
+	enable = mesoamerican_heavy_2_ship
+	enable = south_american_trade_3_ship
+	enable = mesoamerican_trade_4_ship
+	enable = pacific_islander_trade_4_ship
+	enable = ottoman_heavy_3_ship
+	enable = eastern_trade_4_ship
+	enable = scandinavian_heavy_3_ship
+	enable = sudanese_tech_trade_3_ship
+}
+
+technology = {
+	# Tech 37
+	year = 1606
+
+	trade_range = 20
+
+	enable = niitaka_galley_4_ship
+	enable = chinese_heavy_4_ship
+	enable = indian_galley_4_ship
+	enable = south_american_light_4_ship
+	enable = ottoman_trade_4_ship
+	enable = scandinavian_trade_4_ship
+	enable = scandinavian_galley_4_ship
+	enable = western_trade_4_ship
+	enable = byzantine_light_4_ship
+}
+
+technology = {
+	# Tech 38
+	year = 1617
+	
+	trade_efficiency = 0.05
+	trade_range = 20
+
+	enable = sudanese_tech_galley_4_ship
+	enable = sudanese_tech_light_4_ship
+}
+
+technology = {
+	# Tech 39
+	year = 1628
+
+	range = 50
+	
+	grand_shipyard = yes
+	may_sow_discontent = yes
+
+	enable = byzantine_trade_4_ship
+	enable = chinese_trade_4_ship
+	enable = muslim_trade_4_ship
+	enable = niitaka_heavy_4_ship
+	enable = niitaka_trade_4_ship
+	enable = scandinavian_heavy_4_ship
+	enable = western_heavy_4_ship
+	enable = eastern_light_3_ship
+	enable = eastern_galley_5_ship
+}
+
+technology = {
+	# Tech 40
+	year = 1639
+
+	naval_morale = 0.5
+	naval_maintenance = 0.10
+}
+
+technology = {
+	# Tech 41
+	year = 1650
+
+	range = 50
+
+	drydock = yes
+
+	enable = niitaka_light_5_ship
+	enable = indian_trade_5_ship
+	enable = ottoman_trade_5_ship
+	enable = ottoman_galley_5_ship
+	enable = ottoman_heavy_4_ship
+	enable = western_trade_5_ship
+}
+
+technology = {
+	# Tech 42
+	year = 1661
+
+	trade_range = 20
+	num_accepted_cultures = 1
+
+	enable = sudanese_tech_trade_4_ship
+}
+
+technology = {
+	# Tech 43
+	year = 1672
+
+	trade_efficiency = 0.05
+	
+	stock_exchange = yes
+	may_sabotage_reputation = yes
+
+	enable = byzantine_galley_5_ship
+	enable = chinese_galley_5_ship
+	enable = chinese_light_5_ship
+	enable = indian_light_5_ship
+	enable = muslim_galley_5_ship
+	enable = muslim_light_5_ship
+	enable = niitaka_galley_5_ship
+	enable = scandinavian_light_5_ship
+	enable = western_galley_5_ship
+	enable = western_light_5_ship
+	enable = chinese_heavy_5_ship
+	enable = south_american_trade_4_ship
+	enable = eastern_trade_5_ship
+}
+
+technology = {
+	# Tech 44
+	year = 1682
+
+	naval_morale = 0.25
+	naval_maintenance = 0.1
+	
+	reduced_naval_attrition = yes
+}
+
+technology = {
+	# Tech 45
+	year = 1691
+
+	naval_morale = 0.25
+
+	enable = byzantine_trade_5_ship
+	enable = chinese_trade_5_ship
+	enable = muslim_trade_5_ship
+	enable = niitaka_heavy_5_ship
+	enable = niitaka_trade_5_ship
+	enable = ottoman_heavy_5_ship
+	enable = scandinavian_heavy_5_ship
+	enable = scandinavian_trade_5_ship
+	enable = western_heavy_5_ship
+	enable = ottoman_light_5_ship
+	enable = eastern_light_4_ship
+	enable = eastern_heavy_1_ship
+	enable = scandinavian_galley_5_ship
+	enable = western_trade_6_ship
+	enable = byzantine_heavy_4_ship
+	enable = byzantine_light_5_ship
+}
+
+technology = {
+	# Tech 46
+	year = 1700
+
+	global_colonial_growth = 15
+	range = 150
+
+	allow_client_states = yes
+
+	enable = sudanese_tech_galley_5_ship
+	enable = sudanese_tech_light_5_ship
+}
+
+technology = {
+	# Tech 47
+	year = 1712
+
+	trade_range = 20
+	may_corrupt_officials = yes
+
+	enable = indian_trade_6_ship
+	enable = eastern_trade_6_ship
+	enable = eastern_galley_6_ship
+}
+
+technology = {
+	# Tech 48
+	year = 1725
+
+	naval_morale = 0.25
+	naval_maintenance = 0.1
+
+	enable = sudanese_tech_trade_5_ship
+}
+
+technology = {
+	# Tech 49
+	year = 1737
+
+	naval_morale = 0.25
+
+	enable = chinese_trade_6_ship
+	enable = muslim_trade_6_ship
+	enable = niitaka_trade_6_ship
+	enable = indian_light_6_ship
+	enable = indian_heavy_3_ship
+	enable = ottoman_galley_6_ship
+	enable = western_trade_7_ship
+	enable = ottoman_trade_6_ship
+}
+
+technology = {
+	# Tech 50
+	year = 1749
+
+	global_colonial_growth = 15
+	range = 200
+	num_accepted_cultures = 1
+
+	enable = chinese_galley_6_ship
+	enable = chinese_heavy_6_ship
+	enable = muslim_galley_6_ship
+	enable = niitaka_galley_6_ship
+	enable = niitaka_heavy_6_ship
+	enable = western_galley_6_ship
+	enable = western_heavy_6_ship
+	enable = indian_trade_7_ship
+	enable = eastern_trade_7_ship
+}
+
+technology = {
+	# Tech 51
+	year = 1760
+
+	naval_morale = 0.5	
+	naval_maintenance = 0.1
+	may_agitate_for_liberty = yes
+
+	enable = ottoman_heavy_6_ship
+	enable = eastern_light_5_ship
+}
+
+technology = {
+	# Tech 52
+	year = 1771
+
+	trade_range = 20
+
+	enable = chinese_light_6_ship
+	enable = niitaka_light_6_ship
+	enable = ottoman_light_6_ship
+	enable = western_light_6_ship
+	enable = indian_light_7_ship
+	enable = muslim_light_6_ship
+	enable = eastern_heavy_2_ship
+	enable = western_trade_8_ship
+}
+
+technology = {
+	# Tech 53
+	year = 1782
+
+	trade_efficiency = 0.05
+}
+
+technology = {
+	# Tech 54
+	year = 1793
+
+	naval_morale = 0.5
+	naval_maintenance = 0.1
+}
+
+technology = {
+	# Tech 55
+	year = 1804
+
+	trade_efficiency = 0.05
+	trade_range = 20
+	may_infiltrate_administration = yes
+}
+
+technology = {
+	# Tech 56
+	year = 1815
+
+	naval_morale = 0.25
+	naval_maintenance = 0.1
+}
+
+technology = {
+	# Tech 57
+	year = 1825
+
+	naval_morale = 0.25
+	
+}
+
+technology = {
+	# Tech 58
+	year = 1835
+
+	trade_efficiency = 0.05
+	trade_range = 20
+	global_colonial_growth = 30
+}
+
+technology = {
+	# Tech 59
+	year = 1840
+
+	trade_efficiency = 0.05
+}
+
+technology = {
+	# Tech 60
+	year = 1845
+
+	trade_efficiency = 0.05
+}
+
+technology = {
+	# Tech 61
+	year = 1850
+
+	trade_efficiency = 0.05
+}
+
+technology = {
+	# Tech 62
+	year = 1855
+
+	trade_efficiency = 0.05
+}
+
+technology = {
+	# Tech 63
+	year = 1860
+
+	trade_efficiency = 0.05
+}
+
+technology = {
+	# Tech 64
+	year = 1865
+
+	trade_efficiency = 0.05
+}
+
+technology = {
+	# Tech 65
+	year = 1870
+
+	trade_efficiency = 0.05
+}

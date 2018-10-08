@@ -1,0 +1,7 @@
+#Province IDs changed
+government = republic add_government_reform = administrative_republic
+government_rank = 3
+technology_group = western
+religion = catholic
+primary_culture = castillian
+capital = 1985	# Lima

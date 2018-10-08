@@ -1,0 +1,171 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 143  26  14 }
+
+random_nation_chance = 0
+
+historical_idea_groups = {
+	quality_ideas
+	economic_ideas
+	intimidatory_ideas
+	offensive_ideas
+	exploration_ideas
+	gf1_ideas
+	standing_army_ideas
+	free_trade_ideas
+}
+
+historical_units = { 
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+
+
+
+
+ship_names = {
+    Amberry Amounderness
+	Blackburn Bowland
+	Chester
+	Delamere Deva "Duke of Lancaster"
+	Furness Fylde
+	"Henry of Lancaster" Heysham Hornby
+	Irwell
+	"John o' Gaunt"
+	"Lancaster Castle" Lancastrian Leasowe Leyland Liverpool Lonsdale Lune
+	Makerfield Manchester Manxman Mersey "Morecambe Bay"
+	Northwestern
+	Pendle Pennine Preston
+	"Red Rose" Ribble "River Dee"
+	Salford Stopfordian
+	Trafford 
+	"West Derby" Wirral Wyre
+}
+
+monarch_names = {
+	"Charles #0" = 80
+	"Henry #0" = 60
+	"Edmund #0" = 20
+	"Lewis #0" = 20
+	"James #0" = 20
+	"John #0" = 20
+	"Esmé #0" = 10
+	"George #0" = 10
+	"Thomas #0" = 10
+	"Ashton #0" = 0
+	"Bruce #0" = 0
+	"Clarence #0" = 0
+	"Curtis #0" = 0
+	"Darrell #0" = 0
+	"Edgar #0" = 0
+	"Edward #0" = 0
+	"Fulk #0" = 0
+	"Gabriel #0" = 0
+	"Harold #0" = 0
+	"Hector #0" = 0
+	"Jason #0" = 0
+	"Jasper #0" = 0
+	"Keith #0" = 0
+	"David #0" = 0
+	"Malcolm #0" = 0
+	"Michael #0" = 0
+	"Nathan #0" = 0
+	"Ned #0" = 0
+	"Osborn #0" = 0
+	"Patrick #0" = 0
+	"Randall #0" = 0
+	"Richard #0" = 0
+	"Sean #0" = 0
+	"Timothy #0" = 0
+	"Robert #0" = 0
+	"Victor #0" = 0
+	"Walter #0" = 0
+	"William #0" = 0
+	"Xavier #0" = 0
+	"Zachariah #0" = 0
+	
+	"Avaline #0" = -1
+	"Calla #0" = -1
+	"Eryn #0" = -1
+}
+
+leader_names = {
+	Beaufirt Bolingbroke
+	Crouchback
+	Dudley
+	Gaunt Grosmont
+	Lancaster
+	Monmouth
+	Percy
+	Sidney
+}

@@ -1,0 +1,17 @@
+# Zinder
+
+capital = "Zinder"
+owner = KAN
+controller = KAN
+add_core = KAN
+culture = hausa
+religion = sunni
+trade_goods = salt
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = sudanese_tech
+
+1419.7.30 = { owner = SON controller = SON add_core = SON remove_core = KAN }

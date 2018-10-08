@@ -1,0 +1,192 @@
+# Series of Decisions to form the Church of England
+# Historical Notes:
+#
+# 1st Act of Royal Supremacy (1534.11.1), Founds the Church of England.
+# Mary's Revival of the Heresy Acts (1554.12.31), makes England Catholic.
+# Elizabeth's 2nd Act of Royal Supremacy (1559.1.1). Restores the Church of England.
+# William and Mary's Act of Toleration (1689.5.24) allows other faiths.
+#
+# AI will never convert back to Catholic - this is here for humans who might want
+# to do it strategically, or just to add some flavor to their game. :-)
+
+country_decisions = {
+	first_act_royal_supremacy = {
+		major = yes
+		potential = {
+			OR = {
+				tag = ENG # Only England or Great Britain
+				tag = GBR
+			}
+			normal_or_historical_nations = yes
+			NOT = { has_country_modifier = the_heresy_acts }
+			NOT = { is_religion_enabled = anglican }
+			religion = catholic # National religion is Catholic
+			is_subject = no
+		}
+
+		allow = {
+			religion_years = { protestant = 15 }
+			NOT = { has_regency_trigger = yes }
+			adm_power = 25
+		}
+
+		effect = {
+			enable_religion = anglican
+			change_religion = anglican # Church of England is formed! Yeah!
+			# section largely copied from 00_religion.txt on_convert for protestant
+			remove_country_modifier = counter_reformation
+			remove_country_modifier = the_statue_in_restraint_of_appeals
+			remove_country_modifier = bavarian_jesuits
+			remove_country_modifier = the_societas_jesu
+			remove_country_modifier = the_declaration_of_indulgence
+			remove_country_modifier = de_heretico_comburendo
+			remove_country_modifier = the_conventicle_act
+			add_country_modifier = { name = "conversion_zeal" duration = 3650 }
+			every_known_country = {
+				limit = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_demote_pope } }
+				reverse_remove_opinion = { who = ROOT modifier = opinion_demote_pope }
+			}
+		
+			# added so that this decision can't be abused (by the AI, too) by immediately converting back
+			force_converted = yes
+			
+			capital_scope = { change_religion = anglican }
+			every_owned_province = {
+				limit = {
+					religion = protestant
+					is_reformation_center = no
+				}
+				change_religion = anglican
+			}
+			every_owned_province = {
+				limit = { religion = catholic }
+				random = {
+					chance = 10
+					change_religion = anglican
+				}
+			}
+			reverse_add_opinion = { who = PAP modifier = england_is_anglican }
+			add_country_modifier = { name = "royal_supremacy1" duration = -1 }
+			add_country_modifier = { name = "religious_intolerance" duration = -1 }
+			add_ruler_modifier = { name = "decreed_royal_supremacy" duration = -1 }
+			add_adm_power = -25
+			every_owned_province = {
+				limit = { religion = catholic }
+				add_unrest = 5
+			}
+			define_advisor = {
+				type = thomas_cranmer
+				name = "Thomas Cranmer"
+				location = 235 # Kent (Canterbury)
+				skill = 2
+			}
+		}
+
+		ai_will_do = { 
+			factor = 1.0 
+			modifier = {
+				factor = 0
+				has_country_flag = ai_no_anglican
+			}
+		}
+
+		ai_importance = 3000
+	}
+
+	revive_the_heresy_acts = {
+		major = yes
+		potential = {
+			has_country_modifier = royal_supremacy1
+			normal_or_historical_nations = yes
+			NOT = { has_ruler_modifier = decreed_royal_supremacy }
+			religion = anglican
+		}
+
+		allow = {
+			any_owned_province = { religion = catholic }
+			NOT = { has_regency_trigger = yes }
+			adm_power = 50
+		}
+
+		effect = {
+			change_religion = catholic
+			reverse_remove_opinion = { who = PAP modifier = "england_is_anglican" }
+			remove_country_modifier = royal_supremacy1
+			remove_country_modifier = religious_intolerance
+			add_country_modifier = { name = "the_heresy_acts" duration = -1 }
+			add_country_modifier = { name = "religious_turmoil" duration = -1 }
+			add_ruler_modifier = { name = "revived_heresy_acts" duration = -1 }
+			add_adm_power = -50
+			every_owned_province = {
+				limit = { NOT = { religion = catholic } }
+				add_unrest = 5
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+
+	second_act_royal_supremacy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			has_country_modifier = the_heresy_acts
+			NOT = { has_country_modifier = counter_reformation }
+			NOT = { has_ruler_modifier = revived_heresy_acts }
+		}
+		allow = {
+			NOT = { has_regency_trigger = yes }
+			any_owned_province = { religion = anglican }
+			adm_power = 50
+		}
+
+		effect = {
+			change_religion = anglican # Church of England re-established.
+			reverse_add_opinion = { who = PAP modifier = england_is_anglican }
+			add_country_modifier = { name = "royal_supremacy2" duration = -1 }
+			add_country_modifier = { name = "religious_intolerance" duration = -1 }
+			add_ruler_modifier = { name = "decreed_royal_supremacy" duration = -1 }
+			remove_country_modifier = the_heresy_acts
+			remove_country_modifier = religious_turmoil
+			add_adm_power = -50
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	act_of_toleration = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = {
+				has_country_modifier = royal_supremacy1
+				has_country_modifier = royal_supremacy2
+			}
+			NOT = { has_country_modifier = the_heresy_acts }
+			NOT = { has_country_modifier = counter_reformation }
+			NOT = { has_ruler_modifier = decreed_royal_supremacy }
+			NOT = { has_country_modifier = anglican_church }
+		}
+		allow = {
+			NOT = { has_regency_trigger = yes }
+			NOT = { any_owned_province = { religion = catholic} }
+			adm_power = 50
+		}
+
+		effect = {
+			reverse_remove_opinion = {
+				who = PAP
+				modifier = england_is_anglican
+			}
+			remove_country_modifier = royal_supremacy2
+			remove_country_modifier = religious_intolerance
+			add_country_modifier = { name = "anglican_church" duration = -1 }
+			add_adm_power = -50
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 1000
+	}
+}

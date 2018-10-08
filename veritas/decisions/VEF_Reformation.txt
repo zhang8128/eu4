@@ -1,0 +1,431 @@
+# VeF Reformation decisions
+
+country_decisions = {
+
+	# Once Lutheranism has been active for 5 years, option for European nations to demand a
+	# council from the Pope. If a nation is Reformed or Anabaptist, or the council has been
+	# called or 75 years have passed, the decision is unavailable.
+	call_for_general_church_council = {
+		potential = {
+			religion_years = { protestant = 5 }
+			NOT = { religion_years = { protestant = 75 } }
+			OR = {
+				religion = catholic
+				religion = protestant
+			}
+			NOT = { has_country_modifier = called_for_general_council }
+			capital_scope = { continent = europe }
+			PAP = {
+				exists = yes
+				capital_scope = { continent = europe }
+			}
+			NOT = { has_global_flag = council_of_trent }
+		}
+
+		allow = { 
+			dip_power = 5
+			NOT = { war_with = PAP }
+		}
+
+		effect = {
+			add_dip_power = -5
+			add_country_modifier = { name = "called_for_general_council" duration = -1 }
+			PAP = { change_variable = { which = calls_for_council value = 1 } }
+		}
+
+		ai_will_do = { factor = 1 }
+		ai_importance = 100
+	}
+
+	call_general_council = {
+		potential = {
+			tag = PAP
+			NOT = { has_global_flag = council_of_trent }
+			check_variable = { which = calls_for_council value = 5 }
+		}
+
+		allow = {
+			is_at_war = no
+		}
+
+		effect = {
+			add_prestige = 10
+			set_global_flag = council_of_trent
+			every_known_country = {
+				limit = {
+					capital_scope = { continent = europe }
+					OR = {
+						religion = catholic
+						religion = protestant
+					}
+				}
+				country_event = { id = vef_reformation.3 days = 7 }
+			}
+		}
+
+		ai_will_do = { factor = 1 }
+		ai_importance = 200
+	}
+
+	found_the_jesuit_order = {
+		potential = {
+			tag = PAP
+			normal_or_historical_nations = yes
+			is_playing_custom_nation = no
+			NOT = { has_global_flag = jesuit_order }
+			has_global_flag = ignatius_loyola
+		}
+
+		allow = {
+			is_subject = no
+		}
+
+		effect = {
+			set_global_flag = jesuit_order
+			add_prestige = 30
+		}
+		
+		ai_will_do = { factor = 1 }
+		ai_importance = 1000
+	}
+
+	offer_compact_of_prague = {
+		potential = {
+			tag = PAP
+			normal_or_historical_nations = yes
+			is_playing_custom_nation = no
+			exists = BOH
+			NOT = { has_country_flag = had_compact_of_prague }
+			had_country_flag = { flag = hus_convicted days = 1825 }
+			NOT = { had_country_flag = { flag = hus_convicted days = 3650 } }
+		}
+
+		allow = {
+			NOT = { war_with = BOH }
+		}
+
+		effect = {
+			BOH = { 
+				remove_opinion = { 
+					who = PAP
+					modifier = hus_executed
+				}
+				add_country_modifier = { name = "compact_of_prague" duration = 3650 }
+			}
+			add_prestige = 10
+			#add_reform_desire = -5
+			set_country_flag = had_compact_of_prague
+		}
+
+		ai_will_do = { factor = 1 }
+		ai_importance = 50
+	}
+
+	# Modify for GOB
+	enact_edict_de_nantes = {
+		potential = {
+			tag = FRA
+			normal_or_historical_nations = yes
+			is_playing_custom_nation = no
+			NOT = { has_country_modifier = edict_de_nantes }
+			NOT = { has_country_flag = had_edict_de_nantes }
+			OR = {
+				is_religion_enabled = protestant
+				is_religion_enabled = reformed
+			}
+		}
+		allow = {
+			religion = catholic
+			dominant_religion = catholic
+			NOT = { has_country_modifier = counter_reformation } 
+			OR = {
+				num_of_religion = { religion = protestant value = 4 }
+				num_of_religion = { religion = reformed value = 4 }
+				num_of_religion = { religion = anabaptist value = 4 }
+			}	
+		}
+		effect = {
+			set_country_flag = had_edict_de_nantes
+			add_country_modifier = { name = "edict_de_nantes" duration = -1 }
+			#add_reform_desire = -2
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_idea = divine_supremacy
+			}
+			modifier = {
+				factor = 0
+				NOT = { innovativeness_ideas = 2 }
+			}
+		}
+	}
+	
+	# Wholsesale replacement of vanilla event. You get complete Religious Unity and the
+	# Pope loves you. But at a cost.
+	revoke_edict_de_nantes = {
+		potential = {
+			has_country_modifier = edict_de_nantes
+			normal_or_historical_nations = yes
+			is_playing_custom_nation = no
+			# Either the edict has been in effect for 10 years OR France is no longer
+			# Catholic
+			OR = {
+				had_country_flag = { flag = had_edict_de_nantes days = 3650 }
+				NOT = { religion = catholic }
+			}
+			num_of_cities = 10 # If France mostly doesn't exist, no revocation
+		}
+
+		allow = {
+			has_regency = no
+			is_lesser_in_union = no
+			is_at_war = no
+		}
+
+		# Force conversion to Catholic. Creates unrest and emigration.
+		effect = {
+			remove_country_modifier = edict_de_nantes
+			set_country_flag = revoked_the_edict_of_nantes
+			add_country_modifier = { name = "revoked_edict_of_nantes" duration = -1 }
+			add_country_modifier = { name = "civil_turmoil" duration = 365 }
+			every_core_province = {
+				limit = {
+					NOT = { religion = catholic }
+					is_reformation_center = no
+				}
+				change_religion = catholic
+				add_province_modifier = { name = "ended_edict_of_nantes" duration = 730 }
+				add_unrest = 1
+				random = {
+					chance = 10
+					add_base_manpower = -1
+				}
+			}
+			hidden_effect = {
+				# Emmigration of Calvinists
+				if = {
+					limit = { exists = NED }
+					NED = { country_event = { id = vef_reformation.10 } }
+				}
+				if = {
+					limit = { exists = GBR }
+					GBR = { country_event = { id = vef_reformation.10 } }
+				}
+				if = {
+					limit = { exists = ENG }
+					ENG = { country_event = { id = vef_reformation.10 } }
+				}
+				if = {
+					limit = { exists = SWE }
+					SWE = { country_event = { id = vef_reformation.10 } }
+				}
+				if = {
+					limit = { exists = SCA }
+					SCA = { country_event = { id = vef_reformation.10 } }
+				}
+				if = {
+					limit = { exists = TEU }
+					TEU = { country_event = { id = vef_reformation.10 } }
+				}
+				if = {
+					limit = { exists = PRU }
+					PRU = { country_event = { id = vef_reformation.10 } }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	join_the_counter_reformation = {
+
+		major = yes
+
+		potential = {
+			has_global_flag = counter_reformation
+			religion = catholic
+			NOT = { has_country_modifier = counter_reformation } 
+			NOT = { religion_years = { protestant = 150 } }
+			NOT = { tag = ENG } # No counter-reformation in England. See Anglican events.
+			NOT = { tag = GBR }
+			NOT = { has_idea = ecumenism } # Would end immediatley anyway
+			NOT = { has_idea = liberty_egalite_fraternity }
+		}
+
+		allow = {
+			OR = {
+				tag = PAP
+				is_emperor = yes
+				has_opinion = { who = PAP value = -25 }
+				has_country_modifier = jesuit_influence
+			}
+			NOT = { has_country_modifier = edict_de_nantes }
+		}
+
+		effect = {
+			if = {
+				limit = { NOT = { tag = PAP } }
+				reverse_add_opinion = { who = PAP modifier = opinion_embraced_counter_reformation }
+			}
+			if = {
+				limit = {
+					is_emperor = no
+					emperor = { religion = catholic }
+				}
+				emperor = { 
+					add_opinion = { who = ROOT modifier = opinion_embraced_counter_reformation } 
+				}
+			}
+			add_country_modifier = { name = "counter_reformation" duration = -1 }
+			#add_reform_desire = -1
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.0
+				dominant_religion = reformed
+				is_emperor = no
+			}
+			modifier = {
+				factor = 0.0
+				dominant_religion = protestant
+				is_emperor = no
+			}
+			modifier = {
+				factor = 0.0
+				has_country_flag = protestant_reformation
+				is_emperor = no
+			}
+			modifier = {
+				factor = 0.0
+				has_country_flag = calvinist_reformation
+				is_emperor = no
+			}
+			modifier = {
+				factor = 0.0
+				NOT = { has_opinion = { who = PAP value = -10 } }
+				NOT = { culture_group = latin }
+				NOT = { culture_group = iberian }
+				is_emperor = no
+			}
+			modifier = {
+				factor = 0.0
+				adm = 2
+				NOT = { has_opinion = { who = PAP value = 100 } }
+				NOT = { culture_group = latin }
+				NOT = { culture_group = iberian }
+				is_emperor = no
+			}
+		}
+	}
+
+	# Offer Peace of Westphalia - can be started by any of the following, the
+	# others get the option to acept or reject. Rejection gains a cb on
+	# religious enemies and no material or financial gains. Acceptance gains
+	# potential lands and money similar to the actual peace. Note that if the
+	# country does not exist, or doesn't meet the criteria, they don't get the
+	# bonus. For example, if Sweden doesn't control all of Sweden proper plus
+	# have a decent army, they don't get the money or lands.
+	offer_peace_of_westphalia = {
+
+		major = yes
+
+		potential = {
+			NOT = { has_dlc = "Art of War" }
+			religion_years = { protestant = 60 }
+			NOT = { has_country_modifier = peace_of_westphalia_enacted }
+			NOT = { has_global_flag = peace_of_westphalia_offered }
+			OR = {
+				AND = {
+					OR = {
+						tag = SWE
+						tag = SCA
+					}
+					NOT = { religion = catholic }
+					NOT = { religion = orthodox }
+				}
+				AND = {
+					OR = {
+						tag = SPA
+						tag = CAS
+					}
+					religion = catholic
+				}
+				# Any religion is OK for France, Austira, HLR, Emperor
+				tag = FRA 
+				tag = HAB 
+				tag = HLR 
+				is_emperor = yes
+			}
+		}
+
+		allow = {
+			NOT = { has_country_modifier = peace_of_westphalia_enacted }
+			NOT = { has_global_flag = peace_of_westphalia_offered }
+			is_year = 1630
+		}
+
+		effect = {
+			set_global_flag = peace_of_westphalia_offered
+			add_prestige = 25
+		}
+
+		# If no human playing one of the majors, computer will offer from any, otherwise it will
+		# be the emperor
+		ai_will_do = { 
+			factor = 1 
+			modifier = {
+				factor = 0.0
+				is_emperor = no
+				OR = {
+					SWE = { ai = no }
+					FRA = { ai = no }
+					CAS = { ai = no }
+					SPA = { ai = no }
+					HLR = { ai = no }
+					HAB = { ai = no }
+				}
+			}
+		}
+
+		ai_importance = 200
+	}
+
+	suppress_the_reformation = {
+		potential = {
+			is_religion_enabled = protestant
+			NOT = { has_country_modifier = peace_of_westphalia_enacted }
+			NOT = { has_country_modifier = suppress_reform }
+			religion = catholic
+		}
+
+		allow = {
+			is_at_war = no
+			is_lesser_in_union = no
+			adm_power = 100
+			mil_power = 100
+			OR = {
+				any_neighbor_country = { any_core_province = { NOT = { religion = catholic } } }
+				any_core_province = {
+					OR = {
+						has_province_modifier = radical_preacher
+						has_province_modifier = indulgence_peddler
+					}
+				}
+			}
+		}
+
+		effect = {
+			add_adm_power = -100
+			add_mil_power = -100
+			add_country_modifier = { name = "suppress_reform" duration =  -1 }
+			#add_reform_desire = -0.25
+		}
+
+		# AI Won't do this - option for the human player only
+		ai_will_do = { factor = 0 }
+	}
+}

@@ -1,0 +1,237 @@
+government = tribal add_government_reform = steppe_horde
+government_rank = 3
+primary_culture = mishary
+religion = tengri
+secondary_religion = vajrayana
+technology_group = nomad_group
+capital = 758	# Sarai
+
+add_opinion = { who = MOS modifier = "horde_tribute" }
+add_country_modifier = { name = "silk_road_modifier" duration = -1 }
+add_country_modifier = { name = "golden_horde_1" duration = -1 }
+add_country_modifier = { name = horde_overlord duration = -1 }
+
+
+1291.1.1 = {
+	monarch = {
+		name = "Tokhta"
+		dynasty = "Genghisid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+
+1313.1.1 = {
+	religion = sunni
+	monarch = {
+		name = "Öz Beg Khan"
+		dynasty = "Genghisid"
+		birth_date = 1282.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1341.1.1 = {
+	monarch = {
+		name = "Tini Beg"
+		dynasty = "Genghisid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1342.1.1 = {
+	monarch = {
+		name = "Jani Beg"
+		dynasty = "Genghisid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	remove_country_modifier = golden_horde_1
+	add_country_modifier = { name = "golden_horde_2" duration = -1 }
+}
+
+1352.5.1 = { historical_friend = GEN } #Genoese dominance in the Black Sea; trade partner
+
+1358.1.1 = {
+	monarch = {
+		name = "Berdi Beg"
+		dynasty = "Genghisid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1359.1.1 = {
+	monarch = {
+		name = "Qulpa"
+		dynasty = "Genghisid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1360.1.1 = {
+	monarch = {
+		name = "Nawruz Beg"
+		dynasty = "Genghisid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1362.1.1 = {
+	monarch = {
+		name = "Murad Khan"
+		dynasty = "Genghisid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1364.1.1 = {
+	monarch = {
+		name = "Amir Pulad Khan"
+		dynasty = "Genghisid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1365.1.1 = {
+	monarch = {
+		name = "Aziz Khan"
+		dynasty = "Genghisid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+#Uses a series of puppet Khans to control the Horde
+1367.1.1 = {
+	monarch = {
+		name = "Mamai Khan"
+		dynasty = "Kiyat"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1378.1.1 = {
+	monarch = {
+		name = "Tokhtamysh Khan"
+		dynasty = "Genghisid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1397.1.1 = {
+	monarch = {
+		name = "Temur Qutlugh"
+		dynasty = "Genghisid"
+		birth_date = 1370.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1399.1.1 = {
+	monarch = {
+		name = "Shadi Beg"
+		dynasty = "Genghisid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1407.1.1 = {
+	monarch = {
+		name = "Pulad Khan"
+		dynasty = "Genghisid"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1432.1.1 = {
+	monarch = {
+		name = "Küchük Muhammad"
+		dynasty = "Genghisid"
+		adm = 0
+		dip = 0
+		mil = 2
+	}
+	remove_country_modifier = golden_horde_2
+	add_country_modifier = { name = "golden_horde_3" duration = 7300 }
+	set_country_flag = horde_collapse
+}
+
+1435.1.1 = {
+	heir = {
+		name = "Ahmad"
+		monarch_name = "Ahmad I"
+		dynasty = "Genghisid"
+		birth_date = 1435.1.1
+		death_date = 1481.1.6
+		claim = 90
+		adm = 1
+		dip = 3
+		mil = 2
+	}
+}
+
+1459.1.1 = {
+	monarch = {
+		name = "Ahmad"
+		dynasty = "Genghisid"
+		adm = 1
+		dip = 3
+		mil = 2
+	}
+}
+
+1460.1.1 = {
+	heir = {
+		name = "Shaikh Ahmad"
+		monarch_name = "Shaikh Ahmad I"
+		dynasty = "Genghisid"
+		birth_date = 1460.1.1
+		death_date = 1528.1.1
+		claim = 50
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1481.1.6 = {
+	monarch = {
+		name = "Shaikh Ahmad"
+		dynasty = "Genghisid"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+	remove_opinion = { who = MOS modifier = "horde_tribute" }
+	set_country_flag = horde_collapse
+}
+
+# Great Horde destroyed in May 1502

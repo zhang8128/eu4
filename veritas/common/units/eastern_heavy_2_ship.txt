@@ -1,0 +1,10 @@
+#Dvudechny Korabl
+#model = threedecker
+#tech_level = 46
+type = heavy_ship
+unit_type = eastern
+
+hull_size = 64
+base_cannons = 128
+sail_speed = 5
+sailors = 850

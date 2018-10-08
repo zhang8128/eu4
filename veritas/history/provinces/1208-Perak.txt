@@ -1,0 +1,22 @@
+# Perak
+
+capital = "Perak"
+owner = KDH
+controller = KDH
+add_core = KDH
+add_core = PRK
+culture = malayan
+religion = buddhism
+trade_goods = copper #tin
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1350.1.1	= { owner = MLC controller = MLC add_core = MLC remove_core = KDH }
+1500.1.1	= { religion = sunni }
+1511.9.10	= { owner = PRK controller = PRK remove_core = MLC } # Malacca occupied; sultanate collapses in short order
+1516.1.1	= { discovered_by = POR } # Godinho de Eredia
+1820.1.1	= { capital = "Ipoh" }

@@ -1,0 +1,387 @@
+# Do not change tags in here without changing every other reference to them.
+# If adding new buildings, make sure they are uniquely named.
+
+# cost = x #==> cost in $ to build (subject to other modifiers)
+# time = x #==> number of months to build.
+# modifier = m # a modifier on the province that the building gives
+# trigger = t # an and trigger that needs to be fullfilled to build and keep the building
+# one_per_country = yes/no # if yes, only one of these can exist in a country
+# manufactory = { trade_good trade_good } # list of trade goods that get a production bonus
+# onmap = yes/no # show as a sprite on the map
+
+# FROM = owner
+# ROOT = province
+
+
+#####################
+# Liberty Buildings #
+#####################
+slavery = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		local_manpower_modifier = -1
+		trade_goods_size_modifier = 2
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+encomienda = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		local_manpower_modifier = -1
+		trade_goods_size_modifier = 2
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+heavy_serfdom = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+		local_development_cost = 0.6
+		local_manpower_modifier = -0.8
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+moderate_serfdom = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+		local_development_cost = 0.4
+		local_manpower_modifier = -0.6
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+light_serfdom = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+		local_development_cost = 0.2
+		local_manpower_modifier = -0.4
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+freedom = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+civic_charter = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+		min_local_autonomy = 20
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+local_assembly = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+		min_local_autonomy = 40
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+republic_city = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+trading_post_building = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+		min_local_autonomy = 90
+		trade_goods_size_modifier = 0.75
+		local_unrest = -5
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+#######################
+# Ownership Buildings #
+#######################
+
+nobles_20 = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+nobles_40 = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+nobles_60 = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+nobles_80 = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+citizens_20 = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+citizens_40 = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+citizens_60 = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+citizens_80 = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+church_20 = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		local_tax_modifier = -0.1
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+church_40 = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		local_tax_modifier = -0.2
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+church_60 = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		local_tax_modifier = -0.3
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+church_80 = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		local_tax_modifier = -0.4
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+grand_priory = {
+	cost = 50
+	time = 12
+	
+	indestructible = yes
+	
+	modifier = {
+		local_unrest = -2
+		local_tax_modifier = -0.1
+		allowed_num_of_buildings = 1
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}

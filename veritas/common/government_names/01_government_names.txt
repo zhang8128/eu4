@@ -1,0 +1,507 @@
+# For specific government types
+# Will pick the first valid one it finds in list
+
+gov_steppe_horde = {
+	rank = {
+		1 = HORDE
+		2 = KHANATE
+		3 = KHANATE
+		4 = KHAGANATE
+	}
+	
+	ruler_male = {
+		1 = JINONG
+		2 = KHAN
+		3 = KHAN
+		4 = KHAGAN
+	}
+	
+	ruler_female = {
+		1 = JINONG
+		2 = KHATUN
+		3 = KHATUN
+		4 = GREAT_KHATUN
+	}
+	
+	consort_male = {
+		1 = BEILE
+		2 = KHAN
+		3 = KHAN
+		4 = KHAGAN
+	}
+
+	consort_female = {
+		1 = GEGE
+		2 = KHANUM
+		3 = KHANUM
+		4 = KHANUM
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = KHANZADEH
+		3 = KHANZADEH
+		4 = KHANZADEH
+	}
+
+	heir_female = {
+		1 = KHANUM
+		2 = KHANUM
+		3 = KHANUM
+		4 = KHANUM
+	}
+	
+	trigger = {
+		OR = {
+			has_reform = steppe_horde
+			has_reform = steppe_horde_legacy
+		}
+	}
+}
+
+gov_native_council = {
+	rank = {
+		1 = TRIBE
+		2 = TRIBE
+		3 = TRIBE
+		4 = TRIBE
+	}
+	
+	ruler_male  ={
+		1 = CHIEF
+		2 = CHIEF
+		3 = CHIEF
+		4 = CHIEF
+	}
+	
+	ruler_female = {
+		1 = CHIEFTESS
+		2 = CHIEFTESS
+		3 = CHIEFTESS
+		4 = CHIEFTESS
+	}
+	
+	trigger = {
+		OR = {
+			government = native
+			has_reform = siberian_tribe
+			has_reform = native_basic_reform
+		}
+	}
+}
+
+gov_religious_order = {
+	rank = {
+		1 = MONASTIC_ORDER
+	}
+	
+	ruler_male = {
+		1 = GRAND_MASTER
+	}
+	
+	ruler_female = {
+		1 = GRAND_MISTRESS
+	}
+	
+	trigger = {
+		OR = {
+			has_reform = monastic_order_government
+			has_reform = monastic_order_reform
+		}
+	}
+}
+
+gov_colonial_government = {
+	rank = {
+		1 = COLONY
+	}
+	
+	ruler_male = {
+		1 = GOVERNOR
+	}
+	
+	ruler_female = {
+		1 = GOVERNESS
+	}
+	
+	trigger = {
+		OR = {
+			has_reform = colonial_government
+			has_reform = colonial_government_legacy
+		}
+	}
+}
+
+federal_monarchy_statists = {
+	rank = {
+		1 = UNITED_PROVINCES
+		2 = UNITED_PROVINCES
+		3 = FEDERAL_KINGDOM
+		4 = FEDERAL_EMPIRE
+	}
+
+	ruler_male = {
+		1 = SPEAKER
+		2 = SPEAKER
+		3 = CHANCELOR
+		4 = PRESIDENT
+	}
+
+	ruler_female = {
+		1 = SPEAKER
+		2 = SPEAKER
+		3 = CHANCELOR
+		4 = PRESIDENT
+	}
+
+	trigger = {
+		has_reform = states_general_reform
+		is_statists_in_power = yes
+		NOT = { has_reform = parliamentary_reform }
+		NOT = { has_reform = presidential_reform }
+		NOT = { has_reform = revolutionary_republic_reform }
+		NOT = { has_reform = constitutional_republic }
+		NOT = { has_reform = republican_dictatorship }
+	}
+}
+
+federal_monarchy_monarchists = {
+	rank = {
+		1 = UNITED_PROVINCES
+		2 = UNITED_PROVINCES
+		3 = FEDERAL_KINGDOM
+		4 = FEDERAL_EMPIRE
+	}
+
+	ruler_male = {
+		1 = DUKE
+		2 = DUKE
+		3 = KING
+		4 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = DUCHESS
+		2 = DUCHESS
+		3 = QUEEN
+		4 = EMPRESS
+	}
+
+	trigger = {
+		has_reform = states_general_reform
+		is_monarchists_in_power = yes
+		NOT = { has_reform = parliamentary_reform }
+		NOT = { has_reform = presidential_reform }
+		NOT = { has_reform = revolutionary_republic_reform }
+		NOT = { has_reform = constitutional_republic }
+		NOT = { has_reform = republican_dictatorship }
+	}
+}
+
+noble_republic = {
+	rank = {
+		1 = PRINCEDOM
+		2 = PRINCEDOM
+		3 = GRAND_PRINCEDOM
+		4 = GREAT_PRINCEDOM
+	}
+	
+	ruler_male = {
+		1 = LORD
+		2 = LORD
+		3 = PRINCE
+		4 = GREAT_PRINCE
+	}
+	
+	ruler_female = {
+		1 = LADY
+		2 = LADY
+		3 = PRINCESS
+		4 = GREAT_PRINCESS
+	}
+	
+	trigger = {
+		OR = {
+			has_reform = noble_elite_reform
+			has_reform = noble_republic
+		}
+	}
+}
+
+gov_republican_dictatorship = {
+	rank = {
+		1 = DESPOTISM
+		2 = DESPOTISM
+		3 = DICTATORSHIP
+		4 = PRESIDENTIAL_DICTATORSHIP
+	}
+	
+	ruler_male = {
+		1 = PROTECTOR
+		2 = PROTECTOR
+		3 = LORD_PROTECTOR
+		4 = PRESIDENT
+	}
+	
+	ruler_female = {
+		1 = PROTECTOR_fem
+		2 = PROTECTOR_fem
+		3 = LADY_PROTECTOR
+		4 = PRESIDENT_fem
+	}
+	
+	trigger = {
+		has_reform = presidential_despot_reform
+	}
+}
+
+gov_bureaucratic_despotism = {
+	rank = {
+		1 = REPUBLIC
+		2 = REPUBLIC
+		3 = GRAND_REPUBLIC
+		4 = GREAT_REPUBLIC
+	}
+	
+	ruler_male = {
+		1 = COUNCILOR
+		2 = COUNCILOR
+		3 = GRAND_COUNCILOR
+		4 = HIGH_COUNCILOR
+	}
+	
+	ruler_female = {
+		1 = COUNCILOR_fem
+		2 = COUNCILOR_fem
+		3 = GRAND_COUNCILOR_fem
+		4 = HIGH_COUNCILOR_fem
+	}
+	
+	trigger = {
+		has_reform = bureaucratic_despotism
+	}
+}
+
+gov_papal_government = {
+	rank = {
+		1 = PAPACY
+		2 = PAPACY
+		3 = PAPACY
+		4 = PAPACY
+	}
+	
+	ruler_male = {
+		1 = POPE
+		2 = POPE
+		3 = POPE
+		4 = POPE
+	}
+	
+	ruler_female  ={
+		1 = POPETTE
+		2 = POPETTE
+		3 = POPETTE
+		4 = POPETTE
+	}
+	
+	trigger = {
+		OR = {
+			has_reform = papal_government
+			has_reform = papacy_reform
+		}
+	}
+}
+
+gov_daimyo = {
+	rank = {
+		1 = DAIMYO
+	}
+	
+	ruler_male = {
+		1 = LORD
+	}
+	
+	ruler_female = {
+		1 = LADY
+	}
+	
+	trigger = {
+		OR = {
+			has_reform = daimyo
+			has_reform = daimyo_legacy
+		}
+	}
+}
+
+gov_indep_daimyo = {
+	rank = {
+		1 = INDEP_DAIMYO
+		2 = INDEP_DAIMYO
+		3 = GRAND_INDEP_DAIMYO
+		4 = GREAT_INDEP_DAIMYO
+	}
+	
+	ruler_male = {
+		1 = LORD
+		2 = LORD
+		3 = LORD
+		4 = LORD
+	}
+	
+	ruler_female = {
+		1 = LADY
+		2 = LADY
+		3 = LADY
+		4 = LADY
+	}
+	
+	trigger = {
+		OR = {
+			has_reform = indep_daimyo
+			has_reform = indep_daimyo_legacy
+		}
+	}
+}
+
+gov_shogunate = {
+	rank = {
+		2 = SHOGUNATE
+	}
+
+	ruler_male = {
+		2 = SHOGUN
+	}
+	
+	ruler_female = {
+		2 = SHOGUNESS
+	}
+	
+	trigger = {
+		OR = {
+			has_reform = shogunate
+			has_reform = shogunate_legacy
+		}
+	}
+}
+
+gov_tribal_kingdom = {
+	rank = {
+		1 = CHIEFDOM
+		2 = CHIEFDOM
+		3 = TRIBAL_KINGDOM
+		4 = TRIBAL_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = CHIEF
+		2 = CHIEF
+		3 = KING
+		4 = EMPEROR
+	}
+	
+	ruler_female = {
+		1 = CHIEFTESS
+		2 = CHIEFTESS
+		3 = QUEEN
+		4 = EMPRESS
+	}
+	
+	trigger = {
+		OR = {
+			has_reform = tribal_kingdom
+			has_reform = tribal_kingdom_legacy
+		}
+	}
+}
+
+gov_tribal = {
+	rank = {
+		1 = CHIEFDOM
+		2 = CHIEFDOM
+		3 = TRIBAL_KINGDOM
+		4 = TRIBAL_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = CHIEF
+		2 = CHIEF
+		3 = HIGH_CHIEF
+		4 = PARAMOUNT_CHIEF
+	}
+	
+	ruler_female = {
+		1 = CHIEFTESS
+		2 = CHIEFTESS
+		3 = HIGH_CHIEFTESS
+		4 = PARAMOUNT_CHIEFTESS
+	}
+	
+	trigger = {
+		OR = {
+			has_reform = tribal_despotism
+			has_reform = tribal_federation
+			has_reform = tribal_federation_legacy
+			has_reform = tribal_despotism_legacy
+		}
+	}
+}
+
+gov_tribal_democracy = {
+	rank = {
+		1 = CHIEFDOM
+		2 = CHIEFDOM
+		3 = GRAND_CHIEFDOM
+		4 = GREAT_CHIEFDOM
+	}
+	
+	ruler_male = {
+		1 = ELDER
+		2 = ELDER
+		3 = HIGH_ELDER
+		4 = PARAMOUNT_ELDER
+	}
+	
+	ruler_female = {
+		1 = ELDER_fem
+		2 = ELDER_fem
+		3 = HIGH_ELDER_fem
+		4 = PARAMOUNT_ELDER_fem
+	}
+	
+	trigger = {
+		has_reform = tribal_democracy_legacy
+	}
+}
+
+gov_constitutional_republic = {
+	rank = {
+		1 = REPUBLIC
+		2 = REPUBLIC
+		3 = GRAND_REPUBLIC
+		4 = FEDERAL_REPUBLIC
+	}
+	
+	ruler_male = {
+		1 = CHANCELOR
+		2 = CHANCELOR
+		3 = PRESIDENT
+		4 = PRESIDENT
+	}
+	
+	ruler_female = {
+		1 = CHANCELOR_fem
+		2 = CHANCELOR_fem
+		3 = PRESIDENT_fem
+		4 = PRESIDENT_fem
+	}
+	
+	trigger = {
+		government = republic
+		OR = {
+			has_reform = constitutional_republic
+			has_reform = presidential_reform
+			has_reform = parliamentary_reform
+		}
+		NOT = { has_reform = presidential_despot_reform }
+	}
+}

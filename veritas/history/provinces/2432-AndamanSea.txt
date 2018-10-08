@@ -1,0 +1,4 @@
+# Andaman Sea
+#Province IDs changed
+1405.1.1 = { discovered_by = MNG }
+1500.1.1 = { discovered_by = POR }

@@ -1,0 +1,10 @@
+#Karavell
+#model = caravel
+#tech_level = 14
+type = transport
+unit_type = scandinavian_tech
+
+hull_size = 10
+base_cannons = 12
+sail_speed = 10
+sailors = 175

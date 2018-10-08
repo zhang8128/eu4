@@ -1,0 +1,11 @@
+#Maran
+#model = eastindiaman
+#tech_level = 38
+type = light_ship
+unit_type = niitaka
+
+hull_size = 14
+base_cannons = 16
+sail_speed = 8
+trade_power = 3.5
+sailors = 40

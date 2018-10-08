@@ -1,0 +1,16 @@
+# Buganda
+#Province IDs changed
+
+capital = "mengo"
+native_size =   5
+native_ferocity =   3
+native_hostileness =   4
+culture = bachwezi
+religion = bantu
+base_tax = 1
+base_production = 1
+base_manpower = 3
+trade_goods = millet
+discovered_by = tribal_african_tech
+discovered_by = sub_saharan
+hre = no

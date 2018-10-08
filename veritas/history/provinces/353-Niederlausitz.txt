@@ -1,0 +1,44 @@
+# Niederlausitz
+
+owner = BRA
+controller = BRA
+add_core = BRA
+add_core = BOH
+capital = "Cottbus"
+culture = uppersaxon
+religion = catholic
+trade_goods = naval_supplies
+hre = yes
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1   = { base_manpower = 3 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1363.1.1 = { owner = BOH controller = BOH }
+1419.7.30 = { remove_core = BRA }
+1450.1.1  = { citysize = 5000 }
+1453.1.1  = { add_core = POL }
+1457.1.1  = { unrest = 5 } # George of Podiebrand had to secure recognition from the German and Catholic towns. Pilsen is very hostile towards him, the Roman church being dominant throughout Pilsen's history.
+1469.1.1  = {	controller = HUN owner = HUN add_core = HUN unrest = 0 }
+1478.1.1  = { remove_core = POL } # End of strife for the Bohemian crown
+1490.4.6 = { 	owner = BOH controller = BOH remove_core = HUN }
+1526.8.30 = { 	owner = HAB controller = HAB add_core = HAB remove_core = BOH }
+1531.1.1  = { religion = protestant }
+1550.1.1  = { citysize = 6000 }
+1600.1.1  = { citysize = 7000 }
+# Defenstration of Prague
+1618.5.23 = { controller = BOH owner = BOH add_core = BOH }
+1620.11.8 = {	controller = SAX owner = HAB remove_core = BOH }
+1635.1.1  = {	owner = SAX remove_core = HAB add_core = SAX }
+1700.1.1  = { citysize = 6000 }
+1741.1.1   = { owner = SAX controller = SAX add_core = SAX } 
+1750.1.1  = { citysize = 7000 }
+1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+1815.6.9  = {	owner = PRU controller = PRU add_core = PRU remove_core = SAX } # Congress of Vienna

@@ -1,0 +1,44 @@
+# Rzhev
+#Province IDs changed
+
+owner = NOV
+controller = NOV
+culture = russian
+religion = orthodox
+hre = no
+base_tax = 3
+base_production = 3
+base_manpower = 3
+trade_goods = grain
+capital = "Rzhev"
+citysize = 5870
+is_city = yes
+add_core = NOV
+add_core = TVE
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1446.1.1 = { owner = TVE controller = TVE } # Vasily II gives Rzhev to Boris of Tver
+1448.1.1 = { owner = LIT controller = LIT add_core = LIT } # Rzhev conquered by Lithuania
+1449.1.1 = { owner = TVE controller = TVE remove_core = LIT } # Returned to Tver
+1450.1.1 = { citysize = 6420 discovered_by = SIB }
+1485.9.11 = { owner = MOS controller = MOS add_core = MOS remove_core = TVE } # Passed to Muscovy
+1500.1.1 = { citysize = 7543 }
+1503.4.1 = { owner = RUS controller = RUS add_core = RUS remove_core = MOS }
+1550.1.1 = { citysize = 8874 }
+1560.1.1 = { base_tax = 6
+base_production = 6 } # Treasury reforms
+1598.1.7 = { unrest = 5 } # "Time of troubles"
+1600.1.1 = { citysize = 10440 }
+1613.3.3 = { unrest = 0 } # Order returned, Romanov dynasty
+1650.1.1 = { citysize = 12283 }
+1700.1.1 = { citysize = 14450 }
+1711.1.1 = { base_tax = 7
+base_production = 7 } # Governmental reforms and the absolutism
+1750.1.1 = { citysize = 17000 }
+1767.1.1 = { base_tax = 8
+base_production = 8 } # Legislative reform
+1800.1.1 = { citysize = 20000 }

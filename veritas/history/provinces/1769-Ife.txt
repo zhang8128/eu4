@@ -1,0 +1,15 @@
+# Ife
+
+capital = "Ife"
+owner = OYO
+controller = OYO
+add_core = OYO
+culture = yoruba
+religion = yoruba
+trade_goods = gems
+base_tax = 3
+base_production = 3
+base_manpower = 6
+is_city = yes
+hre = no
+discovered_by = sub_saharan

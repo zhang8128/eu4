@@ -1,0 +1,22 @@
+# Melevi Order of Tavas
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 2
+primary_culture = turkish
+religion = shiite
+technology_group = ottoman
+capital = 598	# Tavas
+
+
+1300.1.1 = {
+	monarch = {
+		name = "Baba Ilyas"
+		dynasty = "Karamanoglu"
+		adm = 4
+		dip = 1
+		mil = 2
+	}
+	add_piety = 0.1
+}
+
+# Annexed by Menteshe

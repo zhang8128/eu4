@@ -1,0 +1,8 @@
+# Jomsviking
+#Province IDs changed
+government = theocracy add_government_reform = leading_clergy_reform
+government_rank = 2
+technology_group = scandinavian_tech
+primary_culture = danish
+religion = norse_pagan_reformed
+capital = 390

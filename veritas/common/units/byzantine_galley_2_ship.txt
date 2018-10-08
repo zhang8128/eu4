@@ -1,0 +1,10 @@
+#Pamphyloi
+#model = galley
+#tech_level = 10
+type = galley
+unit_type = byzantine
+
+hull_size = 10
+base_cannons = 12
+sail_speed = 8
+sailors = 250

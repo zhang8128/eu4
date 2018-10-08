@@ -1,0 +1,20 @@
+# Phnom Penh
+
+capital = "Phnom Penh"
+owner = KHM
+controller = KHM
+add_core = KHM
+culture = khmer
+religion = buddhism
+trade_goods = ebony
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1535.1.1 = { discovered_by = POR }
+1811.1.1 = { unrest = 5 } # The Siamese-Cambodian Rebellion
+1812.1.1 = { unrest = 0 }
+1863.1.1 = { owner = FRA controller = FRA add_core = FRA }

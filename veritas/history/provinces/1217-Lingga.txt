@@ -1,0 +1,29 @@
+# Lingga
+
+capital = "Lingga"
+owner = SVJ
+controller = SVJ
+add_core = SVJ
+culture = sumatran
+religion = vajrayana
+trade_goods = fish
+base_tax = 1
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = MKS
+discovered_by = SVJ
+discovered_by = ATJ
+discovered_by = MAJ
+discovered_by = BEI
+discovered_by = AYU
+discovered_by = BLI
+
+1400.1.1	= { religion = sunni }
+1402.1.1	= { owner = MLC controller = MLC add_core = MLC remove_core = SVJ } # Rise of Malaccan sultunate
+1405.1.1	= { discovered_by = MNG }
+1509.1.1	= { discovered_by = POR }
+1511.9.10	= { owner = JOH controller = JOH add_core = JOH remove_core = MLC } # Malacca occupied; sultanate collapses in short order
+1521.1.1	= { discovered_by = SPA }
+1824.1.1	= { owner = NED controller = NED add_territorial_core = NED capital = "Daik" }

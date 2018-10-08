@@ -1,0 +1,110 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+primary_culture = moselfranconian
+religion = catholic
+technology_group = western
+capital = 3973	# Homm
+historical_friend = KLE
+
+1308.1.1 = {
+	monarch = {
+		name = "Engelbert II"
+		dynasty = "von der Mark"
+		birth_date = 1275.1.1
+		adm = 2
+		dip = 4
+		mil = 2
+	}
+	queen = {
+		country_of_origin = MCK
+		name = "Mechteld"
+		dynasty = "van Arenberg"
+		birth_date = 1280.1.1	# Made Up
+		death_date = 1328.3.18
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Adolf"
+		monarch_name = "Adolf II"
+		birth_date = 1302.1.1	# Made Up
+		death_date = 1347.10.20
+		claim = 100
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1328.7.18 = {
+	monarch = {
+		name = "Adolf II"
+		dynasty = "von der Mark"
+		birth_date = 1302.1.1	# Made Up
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = KLE
+		name = "Margaret"
+		dynasty = "von Cleves"
+		birth_date = 1310.1.1
+		death_date = 1350.1.1	# Known to be after 1348
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1333.2.28 = {
+	heir = {
+		name = "Engelbert"
+		monarch_name = "Engelbert III"
+		birth_date = 1333.2.28
+		death_date = 1391.12.22
+		claim = 100
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1347.10.20 = {
+	monarch = {
+		name = "Engelbert III"
+		dynasty = "von der Mark"
+		birth_date = 1333.2.28
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1393.1.1 = {
+	monarch = {
+		name = "Dietrich IX"
+		dynasty = "von der Mark"
+		birth_date = 1374.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1430.1.1 = {
+	monarch = {
+		name = "Gerhard I"
+		dynasty = "von der Mark"
+		birth_date = 1378.1.1
+		adm = 2
+		dip = 2
+		mil = 5
+	}
+}
+
+# Title attached to the duchy of Kleves from Gerhard's death onward

@@ -1,0 +1,9 @@
+#Wanga Ndrua
+#model = barque
+#tech_level = 24
+type = transport
+unit_type = pacific_islander
+
+hull_size = 14
+base_cannons = 12
+sail_speed = 12

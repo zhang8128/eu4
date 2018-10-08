@@ -1,0 +1,151 @@
+#Country Name: Please see filename.
+
+graphical_culture = muslimgfx
+
+color = { 90  160  190 }
+
+historical_idea_groups = {
+	quantity_ideas
+	mercantilist_ideas
+	religious_ideas
+	offensive_ideas
+	diplomatic_ideas
+	expansion_ideas
+	drafted_army_ideas
+	mm1_ideas
+}
+
+historical_units = {
+	ottoman_artillery_15_1
+	ottoman_artillery_22_1
+	ottoman_artillery_29_1
+	ottoman_artillery_35_1
+	ottoman_artillery_40_1
+	ottoman_artillery_44_1
+	ottoman_artillery_48_1
+	ottoman_artillery_52_1
+	ottoman_artillery_55_1
+	ottoman_artillery_55_2
+	ottoman_artillery_8_1
+	ottoman_cavalry_0_1
+	ottoman_cavalry_0_2
+	ottoman_cavalry_21_1
+	ottoman_cavalry_21_2
+	ottoman_cavalry_27_1
+	ottoman_cavalry_31_1
+	ottoman_cavalry_36_1
+	ottoman_cavalry_40_1
+	ottoman_cavalry_44_1
+	ottoman_cavalry_48_1
+	ottoman_cavalry_48_2
+	ottoman_cavalry_51_1
+	ottoman_cavalry_51_2
+	ottoman_cavalry_55_1
+	ottoman_cavalry_55_2
+	ottoman_cavalry_58_1
+	ottoman_cavalry_58_2
+	ottoman_cavalry_16_1
+	ottoman_cavalry_16_2
+	ottoman_infantry_0_1
+	ottoman_infantry_0_2
+	ottoman_infantry_17_1
+	ottoman_infantry_17_2
+	ottoman_infantry_21_1
+	ottoman_infantry_21_2
+	ottoman_infantry_25_1
+	ottoman_infantry_25_2
+	ottoman_infantry_28_1
+	ottoman_infantry_28_2
+	ottoman_infantry_31_1
+	ottoman_infantry_31_2
+	ottoman_infantry_34_1
+	ottoman_infantry_34_2
+	ottoman_infantry_39_1
+	ottoman_infantry_39_2
+	ottoman_infantry_42_1
+	ottoman_infantry_42_2
+	ottoman_infantry_45_1
+	ottoman_infantry_45_2
+	ottoman_infantry_48_1
+	ottoman_infantry_48_2
+	ottoman_infantry_50_1
+	ottoman_infantry_50_2
+	ottoman_infantry_53_1
+	ottoman_infantry_53_2
+	ottoman_infantry_55_1
+	ottoman_infantry_55_2
+	ottoman_infantry_6_1
+	ottoman_infantry_6_2
+	ottoman_infantry_57_1
+	ottoman_infantry_57_2
+	ottoman_infantry_59_1
+	ottoman_infantry_59_2
+	ottoman_infantry_63_1
+	ottoman_infantry_63_2
+	ottoman_infantry_14_1
+	ottoman_infantry_14_2
+}
+
+monarch_names = {
+	"Muhammed #0" = 20
+	"Izzeddin #0" = 20
+	"Taceddin #1" = 20
+	"Ishak #0" = 20
+	"Ahmed #0" = 20
+	"Kasim #0" = 20
+	"Mahmud #0" = 20
+	"Ibrâhîm #0" = 20
+	"Ali #0" = 10
+	"Alâeddîn #0" = 10
+	"Mustafa #0" = 10
+	"Dervis #0" = 10 
+	"Fahreddin #0" = 0
+	"Mahmut #0" = 0
+	"Musa #0" = 0
+	"Seyfeddîn #0" = 10
+	
+	"Havva #0" = -1
+	"Gamze #0" = -1
+	"Hanife #0" = -1
+	"Melis #0" = -1
+	"Rabia #0" = -1
+	"Safiye #0" = -1
+	"Umut #0" = -1
+	"Ziynet #0" = -1
+	"Zübeyde #0" = -1
+}
+
+leader_names = {
+	Alemdar Amasyali Ayas
+	Bali Barbaros Bayram
+	Cezzar Çandarli Çelebi Cerrah Çerkes Civan Çuhadar
+	Damad Dervis Defterdar
+	Gedik Gazi Gümülcineli Gürcü
+	Hadim Hekimoglu Hersekli
+	Köprülü Kemal Küçük Koca Karamanli Köse Kara Kanijeli Kemankes Kaymak Kavalali
+	Ishak Izzed
+	Lala Lefkeli
+	Malkoç Müezzinzade
+	Nevsehirli Nisanci
+	Oruç Uluç Osmancikli Ohrili Oflu
+	Rumi
+	Piri Pargali Piyale Pehlivan
+	Salih Sokullu Sari Silahdar Semiz Serdar
+	Topal Tayyar Turgut Tarhuncu
+	Veli
+	Yemisçi
+}
+
+ship_names = {
+	"Nure Sufi" Sadaddin "Karaman Bey" Ermenek
+	Mut Gülnar Mer Silifke Cilicia Larande
+	Bunsuz "Zeynül-Hac" "Semseddin Mehmet" Göksu
+}
+
+army_names = {
+	"$PROVINCE$ Ordusu"
+}
+
+fleet_names = {
+	"$PROVINCE$ Donanmasî"
+}

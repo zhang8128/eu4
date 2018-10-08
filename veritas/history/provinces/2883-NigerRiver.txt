@@ -1,0 +1,5 @@
+# Niger River
+#Province IDs changed
+
+discovered_by = sudanese_tech 
+discovered_by = sub_saharan

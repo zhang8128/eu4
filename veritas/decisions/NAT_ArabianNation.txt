@@ -1,0 +1,91 @@
+# Arabian Nation
+country_decisions = {
+	arabian_nation = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			capital_scope = { region = arabia_region }
+			normal_or_historical_nations = yes
+			culture_group = turko_semitic
+			religion_group = muslim
+			NOT = { exists = ARB }
+			NOT = { tag = AVI }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			NOT = { tag = EGY }
+			NOT = { tag = EGM }
+			is_colonial_nation = no
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			num_of_owned_provinces_with = {
+				religion_group = muslim
+				NOT = { nationalism = 1 }
+				value = 50
+			}
+			custom_trigger_tooltip = {
+				arabia_region = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				tooltip = owns_all_arabia
+			}
+            1508 = { country_or_vassal_holds = ROOT }	# Hormoz
+			1511 = { country_or_vassal_holds = ROOT }	# Bandar Langeh
+            1648 = { country_or_vassal_holds = ROOT }	# Tunis
+		}
+		effect = {
+			change_tag = ARB
+			add_prestige = 50
+			capital_scope = { add_base_tax = 3 }
+			mashriq_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ARB
+			}
+			egypt_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+					NOT = { area = lower_nubia_area }
+				}
+				add_permanent_claim = ARB
+			}
+			add_accepted_culture = baluchi
+			add_accepted_culture = persian
+			add_accepted_culture = khorasani
+			add_accepted_culture = mazandarani
+			add_accepted_culture = afghani
+			add_accepted_culture = east_persian
+			add_accepted_culture = kurdish
+			add_accepted_culture = azerbadjani
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = ARB_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+}

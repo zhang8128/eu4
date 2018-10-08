@@ -1,0 +1,22 @@
+# RÃ¼m
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 2
+primary_culture = turkish
+religion = sunni
+technology_group = ottoman
+capital = 631	# Sivas
+historical_friend = MAM
+
+1309.1.1 = {
+	monarch = {
+		name = "Kiliç Arsland V"
+		dynasty = Selçuklu
+		adm = 1
+		dip = 2
+		mil = 2
+	}
+	add_piety = 0.1
+}
+
+# Annexed by ILK

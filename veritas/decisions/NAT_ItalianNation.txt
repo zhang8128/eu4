@@ -1,0 +1,332 @@
+country_decisions = {
+
+	italian_nation = {
+		major = yes
+
+		potential = {
+			culture_group = latin
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = ITA }
+			NOT = { tag = ROM }
+			NOT = { tag = PQR }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = SIC }
+			NOT = { tag = NAP }
+			NOT = { tag = LAE }
+			NOT = { government = roman_empire }
+			OR = {
+				ai = no
+				num_of_cities = 15
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			NOT = { tag = ROM }
+			NOT = { tag = PQR }
+			NOT = { tag = LAE }
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { region = italy_region }
+						AND = {
+							region = italy_region
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_italy
+			}
+			owns_core_province = 231	# Ancona
+			owns_core_province = 237	# Firenze
+			owns_core_province = 240	# Siena
+			owns_core_province = 242	# Pisa
+			owns_core_province = 243	# Lucca
+			owns_core_province = 245	# Bologna
+			owns_core_province = 247	# Modena
+			owns_core_province = 250	# Verona
+			owns_core_province = 251	# Mantua
+			owns_core_province = 253	# Genoa
+			owns_core_province = 263	# Milan
+			OR = {
+				owns_core_province = 227	# Roma
+				PAP = { 
+					vassal_of = ROOT
+					has_opinion = { who = ROOT value = 100 }
+					owns_core_province = 227
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = { tag = VEN }
+				set_country_flag = ven_formed_italy
+			}
+			change_tag = ITA
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				emperor = {
+					add_opinion = {
+						who = root
+						modifier = opinion_left_empire
+					}
+				}
+				set_in_empire = no
+				emperor = { country_event = { id = hre_event.5 } }
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			italy_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ITA
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = ITA_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+			hidden_effect = {
+				every_country = {
+					clr_country_flag = italian_power
+					remove_country_modifier = local_italian_power
+					remove_country_modifier = regional_italian_power
+					remove_country_modifier = major_italian_power
+					remove_country_modifier = dominant_italian_power
+					remove_country_modifier = menacing_italian_power
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				government = republic
+			}
+		}
+	}
+
+	the_eternal_city = {
+		potential = {
+			tag = ITA
+			normal_or_historical_nations = yes
+			NOT = { capital = 227 }
+		}
+
+		allow = {
+			owns_core_province = 227 # Roma
+			adm_power = 50
+			treasury = 25
+		}
+
+		effect = {
+			set_capital = 227
+			add_adm_power = -50
+			add_treasury = -25
+			add_prestige = 100
+		}
+		ai_will_do = { factor = 1 }
+	}
+	
+	gods_kingdom = {
+		major = yes
+
+		potential = {
+			tag = PAP
+			normal_or_historical_nations = yes
+			NOT = { has_country_modifier = kingdom_of_god }
+			NOT = { exists = ITA }
+			OR = {
+				ai = no
+				num_of_cities = 15 
+			}
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				all_owned_province = {
+					OR = {
+						NOT = { region = italy_region }
+						AND = {
+							region = italy_region
+							NOT = { nationalism = 1 }
+						}
+					}
+				}
+				tooltip = no_separatism_italy
+			}
+			#Ecclesiastical provinces of Northern Italy
+			owns_core_province = 226	# Velletri
+			owns_core_province = 227	# Roma
+			owns_core_province = 228	# Orvieto
+			owns_core_province = 229	# Spoleto
+			owns_core_province = 230	# Perugia
+			owns_core_province = 231	# Ancona
+			owns_core_province = 232	# Urbino
+			owns_core_province = 233	# Rimini
+			owns_core_province = 234	# Forli
+			owns_core_province = 235	# Ravenna
+			owns_core_province = 237	# Firenze
+			owns_core_province = 242	# Pisa
+			owns_core_province = 245	# Bologna
+			owns_core_province = 247	# Modena
+			owns_core_province = 253	# Genoa
+			owns_core_province = 257	# Torino
+			owns_core_province = 263	# Milano
+			owns_core_province = 267	# Trento
+			owns_core_province = 269	# Venice
+			owns_core_province = 271	# Udine
+			owns_core_province = 272	# Aquileia
+		}
+		effect = {
+			add_country_modifier = { name = "kingdom_of_god" duration = -1 }
+			country_event  = { id = catholic_flavor.2 }
+			italy_region = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			hidden_effect = {
+				every_country = {
+					clr_country_flag = italian_power
+					remove_country_modifier = local_italian_power
+					remove_country_modifier = regional_italian_power
+					remove_country_modifier = major_italian_power
+					remove_country_modifier = dominant_italian_power
+					remove_country_modifier = menacing_italian_power
+				}
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	unite_two_sicilies = {
+		major = yes
+		potential = {
+			OR = {
+				tag = NAP
+				tag = SIC
+			}
+			normal_or_historical_nations = yes
+			NOT = { exists = SCL }
+		}
+		allow = {
+			OR = {
+				NOT = { exists = NAP }
+				NOT = { exists = SIC }
+			}
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				#Sicily area minus Malta
+				210 = { owned_by = ROOT is_core = ROOT NOT = { nationalism = 1 }}
+				211 = { owned_by = ROOT is_core = ROOT NOT = { nationalism = 1 }}
+				212 = { owned_by = ROOT is_core = ROOT NOT = { nationalism = 1 }}
+				213 = { owned_by = ROOT is_core = ROOT NOT = { nationalism = 1 }}
+				calabria_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				apulia_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				naples_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				tooltip = owns_all_two_sicilies
+			}
+		}
+		effect = {
+			change_tag = SCL
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			add_prestige = 25
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	italian_identity = {
+		potential = {
+			tag = ITA
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = implemented_italian_identity }
+		}
+
+		allow = {
+			adm_power = 300
+			is_nomad = no
+		}
+
+		effect = {
+			set_country_flag = implemented_italian_identity
+			add_stability = 1
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = ITA_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+			add_legitimacy = 20
+			add_prestige = 50
+			change_primary_culture = italian
+			capital_scope = { change_culture = italian }
+		}
+	}
+
+}

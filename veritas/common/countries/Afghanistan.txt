@@ -1,0 +1,105 @@
+#Country Name: Please see filename.
+
+graphical_culture = muslimgfx
+
+color = { 102  128  52 } 
+
+historical_idea_groups = {
+	intimidatory_ideas
+	quantity_ideas
+	religious_ideas
+	land_trade_ideas
+	offensive_ideas
+	expansion_ideas
+	gf1_ideas
+	drafted_army_ideas
+}
+
+historical_units = {
+	muslim_artillery_10_1
+	muslim_artillery_16_1
+	muslim_artillery_23_1
+	muslim_artillery_29_1
+	muslim_artillery_35_1
+	muslim_artillery_40_1
+	muslim_artillery_44_1
+	muslim_artillery_48_1
+	muslim_artillery_52_1
+	muslim_artillery_55_2
+	muslim_cavalry_0_1
+	muslim_cavalry_16_1
+	muslim_cavalry_21_1
+	muslim_cavalry_27_1
+	muslim_cavalry_31_1
+	muslim_cavalry_36_1
+	muslim_cavalry_40_1
+	muslim_cavalry_44_1
+	muslim_cavalry_48_2
+	muslim_cavalry_51_2
+	muslim_cavalry_55_2
+	muslim_cavalry_58_2
+	muslim_infantry_0_1
+	muslim_infantry_6_1
+	muslim_infantry_14_2
+	muslim_infantry_17_2
+	muslim_infantry_21_2
+	muslim_infantry_25_1
+	muslim_infantry_28_2
+	muslim_infantry_31_1
+	muslim_infantry_34_1
+	muslim_infantry_39_2
+	muslim_infantry_42_2
+	muslim_infantry_45_2
+	muslim_infantry_48_1
+	muslim_infantry_50_1
+	muslim_infantry_53_1
+	muslim_infantry_55_1
+	muslim_infantry_57_2
+	muslim_infantry_59_1
+	muslim_infantry_63_2
+}
+
+monarch_names = {
+	"Mir Ways #0" = 20
+	"Humayun #0" = 20
+	"Ahmad #0" = 30
+	"Timur #0" = 20
+	"Shoja al-Mulk #0" = 10
+	"Muhammad #0" = 20
+	"Shoja #0" = 20
+	"Fath Jang #0" = 20
+	"Shahpur #0" = 20
+	"Zaman #0" = 20
+	"Mahmud #0" = 20
+	"Ayub #0" = 20
+	
+	"Nawal #0" = -1
+	"Munya #0" = -1
+	"Haniyya #0" = -1
+	"Firoza #0" = -1
+	"Sultanim #0" = -1
+	"Ak #0" = -1
+	"Fatima #0" = -1
+	"Aisha #0" = -1
+	"Maryam #0" = -1
+	"Munawar #0" = -1
+}
+
+leader_names = {
+	Hotaki
+	Taraki
+	Amin
+	Karmal
+	Najibullah
+	Akhund
+	Rahman
+	Ghazi
+	Ahmad
+	Qadir
+}
+
+ship_names = {
+	Arghandab Khash Farah Harut Harirud
+	Murghab Balkh Kowkcheh Kabol Zhob
+	Kech Dasht Hingol
+}

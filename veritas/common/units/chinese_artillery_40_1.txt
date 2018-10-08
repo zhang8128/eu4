@@ -1,0 +1,12 @@
+# Lantaka
+
+unit_type = chinese
+type = artillery
+
+maneuver = 2
+offensive_morale = 0
+defensive_morale = 4
+offensive_fire = 9
+defensive_fire = 1
+offensive_shock = 0
+defensive_shock = 0

@@ -1,0 +1,249 @@
+########################################
+# Events for Bavaria
+#
+# written by Johan Andersson
+########################################
+
+namespace = flavor_bav
+normal_or_historical_nations = yes
+
+#Cologne goes with Bavarian Archbishop
+country_event = {
+	id = flavor_bav.2
+	title = flavor_bav.2.t
+	desc = flavor_bav.2.d
+	picture = VEF_POPE_PREACHING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {	
+		name = flavor_bav.2.a	
+			
+		KOL = {
+			add_opinion = {
+				who = root
+				modifier = kol_bavarian_archbishop
+			}				
+		}
+		change_variable = { which = vef_papal_influence value = 5 }
+	}
+}
+
+
+# Opposition against Austria
+country_event = {
+	id = flavor_bav.3
+	title = flavor_bav.3.t
+	desc = flavor_bav.3.d
+	picture = VEF_COURT_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = BAV
+		dynasty = "von Wittelsbach"		
+		is_year = 1450
+		NOT = { is_year = 1500 }
+		is_lesser_in_union = no		
+		HAB = {
+			exists = yes
+			is_emperor = yes
+			dynasty =  "von Habsburg"
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}	
+	
+	
+	option = {	
+		name = flavor_bav.3.a	
+		HAB = {
+			add_opinion = {
+				who = ROOT
+				modifier = bav_against_habsburg
+			}
+		}
+		add_legitimacy = 5
+		add_prestige = 5
+	}
+
+	option = {	
+		name = flavor_bav.3.b	
+		HAB = {
+			add_opinion = {
+				who = ROOT
+				modifier = bav_reconcile_habsburg
+			}
+		}
+		add_prestige = -25
+	}		
+}
+
+
+#Johannes Aventinus
+country_event = {
+	id = flavor_bav.4
+	title = flavor_bav.4.t
+	desc = flavor_bav.4.d
+	picture = VEF_INVENTION_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = BAV		
+		is_year = 1510
+		NOT = { is_year = 1520 }
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+	}	
+	
+	
+	option = {	
+		name = flavor_bav.4.a
+		add_years_of_income = -0.25
+		add_prestige = 5
+		add_legitimacy = 10
+	}	
+	option = {	
+		name = flavor_bav.4.b
+		add_prestige = -1
+	}		
+}
+
+
+#Wilhelm IV invites the Jesuits into Bavaria
+country_event = {
+	id = flavor_bav.5
+	title = flavor_bav.5.t
+	desc = flavor_bav.5.d
+	picture = VEF_RELIGION_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = BAV
+		has_country_modifier = counter_reformation
+		is_year = 1520
+		NOT = { is_year = 1560 }
+		is_religion_enabled = protestant
+		religion = catholic
+		dominant_religion = catholic
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}	
+	
+	
+	option = {	
+		name = flavor_bav.5.a
+		change_variable = { which = vef_papal_influence value = 10 }
+		add_country_modifier = {
+			name = "bavarian_jesuits"
+			duration = -1
+		}
+	}	
+	option = {	
+		name = flavor_bav.5.b
+		trigger = {
+			exists = PAP
+		}
+		PAP = {
+			add_opinion = {
+				who = ROOT
+				modifier = bav_jesuits_rejected
+			}
+		}
+		change_variable = { which = vef_papal_influence value = -10 }
+	}		
+}
+
+#Splendor of Albert!
+country_event = {
+	id = flavor_bav.6
+	title = flavor_bav.6.t
+	desc = flavor_bav.6.d
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = BAV
+		is_year = 1550
+		NOT = { is_year = 1580 }
+		owns = 308	#Munich
+	}	
+	mean_time_to_happen = {
+		months = 240
+	}	
+	option = {	
+		name = flavor_bav.6.a
+		add_years_of_income = -2.0
+		add_prestige = 20
+		add_legitimacy = 10
+		308 = { add_base_tax = 1 }
+	}	
+	option = {	
+		name = flavor_bav.6.b
+		add_prestige = -5
+	}	
+}
+
+#Death of Henry XIV
+country_event = {
+	id = flavor_bav.100
+	title = flavor_bav.100.t
+	desc = flavor_bav.100.d
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = LBV
+		started_in = 1337.4.30
+		has_ruler = "Heinrich XIV"
+		is_year = 1339
+	}
+	
+	mean_time_to_happen = { months = 9 }
+
+	option = {
+		name = "flavor_bav.100.opta"
+		kill_ruler = yes
+		set_country_flag = henry_xiv_death
+	}
+}
+
+#Death of John I
+country_event = {
+	id = flavor_bav.101
+	title = flavor_bav.101.t
+	desc = flavor_bav.101.d
+	picture = VEF_IMPORTANT_STATUE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = UBV
+		started_in = 1337.4.30
+		NOT = { is_year = 1345 }
+		is_year = 1340
+		LBV = {
+			has_country_flag = henry_xiv_death 
+			has_heir = "John"
+			ai = yes
+		}
+	}
+	
+	mean_time_to_happen = { months = 11 }
+
+	option = {
+		name = "flavor_bav.101.opta"
+		LBV = { clr_country_flag = henry_xiv_death }
+		create_union = LBV
+	}
+}

@@ -1,0 +1,4 @@
+# Coast Of Hawaii
+#Province IDs changed
+discovered_by = pacific_islander
+1555.1.1 = { discovered_by = SPA }

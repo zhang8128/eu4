@@ -1,0 +1,261 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 1
+primary_culture = piedmontese
+religion = catholic
+technology_group = western
+capital = 256 # Saluzzo
+
+
+1296.1.1 = {
+	monarch = {
+		name = "Manfred IV"
+		dynasty = "d'Aleramici"
+		birth_date = 1251.1.1
+		adm = 4
+		dip = 4
+		mil = 3
+	}
+	heir = {
+		name = "Frederico"
+		monarch_name = "Frederico I"
+		dynasty = "d'Aleramici"
+		birth_date = 1287.1.1
+		death_date = 1336.1.1
+		claim = 95
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+}
+# Dates are made up; what is known for certain is that Isabella outlived Manfred IV and
+# convinced him to appoint her son Manfred as successor over Frederick sparking conflict
+1300.1.1 = {
+	queen = {
+		country_of_origin = GEN
+		name = "Isabella"
+		dynasty = "Doria"
+		birth_date = 1288.1.1
+		death_date = 1348.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Manfred"
+		monarch_name = "Manfred V"
+		dynasty = "d'Aleramici"
+		birth_date = 1295.1.1
+		death_date = 1345.1.1	#At least to 1342
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 4
+	}
+}
+
+1330.1.1 = {
+	monarch = {
+		name = "Manfred V"
+		dynasty = "d'Aleramici"
+		birth_date = 1295.1.1
+		adm = 2
+		dip = 2
+		mil = 4
+	}
+}
+
+#Frederico recognised as sole legitimate ruler with the help of his cousin Amadeus of Savoy
+1332.7.29 = {
+	monarch = {
+		name = "Frederico I"
+		dynasty = "d'Aleramici"
+		birth_date = 1287.1.1
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+	heir = {
+		name = "Thomas"
+		monarch_name = "Thomas II"
+		dynasty = "d'Aleramici"
+		birth_date = 1304.1.1
+		death_date = 1357.8.18
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1336.1.1 = {
+	monarch = {
+		name = "Thomas II"
+		dynasty = "d'Aleramici"
+		birth_date = 1304.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = GEN
+		name = "Ricciarda"
+		dynasty = "Visconti"
+		birth_date = 1310.1.1	#Made up
+		death_date = 1348.1.1	#Made up
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Frederico"
+		monarch_name = "Frederico II"
+		dynasty = "d'Aleramici"
+		birth_date = 1329.1.1	#Made up
+		death_date = 1396.1.1
+		claim = 95
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1357.1.1 = {
+	monarch = {
+		name = "Frederico II"
+		dynasty = "d'Aleramici"
+		birth_date = 1329.1.1	#Made up
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = GNV
+		name = "Beatrice"
+		dynasty = "Visconti"
+		birth_date = 1330.1.1	#Made up
+		death_date = 1390.1.1	#Made up
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Thomas"
+		monarch_name = "Thomas III"
+		dynasty = "d'Aleramici"
+		birth_date = 1356.1.1
+		death_date = 1416.1.1
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1396.1.1 = {
+	monarch = {
+		name = "Thomas III"
+		dynasty = "d'Aleramici"
+		birth_date = 1356.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+# Marriage date is unclear but no children born until 1404; guessing at her nation
+1402.1.1 = {
+	queen = {
+		country_of_origin = FRA
+		name = "Marguerite"
+		dynasty = "Pierrepont"
+		birth_date = 1380.1.1	#Made up
+		death_date = 1420.1.1	#Made up
+		female = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+# Birth date is unclear but he was definitely in his minority when he ascended
+1408.1.1 = {
+	heir = {
+		name = "Ludovico"
+		monarch_name = "Ludovico I"
+		dynasty = "d'Aleramici"
+		birth_date = 1408.1.1
+		death_date = 1475.1.1
+		claim = 95
+		adm = 5
+		dip = 5
+		mil = 3
+	}
+}
+
+1416.1.1 = {
+	monarch = {
+		name = "Marguerite"
+		dynasty = "Pierrepont"
+		birth_date = 1380.1.1
+		female = yes
+		regent = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+	heir = {
+		name = "Ludovico"
+		monarch_name = "Ludovico I"
+		dynasty = "d'Aleramici"
+		birth_date = 1408.1.1
+		death_date = 1475.1.1
+		claim = 95
+		adm = 5
+		dip = 5
+		mil = 3
+	}
+}
+
+1423.1.1 = {
+	monarch = {
+		name = "Ludovico I"
+		dynasty = "d'Aleramici"
+		birth_date = 1408.1.1
+		adm = 5
+		dip = 5
+		mil = 3
+	}
+}
+
+# No dates on the wedding; first child born in 1438
+1435.1.1 = {
+	queen = {
+		country_of_origin = MFT
+		name = "Isabella"
+		dynasty = "Palaiologos"
+		birth_date = 1419.1.1
+		death_date = 1475.1.1
+		female = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1438.3.23 = {
+	heir = {
+		name = "Ludovico"
+		monarch_name = "Ludovico II"
+		dynasty = "d'Aleramici"
+		birth_date = 1438.3.23
+		death_date = 1504.1.27
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 3
+	}
+}

@@ -1,0 +1,31 @@
+# Jirem
+#Province IDs changed
+
+owner = YUN
+controller = YUN
+culture = khitan
+religion = tengri
+capital = "Jurim"
+trade_goods = livestock
+hre = no
+base_tax = 2
+base_production = 2
+base_manpower = 4
+add_core = YUN
+is_city = yes
+discovered_by = chinese
+
+1368.4.1 = { owner = KHA controller = KHA add_core = KHA remove_core = YUN }
+1543.1.1 = { revolt = { type = revolutionary_rebels size = 1 } controller = REB } # Fighting broke out between the Mongols
+1552.1.1 = { revolt = {} controller = KHA } # The Oirads are defeated.
+1586.1.1 = { religion = buddhism } # State religion
+1634.1.1 = {	owner = MCH
+		controller = MCH
+		add_core = MCH
+		remove_core = KHA
+	   } # Part of the Manchu empire
+1645.7.1  = {	owner = QNG
+		controller = QNG
+		add_core = QNG
+		remove_core = MCH
+	    } # The Qing Dynasty

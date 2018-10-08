@@ -1,0 +1,16 @@
+#Province IDs changed
+government = theocracy add_government_reform = leading_clergy_reform
+government_rank = 3
+primary_culture = burmese
+religion = buddhism
+technology_group = chinese
+capital = 1190 # Toungoo
+
+1300.1.1 = {
+	monarch = {
+		name = "Maitreya"
+		adm = 6
+		dip = 6
+		mil = 6
+	}
+}

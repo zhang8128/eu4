@@ -1,0 +1,411 @@
+# GOB - major changes
+#Province IDs changed
+government = monarchy add_government_reform = principality
+government_rank = 2
+primary_culture = russian
+religion = orthodox
+technology_group = eastern
+historical_rival = NOV
+historical_rival = KAZ
+historical_friend = VLD
+historical_friend = NZH
+capital = 715 # Moskva
+
+
+set_country_flag = russian_horde_tribute
+set_variable = { which = vassal_boost value = 0.15 }
+set_country_flag = vassal_boost_set
+add_country_modifier = { name = "horde_enforcer" duration = -1 }
+save_global_event_target_as = horde_enforcer_tag
+
+# For completeness
+1283.1.1 = {
+	monarch = {
+		name = "Daniel I"
+		dynasty = "Rurikovich"
+		adm = 2
+		dip = 4
+		mil = 3
+	}
+}
+
+1303.3.4 = {
+	monarch = {
+		name = "Geogiy I"
+		dynasty = "Rurikovich"
+		birth_date = 1281.1.1
+		adm = 3
+		dip = 4
+		mil = 3
+	}
+	heir = {
+		name = "Ivan"
+		monarch_name = "Ivan I"
+		dynasty = "Rurikovich"
+		birth_date = 1288.1.1
+		death_date = 1341.3.31
+		claim = 95
+		adm = 4
+		dip = 3
+		mil = 3
+	}
+}
+
+1325.11.21 = {
+	monarch = {
+		name = "Ivan I"
+		dynasty = "Rurikovich"
+		birth_date = 1288.1.1
+		adm = 4
+		dip = 3
+		mil = 3
+	}
+	queen = {
+		country_of_origin = MOS
+		name = "Elena"
+		dynasty = "Rurikovich"
+		birth_date = 1295.1.1	#Made up
+		death_date = 1350.1.1	#Made up
+		female = yes
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+	heir = {
+		name = "Simeon"
+		monarch_name = "Simeon I"
+		dynasty = "Rurikovich"
+		birth_date = 1316.11.7
+		death_date = 1353.4.27
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 4
+	}
+}
+
+1341.3.31 = {
+	monarch = {
+		name = "Simeon I"
+		dynasty = "Rurikovich"
+		birth_date = 1316.11.7
+		adm = 1
+		dip = 2
+		mil = 4
+	}
+	queen = {
+		country_of_origin = LIT
+		name = "Anastasia"
+		dynasty = "Gediminai"
+		birth_date = 1320.1.1
+		death_date = 1345.3.11
+		female = yes
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+#Briefly married to Eupraxia of Smolensk but repudiated when the marriage was not consumated
+1346.1.1 = {
+	queen = {
+		country_of_origin = TVE
+		name = "Maria"
+		dynasty = "Rurikovich"
+		birth_date = 1320.1.1	#Made up
+		death_date = 1360.1.1	#Made up
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+#None of Simeon's male children lived past a few years; succeeded by his brother.
+1353.4.27 = {
+	monarch = {
+		name = "Ivan II"
+		dynasty = "Rurikovich"
+		birth_date = 1326.3.30
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+	queen = {
+		country_of_origin = MOS
+		name = "Alexandra"
+		dynasty = "Velyaminov"
+		birth_date = 1320.1.1	#Made up
+		death_date = 1360.1.1	#Made up
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Dimitri"
+		monarch_name = "Dimitri I"
+		dynasty = "Rurikovich"
+		birth_date = 1350.10.12
+		death_date = 1389.5.19
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 4
+	}
+}
+
+1359.11.13 = {
+	monarch = {
+		name = "Metropolitan Aleksey"
+		dynasty = "Rurikovich"
+		regent = yes
+		adm = 3
+		dip = 2
+		mil = 1
+	}
+	heir = {
+		name = "Dimitri"
+		monarch_name = "Dimitri I"
+		dynasty = "Rurikovich"
+		birth_date = 1350.10.12
+		death_date = 1389.5.19
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 4
+	}
+}
+
+1365.10.12 = {
+	monarch = {
+		name = "Dimitri I"
+		dynasty = "Rurikovich"
+		birth_date = 1350.10.12
+		adm = 2
+		dip = 2
+		mil = 4
+	}
+}
+
+1367.1.18 = {
+	queen = {
+		country_of_origin = NZH
+		name = "Eudoxia"
+		dynasty = "Konstantinovich"
+		birth_date = 1350.1.1	#Made up
+		death_date = 1407.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1371.12.30 = {
+	heir = {
+		name = "Vasiliy"
+		monarch_name = "Vasiliy I"
+		dynasty = "Rurikovich"
+		birth_date = 1371.12.30
+		death_date = 1425.2.27
+		claim = 95
+		adm = 1
+		dip = 3
+		mil = 2
+	}
+}
+
+1389.5.19 = {
+	monarch = {
+		name = "Vasiliy I"
+		dynasty = "Rurikovich"
+		birth_date = 1371.12.30
+		adm = 1
+		dip = 3
+		mil = 2
+	}
+}
+
+1391.1.21 = {
+	queen = {
+		country_of_origin = LIT
+		name = "Sophia"
+		dynasty = "Gediminai"
+		birth_date = 1371.1.1
+		death_date = 1453.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1405.1.1 = { add_country_modifier = { name = "annunciation_cathedral" duration = -1 } }
+
+1415.3.10 = {
+	heir = {
+		name = "Vasiliy Temny"
+		monarch_name = "Vasiliy II Temny"
+		dynasty = Rurikovich
+		claim = 95
+		birth_date = 1415.3.10
+		death_date = 1462.3.27
+		adm = 3
+		dip = 1
+		mil = 2
+	}
+}
+
+1420.1.1 = { leader = {	name = "Yuri Patrikeev"		type = general fire = 2	shock = 4	manuever = 3	siege = 1	death_date = 1439.1.1 } }
+
+1425.2.27 = {
+	monarch = {
+		name = "Sophia"
+		dynasty = "Gediminai"
+		birth_date = 1371.1.1
+		female = yes
+		regent = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	heir = {
+		name = "Vasiliy Temny"
+		monarch_name = "Vasiliy II Temny"
+		dynasty = Rurikovich
+		claim = 95
+		birth_date = 1415.3.10
+		death_date = 1462.3.27
+		adm = 3
+		dip = 1
+		mil = 2
+	}
+}
+
+1430.1.1 = { leader = {	name = "Dmitry Shemiaka"	type = general fire = 3	shock = 4	manuever = 3	siege = 0	death_date = 1453.1.1 } }
+
+1430.3.10 = {
+	monarch = {
+		name = "Vasiliy II Temny"
+		dynasty = Rurikovich
+		birth_date = 1415.3.10
+		adm = 3
+		dip = 1
+		mil = 2
+	}
+}
+
+1433.1.1 = {
+	queen = {
+		country_of_origin = YAR
+		name = "Maria"
+		dynasty = "Yaroslavna"
+		birth_date = 1418.1.1
+		death_date = 1484.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1440.1.22 = {
+	heir = {
+		name = "Ivan Veliky"
+		monarch_name = "Ivan III Veliky"
+		dynasty = Rurikovich
+		birth_date = 1440.1.22
+		death_date = 1505.10.27
+		claim = 95
+		adm = 3
+		dip = 4
+		mil = 5
+	}
+}
+
+1446.1.1 = { leader = {	name = "Fedor Basenok"         	type = general fire = 3	shock = 4	manuever = 4	siege = 0	death_date = 1460.1.1 } }
+
+1447.1.1 = { leader = {	name = "Ivan Obolenski-Striga" 	type = general fire = 2	shock = 4	manuever = 3	siege = 0	death_date = 1469.1.1 } }
+
+1460.1.1 = { leader = {	name = "Kholmski"              	type = general fire = 2	shock = 3	manuever = 3	siege = 1	death_date = 1495.1.1 } }
+
+1462.3.28 = {
+	monarch = {
+		name = "Ivan III Veliky"
+		dynasty = Rurikovich
+		adm = 3
+		dip = 4
+		mil = 5
+	}
+}
+
+1472.1.1 = { remove_country_modifier = horde_enforcer clear_global_event_target = horde_enforcer_tag } # Tribute Ends
+
+1478.1.15 = { add_country_modifier = { name = "hanseatic_league_member" duration = -1 } } # Controls Novgorod
+
+1479.3.25 = {
+	heir = {
+		name ="Vasiliy"
+		monarch_name = "Vasiliy III"
+		dynasty = "Rurikovich"
+		birth_date = 1479.3.25
+		death_date = 1533.12.3
+		claim = 95
+		adm =6
+		dip = 4
+		mil = 1
+	}
+}
+
+1490.1.1 = {
+	leader = {	
+		name = "Shenja"
+		type = general
+		fire = 2
+		shock = 3
+		manuever = 4
+		siege = 0
+		death_date = 1516.1.1 
+	} 
+}
+
+1495.1.1 = { 
+	leader = {	
+		name = "Ivan Lyapun"
+		type = conquistador
+		fire = 1
+		shock = 1
+		manuever = 4
+		siege = 0
+		death_date = 1505.1.1
+	} 
+}
+
+1495.1.1 = {
+	leader = {	
+		name = "Repnin"
+		type = general
+		fire = 2
+		shock = 2
+		manuever = 2
+		siege = 0
+		death_date = 1520.1.1 
+	} 
+}
+
+1495.1.1 = { 
+	leader = {	
+		name = "Ivan A. Chelyadnin"
+		type = general
+		fire = 1
+		shock = 3
+		manuever = 2
+		siege = 0
+		death_date = 1514.1.1 
+	} 
+}
+
+1499.1.1 = { remove_country_modifier = hanseatic_league_member }
+
+1503.4.1 = {
+	capital = 691 # Bryansk
+}

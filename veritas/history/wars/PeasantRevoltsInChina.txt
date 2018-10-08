@@ -1,0 +1,22 @@
+name = "Peasant Revolts in China"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 1057 # Shaanxi
+}
+
+1644.4.1 = {
+	add_attacker = MCH
+	add_defender = CSH
+	add_defender = CXI
+}
+
+1645.7.1 = {
+	rem_defender = CSH
+}
+
+# Truce
+1648.1.1 = {
+	rem_attacker = MCH
+	rem_defender = CXI
+}

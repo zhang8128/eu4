@@ -1,0 +1,17 @@
+bookmark =
+{
+	name = "FALL_BYZ_NAME"
+	desc = "FALL_BYZ_DESC"
+	date = 1453.5.29
+
+	center = 588
+
+	country = TUR
+	country = HAB
+	country = LUB
+	country = CAS
+	country = MOS
+	country = SWE
+	country = FRA
+	country = ENG
+}

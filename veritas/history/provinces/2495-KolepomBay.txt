@@ -1,0 +1,4 @@
+# Kolepom Bay
+#Province IDs changed
+discovered_by = chinese
+1511.1.1 = { discovered_by = POR }

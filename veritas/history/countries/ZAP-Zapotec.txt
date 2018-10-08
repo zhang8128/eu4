@@ -1,0 +1,130 @@
+#Province IDs changed
+government = tribal add_government_reform = tribal_federation
+government_rank = 3
+primary_culture = zapotek
+religion = xochiyaoyotl
+technology_group = mesoamerican
+capital = 2097	# Mitla/Zaachila
+
+
+1309.1.1 = {
+	monarch = {
+		name = "Cocijoeza"
+		dynasty = "Tehuantepec"
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+} # Fictional
+
+1328.1.1 = {
+	monarch = {
+		name = "Ozomatli"
+		dynasty = "Tehuantepec"
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+}
+
+1361.1.1 = {
+	monarch = {
+		name = "Huijatoo"
+		dynasty = "Tehuantepec"
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1386.1.1 = {
+	monarch = {
+		name = "Zaachila I"
+		dynasty = "Tehuantepec"
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1415.1.1 = {
+	monarch = {
+		name = "Zaachilla II"
+		dynasty = "Tehuantepec"
+		adm = 1
+		dip = 3
+		mil = 3
+	}
+}
+
+1415.1.1 = {
+	heir = {
+		name = "Zaachilla"
+		monarch_name = "Zaachilla"
+		dynasty = "Tehuantepec"
+		birth_date = 1415.1.1
+		death_date = 1487.1.1
+		claim = 95
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+}
+
+1454.1.1 = {
+	monarch = {
+		name = "Zaachilla III"
+		dynasty = "Tehuantepec"
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+}
+
+1454.1.1 = {
+	heir = {
+		name = "Cociyocza"
+		monarch_name = "Cociyocza"
+		dynasty = "Tehuantepec"
+		birth_date = 1454.1.1
+		death_Date = 1521.1.1
+		claim = 95
+		adm = 4
+		dip = 2
+		mil = 0
+	}
+}
+
+1487.1.1 = {
+	monarch = {
+		name = "Cociyocza"
+		dynasty = "Tehuantepec"
+		adm = 4
+		dip = 2
+		mil = 0
+	}
+}
+
+1487.1.1 = {
+	heir = {
+		name = "Cociyopu"
+		monarch_name = "Cociyopu"
+		dynasty = "Tehuantepec"
+		birth_date = 1487.1.1
+		death_Date = 1563.1.1
+		claim = 95
+		adm = 1
+		dip = 1
+		mil = 0
+	}
+}
+
+1521.1.1 = {
+	monarch = {
+		name = "Cociyopu"
+		dynasty = "Tehuantepec"
+		adm = 1
+		dip = 1
+		mil = 0
+	}
+}

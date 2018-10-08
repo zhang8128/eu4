@@ -1,0 +1,217 @@
+ruler_trait_pious = {
+	global_missionary_strength = 0.01
+	tolerance_heretic = -2
+	byz_patriarchal_influence = 0.025
+	rus_patriarchal_influence = 0.025
+}
+
+ruler_trait_heretic = {
+	tolerance_heretic = 2
+	tolerance_own = -2
+}
+
+ruler_trait_builder = {
+	build_cost = -0.1
+	global_tax_modifier = -0.05
+}
+
+ruler_trait_patron = {
+	prestige_decay = -0.005
+}
+
+ruler_trait_extravagent = {
+	diplomatic_reputation = 1
+	global_unrest = 1
+}
+
+ruler_trait_scholar = {
+	technology_cost = -0.05
+	global_missionary_strength = -0.005
+}
+
+ruler_trait_minister = {
+	production_efficiency = 0.05
+	legitimacy = -1
+}
+
+ruler_trait_warmonger = {
+	land_forcelimit_modifier = 0.05
+	naval_forcelimit_modifier = 0.05
+	global_unrest = 1
+	byz_militarist_influence = 0.025
+	per_arteshtaran_influence = 0.025
+}
+
+ruler_trait_terror = {
+	global_unrest = -1
+	land_morale = -0.1
+}
+
+ruler_trait_hero = {
+	prestige_decay = -0.005
+}
+
+ruler_trait_dove = {
+	diplomatic_upkeep = 1
+	land_forcelimit_modifier = -0.05
+	byz_mercantilist_influence = 0.025
+	rus_stroganov_influence = 0.025
+	per_dabiran_influence = 0.025
+}
+
+ruler_trait_equestrian = {
+	cavalry_cost = -0.1
+	infantry_cost = 0.1
+}
+
+ruler_trait_shipbuilder = {
+	global_ship_cost = -0.1
+	land_forcelimit_modifier = -0.2
+	naval_forcelimit_modifier = 0.2
+}
+
+ruler_trait_philanthropist = {
+	war_exhaustion = -0.01
+	global_tax_modifier = -0.05
+}
+
+ruler_trait_respected = {
+	prestige_decay = -0.005
+}
+
+ruler_trait_hawk = {
+	land_forcelimit_modifier = 0.05
+	naval_forcelimit_modifier = 0.05
+	diplomatic_upkeep = -1
+	per_arteshtaran_influence = 0.025
+	byz_militarist_influence = 0.025
+}
+
+ruler_trait_strong = {
+	war_exhaustion = -0.02
+	free_leader_pool = -1
+}
+
+ruler_trait_trade = {
+	trade_efficiency = 0.05
+	production_efficiency = -0.05
+	byz_mercantilist_influence = 0.025
+	rus_stroganov_influence = 0.025
+}
+
+ruler_trait_papal_favorite = {
+	#papal_influence = 10
+}
+
+ruler_trait_papal_defier = {
+	#papal_influence = -2
+}
+
+ruler_trait_incompetent = {
+	land_forcelimit_modifier = -0.10
+	naval_forcelimit_modifier = -0.10
+	production_efficiency = -0.10
+	global_unrest = 1
+	global_tax_modifier = -0.10
+}
+
+ruler_trait_poor_general = {
+	land_morale = -0.10
+}
+
+ruler_trait_good_general = {
+	land_morale = 0.10
+}
+
+ruler_trait_insane = {
+	global_unrest = 3
+}
+
+ruler_trait_renowned_heir = {
+	prestige_decay = -0.005
+	legitimacy = 0.5
+	horde_unity = 0.5
+}
+
+ruler_trait_mourning = {
+	legitimacy = 0.25
+	global_unrest = -1
+}
+
+ruler_trait_weak = {
+	legitimacy = -0.05
+	horde_unity = -0.05
+	prestige_decay = 0.01
+}
+
+ruler_trait_warhawk = {
+	land_morale = 0.25
+	army_tradition = 1
+}
+
+ruler_trait_seahawk = {
+	naval_morale = 0.25
+	navy_tradition = 1
+}
+
+ruler_trait_smooth = {
+	diplomatic_reputation = 2
+}
+
+ruler_trait_bumbling = {
+	diplomatic_reputation = -2
+}
+
+ruler_trait_drunkard = {
+	diplomatic_reputation = -1
+	legitimacy = -0.05
+	prestige_decay = 0.02
+	heir_chance = -0.25
+}
+
+ruler_trait_terrible_resolve = {
+	global_regiment_cost = -0.10
+	land_morale = 0.10
+}
+
+ruler_trait_diplomatic_focus = {
+	diplomatic_reputation = 1
+}
+
+ruler_trait_lunatic_general = {
+	infantry_power = 0.25
+	artillery_power = 0.25
+	land_morale = -0.2
+	discipline = -0.2
+}
+
+ruler_trait_impotent = {
+	heir_chance = -0.5
+	prestige = -0.05
+}
+
+ruler_trait_vicious = {
+	global_unrest = 1
+	diplomatic_reputation = -1
+}
+
+ruler_trait_idiot = {
+	production_efficiency = -0.05
+	global_tax_modifier = -0.05
+}
+
+ruler_trait_skinflint = {
+	prestige_decay = 0.0125	
+	vassal_income = -0.05
+	legitimacy = -0.2
+}
+
+ruler_trait_yun_chinese = {
+	global_unrest = -2
+	global_tax_modifier = -0.20
+}
+
+ruler_trait_yun_mongolian = {
+	global_unrest = 2
+	global_manpower_modifier = 0.10
+}

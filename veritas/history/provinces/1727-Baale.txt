@@ -1,0 +1,16 @@
+# Baale
+
+owner = DAW
+controller = DAW
+add_core = DAW
+capital = "Baale"
+culture = oromo
+religion = sunni
+base_tax = 1
+base_production = 1
+base_manpower = 2
+trade_goods = livestock
+hre = no
+is_city = yes
+discovered_by = sudanese_tech
+discovered_by = muslim

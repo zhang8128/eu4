@@ -1,0 +1,33 @@
+charter_colonies = {
+
+	category = 2
+
+	allow = {
+		full_idea_group = exploration_ideas
+	}
+	
+	on_issue_taken = {
+		change_variable = { which = parliament_debate value = 1 }
+	}
+	
+	effect = {
+		#
+	}
+	
+	modifier = {
+		colonists = 1
+		global_colonial_growth = 10
+	}
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 2
+			NOT = { num_of_colonies = 10 }
+		}
+	}
+
+	ai_will_do = {
+		factor = 1
+	}	
+}

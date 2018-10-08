@@ -1,0 +1,17 @@
+# Surguja
+
+capital = "Surguja"
+owner = ORI
+controller = ORI
+add_core = ORI
+culture = oriya
+religion = hinduism
+trade_goods = tea
+base_tax = 2
+base_production = 2
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = indian
+
+1325.1.1 = { owner = GDW controller = GDW remove_core = ORI } #Fracturing of eastern Ganges

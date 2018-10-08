@@ -1,0 +1,164 @@
+# NOV - Novgorod
+#Province IDs changed
+government = republic add_government_reform = merchants_reform
+government_rank = 3
+mercantilism = 25
+primary_culture = russian
+religion = orthodox
+technology_group = eastern
+historical_rival = MOS
+historical_rival = SWE
+capital = 686	# Novgorod
+fixed_capital = 686
+
+1100.1.1 = { set_country_flag = russian_horde_tribute }
+
+1282.1.1 = { add_country_modifier = { name = "hanseatic_league_member" duration = -1 } }
+
+# Princes of Kiev - Really a republic and the princes had very little actual control.
+# From 1328, even though the Princes often were Muscovite, Novgorod was independent 
+# and run by the Boyars, Bishops and other interests in the Republic.
+
+1292.1.1 = {
+	monarch = {
+		name = "Andrei II Aleksandrovich"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1308.1.1 = {
+	monarch = {
+		name = "Saint Mikhail II"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1314.1.1 = {
+	monarch = {
+		name = "Afanasii Daniilovich"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1315.1.1 = {
+	monarch = {
+		name = "Saint Mikhail II"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1318.1.1 = {
+	monarch = {
+		name = "Afanasii Daniilovich"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1322.1.1 = {
+	monarch = {
+		name = "Iuri II Daniilovich"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1325.1.1 = {
+	monarch = {
+		name = "Alexander II Mikhailovich"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1328.1.1 = {
+	monarch = {
+		name = "Ivan I Kalita"
+		adm = 4
+		dip = 4
+		mil = 3
+	}
+}
+
+1346.1.1 = {
+	monarch = {
+		name = "Simeon Ivanovich"
+		adm = 1
+		dip = 2
+		mil = 4
+	}
+}
+
+1355.1.1 = {
+	monarch = {
+		name = "Ivan II"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1359.1.1 = {
+	monarch = {
+		name = "Dmitry II Konstantinovich"
+		adm = 2
+		dip = 2
+		mil = 4
+	}
+}
+
+1363.1.1 = {
+	monarch = {
+		name = "Dmitry III Donskoi"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1389.1.1 = {
+	monarch = {
+		name = "Lengvenis"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1409.1.1 = {
+	monarch = {
+		name = "Vasily III Dmitrievich"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1425.1.1 = {
+	monarch = {
+		name = "Vasily IV"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1462.1.1 = {
+	monarch = {
+		name = "Ivan III"
+		adm = 4
+		dip = 3
+		mil = 4
+	}
+}

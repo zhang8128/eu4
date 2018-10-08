@@ -1,0 +1,28 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+primary_culture = slovak
+religion = catholic
+technology_group = eastern
+capital = 492 # Trencsén
+historical_friend = BOH
+historical_friend = UGC
+historical_rival = HUN
+historical_rival = KSZ
+historical_rival = CRO
+historical_rival = KBA
+historical_rival = TRA
+
+1291.8.27 = {
+	monarch = {
+		name = "Mate"
+		dynasty = "Csak"
+		birth_date = 1260.1.1
+		adm = 4
+		dip = 2
+		mil = 5
+	}
+	set_ruler_flag = ambitious_vassal
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 10.0 }
+}

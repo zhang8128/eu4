@@ -1,0 +1,10 @@
+#Bark Canoe
+#model = galley
+#tech_level = 4
+type = galley
+unit_type = north_american
+
+hull_size = 2
+base_cannons = 2
+sail_speed = 2
+sailors = 20

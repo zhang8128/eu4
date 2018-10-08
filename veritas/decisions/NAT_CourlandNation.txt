@@ -1,0 +1,73 @@
+country_decisions = {
+
+	couronian_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = {
+				tag = LIV
+				tag = RIG
+			}
+			NOT = { exists = KUR }
+			OR = {
+				ai = no
+				is_religion_enabled = protestant
+				is_religion_enabled = reformed
+			}
+		}
+		allow = {
+			stability = 1
+			adm_tech = 23
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			OR = {
+				religion = reformed
+				religion = protestant
+			}
+			owns_core_province = 444	 # Kurland
+			444 = { NOT = { nationalism = 1 } }
+			owns_core_province = 446	 # Semigallia
+			446 = { NOT = { nationalism = 1 } }
+		}
+		effect = {
+			if = {
+	 			limit = { is_subject = yes }
+	 			overlord = {
+	 				clr_country_flag = overlord_flag_@ROOT
+	 				set_country_flag = overlord_flag_KUR
+	 			}
+	 		}
+			change_tag = KUR
+			add_prestige = 10
+			set_capital = 446		# Semigallia
+			if = {
+				limit = { government = theocracy }
+				change_government = monarchy
+				set_legacy_government = hereditary_monarchy
+				every_neighbor_country = {
+					limit = { government = monarchy }
+					add_opinion = { who = ROOT modifier = secularized_monastic_order }
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = KUR_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

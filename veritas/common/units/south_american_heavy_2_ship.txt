@@ -1,0 +1,10 @@
+#Large Inca Warbalsa
+#model = galleon
+#tech_level = 12
+type = heavy_ship
+unit_type = south_american
+
+hull_size = 14
+base_cannons = 8
+sail_speed = 5
+sailors = 300

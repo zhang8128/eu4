@@ -1,0 +1,33 @@
+technology_group = western
+
+
+set_global_flag = vef_new_papacy	
+set_global_flag = vef_papacy_initial
+set_global_flag = growth_pulse_0
+set_global_flag = vef_stab_flag
+set_variable = { which = vef_college_size value = 16 }
+set_variable = { which = vef_college_minimum value = 10 }
+set_variable = { which = vef_college_maximum value = 15 }
+set_variable = { which = vef_required_majority value = 12 }
+set_variable = { which = vef_french_cardinals value = 8 }
+set_variable = { which = vef_italian_cardinals value = 6 }
+set_variable = { which = vef_northitalian_cardinals value = 3 }
+set_variable = { which = vef_roman_cardinals value = 3 }
+set_variable = { which = vef_spanish_cardinals value = 1 }
+set_variable = { which = vef_ultramontane_cardinals value = 1 }
+set_country_flag = cardinal1_active
+set_country_flag = cardinal2_active
+set_country_flag = cardinal3_active
+set_country_flag = cardinal4_active
+set_country_flag = cardinal5_active
+set_country_flag = cardinal6_active
+set_country_flag = cardinal7_active
+set_country_flag = cardinal10_active
+set_country_flag = cardinal11_active
+set_country_flag = cardinal12_active
+set_country_flag = cardinal13_active
+set_country_flag = cardinal14_active
+set_country_flag = cardinal15_active
+set_country_flag = cardinal16_active
+set_country_flag = cardinal17_active
+set_country_flag = cardinal18_active

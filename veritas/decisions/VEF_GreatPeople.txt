@@ -1,0 +1,756 @@
+# Decisions for bonus buildings, etc, for Great Persons
+# Updated for Veritas
+country_decisions = {
+	build_annunciation_cathedral = {
+		potential = {
+			advisor = andrei_rublev
+			NOT = { has_country_modifier = annunciation_cathedral }
+			OR = {
+				tag = MOS
+				tag = RUS
+			}
+			capital = 715	# Moskva
+			715 = { is_core = ROOT }
+		}
+
+		allow = {
+			adm_power = 25
+			treasury = 25
+		}
+
+		effect = {
+			add_treasury = -25
+			add_adm_power = -25
+			add_patriarch_authority = 0.25
+			add_country_modifier = { name = "annunciation_cathedral" duration = -1 }
+			715 = {
+				if = {
+					limit = { NOT = { has_building = cathedral } }
+					if = {
+						limit = { has_building = temple }
+						remove_building = temple
+					}
+					add_building = cathedral
+				}
+			}
+		}
+	}
+
+	publish_the_huolongjing = {
+		potential = {
+			1068 = { owned_by = ROOT }		# Nanjing
+			advisor = liu_ji
+			NOT = { has_country_modifier = the_huolongjing }
+		}
+
+		allow = {
+			treasury = 25
+		}
+
+		effect = {
+			add_treasury = -25
+			add_prestige = 10
+			add_country_modifier = { name = "the_huolongjing" duration = -1 }
+			1068 = {
+				if = { 
+					limit = { NOT = { has_building = training_fields } }
+					if = {
+						limit = { has_building = barracks }
+						remove_building = barracks
+					}
+					add_building = training_fields
+				}
+			}
+		}
+	}
+
+	publish_canterbury_tales = {
+		potential = {
+			NOT = { has_country_modifier = canterbury_tales }
+			34 = { owned_by = ROOT }		# Middlesex
+			advisor = geoffrey_chaucer
+		}
+
+		allow = {
+			treasury = 25
+		}
+
+		effect = {
+			add_treasury = -25
+			add_prestige = 10
+			add_country_modifier = { name = "canterbury_tales" duration = -1 }
+		}
+	}
+
+	commission_giotto_fresco = {
+		potential = {
+			NOT = { has_country_flag = commissioned_fresco }
+			advisor = giotto_di_bondone
+		}
+
+		allow = {
+			treasury = 50
+		}
+
+		effect = {
+			add_treasury = -50
+			add_prestige = 10
+			set_country_flag = commissioned_fresco
+			random_owned_province = {
+				add_permanent_province_modifier = { name = "giotto_fresco" duration = -1 }
+				add_base_tax = 1
+			}
+		}
+	}
+
+	publish_the_divine_comedy = {
+		potential = {
+			advisor = dante_alighieri
+			NOT = { has_country_modifier = the_divine_comedy }
+		}
+
+		allow = {
+			treasury = 10
+		}
+
+		effect = {
+			add_treasury = -10
+			add_prestige = 10
+			add_country_modifier = { name = "the_divine_comedy" duration = -1 }
+		}
+	}
+
+	build_florence_cathedral = {
+		potential = {
+			advisor = filippo_brunelleschi
+			# Firenze
+			237 = { 
+				owned_by = ROOT 
+				NOT = { has_province_modifier = florence_cathedral }
+			}
+		}
+
+		allow = {
+			adm_power = 25
+			treasury = 50
+		}
+
+		effect = {
+			add_treasury = -50
+			add_adm_power = -25
+			237 = {
+				add_permanent_province_modifier = { name = "florence_cathedral" duration = -1 }
+				if = {
+					limit = { NOT = { has_building = cathedral } }
+					if = {
+						limit = { has_building = temple }
+						remove_building = temple
+					}
+					add_building = cathedral
+				}
+			}
+		}
+	}
+
+	commission_ghent_altarpiece = {
+		potential = {
+			advisor = jan_van_eyck
+			# Dunkerque
+			195 = { 
+				owned_by = ROOT 
+				NOT = { 195 = { has_province_modifier = ghent_altarpiece } }
+			}
+		}
+
+		allow = {
+			adm_power = 25
+			treasury = 50
+		}
+
+		effect = {
+			add_treasury = -50
+			add_adm_power = -25
+			195 = { add_permanent_province_modifier = { name = "ghent_altarpiece" duration = -1 } }
+			if = {
+				limit = { NOT = { 195 = { has_building = temple } } }
+				195 = { add_building = temple }
+			}
+		}
+	}
+
+	publish_the_diwan_of_hafez = {
+		potential = {
+			advisor = hafez
+			NOT = { has_country_modifier = diwan_of_hafez }
+		}
+
+		allow = {
+			treasury = 10
+		}
+
+		effect = {
+			add_treasury = -10
+			add_prestige = 10
+			add_country_modifier = { name = "diwan_of_hafez" duration = -1 }
+		}
+	}
+
+	publish_le_voir_dit = {
+		potential = {
+			advisor = de_machaut
+			NOT = { has_country_modifier = le_voir_dit }
+		}
+
+		allow = {
+			treasury = 10
+		}
+
+		effect = {
+			add_treasury = -10
+			add_prestige = 10
+			add_country_modifier = { name = "le_voir_dit" duration = -1 }
+		}
+	}
+
+	publish_il_canzoniere  = {
+		potential = {
+			advisor = petrarch
+			NOT = { has_country_modifier = il_canzoniere }
+		}
+
+		allow = {
+			treasury = 10
+		}
+
+		effect = {
+			add_treasury = -10
+			add_prestige = 10
+			add_country_modifier = { name = "il_canzoniere" duration = -1 }
+		}
+	}
+
+	publish_de_revolutionibus  = {
+		potential = {
+			advisor = copernicus
+			NOT = { has_country_modifier = de_revolutionibus }
+		}
+
+		allow = {
+			treasury = 10
+		}
+
+		effect = {
+			add_treasury = -10
+			if = {
+				limit = { religion = catholic }
+				change_variable = { which = vef_papal_influence value = -25 }
+			}
+			add_prestige = 10
+			add_country_modifier = { name = "de_revolutionibus" duration = -1 }
+		}
+	}
+
+	publish_water_margin  = {
+		potential = {
+			advisor = shi_naian
+			NOT = { has_country_modifier = water_margin }
+		}
+
+		allow = {
+			treasury = 10
+		}
+
+		effect = {
+			add_treasury = -10
+			add_prestige = 10
+			add_country_modifier = { name = "water_margin" duration = -1 }
+		}
+	}
+	
+	publish_romance_of_the_three_kingdoms  = {
+		potential = {
+			advisor = luo_guanzhong
+			NOT = { has_country_modifier = romance_of_the_three_kingdoms }
+		}
+
+		allow = {
+			treasury = 10
+		}
+
+		effect = {
+			add_treasury = -10
+			add_prestige = 10
+			add_country_modifier = { name = "romance_of_the_three_kingdoms" duration = -1 }
+		}
+	}
+
+	commission_botticelli_painting = {
+		potential = {
+			advisor = botticelli
+			NOT = { has_country_flag = commissioned_botticelli_painting }
+		}
+
+		allow = {
+			treasury = 50
+		}
+
+		effect = {
+			add_treasury = -50
+			add_prestige = 10
+			set_country_flag = commissioned_botticelli_painting
+			random_owned_province = {
+				add_permanent_province_modifier = { name = "botticelli_painting" duration = -1 }
+				add_base_tax = 1
+			}
+		}
+	}
+
+	publish_utopia = {
+		potential = {
+			advisor = thomas_more
+			NOT = { has_country_flag = published_utopia }
+		}
+		
+		allow = {
+			is_year = 1516
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			set_country_flag = published_utopia
+			add_country_modifier = { name = "utopia_published" duration = -1 }
+		}
+	}
+
+	publish_nova_scientia = {
+		potential = {
+			advisor = niccolo_tartaglia
+			NOT = { has_country_flag = published_nova_scientia }
+		}
+		
+		allow = {
+			is_year = 1535
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			set_country_flag = published_nova_scientia
+			add_country_modifier = { name = "nova_scientia" duration = -1 }
+		}
+	}
+
+	commission_raphael_painting = {
+		potential = {
+			advisor = raphael
+			NOT = { has_country_flag = raphael_painting }
+		}
+		
+		allow = {
+			is_year = 1510
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			set_country_flag = raphael_painting
+			add_country_modifier = { name = "school_of_athens_painting" duration = -1 }
+		}
+	}
+
+	publish_shakespeare_hist = {
+		potential = {
+			advisor = william_shakespeare
+			NOT = { has_country_flag = shakespeare_history }
+		}
+		
+		allow = {
+			is_year = 1585
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			set_country_flag = shakespeare_history
+			add_country_modifier = { name = "shakespeare_histories" duration = -1 }
+		}
+	}
+
+	publish_shakespeare_com = {
+		potential = {
+			advisor = william_shakespeare
+			NOT = { has_country_flag = shakespeare_comedy }
+		}
+		
+		allow = {
+			is_year = 1590
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			set_country_flag = shakespeare_comedy
+			add_country_modifier = { name = "shakespeare_comedies" duration = -1 }
+		}
+	}
+	
+	publish_shakespeare_trag = {
+		potential = {
+			advisor = william_shakespeare
+			NOT = { has_country_flag = shakespeare_tragedy }
+		}
+		
+		allow = {
+			is_year = 1605
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			set_country_flag = shakespeare_tragedy
+			add_country_modifier = { name = "shakespeare_tragedies" duration = -1 }
+		}
+	}
+
+	publish_five_rings = {
+		potential = {
+			advisor = miyamoto_musashi
+			NOT = { has_country_flag = published_five_rings }
+		}
+		
+		allow = {
+			is_year = 1640
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			set_country_flag = published_five_rings
+			add_country_modifier = { name = "book_of_five_rings" duration = -1 }
+		}
+	}
+
+	publish_mercator_atlas = {
+		potential = {
+			advisor = gerardus_mercator
+			NOT = { has_country_flag = mercator_maps }
+		}
+		
+		allow = {
+			is_year = 1570
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			set_country_flag = mercator_maps
+			add_country_modifier = { name = "mercator_atlas" duration = -1 }
+		}
+	}
+
+	publish_astronomia_nova = {
+		potential = {
+			advisor = johannes_kepler
+			NOT = { has_country_flag = kepler_astronomy }
+		}
+		
+		allow = {
+			is_year = 1595
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			set_country_flag = kepler_astronomy
+			add_country_modifier = { name = "astronomia_nova" duration = -1 }
+		}
+	}
+
+	publish_dialogue_world_systems = {
+		potential = {
+			advisor = galileo_galilei
+			NOT = { has_country_flag = galileo_astronomy }
+		}
+		
+		allow = {
+			is_year = 1595
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			set_country_flag = galileo_astronomy
+			add_country_modifier = { name = "dialogue_world_systems" duration = -1 }
+		}
+	}
+
+	publish_scientific_method = {
+		potential = {
+			advisor = francis_bacon
+			NOT = { has_country_flag = bacon_science }
+		}
+		
+		allow = {
+			is_year = 1586
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			set_country_flag = bacon_science
+			add_country_modifier = { name = "scientific_method" duration = -1 }
+		}
+	}
+
+	publish_nova_stella = {
+		potential = {
+			advisor = tycho_brahe
+			NOT = { has_country_flag = brahe_stars }
+			NOT = { tag = BOH }
+		}
+		
+		allow = {
+			is_year = 1573
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			set_country_flag = brahe_stars
+			add_country_modifier = { name = "de_nova_stella" duration = -1 }
+		}
+	}
+
+	found_brahe_observatory = {
+		potential = {
+			tag = BOH
+			normal_or_historical_nations = yes
+			is_playing_custom_nation = no
+			advisor = tycho_brahe
+			NOT = { has_country_flag = brahe_observatory_built }
+		}
+		
+		allow = {
+			is_year = 1597
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			set_country_flag = brahe_observatory_built
+			add_country_modifier = { name = "brahe_observatory" duration = -1 }
+		}
+	}
+
+	commission_titian_painting = {
+		potential = {
+			advisor = titian
+			NOT = { has_country_modifier = titian_painting }
+		}
+		
+		allow = {
+			is_year = 1556
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			add_country_modifier = { name = "titian_painting" duration = -1 }
+		}
+	}
+
+	build_sistine_chapel = {
+		potential = {
+			advisor = donato_bramante
+			NOT = { has_country_modifier = sistine_chapel }
+		}
+		
+		allow = {
+			is_year = 1506
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			add_country_modifier = { name = "sistine_chapel" duration = -1 }
+		}
+	}
+
+	commission_qui_ying_painting = {
+		potential = {
+			advisor = qui_ying
+			NOT = { has_country_modifier = gongbi_painting }
+		}
+		
+		allow = {
+			is_year = 1526
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			add_country_modifier = { name = "gongbi_painting" duration = -1 }
+		}
+	}
+
+	commission_greco_painting = {
+		potential = {
+			advisor = el_greco
+			NOT = { has_country_modifier = el_espolio }
+		}
+		
+		allow = {
+			is_year = 1579
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			add_country_modifier = { name = "el_espolio" duration = -1 }
+		}
+	}
+
+	commission_palladian_villas = {
+		potential = {
+			advisor = andrea_palladio
+			NOT = { has_country_modifier = palladian_villas }
+		}
+		
+		allow = {
+			is_year = 1552
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			add_country_modifier = { name = "palladian_villas" duration = -1 }
+		}
+	}
+	
+	sculpture_david = {
+		potential = {
+			advisor = michelangelo
+			NOT = { has_country_modifier = michelangelo_david }
+		}
+		
+		allow = {
+			is_year = 1502
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			add_country_modifier = { name = "michelangelo_david" duration = -1 }
+		}
+	}
+	
+	publish_prince = {
+		potential = {
+			advisor = niccolo_machiavelli
+			NOT = { has_country_modifier = machiavelli_prince }
+		}
+		
+		allow = {
+			is_year = 1502
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			add_country_modifier = { name = "machiavelli_prince" duration = -1 }
+		}
+	}
+	
+	paint_holbein_portrait = {
+		potential = {
+			advisor = hans_holbein
+			NOT = { has_country_modifier = holbein_portrait }
+		}
+		
+		allow = {
+			is_year = 1502
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			add_country_modifier = { name = "holbein_portrait" duration = -1 }
+		}
+	}
+	
+	publish_nostradamus = {
+		potential = {
+			advisor = nostradamus
+			NOT = { has_country_modifier = nostradamus_prophecies }
+		}
+		
+		allow = {
+			is_year = 1540
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			add_country_modifier = { name = "nostradamus_prophecies" duration = -1 }
+		}
+	}
+	
+	publish_peri_opera = {
+		potential = {
+			advisor = jacapo_peri
+			NOT = { has_country_modifier = peri_opera }
+		}
+		
+		allow = {
+			is_year = 1597
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			add_country_modifier = { name = "peri_opera" duration = -1 }
+		}
+	}
+	
+	found_mazarin_library = {
+		potential = {
+			advisor = cardinal_mazarin
+			NOT = { has_country_modifier = mazarin_library }
+		}
+		
+		allow = {
+			is_year = 1643
+			treasury = 10
+		}
+		
+		effect = {
+			add_treasury = -10
+			add_prestige = 5
+			add_country_modifier = { name = "mazarin_library" duration = -1 }
+		}
+	}
+}

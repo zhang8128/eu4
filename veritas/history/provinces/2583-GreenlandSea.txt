@@ -1,0 +1,6 @@
+# Greenland Sea
+#Province IDs changed
+1453.1.1 = { 
+	discovered_by = western 
+	discovered_by = scandinavian_tech
+}

@@ -1,0 +1,30 @@
+# Palembang
+
+capital = "Palembang"
+owner = SVJ
+controller = SVJ
+add_core = SVJ
+culture = sumatran
+religion = vajrayana
+trade_goods = cloves
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = MKS
+discovered_by = MLC
+discovered_by = ATJ
+discovered_by = MAJ
+discovered_by = BEI
+discovered_by = KUT
+discovered_by = BLI
+discovered_by = SUN
+discovered_by = SVJ
+
+1405.1.1 = { discovered_by = MNG }
+1509.1.1 = { discovered_by = POR }
+1658.1.1 = { owner = NED controller = NED } # The Dutch gradually gained control
+1683.1.1 = { add_core = NED }
+1795.1.1   = { owner = BTR controller = BTR add_core = BTR remove_core = NED }
+1806.6.5   = { owner = NED controller = NED add_core = NED remove_core = BTR }

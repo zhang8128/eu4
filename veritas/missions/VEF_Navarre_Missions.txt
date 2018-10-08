@@ -1,0 +1,62 @@
+nav_missions = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = NAV
+	}
+	has_country_shield = yes
+	
+	nav_freedom = {
+		icon = mission_empire
+		required_missions = {  }
+		trigger = {
+			is_subject = no
+		}
+		effect = {
+			75 = { add_permanent_claim = ROOT }
+			115 = { add_permanent_claim = ROOT }
+		}
+	}
+	
+	nav_labourd = {
+		icon = mission_conquer_50_development
+		required_missions = { nav_freedom }
+		provinces_to_highlight = {
+			province_id = 115
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			115 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			115 = { change_culture = basque }
+			pyrenees_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+	
+	nav_bearn = {
+		icon = mission_unite_home_region
+		required_missions = { nav_labourd }
+		provinces_to_highlight = {
+			area = pyrenees_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			pyrenees_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_accepted_culture = gascon
+			country_event = { id = vef_navarre.1 }
+		}
+	}
+}

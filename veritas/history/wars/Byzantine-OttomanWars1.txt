@@ -1,0 +1,12 @@
+# Ottoman conquest of byzantine Anatolia
+
+name = "First Byzantine-Ottoman War"
+
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 602 # Bithynia	
+}
+
+1306.3.9 = { add_attacker = OSM	add_defender = BYZ	}
+1336.12.31 = { rem_attacker = OSM	rem_defender = BYZ	} # Ottomans annexed Bithynia, Optimaton and Paphlagonia

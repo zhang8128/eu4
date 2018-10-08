@@ -1,0 +1,469 @@
+# Golden Horde Events
+
+namespace = flavor_gol
+normal_or_historical_nations = yes
+
+# Reduce Cavalry Bonus over time
+country_event = {
+	id = flavor_gol.70000
+	title = "flavor_gol.70000.t"
+	desc = "flavor_gol.70000.d"
+	
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_modifier = golden_horde_1
+		is_year = 1425
+	}
+
+	mean_time_to_happen = { 
+		months = 72
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = horde_collapse
+			every_owned_province = { add_unrest = 0.50 }
+		}
+	}
+
+	option = {
+		name = "flavor_gol.70000.opta"
+		remove_country_modifier = golden_horde_1
+		add_country_modifier = { name = "golden_horde_2" duration = -1 }
+	}
+}
+
+country_event = {
+	id = flavor_gol.70001
+	title = "flavor_gol.70001.t"
+	desc = "flavor_gol.70001.d"
+
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_modifier = golden_horde_2
+		is_year = 1462
+	}
+
+	mean_time_to_happen = { 
+		months = 60
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_owned_province = { add_unrest = 2.50 }
+		}
+	}
+
+	option = {
+		name = "flavor_gol.70001.opta"
+		remove_country_modifier = golden_horde_2
+		add_country_modifier = { name = "golden_horde_3" duration = -1 }
+	}
+}
+
+country_event = {
+	id = flavor_gol.70002
+	title = "flavor_gol.70002.t"
+	desc = "flavor_gol.70002.d"
+
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_modifier = golden_horde_3
+		is_year = 1492
+	}
+
+	mean_time_to_happen = { 
+		months = 60
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_owned_province = { add_unrest = 10 }
+		}
+	}
+
+	option = {
+		name = "flavor_gol.70002.opta"
+		remove_country_modifier = golden_horde_3
+	}
+}
+
+# Breakaway Khanates: Sibir, Khazan/Qasim, Crimea, Nogai, Kazakh
+#
+# Khanate of Kazan breaks away - released and war starterd
+country_event = {
+	id = flavor_gol.70003
+	title = "flavor_gol.70003.t"
+	desc = "flavor_gol.70003.d"
+
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = GOL
+		has_disaster = golden_horde_collapse
+		any_owned_province = { is_core = KAZ }
+		NOT = { has_country_modifier = recent_horde_breakaway }
+	}
+
+	mean_time_to_happen = { 
+		months = 240 
+		modifier = {
+			factor = 0.80
+			has_country_modifier = golden_horde_2
+		}
+		modifier = {
+			factor = 0.60
+			has_country_modifier = golden_horde_3
+		}
+		modifier = {
+			factor = 0.80
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 0.25
+			has_regency_trigger = yes
+		}
+	}
+
+	immediate = {
+		release = KAZ
+		add_country_modifier = { name = "recent_horde_breakaway" duration = 1825 }
+		set_country_flag = horde_breakaway
+	}
+
+	option = {
+		name = "flavor_gol.70003.opta"
+		trigger = { ai = no }
+		declare_war_with_cb = { who = KAZ casus_belli = cb_tribal_feud }
+		add_prestige = 30
+		add_legitimacy = 10
+		add_horde_unity = 10
+	}
+
+	option = {
+		name = "flavor_gol.70003.optb"
+		add_prestige = -30
+		add_legitimacy = -10
+		add_horde_unity = -10
+		change_variable = { which = national_stability value = -250 }
+	}
+}
+
+# Khanate of Crimea breaks away - released and war starterd
+country_event = {
+	id = flavor_gol.70004
+	title = "flavor_gol.70004.t"
+	desc = "flavor_gol.70004.d"
+
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = GOL
+		has_disaster = golden_horde_collapse
+		any_owned_province = { is_core = CRI }
+		NOT = { has_country_modifier = recent_horde_breakaway }
+	}
+
+	mean_time_to_happen = { 
+		months = 240 
+		modifier = {
+			factor = 0.80
+			has_country_modifier = golden_horde_2
+		}
+		modifier = {
+			factor = 0.60
+			has_country_modifier = golden_horde_3
+		}
+		modifier = {
+			factor = 0.80
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 0.25
+			has_regency_trigger = yes
+		}
+	}
+
+	immediate = {
+		640 = { add_core = CRI } # Core on Kefe
+		643 = { add_core = CRI } # Core on Azov
+		release = CRI
+		add_country_modifier = { name = "recent_horde_breakaway" duration = 1825 }
+		set_country_flag = horde_breakaway
+	}
+
+	option = {
+		name = "flavor_gol.70004.opta"
+		trigger = { ai = no }
+		declare_war_with_cb = { who = CRI casus_belli = cb_tribal_feud }
+		add_prestige = 30
+		add_legitimacy = 10
+		add_horde_unity = 10
+	}
+
+	option = {
+		name = "flavor_gol.70004.optb"
+		add_prestige = -30
+		add_legitimacy = -10
+		add_horde_unity = -10
+		change_variable = { which = national_stability value = -250 }
+	}
+}
+
+# Nogai Khanate breaks away - released and war starterd
+country_event = {
+	id = flavor_gol.70005
+	title = "flavor_gol.70005.t"
+	desc = "flavor_gol.70005.d"
+
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = GOL
+		has_disaster = golden_horde_collapse
+		any_owned_province = { is_core = NOG }
+		NOT = { has_country_modifier = recent_horde_breakaway }
+	}
+
+	mean_time_to_happen = { 
+		months = 240 
+		modifier = {
+			factor = 0.80
+			has_country_modifier = golden_horde_2
+		}
+		modifier = {
+			factor = 0.60
+			has_country_modifier = golden_horde_3
+		}
+		modifier = {
+			factor = 0.80
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 0.25
+			has_regency_trigger = yes
+		}
+	}
+
+	immediate = {
+		release = NOG
+		add_country_modifier = { name = "recent_horde_breakaway" duration = 1825 }
+		set_country_flag = horde_breakaway
+	}
+
+	option = {
+		name = "flavor_gol.70005.opta"
+		trigger = { ai = no }
+		declare_war_with_cb = { who = NOG casus_belli = cb_tribal_feud }
+		add_prestige = 30
+		add_legitimacy = 10
+		add_horde_unity = 10
+	}
+
+	option = {
+		name = "flavor_gol.70005.optb"
+		add_prestige = -30
+		add_legitimacy = -10
+		add_horde_unity = -10
+		change_variable = { which = national_stability value = -250 }
+	}
+}
+
+# Kazakh Khanate breaks away - released and war starterd
+country_event = {
+	id = flavor_gol.70006
+	title = "flavor_gol.70006.t"
+	desc = "flavor_gol.70006.d"
+
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = GOL
+		has_disaster = golden_horde_collapse
+		any_owned_province = { is_core = KZH }
+		NOT = { has_country_modifier = recent_horde_breakaway }
+	}
+
+	mean_time_to_happen = { 
+		months = 240 
+		modifier = {
+			factor = 0.80
+			has_country_modifier = golden_horde_2
+		}
+		modifier = {
+			factor = 0.60
+			has_country_modifier = golden_horde_3
+		}
+		modifier = {
+			factor = 0.80
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 0.25
+			has_regency_trigger = yes
+		}
+	}
+
+	immediate = {
+		release = KZH
+		add_country_modifier = { name = "recent_horde_breakaway" duration = 1825 }
+		set_country_flag = horde_breakaway
+	}
+
+	option = {
+		name = "flavor_gol.70006.opta"
+		trigger = { ai = no }
+		declare_war_with_cb = { who = KZH casus_belli = cb_tribal_feud }
+		add_prestige = 30
+		add_legitimacy = 10
+		add_horde_unity = 10
+	}
+
+	option = {
+		name = "flavor_gol.70006.optb"
+		add_prestige = -30
+		add_legitimacy = -10
+		add_horde_unity = -10
+		change_variable = { which = national_stability value = -250 }
+	}
+}
+
+# Sibir breaks away - released and war starterd
+country_event = {
+	id = flavor_gol.70007
+	title = "flavor_gol.70007.t"
+	desc = "flavor_gol.70007.d"
+
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = GOL
+		has_disaster = golden_horde_collapse
+		any_owned_province = { is_core = SIB }
+		NOT = { has_country_modifier = recent_horde_breakaway }
+	}
+
+	mean_time_to_happen = { 
+		months = 240 
+		modifier = {
+			factor = 0.80
+			has_country_modifier = golden_horde_2
+		}
+		modifier = {
+			factor = 0.60
+			has_country_modifier = golden_horde_3
+		}
+		modifier = {
+			factor = 0.80
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 0.25
+			has_regency_trigger = yes
+		}
+	}
+
+	immediate = {
+		release = SIB
+		add_country_modifier = { name = "recent_horde_breakaway" duration = 1825 }
+		set_country_flag = horde_breakaway
+	}
+
+	option = {
+		name = "flavor_gol.70007.opta"
+		trigger = { ai = no }
+		declare_war_with_cb = { who = SIB casus_belli = cb_tribal_feud }
+		add_prestige = 30
+		add_legitimacy = 10
+		add_horde_unity = 10
+	}
+
+	option = {
+		name = "flavor_gol.70007.optb"
+		add_prestige = -30
+		add_legitimacy = -10
+		add_horde_unity = -10
+		change_variable = { which = national_stability value = -250 }
+	}
+}
+
+# Horde Collapse Starts
+country_event = {
+	id = flavor_gol.70008
+	title = "flavor_gol.70008.t"
+	desc = "flavor_gol.70008.d"
+
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	is_triggered_only = yes	#disasters/VeF_golden_horde_collapse start
+
+	trigger = {
+		tag = GOL
+	}
+
+	immediate = {
+		random_owned_province = {
+			limit = { is_capital = no }
+			tribal_rebels = 3
+		}
+		every_country = {
+			limit = { has_country_modifier = horde_enforcer }
+			remove_country_modifier = horde_enforcer
+		}
+	}
+
+	option = {
+		name = "flavor_gol.70008.opta"
+	}
+}
+
+# Horde Collapse Ends
+country_event = {
+	id = flavor_gol.70009
+	title = "flavor_gol.70009.t"
+	desc = "flavor_gol.70009.d"
+
+	picture = VEF_HORDE_ON_HORSEBACK_eventPicture
+
+	is_triggered_only = yes #disasters/VeF_golden_horde_collapse end
+
+	trigger = {
+		tag = GOL
+	}
+
+	immediate = {
+		set_country_flag = golden_horde_collapse
+		hidden_effect = {
+			every_owned_province = { add_unrest = -25 }
+			clr_country_flag = horde_collapse
+		}
+	}
+
+	option = {
+		name = "flavor_gol.70009.opta"
+		add_legitimacy = 20
+		add_horde_unity = 20
+		add_treasury = 100
+		add_country_modifier = { name = "golden_horde_1" duration = -1 }
+	}
+}
+

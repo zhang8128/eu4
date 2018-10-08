@@ -1,0 +1,160 @@
+
+######################################################################
+# Moorish rebels. Disgruntled fanatics.
+######################################################################
+moorish_rebels = {
+
+	color = { 210 220 175 }
+
+	area = nation 					# Sticks to provinces of their nation
+	government = theocracy 			# Desires Theocracy
+	religion = sunni
+	defection = none				# Will not defect
+	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
+	independence = none				# Does not strive for independence
+	unit_transfer = no
+	gfx_type = culture_province
+	will_relocate = yes
+	
+	resilient = yes
+	reinforcing = yes
+	general = yes
+	smart = yes
+	
+	artillery = 0.1
+	infantry = 0.6
+	cavalry = 0.3
+	
+	morale = 0.80
+
+	# Possible handle actions
+	handle_action_negotiate = yes
+	handle_action_stability = no
+	handle_action_build_core = no
+	handle_action_send_missionary = no
+	
+	# The rebel type with the highest modifier for this province gets picked
+	spawn_chance = {
+		factor = 5000
+
+      # If the Morisco Revolt hasn't fired, they don't show up...
+      modifier = {
+         factor = 0
+         NOT = { owner = { has_country_modifier = the_morisco_revolt } }
+      }
+
+      # Only Muslim provinces owned by a Catholic Overlord
+      modifier = {
+         factor = 0
+         OR = {
+            NOT = { owner = { religion = catholic } }
+            NOT = { religion_group = muslim }
+         }
+      }
+
+      # Only Iberia and N. Africa
+      modifier = {
+         factor = 0
+         NOT = { region = iberia_region }
+         NOT = { region = maghreb_region }
+      }
+	}
+ 
+ 	# This is checked for EACH province in the Area of Operations
+	movement_evaluation = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			units_in_province = 1
+		}
+		modifier = {
+			factor = 0.001
+			controlled_by = REB
+		}
+      modifier = {
+         factor = 2.0
+         is_capital = yes
+      }
+		modifier = {
+			factor = 1.5
+			unrest = 2
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 4
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 6
+		}
+	}
+ 
+ 	# Province Scope
+ 	siege_won_trigger = {
+ 	}
+
+	siege_won_effect = {
+		if = {
+			limit = { religion = sunni }
+			add_province_modifier = { name = "religious_violence" duration = 730 }
+		}
+		if = {
+			limit = { NOT = { religion = sunni } }
+			change_religion = sunni
+			add_province_modifier = { name = "forced_conversion" duration = 730 }
+		}
+	}
+	
+	# Country scope
+	can_negotiate_trigger = {
+		any_owned_province = { controlled_by = REB }
+		OR = {
+			religion_group = muslim
+			dominant_religion = sunni
+		}
+	}
+	
+	# Country scope
+	can_enforce_trigger = {
+		always = yes
+	}
+	
+	# Localisation for their demands
+	demands_description = "moorish_rebels_demand"
+	
+	# Country Scope	
+	demands_enforced_effect = {
+		if = {
+			limit = { NOT = { religion_group = muslim } }
+			add_prestige = -50
+			every_owned_province = {
+				limit = { has_rebel_faction = REB }
+				add_local_autonomy = 20
+			}
+		}
+		if = {
+			limit = { religion = sunni }
+			add_country_modifier = { name = "religious_intolerance" duration = 3650 }
+		}
+		if = {
+			limit = {
+				NOT = { religion = sunni }
+				dominant_religion = sunni
+			}
+			change_religion = sunni
+			force_converted = yes
+		}
+		if = {
+			limit = {
+				NOT = { religion = sunni }
+				NOT = { dominant_religion = sunni }
+				religion_group = muslim
+			}
+			add_country_modifier = { name = "heretic_tolerance" duration = 3650 }
+		}
+		if = {
+			limit = { has_active_policy = vef_reign_terror }
+			country_event = { id = vef_terror.203 }
+		}
+	}
+}

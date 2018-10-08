@@ -1,0 +1,35 @@
+# Iman
+
+capital = "Iman"
+owner = YUN
+controller = YUN
+add_core = YUN
+add_core = MCH
+culture = manchu
+religion = tengri
+trade_goods = grain
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1368.4.1 = {
+	owner = MCH
+	controller = MCH
+	remove_core = YUN
+	estate = estate_nomadic_tribes
+}
+#1616.1.1 = {
+#	owner = MCH
+#	controller = MCH
+#	add_core = MCH
+#	remove_core = MJZ
+#} # The Later Jin Khanate
+1636.5.15 = {
+	owner = QNG
+	controller = QNG
+	add_core = QNG
+	remove_core = MCH
+} # The Qing Dynasty

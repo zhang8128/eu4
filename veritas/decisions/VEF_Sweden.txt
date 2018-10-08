@@ -1,0 +1,83 @@
+# Swedish Concessions
+
+country_decisions = {
+	grant_swedish_concessions = {
+	
+		major = yes
+	
+		potential = {
+			normal_or_historical_nations = yes
+			SWE = { junior_union_with = ROOT }
+			NOT = { SWE = { has_country_modifier = concessions_from_elected } }
+			OR = {
+				SWE = { has_country_flag = overlord_disdain }
+				SWE = { has_country_flag = revoked_concessions }
+			}
+		}
+
+		allow = {
+		}
+
+		effect = {
+			ROOT = {
+				add_country_modifier = {
+					name = concessions_to_sweden
+					duration = -1
+					#desc = until we revoke
+				}
+			}
+			SWE = {
+				add_country_modifier = {
+					name = concessions_from_elected
+					duration = -1
+					#desc = until overlord revokes
+				}
+			}
+			hidden_effect = {
+				SWE = {
+					country_event = { id = flavor_sca.10131 days = 10 }
+					clr_country_flag = overlord_disdain
+					clr_country_flag = revoked_concessions
+				}
+			}
+		}
+
+		# Later, set up system based on Swedish LD/overlord_disdain flag
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	revoke_swedish_concessions = {
+	
+		major = yes
+	
+		potential = {
+			normal_or_historical_nations = yes
+			SWE = { junior_union_with = ROOT }
+			SWE = { has_country_modifier = concessions_from_elected }
+		}
+
+		allow = {
+		}
+
+		effect = {
+			ROOT = { remove_country_modifier = concessions_to_sweden }
+			SWE = { remove_country_modifier = concessions_from_elected }
+			SWE = { add_liberty_desire = 20 }
+			reverse_add_opinion = {
+				who = SWE
+				modifier = concessions_revoked
+			}
+			hidden_effect = {
+				SWE = { country_event = { id = flavor_sca.10131 days = 10 } }
+				SWE = { set_country_flag = revoked_concessions }
+			}
+		}
+
+		# Later, set up system based on Swedish LD/overlord_disdain flag
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

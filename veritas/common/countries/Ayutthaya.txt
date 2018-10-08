@@ -1,0 +1,114 @@
+#Country Name: Please see filename.
+
+graphical_culture = asiangfx
+
+color = { 60  152  70 }
+
+historical_idea_groups = {
+	quantity_ideas
+	gf1_ideas
+	religious_ideas
+	offensive_ideas
+	mercantilist_ideas
+	expansion_ideas
+	standing_army_ideas
+	diplomatic_ideas
+}
+
+historical_units = {
+   chinese_artillery_0_1
+   chinese_artillery_8_1
+   chinese_artillery_15_1
+   chinese_artillery_22_1
+   chinese_artillery_29_1
+   chinese_artillery_35_1
+   chinese_artillery_40_1
+   chinese_artillery_44_1
+   chinese_cavalry_0_1
+   chinese_cavalry_16_1
+   chinese_cavalry_31_1
+   chinese_cavalry_36_1
+   chinese_cavalry_40_1
+   chinese_cavalry_44_1
+   chinese_infantry_0_1
+   chinese_infantry_6_1
+   chinese_infantry_17_1
+   chinese_infantry_21_1
+   chinese_infantry_25_1
+   chinese_infantry_34_1
+   chinese_infantry_42_1
+   chinese_infantry_48_1
+   chinese_infantry_50_1
+}
+
+
+
+
+monarch_names = {
+	"Ramaracha #0" = 20
+	"Intha Racha #0" = 20
+	"Borommaracha #1" = 40
+	"Trailokanat #0" = 20
+	"Ramathibodi #1" = 20
+	"Ratsada #0" = 20
+	"Chairacha #0" = 20
+	"Keo Fa #0" = 20
+	"Bun Si #0" = 5
+	"Chakkraphat #0" = 20
+	"Mahin #0" = 20
+	"Thammaracha #0" = 20
+	"Naresuen #0" = 20
+	"Ekathotsarot #0" = 20
+	"Si Saowaphak #0" = 20
+	"Songtham #0" = 20
+	"Chettha #0" = 20
+	"Athittayawong #0" = 20
+	"Prasat Thong #0" = 20
+	"Chao Fa Jai #0" = 20
+	"Narai #0" = 20
+	"Si Suthammaracha #0" = 20
+	"Phetracha #0" = 20
+	"Phrachao Suea #0" = 20
+	"Thai Sa #0" = 20
+	"Boromakot #0" = 20
+	"Uthumphon #0" = 20
+	"Taksin #0" = 20
+	"Rama #0" = 30
+	
+	"Amporn #0" = -1
+	"Chanarong #0" = -1
+	"Sri Suriyothai #0" = -1
+	"Panjapapee #0" = -1
+	"Komol #0" = -1
+}
+
+leader_names = {
+	Akradej Ariyanuntaka 
+	Boonmee 
+	Chaipatana Chakrabonse Chuasiriporn 
+	Diskul 
+	Ekaluck 
+	Hitapot 
+	Inchareon 
+	Kawrungruang Khuntilanont Klinpraneet Kriangsak 
+	Monkoltham 
+	Nitpattanasai Noppachorn Nut 
+	Panomyaong Phatipatanawong 
+	Sitdhirasdr Sivaraksa Srichure Supachai Supasawat 
+	Tantasatityanon Thabchumpon Tomson 
+	Wongrutiyan 
+	Yongchaiyudh
+	"Na Phayap" "Na Maharat" "Na Isan" "Na Roi Et" "Na Ubon"
+	"Na Udon" "Na Phuket" "Na Kedah" "Na Chumphon" "Na Prachinburi"
+	"Na Burapa" "Na Chanthaburi"
+}
+
+ship_names = {
+	Ramithibodi Ramesuan Borommaracha "Thong Chan"
+	Ramaratcha Intharatcha Boromtrailokanat Ratsada
+	Chairacha Yotfa Worawongsa Chakkraphat Mahin
+	Sanpet Naresuan Ekathotsarot "Si Saowaphak"
+	Songtham Chehha "Somdet Phra" "Prasat Thong" Chai
+	Suthammaracha Narai Petratcha Süa Phumintharacha
+	Uthumpon Ekkathat
+}

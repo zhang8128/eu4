@@ -1,0 +1,122 @@
+#Country Name: See the Name of this File.
+
+graphical_culture = indiangfx
+
+color = { 95  139  214 }
+
+historical_idea_groups = {
+	quantity_ideas
+	spy_ideas
+	religious_ideas
+	defensive_ideas
+	mercantilist_ideas
+	cultural_unity_ideas
+	drafted_army_ideas
+	gf1_ideas
+}
+
+historical_units = {
+   indian_artillery_8_1
+   indian_artillery_16_1
+   indian_artillery_24_1
+   indian_artillery_32_1
+   indian_artillery_38_1
+   indian_artillery_42_1
+   indian_cavalry_0_1
+   indian_cavalry_16_1
+   indian_cavalry_21_1
+   indian_cavalry_27_1
+   indian_cavalry_31_1
+   indian_cavalry_36_1
+   indian_cavalry_48_1
+   indian_infantry_0_1
+   indian_infantry_6_1
+   indian_infantry_17_1
+   indian_infantry_21_1
+   indian_infantry_25_1
+   indian_infantry_34_1
+   indian_infantry_42_1
+   indian_infantry_45_1
+   indian_infantry_48_1
+   indian_infantry_50_1
+}
+
+
+
+
+monarch_names = {
+	"Firuzshah #0" = 25
+	"Mahmud #0" = 25
+	"Ghazi Khan #0" = 25
+	"Qutbudin #0" = 25
+	"Ibrahim #0" = 0
+	"Hassan #0" = 0
+	"Nazuk #0" = 0
+	"Yusuf #0" = 0
+	"Ya'qub #0" = 0
+	"Muhammad #0" = 0
+	"Ali #0" = 0
+	"Ismail #0" = 0
+	"Gulab #0" = 0
+	"Ranbir #0" = 0
+	"Hari #0" = 0
+	"Pratap #0" = 0
+	"Kishore #0" = 0
+	"Zorawar #0" = 0
+	"Jonaraja #0" = 0
+	"Prajna #0" = 0
+	"Hamza #0" = 0
+	"Sher #0" = 0
+	"Muzzafar #0" = 0
+	"Khalil #0" = 0
+	"Sikandar #0" = 0
+	"Bhenji #0" = 0
+	"Hamirji #0" = 0
+	"Bhav #0" = 0
+	"Natwar #0" = 0
+	"Sidhraj #0" = 0
+	"Ghulam #0" = 0
+	"Hussain #0" = 20
+	"Fakir #0" = 0
+	"Abdullah #0" = 0
+	"Iffatunissa #0" = -1
+	"Shahzada #0" = -1
+	"Kanwal #0" = -1
+}
+
+leader_names = {
+	Bahadur
+	Bhalla
+	Bhatia
+	Das
+	Dev
+	Gahunia
+	Gobind
+	Granth
+	Hoora
+	Jhol
+	Jhotti
+	Krishan
+	Lohaar
+	Parmanand
+	Shergill
+	Singh
+	Sayid
+	Sodhi
+	Sohal
+	Rai
+	Udasi
+	Shah
+	Munshi
+	Parikh
+	Patel
+	Patidar
+	Zamindar
+}
+
+ship_names = {
+	Beas Chenab Devi Gayatri Guru Indus
+	Jalsena Jhelum Lakshmi Nausena
+	"Nav ka Yudh" Parvati Radha Ratri
+	Ravi Sagar Sutlej Sarasvati Sita
+}

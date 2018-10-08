@@ -1,0 +1,8 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+primary_culture = scottish
+culture_group_union = gaelic
+religion = catholic
+technology_group = western
+capital = 15 # Edinburgh

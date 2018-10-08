@@ -1,0 +1,30 @@
+country_decisions = {
+	proclaim_pragmatic_sanction = {
+	
+		potential = {
+			allows_female_emperor = no
+			NOT = { has_country_flag = pragmatic_sanction }
+			is_part_of_hre = yes
+		}
+		
+		allow = {
+			is_emperor = yes
+			imperial_influence = 40
+			prestige = 20
+			legitimacy = 90
+			heir_claim = 90
+			allows_female_emperor = no
+			has_female_heir = yes
+		}
+		
+		effect = {
+			add_imperial_influence = -40
+			add_legitimacy = -25
+			country_event = { id = flavor_hre.2 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

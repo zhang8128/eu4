@@ -1,0 +1,9 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 3
+primary_culture = thulian
+add_accepted_culture = icelandic
+add_accepted_culture = vinlandic
+religion = norse_pagan_reformed
+technology_group = scandinavian_tech
+capital = 2

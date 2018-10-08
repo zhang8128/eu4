@@ -1,0 +1,15 @@
+# Maravi
+
+capital = "Maravi"
+owner = MRV
+controller = MRV
+add_core = MRV
+culture = chewa
+religion = bantu
+trade_goods = ivory
+base_tax = 1
+base_production = 1
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = tribal_african_tech

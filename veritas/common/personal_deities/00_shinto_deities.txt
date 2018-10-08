@@ -1,0 +1,156 @@
+amaterasu-o-mi-kami = {
+
+	prestige = 1
+	
+	allow = {
+		religion = shinto
+		NOT = { has_country_flag = vef_regency }
+	}
+	sprite = 22
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_diplomat
+		}
+	}	
+}
+
+ame-no-uzume = {
+
+	diplomatic_reputation = 1
+	
+	allow = {
+		religion = shinto
+		NOT = { has_country_flag = vef_regency }
+	}
+	sprite = 23
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}			
+	}	
+}
+
+fujin = {
+
+	naval_morale = 0.10
+	
+	allow = {
+		religion = shinto
+		NOT = { has_country_flag = vef_regency }
+	}
+	sprite = 24
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}			
+	}	
+}
+
+hachiman = {
+
+	land_morale = 0.10
+	
+	allow = {
+		religion = shinto
+		NOT = { has_country_flag = vef_regency }
+	}
+	sprite = 25
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}			
+	}	
+}
+
+inari-okami = {
+
+	global_tax_modifier = 0.10
+	
+	allow = {
+		religion = shinto
+		NOT = { has_country_flag = vef_regency }
+	}
+	sprite = 26
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}			
+	}	
+}
+
+ryujin = {
+
+	naval_forcelimit_modifier = 0.25
+	
+	allow = {
+		religion = shinto
+		NOT = { has_country_flag = vef_regency }
+	}
+	sprite = 27
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}			
+	}	
+}
+
+tenjin = {
+
+	technology_cost = -0.05
+	
+	allow = {
+		religion = shinto
+		NOT = { has_country_flag = vef_regency }
+	}
+	sprite = 28
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}			
+	}	
+}

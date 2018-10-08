@@ -1,0 +1,821 @@
+# Audax Validator EnableCommentMetadata
+# VeF Government Events
+# 
+# vef_government.1 - New Monarch (on new_monarch pulse)
+# vef_government.2 - Bi Yearly Pulse Events
+# vef_governemnt.3 - Monthly pulse events
+# vef_government.4 - War Score/Bully/Aggressor (human only, monthly pulse)
+# vef_government.12 - Archbishoprics that are no longer Roman Catholic change to Feudal Monarchy
+namespace = vef_government
+
+# New Monarch
+country_event = {
+	id = vef_government.1
+	title = "vef_government.1.t"
+	desc = "vef_government.1.d"
+
+	picture = VEF_ADMIN_CAPACITY_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = { 
+		NOT = { government = republic } 
+		NOT = { government = theocratic_government }
+	}
+
+	hidden = yes
+
+	immediate = {
+		clr_country_flag = scholasticism_flag
+	
+		# Adjust stability based on legitimacy
+		if = { 
+			limit = {
+				NOT = { legitimacy_or_horde_unity = 40  }
+				NOT = { has_regency_trigger = yes }
+			}
+			capital_scope = { add_unrest = 1 }
+			# Don't give a second hit immediately....but reduce national stability
+			if = { 
+				limit = { check_variable = { which = national_stability value = -425 } }
+				subtract_variable = { which = national_stability value = 150 }
+			}
+		}
+
+		# No stab loss on monarch death
+		#if = {
+		#	limit = { 
+		#		ai = no
+		#		adm = 3
+		#		legitimacy_or_horde_unity = 75
+		#		NOT = { has_regency_trigger = yes }
+		#	}
+		#	add_stability = 1
+		#}
+
+		# Stability hit for horde governments on government change if they have the collapse flag
+		if = {
+			limit = { has_country_flag = horde_collapse }
+			every_owned_province = { add_unrest = 2 }
+			subtract_variable = { which = national_stability value = 300 } # 60% of a level
+		}
+		if = {	#Ruler Trait
+			limit = { NOT = { has_dlc = "Rights of Man" }}
+			if = {
+				limit = {
+					OR = {
+						primary_culture = pommeranian
+						primary_culture = prussian
+						primary_culture = eastphalian
+						primary_culture = westphalian
+						primary_culture = lowersaxon
+						primary_culture = uppersaxon
+						primary_culture = saxon
+						primary_culture = dutch
+						primary_culture = flemish
+						primary_culture = swedish
+						primary_culture = danish
+						primary_culture = norwegian
+						primary_culture = czech
+						primary_culture = schlesian
+					}
+				}
+				set_country_flag = no_heretic_ruler
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = protestant
+						religion = anglican
+					}
+					NOT = { has_country_flag = no_heretic_ruler }
+					num_of_ports = 3
+				}
+				random_list = {
+					4 = { add_ruler_modifier = { name = ruler_trait_pious }}
+					4 = { add_ruler_modifier = { name = ruler_trait_heretic }}
+					5 = { add_ruler_modifier = { name = ruler_trait_builder }}
+					5 = { add_ruler_modifier = { name = ruler_trait_patron }}
+					5 = { add_ruler_modifier = { name = ruler_trait_extravagent }}
+					5 = { add_ruler_modifier = { name = ruler_trait_scholar }}
+					5 = { add_ruler_modifier = { name = ruler_trait_minister }}
+					5 = { add_ruler_modifier = { name = ruler_trait_warmonger }}
+					5 = { add_ruler_modifier = { name = ruler_trait_terror }}
+					5 = { add_ruler_modifier = { name = ruler_trait_hero }}
+					5 = { add_ruler_modifier = { name = ruler_trait_dove }}
+					5 = { add_ruler_modifier = { name = ruler_trait_equestrian }}
+					5 = { add_ruler_modifier = { name = ruler_trait_shipbuilder }}
+					6 = { add_ruler_modifier = { name = ruler_trait_philanthropist }}
+					6 = { add_ruler_modifier = { name = ruler_trait_respected }}
+					5 = { add_ruler_modifier = { name = ruler_trait_hawk }}
+					5 = { add_ruler_modifier = { name = ruler_trait_strong }}
+					6 = { add_ruler_modifier = { name = ruler_trait_trade }}
+					3 = { add_ruler_modifier = { name = ruler_trait_incompetent }}
+					3 = { add_ruler_modifier = { name = ruler_trait_idiot } }
+					3 = { add_ruler_modifier = { name = ruler_trait_vicious } }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = protestant
+						religion = anglican
+					}
+					has_country_flag = no_heretic_ruler
+					num_of_ports = 3
+				}
+				random_list = {
+					5 = { add_ruler_modifier = { name = ruler_trait_pious }}
+					5 = { add_ruler_modifier = { name = ruler_trait_builder }}
+					5 = { add_ruler_modifier = { name = ruler_trait_patron }}
+					6 = { add_ruler_modifier = { name = ruler_trait_extravagent }}
+					6 = { add_ruler_modifier = { name = ruler_trait_scholar }}
+					6 = { add_ruler_modifier = { name = ruler_trait_minister }}
+					5 = { add_ruler_modifier = { name = ruler_trait_warmonger }}
+					5 = { add_ruler_modifier = { name = ruler_trait_terror }}
+					5 = { add_ruler_modifier = { name = ruler_trait_hero }}
+					6 = { add_ruler_modifier = { name = ruler_trait_dove }}
+					5 = { add_ruler_modifier = { name = ruler_trait_equestrian }}
+					5 = { add_ruler_modifier = { name = ruler_trait_shipbuilder }}
+					6 = { add_ruler_modifier = { name = ruler_trait_philanthropist }}
+					6 = { add_ruler_modifier = { name = ruler_trait_respected }}
+					6 = { add_ruler_modifier = { name = ruler_trait_hawk }}
+					6 = { add_ruler_modifier = { name = ruler_trait_strong }}
+					6 = { add_ruler_modifier = { name = ruler_trait_trade }}
+					3 = { add_ruler_modifier = { name = ruler_trait_idiot } }
+					3 = { add_ruler_modifier = { name = ruler_trait_vicious } }
+				}
+			}
+			if = {
+				limit = {
+					NOT = { religion = anglican }
+					NOT = { religion = protestant }
+					num_of_ports = 3
+				}
+				random_list = {
+					5 = { add_ruler_modifier = { name = ruler_trait_pious }}
+					5 = { add_ruler_modifier = { name = ruler_trait_builder }}
+					5 = { add_ruler_modifier = { name = ruler_trait_patron }}
+					6 = { add_ruler_modifier = { name = ruler_trait_extravagent }}
+					6 = { add_ruler_modifier = { name = ruler_trait_scholar }}
+					6 = { add_ruler_modifier = { name = ruler_trait_minister }}
+					5 = { add_ruler_modifier = { name = ruler_trait_warmonger }}
+					5 = { add_ruler_modifier = { name = ruler_trait_terror }}
+					6 = { add_ruler_modifier = { name = ruler_trait_hero }}
+					6 = { add_ruler_modifier = { name = ruler_trait_dove }}
+					5 = { add_ruler_modifier = { name = ruler_trait_equestrian }}
+					5 = { add_ruler_modifier = { name = ruler_trait_shipbuilder }}
+					5 = { add_ruler_modifier = { name = ruler_trait_philanthropist }}
+					6 = { add_ruler_modifier = { name = ruler_trait_respected }}
+					6 = { add_ruler_modifier = { name = ruler_trait_hawk }}
+					6 = { add_ruler_modifier = { name = ruler_trait_strong }}
+					6 = { add_ruler_modifier = { name = ruler_trait_trade }}
+					3 = { add_ruler_modifier = { name = ruler_trait_idiot } }
+					3 = { add_ruler_modifier = { name = ruler_trait_vicious } }
+				}
+			}
+			if = {
+				limit = {
+					NOT = { religion = anglican }
+					NOT = { religion = protestant }
+					NOT = { num_of_ports = 3 }
+				}
+				random_list = {
+					6 = { add_ruler_modifier = { name = ruler_trait_pious }}
+					6 = { add_ruler_modifier = { name = ruler_trait_builder }}
+					5 = { add_ruler_modifier = { name = ruler_trait_patron }}
+					6 = { add_ruler_modifier = { name = ruler_trait_extravagent }}
+					6 = { add_ruler_modifier = { name = ruler_trait_scholar }}
+					6 = { add_ruler_modifier = { name = ruler_trait_minister }}
+					6 = { add_ruler_modifier = { name = ruler_trait_warmonger }}
+					6 = { add_ruler_modifier = { name = ruler_trait_terror }}
+					6 = { add_ruler_modifier = { name = ruler_trait_hero }}
+					6 = { add_ruler_modifier = { name = ruler_trait_dove }}
+					6 = { add_ruler_modifier = { name = ruler_trait_equestrian }}
+					6 = { add_ruler_modifier = { name = ruler_trait_philanthropist }}
+					5 = { add_ruler_modifier = { name = ruler_trait_respected }}
+					6 = { add_ruler_modifier = { name = ruler_trait_hawk } }
+					6 = { add_ruler_modifier = { name = ruler_trait_strong } }
+					6 = { add_ruler_modifier = { name = ruler_trait_trade } }
+					3 = { add_ruler_modifier = { name = ruler_trait_idiot } }
+					3 = { add_ruler_modifier = { name = ruler_trait_vicious } }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "vef_government.1.opta"
+	}
+}
+
+# Bi Yearly Pulse Events
+country_event = {
+	id = vef_government.2
+	title = "vef_government.2.t"
+	desc = "vef_government.2.d"
+
+	picture = VEF_ADMIN_CAPACITY_eventPicture
+
+	is_triggered_only = yes # Bi-Yearly Pulse
+
+	hidden = yes
+
+	immediate = {
+		# Orthodox Pentarchy check VineFynn
+		# Nothing in 3.2 that deals with this flag
+		#clr_global_flag = orthodox_pentarchy
+		#if = {
+		#	limit = {				
+		#		normal_or_historical_nations = yes
+		#		OR = {
+		#			PAP = { overlord = { religion = orthodox } }
+		#			PAP = { religion = orthodox }
+		#			NOT = { exists = PAP }
+		#		}
+		#		227 = { religion = orthodox }	# Roma
+		#		588 = { religion = orthodox }	# Constantinople
+		#		1619 = { religion = orthodox }	# Aleppo
+		#		1611 = { religion = orthodox }	# Judea
+		#		1635 = { religion = orthodox }	# Alexandria
+		#	}
+		#	set_global_flag = orthodox_pentarchy
+		#}
+	
+		# Prevent possible cheats with tag switching - remove AI/Human modifiers
+		if = {
+			limit = {
+				has_country_modifier = human_war_exhaustion_cost
+				ai = yes
+			}
+			remove_country_modifier = human_war_exhaustion_cost
+		}
+	
+		if = { 
+			limit = { 
+				ai = no 
+				NOT = { has_country_modifier = human_war_exhaustion_cost }
+			}
+			add_country_modifier = { name = "human_war_exhaustion_cost" duration = -1 hidden = yes }
+		}
+	
+		# Add/Subtract from Mecantilism based on Idea Choices
+		if = {
+			limit = { full_idea_group = mercantilist_ideas }
+			add_mercantilism = 0.2
+		}
+	
+		if = {
+			limit = { full_idea_group = free_trade_ideas }
+			add_mercantilism = -0.2
+		}
+	}
+	
+	option = {
+		name = "vef_government.2.opta"
+	}
+}
+
+# Province Count + Details + MP points
+country_event = {
+	id = vef_government.3
+	title = "vef_government.3.t"
+	desc = "vef_government.3.d"
+
+	picture = VEF_ADMIN_CAPACITY_eventPicture
+
+	trigger = { 
+		NOT = { REB = { has_country_modifier = vef_government_3_run } }
+		ai = yes
+	}
+
+	hidden = yes
+
+	immediate = {
+		REB = { add_country_modifier = { name = "vef_government_3_run" duration = 28 } }
+		every_country = {
+			export_to_variable = { which = province_count value = num_of_cities }
+			export_to_variable = { which = vef_native_assim value = modifier:native_assimilation }
+			set_variable = { which = prov_land_calc value = 0 }
+			set_variable = { which = core_provinces value = 0 }
+			set_variable = { which = free_subjects value = 0 }
+			set_variable = { which = central_management value = 0 }
+			set_variable = { which = noble_holdings value = 0 }
+			set_variable = { which = church_holdings value = 0 }
+			set_variable = { which = citizen_holdings value = 0 }
+			set_variable = { which = vef_our_cardinals value = 0 }
+			set_variable = { which = vef_new_influence value = 0 }
+			set_variable = { which = tur_christian_provinces value = 0 }
+			set_variable = { which = kosj_priories value = 0 }
+			set_variable = { which = kontor_count value = 0 }
+		}
+
+		every_province = {
+			limit = { is_city = yes owner = { is_colonial_nation = no }}
+			set_variable = { which = noble_holdings value = 0 }
+			set_variable = { which = church_holdings value = 0 }
+			set_variable = { which = citizen_holdings value = 0 }
+			set_variable = { which = autonomy_land value = 0 }
+			clr_province_flag = kontor_possible
+			#New colony
+			if = {
+				limit = { has_province_flag = libbuild_initialise }
+				owner = { change_variable = { which = previous_count value = 1 }}	#Prevent stab hit
+				province_event = { id = vef_libbuild.1000 }
+			}
+			if = {
+				limit = {
+					is_year = 1370
+					devastation = 80
+				}
+				change_variable = { which = tax_growth value = -1 }
+				change_variable = { which = prod_growth value = -1 }
+				change_variable = { which = man_growth value = -1 }
+			}
+			if = {
+				limit = { owner = { has_country_modifier = rapid_collapse_of_society }}
+				if = {
+					limit = { base_tax = 3 }
+					add_base_tax = -1
+				}
+				if = {
+					limit = { base_production = 3 }
+					add_base_production = -1
+				}
+				if = {
+					limit = { base_manpower = 2 }
+					add_base_manpower = -1
+				}
+			}
+			# Count Cardinals
+			if = {
+				limit = { has_province_modifier = cardinal_diocese }
+				owner = { change_variable = { which = vef_our_cardinals value = 1 }}
+			}
+			# Papal Influence
+			if = {
+				limit = {
+					religion = catholic
+					owner = { religion = catholic }
+				}
+				export_to_variable = { which = vef_new_influence value = development }
+				if = {
+					limit = {
+						NOT = { region = france_region }
+						NOT = { region = iberia_region }
+						NOT = { region = italy_region }
+					}
+					multiply_variable = { which = vef_new_influence value = 0.0025 }
+				}
+				if = {
+					limit = {
+						OR = {
+							region = france_region
+							region = iberia_region
+						}
+					}
+					multiply_variable = { which = vef_new_influence value = 0.0027 }
+				}
+				if = {
+					limit = { region = italy_region }
+					multiply_variable = { which = vef_new_influence value = 0.003 }
+				}
+				owner = { change_variable = { which = vef_new_influence which = PREV }}
+			}
+			export_to_variable = { which = prov_land_calc value = development }
+			set_variable = { which = prov_20 value = 0.2 }
+			multiply_variable = { which = prov_20 which = prov_land_calc }
+			set_variable = { which = prov_40 value = 0.4 }
+			multiply_variable = { which = prov_40 which = prov_land_calc }
+			set_variable = { which = prov_60 value = 0.6 }
+			multiply_variable = { which = prov_60 which = prov_land_calc }
+			set_variable = { which = prov_80 value = 0.8 }
+			multiply_variable = { which = prov_80 which = prov_land_calc }
+			if = {
+				limit = { is_state = yes }
+				owner = { change_variable = { which = prov_land_calc which = PREV }}
+				else = {
+					if = {
+						limit = {
+							owner = {
+								OR = {
+									is_colonial_nation = yes 
+									is_former_colonial_nation = yes
+								}
+							}
+						}
+						owner = { change_variable = { which = prov_land_calc which = PREV }}
+					}
+				}
+			}
+			if = {
+				limit = {
+					is_core = owner
+					is_state = yes
+				}
+				owner = { change_variable = { which = core_provinces value = 1 }}
+				trigger_switch = {
+					on_trigger = has_building
+					heavy_serfdom = { owner = { change_variable = { which = free_subjects value = 1 }}}
+					moderate_serfdom = { owner = { change_variable = { which = free_subjects value = 2 }}}
+					light_serfdom = { owner = { change_variable = { which = free_subjects value = 3 }}}
+					freedom = { owner = { change_variable = { which = free_subjects value = 4 }}}
+					civic_charter = { owner = { change_variable = { which = free_subjects value = 4 }}}
+					republic_city = { owner = { change_variable = { which = free_subjects value = 4 }}}
+					local_assembly = { owner = { change_variable = { which = free_subjects value = 4 }}}
+				}
+			}
+			set_variable = { which = noble_holdings value = 0 }
+			set_variable = { which = church_holdings value = 0 }
+			set_variable = { which = citizen_holdings value = 0 }
+			set_variable = { which = central_management value = 1 }
+			set_variable = { which = crown_ownership value = 5 }
+			export_to_variable = { which = prov_aut value = local_autonomy }
+			divide_variable = { which = prov_aut value = 100 }
+			if = {
+				limit = { has_province_flag = crown_lands }
+				clr_province_flag = crown_lands
+			}
+			if = {
+				limit = { has_building = encomienda }
+				change_variable = { which = central_management value = -0.8 }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_building = light_serfdom
+						has_building = moderate_serfdom
+						has_building = heavy_serfdom
+					}
+				}
+				trigger_switch = {
+					on_trigger = has_building
+					nobles_20 = {
+						change_variable = { which = central_management value = -0.2 }
+						change_variable = { which = noble_holdings which = prov_20 }
+						change_variable = { which = crown_ownership value = -1 }
+					}
+					nobles_40 = {
+						change_variable = { which = central_management value = -0.4 }
+						change_variable = { which = noble_holdings which = prov_40 }
+						change_variable = { which = crown_ownership value = -2 }
+					}
+					nobles_60 = {
+						change_variable = { which = central_management value = -0.6 }
+						change_variable = { which = noble_holdings which = prov_60 }
+						change_variable = { which = crown_ownership value = -3 }
+					}
+					nobles_80 = {
+						change_variable = { which = central_management value = -0.8 }
+						change_variable = { which = noble_holdings which = prov_80 }
+						change_variable = { which = crown_ownership value = -4 }
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_building = light_serfdom }
+					NOT = { has_building = moderate_serfdom }
+					NOT = { has_building = heavy_serfdom }
+					NOT = { has_building = encomienda }
+				}
+				trigger_switch = {
+					on_trigger = has_building
+					nobles_20 = {
+						change_variable = { which = crown_ownership value = -1 }
+						change_variable = { which = noble_holdings which = prov_20 }
+						change_variable = { which = autonomy_land value = 0.2 }
+					}
+					nobles_40 = {
+						change_variable = { which = crown_ownership value = -2 }
+						change_variable = { which = noble_holdings which = prov_40 }
+						change_variable = { which = autonomy_land value = 0.4 }
+					}
+					nobles_60 = {
+						change_variable = { which = crown_ownership value = -3 }
+						change_variable = { which = noble_holdings which = prov_60 }
+						change_variable = { which = autonomy_land value = 0.6 }
+					}
+					nobles_80 = {
+						change_variable = { which = crown_ownership value = -4 }
+						change_variable = { which = noble_holdings which = prov_80 }
+						change_variable = { which = autonomy_land value = 0.8 }
+					}
+				}
+			}
+			trigger_switch = {
+				on_trigger = has_building
+				church_20 = {
+					change_variable = { which = central_management value = -0.2 }
+					change_variable = { which = church_holdings which = prov_20 }
+					change_variable = { which = crown_ownership value = -1 }
+				}
+				church_40 = {
+					change_variable = { which = central_management value = -0.4 }
+					change_variable = { which = church_holdings which = prov_40 }
+					change_variable = { which = crown_ownership value = -2 }
+				}
+				church_60 = {
+					change_variable = { which = central_management value = -0.6 }
+					change_variable = { which = church_holdings which = prov_60 }
+					change_variable = { which = crown_ownership value = -3 }
+				}
+				church_80 = {
+					change_variable = { which = central_management value = -0.8 }
+					change_variable = { which = church_holdings which = prov_80 }
+					change_variable = { which = crown_ownership value = -4 }
+				}
+			}
+			if = {
+				limit = { has_building = grand_priory }
+				change_variable = { which = central_management value = -0.2 }
+				change_variable = { which = church_holdings which = prov_20 }
+				change_variable = { which = crown_ownership value = -1 }
+				if = {
+					limit = { NOT = { owner = { has_country_modifier = successor_order }}}
+					REB = { change_variable = { which = kosj_priories value = 0.5 }}
+					if = {
+						limit = { owner = { religion = catholic }}
+						REB = { change_variable = { which = kosj_priories value = 0.25 }}
+					}
+					if = {
+						limit = { religion = catholic }
+						REB = { change_variable = { which = kosj_priories value = 0.25 }}
+					}
+				}
+			}
+			trigger_switch = {
+				on_trigger = has_building
+				citizens_20 = {
+					change_variable = { which = crown_ownership value = -1 }
+					change_variable = { which = citizen_holdings which = prov_20 }
+					change_variable = { which = autonomy_land value = 0.2 }
+				}
+				citizens_40 = {
+					change_variable = { which = crown_ownership value = -2 }
+					owner = { change_variable = { which = citizen_holdings value = 0.4 }}
+					change_variable = { which = citizen_holdings which = prov_40 }
+					change_variable = { which = autonomy_land value = 0.4 }
+				}
+				citizens_60 = {
+					change_variable = { which = crown_ownership value = -3 }
+					change_variable = { which = citizen_holdings which = prov_60 }
+					change_variable = { which = autonomy_land value = 0.6 }
+				}
+				citizens_80 = {
+					change_variable = { which = crown_ownership value = -4 }
+					change_variable = { which = citizen_holdings which = prov_80 }
+					change_variable = { which = autonomy_land value = 0.8 }
+				}
+			}
+			if = {
+				limit = { has_building = hansa_kontor }
+				event_target:hansa_leader_tag = { change_variable = { which = kontor_count value = 1 }}
+			}
+			if = {
+				limit = {
+					province_group = hansa_group
+					can_build = hansa_kontor
+					owner = { has_country_modifier = hanseatic_league_member }
+					development = 14
+					NOT = { has_building = hansa_kontor }
+					NOT = { has_building = farm_estate }
+					NOT = { has_building = fine_arts_academy }
+					NOT = { has_building = plantations }
+					NOT = { has_building = fishery }
+					NOT = { has_building = wharf }
+					NOT = { has_building = tradecompany }
+					NOT = { has_building = textile }
+					NOT = { has_building = weapons }
+					NOT = { has_building = refinery }
+				}
+				set_province_flag = kontor_possible
+			}
+			if = {
+				limit = { check_variable = { which = crown_ownership value = 1 }}
+				set_province_flag = crown_lands
+			}
+			if = {
+				limit = { check_variable = { which = crown_ownership value = 3 }}
+				owner = { change_variable = { which = central_management value = 0.5 }}
+				if = {
+					limit = { check_variable = { which = crown_ownership value = 5 }}
+					owner = { change_variable = { which = central_management value = 0.5 }}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owned_by = TUR
+						owned_by = OSM
+					}
+					religion_group = christian
+				}
+				owner = { change_variable = { which = tur_christian_provinces value = 1 }}
+			}
+			multiply_variable = { which = autonomy_land which = prov_aut }
+			subtract_variable = { which = central_management which = autonomy_land }
+			multiply_variable = { which = central_management which = prov_land_calc }
+			divide_variable = { which = central_management value = 12 }	#Constant to keep Governance values the same.
+			owner = { change_variable = { which = central_management which = PREV }}
+			if = {
+				limit = { is_state = yes }
+				owner = { change_variable = { which = noble_holdings which = PREV }}
+				owner = { change_variable = { which = church_holdings which = PREV }}
+				owner = { change_variable = { which = citizen_holdings which = PREV }}
+			}
+		}
+		every_country = {
+			divide_variable = { which = free_subjects which = core_provinces }
+			divide_variable = { which = noble_holdings which = prov_land_calc }
+			multiply_variable = { which = noble_holdings value = 100 }
+			divide_variable = { which = church_holdings which = prov_land_calc }
+			multiply_variable = { which = church_holdings value = 100 }
+			divide_variable = { which = citizen_holdings which = prov_land_calc }
+			multiply_variable = { which = citizen_holdings value = 100 }
+			if = {
+				limit = { religion = catholic is_colonial_nation = no }
+				if = {
+					limit = {
+						exists = PAP
+						NOT = { has_country_flag = vef_supports_avignon }
+						NOT = { reverse_has_opinion = { who = PAP value = 0 }}
+					}
+					multiply_variable = { which = vef_new_influence value = 0.8 }
+					if = {
+						limit = { NOT = { reverse_has_opinion = { who = PAP value = -50 }}}
+						multiply_variable = { which = vef_new_influence value = 0.75 }
+						if = {
+							limit = { NOT = { reverse_has_opinion = { who = PAP value = -100 }}}
+							multiply_variable = { which = vef_new_influence value = 0.66 }
+							if = {
+								limit = {NOT = { reverse_has_opinion = { who = PAP value = -150 }}}
+								multiply_variable = { which = vef_new_influence value = 0.5 }
+								if = {
+									limit = {	NOT = { reverse_has_opinion = { who = PAP value = -180 }}}
+									multiply_variable = { which = vef_new_influence value = 0.5 }
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						exists = PAP
+						NOT = { has_country_flag = vef_supports_avignon }
+						reverse_has_opinion = { who = PAP value = 75 }
+					}
+					multiply_variable = { which = vef_new_influence value = 1.1 }
+					if = {
+						limit = { reverse_has_opinion = { who = PAP value = 100 } }
+						multiply_variable = { which = vef_new_influence value = 1.09 }
+						if = {
+							limit = { reverse_has_opinion = { who = PAP value = 150 } }
+							multiply_variable = { which = vef_new_influence value = 1.08 }
+							if = {
+								limit = { reverse_has_opinion = { who = PAP value = 180 } }
+								multiply_variable = { which = vef_new_influence value = 1.08 }
+							}
+						}
+					}
+				}
+				change_variable = { which = vef_papal_influence which = vef_new_influence }
+				if = {
+					limit = { check_variable = { which = vef_papal_influence value = 125 }}
+					set_variable = { which = vef_papal_influence value = 125 }
+				}
+			}
+			if = {
+				limit = { any_owned_province = { has_province_modifier = rm_deportation }}
+				country_event = { id = vef_culture.3 }
+			}
+			if = {
+				limit = { any_owned_province = { has_province_modifier = rm_genocide }}
+				country_event = { id = vef_culture.5 }
+			}
+			country_event = { id = vef_dynasty.100 }
+		}
+		if = {
+			limit = { exists = KNI }
+			KNI = { country_event = { id = theknights.200 }}
+		}
+		event_target:virtus_post_solium_tag = { country_event = { id = vef_papacy.2002 }}
+	}
+
+	option = {
+		name = "vef_government.3.opta"
+	}
+}
+
+# Regent Attempst to Usurp the Thone - Rebellion
+country_event = {
+	id = vef_government.50044
+	title = "vef_government.50044.t"
+	desc = "vef_government.50044.d"
+
+	picture = VEF_COUNTRY_COLLAPSE_eventPicture
+
+	is_triggered_only = yes #vef_random.50014
+
+	option = {
+		name = "vef_government.50044.opta"
+		capital_scope = { pretender_rebels = 1 }
+		random_owned_province = {
+			limit = { is_capital = no }
+			pretender_rebels = 1
+		}
+	}
+}
+
+# Regent Attempst to Usurp the Thone - Captured!
+country_event = {
+	id = vef_government.50045
+	title = "vef_government.50045.t"
+	desc = "vef_government.50045.d"
+
+	picture = VEF_ACCUSATION_eventPicture
+
+	is_triggered_only = yes #vef_random.50014
+
+	option = {
+		name = "vef_government.50045.opta"
+		add_prestige = 10
+		add_heir_claim = 10
+	}
+}
+
+# Regent Attempst to Usurp the Thone - Flees
+country_event = {
+	id = vef_government.50046
+	title = "vef_government.50046.t"
+	desc = "vef_government.50046.d"
+
+	picture = VEF_SPY_eventPicture
+
+	is_triggered_only = yes	#vef_random.50014
+
+	option = {
+		name = "vef_government.50046.opta"
+		random_known_country = {
+			limit = { is_rival = PREV }
+			add_opinion = { who = ROOT modifier = harboring_fugitive }
+		}
+	}
+}
+
+# Ottoman Empire
+country_event = {
+	id = vef_government.50076
+	title = "vef_government.50076.t"
+	desc = "vef_government.50076.d"
+	picture = VEF_ISLAM_COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		primary_culture = turkish
+		normal_or_historical_nations = yes
+		NOT = { has_global_flag = ottoman_empire_formed }
+		owns = 588
+		num_of_cities = 35
+	}
+	
+	immediate = {
+		set_global_flag = ottoman_empire_formed
+		set_country_flag = relocated_capital_constantinople
+	}
+
+	option = {
+		name = "vef_government.50076.opta"
+		add_stability_or_adm_power = yes
+		add_core = 588
+		set_capital = 588
+		588 = {
+			change_culture = turkish 
+			change_religion = ROOT
+			rename_capital = Kostantiniyye
+			remove_province_modifier = "religious_center"
+			remove_province_modifier = "theodosian_walls"
+		}
+		if = {
+			limit = { NOT = { has_global_flag = constantinople_restored } }
+			588 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+			}
+			set_global_flag = constantinople_restored
+		}
+		if = {
+			limit = { is_part_of_hre = yes }
+			every_owned_province = {
+				limit = { is_part_of_hre = yes }
+				set_in_empire = no
+			}
+		}
+		if = {
+			limit = { NOT = { government_rank = 4 } }
+			set_government_rank = 4
+		}
+	}
+}

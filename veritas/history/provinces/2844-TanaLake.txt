@@ -1,0 +1,5 @@
+# Tana Lake
+#Province IDs changed
+discovered_by = ADA
+discovered_by = byzantine
+discovered_by = sudanese_tech

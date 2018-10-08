@@ -1,0 +1,118 @@
+# GOL Collapse
+
+golden_horde_collapse = {
+	potential = {
+		tag = GOL
+		normal_or_historical_nations = yes
+		uses_doom = no
+		NOT = { has_country_flag = golden_horde_collapse  }
+		government = steppe_horde
+	}
+
+	can_start = {
+		custom_trigger_tooltip = {
+			has_country_flag = horde_collapse
+			tooltip = horde_collapse_started
+		}
+	}
+	
+	can_stop = {
+		always = no
+	}
+	
+	progress = {
+		modifier = {
+			factor = 0.10
+			NOT = { legitimacy_or_horde_unity = 90 }
+		}
+		modifier = {
+			factor = 0.25
+			NOT = { legitimacy_or_horde_unity = 60 }
+		}
+		modifier = {
+			factor = 0.25
+			num_of_cities = 75
+		}
+		modifier = {
+			factor = 0.15
+			num_of_cities = 50
+		}
+		modifier = {
+			factor = 0.10
+			num_of_cities = 25
+		}
+		modifier = {
+			factor = 1
+			custom_trigger_tooltip = {
+				has_regency_trigger = yes
+				tooltip = yes_regency
+			}
+		}
+		modifier = {
+			factor = 0.25
+			has_heir = no
+		}
+		modifier = {
+			factor = -0.25
+			MIL = 4
+		}		
+		modifier = {
+			factor = -0.25
+			MIL = 5
+		}		
+		modifier = {
+			factor = 0.5
+			NOT = { MIL = 3 }
+		}		
+		modifier = {
+			factor = 0.5
+			NOT = { MIL = 2 }
+		}		
+		modifier = {
+			factor = -0.25
+			is_at_war = yes
+			war_score = 20
+		}
+		modifier = {
+			factor = 0.5
+			is_at_war = yes
+			NOT = { war_score = -10 }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { any_country = { has_country_modifier = horde_enforcer } }
+		}
+	}
+	
+	# At least one breakaway has occurred and been re-taken, and it's been 10 years.
+	can_end = {
+		custom_trigger_tooltip = {
+			had_country_flag = { flag = horde_breakaway days = 3650 } # 10 years
+			tooltip = no_recent_breakaway
+		}
+		NOT = { exists = SIB }
+		NOT = { exists = NOG }
+		NOT = { exists = CRI }
+		NOT = { exists = KAZ }
+		NOT = { exists = KZH }
+	}
+
+	modifier = {
+		stability_cost_modifier = 0.25
+		legitimacy = -0.5
+		horde_unity = -0.5
+		infantry_power = -0.05
+		cavalry_power = -0.15
+	}	
+
+	on_start = flavor_gol.70008
+	on_end = flavor_gol.70009
+	
+	on_monthly = {
+		events = {
+		}
+		random_events = { 
+			1000 = 0
+		}
+	}
+}

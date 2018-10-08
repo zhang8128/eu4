@@ -1,0 +1,206 @@
+#Country Name: Please see filename.
+graphical_culture = easterngfx
+
+color = { 155  150  150 }
+
+historical_idea_groups = {
+	defensive_ideas
+	mercantilist_ideas
+	religious_ideas
+	quantity_ideas
+	spy_ideas
+	administrative_ideas
+	drafted_army_ideas
+	mm1_ideas
+}
+
+historical_units = { 
+	eastern_artillery_16_1
+	eastern_artillery_22_1
+	eastern_artillery_29_1
+	eastern_artillery_35_1
+	eastern_artillery_40_1
+	eastern_artillery_44_1
+	eastern_artillery_48_1
+	eastern_artillery_48_2
+	eastern_artillery_52_1
+	eastern_artillery_55_1
+	eastern_artillery_55_2
+	eastern_artillery_9_1
+	eastern_cavalry_0_1
+	eastern_cavalry_0_2
+	eastern_cavalry_21_1
+	eastern_cavalry_21_2
+	eastern_cavalry_27_1
+	eastern_cavalry_31_1
+	eastern_cavalry_36_1
+	eastern_cavalry_40_1
+	eastern_cavalry_44_1
+	eastern_cavalry_44_2
+	eastern_cavalry_48_1
+	eastern_cavalry_48_2
+	eastern_cavalry_51_1
+	eastern_cavalry_51_2
+	eastern_cavalry_55_1
+	eastern_cavalry_55_2
+	eastern_cavalry_58_1
+	eastern_cavalry_58_2
+	eastern_cavalry_16_1
+	eastern_cavalry_16_2
+	eastern_infantry_0_1
+	eastern_infantry_0_2
+	eastern_infantry_17_1
+	eastern_infantry_17_2
+	eastern_infantry_25_1
+	eastern_infantry_25_2
+	eastern_infantry_28_1
+	eastern_infantry_28_2
+	eastern_infantry_31_1
+	eastern_infantry_31_2
+	eastern_infantry_34_1
+	eastern_infantry_34_2
+	eastern_infantry_39_1
+	eastern_infantry_39_2
+	eastern_infantry_42_1
+	eastern_infantry_42_2
+	eastern_infantry_45_1
+	eastern_infantry_45_2
+	eastern_infantry_48_1
+	eastern_infantry_48_2
+	eastern_infantry_50_1
+	eastern_infantry_50_2
+	eastern_infantry_53_1
+	eastern_infantry_53_2
+	eastern_infantry_55_1
+	eastern_infantry_55_2
+	eastern_infantry_57_1
+	eastern_infantry_57_2
+	eastern_infantry_59_1
+	eastern_infantry_59_2
+	eastern_infantry_63_1
+	eastern_infantry_63_2
+	eastern_infantry_6_1
+	eastern_infantry_6_2
+	eastern_infantry_14_1
+	eastern_infantry_14_2
+}
+
+
+
+
+monarch_names = {
+	"Alexandru #0" = 160
+	"Radu #1" = 120
+	"Vlad #1" = 120
+	"Mihai #1" = 120
+	"Constantin #0" = 80
+	"Mihail #0" = 80
+	"Mircea #0" = 80
+	"George #0" = 60
+	"Grigore #0" = 60
+	"Mihnea #0" = 60
+	"Nicolae #0" = 60
+	"Basarab #1" = 40
+	"Vladislav #1" = 40
+	"Matei #0" = 40
+	"Petru #0" = 40
+	"Radu Ilias #0" = 40
+	"Scarlat #0" = 40
+	"Stefan #0" = 40
+	"Dan #1" = 20
+	"Alexandru Ilias #0" = 20
+	"Gabriel #0" = 20
+	"Ioan George #0" = 20
+	"Leon #0" = 20
+	"Moise #0" = 20
+	"Neagoe Basarab #0" = 20
+	"Pãtrascu #0" = 20
+	"Radu Leon #0" = 20
+	"Radu Mihnea #0" = 20
+	"Serban #0" = 20
+	"Simion #0" = 20
+	"Teodosiu #0" = 20
+	"Vintilã #0" = 20
+	"Vlãdut #0" = 20
+	"Corneliu #0" = 0
+	"Flaviu #0" = 0
+	"Iuliu #0" = 0
+	"Octavian #0" = 0
+	"Sergiu #0" = 0
+	"Teodor #0" = 0
+	"Valeriu #0" = 0
+	
+	"Elisabeta #0" = 0
+	"Elena #0" = 0
+	"Maria #0" = 0
+}
+
+leader_names = {
+	Antonescu Apostol
+	Basarab Brâncoveanu Bãlcescu Barbu Blaga Brãtianu Bibescu
+	Cantacuzino Caragea Craiovescu Cãlinescu Chirilã Constantinescu Cosma Costache Crãciun Cristea Cuza Cantemir Calimachi Creangã
+	Duca Dinescu Dumitriu Dobre Dragomir Dumitrescu Dracul Dãnescu
+	Ene Enescu
+	Florea Florescu Filip
+	Ghica Golescu Gheorghiu Georgescu Goga
+	Hagi Hajdeu Hurmuzachi Hasdeu
+	Ilias Ipsilanti Iliescu Iancu Ionescu Iordache
+	Kogãlniceanu
+	Lupu
+	Mavrocordat Moruzi Maniu Mihalache Minea Mironescu Moldovan Morar Morariu Munteanu Movilã
+	Nãstase Nechita Nica Niculescu Nicolãiescu Nistor Noica
+	Olaru Olteanu
+	Pavel Pescariu Pîrvu Petrescu Prunea
+	Racovitã Roman Rãducanu
+	Sutu Serbãnescu Stãnescu Sãndulescu Sturza
+	Tãtãrescu Tomescu
+	Ungureanu
+	Vacarescu Vladimirescu Voinea
+}
+
+ship_names = {
+	Dracul
+	Viteazul
+	"Puterea Mãrii"
+	Sperietoarea
+	"Frumusetea Valurilor"
+	Posada
+	Calugãreni
+	Rovine
+	Sarmizegetusa
+	Burebista
+	Decebal
+	Deceneu
+	Traian
+	"Atacul de Noapte"
+	Litovoi
+	Basarabia
+	Bezerenbam
+	Miselav
+	Thocomerius
+	"Radu Negru"
+	Bãrbat
+	Tihomir
+	Seneslav
+	Comosicus
+	Coson
+	Cotiso
+	Cothelas
+	Dapyx
+	Dicomes
+	Dromichaetes
+	Dual
+	Duras
+	Moskon
+	Oroles
+	Rhemaxos
+	Rholes
+	Rubobostes
+	Scorillo
+	Zalmodegicus
+	Zyraxes
+}
+
+army_names = {
+	"Oastea din $PROVINCE$" 
+}

@@ -1,0 +1,198 @@
+######################################################################
+# "Anti Tax" rebels. The oppressed.
+######################################################################
+republican_rebels = {
+
+	color = { 40 130 200 }
+	
+	area = nation 					# Stays within the nation
+	government = anti
+	defection = none					# Will defect to the "best" alternative.
+	independence = none				# Does not strive for independence
+	defect_delay = 120
+	gfx_type = culture_province
+	
+	resilient = no					# Disbands on retreat
+	reinforcing = yes				# Does not receive reinforcements
+	general = no					# Does not use generals
+	smart = yes						# Does not assault forts, tactically withdraw from battle, etc.
+	unit_transfer = no				# Units do not remain after enforcing demands.
+	will_relocate = yes				# Units will relocate if they have sieged all provinces nearby and has to move over sea.
+	
+	artillery = 0.1
+	infantry = 0.7
+	cavalry = 0.2
+	morale = 0.8
+	
+	
+	# Possible handle actions
+	handle_action_negotiate = yes
+	handle_action_stability = no
+	handle_action_build_core = no
+	handle_action_send_missionary = no	
+	
+	# The rebel type with the highest modifier for this province gets picked
+	spawn_chance = {
+		factor = 2
+		modifier = {
+			factor = 0.0
+			NOT = { owner = { technology_group = western } }
+		}
+		# Constitutional governments and the Papacy are exempt
+		modifier = {
+			factor = 0.0
+			OR = {
+				owner = { government = constitutional_monarchy }
+				owner = { government = constitutional_republic }
+				owner = { government = papal_government }
+			}
+		}
+		# Weak Aristocrats but trending to Democracy
+		modifier = {
+			factor = 0.0
+			owner = { 
+				government = monarchy
+				has_idea_group = democracy_ideas
+				NOT = { check_variable = { which = aristocratic_privilege value = 25 } }
+			}
+		}
+		# Strong Aristocrats but trending to Democracy
+		modifier = {
+			factor = 2.0
+			owner = {
+				has_idea_group = democracy_ideas
+				check_variable = { which = aristocratic_privilege value = 75 }
+			}
+		}
+		# Weak Aristocrats but not moving to Democracy
+		modifier = {
+			factor = 4.0
+			owner = {
+				NOT = { has_idea_group = democracy_ideas }
+				NOT = { check_variable = { which = aristocratic_privilege value = 33 } }
+			}
+		}
+		# OPMs and TPMs are exempt = much easier to keep the lid on Republican sentiment
+		modifier = {
+			factor = 0.0
+			owner = { NOT = { num_of_cities = 2 } }
+		}
+		# Historical republicanism in North America
+		modifier = {
+			factor = 1.5
+			continent = north_america
+		}
+		# Foucsing on free trade, free enterprise and democracy
+		modifier = {
+			factor = 0.0
+			owner = { 
+				NOT = { government = republic }
+				innovativeness_ideas = 2
+				free_trade_ideas = 2
+				economic_ideas = 3
+			}
+		}
+		# Fully Aristocratic makes it worse if not 0'd out
+		modifier = {
+			factor = 1.25
+			owner = { check_variable = { which = aristocratic_privilege value = 85 } }
+		}
+		# Fully Democratic makes it worse if not 0'd out
+		modifier = {
+			factor = 1.25
+			owner = { full_idea_group = democracy_ideas }
+		}
+		# Republic with low Republican Tradition
+		modifier = {
+			factor = 2.0
+			owner = { 
+				government = republic
+				NOT = { republican_tradition = 30 }
+			}
+		}
+		# No tribes or hordes
+		modifier = {
+			factor = 0.0
+			OR = {
+				owner = { is_tribal = yes }
+				owner = { is_nomad = yes }
+			}
+		}
+		# And not before Westphalia
+		modifier = {
+			factor = 0.0
+			hre_religion_treaty = no
+		}
+	}
+ 
+ 	# This is checked for EACH province in the Area of Operations
+	movement_evaluation = {
+		factor = 1
+		modifier = {
+			factor = 0.1
+			units_in_province = 1
+		}
+		modifier = {
+			factor = 0.001
+			controlled_by = REB
+		}
+		modifier = {
+			factor = 2.0
+			is_capital = yes
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 2
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 4
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 6
+		}
+	}
+	
+ 	# Province Scope
+ 	siege_won_trigger = {
+ 		always = yes
+ 	}
+	siege_won_effect = {
+		add_local_autonomy = 10	
+	}
+	
+	# Country scope
+	can_negotiate_trigger = {
+		always = yes
+	}
+	
+	# Country scope
+	can_enforce_trigger = {
+		always = yes
+	}
+	
+	# Localisation for their demands
+	demands_description = "republican_rebels_demand"
+	
+	# Country scope
+	demands_enforced_effect = {
+		every_owned_province = {
+			limit = { has_rebel_faction = REB }
+			add_local_autonomy = 20
+		}
+		add_prestige = -50
+		if = {
+			limit = { government = republic }
+			add_republican_tradition = 10
+		}
+		if = {
+			limit = { government = monarchy }
+			add_legitimacy = -10
+		}
+		if = {
+			limit = { has_active_policy = vef_reign_terror }
+			country_event = { id = vef_terror.203 }
+		}
+	}
+}

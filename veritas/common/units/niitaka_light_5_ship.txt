@@ -1,0 +1,10 @@
+#Tokugawa Furigeeto
+#model = frigate
+#tech_level = 34
+type = transport
+unit_type = niitaka
+
+hull_size = 20
+base_cannons = 22
+sail_speed = 10
+sailors = 300

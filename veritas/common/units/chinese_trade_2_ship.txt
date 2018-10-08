@@ -1,0 +1,11 @@
+#Sampan
+#model = flute
+#tech_level = 16
+type = light_ship
+unit_type = chinese
+
+hull_size = 8
+base_cannons = 4
+sail_speed = 8
+trade_power = 1.0
+sailors = 25

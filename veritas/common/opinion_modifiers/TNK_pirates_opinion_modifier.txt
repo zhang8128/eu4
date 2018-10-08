@@ -1,0 +1,186 @@
+opinion_support_pirates1 = { #Berber Pirates support
+	opinion = -200
+	yearly_decay = 10
+}
+
+opinion_support_pirates2 = { #Helping the Pirates
+	opinion = 25
+	yearly_decay = 5
+}
+
+opinion_support_pirates3 = { #Shady deals with the Pirates
+	opinion = -75
+	yearly_decay = 7.5
+}
+
+opinion_support_pirates4 = { #Shady deals with the Pirates
+	opinion = -25
+	yearly_decay = 5
+}
+
+opinion_support_pirates5 = { #Pact with the Pirates
+	opinion = -50
+	yearly_decay = 5
+}
+
+opinion_support_pirates6 = { #Protect the pirates
+	opinion = 100
+	years = 5
+	yearly_decay = 10
+}
+
+opinion_support_pirates7 = { #Blood Ties
+	opinion = 10
+	yearly_decay = 2
+}
+
+opinion_support_pirates8 = { #Muslim Solidarity
+	opinion = 5
+	yearly_decay = 1
+}
+
+opinion_support_pirates9 = { #Helped with pirate raid
+	opinion = -100
+	yearly_decay = 10
+}
+
+opinion_support_pirates10 = { #Pact with the Pirates
+	opinion = 50
+	yearly_decay = 10
+}
+
+opinion_support_pirates11 = { #Pact with the Pirates
+	opinion = -25
+	yearly_decay = 5
+}
+
+opinion_support_pirates12 = { #Berber support
+	opinion = 200
+	years = 5
+	yearly_decay = 20
+}
+
+opinion_support_pirates13 = { #Offered sanctuary
+	opinion = 25
+	yearly_decay = 5
+}
+
+opinion_stop_support_pirates = { #Anti-piracy agreement
+	opinion = 25
+	yearly_decay = 5
+}
+opinion_refuse_support_pirates1 = { #Refused punitive raid
+	opinion = -20
+	years = 2
+	yearly_decay = 0
+}
+
+opinion_refuse_support_pirates2 = { #Refused to help pirates allies
+	opinion = -5
+	years = 1
+	yearly_decay = 0
+}
+
+opinion_refuse_support_pirates3 = { #Refused to help with great raid
+	opinion = -25
+	years = 2
+	yearly_decay = 0
+}
+
+opinion_refuse_support_pirates4 = { #Refused to help pirate allies
+	opinion = -50
+	yearly_decay = 10
+}
+
+opinion_refuse_support_pirates5 = { #Refused Pirate Pact
+	opinion = -25
+	years = 2
+	yearly_decay = 0
+}
+
+opinion_refuse_support_pirates6 = { #Forfeit military pact
+	opinion = -20
+	years = 2
+	yearly_decay = 0
+}
+
+opinion_fight_pirates1 = { #Fighting the pirates
+	opinion = -200
+	yearly_decay = 10
+}
+
+opinion_fight_pirates2 = { #Seized slave ship
+	opinion = -50
+	yearly_decay = 10
+}
+
+opinion_fight_pirates3 = { #Fight against the pirates
+	opinion = -75
+	years = 10
+	yearly_decay = 0
+}
+
+opinion_fight_pirates4 = { #Fighting the pirates (TUR)
+	opinion = -50
+	yearly_decay = 5
+}
+
+opinion_fight_pirates5 = { #Pirate Raids
+	opinion = -25
+	years = 2
+	yearly_decay = 0
+}
+opinion_fight_pirates6 = { #Fighting the pirates (MAM)
+	opinion = -25
+	yearly_decay = 2.5
+}
+
+opinion_help_infidels1 = {#Helping the infidels (TUR)
+	opinion = -50
+	yearly_decay = 5
+}
+
+opinion_help_infidels2 = {#Helping the infidels (MAM)
+	opinion = -25
+	yearly_decay = 2.5
+}
+
+opinion_refuse_help_infidels = { #Refused to help the infidels
+	opinion = 50
+	yearly_decay = 5
+}
+
+opinion_not_trustworty = { #Revealed our involvement
+	opinion = -25
+	years = 2
+	yearly_decay = 0
+}
+
+opinion_support_smugglers = { #Support Berber smuggling
+	opinion = 20
+	years = 5
+	yearly_decay = 0
+}
+
+opinion_stop_support_smugglers = { #Stopped surpporting smugglers
+	opinion = -35
+	years = 2
+	yearly_decay = 0
+}
+
+opinion_support_slavelords = { #Support Berber slavers
+	opinion = 20
+	years = 5
+	yearly_decay = 0
+}
+
+opinion_stop_support_slavelords = { #Stopped supporting slavers
+	opinion = -35
+	years = 2
+	yearly_decay = 0
+}
+
+opinion_TUR_ALG = { #Harmonious conquest
+	opinion = 250
+	yearly_decay = 10
+}

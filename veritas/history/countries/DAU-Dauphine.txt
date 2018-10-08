@@ -1,0 +1,113 @@
+government = monarchy 
+add_government_reform = feudalism_reform
+government_rank = 1
+technology_group = western
+religion = catholic
+primary_culture = arpitan
+capital = 136	# Grenoble
+
+1306.1.1 = {
+	monarch = {
+		name = "Jean II"
+		dynasty = "de la Tour-du-Pin"
+		birth_date = 1280.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = HUN
+		name = "Beatrice"
+		dynasty = "de Anjou"
+		birth_date = 1290.1.1
+		death_date = 1343.1.1
+		female = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1309.1.1 = {
+	heir = {
+		name = "Guigues"
+		monarch_name = "Guigues VIII"
+		dynasty = "de la Tour-du-Pin"
+		birth_date = 1309.1.1
+		death_date = 1333.7.28
+		claim = 95
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+
+1318.1.1 = {
+	monarch = {
+		name = "Guigues VIII"
+		dynasty = "de la Tour-du-Pin"
+		birth_date = 1309.1.1
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}
+
+1323.1.1 = {
+	queen = {
+		country_of_origin = FRA
+		name = "Isabella"
+		dynasty = "Capet"
+		birth_date = 1310.1.1
+		death_date = 1348.4.1
+		female = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1333.1.1 = {
+	monarch = {
+		name = "Humbert II"
+		dynasty = "de la Tour-du-Pin"
+		birth_date = 1312.1.1
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+# Sold to France in 1349
+
+1420.5.21 = {
+	monarch = {
+		name = "Charles VII"
+		dynasty = "de Valois"
+		adm = 4
+		dip = 2
+		mil = 4
+	}
+}
+
+1423.7.3 = {
+	heir = {
+		name = "Louis"
+		monarch_name = "Louis XI"
+		dynasty = "de Valois"
+		birth_date = 1423.7.3
+		death_date = 1483.8.30
+		claim = 95
+		adm = 4
+		dip = 3
+		mil = 2
+	}
+}
+
+1425.1.1 = { leader = {	name = "Arthur de Richemont"	type = general fire = 3	shock = 3	manuever = 4	siege = 1	death_date = 1457.9.23 } }
+
+1427.1.1 = { leader = {	name = "Jean de Dunois"		type = general fire = 4	shock = 3	manuever = 3	siege = 1	death_date = 1468.11.24 } }
+
+1429.1.1 = { leader = {	name = "Gilles de Rais"		type = general fire = 2	shock = 2	manuever = 3	siege = 0	death_date = 1435.1.1 } }
+
+1429.4.29 = { set_country_flag = joan_of_arc leader = { name = "Jeanne d'Arc" type = general fire = 3	shock = 6	manuever = 4	siege = 0	female = yes	death_date = 1430.5.23 } }

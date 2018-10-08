@@ -1,0 +1,47 @@
+# Warmia
+
+capital = "Allenstein"
+owner = TEU
+controller = TEU
+add_core = TEU
+culture = prussian
+religion = catholic
+trade_goods = naval_supplies
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1347.1.1   = { base_manpower = 3 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1454.3.6   = { add_core = POL } # Beginning of the "thirteen years war"
+1466.10.19 = {
+	owner = POL
+	controller = POL
+	remove_core = TEU
+	add_core = PRU
+} # "Peace of Torun"
+1500.1.1 = { citysize = 6977 }
+1550.1.1 = { citysize = 8209 }
+1569.7.1 = {
+	owner = PLC
+	controller = PLC
+	remove_core = POL
+	add_core = PLC
+} # Union of Lublin
+1588.1.1 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Civil war, Polish succession
+1589.1.1 = { revolt = {} controller = PLC } # Coronation of Sigismund III
+1600.1.1 = { citysize = 9657 }
+1650.1.1 = { citysize = 11361 }
+1655.8.1 = { controller = SWE citysize = 8000 } # The Deluge, sacked
+1660.1.1 = { controller = PLC }
+1708.1.1 = { citysize = 6000 } # Allenstein is burnt down
+1710.1.1 = { citysize = 4000 } # Plague
+1750.1.1 = { citysize = 10725 }
+1772.9.22 = { owner = PRU controller = PRU religion = protestant } # First partition of Poland
+1800.1.1 = { citysize = 15500 }

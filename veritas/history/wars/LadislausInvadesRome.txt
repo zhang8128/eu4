@@ -1,0 +1,17 @@
+name = "Ladislaus' Invasion of Rome"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 230 # Perugia
+}
+
+1407.1.1 = {
+	add_attacker = NAP
+	add_defender = PAP
+}
+
+# Ladislaus dies
+1414.8.6 = {
+	rem_attacker = NAP
+	rem_defender = PAP
+}

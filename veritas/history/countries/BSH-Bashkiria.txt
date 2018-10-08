@@ -1,0 +1,6 @@
+government = tribal add_government_reform = steppe_horde
+government_rank = 3
+primary_culture = bashkir
+religion = sunni
+technology_group = nomad_group
+capital = 744	# Bashkort

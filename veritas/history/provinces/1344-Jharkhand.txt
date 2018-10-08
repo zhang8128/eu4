@@ -1,0 +1,18 @@
+# Jharkhand
+
+capital = "Palamau"
+owner = ORI
+controller = ORI
+add_core = ORI
+add_core = NGP
+culture = oriya
+religion = hinduism
+trade_goods = tea
+base_tax = 4
+base_production = 4
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = indian
+
+1325.1.1 = { owner = NGP controller = NGP remove_core = ORI } #Fracturing of eastern Ganges

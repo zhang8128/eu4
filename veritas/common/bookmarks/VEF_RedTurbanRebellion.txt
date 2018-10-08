@@ -1,0 +1,14 @@
+bookmark =
+{
+	name = "RED_TURBAN_REBELLION_NAME"
+	desc = "RED_TURBAN_REBELLION_DESC"
+	date = 1357.1.1
+	
+	center = 1068
+
+	country = MNG
+	country = CSH
+	country = CZH
+	country = CXI
+	country = DLI
+}

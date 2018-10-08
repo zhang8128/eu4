@@ -1,0 +1,9 @@
+#Province IDs changed
+government = monarchy add_government_reform = principality
+government_rank = 3
+primary_culture = ruthenian 
+add_accepted_culture = polish
+religion = orthodox
+technology_group = eastern
+capital = 667 # Volhynia
+

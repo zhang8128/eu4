@@ -1,0 +1,226 @@
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 1
+technology_group = western
+religion = catholic
+primary_culture = burgundian
+capital = 152	# Nevers
+
+1280.1.1 = {
+	monarch = {
+		name = "Louis I"
+		dynasty = "van Dampierre"
+		birth_date = 1272.1.1
+		dip = 3
+		adm = 3
+		mil = 3
+	}
+	set_country_flag = heir_apparent_FLA
+}
+
+1290.12.1 = {
+	queen = {
+		country_of_origin = NEV
+		name = "Joan"
+		dynasty = "van Dampierre"
+		birth_date = 1275.1.1 #Estimated
+		death_date = 1328.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1304.1.1 = {
+	heir = {
+		name = "Louis"
+		monarch_name = "Louis II"
+		dynasty = "van Dampierre"
+		birth_date = 1304.1.1
+		death_date = 1346.8.1
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+}
+
+1322.7.22 = {
+	monarch = {
+		name = "Louis II"
+		dynasty = "van Dampierre"
+		birth_date = 1304.1.1
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+	queen = {
+		country_of_origin = FRA
+		name = "Margaret"
+		dynasty = "Capet"
+		birth_date = 1310.1.1
+		death_date = 1382.5.9
+		female = yes
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}
+#Union with Flanders in 1322.9.17
+
+
+#Counts
+1384.1.1 = {
+	monarch = {
+		name = "John I"
+		dynasty = "de Bourgogne"
+		dip = 2
+		adm = 2
+		mil = 3
+	}
+}
+
+1389.10.1 = {
+	heir = {
+		name = "Philip"
+		monarch_name = "Philip II"
+		dynasty = "de Bourgogne"
+		birth_date = 1389.10.1
+		death_date = 1415.10.25
+		claim = 95
+		adm = 0
+		dip = 1
+		mil = 1
+	}
+}
+
+1404.1.1 = {
+	monarch = {
+		name = "Philip II"
+		dynasty = "de Bourgogne"
+		dip = 1
+		adm = 0
+		mil = 1
+	}
+}
+
+1414.1.1 = {
+	heir = {
+		name = "Charles"
+		monarch_name = "Charles I"
+		dynasty = "de Bourgogne"
+		birth_date = 1414.1.1
+		death_date = 1464.5.25
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1415.10.25 = {
+	monarch = {
+		name = "Charles I"
+		dynasty = "de Bourgogne"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1415.10.25 = {
+	heir = {
+		name = "Jean"
+		monarch_name = "Jean II"
+		dynasty = "de Bourgogne"
+		birth_date = 1415.1.1
+		death_date = 1491.9.25
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1464.5.1 = {
+	monarch = {
+		name = "Jean II"
+		dynasty = "de Bourgogne"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1464.5.1 = {
+	heir = {
+		name = "Engelbert"
+		monarch_name = "Engelbert I"
+		dynasty = "de Bourgogne"
+		birth_date = 1462.1.1
+		death_date = 1506.9.21
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1491.9.25 = {
+	monarch = {
+		name = "Engelbert I"
+		dynasty = "de Clèves"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1491.9.25 = {
+	heir = {
+		name = "Charles"
+		monarch_name = "Charles II"
+		dynasty = "de Clèves"
+		birth_date = 1490.1.1
+		death_date = 1521.8.27
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1506.9.21 = {
+	monarch = {
+		name = "Charles II"
+		dynasty = "de Clèves"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}
+
+1516.9.2 = {
+	heir = {
+		name = "François"
+		monarch_name = "François I"
+		dynasty = "de Clèves"
+		birth_date = 1516.9.2
+		death_date = 1561.2.13
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1521.8.15 = {
+	government_rank = 2
+	monarch = {
+		name = "François I"
+		dynasty = "de Clèves"
+		dip = 2
+		adm = 2
+		mil = 2
+	}
+}

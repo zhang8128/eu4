@@ -1,0 +1,57 @@
+# Bastogne
+
+capital = "Bastogne"
+owner = LUX
+controller = LUX 
+add_core = LUX
+culture = wallonian
+religion = catholic 
+trade_goods = cloth
+base_tax = 4
+base_production = 4
+base_manpower = 4
+is_city = yes
+hre = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1   = { base_manpower = 3 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1441.1.1   = { add_core = BUR } # Treaty between Elisabeth and Philip III
+1443.1.1   = { owner = BUR controller = BUR } # Philip III takes control
+1477.1.5   = { owner = HAB controller = HAB add_core = HAB remove_core = BUR } # Charles the Bold dies, Lowlands to Austria
+1500.1.1   = { base_manpower = 3 }
+1519.1.12  = { owner = SPA controller = SPA add_core = SPA remove_core = HAB } # Charles V gets total control over his Burgundian inheritance
+1526.1.1   = { religion = anabaptist }
+1559.5.12  = { unrest = 3 } # New bishoprics in the Lowlands create an outrage
+1567.9.10  = { unrest = 4 } # Counts of Egmont & Hoorne arrested
+1568.6.5   = { unrest = 6 } # Counts of Egmont & Hoorne beheaded
+1569.1.1   = { unrest = 8 } # The Duke of Alba reforms the taxation system ('tiende penning')
+1570.1.1   = { unrest = 9 } # The Duke of Alba reforms the penal system, 'Blood Council' (Bloedraad) established
+1577.2.12  = { unrest = 5 } # 'Perpetual Edict' (Eeuwig Edict) accepted by Don Juan
+1579.1.6   = { unrest = 0 } # Union of Arras established
+1600.1.1   = { base_manpower = 1.2 courthouse = yes }
+1650.1.1   = { base_manpower = 1.2 }
+1659.7.1   = { controller = FRA } # Maréchal Turenne takes control of Luxembourg
+1659.10.28 = { controller = SPA } # Peace of the Pyrennees
+1665.9.17  = { add_core = FRA } # Louis XIV's father-in-law, Philip IV of Spain, dies
+1672.5.5   = { controller = FRA } # France blitzes through the Lowlands in the Franco-Dutch War
+1678.9.19  = { controller = SPA } # Peace of Nijmegen (France-Spain)
+1684.1.1   = { owner = FRA controller = FRA } # Louis XIV annexes Luxembourg
+1697.9.20  = { owner = SPA controller = SPA } # Peace of Rijswijck
+1700.1.1   = { base_manpower = 1.4 }
+1713.4.11  = { owner = HAB controller = HAB add_core = HAB remove_core = SPA } # Treaty of Utrecht
+1750.1.1   = { base_manpower = 1.75 }
+1789.5.5   = { base_tax = 9
+base_production = 9 } # The General Estates
+1791.6.20  = { add_core = RFR remove_core = FRA } # The storming of the Bastille
+1792.12.1  = { controller = RFR } # Conquered by the French troops under Dumouriez
+1793.3.18  = { controller = HAB } # Reconquered by Prince Josias of Coburg
+1797.10.17 = { owner = RFR controller = RFR remove_core = HAB } # The Treaty of Campo Formio, Luxembourg is ceded to France 
+1800.1.1   = { base_manpower = 2.5 }
+1806.7.12  = { hre = no } # The Holy Roman Empire is dissolved
+1814.4.11  = { owner = FRA controller = FRA add_core = FRA remove_core = RFR } # Treaty of Fontainebleu, Napoleon abdicates unconditionally
+1815.3.20  = { owner = RFR controller = RFR add_core = RFR remove_core = FRA } # Napoleon enters Paris
+1815.6.9   = { owner = LUX controller = LUX remove_core = RFR } # Grand Duchy of Luxembourg

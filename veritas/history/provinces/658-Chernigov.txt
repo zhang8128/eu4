@@ -1,0 +1,43 @@
+# Chernigov
+
+capital = "Chernigov"
+owner = CHR
+controller = CHR  
+add_core = CHR  
+culture = ruthenian
+religion = orthodox
+base_tax = 2
+base_production = 2
+base_manpower = 2
+trade_goods = iron
+is_city = yes
+hre = no
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1353.1.1  = { owner = LIT controller = LIT remove_core = CHR }
+1408.1.1 = { owner = MOS controller = MOS add_core = MOS }
+1419.1.1 = { owner = LIT controller = LIT add_core = LIT }
+1450.1.1   = { citysize = 5900 }
+1482.1.1   = { citysize = 4500 } # Burned by Crimean Tatars
+1500.1.1   = { citysize = 4750 }
+1503.1.1   = { controller = MOS }
+1503.3.21  = { owner = MOS }
+1503.3.22  = {	owner = RUS controller = RUS add_core = RUS remove_core = MOS }
+1550.1.1   = { citysize = 7898 }
+1598.1.1   = { unrest = 5 } # "Time of troubles"
+1600.1.1   = { citysize = 9292 }
+1613.1.1   = { unrest = 0 } # Order returned, Romanov dynasty
+1618.12.11 = {	owner = PLC controller = PLC add_core = PLC remove_core = RUS } # Truce of Deulino
+1648.1.1   = { owner = HTM controller = HTM add_core = HTM }
+1650.1.1   = { citysize = 10931 } # Military and territorial unit at the time
+1654.1.1   = { revolt = {} controller = PLC }
+1657.1.1   = {	owner = RUS controller = RUS add_core = RUS remove_core = PLC }
+1700.1.1   = { citysize = 12861 }
+1750.1.1   = { citysize = 15130 }
+1794.3.24  = { unrest = 5 } # Kosciuszko uprising, minimize the Russian influence
+1794.11.16 = { unrest = 0 }
+1800.1.1   = { citysize = 17800 }

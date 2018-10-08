@@ -1,0 +1,196 @@
+#Albania - Leader and Monarch names suggested by Mrdie
+
+graphical_culture = easterngfx
+
+color = { 181  0  20 }
+
+historical_idea_groups = {
+	spy_ideas
+	quantity_ideas
+	religious_ideas
+	mercantilist_ideas
+	defensive_ideas
+	administrative_ideas
+	mm1_ideas
+	drafted_army_ideas
+}
+
+historical_units = {
+	byzantine_artillery_8_1
+	byzantine_artillery_15_1
+	byzantine_artillery_22_1
+	byzantine_artillery_29_1
+	byzantine_artillery_35_1
+	byzantine_cavalry_0_1
+	byzantine_cavalry_16_1
+	byzantine_cavalry_21_1
+	byzantine_cavalry_27_1
+	byzantine_cavalry_31_1
+	byzantine_cavalry_36_1
+	byzantine_cavalry_40_1
+	byzantine_cavalry_44_2
+	byzantine_infantry_0_2
+	byzantine_infantry_6_1
+	byzantine_infantry_14_2
+	byzantine_infantry_17_1
+	byzantine_infantry_21_1
+	byzantine_infantry_25_1
+	byzantine_infantry_28_2
+	byzantine_infantry_31_2
+	byzantine_infantry_34_1
+	byzantine_infantry_39_1
+	byzantine_infantry_42_1
+	byzantine_infantry_45_1
+}
+
+monarch_names = {
+	"Adrian #0" = 0
+	"Aleksandër #0" = 0
+	"Aleksi #0" = 0
+	"Arbër #0" = 0
+	"Ballaban #0" = 0
+	"Bala #0" = 0
+	"Batin #0" = 0
+	"Beran #0" = 0
+	"Bardh #0" = 0
+	"Bukur #0" = 0
+	"Begot #0" = 0
+	"Bob #0" = 0
+	"Bun #0" = 0
+	"Bujak #0" = 0
+	"Bushat #0" = 0
+	"Balë #0" = 0
+	"Berilo #0" = 0
+	"Dedë #0" = 0
+	"Dode #0" = 0
+	"Depa #0" = 0
+	"Duka #0" = 0
+	"Destan #0" = 0
+	"Dhimitër #1" = 1
+	"Doda #0" = 0
+	"Dedol #0" = 0
+	"Engjëll #0" = 0
+	"Faton #0" = 0
+	"Gjergj #1" = 60
+	"Gjegërsh #0" = 0
+	"Gjin #2" = 5
+	"Gjon #2" = 40
+	"Gon #0" = 0
+	"Gerdosh #0" = 0
+	"Gurabardh #0" = 0
+	"Golk #0" = 0
+	"Gjon-Lekë #0" = 0
+	"Gjonja #0" = 0
+	"Grgur #1" = 1
+	"Gulam #1" = 1
+	"Guxim #0" = 0
+	"Ilija #0" = 0
+	"Karl #1" = 20
+	"Koll #0" = 0
+	"Kel #0" = 0
+	"Kosta #0" = 3
+	"Kristofor #0" = 0
+	"Kokal #0" = 0
+	"Kiman #0" = 0
+	"Kujtim #0" = 0
+	"Kuç #0" = 0
+	"Jakup #1" = 1
+	"Lale #0" = 0
+	"Lekë #3" = 30
+	"Llazar #0" = 0
+	"Llesh #0" = 0
+	"Lul #0" = 0
+	"Lluke #0" = 0
+	"Lumira #0" = 0
+	"Lulëzim #0" = 20
+	"Lum #0" = 0
+	"Lef #0" = 0
+	"Lala #0" = 0
+	"Marin #0" = 0
+	"Marko #0" = 0
+	"Marka #0" = 1
+	"Mekë #0" = 0
+	"Martin #0" = 10
+	"Mëhill #0" = 0
+	"Mentuli #0" = 0
+	"Mik #0" = 0
+	"Mal #0" = 0
+	"Miran #0" = 0
+	"Milot #0" = 0
+	"Mil #0" = 0
+	"Miri #0" = 0
+	"Moisi #0" = 0
+	"Mazzrek #0" = 0
+	"Muriq #1" = 3
+	"Muzak #0" = 0
+	"Meks #0" = 0
+	"Mataguzh #0" = 0
+	"Mirosh #0" = 0
+	"Mojan #0" = 0
+	"Naum #0" = 0
+	"Nikë #0" = 0
+	"Nderim #0" = 0
+	"Ndou #0" = 0
+	"Ndre #2" = 1
+	"Nicheta #0" = 0
+	"Pal #2" = 10
+	"Paulin #0" = 0
+	"Pavle #0" = 0
+	"Petko #0" = 0
+	"Petruc #0" = 0
+	"Pirro #0" = 0
+	"Poneg #0" = 0
+	"Prekal #0" = 0
+	"Pjetër #0" = 30
+	"Prenk #0" = 0
+	"Prek #0" = 0
+	"Reposh #0" = 1
+	"Rug #0" = 0
+	"Shqiptar #0" = 0
+	"Sumë #0" = 0
+	"Shtjefën #0" = 3
+	"Simon #0" = 0
+	"Stanisha #0" = 0
+	"Stano #0" = 0
+	"Soko #0" = 0
+	"Smil #0" = 0
+	"Shok #0" = 0
+	"Sul #0" = 0
+	"Tanush #1" = 10
+	"Teodor #3" = 1
+	"Tola #0" = 0
+	"Tol #0" = 0
+	"Tish #0" = 0
+	"Tuz #0" = 0
+	"Thanas #0" = 0
+	"Timomir #0" = 0
+	"Troshan #0" = 0
+	"Ukë #0" = 0
+	"Uran #0" = 0
+	"Vango #0" = 0
+	"Vinçens #0" = 0
+	"Viktor #0" = 0
+	"Vlash #0" = 0
+	"Xhan #0" = 0
+	"Zeshkan #0" = 0
+	"Zef #0" = 0
+	
+	"Gjylo #0" = -1
+	"Blerta #0" = -1
+	"Fatmire #0" = -1
+}
+
+leader_names = { 
+	Badera Bukmiri Berati Bumçi Cervota Dukagjini Duoda Doda Faqemiri Gojcin Golemi Kastrioti 
+	Shpata Spani Thopia Vishanj Arbëri Arianiti Arta Bardhi Balsha Bici Blinishti Bua Bega 
+	Berila Bunjaj Bulja Buzuku Clementi Dushmani Doda Dedaj Frengu Gropa Gruda Gjoni Gjini 
+	Goraj Hoti Jonima Kastoria Kruja Krutan Kuqi Kikaj Kuc Kurtika Loka Leti Llosha Nosi 
+	Matranga Markaj Mazrreku Mirdita Muzaka Rugova Palabardha Piprraj Pali Peshkepia Pulati 
+	Shtrezi Shotaj Shala Skuraj Skurra Summa Troja Tihoç Vrana Vogël Zacaria Zenevisi Zgura 
+	Zogu
+}
+
+ship_names = { 
+	"Bishti i Palles" "Gjiri i Drinit" "Gjiri i Rondonit" Jube "Kalaja e Turres" "Kepi i Rodonit" 
+	Kyrekuq Shengjin Shetaj Velipoje 
+}

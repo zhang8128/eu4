@@ -1,0 +1,19 @@
+# Kurnool
+
+capital = "Srisailam"
+owner = ADH
+controller = ADH
+add_core = ADH
+culture = telegu
+religion = hinduism
+trade_goods = cinnamon
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes
+hre = no
+discovered_by = indian
+
+1323.1.1	= { owner = DLH controller = DLH } #Kakatiya dynasty conquered by Delhi Sultanate
+1346.1.1	= { owner = KRK controller = KRK add_core = KRK remove_core = ADH } #Sultanate of Arcot
+1374.1.1	= { owner = VIJ controller = VIJ add_core = VIJ } #Arcot defeated by Bukka Raya I

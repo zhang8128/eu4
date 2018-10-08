@@ -1,0 +1,21 @@
+# Jaeger Infantry
+
+type = infantry
+
+maneuver = 1
+offensive_morale = 13
+defensive_morale = 12
+offensive_fire = 11
+defensive_fire = 17
+offensive_shock = 6
+defensive_shock = 6
+
+trigger = {
+	OR = {
+		unit_type = western
+		technology_group = western
+		technology_group = scandinavian_tech
+		technology_group = byzantine
+		technology_group = high_american
+	}
+}

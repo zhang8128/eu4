@@ -1,0 +1,1056 @@
+# VeF Papacy 
+
+country_decisions = {
+	display_overview_cardinals = {
+		major = yes
+		potential = {
+			ai = no
+			has_global_flag = vef_new_papacy
+			NOT = { has_global_flag = vef_papacy_schism }
+			religion = catholic
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			custom_tooltip = college_size_display
+			custom_tooltip = french_cardinal_display
+			custom_tooltip = italian_cardinal_display
+			custom_tooltip = ultramontane_cardinal_display
+			custom_tooltip = british_cardinal_display
+			custom_tooltip = spanish_cardinal_display
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+	
+	display_italian_cardinals = {
+		major = yes
+		potential = {
+			ai = no
+			has_global_flag = vef_new_papacy
+			NOT = { has_global_flag = vef_papacy_schism }
+			OR = {
+				capital_scope = { region = italy_region }
+				tag = PAP
+			}
+			religion = catholic
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			custom_tooltip = roman_cardinal_display
+			custom_tooltip = northitalian_cardinal_display
+			custom_tooltip = neopolitan_cardinal_display
+			if = {
+				limit = { REB = { has_country_flag = medici_faction_active }}
+				custom_tooltip = medici_cardinal_display
+			}
+			if = {
+				limit = { REB = { has_country_flag = sforza_faction_active }}
+				custom_tooltip = sforza_cardinal_display
+			}
+			if = {
+				limit = { REB = { has_country_flag = este_faction_active }}
+				custom_tooltip = este_cardinal_display
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+	
+	display_schism_cardinals = {
+		major = yes
+		potential = {
+			ai = no
+			has_global_flag = vef_new_papacy
+			has_global_flag = vef_papacy_schism
+			religion = catholic
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			custom_tooltip = prorome_cardinal_display
+			custom_tooltip = proavignon_cardinal_display
+			custom_tooltip = schism_majority_cardinal_display
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+	
+	display_own_cardinals = {
+		major = yes
+
+		potential = {
+			ai = no
+			has_global_flag = vef_new_papacy
+			any_owned_province = { has_province_modifier = cardinal_diocese }
+			religion = catholic
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			every_owned_province = {
+				limit = { has_province_modifier = cardinal_diocese }
+				trigger_switch = {
+					on_trigger = has_province_flag
+					french_cardinal = { custom_tooltip = own_french_cardinal}
+					spanish_cardinal = { custom_tooltip = own_spanish_cardinal }
+					british_cardinal = { custom_tooltip = own_british_cardinal }
+					ultramontane_cardinal = { custom_tooltip = own_ultramontane_cardinal }
+					roman_cardinal = { custom_tooltip = own_roman_cardinal }
+					neopolitan_cardinal = { custom_tooltip = own_neopolitan_cardinal }
+					northitalian_cardinal = { custom_tooltip = own_northitalian_cardinal }
+					medici_cardinal = { custom_tooltip = own_medici_cardinal }
+					sforza_cardinal = { custom_tooltip = own_sforza_cardinal }
+					este_cardinal = { custom_tooltip = own_este_cardinal }
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+	
+	display_loyal_cardinals = {
+		major = yes
+
+		potential = {
+			ai = no
+			has_global_flag = vef_new_papacy
+			has_global_flag = vef_papacy_final
+			religion = catholic
+		}
+
+		allow = {
+			always = no
+		}
+		
+		effect = {
+			if = {
+				limit = { check_variable = { which = cardinal1_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal1 }
+					custom_tooltip = define_cardinal
+				}
+				custom_tooltip = cardinal1_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal2_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal2 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal2_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal3_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal3 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal3_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal4_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal4 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal4_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal5_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal5 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal5_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal6_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal6 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal6_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal7_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal7 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal7_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal8_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal8 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal8_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal9_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal9 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal9_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal10_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal10 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal10_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal11_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal11 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal11_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal12_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal12 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal12_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal13_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal13 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal13_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal14_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal14 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal14_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal15_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal15 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal15_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal16_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal16 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal16_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal17_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal17 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal17_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal18_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal18 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal18_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal19_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal19 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal19_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal20_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal20 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal20_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal21_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal21 }
+					custom_tooltip = define_cardinal  
+				}
+				custom_tooltip = cardinal21_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal22_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal22 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal22_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal23_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal23 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal23_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal24_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal24 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal24_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal25_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal25 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal25_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal26_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal26 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal26_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal27_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal27 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal27_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal28_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal28 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal28_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal29_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal29 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal29_loyalty
+			}
+			if = {
+				limit = { check_variable = { which = cardinal30_relation value = 50 }}
+				every_province = {
+					limit = { has_province_flag = cardinal30 }
+					custom_tooltip = define_cardinal 
+				}
+				custom_tooltip = cardinal30_loyalty
+			}
+		}
+	
+		ai_will_do = { factor = 0 }
+	}
+	
+	spend_papal_influence = {
+		
+		potential = {
+			has_global_flag = vef_new_papacy
+			religion = catholic
+			NOT = { has_country_flag = papinf_decactive }
+			NOT = { tag = PAP }
+		}
+		
+		allow = {
+			check_variable = { which = vef_papal_influence value = 20 }
+			custom_trigger_tooltip = {
+				#always = no		
+				tooltip = papal_influence_gain_tooltip
+			}
+			NOT = { has_country_modifier = ruler_excommunicated }
+		}
+		
+		effect = {
+			country_event = { id = vef_papacy.900 }
+			set_country_flag = papinf_decactive
+			custom_tooltip = inf_cost_cardinal
+			custom_tooltip = inf_cost_stability
+			custom_tooltip = inf_cost_unrest
+			custom_tooltip = inf_cost_missionary
+			custom_tooltip = inf_cost_legitimacy
+			custom_tooltip = inf_cost_taxes
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { check_variable = { which = vef_papal_influence value = 25 }}
+				factor = 0
+			}
+		}
+	}
+		
+	request_new_cardinal = {
+	
+		potential = {
+			religion = catholic
+			has_global_flag = vef_new_papacy
+			any_owned_province = {
+				has_province_modifier = cardinal_seat
+				NOT = { has_province_modifier = cardinal_diocese }
+			}
+			NOT = { has_country_modifier = cardinal_request_cooldown }
+			NOT = { REB = { check_variable = { which = vef_college_size value = 30 }}}
+		}
+		
+		allow = {
+			OR = {
+				reverse_has_opinion = {
+					who = PAP
+					value = 50
+				}
+				ai = yes
+				has_global_flag = vef_papacy_schism
+			}
+		}
+		
+		effect = {
+			hidden_effect = { 
+				add_country_modifier = {
+					name = "cardinal_request_cooldown"
+					duration = 300
+					hidden = yes
+				}
+			}
+			country_event = { id = vef_papacy.3 }
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+	
+	offer_pope_vatican = {
+	
+		potential = {
+			has_global_flag = pope_in_exile
+			religion = catholic
+			NOT = { has_country_flag = vef_rejected_pope }
+			NOT = { has_country_flag = vef_vatican_decision }
+		}
+		
+		allow = {
+			owns = 227
+		}
+		
+		effect = {
+			every_country = {
+				limit = { has_country_flag = vef_papal_refuge }
+				country_event = { id = vef_papacy.1008 days = 14 }
+			}
+			set_country_flag = vef_vatican_decision
+		}
+	}
+	
+	crusader_conversion_start = {
+		
+		potential = {
+			has_country_flag = crusader_state
+			any_owned_province = { has_province_modifier = orthodox_crusader_province }
+			religion = catholic
+		}
+		
+		allow = {
+			has_country_flag = crusader_state
+			any_owned_province = { has_province_modifier = orthodox_crusader_province }
+		}
+		
+		effect = {
+			every_owned_province = {
+				limit = { has_province_modifier = orthodox_crusader_province }
+				remove_province_modifier = orthodox_crusader_province
+				add_province_modifier = {
+					name = orthodox_crusader_province1
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = crusader_conversion_policy
+				duration = -1
+			}
+			change_variable = { which = vef_papal_influence value = 30 }
+		}
+		
+		ai_will_do = { factor = 0 }
+	}
+	
+	crusader_conversion_stop = {
+		
+		potential = {
+			has_country_flag = crusader_state
+			has_country_modifier = crusader_conversion_policy
+		}
+		
+		allow = {
+			has_country_flag = crusader_state
+			has_country_modifier = crusader_conversion_policy
+		}
+		
+		effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						religion = orthodox
+						religion = nestorian
+					}
+				}
+				remove_province_modifier = orthodox_crusader_province1
+				add_province_modifier = {
+					name = orthodox_crusader_province
+					duration = -1
+				}
+			}
+			remove_country_modifier = crusader_conversion_policy
+			change_variable = { which = vef_papal_influence value = -30 }
+		}
+		
+		ai_will_do = { factor = 0 }
+	}
+	
+	call_a_crusade = {
+		potential = {
+			tag = PAP
+			has_global_flag = vef_new_papacy
+			NOT = { has_global_flag = pirates_sunset }
+			NOT = { has_global_flag = active_crusade }
+			OR = {
+				NOT = { is_year = 1444 }
+				AND = {
+					NOT = { is_year = 1500 }
+					588 = { owner = { religion_group = christian }}		#Constantinople
+					OR = {
+						AND = {
+							exists = KOJ
+							KOJ = { religion = catholic }
+						}
+						AND = {
+							exists = SYR
+							SYR = { religion = catholic }
+						}
+					}
+				}
+			}
+		}
+		
+		allow = {
+			tag = PAP
+			has_reform = papacy_reform
+			NOT = { has_global_flag = active_crusade }
+			is_at_war = no
+			OR = {
+				1611 = {
+					owner = {
+						religion_group = muslim
+						NOT = { overlord = { religion_group = christian }}
+					}
+				}
+				1635 = {
+					owner = {
+						religion_group = muslim
+						NOT = { overlord = { religion_group = christian }}
+					}
+				}
+				1648 = {
+					owner = {
+						religion_group = muslim
+						NOT = { overlord = { religion_group = christian }}
+					}
+				}
+				1618 = {
+					owner = {
+						religion_group = muslim
+						NOT = { overlord = { religion_group = christian }}
+					}
+				}
+				593 = {
+					owner = {
+						religion_group = muslim
+						NOT = { overlord = { religion_group = christian }}
+					}
+				}
+				588 = {
+					owner = {
+						religion_group = muslim
+						NOT = { overlord = { religion_group = christian }}
+					}
+				}
+				100 = {
+					owner = {
+						religion_group = muslim
+						NOT = { overlord = { religion_group = christian }}
+					}
+					is_year = 1450
+				}
+				575 = {
+					owner = {
+						religion_group = muslim
+						NOT = { overlord = { religion_group = christian }}
+					}
+				}
+				577 = {
+					owner = {
+						religion_group = muslim
+						NOT = { overlord = { religion_group = christian }}
+					}
+				}
+				618 = {
+					owner = {
+						religion_group = muslim
+						NOT = { overlord = { religion_group = christian }}
+					}
+				}
+				596 = {
+					owner = {
+						religion_group = muslim
+						NOT = { overlord = { religion_group = christian }}
+					}
+				}
+				96 = {
+					owner = {
+						religion_group = muslim
+						NOT = { overlord = { religion_group = christian }}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			set_global_flag = active_crusade
+			if = {
+				limit = {
+					OR = {
+						ai = no
+						NOT = {
+							any_known_country = {
+								ai = no
+								religion = catholic
+								NOT = { capital_scope = { region = scandinavia_region }}
+								NOT = { has_country_modifier = ruler_excommunicated }
+								NOT = { has_country_modifier = under_interdict }
+							}
+						}
+					}
+				}
+				country_event = { id = "vef_crusade.10000" days = 7 }
+			}
+			if = {
+				limit = {
+					ai = yes
+					any_known_country = {
+						ai = no
+						religion = catholic
+						NOT = { capital_scope = { region = scandinavia_region }}
+						NOT = { has_country_modifier = ruler_excommunicated }
+						NOT = { has_country_modifier = under_interdict }
+					}
+				}
+				every_known_country = {
+					limit = {
+						ai = no 
+						religion = catholic
+						NOT = { has_country_modifier = ruler_excommunicated }
+						NOT = { has_country_modifier = under_interdict }
+					}
+					country_event = { id = "vef_crusade.10100" days = 7 }
+					PAP = { change_variable = { which = decision_makers_crusade value = 1 }}
+				}
+				if = {
+					limit = {
+						VEN = {
+							ai = yes
+							exists = yes
+							NOT = { has_country_modifier = ruler_excommunicated }
+							NOT = { has_country_modifier = under_interdict }
+						}
+						# Crete
+						577 = {
+							owner = {
+								religion_group = muslim
+								NOT = { overlord = { religion_group = christian }}
+							}
+						}
+					}
+					VEN = { set_country_flag = crusade_support }
+					change_variable = { which = support_crusade_crete value = 1 }
+				}
+				if = {
+					limit = {
+						VEN = {
+							ai = yes
+							exists = yes
+							NOT = { has_country_modifier = ruler_excommunicated }
+							NOT = { has_country_modifier = under_interdict }
+							NOT = { has_country_flag = crusade_support }
+						}
+						# Cyprus
+						618 = {
+							owner = {
+								religion_group = muslim
+								NOT = { overlord = { religion_group = christian }}
+							}
+						}
+					}
+					VEN = { set_country_flag = crusade_support }
+					change_variable = { which = support_crusade_cyprus value = 1 }
+				}
+				if = {
+					limit = {
+						VEN = {
+							ai = yes
+							exists = yes
+							NOT = { has_country_modifier = ruler_excommunicated }
+							NOT = { has_country_modifier = under_interdict }
+							NOT = { has_country_flag = crusade_support }
+						}
+						# Alexandria
+						1635 = {
+							owner = {
+								religion_group = muslim
+								NOT = { overlord = { religion_group = christian }}
+							}
+						}
+					}
+					VEN = { set_country_flag = crusade_support }
+					change_variable = { which = support_crusade_alexandria value = 1 }
+				}
+				if = {
+					limit = {
+						SPA = {
+							ai = yes
+							exists = yes
+							NOT = { has_country_modifier = ruler_excommunicated }
+							NOT = { has_country_modifier = under_interdict }
+						}
+						# Tunis
+						1648 = {
+							owner = {
+								religion_group = muslim
+								NOT = { overlord = { religion_group = christian }}
+							}
+						}
+					}
+					SPA = { set_country_flag = crusade_support }
+					change_variable = { which = support_crusade_tunis value = 1 }
+				}
+				if = {
+					limit = {
+						SPA = {
+							ai = yes
+							exists = yes
+							NOT = { has_country_modifier = ruler_excommunicated }
+							NOT = { has_country_modifier = under_interdict }
+							NOT = { has_country_flag = crusade_support }
+						}
+						# Alexandria
+						1635 = {
+							owner = {
+								religion_group = muslim
+								NOT = { overlord = { religion_group = christian }}
+							}
+						}
+					}
+					SPA = { set_country_flag = crusade_support }
+					change_variable = { which = support_crusade_alexandria value = 1 }
+				}
+				if = {
+					limit = {
+						SPA = {
+							ai = yes
+							exists = yes
+							NOT = { has_country_modifier = ruler_excommunicated }
+							NOT = { has_country_modifier = under_interdict }
+							NOT = { has_country_flag = crusade_support }
+						}
+						# Judea
+						1611 = {
+							owner = {
+								religion_group = muslim
+								NOT = { overlord = { religion_group = christian }}
+							}
+						}
+					}
+					SPA = { set_country_flag = crusade_support }
+					change_variable = { which = support_crusade_jerusalem value = 1 }
+				}
+				if = {
+					limit = {
+						ARA = {
+							ai = yes
+							exists = yes
+							NOT = { has_country_modifier = ruler_excommunicated }
+							NOT = { has_country_modifier = under_interdict }
+						}
+						# Tunis
+						1648 = {
+							owner = {
+								religion_group = muslim
+								NOT = { overlord = { religion_group = christian }}
+							}
+						}
+					}
+					ARA = { set_country_flag = crusade_support }
+					change_variable = { which = support_crusade_tunis value = 1 }
+				}
+				if = {
+					limit = {
+						ARA = {
+							ai = yes
+							exists = yes
+							NOT = { has_country_modifier = ruler_excommunicated }
+							NOT = { has_country_modifier = under_interdict }
+							NOT = { has_country_flag = crusade_support }
+						}
+						# Alexandria
+						1635 = {
+							owner = {
+								religion_group = muslim
+								NOT = { overlord = { religion_group = christian }}
+							}
+						}
+					}
+					ARA = { set_country_flag = crusade_support }
+					change_variable = { which = support_crusade_alexandria value = 1 }
+				}
+				if = {
+					limit = {
+						ARA = {
+							ai = yes
+							exists = yes
+							NOT = { has_country_modifier = ruler_excommunicated }
+							NOT = { has_country_modifier = under_interdict }
+							NOT = { has_country_flag = crusade_support }
+						}
+						# Judea
+						1611 = {
+							owner = {
+								religion_group = muslim
+								NOT = { overlord = { religion_group = christian }}
+							}
+						}
+					}
+					ARA = { set_country_flag = crusade_support }
+					change_variable = { which = support_crusade_jerusalem value = 1 }
+				}
+				if = {
+					limit = {
+						KNI = {
+							ai = yes
+							exists = yes
+							NOT = { has_country_modifier = ruler_excommunicated }
+							NOT = { has_country_modifier = under_interdict }
+						}
+						# Rhodes
+						596 = {
+							owner = {
+								religion_group = muslim
+								NOT = { overlord = { religion_group = christian }}
+							}
+						}
+					}
+					KNI = { set_country_flag = crusade_support }
+					change_variable = { which = support_crusade_rhodes value = 1 }
+				}
+				if = {
+					limit = {
+						KNI = {
+							ai = yes
+							exists = yes
+							NOT = { has_country_modifier = ruler_excommunicated }
+							NOT = { has_country_modifier = under_interdict }
+							NOT = { has_country_flag = crusade_support }
+						}
+						# Thakesion
+						593 = {
+							owner = {
+								religion_group = muslim
+								NOT = { overlord = { religion_group = christian }}
+							}
+						}
+					}
+					KNI = { set_country_flag = crusade_support }
+					change_variable = { which = support_crusade_smyrna value = 1 }
+				}
+				if = {
+					limit = {
+						KNI = {
+							ai = yes
+							exists = yes
+							NOT = { has_country_modifier = ruler_excommunicated }
+							NOT = { has_country_modifier = under_interdict }
+							NOT = { has_country_flag = crusade_support }
+						}
+						# Aleppo
+						1618 = {
+							owner = {
+								religion_group = muslim
+								NOT = { overlord = { religion_group = christian }}
+							}
+						}
+					}
+					KNI = { set_country_flag = crusade_support }
+					change_variable = { which = support_crusade_aleppo value = 1 }
+				}
+				if = {
+					limit = {
+						KNI = {
+							ai = yes
+							exists = yes
+							NOT = { has_country_modifier = ruler_excommunicated }
+							NOT = { has_country_modifier = under_interdict }
+							NOT = { has_country_flag = crusade_support }
+						}
+						# Judea
+						1611 = {
+							owner = {
+								religion_group = muslim
+								NOT = { overlord = { religion_group = christian }}
+							}
+						}
+					}
+					KNI = { set_country_flag = crusade_support }
+					change_variable = { which = support_crusade_jerusalem value = 1 }
+				}
+			}
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+	
+	release_antioch = {
+		potential = {
+			religion = catholic
+			is_subject = no
+			any_owned_province = {
+				OR = {
+					area = syria_area
+					area = rakka_area
+					area = aleppo_area
+				}
+			}
+			NOT = { has_country_flag = crusader_state }
+			NOT = { has_country_flag = syrian_decision }
+			NOT = { exists = SYR }
+		}
+		
+		allow = {
+			religion = catholic
+			num_of_owned_provinces_with = {
+				OR = {
+					area = syria_area
+					area = rakka_area
+					area = aleppo_area
+				}
+				value = 3
+			}
+		}
+		
+		effect = {
+			country_event = { id = vef_crusade.20100 days = 1 }
+			set_country_flag = syrian_decision
+		}
+	}
+	
+	release_jerusalem = {
+		potential = {
+			religion = catholic
+			is_subject = no
+			any_owned_province = {
+				OR = {
+					area = jordan_area
+					area = palestine_area
+				}
+				NOT = { province_id = 1606 }
+			}
+			NOT = { has_country_flag = crusader_state }
+			NOT = { has_country_flag = koj_decision }
+			NOT = { exists = KOJ }
+		}
+		
+		allow = {
+			religion = catholic
+			num_of_owned_provinces_with = {
+				OR = {
+					area = jordan_area
+					area = palestine_area
+				}
+				NOT = { province_id = 1606 }
+				value = 3
+			}
+		}
+		
+		effect = {
+			country_event = { id = vef_crusade.20200 days = 1 }
+			set_country_flag = koj_decision
+		}
+	}
+	
+	release_egypt = {
+		potential = {
+			religion = catholic
+			is_subject = no
+			any_owned_province = {
+				region = egypt_region
+				NOT = { area = lower_nubia_area }
+				NOT = { area = cyrenaica_area }
+			}
+			NOT = { has_country_flag = crusader_state }
+			NOT = { has_country_flag = egy_decision }
+			NOT = { exists = EGY }
+			NOT = { exists = EGM }
+		}
+		
+		allow = {
+			religion = catholic
+			num_of_owned_provinces_with = {				
+				region = egypt_region
+				NOT = { area = lower_nubia_area }
+				NOT = { area = cyrenaica_area }
+				value = 4
+			}
+			NOT = { exists = EGM }
+		}
+		
+		effect = {
+			country_event = { id = vef_crusade.20400 days = 1 }
+			set_country_flag = egy_decision
+		}
+	}
+}

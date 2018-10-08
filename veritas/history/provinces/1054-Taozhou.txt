@@ -1,0 +1,18 @@
+# Taozhou
+
+capital = "Taozhou"
+owner = YUN
+controller = YUN
+add_core = YUN
+culture = chihan
+religion = confucianism
+trade_goods = opium
+base_tax = 2
+base_production = 2
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = chinese
+
+1355.1.1 = { owner = CXI controller = CXI add_core = CXI remove_core = YUN } #Red Turban Rebellion
+1371.1.1 = { owner = MNG controller = MNG add_core = MNG } # Destruction of Xia

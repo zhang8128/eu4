@@ -1,0 +1,56 @@
+#Marienburg
+
+capital = "Marienburg"
+owner = TEU
+controller = TEU
+add_core = TEU
+culture = prussian
+religion = catholic
+trade_goods = naval_supplies
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+hre = no
+fort_15th = yes	#Malbork Castle
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1347.1.1   = { add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1454.3.6 = { add_core = POL } # Beginning of the "Thirteen Years War"
+1466.10.19 = {
+	owner = POL
+	controller = POL
+	remove_core = TEU
+	add_core = PRU
+} # "Peace of Torun"
+1542.1.1 = { religion = protestant } # Unknown date
+1569.7.1 = {
+	owner = PLC
+	controller = PLC
+	remove_core = POL
+	add_core = PLC
+} # Union of Lublin
+1588.1.1 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Civil war, Polish succession
+1589.1.1 = { revolt = {} controller = PLC } # Coronation of Sigismund III
+1629.10.26 = {
+	owner = SWE
+	controller = SWE
+	add_core = SWE
+} # Temporarily ceded by Poland to Sweden
+1635.9.12 = {
+	owner = PLC
+	controller = PLC
+	add_core = PLC
+	remove_core = SWE
+}
+1655.1.1 = { controller = SWE } # The Deluge
+1660.1.1 = { controller = PLC }
+1772.9.22 = {
+	owner = PRU
+	controller = PRU
+	remove_core = PLC
+} # First partition of Poland

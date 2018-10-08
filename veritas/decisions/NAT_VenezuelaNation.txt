@@ -1,0 +1,68 @@
+country_decisions = {
+
+	venezuela_nation = {
+		major = yes
+		potential = {
+			colonial_colombia = { owned_by = ROOT }
+			is_random_new_world = no
+			is_nomad = no
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+			}
+			NOT = { exists = VNZ }
+			OR = {
+				ai = no
+				num_of_cities = 3	
+			}
+			NOT = { has_country_flag = changed_from_colonial_nation }
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_at_war = no
+			is_former_colonial_nation = yes
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			owns_core_province = 2043	# Guyana
+			2043 = { NOT = { nationalism = 1 } }
+			owns_core_province = 2044	# Essequibo
+			2044 = { NOT = { nationalism = 1 } }
+			owns_core_province = 2049	# Cumana
+			2049 = { NOT = { nationalism = 1 } }
+			owns_core_province = 2052	# Caracas
+			2052 = { NOT = { nationalism = 1 } }
+			owns_core_province = 2054	# Barinas
+			2054 = { NOT = { nationalism = 1 } }
+			owns_core_province = 2058	# Maracaibo
+			2058 = { NOT = { nationalism = 1 } }
+		}
+		effect = {
+			change_tag = VNZ
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			colonial_colombia = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = VNZ
+			}
+			add_prestige = 25
+			set_country_flag = changed_from_colonial_nation
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+}

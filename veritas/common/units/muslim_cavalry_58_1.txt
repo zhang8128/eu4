@@ -1,0 +1,12 @@
+# Muslim Chasseur Cavalry
+
+unit_type = muslim
+type = cavalry
+
+maneuver = 2
+offensive_morale = 12
+defensive_morale = 12
+offensive_fire = 3
+defensive_fire = 2
+offensive_shock = 8
+defensive_shock = 8

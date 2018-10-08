@@ -1,0 +1,15 @@
+# Njimi
+
+capital = "Garzagamu"
+owner = KBO
+controller = KBO
+add_core = KBO
+culture = kanuri
+religion = sunni
+trade_goods = millet
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = sudanese_tech 

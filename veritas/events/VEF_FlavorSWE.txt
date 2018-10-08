@@ -1,0 +1,259 @@
+########################################
+# Sweden Events
+# VEF
+########################################
+
+namespace = flavor_swe
+normal_or_historical_nations = yes
+
+#Misc#
+#10001 Finnish Core addition to colonized provinces
+#10002 Sweden's focus/Third Swedish Crusade
+#10003 Novgorod is notified of Sweden's surrender
+#10004 Trigger help (hidden event)
+
+#Karelian revolt#
+#10101 Karelian Revolt - Swedish aid
+#10102 Karelian Revolt - Novgorod, Sweden aided rebels
+#10103 Karelian Revolt - Novgorod, Sweden refused to aid rebels
+
+########
+# Misc #
+########
+
+# Grant Finnish Cores on Finnish provinces once Sweden turns them into cities. This is because
+# of the in-game mechanic that effectively removes foreign cultures, etc.
+province_event = {
+	id = flavor_swe.10001
+	title = "flavor_swe.10001.t"
+	desc = "flavor_swe.10001.d"
+	picture = VEF_CITY_DEVELOPMENT_eventPicture
+
+	trigger = {
+		OR = {
+			province_id = 436
+			province_id = 437
+			province_id = 429
+			province_id = 428
+		}
+		NOT = { has_province_flag = add_finnish_culture }
+		is_city = yes
+		NOT = { culture = finnish }
+		NOT = { culture = sapmi }
+	}
+
+	option = {
+		name = "flavor_swe.10001.opta"
+		change_culture = finnish
+		add_core = FIN
+		set_province_flag = add_finnish_culture
+	}
+}
+
+# Sweden's focus/Third Swedish Crusade
+country_event = {
+	id = flavor_swe.10002
+	title = "flavor_swe.10002.t"
+	desc = "flavor_swe.10002.d"
+	picture = VEF_BATTLE_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		tag = SWE
+		NOT = { is_year = 1311 }
+		offensive_war_with = NOV
+	}
+
+	immediate = {
+		hidden_effect = { add_stability_or_adm_power = yes }
+	}
+
+	# Surrender
+	option = {
+		name = "flavor_swe.10002.opta"
+		ai_chance = { factor = 20 }
+		white_peace = NOV
+		add_treasury = -30
+		add_prestige = -10
+		432 = { cede_province = NOV }
+		hidden_effect = {
+			NOV = { country_event = { id = flavor_swe.10003 } }
+		}
+	}
+
+	# Fight on
+	option = {
+		name = "flavor_swe.10002.optb"
+		ai_chance = { factor = 30 }
+		add_manpower = 4
+		add_war_exhaustion = -2
+		add_prestige = 10
+	}
+
+	# All we got
+	option = {
+		name = "flavor_swe.10002.optc"
+		ai_chance = { factor = 50 }
+		infantry = 432
+		infantry = 432
+		infantry = 432
+		infantry = 432
+		infantry = 432
+		cavalry = 432
+		cavalry = 432
+		add_treasury = -30
+	}
+}
+
+# Novgorod is notified of Sweden's surrender
+country_event = {
+	id = flavor_swe.10003
+	title = "flavor_swe.10003.t"
+	desc = "flavor_swe.10003.d"
+	picture = VEF_BATTLE_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "flavor_swe.10003.opta"
+		add_prestige = 10
+		add_treasury = 50
+		add_legitimacy = -10
+	}
+}
+
+# Trigger help (hidden event)
+country_event = {
+	id = flavor_swe.10004
+	title = "flavor_swe.10004.t"
+	desc = "flavor_swe.10004.d"
+	picture = VEF_BATTLE_eventPicture
+
+	fire_only_once = yes
+	hidden = yes
+
+	trigger = {
+		tag = SWE
+		NOT = { is_year = 1311 }
+	}
+
+	immediate = {
+		hidden_effect = {
+			country_event = { id = flavor_swe.10002 days = 10 }
+			add_claim = 392
+			add_claim = 394
+		}
+	}
+
+	option = {
+		name = "flavor_swe.10004.opta"
+	}
+}
+
+###################
+# Karelian Revolt #
+###################
+
+# Karelian Revolt - Swedish aid?
+country_event = {
+	id = flavor_swe.10101
+	title = "flavor_swe.10101.t"
+	desc = "flavor_swe.10101.d"
+	picture = VEF_BATTLE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SWE
+		is_year = 1310
+		NOT = {is_year = 1317}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "flavor_swe.10101.opta"
+		ai_chance = { factor = 20 }
+		add_treasury = -20
+		add_manpower = -1
+		703 = {
+			add_core = KRL
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 2
+				friend = SWE
+			}
+		}
+				
+		430 = {
+			hidden_effect = {remove_core = FIN}
+			add_core = KRL
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 1
+				friend = SWE
+			}
+			hidden_effect = {add_core = FIN}
+		}
+				
+		702 = {
+			add_core = KRL
+		}
+		704 = {
+			add_core = KRL
+		}
+		hidden_effect = { NOV = {country_event = {id = flavor_swe.10102} }
+		}
+	}
+	
+	option = {
+		name = "flavor_swe.10101.optb"
+		ai_chance = { factor = 80 }
+		add_prestige = 5
+		703 = {
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 1
+			}
+		}
+		hidden_effect = { NOV = {country_event = {id = flavor_swe.10103} }
+		}
+	}
+	
+	#option = {
+		#even more help, grant Sweden CB to release Karelia
+	#}
+}
+
+# Karelian Revolt - Novgorod, Sweden aided rebels
+country_event = {
+	id = flavor_swe.10102
+	title = "flavor_swe.10102.t"
+	desc = "flavor_swe.10102.d"
+	
+	picture = VEF_BATTLE_eventPicture
+	
+	is_triggered_only = yes
+	option = {
+		name = "flavor_swe.10102.opta"
+	}
+}
+
+# Karelian Revolt - Novgorod, Sweden refused to aid rebels
+country_event = {
+	id = flavor_swe.10103
+	title = "flavor_swe.10103.t"
+	desc = "flavor_swe.10103.d"
+	
+	picture = VEF_BATTLE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_swe.10103.opta"
+	}
+}

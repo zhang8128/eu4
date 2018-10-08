@@ -1,0 +1,10 @@
+#Regalskepp
+#model = threedecker
+#tech_level = 38
+type = heavy_ship
+unit_type = scandinavian_tech
+
+hull_size = 50
+base_cannons = 96
+sail_speed = 5
+sailors = 850

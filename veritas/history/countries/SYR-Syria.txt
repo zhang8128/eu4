@@ -1,0 +1,8 @@
+# Antioch
+#Province IDs changed
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 1
+primary_culture = greek
+religion = catholic
+technology_group = byzantine
+capital = 1613	# Damascus

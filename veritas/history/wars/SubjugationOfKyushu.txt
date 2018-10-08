@@ -1,0 +1,16 @@
+name = "Subjugation of Kyushu"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 988 # Satsuma
+}
+
+1586.7.1 = {
+	add_attacker = JAP
+	add_defender = SMZ
+}
+
+1587.4.28 = {
+	rem_attacker = JAP
+	rem_defender = SMZ
+}

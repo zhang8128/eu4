@@ -1,0 +1,30 @@
+government = monarchy add_government_reform = autocracy_reform
+government_rank = 3
+technology_group = chinese
+religion = confucianism
+primary_culture = chihan
+capital = 1081 # Nanchang
+
+1355.1.1 = {
+	monarch = {
+		name = "Chen"
+		dynasty = "Youliang"
+		birth_date = 1320.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1627.1.1 = {
+	monarch = {
+		name = "Zicheng"
+		dynasty = "Li"
+		adm = 2
+		dip = 3
+		mil = 4
+	}
+	capital = 1060	# Kaifeng
+}
+
+1644.1.1 = { capital = 1056 } # Fengyuan

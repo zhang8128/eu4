@@ -1,0 +1,10 @@
+#Korvet
+#model = caravel
+#tech_level = 32
+type = transport
+unit_type = eastern
+
+hull_size = 18
+base_cannons = 24
+sail_speed = 10
+sailors = 200

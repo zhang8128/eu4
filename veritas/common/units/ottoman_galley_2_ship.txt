@@ -1,0 +1,10 @@
+#Kadirga
+#model = galley
+#tech_level = 8
+type = galley
+unit_type = ottoman
+
+hull_size = 8
+base_cannons = 8
+sail_speed = 9
+sailors = 200

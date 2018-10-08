@@ -1,0 +1,68 @@
+#Country Name: Please see filename.
+
+graphical_culture = asiangfx
+
+color = { 108  153  65 }
+
+historical_idea_groups = {
+	quantity_ideas
+	intimidatory_ideas
+	religious_ideas
+	offensive_ideas
+	mercantilist_ideas
+	expansion_ideas
+	drafted_army_ideas
+	land_ideas
+}
+
+historical_units = { 
+	nomad_artillery_0_1
+	nomad_artillery_20_1
+	nomad_artillery_32_1
+	nomad_artillery_44_1
+	nomad_cavalry_0_1
+	nomad_cavalry_10_1
+	nomad_cavalry_15_1
+	nomad_cavalry_20_1
+	nomad_cavalry_25_1
+	nomad_cavalry_30_1
+	nomad_cavalry_35_1
+	nomad_cavalry_40_1
+	nomad_cavalry_5_1
+	nomad_infantry_0_1
+	nomad_infantry_10_1
+	nomad_infantry_20_1
+	nomad_infantry_28_1
+	nomad_infantry_36_1
+	nomad_infantry_42_1
+}
+
+
+
+
+monarch_names = {
+	"Taiding #0" = 10
+	"Tianshun #0" = 10
+	"Wenzong #0" = 10
+	"Ningzong #0" = 10
+	"Huizong #0" = 10
+}
+
+leader_names = {
+	Borjigin Borjigin Borjigin Borjigin Borjigin Borjigin Borjigin Borjigin Borjigin Borjigin # Ghengisid supremacy among the Mongols
+	Khalkha Chakhar Uriankhai Ordos Tümed Yungshiyebu
+	Yingchang Karakorum Hohhot Chagaan
+	Noyan Darqan Wang Khorchin Onriut Abaga Abaganar Ast Kharachin
+	Jurim Xilingol Ulanqab
+}
+
+ship_names = {
+	Yingchang Karakorum Hohhot Chagaan
+	"Ghengis Khan" Jöchi Ögödei Tolui
+	Möngke Qubilai Hülegü Böke
+	Jinggim Kamala Dharmapala "Örüg Temür"
+	Adai Elbeg Batu Mugali "Bo'orchu" Borokhula Chilaun
+	Khubilai Jelme Jebe Subutai
+	"Yelü Chucai" Shikhikhutug "Sorqan Shira" "Khar Khiruge"
+	"Dörben Külü'üd" "Dörben Noyas"
+}

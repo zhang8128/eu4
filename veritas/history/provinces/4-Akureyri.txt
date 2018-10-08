@@ -1,0 +1,24 @@
+# Akureyri
+
+capital = "Akureyri"
+owner = NOR
+controller = NOR
+add_core = NOR 
+culture = icelandic
+religion = catholic
+trade_goods = fish
+base_tax = 2
+base_production = 1
+base_manpower = 2
+is_city = yes
+hre = no
+discovered_by = scandinavian_tech
+discovered_by = western
+
+1536.1.1   = { religion = protestant owner = DAN controller = DAN add_core = DAN }
+1600.1.1   = { base_manpower = 0.2 }
+1650.1.1   = { base_manpower = 0.2 }
+1700.1.1   = { base_manpower = 0.2 }
+1750.1.1   = { base_manpower = 0.2 }
+1752.1.1   = { trade_goods = wool } # Wool becomes more important.
+1800.1.1   = { base_manpower = 0.2 }

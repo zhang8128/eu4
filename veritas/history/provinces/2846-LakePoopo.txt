@@ -1,0 +1,4 @@
+# Lake Poopo
+#Province IDs changed
+discovered_by = INC
+1534.1.1  = { discovered_by = SPA }

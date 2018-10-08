@@ -1,0 +1,166 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+colonial_parent = SPA
+random_nation_chance = 0
+
+color = { 236  159  89 }
+
+historical_idea_groups = {
+	mercantilist_ideas
+	quality_ideas
+	economic_ideas
+	gf1_ideas
+	standing_army_ideas
+	expansion_ideas
+	defensive_ideas
+	diplomatic_ideas
+}
+
+historical_units = { 
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+
+
+
+
+monarch_names = {
+	"Agustín #0" = 20
+	"Fernando #0" = 20
+	"José #0 Miguel" = 20
+	"Martín #0" = 20
+	"Bernardo #0" = 15
+	"Francisco #0" = 15
+	"José #0 Santiago" = 15
+	"Pedro José #0" = 15
+	"Antonio José #0" = 10
+	"Francisco #0 Antonio" = 10
+	"Juan #0" = 10
+	"Juan #0 Antonio" = 10
+	"Juan #0 Enrique" = 10
+	"Mateo #0" = 10
+	"Adrián #0" = 0
+	"Alfonso #0" = 0
+	"Antonio #0" = 0
+	"Benigno #0" = 0
+	"Camilo #0" = 0
+	"Carlos #0" = 0
+	"Desiderio #0" = 0
+	"Diego #0" = 0
+	"Eduardo #0" = 0
+	"Emilio #0" = 0
+	"Federico #0" = 0
+	"Germán #0" = 0
+	"Hipólito #0" = 0
+	"Ismael #0" = 0
+	"Joaquín #0" = 0
+	"José #0" = 0
+	"Luis #0" = 0
+	"Marcelino #0" = 0
+	"Nicolás #0" = 0
+	"Ovidio #0" = 0
+	"Porfirio #0" = 0
+	"Rufino #0" = 0
+	"Sergio #0" = 0
+	"Teófilo #0" = 0
+	"Urbano #0" = 0
+	"Víctor #0" = 0
+	
+	"Cristina #0" = -1
+	"Felicia #0" = -1
+	"Isidora #0" = -1
+}
+
+leader_names = {
+	Álvarez Argomedo Balmaceda Barros Bello Bilbao Blanco Borgoño Bulnes
+	Carrera "de Carrera" Cochrane "de la Cruz" Echevarría Egaña Errázuriz Freire
+	Henríquez Herrera Infante "de Irisarri" "de Lasta" Lastarria "de la Lastra"
+	Mackenna Marín "Márquez de la Plata" "Martínez de Aldunate" "Martínez de Rozas" Montt
+	O'Higgins Ovalle Pérez Pinto Portales Prieto "de la Reina" Rengifo Rodríguez Rosales
+	"de San Martín" Sarmiento Soler Tocornal "de Toro" Varas Vidaurre "de Villegas"
+	Zañartu Zenteno
+}
+
+ship_names = {
+	Abtao
+	"Blanco Encalada"
+	Chacubuco
+	Esmeralda
+	Huascar
+	Latorre 
+	Orella
+	Riquelme
+	Serrano
+	Valparaiso "Virgilio Uribe"
+}
+	

@@ -1,0 +1,10 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 4
+primary_culture = lombard
+add_accepted_culture = greek
+add_accepted_culture = turkish
+religion = catholic
+technology_group = byzantine
+
+capital = 588	#Thrace

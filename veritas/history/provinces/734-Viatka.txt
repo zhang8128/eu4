@@ -1,0 +1,35 @@
+# Viatka
+#Province IDs changed
+owner = VIA
+controller = VIA
+capital = "Hlynov"
+culture = russian
+religion = orthodox
+trade_goods = copper
+hre = no
+base_tax = 2
+base_production = 2
+base_manpower = 2
+citysize = 1200
+add_core = VIA
+is_city = yes
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = GOL
+discovered_by = byzantine
+
+1342.1.1 = { owner = MOS controller = MOS add_core = MOS }
+1450.1.1  = { citysize = 1500 discovered_by = SIB }
+1453.1.1  = { 
+	discovered_by = western 
+	discovered_by = scandinavian_tech
+}
+1500.1.1  = { citysize = 1988 }
+1503.4.1 = {	owner = RUS controller = RUS add_core = RUS remove_core = MOS }
+1550.1.1  = { citysize = 3644 }
+1600.1.1  = { citysize = 4222 }
+1650.1.1  = { citysize = 5800 }
+1700.1.1  = { citysize = 6300 }
+1750.1.1  = { citysize = 7000 }
+1780.12.18  = { capital = "Vyatka" }
+1800.1.1  = { citysize = 10000 }

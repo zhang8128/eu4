@@ -1,0 +1,1137 @@
+# VEF Triggered modifiers
+# Revised for v2.0
+
+# If an Archbishopric expands beyond 3 provinces, they lose the core protection. After
+# Westphalia, this no longer applies
+archbishopric_core = {
+	potential = {
+		government = archbishopric
+	}
+
+	trigger = {
+		NOT = { num_of_cities = 4 }
+		NOT = { has_country_modifier = peace_of_westphalia_enacted }
+	}
+
+	enemy_core_creation = 2.0
+}
+
+# Same for the Pope, but he gets to keep his 5 provinces.
+papal_cores = {
+	potential = {
+		government = papal_government
+	}
+
+	trigger = {
+		NOT = { num_of_cities = 6 }
+	}
+
+	enemy_core_creation = 1.25
+}
+
+long_term_vassal_0 = {
+	potential = {
+		is_vassal = yes
+		has_country_flag = long_term_vassal
+		NOT = { had_country_flag = { flag = long_term_vassal days = 9125 } }
+	}
+
+	trigger = {
+		is_vassal = yes
+		has_country_flag = long_term_vassal
+		NOT = { had_country_flag = { flag = long_term_vassal days = 9125 } }
+	}
+
+	global_tax_modifier = 0.05
+	production_efficiency = 0.05
+	global_manpower_modifier = 0.05
+}
+
+long_term_vassal_1 = {
+	potential = {
+		is_vassal = yes
+		had_country_flag = { flag = long_term_vassal days = 9125 }
+		NOT = { had_country_flag = { flag = long_term_vassal days = 18250 } }
+	}
+
+	trigger = {
+		is_vassal = yes
+		had_country_flag = { flag = long_term_vassal days = 9125 }
+		NOT = { had_country_flag = { flag = long_term_vassal days = 18250 } }
+	}
+
+	global_tax_modifier = 0.10
+	production_efficiency = 0.10
+	global_manpower_modifier = 0.10
+}
+
+long_term_vassal_2 = {
+	potential = {
+		is_vassal = yes
+		had_country_flag = { flag = long_term_vassal days = 18250 }
+		NOT = { had_country_flag = { flag = long_term_vassal days = 36500 } }
+	}
+
+	trigger = {
+		is_vassal = yes
+		had_country_flag = { flag = long_term_vassal days = 18250 }
+		NOT = { had_country_flag = { flag = long_term_vassal days = 36500 } }
+	}
+
+	global_tax_modifier = 0.15
+	production_efficiency = 0.15
+	global_manpower_modifier = 0.15
+	development_cost = -0.1
+}
+
+long_term_vassal_3 = {
+	potential = {
+		is_vassal = yes
+		had_country_flag = { flag = long_term_vassal days = 36500 }
+	}
+
+	trigger = {
+		is_vassal = yes
+		had_country_flag = { flag = long_term_vassal days = 36500 }
+	}
+
+	global_tax_modifier = 0.20
+	production_efficiency = 0.20
+	global_manpower_modifier = 0.20
+	development_cost = -0.20
+}
+
+long_term_overlord = {
+	potential = {
+		vassal = 1
+	}
+
+	trigger = {
+		any_subject_country = {
+			is_vassal = yes
+			OR = {
+				has_country_modifier = long_term_vassal_0
+				has_country_modifier = long_term_vassal_1
+				has_country_modifier = long_term_vassal_2
+				has_country_modifier = long_term_vassal_3
+			}
+		}
+	}
+	
+	vassal_income = 0.10
+}
+
+# Bonus for Italian City states' relationships - to replace the Northern League
+#italian_city_states = {
+#	potential = {
+#		culture_group = latin
+#		capital_scope = { province_group = northitalian_cardinals_group }
+#		NOT = { num_of_cities = 4 }
+#	}
+#
+#	trigger = {
+#		NOT = { num_of_cities = 4 }
+#	}
+#
+#	diplomatic_upkeep = 2
+#	diplomatic_reputation = 1
+#}
+
+swiss_manpower = {
+	potential = {
+		primary_culture = swiss
+		capital_scope = {
+			OR = {
+				area = romandie_area
+				area = switzerland_area
+			}
+		}
+	}
+
+	trigger = {
+		NOT = { num_of_cities = 15 }
+	}
+
+	global_manpower_modifier = 0.25
+}
+
+# Long Term Vassals
+dip_long_term_vassal_1 = {
+	potential = {
+		check_variable = { which = long_term_vassal_count value = 1 }
+	}
+
+	trigger = {
+		OR = {
+			has_idea = learned_men
+			has_idea = deleg_mod_2
+			has_idea = integrated_financing
+		}
+	}
+
+	diplomatic_upkeep = 1
+}
+
+dip_long_term_vassal_2 = {
+	potential = {
+		check_variable = { which = long_term_vassal_count value = 2 }
+	}
+
+	trigger = {
+		OR = {
+			AND = {
+				has_idea = learned_men
+				has_idea = deleg_mod_2
+			}
+			AND = {
+				has_idea = learned_men
+				has_idea = integrated_financing
+			}
+			AND = {
+				has_idea = integrated_financing
+				has_idea = deleg_mod_2
+			}
+		}
+	}
+
+	diplomatic_upkeep = 1
+}
+
+dip_long_term_vassal_3 = {
+	potential = {
+		check_variable = { which = long_term_vassal_count value = 3 }
+	}
+
+	trigger = {
+		has_idea = learned_men
+		has_idea = deleg_mod_2
+		has_idea = integrated_financing
+	}
+
+	diplomatic_upkeep = 1
+}
+
+inefficient_bureaucracy = {
+	potential = {
+		is_nomad = no
+	}
+	
+	trigger = {
+		NOT = { check_variable = { which = vef_governance which = central_management }}
+	}
+	
+	global_missionary_strength = -0.02
+	core_creation = 0.15
+}
+
+medici_duchy_mod = {
+	potential = {
+		dynasty = "de Medici"
+		government = monarchy
+	}
+	
+	trigger = {
+		dynasty = "de Medici"
+		NOT = { total_development = 150 }
+	}
+	
+	interest = -1 #Medici bankers
+	merc_maintenance_modifier = -0.25 #Condottieri 
+	prestige = 0.5 #Patrons of the Arts
+}
+
+sforza_duchy_mod = {
+	potential = {
+		dynasty = "Sforza"
+		government = monarchy
+	}
+	
+	trigger = {
+		dynasty = "Sforza"
+		NOT = { total_development = 150 }
+	}
+	
+	defensiveness = 0.2 #Alps
+	merc_maintenance_modifier = -0.25 #Condottieri 
+	manpower_recovery_speed = 0.2 
+}
+
+# Small emperors get a bonus decrease in maintenance costs
+small_hre_emperor_1 = {
+	
+	potential = {
+		is_emperor = yes
+		NOT = { num_of_cities = 2 }
+	}
+
+	trigger = {
+		is_emperor = yes
+		NOT = { num_of_cities = 2 }
+	}
+
+	land_maintenance_modifier = -0.65
+	imperial_authority = -0.50
+}
+
+small_hre_emperor_2 = {
+	
+	potential = {
+		is_emperor = yes
+		num_of_cities = 2
+		NOT = { num_of_cities = 3 }
+	}
+
+	trigger = {
+		is_emperor = yes
+		num_of_cities = 2
+		NOT = { num_of_cities = 3 }
+	}
+
+	land_maintenance_modifier = -0.50
+	imperial_authority = -0.40
+}
+
+small_hre_emperor_3 = {
+	
+	potential = {
+		is_emperor = yes
+		num_of_cities = 3
+		NOT = { num_of_cities = 6 }
+	}
+
+	trigger = {
+		is_emperor = yes
+		num_of_cities = 3
+		NOT = { num_of_cities = 6 }
+	}
+
+	land_maintenance_modifier = -0.35
+	imperial_authority = -0.30
+}
+
+small_hre_emperor_4 = {
+	
+	potential = {
+		is_emperor = yes
+		num_of_cities = 6
+		NOT = { num_of_cities = 9 }
+	}
+
+	trigger = {
+		is_emperor = yes
+		num_of_cities = 6
+		NOT = { num_of_cities = 8 }
+	}
+
+	land_maintenance_modifier = -0.20
+	imperial_authority = -0.20
+}
+
+# Control Gibraltar
+control_gibraltar_straits = {
+
+	potential = {
+		normal_or_historical_nations = yes
+		num_of_ports = 1 # Don't show this to land-locked countries
+		OR = {
+			lower_andalucia_area = { owned_by = ROOT }
+			sicily_area = { owned_by = ROOT }
+			222 = { owned_by = ROOT }
+			209 = { owned_by = ROOT }
+			108 = { owned_by = ROOT }
+			1662 = { owned_by = ROOT }
+			1660 = { owned_by = ROOT }
+			1648 = { owned_by = ROOT }
+			1666 = { owned_by = ROOT }
+			1661 = { owned_by = ROOT }
+		}
+	}
+
+	trigger = {
+		98 = { owned_by = ROOT }
+		1662 = { owned_by = ROOT }
+	}
+
+	trade_efficiency = 0.025
+}
+
+# Straits of Dover
+control_dover_straits = {
+
+	potential = {
+		normal_or_historical_nations = yes
+		wessex_area = { owned_by = ROOT }
+	}
+
+	trigger = {
+		177 = { owned_by = ROOT }
+		36 = { owned_by = ROOT }
+	}
+
+	trade_efficiency = 0.025
+}
+
+# Caspian Sea
+control_caspian_sea = {
+
+	potential = {
+		normal_or_historical_nations = yes
+		OR = {
+			transcaspia_area = { owned_by = ROOT }
+			nogai_area = { owned_by = ROOT }
+			astrakhan_area = { owned_by = ROOT }
+			dagestan_area = { owned_by = ROOT }
+			shirvan_area = { owned_by = ROOT }
+			azerbaijan_area = { owned_by = ROOT }
+			tabarestan_area = { owned_by = ROOT }
+		}
+	}
+
+	trigger = {
+		1533 = { owned_by = ROOT }	# Gilan
+		1521 = { owned_by = ROOT } 	# Mazandaran
+		1520 = { owned_by = ROOT }	# Golestan
+		815 = { owned_by = ROOT }	# Kizil-Su
+		814 = { owned_by = ROOT }	# Ustyur
+		813 = { owned_by = ROOT }	# Mangyshlak
+		807 = { owned_by = ROOT }	# Nogay
+		756 = { owned_by = ROOT }	# Ryn
+		764 = { owned_by = ROOT }	# Astrakhan
+		765 = { owned_by = ROOT }	# Kizlyar
+		766 = { owned_by = ROOT }	# Derbent
+		1539 = { owned_by = ROOT }	# Baku
+		1546 = { owned_by = ROOT }	# Aran
+		1538 = { owned_by = ROOT }	# Ardabil
+	}
+
+	trade_efficiency = 0.05
+}
+
+# Med trade - Mare Nostrum
+mare_trade = {
+	potential = {
+		normal_or_historical_nations = yes
+		OR = {
+			588 = { owned_by = ROOT } # Constantinople
+			1635 = { owned_by = ROOT } # Alexandia
+			1648 = { owned_by = ROOT } # Tunis
+			269 = { owned_by = ROOT } # Venice
+			253 = { owned_by = ROOT } # Genoa
+			242 = { owned_by = ROOT } # Pisa
+		}
+	}
+	
+	trigger = {
+		588 = { owned_by = ROOT } # Constantinople
+		1635 = { owned_by = ROOT } # Alexandia
+		1648 = { owned_by = ROOT } # Tunis
+		269 = { owned_by = ROOT } # Venice
+		253 = { owned_by = ROOT } # Genoa
+		242 = { owned_by = ROOT } # Pisa
+	}
+	
+	trade_efficiency = 0.05
+}
+
+mare_east = {
+	potential = {
+		normal_or_historical_nations = yes
+		OR = {
+			588 = { owned_by = ROOT } # Constantinople
+			1635 = { owned_by = ROOT } # Alexandria
+			577 = { owned_by = ROOT } # Crete
+			618 = { owned_by = ROOT } # Cyprus
+		}
+	}
+	
+	trigger = {
+		588 = { owned_by = ROOT } # Constantinople
+		1635 = { owned_by = ROOT } # Alexandria
+		577 = { owned_by = ROOT } # Crete
+		618 = { owned_by = ROOT } # Cyprus
+	}
+	
+	trade_efficiency = 0.05
+}
+
+mare_central = {
+	potential = {
+		normal_or_historical_nations = yes
+		OR = {
+			209 = { owned_by = ROOT } # Malta
+			1648 = { owned_by = ROOT } # Tunis
+			222 = { owned_by = ROOT } # Napoli
+			213 = { owned_by = ROOT } # Messina
+			212 = { owned_by = ROOT } # Palermo
+		}
+	}
+	
+	trigger = {
+		209 = { owned_by = ROOT } # Malta
+		1648 = { owned_by = ROOT } # Tunis
+		222 = { owned_by = ROOT } # Napoli
+		213 = { owned_by = ROOT } # Messina
+		212 = { owned_by = ROOT } # Palermo
+	}
+	
+	trade_efficiency = 0.05
+}
+
+mare_west = {
+	potential = {
+		normal_or_historical_nations = yes
+		OR = {
+			253 = { owned_by = ROOT } # Genoa
+			208 = { owned_by = ROOT } # Sardinia
+			130 = { owned_by = ROOT } # Marseilles
+			107 = { owned_by = ROOT } # Barcelona
+			108 = { owned_by = ROOT } # Baleares
+		}
+	}
+	
+	trigger = {
+		253 = { owned_by = ROOT } # Genoa
+		208 = { owned_by = ROOT } # Sardinia
+		130 = { owned_by = ROOT } # Marseilles
+		107 = { owned_by = ROOT } # Barcelona
+		108 = { owned_by = ROOT } # Baleares
+	}
+	
+	trade_efficiency = 0.05
+}
+
+mare_nostrum = {
+	potential = {
+		normal_or_historical_nations = yes
+		OR = {
+			has_country_modifier = mare_trade
+			has_country_modifier = mare_west
+			has_country_modifier = mare_central
+			has_country_modifier = mare_east
+			has_country_modifier = control_gibraltar_straits
+		}
+	}
+	
+	trigger = {
+		has_country_modifier = mare_trade
+		has_country_modifier = mare_west
+		has_country_modifier = mare_central
+		has_country_modifier = mare_east
+		has_country_modifier = control_gibraltar_straits
+	}	
+	
+	trade_efficiency = 0.05
+}
+
+# Byzantine Decline 
+
+byzantine_decline1 = {
+	potential = {
+		tag = BYZ
+		normal_or_historical_nations = yes
+		OR = { 
+			NOT = { num_of_cities = 30 }
+			NOT = { owns_core_province = 588 }
+			NOT = { owns_core_province = 611 }
+		}
+		NOT = { has_country_modifier = byzantine_decline2 }
+		NOT = { has_country_flag = byzantium_restored }
+		OR = {
+			ai = no
+			AND = {
+				ai = yes
+				NOT = { is_year = 1400 }
+			}
+		}
+	}
+
+	trigger = {
+		OR = { 
+			NOT = { num_of_cities = 30 }
+			NOT = { owns_core_province = 588 }
+			NOT = { owns_core_province = 611 }
+		}
+	}
+
+	global_autonomy = 0.1
+	diplomatic_upkeep = -2
+}
+
+byzantine_decline2 = {
+	potential = {
+		tag = BYZ
+		normal_or_historical_nations = yes
+		NOT = { num_of_cities = 45 }
+		NOT = { has_country_flag = byzantium_restored }
+		OR = {
+			ai = no
+			AND = {
+				ai = yes
+				NOT = { is_year = 1400 }
+			}
+		}
+	}
+
+	trigger = {
+		num_of_cities = 30
+		OR = { 
+			NOT = { num_of_cities = 55 }
+			NOT = { owns_core_province = 588 }
+			NOT = { owns_core_province = 611 }
+		}
+	}
+
+	global_autonomy = 0.05
+	diplomatic_upkeep = -1
+}
+
+# Rise of the Ottomans
+rise_of_ottomans_human = {
+	potential = {
+		OR = { 
+			tag = OSM
+			tag = TUR
+		}
+		ai = no
+		primary_culture = turkish
+		normal_or_historical_nations = yes
+		NOT  = { has_global_flag = ottoman_empire_formed }
+		NOT = { num_of_cities = 12 }
+		is_free_or_tributary_trigger = yes
+	}
+
+	trigger = {
+		NOT = { num_of_cities = 8 }
+	}
+
+	land_morale = 0.10
+	global_manpower_modifier = 0.5
+	land_forcelimit_modifier = 1
+	land_maintenance_modifier = -0.30
+	manpower_recovery_speed = 0.30
+	discipline = 0.10
+	infantry_power = 0.10
+	cavalry_power = 0.10
+	global_tax_modifier = 0.3
+	enemy_core_creation = 1.0
+	trade_efficiency = 0.10
+	core_creation = -0.33
+	reinforce_cost_modifier = -0.5
+}
+
+rise_of_ottomans1 = {
+	potential = {
+		OR = { 
+			tag = OSM
+			tag = TUR
+		}
+		ai = yes
+		primary_culture = turkish
+		normal_or_historical_nations = yes
+		NOT  = { has_global_flag = ottoman_empire_formed }
+		NOT = { num_of_cities = 12 }
+		is_free_or_tributary_trigger = yes
+	}
+
+	trigger = {
+		NOT = { num_of_cities = 12 }
+		NOT = { is_year = 1375 }
+	}
+
+	land_morale = 0.15
+	global_manpower_modifier = 0.5
+	land_forcelimit_modifier = 1.5
+	land_maintenance_modifier = -0.50
+	manpower_recovery_speed = 0.50
+	discipline = 0.10
+	infantry_power = 0.10
+	cavalry_power = 0.10
+	global_tax_modifier = 0.50
+	enemy_core_creation = 1.0
+	trade_efficiency = 0.10
+	core_creation = -0.33
+	reinforce_cost_modifier = -0.5
+}
+
+rise_of_ottomans2 = {
+	potential = {
+		OR = { 
+			tag = OSM
+			tag = TUR
+		}
+		ai = yes
+		primary_culture = turkish
+		normal_or_historical_nations = yes
+		NOT  = { has_global_flag = ottoman_empire_formed }
+		NOT = { num_of_cities = 24 }
+		is_free_or_tributary_trigger = yes
+	}
+
+	trigger = {
+		NOT = { is_year = 1450 }
+		NOT = { num_of_cities = 24 }
+		OR = {
+			num_of_cities = 12
+			is_year = 1375
+		}
+	}
+
+	land_morale = 0.10
+	global_manpower_modifier = 0.33
+	land_forcelimit_modifier = 0.75
+	land_maintenance_modifier = -0.33
+	manpower_recovery_speed = 0.33
+	discipline = 0.06
+	infantry_power = 0.06
+	cavalry_power = 0.06
+	global_tax_modifier = 0.33
+	enemy_core_creation = 0.66
+	trade_efficiency = 0.06
+	core_creation = -0.25
+	reinforce_cost_modifier = -0.33
+}
+
+rise_of_ottomans3 = {
+	potential = {
+		OR = { 
+			tag = OSM
+			tag = TUR
+		}
+		ai = yes
+		primary_culture = turkish
+		normal_or_historical_nations = yes
+		OR = {
+			NOT  = { has_global_flag = ottoman_empire_formed }
+			NOT = { num_of_cities = 35 }
+		}
+		is_free_or_tributary_trigger = yes
+	}
+
+	trigger = {
+		NOT = { is_year = 1500 }
+		NOT = { num_of_cities = 35 }
+		OR = {
+			num_of_cities = 24
+			is_year = 1450
+		}
+	}
+
+	land_morale = 0.05
+	global_manpower_modifier = 0.17
+	land_forcelimit_modifier = 0.30
+	land_maintenance_modifier = -0.17
+	manpower_recovery_speed = 0.17
+	discipline = 0.03
+	infantry_power = 0.03
+	cavalry_power = 0.03
+	global_tax_modifier = 0.17
+	enemy_core_creation = 0.33
+	trade_efficiency = 0.03
+	core_creation = -0.10
+	reinforce_cost_modifier = -0.20
+}
+
+rise_of_turks = {
+	potential = {	
+		primary_culture = turkish
+		normal_or_historical_nations = yes
+		NOT = { has_global_flag = ottoman_empire_formed }
+		is_free_or_tributary_trigger = yes
+		NOT = { tag = OSM }
+		NOT = { tag = TUR }
+	}
+
+	trigger = {
+		NOT = { num_of_cities = 10 }
+		NOT = { is_year = 1400 }
+	}
+
+	land_forcelimit_modifier = 0.5
+	land_maintenance_modifier = -0.33
+	global_tax_modifier = 1.0
+	core_creation = -0.5
+	diplomatic_upkeep = -3
+}
+
+#######################
+# CRUSADERS & KNIGHTS #
+#######################
+
+crusader_state = {
+	potential = {
+		OR = {
+			tag = KOJ
+			tag = CYP
+			tag = NAX
+			tag = ATH
+			tag = ACH
+			tag = MOR
+			tag = CRT
+		}
+		normal_or_historical_nations = yes
+	}
+
+	trigger = {
+		religion = catholic
+		NOT = { overlord = { religion_group = muslim } }
+	}
+
+	tolerance_own = 1
+	tolerance_heathen = -2
+	global_unrest = -4
+	land_morale = 0.1
+	land_forcelimit = 3
+	global_manpower_modifier = 0.5
+	naval_forcelimit = 5
+	infantry_cost = -0.25
+	cavalry_cost = -0.25
+	army_tradition = 0.03
+	religious_unity = 0.25
+}	
+
+KoSJ_AI_1_Province = {
+	potential = {
+		tag = KNI
+		normal_or_historical_nations = yes
+		ai = yes
+	}
+
+	trigger = {
+		NOT = { num_of_cities = 2 }
+	}
+
+	war_exhaustion = -0.1
+	global_unrest = -10 #Help Prevent Religios Rebels from Forming and changing Knights to non-Catholic
+}
+
+KoSJ_AI_2_Province = {
+	potential = {
+		tag = KNI
+		normal_or_historical_nations = yes
+		ai = yes
+	}
+
+	trigger = {
+		num_of_cities = 2
+		NOT = { num_of_cities = 3 }
+	}
+	
+	war_exhaustion = -0.07
+	global_unrest = -6 #Help Prevent Religios Rebels from Forming and changing Knights to non-Catholic
+}
+
+knights_fleet1 = {
+	potential = {
+		tag = KNI
+		normal_or_historical_nations = yes
+	}
+	
+	trigger = {
+		NOT = { num_of_cities = 3 }
+	}
+	
+	naval_forcelimit_modifier = 0.75
+	naval_maintenance_modifier = -0.15
+}
+
+knights_fleet2 = {
+	potential = {
+		tag = KNI
+		normal_or_historical_nations = yes
+	}
+	
+	trigger = {
+		NOT = { num_of_cities = 6 }
+	}
+	
+	naval_forcelimit_modifier = 0.35
+	naval_maintenance_modifier = -0.075
+}
+
+# Balkans relations
+croatian_compromise = {
+	potential = {
+		tag = HUN
+		normal_or_historical_nations = yes
+		CRO = { exists = yes }
+	}
+
+	trigger = {
+		CRO = { 
+			is_subject_of = HUN
+			has_opinion = { who = HUN value = 50 } 
+		}
+	}
+
+	global_manpower_modifier = 0.05
+	global_tax_modifier = 0.05
+	prestige = 0.5
+	free_leader_pool = 1
+	legitimacy = -0.05
+	stability_cost_modifier = 0.1
+	naval_forcelimit = -2
+}
+
+hungarian_compromise = {
+	potential = {
+		tag = CRO
+		normal_or_historical_nations = yes
+		HUN = { exists = yes }
+	}
+
+	trigger = {
+		is_subject_of = HUN
+	}
+
+	stability_cost_modifier = -0.15
+	trade_efficiency = 0.05
+}
+
+peace_of_westphalia_enacted = {
+	potential = {
+		capital_scope = { continent = europe }
+		is_religion_enabled = protestant
+	}
+
+	trigger = {
+		OR = {
+			hre_religion_treaty = yes
+			has_global_flag = peace_of_westphalia
+		}
+	}
+	
+	tolerance_heretic = 2
+}
+
+mongol_tolerance = {
+	potential = {
+		OR = {
+			tag = YUN
+			government = steppe_horde
+		}
+		NOT = { religion_group = muslim }
+	}
+	
+	trigger = { stability = -2 }
+	
+	tolerance_heretic = 2
+	tolerance_heathen = 3
+}
+
+#Stop Swedish AI from colonizing while country is in turmoil
+swedish_troubles = {
+	potential = {
+		tag = SWE
+		ai = yes
+		was_player = no
+	}
+	
+	trigger = {
+		OR = {
+			AND = {
+				has_ruler_flag = king_birger
+				NOT = { is_year = 1325 }
+			}
+			has_country_flag = swedish_interregnum
+		}
+	}
+	
+	colonists = -1
+}
+
+# Hansa Kontors
+hansa_kontor_1 = {
+	potential = {
+		event_target:hansa_leader_tag = { tag = ROOT }
+		NOT = { check_variable = { which = kontor_count value = 15 }}
+	}
+
+	trigger = {
+		check_variable = { which = kontor_count value = 5 }
+		NOT = { check_variable = { which = kontor_count value = 10 } }
+	}
+
+	global_trade_power = 0.10
+}
+
+hansa_kontor_2 = {
+	potential = {
+		event_target:hansa_leader_tag = { tag = ROOT }
+	}
+
+	trigger = {
+		check_variable = { which = kontor_count value = 10 }
+		NOT = { check_variable = { which = kontor_count value = 15 } }
+	}
+
+	global_trade_power = 0.20
+}
+
+hansa_kontor_3 = {
+	potential = {
+		event_target:hansa_leader_tag = { tag = ROOT }
+		check_variable = { which = kontor_count value = 10 }
+	}
+
+	trigger = {
+		check_variable = { which = kontor_count value = 15 }
+	}
+
+	global_trade_power = 0.30
+}
+
+##################################
+#  The Pentarchy 
+##################################
+
+orthodox_pentarchy = {
+	potential = {
+		religion = orthodox 
+		normal_or_historical_nations = yes
+	}
+
+	trigger = {
+		227 = { religion = orthodox }
+		588 = { religion = orthodox }
+		1619 = { religion = orthodox }
+		1611 = { religion = orthodox }
+		1635 = { religion = orthodox }
+	}
+
+	global_missionary_strength = 0.01
+	global_unrest = -1
+	#icon = 9
+	
+}
+
+catholic_pentarchy = {
+	potential = {
+		religion = catholic
+		normal_or_historical_nations = yes
+	}
+
+	trigger = {
+		227 = { religion = orthodox }
+		588 = { religion = orthodox }
+		1619 = { religion = orthodox }
+		1611 = { religion = orthodox }
+		1635 = { religion = orthodox }
+		OR = {
+			PAP = { overlord = { religion = orthodox } }
+			PAP = { religion = orthodox }
+			NOT = { exists = PAP }
+		}
+	}
+	
+	global_unrest = 1
+	global_missionary_strength = -0.02
+	tolerance_heretic = -4
+	religious_unity = -0.15
+	#icon = 9
+}	
+
+owns_pentarchy = { 
+	potential = {
+		religion = orthodox
+		normal_or_historical_nations = yes
+	}
+
+	trigger = {
+		owns = 227 	# Rome
+		owns = 588 	# Constantinople
+		owns = 1619 	# Aleppo
+		owns = 1611 	# Jerusalem
+		owns = 1635 	# Alexandria
+		227 = { religion = orthodox }
+		588 = { religion = orthodox }
+		1619 = { religion = orthodox }
+		1611 = { religion = orthodox }
+		1635 = { religion = orthodox }
+	}
+	
+	prestige = 0.5
+	missionaries = 1
+	legitimacy = 1
+	#icon = 9
+}
+
+########
+# Ages #
+########
+
+age_medieval_base = { 
+	potential = {
+	}
+
+	trigger = {
+		current_age = late_medieval_age
+	}
+	
+	yearly_corruption = 0.5
+}
+
+age_discovery_base = { 
+	potential = {
+	}
+
+	trigger = {
+		current_age = age_of_discovery
+	}
+	
+	yearly_corruption = 0.25
+}
+
+age_reformation_base = { 
+	potential = {
+	}
+
+	trigger = {
+		current_age = age_of_reformation
+	}
+	
+	ae_impact = -0.15
+	core_creation = -0.075
+	province_warscore_cost = -0.075
+}
+
+age_absolutism_base = { 
+	potential = {
+	}
+
+	trigger = {
+		current_age = age_of_absolutism
+	}
+	
+	ae_impact = -0.33
+	core_creation = -0.15
+	province_warscore_cost = -0.15
+}
+
+age_revolutions_base = { 
+	potential = {
+	}
+
+	trigger = {
+		current_age = age_of_revolutions
+	}
+	
+	ae_impact = -0.5
+	core_creation = -0.25
+	province_warscore_cost = -0.25
+}
+
+############
+# Colonies #
+############
+
+vef_indentured_servitude = { 
+	potential = {
+		num_of_colonists = 1
+	}
+
+	trigger = {
+		check_variable = { which = vef_rule_law value = 40 }
+	}
+	
+	global_colonial_growth = 15
+}

@@ -1,0 +1,20 @@
+﻿l_english:
+
+ #Replacement for vanilla modifiers_l_english.yml
+ 
+ HEAVYSHIP_POWER: "Heavy Warship Combat Ability"
+ LIGHTSHIP_POWER: "Trade Ship Combat Ability"
+ TRANSPORT_POWER: "Light Warship Combat Ability"
+ insane_ruler: "Insane Ruler"
+ desc_insane_ruler: "The ruler's mental illness has affected, among many things, his chance of producing an heir."
+ tur_janissary_decadence_1: "Janissary Decadence"
+ desc_tur_janissary_decadence_1: "Aware of their own importance, the Janissaries have become greedy and decadent, notorious for their corruption rather than their discipline."
+ tur_janissary_decadence_2: "Janissary Decadence"
+ desc_tur_janissary_decadence_2: "Aware of their own importance, the Janissaries have become greedy and decadent, notorious for their corruption rather than their discipline."
+ tur_janissary_decadence_3: "Janissary Decadence"
+ desc_tur_janissary_decadence_3: "Aware of their own importance, the Janissaries have become greedy and decadent, notorious for their corruption rather than their discipline."
+ golden_age_of_timbuktu: "Golden Age of Timbuktu"
+ desc_golden_age_of_timbuktu: "Askia the Great opened religious schools and astronomical observatories. He encouraged trade and established an efficient bureaucracy."
+ tur_janissaries_salary: "Greedy Janissaries"
+ desc_tur_janissaries_salary: "The greedy Janissaries demand that the State recompensate them for the recent lack of plunder."
+ 

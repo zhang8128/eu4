@@ -1,0 +1,1848 @@
+#VeF Policies Reimagined - These policies are the general focus groups for your nation.
+#aka Operation Guilty Spark
+#aka Policaust
+
+vef_production = { # The base policy that anyone can enact as long as they have the proper tech level.
+
+	monarch_power = ADM
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		NOT = {
+			OR = { # Hidden if a better version is available.
+				full_idea_group = economic_ideas
+				full_idea_group = mercantilist_ideas
+				full_idea_group = martial_ideas
+			}
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = economic_ideas
+			has_idea_group = religious_ideas
+			has_idea_group = innovativeness_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_productionsa
+				has_active_policy = vef_productionsb
+				has_active_policy = vef_productionf
+				has_active_policy = vef_trade
+				has_active_policy = vef_tradesa
+				has_active_policy = vef_tradesb
+				has_active_policy = vef_tradef
+			}
+		}
+	}
+	
+	production_efficiency = 0.2
+	trade_efficiency = -0.10
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			OR = {
+				has_idea_group = land_trade_ideas
+				has_idea_group = free_trade_ideas
+			}
+		}		
+		modifier = {
+			factor = 0
+			OR = {
+				full_idea_group = economic_ideas
+				full_idea_group = mercantilist_ideas
+			}
+		}			
+	}
+}
+
+vef_productionsa = {
+
+	monarch_power = ADM
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = economic_ideas
+	}
+	
+	allow = {
+		full_idea_group = economic_ideas
+		OR = {
+			has_idea_group = economic_ideas
+			has_idea_group = religious_ideas
+			has_idea_group = innovativeness_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_production
+				has_active_policy = vef_productionsb
+				has_active_policy = vef_productionf
+				has_active_policy = vef_trade
+				has_active_policy = vef_tradesa
+				has_active_policy = vef_tradesb
+				has_active_policy = vef_tradef
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	production_efficiency = 0.2
+	trade_efficiency = -0.1
+	build_cost = -0.1
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_productionsb = {
+
+	monarch_power = ADM
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = mercantilist_ideas
+	}
+	
+	allow = {
+		full_idea_group = mercantilist_ideas
+		OR = {
+			has_idea_group = economic_ideas
+			has_idea_group = religious_ideas
+			has_idea_group = innovativeness_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_production
+				has_active_policy = vef_productionsa
+				has_active_policy = vef_productionf
+				has_active_policy = vef_trade
+				has_active_policy = vef_tradesa
+				has_active_policy = vef_tradesb
+				has_active_policy = vef_tradef
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	production_efficiency = 0.2
+	trade_efficiency = -0.1
+	development_cost = -0.1
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_productionf = {
+
+	monarch_power = ADM
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = martial_ideas
+	}
+	
+	allow = {
+		full_idea_group = martial_ideas
+		OR = {
+			has_idea_group = economic_ideas
+			has_idea_group = religious_ideas
+			has_idea_group = innovativeness_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_production
+				has_active_policy = vef_productionsa
+				has_active_policy = vef_productionsb
+				has_active_policy = vef_trade
+				has_active_policy = vef_tradesa
+				has_active_policy = vef_tradesb
+				has_active_policy = vef_tradef
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	production_efficiency = 0.2
+	trade_efficiency = -0.1
+	global_regiment_cost = -0.1
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_trade = { # The base policy that anyone can enact as long as they have the proper tech level.
+
+	monarch_power = DIP
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		NOT = {
+			OR = { # Hidden if a better version is available.
+				full_idea_group = land_trade_ideas
+				full_idea_group = free_trade_ideas
+				full_idea_group = plutocracy_ideas
+			}
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = mercantilist_ideas
+			has_idea_group = free_trade_ideas
+			has_idea_group = land_trade_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_tradesa
+				has_active_policy = vef_tradesb
+				has_active_policy = vef_tradef
+				has_active_policy = vef_production
+				has_active_policy = vef_productionsa
+				has_active_policy = vef_productionsb
+				has_active_policy = vef_productionf
+			}
+		}
+	}
+	
+	trade_efficiency = 0.2
+	production_efficiency = -0.1
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			OR = {
+				has_idea_group = economic_ideas
+				has_idea_group = mercantilist_ideas
+			}
+		}		
+		modifier = {
+			factor = 0
+			OR = {
+				full_idea_group = land_trade_ideas
+				full_idea_group = free_trade_ideas
+			}
+		}			
+	}
+}
+
+vef_tradesa = {
+
+	monarch_power = DIP
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = land_trade_ideas
+	}
+	
+	allow = {
+		full_idea_group = land_trade_ideas
+		OR = {
+			has_idea_group = mercantilist_ideas
+			has_idea_group = free_trade_ideas
+			has_idea_group = land_trade_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_trade
+				has_active_policy = vef_tradesb
+				has_active_policy = vef_tradef
+				has_active_policy = vef_production
+				has_active_policy = vef_productionsa
+				has_active_policy = vef_productionsb
+				has_active_policy = vef_productionf
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	trade_efficiency = 0.2
+	production_efficiency = -0.1
+	caravan_power = 0.1
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_tradesb = {
+
+	monarch_power = DIP
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = free_trade_ideas
+	}
+	
+	allow = {
+		full_idea_group = free_trade_ideas
+		OR = {
+			has_idea_group = mercantilist_ideas
+			has_idea_group = free_trade_ideas
+			has_idea_group = land_trade_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_trade
+				has_active_policy = vef_tradesa
+				has_active_policy = vef_tradef
+				has_active_policy = vef_production
+				has_active_policy = vef_productionsa
+				has_active_policy = vef_productionsb
+				has_active_policy = vef_productionf
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	trade_efficiency = 0.2
+	production_efficiency = -0.1
+	global_trade_power = 0.1
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_tradef = {
+
+	monarch_power = DIP
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = plutocracy_ideas
+	}
+	
+	allow = {
+		full_idea_group = plutocracy_ideas
+		OR = {
+			has_idea_group = mercantilist_ideas
+			has_idea_group = free_trade_ideas
+			has_idea_group = land_trade_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_trade
+				has_active_policy = vef_tradesa
+				has_active_policy = vef_tradesb
+				has_active_policy = vef_production
+				has_active_policy = vef_productionsa
+				has_active_policy = vef_productionsb
+				has_active_policy = vef_productionf
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	trade_efficiency = 0.2
+	production_efficiency = -0.1
+	merchants = 1
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_diplomacy = { # The base policy that anyone can enact as long as they have the proper tech level.
+
+	monarch_power = DIP
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		NOT = {
+			OR = { # Hidden if a better version is available.
+				full_idea_group = diplomatic_ideas
+				full_idea_group = intimidatory_ideas
+				full_idea_group = spy_ideas
+				full_idea_group = foreign_affairs_ideas
+			}
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = diplomatic_ideas
+			has_idea_group = intimidatory_ideas
+			has_idea_group = spy_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_diplomacysa
+				has_active_policy = vef_diplomacysb
+				has_active_policy = vef_diplomacyf
+				has_active_policy = vef_warfare
+				has_active_policy = vef_warfaresa
+				has_active_policy = vef_warfaresb
+				has_active_policy = vef_warfaref
+			}
+		}
+	}
+	
+	diplomatic_upkeep = 2
+	manpower_recovery_speed = -0.25
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			OR = {
+				has_idea_group = offensive_ideas
+				has_idea_group = defensive_ideas
+			}
+		}		
+		modifier = {
+			factor = 0
+			OR = {
+				full_idea_group = diplomatic_ideas
+				full_idea_group = intimidatory_ideas
+				full_idea_group = spy_ideas
+			}
+		}			
+	}
+}
+
+vef_diplomacysa = {
+
+	monarch_power = DIP
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		OR = {
+			has_idea_group = diplomatic_ideas
+			has_idea_group = intimidatory_ideas
+		}
+	}
+	
+	allow = {
+		OR = {
+			full_idea_group = diplomatic_ideas
+			full_idea_group = intimidatory_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_diplomacy
+				has_active_policy = vef_diplomacysb
+				has_active_policy = vef_diplomacyf
+				has_active_policy = vef_warfare
+				has_active_policy = vef_warfaresa
+				has_active_policy = vef_warfaresb
+				has_active_policy = vef_warfaref
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	diplomatic_upkeep = 2
+	manpower_recovery_speed = -0.25
+	diplomatic_reputation = 2
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_diplomacysb = {
+
+	monarch_power = DIP
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = spy_ideas
+	}
+	
+	allow = {
+		full_idea_group = spy_ideas
+		OR = {
+			has_idea_group = diplomatic_ideas
+			has_idea_group = intimidatory_ideas
+			has_idea_group = spy_ideas
+		}
+		OR = {
+			has_idea_group = mercantilist_ideas
+			has_idea_group = free_trade_ideas
+			has_idea_group = land_trade_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_diplomacy
+				has_active_policy = vef_diplomacysa
+				has_active_policy = vef_diplomacyf
+				has_active_policy = vef_warfare
+				has_active_policy = vef_warfaresa
+				has_active_policy = vef_warfaresb
+				has_active_policy = vef_warfaref
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	diplomatic_upkeep = 2
+	manpower_recovery_speed = -0.25
+	spy_offence = 0.25
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_diplomacyf = { # When active grants 25% boost to vassal integration. vef_vassal.1
+
+	monarch_power = DIP
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = foreign_affairs_ideas
+	}
+	
+	allow = {
+		full_idea_group = foreign_affairs_ideas
+		OR = {
+			has_idea_group = diplomatic_ideas
+			has_idea_group = intimidatory_ideas
+			has_idea_group = spy_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_diplomacy
+				has_active_policy = vef_diplomacysa
+				has_active_policy = vef_diplomacysb
+				has_active_policy = vef_warfare
+				has_active_policy = vef_warfaresa
+				has_active_policy = vef_warfaresb
+				has_active_policy = vef_warfaref
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	diplomatic_upkeep = 2
+	manpower_recovery_speed = -0.25
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_warfare = { # The base policy that anyone can enact as long as they have the proper tech level.
+
+	monarch_power = MIL
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		NOT = {
+			OR = { # Hidden if a better version is available.
+				full_idea_group = offensive_ideas
+				full_idea_group = defensive_ideas
+				full_idea_group = artillery_ideas
+				full_idea_group = gf1_ideas
+				full_idea_group = mm1_ideas
+				full_idea_group = stratocracy_ideas
+				
+			}
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = quality_ideas
+			has_idea_group = quantity_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_warfaresa
+				has_active_policy = vef_warfaresb
+				has_active_policy = vef_warfaref
+				has_active_policy = vef_diplomacy
+				has_active_policy = vef_diplomacysa
+				has_active_policy = vef_diplomacysb
+				has_active_policy = vef_diplomacyf
+			}
+		}
+	}
+	
+	manpower_recovery_speed = 0.25
+	diplomatic_upkeep = -1
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			OR = {
+				has_idea_group = diplomatic_ideas
+				has_idea_group = spy_ideas
+			}
+		}		
+		modifier = {
+			factor = 0
+			OR = {
+				full_idea_group = offensive_ideas
+				full_idea_group = defensive_ideas
+				full_idea_group = artillery_ideas
+				full_idea_group = gf1_ideas
+				full_idea_group = mm1_ideas
+			}
+		}			
+	}
+}
+
+vef_warfaresa = {
+
+	monarch_power = MIL
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		OR = {
+			has_idea_group = offensive_ideas
+			has_idea_group = defensive_ideas
+			has_idea_group = artillery_ideas
+		}
+	}
+	
+	allow = {
+		OR = {
+			full_idea_group = offensive_ideas
+			full_idea_group = defensive_ideas
+			full_idea_group = artillery_ideas
+		} 
+		NOT = {
+			OR = {
+				has_active_policy = vef_warfare
+				has_active_policy = vef_warfaresb
+				has_active_policy = vef_warfaref
+				has_active_policy = vef_diplomacy
+				has_active_policy = vef_diplomacysa
+				has_active_policy = vef_diplomacysb
+				has_active_policy = vef_diplomacyf
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	manpower_recovery_speed = 0.25
+	diplomatic_upkeep = -1
+	global_manpower_modifier = 0.10
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_warfaresb = {
+
+	monarch_power = MIL
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		OR = {
+			has_idea_group = gf1_ideas
+			has_idea_group = mm1_ideas
+		}
+	}
+	
+	allow = {
+		OR = {
+			full_idea_group = gf1_ideas
+			full_idea_group = mm1_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_warfare
+				has_active_policy = vef_warfaresa
+				has_active_policy = vef_warfaref
+				has_active_policy = vef_diplomacy
+				has_active_policy = vef_diplomacysa
+				has_active_policy = vef_diplomacysb
+				has_active_policy = vef_diplomacyf
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	manpower_recovery_speed = 0.25
+	diplomatic_upkeep = -1
+	global_sailors_modifier = 0.50
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_warfaref = {
+
+	monarch_power = MIL
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = stratocracy_ideas
+	}
+	
+	allow = {
+		full_idea_group = stratocracy_ideas
+		OR = {
+			has_idea_group = quality_ideas
+			has_idea_group = quantity_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_warfare
+				has_active_policy = vef_warfaresa
+				has_active_policy = vef_warfaresb
+				has_active_policy = vef_diplomacy
+				has_active_policy = vef_diplomacysa
+				has_active_policy = vef_diplomacysb
+				has_active_policy = vef_diplomacyf
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	manpower_recovery_speed = 0.25
+	diplomatic_upkeep = -1
+	free_leader_pool = 2
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_colonial = { # The base policy that anyone can enact as long as they have the proper tech level.
+
+	monarch_power = ADM
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		NOT = {
+			OR = { # Hidden if a better version is available.
+				full_idea_group = exploration_ideas
+				full_idea_group = expansion_ideas
+				full_idea_group = thalassocracy_ideas
+			}
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = exploration_ideas
+			has_idea_group = expansion_ideas
+			has_idea_group = imperial_ambition_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_colonialsa
+				has_active_policy = vef_colonialsb
+				has_active_policy = vef_colonialf
+				has_active_policy = vef_homefront
+				has_active_policy = vef_homefrontsa
+				has_active_policy = vef_homefrontsb
+				has_active_policy = vef_homefrontf
+			}
+		}
+	}
+	
+	range = 0.15
+	defensiveness = -0.1
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = { has_idea_group = exploration_ideas }
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				full_idea_group = exploration_ideas
+				full_idea_group = expansion_ideas
+			}
+		}			
+	}
+}
+
+vef_colonialsa = {
+
+	monarch_power = ADM
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = exploration_ideas
+	}
+	
+	allow = {
+		full_idea_group = exploration_ideas
+		OR = {
+			has_idea_group = exploration_ideas
+			has_idea_group = expansion_ideas
+			has_idea_group = imperial_ambition_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_colonial
+				has_active_policy = vef_colonialsb
+				has_active_policy = vef_colonialf
+				has_active_policy = vef_homefront
+				has_active_policy = vef_homefrontsa
+				has_active_policy = vef_homefrontsb
+				has_active_policy = vef_homefrontf
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	range = 0.15
+	defensiveness = -0.1
+	colonist_placement_chance = 0.15
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_colonialsb = {
+
+	monarch_power = ADM
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = expansion_ideas
+	}
+	
+	allow = {
+		full_idea_group = expansion_ideas
+		OR = {
+			has_idea_group = exploration_ideas
+			has_idea_group = expansion_ideas
+			has_idea_group = imperial_ambition_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_colonial
+				has_active_policy = vef_colonialsa
+				has_active_policy = vef_colonialf
+				has_active_policy = vef_homefront
+				has_active_policy = vef_homefrontsa
+				has_active_policy = vef_homefrontsb
+				has_active_policy = vef_homefrontf
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	range = 0.15
+	defensiveness = -0.1
+	colonists = 1
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_colonialf = {
+
+	monarch_power = ADM
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = imperial_ambition_ideas
+	}
+	
+	allow = {
+		full_idea_group = imperial_ambition_ideas
+		OR = {
+			has_idea_group = exploration_ideas
+			has_idea_group = expansion_ideas
+			has_idea_group = imperial_ambition_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_colonial
+				has_active_policy = vef_colonialsa
+				has_active_policy = vef_colonialsb
+				has_active_policy = vef_homefront
+				has_active_policy = vef_homefrontsa
+				has_active_policy = vef_homefrontsb
+				has_active_policy = vef_homefrontf
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	range = 0.15
+	defensiveness = -0.1
+	global_colonial_growth = 15
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_homefront = { # The base policy that anyone can enact as long as they have the proper tech level.
+
+	monarch_power = MIL
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		NOT = {
+			OR = { # Hidden if a better version is available.
+				full_idea_group = cultural_unity_ideas
+				full_idea_group = quality_ideas
+				full_idea_group = quantity_ideas
+				full_idea_group = imperial_ambition_ideas
+			}
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = quality_ideas
+			has_idea_group = quantity_ideas
+			has_idea_group = cultural_unity_ideas
+			has_idea_group = imperial_ambition_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_homefrontsa
+				has_active_policy = vef_homefrontsb
+				has_active_policy = vef_homefrontf
+				has_active_policy = vef_colonial
+				has_active_policy = vef_colonialsa
+				has_active_policy = vef_colonialsb
+				has_active_policy = vef_colonialf
+			}
+		}
+	}
+	
+	defensiveness = 0.1
+	range = -0.15
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			has_idea_group = exploration_ideas
+		}		
+		modifier = {
+			factor = 0
+			OR = {
+				full_idea_group = cultural_unity_ideas
+				full_idea_group = quality_ideas
+				full_idea_group = quantity_ideas
+			}
+		}			
+	}
+}
+
+vef_homefrontsa = {
+
+	monarch_power = MIL
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = cultural_unity_ideas
+	}
+	
+	allow = {
+		full_idea_group = cultural_unity_ideas
+		OR = {
+			has_idea_group = quality_ideas
+			has_idea_group = quantity_ideas
+			has_idea_group = cultural_unity_ideas
+			has_idea_group = imperial_ambition_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_homefront
+				has_active_policy = vef_homefrontsb
+				has_active_policy = vef_homefrontf
+				has_active_policy = vef_colonial
+				has_active_policy = vef_colonialsa
+				has_active_policy = vef_colonialsb
+				has_active_policy = vef_colonialf
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	defensiveness = 0.1
+	range = -0.15
+	global_unrest = -2
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_homefrontsb = {
+
+	monarch_power = MIL
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		OR = {
+			has_idea_group = quality_ideas
+			has_idea_group = quantity_ideas
+		}
+	}
+	
+	allow = {
+		OR = {
+			full_idea_group = quality_ideas
+			full_idea_group = quantity_ideas
+		} 
+		NOT = {
+			OR = {
+				has_active_policy = vef_homefront
+				has_active_policy = vef_homefrontsa
+				has_active_policy = vef_homefrontf
+				has_active_policy = vef_colonial
+				has_active_policy = vef_colonialsa
+				has_active_policy = vef_colonialsb
+				has_active_policy = vef_colonialf
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	defensiveness = 0.1
+	range = -0.15
+	fort_maintenance_modifier = -0.15
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_homefrontf = { # When active you receive +2.5 to monthly national stability. vef_stability.1
+
+	monarch_power = MIL
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = thalassocracy_ideas
+	}
+	
+	allow = {
+		full_idea_group = thalassocracy_ideas
+		OR = {
+			has_idea_group = quality_ideas
+			has_idea_group = quantity_ideas
+			has_idea_group = cultural_unity_ideas
+			has_idea_group = imperial_ambition_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_homefront
+				has_active_policy = vef_homefrontsa
+				has_active_policy = vef_homefrontsb
+				has_active_policy = vef_colonial
+				has_active_policy = vef_colonialsa
+				has_active_policy = vef_colonialsb
+				has_active_policy = vef_colonialf
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	defensiveness = 0.1
+	range = -0.15
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_purity = { # The base policy that anyone can enact as long as they have the proper tech level.
+
+	monarch_power = MIL
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		NOT = {
+			OR = { # Hidden if a better version is available.
+				full_idea_group = religious_ideas
+				full_idea_group = administrative_ideas
+				full_idea_group = autocracy_ideas
+			}
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = religious_ideas
+			has_idea_group = administrative_ideas
+			has_idea_group = autocracy_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_puritysa
+				has_active_policy = vef_puritysb
+				has_active_policy = vef_purityf
+				has_active_policy = vef_tolerance
+				has_active_policy = vef_tolerancesa
+				has_active_policy = vef_tolerancesb
+				has_active_policy = vef_tolerancef
+			}
+		}
+	}
+	
+	global_missionary_strength = 0.015
+	tolerance_heretic = -2
+	tolerance_heathen = -2
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			religious_unity = 0.8
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				has_global_modifier_value = {
+					which = tolerance_heathen
+					value = 0.5
+				}
+				has_global_modifier_value = {
+					which = tolerance_heretic
+					value = 0.5
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			has_idea_group = innovativeness_ideas
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				full_idea_group = religious_ideas
+				full_idea_group = administrative_ideas
+			}
+		}
+		# 2+ heretic tolerance from national idea
+		modifier = {
+			factor = 0
+			OR = {
+				has_idea_group = KIV_ideas
+				has_idea_group = UTR_ideas
+				has_idea_group = ROM_ideas
+				has_idea_group = CTG_ideas
+				has_idea_group = ICE_ideas
+				has_idea_group = ARB_ideas
+				has_idea_group = kurdish_ideas
+				has_idea_group = NED_ideas
+				has_idea_group = FRA_ideas
+				has_idea_group = POL_ideas
+				has_idea_group = BUR_Ideas
+				has_idea_group = BOH_ideas
+				has_idea_group = PAL_ideas
+				has_idea_group = LIT_ideas
+				has_idea_group = SWI_ideas
+				has_idea_group = CYP_ideas
+				has_idea_group = BOS_ideas
+				has_idea_group = CAN_ideas
+				has_idea_group = THU_ideas
+			}
+		}
+		# 3+ heathen tolerance from national idea
+		modifier = {
+			factor = 0
+			OR = {
+				has_idea_group = TUR_ideas
+				has_idea_group = MUG_ideas
+				has_idea_group = BAH_ideas
+				has_idea_group = JNP_ideas
+				has_idea_group = bengali_ideas
+				has_idea_group = gujarati_ideas
+				has_idea_group = indian_muslim_ideas
+			}
+		}
+	}
+}
+
+vef_puritysa = {
+
+	monarch_power = MIL
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = religious_ideas
+	}
+	
+	allow = {
+		full_idea_group = religious_ideas
+		OR = {
+			has_idea_group = religious_ideas
+			has_idea_group = administrative_ideas
+			has_idea_group = autocracy_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_purity
+				has_active_policy = vef_puritysb
+				has_active_policy = vef_purityf
+				has_active_policy = vef_tolerance
+				has_active_policy = vef_tolerancesa
+				has_active_policy = vef_tolerancesb
+				has_active_policy = vef_tolerancef
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	global_missionary_strength = 0.015
+	tolerance_heretic = -2
+	tolerance_heathen = -2
+	missionaries = 1
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			religious_unity = 0.8
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				has_global_modifier_value = {
+					which = tolerance_heathen
+					value = 0.5
+				}
+				has_global_modifier_value = {
+					which = tolerance_heretic
+					value = 0.5
+				}
+			}
+		}
+		# 2+ heretic tolerance from national idea
+		modifier = {
+			factor = 0
+			OR = {
+				has_idea_group = KIV_ideas
+				has_idea_group = UTR_ideas
+				has_idea_group = ROM_ideas
+				has_idea_group = CTG_ideas
+				has_idea_group = ICE_ideas
+				has_idea_group = ARB_ideas
+				has_idea_group = kurdish_ideas
+				has_idea_group = NED_ideas
+				has_idea_group = FRA_ideas
+				has_idea_group = POL_ideas
+				has_idea_group = BUR_Ideas
+				has_idea_group = BOH_ideas
+				has_idea_group = PAL_ideas
+				has_idea_group = LIT_ideas
+				has_idea_group = SWI_ideas
+				has_idea_group = CYP_ideas
+				has_idea_group = BOS_ideas
+				has_idea_group = CAN_ideas
+				has_idea_group = THU_ideas
+			}
+		}
+		# 3+ heathen tolerance from national idea
+		modifier = {
+			factor = 0
+			OR = {
+				has_idea_group = TUR_ideas
+				has_idea_group = MUG_ideas
+				has_idea_group = BAH_ideas
+				has_idea_group = JNP_ideas
+				has_idea_group = bengali_ideas
+				has_idea_group = gujarati_ideas
+				has_idea_group = indian_muslim_ideas
+			}
+		}
+	}
+}
+
+vef_puritysb = {
+
+	monarch_power = MIL
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = administrative_ideas
+	}
+	
+	allow = {
+		full_idea_group = administrative_ideas
+		OR = {
+			has_idea_group = religious_ideas
+			has_idea_group = administrative_ideas
+			has_idea_group = autocracy_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_purity
+				has_active_policy = vef_puritysa
+				has_active_policy = vef_purityf
+				has_active_policy = vef_tolerance
+				has_active_policy = vef_tolerancesa
+				has_active_policy = vef_tolerancesb
+				has_active_policy = vef_tolerancef
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	global_missionary_strength = 0.015
+	tolerance_heretic = -2
+	tolerance_heathen = -2
+	hostile_attrition = 1
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			religious_unity = 0.8
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				has_global_modifier_value = {
+					which = tolerance_heathen
+					value = 0.5
+				}
+				has_global_modifier_value = {
+					which = tolerance_heretic
+					value = 0.5
+				}
+			}
+		}
+		# 2+ heretic tolerance from national idea
+		modifier = {
+			factor = 0
+			OR = {
+				has_idea_group = KIV_ideas
+				has_idea_group = UTR_ideas
+				has_idea_group = ROM_ideas
+				has_idea_group = CTG_ideas
+				has_idea_group = ICE_ideas
+				has_idea_group = ARB_ideas
+				has_idea_group = kurdish_ideas
+				has_idea_group = NED_ideas
+				has_idea_group = FRA_ideas
+				has_idea_group = POL_ideas
+				has_idea_group = BUR_Ideas
+				has_idea_group = BOH_ideas
+				has_idea_group = PAL_ideas
+				has_idea_group = LIT_ideas
+				has_idea_group = SWI_ideas
+				has_idea_group = CYP_ideas
+				has_idea_group = BOS_ideas
+				has_idea_group = CAN_ideas
+				has_idea_group = THU_ideas
+			}
+		}
+		# 3+ heathen tolerance from national idea
+		modifier = {
+			factor = 0
+			OR = {
+				has_idea_group = TUR_ideas
+				has_idea_group = MUG_ideas
+				has_idea_group = BAH_ideas
+				has_idea_group = JNP_ideas
+				has_idea_group = bengali_ideas
+				has_idea_group = gujarati_ideas
+				has_idea_group = indian_muslim_ideas
+			}
+		}
+	}
+}
+
+vef_purityf = { # When active will randomly convert your provinces to the state religion. vef_religion_spread.1
+
+	monarch_power = ADM
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = autocracy_ideas
+	}
+	
+	allow = {
+		full_idea_group = autocracy_ideas
+		OR = {
+			has_idea_group = religious_ideas
+			has_idea_group = administrative_ideas
+			has_idea_group = autocracy_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_purity
+				has_active_policy = vef_puritysa
+				has_active_policy = vef_puritysb
+				has_active_policy = vef_tolerance
+				has_active_policy = vef_tolerancesa
+				has_active_policy = vef_tolerancesb
+				has_active_policy = vef_tolerancef
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	global_missionary_strength = 0.015
+	tolerance_heretic = -2
+	tolerance_heathen = -2
+	
+	ai_will_do = {
+		modifier = {
+			factor = 0
+			religious_unity = 0.8
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				has_global_modifier_value = {
+					which = tolerance_heathen
+					value = 0.5
+				}
+				has_global_modifier_value = {
+					which = tolerance_heretic
+					value = 0.5
+				}
+			}
+		}
+		factor = 1
+		# 2+ heretic tolerance from national idea
+		modifier = {
+			factor = 0
+			OR = {
+				has_idea_group = KIV_ideas
+				has_idea_group = UTR_ideas
+				has_idea_group = ROM_ideas
+				has_idea_group = CTG_ideas
+				has_idea_group = ICE_ideas
+				has_idea_group = ARB_ideas
+				has_idea_group = kurdish_ideas
+				has_idea_group = NED_ideas
+				has_idea_group = FRA_ideas
+				has_idea_group = POL_ideas
+				has_idea_group = BUR_Ideas
+				has_idea_group = BOH_ideas
+				has_idea_group = PAL_ideas
+				has_idea_group = LIT_ideas
+				has_idea_group = SWI_ideas
+				has_idea_group = CYP_ideas
+				has_idea_group = BOS_ideas
+				has_idea_group = CAN_ideas
+				has_idea_group = THU_ideas
+			}
+		}
+		# 3+ heathen tolerance from national idea
+		modifier = {
+			factor = 0
+			OR = {
+				has_idea_group = TUR_ideas
+				has_idea_group = MUG_ideas
+				has_idea_group = BAH_ideas
+				has_idea_group = JNP_ideas
+				has_idea_group = bengali_ideas
+				has_idea_group = gujarati_ideas
+				has_idea_group = indian_muslim_ideas
+			}
+		}
+	}
+}
+
+vef_tolerance = { # The base policy that anyone can enact as long as they have the proper tech level.
+
+	monarch_power = DIP
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		NOT = {
+			OR = { # Hidden if a better version is available.
+				full_idea_group = innovativeness_ideas
+				full_idea_group = delegative_ideas
+				full_idea_group = democracy_ideas
+			}
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = innovativeness_ideas
+			has_idea_group = delegative_ideas
+			has_idea_group = democracy_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_tolerancesa
+				has_active_policy = vef_tolerancesb
+				has_active_policy = vef_tolerancef
+				has_active_policy = vef_purity
+				has_active_policy = vef_puritysa
+				has_active_policy = vef_puritysb
+				has_active_policy = vef_purityf
+			}
+		}
+	}
+	
+	tolerance_heretic = 2
+	tolerance_heathen = 2
+	global_missionary_strength = -0.015
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			has_idea_group = religious_ideas
+		}		
+		modifier = {
+			factor = 0
+			OR = {
+				full_idea_group = innovativeness_ideas
+				full_idea_group = delegative_ideas
+			}
+		}
+		modifier = {
+			factor = 0
+			has_global_modifier_value = {
+				which = tolerance_heathen
+				value = 2
+			}
+			has_global_modifier_value = {
+				which = tolerance_heretic
+				value = 2
+			}
+		}
+	}
+}
+
+vef_tolerancesa = {
+
+	monarch_power = DIP
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = innovativeness_ideas
+	}
+	
+	allow = {
+		full_idea_group = innovativeness_ideas
+		OR = {
+			has_idea_group = innovativeness_ideas
+			has_idea_group = delegative_ideas
+			has_idea_group = democracy_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_tolerance
+				has_active_policy = vef_tolerancesb
+				has_active_policy = vef_tolerancef
+				has_active_policy = vef_purity
+				has_active_policy = vef_puritysa
+				has_active_policy = vef_puritysb
+				has_active_policy = vef_purityf
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	tolerance_heretic = 2
+	tolerance_heathen = 2
+	global_missionary_strength = -0.015
+	religious_unity = 0.15
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			has_global_modifier_value = {
+				which = tolerance_heathen
+				value = 2
+			}
+			has_global_modifier_value = {
+				which = tolerance_heretic
+				value = 2
+			}
+		}
+	}
+}
+
+vef_tolerancesb = {
+
+	monarch_power = DIP
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = delegative_ideas
+	}
+	
+	allow = {
+		full_idea_group = delegative_ideas
+		OR = {
+			has_idea_group = innovativeness_ideas
+			has_idea_group = delegative_ideas
+			has_idea_group = democracy_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_tolerance
+				has_active_policy = vef_tolerancesa
+				has_active_policy = vef_tolerancef
+				has_active_policy = vef_purity
+				has_active_policy = vef_puritysa
+				has_active_policy = vef_puritysb
+				has_active_policy = vef_purityf
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	tolerance_heretic = 2
+	tolerance_heathen = 2
+	global_missionary_strength = -0.015
+	num_accepted_cultures = 2
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			has_global_modifier_value = {
+				which = tolerance_heathen
+				value = 2
+			}
+			has_global_modifier_value = {
+				which = tolerance_heretic
+				value = 2
+			}
+		}
+	}
+}
+
+vef_tolerancef = { # When active grants a small bonus to culture spread rate. vef_culture.2
+
+	monarch_power = DIP
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = democracy_ideas
+	}
+	
+	allow = {
+		full_idea_group = democracy_ideas
+		OR = {
+			has_idea_group = innovativeness_ideas
+			has_idea_group = delegative_ideas
+			has_idea_group = democracy_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_tolerance
+				has_active_policy = vef_tolerancesa
+				has_active_policy = vef_tolerancesb
+				has_active_policy = vef_purity
+				has_active_policy = vef_puritysa
+				has_active_policy = vef_puritysb
+				has_active_policy = vef_purityf
+			}
+		}
+		check_variable = { which = vef_governance which = central_management } # Inadequate bureaucracy means you can't handle it.
+		NOT = { government = despotic_monarchy }
+	}
+	
+	tolerance_heretic = 2
+	tolerance_heathen = 2
+	global_missionary_strength = -0.015
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			has_global_modifier_value = {
+				which = tolerance_heathen
+				value = 2
+			}
+			has_global_modifier_value = {
+				which = tolerance_heretic
+				value = 2
+			}
+		}
+	}
+}
+
+vef_bureaucractic = {
+
+	monarch_power = ADM
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		NOT = {
+			OR = { # Hidden if a better version is available.
+				full_idea_group = land_ideas
+				full_idea_group = mercenary_ideas
+				full_idea_group = standing_army_ideas
+				full_idea_group = drafted_army_ideas
+				full_idea_group = bureaucracy_ideas
+			}
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_idea_group = land_ideas
+			has_idea_group = mercenary_ideas
+			has_idea_group = standing_army_ideas
+			has_idea_group = drafted_army_ideas
+			has_idea_group = bureaucracy_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_bureaucracticsa
+				has_active_policy = vef_bureaucracticsb
+				has_active_policy = vef_bureaucracticf
+			}
+		}
+	}
+	
+	all_power_cost = -0.05
+	state_maintenance_modifier = 0.15
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			OR = {
+			full_idea_group = land_ideas
+			full_idea_group = mercenary_ideas
+			full_idea_group = standing_army_ideas
+			full_idea_group = drafted_army_ideas
+			full_idea_group = bureaucracy_ideas
+			}
+		}
+	}
+}
+
+vef_bureaucracticsa = {
+
+	monarch_power = ADM
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = land_ideas
+	}
+	
+	allow = {
+		full_idea_group = land_ideas
+		OR = {
+			has_idea_group = land_ideas
+			has_idea_group = mercenary_ideas
+			has_idea_group = standing_army_ideas
+			has_idea_group = drafted_army_ideas
+			has_idea_group = bureaucracy_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_bureaucractic
+				has_active_policy = vef_bureaucracticsb
+				has_active_policy = vef_bureaucracticf
+			}
+		}
+		NOT = { government = despotic_monarchy }
+	}
+	
+	all_power_cost = -0.05
+	state_maintenance_modifier = 0.15
+	global_autonomy = -0.15
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_bureaucracticsb = {
+
+	monarch_power = ADM
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		OR = {
+			has_idea_group = mercenary_ideas
+			has_idea_group = standing_army_ideas
+			has_idea_group = drafted_army_ideas
+		} 
+	}
+	
+	allow = {
+		OR = {
+			full_idea_group = mercenary_ideas
+			full_idea_group = standing_army_ideas
+			full_idea_group = drafted_army_ideas
+		} 
+		NOT = {
+			OR = {
+				has_active_policy = vef_bureaucractic
+				has_active_policy = vef_bureaucracticsa
+				has_active_policy = vef_bureaucracticf
+			}
+		}
+		NOT = { government = despotic_monarchy }
+	}
+	
+	all_power_cost = -0.05
+	state_maintenance_modifier = 0.15
+	war_exhaustion = -0.05
+	
+	ai_will_do = { factor = 1 }
+}
+
+vef_bureaucracticf = {
+
+	monarch_power = ADM
+
+	potential = {
+		is_nomad = no
+		is_tribal = no
+		has_idea_group = bureaucracy_ideas
+	}
+	
+	allow = {
+		full_idea_group = bureaucracy_ideas
+		OR = {
+			has_idea_group = land_ideas
+			has_idea_group = mercenary_ideas
+			has_idea_group = standing_army_ideas
+			has_idea_group = drafted_army_ideas
+			has_idea_group = bureaucracy_ideas
+		}
+		NOT = {
+			OR = {
+				has_active_policy = vef_bureaucractic
+				has_active_policy = vef_bureaucracticsa
+				has_active_policy = vef_bureaucracticsb
+			}
+		}
+		NOT = { government = despotic_monarchy }
+	}
+	
+	all_power_cost = -0.05
+	state_maintenance_modifier = 0.15
+	max_states = 5
+	
+	ai_will_do = { factor = 1 }
+}

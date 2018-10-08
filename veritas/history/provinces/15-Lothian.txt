@@ -1,0 +1,46 @@
+# Lothian
+
+capital = "Edinburgh"
+owner = SCO
+controller = SCO
+culture = scottish
+religion = catholic
+trade_goods = wool
+base_tax = 4
+base_production = 4
+base_manpower = 3
+add_core = SCO
+add_core = ENG
+is_city = yes
+hre = no
+fort_15th = yes	# Edinburgh Castle
+seat_in_parliament = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+center_of_trade = 1
+
+extra_cost = 15
+
+1328.5.1   	= { remove_core = ENG } # Treaty of Edinburgh-Northampton
+1350.1.1	= { base_tax = 3 base_production = 3 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death set_variable = { which = tax_growth value = 75 } set_variable = { which = prod_growth value = 75 }} # Black Death
+1360.1.1	= { remove_province_modifier = province_black_death }
+1400.1.1	= { base_tax = 4 base_production = 4 set_variable = { which = tax_growth value = 0 } set_variable = { which = prod_growth value = 0 }}
+1482.8.1   	= { controller = ENG }
+1483.3.1   	= { controller = SCO }
+1500.1.1   	= { base_manpower = 4 }
+1547.10.1  	= { controller = ENG } # Rough Wooing
+1550.1.1   	= { controller = SCO } # Scots Evict English with French Aid
+1560.8.1   	= { religion = presbyterian }
+1571.4.1	= { revolt = { type = pretender_rebels size = 1 } controller = REB } #Marian Civil War; William Kirkcaldy switches sides
+1572.7.1	= { revolt = {}} #Kirkcaldy turns over the town but remains in the castle
+1573.5.28	= { controller = SCO } #Kirkcaldy surrenders the castle
+1600.1.1   	= { base_manpower = 5 }
+1650.9.3	= { controller = ENG } # Occupied after Dunbar
+1651.10.28	= { owner = ENG unrest = 5 } # Tender of Union
+1660.5.1	= { owner = SCO controller = SCO unrest = 0 } #Restoration of Charles II
+1707.5.1	= { owner = GBR controller = GBR add_core = GBR } #Acts of Union
+1750.1.1   	= { base_tax = 6 base_production = 6 base_manpower = 6 }
+1800.1.1  	= { base_tax = 7 base_production = 7 base_manpower = 7 }
+1850.1.1  	= { base_tax = 10 base_production = 10 base_manpower = 10 }

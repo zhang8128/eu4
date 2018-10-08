@@ -1,0 +1,43 @@
+# Cechy
+
+capital = "Praha"
+owner = BOH
+controller = BOH
+add_core = BOH
+culture = czech
+religion = catholic
+trade_goods = silver
+base_tax = 6
+base_production = 6
+base_manpower = 6
+is_city = yes
+hre = yes
+fort_15th = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+extra_cost = 10
+center_of_trade = 2
+
+1348.1.1   = { base_manpower = 5 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1419.7.30 = { religion = hussite }
+# George of Podiebrand had to secure recognition from the German and Catholic towns
+1457.1.1   = { unrest = 5 } 
+1464.1.1   = { unrest = 1 } # The Catholic nobility still undermines the crown.
+1471.1.1   = { unrest = 0 }
+# Battle of Mohac where Lajos II dies -> Habsburg succession
+1526.8.30  = { owner = HAB controller = HAB add_core = HAB remove_core = BOH } 
+1550.1.1   = { trade_goods = grain }
+1576.1.1   = { religion = protestant }
+# Defenestration of Prague
+1618.5.23  = { owner = BOH controller = BOH add_core = BOH }
+# Tilly beats the Winterking. Deus Vult!
+1620.11.8  = {	owner = HAB controller = HAB remove_core = BOH } 
+# ... and let us start this session by executing the most inconvenient nobles....
+# Order from Ferdinand II to reconvert to Catholicism, many Protestant leave the country  
+1627.1.1  = { religion = catholic } 
+1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved

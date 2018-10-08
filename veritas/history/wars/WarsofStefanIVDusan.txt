@@ -1,0 +1,38 @@
+name = "Wars of Stefan IV Dusan"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 583 # Macedonia
+}
+
+1334.1.1 = {
+	add_attacker = SER
+	add_defender = BYZ
+}
+
+1336.1.1 = {
+	rem_attacker = SER
+	rem_defender = BYZ
+}
+
+1341.1.1 = {
+	add_attacker = SER
+	add_defender = BYZ
+}
+
+1344.1.1 = {
+	add_defender = TUR
+}
+
+1350.1.1 = {
+	add_defender = BOS
+}
+
+
+# Death of Stefan IV
+1355.12.20 = {
+	rem_attacker = SER
+	rem_defender = BYZ
+	rem_defender = TUR
+	rem_defender = BOS
+}

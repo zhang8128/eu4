@@ -1,0 +1,11 @@
+#Batil
+#model = flute
+#tech_level = 18
+type = light_ship
+unit_type = sudanese_tech
+
+hull_size = 6
+base_cannons = 2
+sail_speed = 8
+trade_power = 1.0
+sailors = 25

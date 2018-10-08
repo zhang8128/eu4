@@ -1,0 +1,47 @@
+# Mainz
+#Province IDs changed
+capital = "Mainz"
+culture = rhinefranconian
+religion = catholic
+trade_goods = grain
+owner = MAI
+base_tax = 6
+base_production = 6
+base_manpower = 3
+is_city = yes
+add_core = MAI
+controller = MAI
+hre = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = indopersian
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1   = { base_tax = 5 base_production = 5 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death set_variable = { which = tax_growth value = 75 } set_variable = { which = prod_growth value = 75 }} # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1400.1.1   = { base_tax = 6 base_production = 6 set_variable = { which = tax_growth value = 0 } set_variable = { which = prod_growth value = 0 }}
+1495.1.1   = { courthouse = yes }
+1556.4.19  = { religion = protestant } # Ottheinrich converts the country to Calvinism
+1600.1.1   = { citysize = 22000 }
+1648.1.1   = { citysize = 16000 }
+1700.1.1   = { citysize = 28000 }
+1720.1.1   = { capital = "Mannheim" citysize = 30000 } # Karl Philip moves his court to Mannheim. Known artists like Mozart, Schiller, Goethe,  are  his guests.
+1792.10.1  = { controller = FRA } # Occupied by French troops
+1792.12.3  = { controller = MAI } # Prussian troops take control
+1806.7.12  = { hre = no } # The Holy Roman Empire is dissolved
+1810.1.1   = {	owner = FRN
+		controller = FRN
+		add_core = FRN
+		remove_core = MAI
+		capital = "Frankfurt"
+	     } # The Grand Duchy of Frankfurt, established after the Treaty of Schönbrunn
+1813.12.1  = {	owner = MAI
+		controller = MAI
+		add_core = MAI
+		remove_core = FRN
+	     } # The end of the Duchy
+1816.1.1   = {	owner = HES
+		controller = HES
+		add_core = HES
+	     } # Given to Hesse-Darmstadt

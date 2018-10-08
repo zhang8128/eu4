@@ -1,0 +1,12 @@
+# Modern Muslim Infantry
+
+unit_type = muslim
+type = infantry
+
+maneuver = 1
+offensive_morale = 13
+defensive_morale = 12
+offensive_fire = 17
+defensive_fire = 11
+offensive_shock = 4
+defensive_shock = 5

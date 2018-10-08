@@ -1,0 +1,201 @@
+#Province IDs changed
+government = theocracy add_government_reform = leading_clergy_reform
+primary_culture = saxon
+religion = catholic
+technology_group = western
+capital = 355	# Magdeburg
+
+1267.1.1 = { add_country_modifier = { name = "hanseatic_league_member" duration = -1 } }
+
+1307.1.1 = {
+	monarch = {
+		name = "Burkhard III"
+		adm = 3
+		dip = 2
+		mil = 0
+	}
+}
+
+1325.1.1 = {
+	monarch = {
+		name = "Heideke"
+		adm = 3
+		dip = 2
+		mil = 0
+	}
+}
+
+1327.1.1 = {
+	monarch = {
+		name = "Otto"
+		adm = 3
+		dip = 2
+		mil = 0
+	}
+}
+
+1361.1.1 = {
+	monarch = {
+		name = "Dietrich"
+		adm = 3
+		dip = 2
+		mil = 0
+	}
+}
+
+1367.1.1 = {
+	monarch = {
+		name = "Albrecht II"
+		adm = 3
+		dip = 2
+		mil = 0
+	}
+}
+
+1372.1.1 = {
+	monarch = {
+		name = "Peter"
+		adm = 3
+		dip = 2
+		mil = 0
+	}
+}
+
+1381.1.1 = {
+	monarch = {
+		name = "Louis"
+		adm = 3
+		dip = 2
+		mil = 0
+	}
+}
+
+1382.1.1 = {
+	monarch = {
+		name = "Frederick II"
+		adm = 3
+		dip = 2
+		mil = 0
+	}
+}
+
+1382.8.12 = {
+	monarch = {
+		name = "Albrecht III"
+		adm = 3
+		dip = 2
+		mil = 0
+	}
+}
+
+1403.1.1 = {
+	monarch = {
+		name = "Gunther II"
+		adm = 1
+		dip = 2
+		mil = 2
+	}
+}
+
+1445.3.24 = {
+	monarch = {
+		name = "Friedrich III"
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+}
+
+1464.11.12 = {
+	monarch = {
+		name = "Johann I"
+		adm = 2
+		dip = 1
+		mil = 3
+	}
+}
+
+1475.12.14 = {
+	monarch = {
+		name = "Ernst I"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1479.3.20 = {
+	monarch = {
+		name = "Ernst I"
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+
+1513.8.4 = {
+	monarch = {
+		name = "Albrecht IV"
+		adm = 4
+		dip = 3
+		mil = 2
+	}
+}
+
+1545.9.25 = {
+	monarch = {
+		name = "Johann Albrecht I"
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+}
+
+1551.5.18 = {
+	monarch = {
+		name = "Friedrich III"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1551.5.18 = { religion = protestant }
+
+1552.10.4 = {
+	monarch = {
+		name = "Sigismund I"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+
+1566.9.14 = {
+	monarch = {
+		name = "Joachim Friedrich I"
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}
+
+1598.1.1 = {
+	monarch = {
+		name = "Christian Wilhelm I"
+		adm = 3
+		dip = 2
+		mil = 1
+	}
+}
+
+1635.1.1 = {
+	monarch = {
+		name = "August I"
+		adm = 1
+		dip = 1
+		mil = 0
+	}
+}
+
+1650.1.1 = { primary_culture = prussian }

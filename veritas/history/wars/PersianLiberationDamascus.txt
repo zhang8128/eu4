@@ -1,0 +1,24 @@
+name = "Persian Liberation of Damascus"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 1613 #Damascus
+}
+# To aid their allies in Jerusalem, Persia launched an invasion to free Damascus.  The Mamelukes aided the effort to check Byzantine power in exchange for a substantial sum from the Persians.
+1533.3.26 = {
+	add_attacker = KOJ
+	add_attacker = PER
+	add_attacker = MAM
+	add_defender = BYZ
+	add_defender = BOS
+}
+
+1538.1.1 = { rem_defender = BOS } # Byzantine annexation of Bosnia
+
+# Treaty of Damascus
+1539.8.12 = {
+	rem_attacker = KOJ
+	rem_attacker = PER
+	rem_attacker = MAM
+	rem_defender = BYZ
+}

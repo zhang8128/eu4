@@ -1,0 +1,5 @@
+# Tatar Straits
+#Province IDs changed
+discovered_by = chinese
+discovered_by = niitaka
+1643.1.1 = { discovered_by = RUS }

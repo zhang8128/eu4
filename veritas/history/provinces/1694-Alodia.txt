@@ -1,0 +1,15 @@
+# Alodia
+
+capital = "Alodia"
+owner = ALW
+controller = ALW
+add_core = ALW
+culture = nubian
+religion = coptic
+trade_goods = cotton
+base_tax = 3
+base_production = 3
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = sudanese_tech

@@ -1,0 +1,81 @@
+country_decisions = {
+	carthage_nation = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				has_global_flag = gob_active
+			}
+			normal_or_historical_nations = yes
+			capital_scope = { region = maghreb_region }
+			NOT = { exists = CTG }
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = EGM }
+			NOT = { tag = EGY }
+			NOT = { tag = ARB }
+		}
+		allow = {
+			stability = 1
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			OR = {
+				religion_group = pagan
+				religion_group = reformed_pagan
+			}
+			owns_core_province = 1641
+			owns_core_province = 1644
+			owns_core_province = 1646
+			owns_core_province = 1647
+			owns_core_province = 1648
+			owns_core_province = 1649
+			owns_core_province = 1654
+		}
+		effect = {
+			change_tag = CTG
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			change_government = monarchy
+			set_legacy_government = hereditary_monarchy
+			if = {
+				limit = { NOT = { government_rank = 4 } }
+				set_government_rank = 4
+			}
+			add_prestige = 25
+			set_capital = 1648
+			1648 = {
+				change_province_name = "Carthage"
+				rename_capital = "Carthage"
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = CTG_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_global_flag = gob_active }
+				factor = 0
+			}
+		}
+	}
+
+}

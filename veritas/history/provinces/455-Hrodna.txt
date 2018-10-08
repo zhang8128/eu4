@@ -1,0 +1,37 @@
+# Hrodna
+
+capital = "Grodno"
+owner = LIT
+controller = LIT  
+add_core = LIT 
+culture = yotvingian
+religion = romuva
+trade_goods = wool
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes  
+hre = no
+discovered_by = nomad_group
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1356.1.1 = { religion = orthodox }
+1450.1.1   = { citysize = 5770 }
+1500.1.1   = { citysize = 6789 }
+1550.1.1   = { citysize = 7987 }
+1569.7.1   = {	owner = PLC controller = PLC add_core = PLC } # Union of Lublin
+1570.1.1  = { religion = catholic } # Union of Lublin
+1600.1.1   = { citysize = 9396 }
+1650.1.1   = { citysize = 11054 }
+1700.1.1   = { citysize = 13005 }
+1750.1.1   = { citysize = 15300 }
+1794.3.24  = { unrest = 5 } # Kosciuszko uprising, minimize the Russian influence
+1794.11.16 = { unrest = 0 }
+1795.10.24 = {	owner = RUS
+		controller = RUS
+		add_core = RUS
+	     } # Third partition of Poland
+1800.1.1   = { citysize = 18000 }

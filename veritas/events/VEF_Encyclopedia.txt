@@ -1,0 +1,971 @@
+#Please separate by every 100 so there's always enough room to add detail later
+#100 Policies
+#200 NewGov
+	#250 Realm Management
+#300 Stability
+#400 Vassals
+#500 Rulers & Heirs
+	#550 Regencies
+#600 Papacy
+#700 Forts
+#800 States & Provinces
+
+namespace = vef_encyclopedia
+
+country_event = {
+	id = vef_encyclopedia.1
+	title = "vef_encyclopedia.1.t"
+	desc = "vef_encyclopedia.1.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "vef_encyclopedia.1.opta"
+		country_event = { id = vef_encyclopedia.100 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.1.optb"
+		country_event = { id = vef_encyclopedia.200 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.1.optc"
+		country_event = { id = vef_encyclopedia.250 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.1.optd"
+		country_event = { id = vef_encyclopedia.300 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.1.opte"
+		country_event = { id = vef_encyclopedia.400 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.1.optf"
+		country_event = { id = vef_encyclopedia.500 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.1.optg"
+		country_event = { id = vef_encyclopedia.600 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.1.opth"
+		country_event = { id = vef_encyclopedia.700 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.1.opti"
+		country_event = { id = vef_encyclopedia.800 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.1.optz"
+	}
+}
+
+############
+# Policies #
+############
+
+country_event = {
+	id = vef_encyclopedia.100
+	title = "vef_encyclopedia.100.t"
+	desc = "vef_encyclopedia.100.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.100.opta"
+		country_event = { id = vef_encyclopedia.101 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.100.optb"
+		country_event = { id = vef_encyclopedia.102 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.100.optc"
+		country_event = { id = vef_encyclopedia.103 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.100.optd"
+		country_event = { id = vef_encyclopedia.104 }
+	}
+	
+#	option = {
+#		name = "vef_encyclopedia.100.opte"
+#		country_event = { id = vef_encyclopedia.105 }
+#	}
+	
+	option = {
+		name = "vef_encyclopedia.100.optf"
+		country_event = { id = vef_encyclopedia.1 }	
+	}
+	
+	option = {
+		name = "vef_encyclopedia.100.optg"	
+	}	
+}
+
+country_event = {
+	id = vef_encyclopedia.101
+	title = "vef_encyclopedia.101.t"
+	desc = "vef_encyclopedia.101.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.101.opta"
+		country_event = { id = vef_encyclopedia.100 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.101.optb"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.102
+	title = "vef_encyclopedia.102.t"
+	desc = "vef_encyclopedia.102.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.102.opta"
+		country_event = { id = vef_encyclopedia.100 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.102.optb"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.103
+	title = "vef_encyclopedia.103.t"
+	desc = "vef_encyclopedia.103.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.103.opta"
+		country_event = { id = vef_encyclopedia.100 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.103.optb"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.104
+	title = "vef_encyclopedia.104.t"
+	desc = "vef_encyclopedia.104.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.104.opta"
+		country_event = { id = vef_encyclopedia.100 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.104.optb"
+		
+	}
+}
+
+#country_event = {
+#	id = vef_encyclopedia.105
+#	title = "vef_encyclopedia.105.t"
+#	desc = "vef_encyclopedia.105.d"
+#	picture = VEF_BIG_BOOK_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	option = {
+#		name = "vef_encyclopedia.105.opta"
+#		country_event = { id = vef_encyclopedia.100 }
+#	}
+#	
+#	option = {
+#		name = "vef_encyclopedia.105.optb"
+#		
+#	}
+#}
+
+###########
+# New Gov #
+###########
+
+country_event = {
+	id = vef_encyclopedia.200
+	title = "vef_encyclopedia.200.t"
+	desc = "vef_encyclopedia.200.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.200.opta"
+		country_event = { id = vef_encyclopedia.201 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.200.optb"
+		country_event = { id = vef_encyclopedia.202 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.200.optc"
+		country_event = { id = vef_encyclopedia.203 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.200.optd"
+		country_event = { id = vef_encyclopedia.204 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.200.opte"
+		country_event = { id = vef_encyclopedia.205 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.200.optf"
+		country_event = { id = vef_encyclopedia.1 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.200.optg"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.201
+	title = "vef_encyclopedia.201.t"
+	desc = "vef_encyclopedia.201.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.201.opta"
+		country_event = { id = vef_encyclopedia.200 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.201.optb"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.202
+	title = "vef_encyclopedia.202.t"
+	desc = "vef_encyclopedia.202.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.202.opta"
+		country_event = { id = vef_encyclopedia.200 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.202.optb"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.203
+	title = "vef_encyclopedia.203.t"
+	desc = "vef_encyclopedia.203.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.203.opta"
+		country_event = { id = vef_encyclopedia.200 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.203.optb"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.204
+	title = "vef_encyclopedia.204.t"
+	desc = "vef_encyclopedia.204.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.204.opta"
+		country_event = { id = vef_encyclopedia.200 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.204.optb"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.205
+	title = "vef_encyclopedia.205.t"
+	desc = "vef_encyclopedia.205.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.205.opta"
+		country_event = { id = vef_encyclopedia.200 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.205.optb"
+		
+	}
+}
+
+# Realm Management #
+country_event = {
+	id = vef_encyclopedia.250
+	title = "vef_encyclopedia.250.t"
+	desc = "vef_encyclopedia.250.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.250.opta"
+		country_event = { id = vef_encyclopedia.1 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.250.optb"
+		
+	}
+}
+
+######################
+# National Stability #
+######################
+
+country_event = {
+	id = vef_encyclopedia.300
+	title = "vef_encyclopedia.300.t"
+	desc = "vef_encyclopedia.300.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.300.opta"
+		country_event = { id = vef_encyclopedia.301 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.300.optb"
+		country_event = { id = vef_encyclopedia.302 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.300.optc"
+		country_event = { id = vef_encyclopedia.303 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.300.optd"
+		country_event = { id = vef_encyclopedia.304 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.300.opte"
+		country_event = { id = vef_encyclopedia.1 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.300.optf"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.301
+	title = "vef_encyclopedia.301.t"
+	desc = "vef_encyclopedia.301.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.301.opta"
+		country_event = { id = vef_encyclopedia.300 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.301.optb"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.302
+	title = "vef_encyclopedia.302.t"
+	desc = "vef_encyclopedia.302.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.302.opta"
+		country_event = { id = vef_encyclopedia.300 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.302.optb"
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.303
+	title = "vef_encyclopedia.303.t"
+	desc = "vef_encyclopedia.303.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.303.opta"
+		country_event = { id = vef_encyclopedia.300 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.303.optb"	
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.304
+	title = "vef_encyclopedia.304.t"
+	desc = "vef_encyclopedia.304.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.304.opta"
+		country_event = { id = vef_encyclopedia.300 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.304.optb"
+	}
+}
+
+######################
+# Vassal Interaction #
+######################
+
+country_event = {
+	id = vef_encyclopedia.400
+	title = "vef_encyclopedia.400.t"
+	desc = "vef_encyclopedia.400.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.400.opta"
+		country_event = { id = vef_encyclopedia.401 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.400.optb"
+		country_event = { id = vef_encyclopedia.402 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.400.optc"
+		country_event = { id = vef_encyclopedia.403 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.400.optd"
+		country_event = { id = vef_encyclopedia.404 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.400.opte"
+		country_event = { id = vef_encyclopedia.1 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.400.optf"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.401
+	title = "vef_encyclopedia.401.t"
+	desc = "vef_encyclopedia.401.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.401.opta"
+		country_event = { id = vef_encyclopedia.400 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.401.optb"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.402
+	title = "vef_encyclopedia.402.t"
+	desc = "vef_encyclopedia.402.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.402.opta"
+		country_event = { id = vef_encyclopedia.400 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.402.optb"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.403
+	title = "vef_encyclopedia.403.t"
+	desc = "vef_encyclopedia.403.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.403.opta"
+		country_event = { id = vef_encyclopedia.400 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.403.optb"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.404
+	title = "vef_encyclopedia.404.t"
+	desc = "vef_encyclopedia.404.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.404.opta"
+		country_event = { id = vef_encyclopedia.400 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.404.optb"
+		
+	}
+}
+
+######################
+# Rulers & Regencies #
+######################
+
+country_event = {
+	id = vef_encyclopedia.500
+	title = "vef_encyclopedia.500.t"
+	desc = "vef_encyclopedia.500.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		trigger = { NOT = { has_dlc = "Rights of Man" }}
+		name = "vef_encyclopedia.500.opta"
+		country_event = { id = vef_encyclopedia.550 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.500.optb"
+		country_event = { id = vef_encyclopedia.1 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.500.optc"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.550
+	title = "vef_encyclopedia.550.t"
+	desc = "vef_encyclopedia.550.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.550.opta"
+		country_event = { id = vef_encyclopedia.551 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.550.optb"
+		country_event = { id = vef_encyclopedia.552 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.550.optc"
+		country_event = { id = vef_encyclopedia.553 }
+	}
+	
+		option = {
+		name = "vef_encyclopedia.550.optd"
+		country_event = { id = vef_encyclopedia.554 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.550.opte"
+		country_event = { id = vef_encyclopedia.1 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.550.optf"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.551
+	title = "vef_encyclopedia.551.t"
+	desc = "vef_encyclopedia.551.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.551.opta"
+		country_event = { id = vef_encyclopedia.550 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.551.optb"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.552
+	title = "vef_encyclopedia.552.t"
+	desc = "vef_encyclopedia.552.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.552.opta"
+		country_event = { id = vef_encyclopedia.550 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.552.optb"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.553
+	title = "vef_encyclopedia.553.t"
+	desc = "vef_encyclopedia.553.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.553.opta"
+		country_event = { id = vef_encyclopedia.550 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.553.optb"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.554
+	title = "vef_encyclopedia.554.t"
+	desc = "vef_encyclopedia.554.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.554.opta"
+		country_event = { id = vef_encyclopedia.550 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.554.optb"
+		
+	}
+}
+
+##########
+# Papacy #
+##########
+
+country_event = {
+	id = vef_encyclopedia.600
+	title = "vef_encyclopedia.600.t"
+	desc = "vef_encyclopedia.600.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.600.opta"
+		country_event = { id = vef_encyclopedia.601 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.600.optb"
+		country_event = { id = vef_encyclopedia.602 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.600.optc"
+		country_event = { id = vef_encyclopedia.1 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.600.optd"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.601
+	title = "vef_encyclopedia.601.t"
+	desc = "vef_encyclopedia.601.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.601.opta"
+		country_event = { id = vef_encyclopedia.600 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.601.optb"
+		
+	}
+}
+
+country_event = {
+	id = vef_encyclopedia.602
+	title = "vef_encyclopedia.602.t"
+	desc = "vef_encyclopedia.602.d"
+	picture = VEF_BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.602.opta"
+		country_event = { id = vef_encyclopedia.600 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.602.optb"
+		
+	}
+}
+
+#########
+# Forts #
+#########
+
+country_event = {
+	id = vef_encyclopedia.700
+	title = "vef_encyclopedia.700.t"
+	desc = "vef_encyclopedia.700.d"
+	picture = VEF_FORT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.700.opta"
+		country_event = { id = vef_encyclopedia.1 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.700.optb"
+		
+	}
+}
+
+######################
+# States & Provinces #
+######################
+country_event = {
+	id = vef_encyclopedia.800
+	title = "vef_encyclopedia.800.t"
+	desc = "vef_encyclopedia.800.d"
+	picture = VEF_FORT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.800.opta"
+		country_event = { id = vef_encyclopedia.810 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.800.optb"
+		country_event = { id = vef_encyclopedia.820 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.800.optc"
+		country_event = { id = vef_encyclopedia.830 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.800.optd"
+		country_event = { id = vef_encyclopedia.840 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.800.opte"
+		country_event = { id = vef_encyclopedia.1 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.800.optf"
+		
+	}
+}
+
+#Cores and States
+country_event = {
+	id = vef_encyclopedia.810
+	title = "vef_encyclopedia.810.t"
+	desc = "vef_encyclopedia.810.d"
+	picture = VEF_FORT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.810.opta"
+		country_event = { id = vef_encyclopedia.800 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.810.optb"
+		
+	}
+}
+
+#Development
+country_event = {
+	id = vef_encyclopedia.820
+	title = "vef_encyclopedia.820.t"
+	desc = "vef_encyclopedia.820.d"
+	picture = VEF_FORT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.820.opta"
+		country_event = { id = vef_encyclopedia.800 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.820.optb"
+		
+	}
+}
+
+#Culture
+country_event = {
+	id = vef_encyclopedia.830
+	title = "vef_encyclopedia.830.t"
+	desc = "vef_encyclopedia.830.d"
+	picture = VEF_FORT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.830.opta"
+		country_event = { id = vef_encyclopedia.800 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.830.optb"
+		
+	}
+}
+
+#State Capitals
+country_event = {
+	id = vef_encyclopedia.840
+	title = "vef_encyclopedia.840.t"
+	desc = "vef_encyclopedia.840.d"
+	picture = VEF_FORT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vef_encyclopedia.840.opta"
+		country_event = { id = vef_encyclopedia.800 }
+	}
+	
+	option = {
+		name = "vef_encyclopedia.840.optb"
+		
+	}
+}

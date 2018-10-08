@@ -1,0 +1,15 @@
+# Wassulu
+
+capital = "Bissandugu"
+owner = KNG
+controller = KNG
+add_core = KNG
+culture = juula
+religion = vodun
+trade_goods = gold
+base_tax = 3
+base_production = 3
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = sudanese_tech

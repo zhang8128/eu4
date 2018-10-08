@@ -1,0 +1,16 @@
+# Nikki
+
+capital = "Nikki"
+owner = OYO
+controller = OYO
+add_core = OYO
+culture = yoruba
+religion = yoruba
+trade_goods = livestock
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = sudanese_tech
+discovered_by = sub_saharan

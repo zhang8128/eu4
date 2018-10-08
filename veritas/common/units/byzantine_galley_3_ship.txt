@@ -1,0 +1,10 @@
+#Galera
+#model = galleass
+#tech_level = 18
+type = galley
+unit_type = byzantine
+
+hull_size = 10
+base_cannons = 18
+sail_speed = 8
+sailors = 275

@@ -1,0 +1,158 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 178  145  87 }
+
+historical_idea_groups = {
+	diplomatic_ideas
+	mercenary_ideas
+	religious_ideas
+	mercantilist_ideas
+	defensive_ideas
+	administrative_ideas
+	land_ideas
+	quantity_ideas
+}
+
+historical_units = { 
+	western_artillery_15_1
+	western_artillery_22_1
+	western_artillery_29_1
+	western_artillery_35_1
+	western_artillery_40_1
+	western_artillery_44_1
+	western_artillery_48_1
+	western_artillery_52_1
+	western_artillery_55_1
+	western_artillery_55_2
+	western_artillery_8_1
+	western_cavalry_0_1
+	western_cavalry_0_2
+	western_cavalry_21_1
+	western_cavalry_21_2
+	western_cavalry_27_1
+	western_cavalry_31_1
+	western_cavalry_36_1
+	western_cavalry_40_1
+	western_cavalry_44_1
+	western_cavalry_44_2
+	western_cavalry_48_1
+	western_cavalry_48_2
+	western_cavalry_51_1
+	western_cavalry_51_2
+	western_cavalry_55_1
+	western_cavalry_55_2
+	western_cavalry_58_1
+	western_cavalry_58_2
+	western_cavalry_16_1
+	western_cavalry_16_2
+	western_infantry_0_1
+	western_infantry_0_2
+	western_infantry_17_1
+	western_infantry_17_2
+	western_infantry_21_1
+	western_infantry_21_2
+	western_infantry_25_1
+	western_infantry_25_2
+	western_infantry_28_1
+	western_infantry_28_2
+	western_infantry_31_1
+	western_infantry_31_2
+	western_infantry_34_1
+	western_infantry_34_2
+	western_infantry_39_1
+	western_infantry_39_2
+	western_infantry_42_1
+	western_infantry_42_2
+	western_infantry_45_1
+	western_infantry_45_2
+	western_infantry_48_1
+	western_infantry_48_2
+	western_infantry_50_1
+	western_infantry_50_2
+	western_infantry_53_1
+	western_infantry_53_2
+	western_infantry_55_1
+	western_infantry_55_2
+	western_infantry_6_1
+	western_infantry_6_2
+	western_infantry_57_1
+	western_infantry_57_2
+	western_infantry_59_1
+	western_infantry_59_2
+	western_infantry_63_1
+	western_infantry_63_2
+	western_infantry_14_1
+	western_infantry_14_2
+}
+
+
+
+
+
+monarch_names = {
+	"Albrecht #1" = 40
+	"Konrad #2" = 20
+	"Adolf #1" = 20
+	"Johann #1" = 20
+	"Anselm Franz #0" = 20
+	"Anselm Kasimir #0" = 20
+	"Berthold #0" = 20
+	"Damian Hartrad #0" = 20
+	"Daniel Brendel #0" = 20
+	"Dieter #0" = 20
+	"Dietrich #0" = 20
+	"Emmerich Joseph #0" = 20
+	"Franz Ludwig #0" = 20
+	"Friedrich Karl Joseph #0" = 20
+	"Georg Friedrich #0" = 20
+	"Jakob #0" = 20
+	"Johann Adam #0" = 20
+	"Johann Friedrich Karl #0" = 20
+	"Johann Philipp #0" = 20
+	"Johann Schweikhard #0" = 20
+	"Karl Heinrich #0" = 20
+	"Karl Theodor #0" = 20
+	"Lothar Franz #0" = 20
+	"Lothar Friedrich #0" = 20
+	"Philipp Karl #0" = 20
+	"Sebastian #0" = 20
+	"Uriel #0" = 20
+	"Wolfgang #0" = 20
+	"Heinrich #3" = 10
+	"Ludwig #1" = 15
+	"Matthias #1" = 15
+	"Peter #1" = 15
+	"Christian #3" = 10
+	"Siegfried #3" = 10
+	"Gerhard #2" = 10
+	"Werner #2" = 10
+	"Gottfried #0" = 0
+	"Hieronymus #0" = 0
+	"Markus #0" = 0
+	"Raphael #0" = 0
+	
+	"Sylvia #0" = -1
+	"Wilhelmine #0" = -1
+	"Alexis #0" = -1
+}
+
+leader_names = { 
+	Alfter Allendorf Assmann Barth Becker Betz
+	Bopp Bornschlegel Dörrenbecher Dude Fust Eins
+	Göhler Grob Haas Heidelberger Ickstadt Lawall
+	Pittschaft Schmitt Schoeneberger Storck Volz
+}
+
+ship_names = {
+	"St. Theonest" "St. Georg" "St. Peter"
+	Udenmünster "St. Christoph" "St. Lambert"
+	"St. Quintin" "St. Maria" "St. Johannes"
+	"St. Emmeran" "St. Ignaz" Hagenmünster
+	"St. Aureus" "St. Nicomedes" "St. Alban"
+}
+
+army_names = {
+	"Erzbischofliche Garde" "Armee von $PROVINCE$" 
+}

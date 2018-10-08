@@ -1,0 +1,10 @@
+#Gulet
+#model = galleass
+#tech_level = 24
+type = galley
+unit_type = ottoman
+
+hull_size = 14
+base_cannons = 20
+sail_speed = 9
+sailors = 275

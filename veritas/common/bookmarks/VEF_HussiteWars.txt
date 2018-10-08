@@ -1,0 +1,18 @@
+bookmark =
+{
+	name = "HUSSITEWARS_NAME"
+	desc = "HUSSITEWARS_DESC"
+	date = 1419.7.30
+	
+	center = 488
+
+	country = BOH
+	country = HAB
+	country = PAP
+	country = SWE
+	country = LIT
+	country = ENG
+	country = FRA
+	country = MOS
+
+}

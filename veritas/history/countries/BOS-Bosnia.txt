@@ -1,0 +1,238 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+primary_culture = bosnian
+add_accepted_culture = croatian
+religion = catholic
+technology_group = eastern
+capital = 542	# Sarajevo
+
+historical_friend = HUN
+historical_rival = BYZ
+
+1287.1.1 = {
+	monarch = {
+		name = "Stjepan I"
+		dynasty = "Kotromanic"
+		birth_date = 1242.1.1
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = SRE
+		name = "Jelisaveta"
+		dynasty = "Nemanjic"
+		birth_date = 1270.1.1
+		death_date = 1331.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1292.1.1 = {
+	heir = {
+		name = "Stjepan"
+		monarch_name = "Stjepan II"
+		dynasty = "Kotromanic"
+		birth_date = 1292.1.1
+		death_date = 1353.9.28
+		claim = 95
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}
+
+1314.1.1 = {
+	monarch = {
+		name = "Stjepan II"
+		dynasty = "Kotromanic"
+		birth_date = 1292.1.1
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}
+
+#Married three times but only the name of the last is recorded
+1335.6.1 = {
+	queen = {
+		country_of_origin = POL
+		name = "Elizabeth"
+		dynasty = "Piast"
+		birth_date = 1315.1.1
+		death_date = 1345.8.22
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+# Stephen's nephew; he has no surviving male children.
+1338.1.1 = {
+	heir = {
+		name = "Tvrtko"
+		monarch_name = "Tvrtko I"
+		dynasty = "Kotromanic"
+		birth_date = 1338.1.1
+		death_date = 1391.3.10
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1353.9.28 = {
+	monarch = {
+		name = "Tvrtko I"
+		dynasty = "Kotromanic"
+		birth_date = 1338.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+
+1374.12.8 = {
+	queen = {
+		country_of_origin = BUL
+		name = "Dorothea"
+		dynasty = "Shishman"
+		birth_date = 1352.1.1	#Estimated (based on parent's marriage)
+		death_date = 1390.1.1
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+
+1377.10.26 = { government_rank = 3 }
+
+1391.3.10 = {
+	monarch = {
+		name = "Stjepan Dabisa"
+		dynasty = "Kotromanic"
+		birth_date = 1345.1.1 #Estimated as being a cousin of Tvrtko
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+	queen = {
+		country_of_origin = BUL
+		name = "Dorothea"
+		dynasty = "Shishman"
+		birth_date = 1345.1.1
+		death_date = 1399.3.18
+		female = yes
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+#Though not formally a regency, she was a figurehead until the nobles could elect a new king
+1395.9.8 = {
+	monarch = {
+		name = "Jelena"
+		dynasty = "Kotromanic"
+		female = yes
+		regent = yes
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1398.4.1 = {
+	monarch = {
+		name = "Stjepan Ostoja"
+		dynasty = "Kotromanic"
+		adm = 3
+		dip = 1
+		mil = 2
+	}
+}
+
+1404.1.1 = {
+	monarch = {
+		name = "Sjepan Tvrtko II"
+		dynasty = "Kotromanic"
+		birth_date = 1381.1.1
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+
+1409.1.1 = {
+	monarch = {
+		name = "Stjepan Ostoja"
+		dynasty = "Kotromanic"
+		adm = 3
+		dip = 1
+		mil = 2
+	}
+}
+
+1418.9.1 = {
+	monarch = {
+		name = "Stjepan Ostojic"
+		dynasty = "Kotromanic"
+		birth_date = 1400.1.1
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+
+1421.1.1 = {
+	monarch = {
+		name = "Stjepan Tvrtko II"
+		dynasty = "Kotromanic"
+		birth_date = 1381.1.1
+		adm = 2
+		dip = 0
+		mil = 2
+	}
+}
+
+1443.11.1 = {
+	historical_friend = SER
+	monarch = {
+		name = "Stjepan Tomaš Ostojic"
+		dynasty = "Kotromanic"
+		birth_date = 1412.7.10
+		adm = 0
+		dip = 0
+		mil = 2
+	}
+	heir = {
+		name = "Stjepan Tomaševic"
+		monarch_name = "Stjepan Tomaševic"
+		dynasty = "Kotromanic"
+		birth_date = 1438.1.1
+		death_date = 1463.6.5
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = careful_personality
+}
+
+1461.7.11 = {
+	monarch = {
+		name = "Stjepan Tomaševic"
+		dynasty = "Kotromanic"
+		birth_date = 1438.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}

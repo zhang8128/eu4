@@ -1,0 +1,31 @@
+# Demak
+
+capital = "Demak"
+owner = MAJ
+controller = MAJ
+add_core = MAJ
+culture = javanese
+religion = hinduism
+trade_goods = cotton
+base_tax = 4
+base_production = 4
+base_manpower = 4
+is_city = yes
+hre = no
+discovered_by = MKS
+discovered_by = MLC
+discovered_by = ATJ
+discovered_by = MAJ
+discovered_by = BEI
+discovered_by = KUT
+discovered_by = BLI
+discovered_by = SUN
+discovered_by = SVJ
+
+1405.1.1 = { discovered_by = MNG }
+1509.1.1 = { discovered_by = POR }
+# The Sultanate of Mataram
+1602.1.1 = { owner = MTR controller = MTR add_core = MTR remove_core = MAJ }
+1613.1.1 = { discovered_by = NED } # The Dutch arrived
+1631.1.1 = { unrest = 5 } # Rebellion against Mataram rule
+1636.1.1 = { unrest = 0 }

@@ -1,0 +1,52 @@
+# Bremen-Verden
+
+owner = BRE
+controller = BRE
+culture = lowersaxon
+religion = catholic
+capital = "Bremervörde"
+trade_goods = grain
+base_tax = 5
+base_production = 5
+base_manpower = 5
+is_city = yes
+hre = yes
+add_core = BRE
+temple = yes
+discovered_by = eastern
+discovered_by = scandinavian_tech
+discovered_by = western
+discovered_by = byzantine
+
+1349.1.1   = { base_manpower = 4 add_province_modifier = { name = "province_black_death" duration = 3650 } set_province_flag = had_black_death } # Black Death
+1360.1.1   = { remove_province_modifier = province_black_death }
+1500.1.1 = { citysize = 10000 }
+1529.1.1 = { religion = protestant }
+1550.1.1 = { citysize = 11000 }
+1600.1.1 = { citysize = 12000 }
+1648.1.1 = { capital = "Stade" } 
+1700.1.1 = { citysize = 15000 }
+1719.9.30 = { owner = HAN controller = HAN add_core = HAN } # The Treaty of Stockholm
+1750.1.1 = { citysize = 18000 }
+1800.1.1 = { citysize = 20000 }
+1803.7.5 = { controller = RFR } # French control
+1805.12.15 = {
+	owner = PRU
+	controller = PRU
+	add_core = PRU
+	remove_core = HAN
+} # Treaty of Schoenbrunn, ceded to Prussia
+1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+1807.7.9 = {
+	owner = WES
+	controller = WES
+	add_core = WES
+	remove_core = PRU
+} # The Second Treaty of Tilsit, the kingdom of Westfalia
+1810.12.13 = { owner = RFR controller = RFR add_core = RFR remove_core = WES } # Annexed by France
+1814.4.11 = {
+	owner = HAN
+	controller = HAN
+	add_core = HAN
+	remove_core = RFR
+} # Napoleon abdicated unconditionally

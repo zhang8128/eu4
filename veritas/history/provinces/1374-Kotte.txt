@@ -1,0 +1,25 @@
+# Kotte
+
+capital = "Kotte"
+owner = CEY
+controller = CEY
+add_core = CEY
+culture = sinhala
+religion = buddhism
+trade_goods = cinnamon
+base_tax = 4
+base_production = 4
+base_manpower = 6
+is_city = yes
+hre = no
+discovered_by = indian
+discovered_by = indopersian
+
+extra_cost = 15
+center_of_trade = 1
+
+1542.1.1   = { add_core = POR }
+1660.1.1   = { owner = NED controller = NED remove_core = POR } # Dutch control
+1685.1.1   = { add_core = NED }
+1799.8.1   = { controller = GBR } # Occupied by England
+1802.3.25  = { owner = GBR add_core = GBR remove_core = NED } # Treaty of Amiens

@@ -1,0 +1,180 @@
+# Phillip I and Thamar Komnene
+royal_marriage = {
+	first = ACH
+	second = EPI
+	start_date = 1294.8.13
+	end_date = 1310.1.1
+}
+
+# Phillip I, Prince of Taranto
+union = {
+	first = ACH
+	second = ALB
+	start_date = 1306.5.5
+	end_date = 1313.7.29
+}
+# Matilda of Hainut then John of Gravina
+dependency = {
+	subject_type = suzerainty
+	first = ALB
+	second = ACH
+	start_date = 1313.7.29
+	end_date = 1333.1.1
+}
+# To avoid swearing fealty to his nephew Robert, John and Robert swap domains and John 
+# swears to Naples as Duke of Durazzo.
+dependency = {
+	subject_type = dominion
+	first = NAP
+	second = ALB
+	start_date = 1333.1.1
+	end_date = 1368.1.1
+}
+
+# In exchange for aid in reclaiming Durres, Karl Thopia pledges loyalty to Murat I
+dependency = {
+	subject_type = suzerainty
+	first = TUR
+	second = ALB
+	start_date = 1385.1.1
+	end_date = 1392.1.1
+}
+
+# Alliance with Venice; likely concluded to offset Ottoman influence
+alliance = {
+	first = VEN
+	second = ALB
+	start_date = 1386.8.17
+	end_date = 1392.1.1
+}
+
+#Bulgarian Empire
+vassal = {
+	first = BUL
+	second = KRV
+	start_date = 1300.1.1
+	end_date = 1340.1.1
+}
+
+union = {
+	first = BUL
+	second = VDN
+	start_date = 1185.1.1
+	end_date = 1332.4.1
+}
+#Intervening uprising by Belaur
+union = {
+	first = BUL
+	second = VDN
+	start_date = 1337.1.1
+	end_date = 1356.12.31
+}
+
+#Syrmia is reliant upon the Hungarians once Charles I restores the province
+vassal = {
+	first = HUN
+	second = SRE
+	start_date = 1319.6.1
+	end_date = 1337.1.1
+}
+
+#Serb-Bulgarian Alliance
+alliance = {
+	first = SER
+	second = BUL
+	start_date = 1331.12.1
+	end_date = 1365.1.1
+}
+
+royal_marriage = {
+	first = SER
+	second = BUL
+	start_date = 1332.4.26
+	end_date = 1355.12.20
+}
+
+#Under Joanna I of Naples
+union = {
+	first = NAP
+	second = ACH
+	start_date = 1374.11.25
+	end_date = 1381.8.25
+}
+#James of Baux
+dependency = {
+	subject_type = suzerainty
+	first = NAP
+	second = ACH
+	start_date = 1381.8.25
+	end_date = 1383.7.17
+}
+#Under Charles III of Naples
+union = {
+	first = NAP
+	second = ACH
+	start_date = 1383.7.17
+	end_date = 1386.2.21
+}
+#Navarrese Company until Ladislaus ends support and gives his blessing for a rebellion
+dependency = {
+	subject_type = suzerainty
+	first = NAP
+	second = ACH
+	start_date = 1386.2.21
+	end_date = 1406.1.1
+}
+alliance = {
+	first = HUN
+	second = RAG
+	start_date = 1358.6.27
+	end_date = 1519.1.13
+}
+
+alliance = {
+	first = SRE
+	second = SER
+	start_date = 1291.1.1
+	end_date = 1321.1.1
+}
+
+alliance = {
+	first = SRE
+	second = HUN
+	start_date = 1321.1.11
+	end_date = 1324.1.11
+}
+
+alliance = {
+	first = SRE
+	second = BOS
+	start_date = 1321.1.11
+	end_date = 1324.1.1
+}
+
+alliance = {
+	first = NAP
+	second = ACH
+	start_date = 1294.7.12
+	end_date = 1313.7.29
+}
+
+union = {
+	first = SIC
+	second = ATH
+	start_date = 1312.1.1
+	end_date = 1388.5.2
+}
+
+vassal = {
+	first = VEN
+	second = CEP
+	start_date = 1386.1.1
+	end_date = 1502.1.1
+}
+
+vassal = { 
+	first = SER
+	second = ALB
+	start_date = 1346.1.1
+	end_date = 1356.1.1
+}

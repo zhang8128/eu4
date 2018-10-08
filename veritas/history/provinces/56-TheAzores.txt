@@ -1,0 +1,29 @@
+# The Azores
+
+capital = "The Azores"
+native_size = 0
+native_ferocity = 0
+native_hostileness = 0
+trade_goods = unknown
+base_tax = 1
+base_production = 1
+base_manpower = 1
+hre = no
+
+1427.6.30 = { 
+	discovered_by = western
+	discovered_by = scandinavian_tech
+}
+1427.11.29 = {
+	owner = POR
+	controller = POR
+	add_core = POR
+	citysize = 100
+	culture = portugese
+	religion = catholic
+	base_manpower = 1
+	trade_goods = fish
+}
+1581.8.26	= { revolt = { type = pretender_rebels size = 0 } controller = REB } #Antonio's stronghold
+1582.7.1	= { revolt = { type = pretender_rebels size = 1 leader = "Antonio I" }} #French troops arrive to support
+1583.8.1	= { revolt = {} controller = POR } # Estimated; Further French troops arrive in June but by August 9 the Spanish admiral is sending letters to the king from Antonio's base

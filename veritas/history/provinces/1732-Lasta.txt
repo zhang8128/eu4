@@ -1,0 +1,17 @@
+# Lasta
+#Province IDs changed
+
+capital = "Lasta"
+owner = ETH
+controller = ETH
+add_core = ETH
+culture = amharic
+religion = coptic
+base_tax = 1
+base_production = 1
+base_manpower = 2
+trade_goods = millet
+discovered_by = sudanese_tech
+discovered_by = muslim
+hre = no
+is_city = yes

@@ -1,0 +1,11 @@
+# Byzantine Genoese War
+
+name = "Byzantine-Genoese Trade War"
+
+war_goal = {
+	type = superiority_trade_mutual
+	casus_belli = cb_trade_war
+}
+
+1348.8.1 = {	add_attacker = BYZ	add_defender = GEN	}
+1350.1.1 = {	rem_attacker = BYZ	rem_defender = GEN	} # Byzantine victory

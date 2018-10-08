@@ -1,0 +1,100 @@
+#Province IDs changed
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+technology_group = western
+primary_culture = schlesian
+religion = catholic
+capital = 480	# Opole
+
+# Dukes of Opole
+1282.1.1 = {
+	monarch = {
+		name = "Boleslaw I"
+		dynasty = "Piast"
+		adm = 3
+		dip = 1
+		mil = 2
+	}
+}
+
+1313.1.1 = {
+	monarch = {
+		name = "Boleslaw II"
+		dynasty = "Piast"
+		adm = 3
+		dip = 1
+		mil = 0
+	}
+}
+
+1356.6.21 = {
+	monarch = {
+		name = "Wladislaw II"
+		dynasty = "Piast"
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1401.1.1 = {
+	monarch = {
+		name = "Jan I"
+		dynasty = "Piast"
+		adm = 2
+		dip = 0
+		mil = 1
+	}
+}
+
+
+1421.1.1 = {
+	monarch = {
+		name = "Boleslaw IV"
+		dynasty = "Piast"
+		adm = 0
+		dip = 1
+		mil = 2
+	}
+}
+
+
+1437.1.1 = {
+	monarch = {
+		name = "Boleslaw V"
+		dynasty = "Piast"
+		adm = 0
+		dip = 1
+		mil = 2
+	}
+}
+
+1443.1.1 = {
+	monarch = {
+		name = "Mikolaj I"
+		dynasty = "Piast"
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1476.1.1 = {
+	monarch = {
+		name = "Mikolaj II"
+		dynasty = "Piast"
+		adm = 0
+		dip = 0
+		mil = 3
+	}
+}
+
+1497.1.1 = {
+	monarch = {
+		name = "Jan II"
+		dynasty = "Piast"
+		adm = 4
+		dip = 2
+		mil = 2
+	}
+}

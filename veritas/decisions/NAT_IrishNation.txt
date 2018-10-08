@@ -1,0 +1,101 @@
+country_decisions = {
+
+	irish_nation = {
+		major = yes
+		potential = {
+			primary_culture = irish
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = IRE }
+			NOT = { tag = ISC }
+			NOT = { tag = CLT }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			OR = {
+				ai = no
+				num_of_cities = 3
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				ai = no
+			}
+		}
+		allow = {
+			stability = 1
+			is_nomad = no
+			is_at_war = no
+			adm_tech = 21
+			custom_trigger_tooltip = {
+				NOT = { has_regency_trigger = yes }
+				tooltip = no_regency
+			}
+			custom_trigger_tooltip = {
+				ulster_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				leinster_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				munster_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				connacht_area = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+				tooltip = owns_all_ireland
+			}
+		}
+		effect = {
+			if = {
+	 			limit = { is_subject = yes }
+	 			overlord = {
+	 				clr_country_flag = overlord_flag_@ROOT
+	 				set_country_flag = overlord_flag_IRE
+	 			}
+	 		}
+			change_tag = IRE
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			add_prestige = 10
+			set_capital = 47 # Dublin
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = irish_ideas }
+				}
+				country_event = { id = "national_ideas.60000" }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+}

@@ -1,0 +1,320 @@
+# Scotland Events
+#
+#
+
+namespace = flavor_sco
+normal_or_historical_nations = yes
+
+#Stewart Ascension
+country_event = {
+	id = flavor_sco.10000
+	title = "flavor_sco.10000.t"
+	desc = "flavor_sco.10000.d"
+
+	picture = VEF_COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SCO
+		is_subject = no
+		has_heir = no
+		is_year = 1340
+		NOT = { is_year = 1371 }
+	}
+
+	option = {
+		name = "flavor_sco.10000.opta"
+		define_ruler = { dynasty = "Stewart" }
+	}
+}
+
+country_event = {
+	id = flavor_sco.10002
+	title = "flavor_sco.10002.t"
+	desc = "flavor_sco.10002.d"
+
+	picture = VEF_BATTLE_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SCO
+		SCO = { war_with = ENG }
+		NOT = { is_year = 1329 }
+		is_month = 4
+	}
+	
+	option = {
+		name = "flavor_sco.10002.opta"
+		add_country_modifier = { name = "highland_armies" duration = 1825 }
+		8 = {
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			cavalry = ROOT
+			cavalry = ROOT
+		}
+	}
+}
+
+country_event = {
+	id = flavor_sco.10003
+	title = "flavor_sco.10003.t"
+	desc = "flavor_sco.10003.d"
+
+	picture = VEF_POPE_PREACHING_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SCO
+		NOT = { has_country_modifier = arbroath_declaration }
+		OR = {
+			is_year = 1320
+			ENG = { has_country_flag = released_scotland }
+		}
+	}
+	
+	option = {
+		name = "flavor_sco.10003.opta"
+		add_stability = 2
+		add_country_modifier = { name = "arbroath_declaration" duration = -1 }
+	}
+}
+
+# Found St. Andrews University, Fife, 1410
+province_event = {
+	id = flavor_sco.10004
+	title = "flavor_sco.10004.t"
+	desc = "flavor_sco.10004.d"
+
+	picture = VEF_UNIVERSITY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		province_id = 14
+		NOT = { has_building = university }
+		num_free_building_slots = 1
+		owner = { tag = SCO }
+		is_year = 1410
+	}
+
+	mean_time_to_happen = { months = 36 }
+
+	option = {
+		name = "flavor_sco.10004.opta"
+		hidden_effect = {
+			if = {
+				limit = { has_building = seminary }
+				remove_building = seminary
+			}
+			if = {
+				limit = { has_building = college }
+				remove_building = college
+			}
+		}
+		add_building = university
+		owner = { add_prestige = 10 }
+	}
+}
+
+
+# Scots Highlanders Rebel against England
+province_event = {
+	id = flavor_sco.10005
+	title = "flavor_sco.10005.t"
+	desc = "flavor_sco.10005.d"
+
+	picture = VEF_BATTLE_eventPicture
+
+	trigger = {
+		area = highlands_area
+		NOT = { province_id = 7 }
+		NOT = { has_province_flag = highlanders_defeated }
+		NOT = { owned_by = SCO }
+		NOT = { owned_by = GBR }
+		NOT = { owned_by = CLT }
+		NOT = { owned_by = ISC }
+		NOT = { has_province_modifier = vef_highland_rebels }
+	}
+
+	immediate = {
+		add_permanent_province_modifier = { name = vef_highland_rebels duration = -1 }
+		set_variable = { which = highland_power value = 80 }
+		if = {
+			limit = { owner = { ai = yes }}
+			set_variable = { which = highland_power value = 45 }
+		}
+	}
+	
+	option = {
+		name = "flavor_sco.10005.opta"
+	}
+}
+
+# Spawn Rebels - Scots Highlanders
+province_event = {
+	id = flavor_sco.10006
+	title = "flavor_sco.10006.t"
+	desc = "flavor_sco.10006.d"
+
+	picture = VEF_BATTLE_eventPicture
+
+	trigger = {
+		has_province_modifier = vef_highland_rebels
+		area = highlands_area
+		NOT = { province_id = 7 }
+		NOT = { local_autonomy = 40 }
+		NOT = { has_province_flag = hold_40a } #Give you credit if you are trying to raise with RM
+		NOT = { has_province_flag = hold_60a }
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		modifier = {
+			check_variable = { which = highland_power value = 75 }
+			factor = 0.75
+		}
+		modifier = {
+			check_variable = { which = highland_power value = 50 }
+			factor = 0.8
+		}
+		modifier = {
+			local_autonomy = 20
+			factor = 1.5
+		}
+		modifier = {
+			local_autonomy = 40
+			factor = 1.5
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				check_variable = { which = highland_power value = 50 }
+				owner = { ai = no }
+			}
+			if = {
+				limit = { province_id = 8 }
+				spawn_rebels = { type = highland_rebels size = 1 friend = SCO leader = "Clan Mackay" }
+			}
+			if = {
+				limit = { province_id = 9 }
+				spawn_rebels = { type = highland_rebels size = 1 friend = SCO leader = "Clan Macleod" }
+			}
+			if = {
+				limit = { province_id = 10 }
+				spawn_rebels = { type = highland_rebels size = 1 friend = SCO leader = "Clan Munro" }
+			}
+			if = {
+				limit = { province_id = 11 }
+				spawn_rebels = { type = highland_rebels size = 1 friend = SCO leader = "Clan MacDonald" }
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = { check_variable = { which = highland_power value = 50 }}
+					owner = { ai = yes }
+				}
+			}
+			if = {
+				limit = { province_id = 8 }
+				spawn_rebels = { type = highland_rebels size = 1 friend = SCO leader = "Clan Mackay" }
+			}
+			if = {
+				limit = { province_id = 9 }
+				spawn_rebels = { type = highland_rebels size = 1 friend = SCO leader = "Clan Macleod" }
+			}
+			if = {
+				limit = { province_id = 10 }
+				spawn_rebels = { type = highland_rebels size = 1 friend = SCO leader = "Clan Munro" }
+			}
+			if = {
+				limit = { province_id = 11 }
+				spawn_rebels = { type = highland_rebels size = 1 friend = SCO leader = "Clan MacDonald" }
+			}
+		}
+		hidden_effect = {
+			change_variable = { which = highland_power value = -10 }
+			add_unrest = 2
+		}
+	}
+	
+	option = {
+		name = "flavor_sco.10005.opta"
+	}
+}
+
+# Scots Highlanders freed by Scotland or Celtic Empire
+province_event = {
+	id = flavor_sco.10007
+	title = "flavor_sco.10007.t"
+	desc = "flavor_sco.10007.d"
+
+	picture = VEF_BATTLE_eventPicture
+
+	trigger = {
+		has_province_modifier = vef_highland_rebels
+		area = highlands_area
+		NOT = { province_id = 7 }
+		OR = {
+			owned_by = SCO
+			owned_by = CLT
+			owned_by = ISC
+		}
+	}
+
+	immediate = {
+		remove_province_modifier = vef_highland_rebels
+		set_variable = { which = highland_power value = 0 }
+	}
+	
+	option = {
+		name = "flavor_sco.10005.opta"
+	}
+}
+
+# Highlanders Defeated
+province_event = {
+	id = flavor_sco.10008
+	title = "flavor_sco.10008.t"
+	desc = "flavor_sco.10008.d"
+
+	picture = VEF_BATTLE_eventPicture
+
+	trigger = {
+		has_province_modifier = vef_highland_rebels
+		area = highlands_area
+		NOT = { province_id = 7 }
+		NOT = { check_variable = { which = highland_power value = 20 }}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			NOT = { check_variable = { which = highland_power value = 10 }}
+			factor = 0.25
+		}
+	}
+
+	immediate = {
+		remove_province_modifier = vef_highland_rebels
+		set_province_flag = highlanders_defeated
+		set_variable = { which = highland_power value = 0 }
+	}
+	
+	option = {
+		name = "flavor_sco.10008.opta"
+	}
+}

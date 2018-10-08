@@ -1,0 +1,23 @@
+# Arsigantegok
+
+capital = "Arsigantegok"
+culture = abenaki
+religion = totemism
+trade_goods = unknown
+hre = no
+base_tax = 1
+base_production = 1
+base_manpower = 1
+native_size = 15
+native_ferocity = 3
+native_hostileness = 8
+discovered_by = north_american
+
+1609.1.1  = { discovered_by = FRA } # Samuel de Champlain
+1650.1.1  = { citysize = 300 trade_goods = naval_supplies }
+1676.1.1  = { trade_goods = fur }
+1760.1.1  = { owner = GBR controller = GBR citysize = 1500 }
+1763.2.10 = { remove_core = FRA }
+1788.10.7 = { add_core = GBR }
+1791.1.1  = { culture = english religion = protestant} # The Constitutional Act, Quebec is split into upper & lower Canada, and settlement of the Eastern Townships
+1800.1.1  = { citysize = 2250 }

@@ -1,0 +1,19 @@
+government = monarchy add_government_reform = feudalism_reform
+government_rank = 2
+primary_culture = cosmopolitan_french
+technology_group = western
+religion = catholic
+capital = 153	# Bourges
+
+1360.1.1 = {
+	monarch = {
+		name = "Jean I"
+		dynasty = "de Valois"
+		adm = 4
+		dip = 5
+		mil = 2
+	}
+	set_country_flag = starting_vassal 
+	set_country_flag = vassal_flag
+	set_variable = { which = vassal_progress value = 20.0 }
+}

@@ -1,0 +1,11 @@
+﻿l_english:
+ horde_reformed_events_tjl.1t: "$PROVINCENAME$ has been raided!"
+ horde_reformed_events_tjl.1d: "Our people from $PROVINCENAME$ have been taken as slaves during a raid by a nomadic horde!"
+ horde_reformed_events_tjl.1a: "We pray for their souls..."
+ horde_reformed_events_tjl.2t: "Slave Raid on [From.GetName]"
+ horde_reformed_events_tjl.2d: "We have raided [From.GetName], and gathered many women and men for trade."
+ horde_reformed_events_tjl.2a: "Excellent!"
+ money_support_hordes: "Monetary Support"
+ desc_money_support_hordes: "Aristocrats provide monetary support against the hordes."
+ troop_support_hordes: "Troop Support"
+ desc_troop_support_hordes: "Aristocrats provide troops to protect against the hordes."

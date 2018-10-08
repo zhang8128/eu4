@@ -1,0 +1,186 @@
+# GOB - Russia
+
+# tsar_power levels determine if the ruler can attempt to centralize
+
+country_decisions = {
+	fortify_the_kremlin = {
+		potential = {
+			tag = MOS
+			NOT = { 715 = { has_province_modifier = kremlin } }
+			capital = 715		# Moskva
+			715 = { is_core = ROOT }
+			is_year = 1339
+			NOT = { is_year = 1359 }
+		}
+
+		allow = {
+			adm_power = 25
+			treasury = 25
+			prestige = 25
+		}
+
+		effect = {
+			715 = { add_permanent_province_modifier = { name = "kremlin" duration = -1 } }
+			add_treasury = -25
+			add_adm_power = -25
+		}
+		ai_will_do = { factor = 1 }
+		ai_importance = 1000
+	}
+	
+	rus_tsar_power = {
+		potential = {
+			tag = RUS
+			has_faction = rus_zemsky_sobor
+			NOT = { has_country_flag = tsar_power_flag }
+		}
+
+		allow = {
+			stability = 1
+		}
+
+		effect = {
+			country_event = { id = flavor_rus.21005 }
+			add_country_modifier = { name = "rus_tsarist" duration = -1 }
+		}
+
+		ai_will_do = { factor = 0 }
+	}
+
+	rus_centralize_1 = {
+		potential = {
+			tag = RUS
+			NOT = { check_variable = { which = rus_central value = 1 } }
+		}
+
+		allow = {
+			check_variable = { which = tsar_power value = 200 }
+		}
+
+		effect = {
+			set_variable = { which = rus_central value = 1 }
+			add_adm_power = -100
+			add_country_modifier = { name = "rus_centralization_1" duration = -1 }
+		}
+
+		ai_will_do = { factor = 1 }
+		ai_importance = 1000
+	}
+
+	rus_centralize_2 = {
+		potential = {
+			tag = RUS
+			check_variable = { which = rus_central value = 1 }
+			NOT = { check_variable = { which = rus_central value = 2 } }
+		}
+
+		allow = {
+			check_variable = { which = tsar_power value = 400 }
+		}
+
+		effect = {
+			set_variable = { which = rus_central value = 2 }
+			add_adm_power = -100
+			add_country_modifier = { name = "rus_centralization_2" duration = -1 }
+			remove_country_modifier = rus_centralization_1
+		}
+
+		ai_will_do = { factor = 1 }
+		ai_importance = 1000
+	}
+
+	rus_centralize_3 = {
+		potential = {
+			tag = RUS
+			check_variable = { which = rus_central value = 2 }
+			NOT = { check_variable = { which = rus_central value = 3 } }
+		}
+
+		allow = {
+			check_variable = { which = tsar_power value = 600 }
+		}
+
+		effect = {
+			set_variable = { which = rus_central value = 3 }
+			add_adm_power = -100
+			add_country_modifier = { name = "rus_centralization_3" duration = -1 }
+			remove_country_modifier = rus_centralization_2
+		}
+
+		ai_will_do = { factor = 1 }
+		ai_importance = 1000
+	}
+
+	rus_centralize_4 = {
+		potential = {
+			tag = RUS
+			check_variable = { which = rus_central value = 3 }
+			NOT = { check_variable = { which = rus_central value = 4 } }
+		}
+
+		allow = {
+			check_variable = { which = tsar_power value = 800 }
+		}
+
+		effect = {
+			set_variable = { which = rus_central value = 4 }
+			add_adm_power = -100
+			add_country_modifier = { name = "rus_centralization_4" duration = -1 }
+			remove_country_modifier = rus_centralization_3
+		}
+
+		ai_will_do = { factor = 1 }
+		ai_importance = 1000
+	}
+
+	rus_centralize_5 = {
+		potential = {
+			tag = RUS
+			check_variable = { which = rus_central value = 4 }
+			NOT = { has_country_modifier = moscow_patriarchate }
+		}
+
+		allow = {
+			check_variable = { which = tsar_power value = 1000 }
+		}
+
+		effect = {
+			remove_faction = rus_zemsky_sobor
+			remove_faction = rus_patriarchal
+			remove_faction = rus_stroganov
+			remove_country_modifier = rus_centralization_4
+			add_adm_power = -100
+			add_country_modifier = { name = "stroganov_financing" duration = -1 }
+			add_country_modifier = { name = "moscow_patriarchate" duration = -1 }
+			set_variable = { which = rus_central value = 5 }
+		}
+
+		ai_will_do = { factor = 1 }
+		ai_importance = 1000
+	}
+
+	rus_zemsky_sobor_war = {
+		potential = {
+			tag = RUS
+			government = russian_empire
+			NOT = { has_country_modifier = zemsky_sobor_war }
+			is_at_war = no
+		}
+
+		allow = {
+			faction_in_power = rus_zemsky_sobor
+		}
+
+		effect = {
+			hidden_effect = {
+				add_country_modifier = { name = "zemsky_sobor_war" duration = 720 hidden = yes }
+				random_list = {
+					66 = { set_country_flag = zemsky_sobor_says_yes }
+					34 = { set_country_flag = zemsky_sobor_says_no }
+				}
+			}
+			country_event = { id = flavor_rus.21004 }
+			change_variable = { which = tsar_power value = -5 }
+		}
+	}
+}

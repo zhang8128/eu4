@@ -1,0 +1,11 @@
+#Baltiyskiy Kech
+#model = barque
+#tech_level = 36
+type = light_ship
+unit_type = eastern
+
+hull_size = 12
+base_cannons = 10
+sail_speed = 8
+trade_power = 3.75
+sailors = 40

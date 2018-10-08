@@ -1,0 +1,10 @@
+#Shona Canoe
+#model = barque
+#tech_level = 0
+type = transport
+unit_type = tribal_african_tech
+
+hull_size = 6
+base_cannons = 6
+sail_speed = 10
+sailors = 50

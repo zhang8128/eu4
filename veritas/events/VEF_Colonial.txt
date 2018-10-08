@@ -1,0 +1,474 @@
+namespace = vef_colonial
+
+
+#1 Choose Policy
+#100 Colonial Maintenance
+#101 Colonial Maintenance - European
+#102 Colonial Culture
+#103 Slavery Replacing Encomienda
+#104 Importation of Slaves
+#105 N. America Encomienda
+
+#Policy Choice
+country_event = {
+	id = vef_colonial.1
+	title = "vef_colonial.1.t" 
+	desc = "vef_colonial.1.d"
+	picture = VEF_NATIVES_eventPicture
+	
+	trigger = {
+		num_of_colonies = 1
+		NOT = { has_country_flag = vef_colonial_policy }
+		OR = {
+			NOT = { has_dlc = "The Cossacks" }
+			ai = yes
+		}
+		any_owned_province = {
+			is_colony = yes
+			NOT = { continent = europe }
+			NOT = { region = ural_region }
+			NOT = { region = west_siberia_region }
+			NOT = { region = east_siberia_region }
+			native_size = 1
+		}
+	}
+	
+	mean_time_to_happen = {
+		months	= 1
+	}
+	
+	option = { # Labour Force
+		name = "vef_colonial.1.opta"
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 0
+				OR = {
+					tag = FRA
+					tag = ENG
+					tag = GBR
+				}
+			}
+		}
+		set_country_flag = vef_colonial_policy
+		hidden_effect = { add_country_modifier = { name = native_policy_hostile duration = -1 hidden = yes }}
+		random_owned_province = {
+			limit = { is_colony = yes }
+			change_native_size = -2
+		}
+		custom_tooltip = tt_labour_natives
+	}
+	option = { # Trade
+		name = "vef_colonial.1.optb"
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				OR = {
+					tag = SPA
+					tag = CAS
+					tag = POR
+					tag = ENG
+					tag = GBR
+				}
+			}
+		}
+		add_treasury = -50
+		set_country_flag = vef_colonial_policy
+		hidden_effect = { add_country_modifier = { name = native_policy_trade duration = -1 hidden = yes }}
+		random_owned_province = {
+			limit = { is_colony = yes }
+			add_base_tax = 1
+		}
+		custom_tooltip = tt_trade_natives
+	}	
+	option = { # Displace
+		name = "vef_colonial.1.optc"
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				OR = {
+					tag = SPA
+					tag = CAS
+					tag = POR
+					tag = FRA
+				}
+			}
+		}
+		add_prestige = -2
+		set_country_flag = vef_colonial_policy
+		custom_tooltip = tt_displace_natives
+	}	
+}
+
+# Colonial Maintenance
+province_event = {
+	id =  vef_colonial.100
+	title = "vef_colonial.100.t"
+	desc = "vef_colonial.100.d"
+	picture = VEF_COLONIZATION_eventPicture
+	
+	is_triggered_only = yes
+	
+	hidden = yes
+	
+	trigger = {
+		NOT = { continent = europe }
+		NOT = { region = ural_region }
+		NOT = { region = west_siberia_region }
+		NOT = { region = east_siberia_region }
+	}
+	
+	immediate = {
+		if = {
+			limit = { owner = { is_colonial_nation = no }}
+			owner = {
+				export_to_variable = { which = vef_native_assim value = modifier:native_assimilation }
+				ROOT = { set_variable = { which = vef_native_assim which = PREV }}
+			}
+		}
+		else = {
+			owner = {
+				overlord = {
+					export_to_variable = { which = vef_native_assim value = modifier:native_assimilation }
+					ROOT = { set_variable = { which = vef_native_assim which = PREV }}
+				}
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { which = vef_native_assim value = 0.7 }
+				NOT = { check_variable = { which = vef_native_assim value = 0.9 }}
+				colonysize = 100
+				OR = {
+					region = mississippi_region
+					region = southeast_america_region
+					region = northeast_america_region
+					region = canada_region
+					region = hudson_bay_region
+				}
+			}
+			province_event = { id = vef_colonial.105 }
+		}
+		if = { # France
+			limit = { check_variable = { which = vef_native_assim value = 1 }}
+			if = {
+				limit = { colonysize = 100 native_size = 4 NOT = { check_variable = { which = vef_prov_desire value = 5 }}}
+				clr_province_flag = libbuild_initialise
+				add_colonysize = 1000
+				change_culture = variable:vef_prov_culture
+				change_religion = variable:vef_prov_religion
+				add_building = trading_post_building
+			}
+		}
+		else_if = { # Labour Force
+			limit = { check_variable = { which = vef_native_assim value = 0.80 }}
+			if = {
+				limit = { colonysize = 200 native_size = 4 }
+				clr_province_flag = libbuild_initialise
+				add_colonysize = 1000
+				change_culture = variable:vef_prov_culture
+				change_religion = variable:vef_prov_religion
+				add_building = encomienda
+				add_building = nobles_80
+			}
+		}
+		else_if = { # Trading
+			limit = { check_variable = { which = vef_native_assim value = 0.50 }}
+			if = {
+				limit = { colonysize = 100 native_size = 4 NOT = { check_variable = { which = vef_prov_desire value = 5 }}}
+				clr_province_flag = libbuild_initialise
+				add_colonysize = 1000
+				change_culture = variable:vef_prov_culture
+				change_religion = variable:vef_prov_religion
+				add_building = trading_post_building
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_colonial.100.opta"
+		if = {
+			limit = {
+				is_colony = yes
+				OR = {
+					trade_goods = sugar
+					trade_goods = tobacco
+					trade_goods = cotton
+					trade_goods = cocoa
+					trade_goods = coffee
+				}
+				OR = {
+					NOT = { native_size = 4 }
+					NOT = { check_variable = { which = vef_native_assim value = 0.50 }}
+				}
+				NOT = { has_province_flag = refused_slave_importation }
+				NOT = { has_province_modifier = vef_slave_labour }
+			}
+			province_event = { id = vef_colonial.104 }
+		}
+	}
+}
+
+# European Maintenance
+province_event = {
+	id =  vef_colonial.101
+	title = "vef_colonial.101.t"
+	desc = "vef_colonial.101.d"
+	picture = VEF_COLONIZATION_eventPicture
+	
+	is_triggered_only = yes
+	
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			continent = europe
+			region = ural_region
+			region = west_siberia_region
+			region = east_siberia_region
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { colonysize = 500 native_size = 4 }
+			add_colonysize = 1000
+			change_culture = variable:vef_prov_culture
+			change_religion = variable:vef_prov_religion
+			if = {
+				limit = { culture = finnish }
+				add_core = FIN
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_colonial.101.opta"
+	}
+}
+
+# Cultural Maintenance
+country_event = {
+	id =  vef_colonial.102
+	title = "vef_colonial.102.t"
+	desc = "vef_colonial.102.d"
+	picture = VEF_COLONIZATION_eventPicture
+	
+	is_triggered_only = yes
+	
+	hidden = yes
+	
+	trigger = {
+		any_owned_province = { has_building = encomienda }
+	}
+	
+	immediate = {
+		every_owned_province = {
+			limit = {
+				has_building = encomienda
+				OR = {
+					culture_group = central_american
+					culture_group = maya
+					culture_group = otomanguean
+					culture_group = andean_group
+					culture_group = je_tupi
+					culture_group = chibchan
+					culture_group = chonan
+					culture_group = carribean
+				}
+			}
+			change_variable = { which = vef_colony_culture_growth value = 2 }
+			if = {
+				limit = { check_variable = { which = vef_colony_culture_growth value = 40 } NOT = { base_manpower = 2 }}
+				set_province_flag = vef_culture_change
+			}
+			else_if = {
+				limit = { check_variable = { which = vef_colony_culture_growth value = 70 } NOT = { base_manpower = 3 }}
+				set_province_flag = vef_culture_change
+			}
+			else_if = {
+				limit = { check_variable = { which = vef_colony_culture_growth value = 90 } NOT = { base_manpower = 4 }}
+				set_province_flag = vef_culture_change
+			}
+			else_if = {
+				limit = { check_variable = { which = vef_colony_culture_growth value = 100 }}
+				set_province_flag = vef_culture_change
+			}
+			if = {
+				limit = { has_province_flag = vef_culture_change }
+				clr_province_flag = vef_culture_change
+				if = {
+					limit = { region = carribeans_region NOT = { area = cuba_area }}
+					if = {
+						limit = { owner = { has_country_flag = vef_nw_slaves }}
+						remove_building = encomienda
+						add_building = slavery
+						if = {
+							limit = { owner = { culture_group = iberian NOT = { primary_culture = portugese }}}
+							change_culture = spanish_creole
+						}
+						if = {
+							limit = { owner = { primary_culture = portugese }}
+							change_culture = portuguese_creole
+						}
+						if = {
+							limit = { owner = { culture_group = germanic NOT = { primary_culture = dutch } NOT = { primary_culture = flemish } NOT = { primary_culture = frysk }}}
+							change_culture = german_creole
+						}
+						if = {
+							limit = { owner = { OR = { primary_culture = dutch primary_culture = flemish primary_culture = frysk }}}
+							change_culture = dutch_creole
+						}
+						if = {
+							limit = { owner = { culture_group = british }}
+							change_culture = english_creole
+						}
+						if = {
+							limit = { owner = { culture_group = french }}
+							change_culture = french_creole
+						}
+					}
+					if = {
+						limit = { NOT = { owner = { has_country_flag = vef_nw_slaves }}}
+						province_event = { id = vef_colonial.103 }
+					}
+				}
+				else_if = {
+					limit = { area = cuba_area }
+					change_culture = ROOT
+				}
+				else_if = {
+					limit = { owner = { culture_group = iberian NOT = { primary_culture = portugese }}}
+					change_culture = mestizo
+				}
+				else_if = {
+					limit = { owner = { primary_culture = portugese } region = brazil_region }
+					change_culture = brazilian
+				}
+				else = { change_culture = ROOT }
+			}
+		}
+	}
+	
+	option = {
+		name = "vef_colonial.102.opta"
+	}
+}
+
+# Slavery In The Americas?
+province_event = {
+	id =  vef_colonial.103
+	title = "vef_colonial.103.t"
+	desc = "vef_colonial.103.d"
+	picture = VEF_COLONIZATION_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_colonial.103.opta"
+		owner = { set_country_flag = vef_nw_slaves }
+		remove_building = encomienda
+		add_building = slavery
+	}
+	
+	option = {
+		ai_chance = { factor = 0 }
+		name = "vef_colonial.103.optb"
+		remove_building = encomienda
+		add_building = freedom
+	}
+}
+
+# Importation of Slaves Into $PROVINCE$?
+province_event = {
+	id =  vef_colonial.104
+	title = "vef_colonial.104.t"
+	desc = "vef_colonial.104.d"
+	picture = VEF_COLONIZATION_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_colonial.104.opta"
+		if = {
+			limit = { is_island = yes }
+			add_colonysize = 1000
+			add_building = slavery
+			add_building = nobles_80
+			if = {
+				limit = { owner = { culture_group = iberian NOT = { primary_culture = portugese }}}
+				change_culture = spanish_creole
+			}
+			if = {
+				limit = { owner = { primary_culture = portugese }}
+				change_culture = portuguese_creole
+			}
+			if = {
+				limit = { owner = { culture_group = germanic NOT = { primary_culture = dutch } NOT = { primary_culture = flemish } NOT = { primary_culture = frysk }}}
+				change_culture = german_creole
+			}
+			if = {
+				limit = { owner = { OR = { primary_culture = dutch primary_culture = flemish primary_culture = frysk }}}
+				change_culture = dutch_creole
+			}
+			if = {
+				limit = { owner = { culture_group = british }}
+				change_culture = english_creole
+			}
+			if = {
+				limit = { owner = { culture_group = french }}
+				change_culture = french_creole
+			}
+		}
+		else = {
+			add_permanent_province_modifier = { name = vef_slave_labour duration = -1 }
+		}
+	}
+	
+	option = {
+		ai_chance = { factor = 0 }
+		name = "vef_colonial.104.optb"
+		set_province_flag = refused_slave_importation
+	}
+}
+
+# Natives In $PROVINCE$ Gone
+province_event = {
+	id =  vef_colonial.105
+	title = "vef_colonial.105.t"
+	desc = "vef_colonial.105.d"
+	picture = VEF_COLONIZATION_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = { change_native_size = -50 }
+	
+	option = {
+		name = "vef_colonial.105.opta"
+	}
+}
+
+
+# Culture/Religion Fix On Colony Lost/Abandoned
+province_event = {
+	id =  vef_colonial.110
+	title = "vef_colonial.110.t"
+	desc = "vef_colonial.110.d"
+	picture = VEF_COLONIZATION_eventPicture
+	
+	is_triggered_only = yes
+
+	hidden = yes
+	
+	option = {
+		name = "vef_colonial.110.opta"
+		set_province_flag = libbuild_initialise
+		export_to_variable = { variable_name = vef_prov_culture value = culture }
+		export_to_variable = { variable_name = vef_prov_religion value = religion }
+		export_to_variable = { variable_name = vef_prov_desire value = modifier:province_trade_power_value }
+	}
+}

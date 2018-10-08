@@ -1,0 +1,27 @@
+#1020 - Pyongan
+
+capital = "Pyeongyang"
+owner = KOR
+controller = KOR
+add_core = KOR
+culture = korean
+religion = mahayana
+trade_goods = rice
+base_tax = 4
+base_production = 4
+base_manpower = 5
+is_city = yes
+hre = no
+discovered_by = chinese
+discovered_by = niitaka
+
+1270.1.1 = { owner = YUN controller = YUN add_core = YUN }
+1290.1.1 = { owner = KOR controller = KOR remove_core = YUN } #Yuan returns Dongnyeong Prefecture
+1392.7.17 = { religion = confucianism }
+1519.1.1 = { discovered_by = POR } # Tome Pires
+1592.7.19 = { unrest = 5 } # Japanese invasion
+1593.2.8 = { controller = KOR unrest = 0 } # Japanese retreat
+1637.1.1 = { add_core = MNG } # Tributary of Qing China
+1644.1.1 = { add_core = MCH remove_core = MNG } # Part of the Manchu empire
+1645.7.1 = { add_core = QNG remove_core = MCH }
+1653.1.1 = { discovered_by = NED } # Hendrick Hamel

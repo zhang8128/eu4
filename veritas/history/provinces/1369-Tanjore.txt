@@ -1,0 +1,30 @@
+# Tanjore
+
+capital = "Thanjavur"
+owner = MAD
+controller = MAD
+add_core = MAD
+culture = tamil
+religion = hinduism
+trade_goods = cloth
+base_tax = 5
+base_production = 5
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = indian
+
+1330.1.1 = { owner = DLH controller = DLH remove_core = MAD } #Pandya dynasty conqured by Delhi Sultanate
+1345.1.1 = { owner = VIJ controller = VIJ add_core = VIJ }
+1405.1.1 = { discovered_by = chinese }
+1428.1.1 = { add_core = VIJ }
+1498.1.1 = { discovered_by = POR }
+1543.1.1 = { controller = REB revolt = { size = 0 type = nationalist_rebels } }
+1550.1.1 = { controller = VIJ revolt = { } }
+1565.7.1 = { owner = MAD controller = MAD } # The Vijayanagar empire collapses
+1661.1.1 = { controller = BIJ } # Bijapur Expansion
+1662.1.1 = { owner = BIJ add_core = BIJ }
+1678.1.1 = { owner = MAR controller = MAR add_core = MAR } #Venkaji assumes independence
+1694.1.1 = { controller = MUG }
+1707.1.1 = { controller = MAR }
+1801.1.1 = { controller = GBR owner = GBR add_core = GBR capital = "Tanjore" }

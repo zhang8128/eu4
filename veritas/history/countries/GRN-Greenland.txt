@@ -1,0 +1,10 @@
+government = republic add_government_reform = oligarchic_republic
+government_rank = 3
+primary_culture = greenlander
+religion = catholic
+technology_group = scandinavian_tech
+capital = 1 #Eiriksfjord
+
+1540.1.1 = { government = republic add_government_reform = administrative_republic }
+
+1750.1.1 = { government = republic }

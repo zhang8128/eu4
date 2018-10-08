@@ -1,0 +1,33 @@
+# Mogadishu
+
+capital = "Maqdishu"
+owner = MDI
+controller = MDI
+add_core = MDI
+culture = somali
+religion = sunni
+trade_goods = ivory
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+hre = no
+discovered_by = sudanese_tech
+discovered_by = muslim
+
+extra_cost = 15
+center_of_trade = 1
+
+1499.1.1 = { unrest = 3 } #Portuguese bombard Mogadishu, do not seize it
+1504.1.1 = { unrest = 0 }
+
+1555.1.1 = { owner = AJU controller = AJU }
+1612.1.1 = { unrest = 8 } #Somail migrations greatly disrupt region
+1615.1.1 = { unrest = 0 }
+1650.1.1 = { owner = MDI controller = MDI }
+1705.1.1 = { 
+	owner = OMA 
+	controller = OMA 
+	add_core = OMA 
+	trade_goods = grain 
+} #Omanis seize control of Mogadishu and Geledi

@@ -1,0 +1,1166 @@
+########################################
+# Events for Bohemia
+#
+########################################
+
+namespace = vef_bohcrown
+normal_or_historical_nations = yes
+
+#####################
+# Elective Monarchy #
+#####################
+
+# Bohemia is no longer ours
+country_event = {
+   id = vef_bohcrown.1
+   title = "vef_bohcrown.1.t"
+   desc = "vef_bohcrown.1.d"
+   picture = VEF_ELECTION_REPUBLICAN_eventPicture
+ 
+	is_triggered_only = yes 
+ 
+ 	trigger = {
+ 		BOH = {
+ 			has_reform = bohemian_monarchy
+ 			junior_union_with = ROOT
+ 		}
+ 		NOT = { has_country_flag = forcibly_reclaimed_bohemia }
+ 		NOT = { has_country_flag = vef_regency }
+ 		NOT = { has_country_modifier = no_bohemian_election }
+ 	}
+ 	
+ 	immediate = {
+ 		set_country_flag = previous_bohemian_king
+ 		break_union = BOH
+ 		BOH = {
+ 			define_ruler = {
+ 				name = "Interregnum"
+ 				adm = 3
+ 				dip = 1
+ 				mil = 0
+ 				regency = yes
+ 			}
+ 			country_event = { id = vef_bohcrown.2 days = 1 }
+ 			set_country_flag = bohemian_interregnum
+ 		}
+ 	}
+ 	
+ 	option = {
+ 		name = "vef_bohcrown.1.opta"
+ 	}
+}
+
+# Whom shall we elect?
+country_event = {
+   id = vef_bohcrown.2
+   title = "vef_bohcrown.2.t"
+   desc = "vef_bohcrown.2.d"
+   picture = VEF_ELECTION_REPUBLICAN_eventPicture
+ 
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = BOH
+		has_reform = bohemian_monarchy
+	}
+
+	option = {	# Emperor
+		trigger = {
+			HAB = { is_emperor = no }
+			BRA = { is_emperor = no }
+			BAV = { is_emperor = no }
+			HUN = { is_emperor = no }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				num_of_cities = 12
+				factor = 0
+			}
+			modifier = {
+				LUX = { is_emperor = yes }
+				factor = 8
+			}
+			modifier = {
+				emperor = { has_country_flag = previous_bohemian_king }
+				factor = 1.5
+			}
+			modifier = {
+				NOT = { religion = catholic }
+				emperor = {
+					has_country_modifier = counter_reformation
+					NOT = { has_country_flag = forcibly_reclaimed_bohemia }
+				}
+				factor = 0
+			}
+		}
+		name = "vef_bohcrown.2.opta"
+		emperor = { create_subject = { who = BOH subject_type = bohemian_union }}
+		if = {
+			limit = { has_reform = elective_monarchy }
+			add_government_reform = bohemian_monarchy
+		}
+		hidden_effect = {
+			every_known_country = { clr_country_flag = previous_bohemian_king }
+			emperor = { change_variable = { which = bohemian_elections value = 1 } }
+			every_country = {
+				limit = {
+					is_emperor = no
+					check_variable = { which = bohemian_elections value = 1 }
+				}
+				change_variable = { which = bohemian_elections value = -1 }
+			}
+		}
+		BOH = { clr_country_flag = bohemian_interregnum }
+	}
+	
+	option = {	# Habsburg
+		trigger = {
+			exists = HAB
+			HAB = { is_subject = no }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				num_of_cities = 12
+				factor = 0
+			}
+			modifier = {
+				num_of_cities = HAB
+				factor = 0
+			}
+			modifier = {
+				HAB = { is_emperor = yes }
+				factor = 3
+			}
+			modifier = {
+				HAB = { has_country_flag = previous_bohemian_king }
+				factor = 1.5
+			}
+			modifier = {
+				NOT = { religion = catholic }
+				HAB = {
+					has_country_modifier = counter_reformation
+					NOT = { has_country_flag = forcibly_reclaimed_bohemia }
+				}
+				factor = 0
+			}
+		}
+		name = "vef_bohcrown.2.optb"
+		HAB = { create_subject = { who = BOH subject_type = bohemian_union }}
+		if = {
+			limit = { has_reform = elective_monarchy }
+			add_government_reform = bohemian_monarchy
+		}
+		hidden_effect = {
+			every_known_country = { clr_country_flag = previous_bohemian_king }
+			HAB = { change_variable = { which = bohemian_elections value = 1 } }
+			every_country = {
+				limit = {
+					NOT = { tag = HAB }
+					check_variable = { which = bohemian_elections value = 1 }
+				}
+				change_variable = { which = bohemian_elections value = -1 }
+			}
+		}
+		BOH = { clr_country_flag = bohemian_interregnum }
+	}
+	
+	option = {	# Brandenburg
+		trigger = {
+			exists = BRA
+			BRA = { is_subject = no }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				num_of_cities = 12
+				factor = 0
+			}
+			modifier = {
+				num_of_cities = BRA
+				factor = 0
+			}
+			modifier = {
+				BRA = { is_emperor = yes }
+				factor = 3
+			}
+			modifier = {
+				BRA = { has_country_flag = previous_bohemian_king }
+				factor = 1.5
+			}
+			modifier = {
+				NOT = { religion = catholic }
+				BRA = {
+					has_country_modifier = counter_reformation
+					NOT = { has_country_flag = forcibly_reclaimed_bohemia }
+				}
+				factor = 0
+			}
+		}
+		name = "vef_bohcrown.2.optc"
+		BRA = { create_subject = { who = BOH subject_type = bohemian_union }}
+		if = {
+			limit = { has_reform = elective_monarchy }
+			add_government_reform = bohemian_monarchy
+		}
+		hidden_effect = {
+			every_known_country = { clr_country_flag = previous_bohemian_king }
+			BRA = { change_variable = { which = bohemian_elections value = 1 } }
+			every_country = {
+				limit = {
+					NOT = { tag = BRA }
+					check_variable = { which = bohemian_elections value = 1 }
+				}
+				change_variable = { which = bohemian_elections value = -1 }
+			}
+		}
+		BOH = { clr_country_flag = bohemian_interregnum }
+	}
+	
+	option = {	# Bavaria
+		trigger = {
+			exists = BAV
+			BAV = { is_subject = no }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				num_of_cities = 12
+				factor = 0
+			}
+			modifier = {
+				num_of_cities = BAV
+				factor = 0
+			}
+			modifier = {
+				BAV = { is_emperor = yes }
+				factor = 3
+			}
+			modifier = {
+				BAV = { has_country_flag = previous_bohemian_king }
+				factor = 1.5
+			}
+			modifier = {
+				NOT = { religion = catholic }
+				BAV = {
+					has_country_modifier = counter_reformation
+					NOT = { has_country_flag = forcibly_reclaimed_bohemia }
+				}
+				factor = 0
+			}
+		}
+		name = "vef_bohcrown.2.opte"
+		BAV = { create_subject = { who = BOH subject_type = bohemian_union }}
+		if = {
+			limit = { has_reform = elective_monarchy }
+			add_government_reform = bohemian_monarchy
+		}
+		hidden_effect = {
+			every_known_country = { clr_country_flag = previous_bohemian_king }
+			BAV = { change_variable = { which = bohemian_elections value = 1 } }
+			every_country = {
+				limit = {
+					NOT = { tag = BAV }
+					check_variable = { which = bohemian_elections value = 1 }
+				}
+				change_variable = { which = bohemian_elections value = -1 }
+			}
+		}
+		BOH = { clr_country_flag = bohemian_interregnum }
+	}
+	
+	option = {	# Hungary
+		trigger = {
+			exists = HUN
+			HUN = { is_subject = no }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				num_of_cities = 12
+				factor = 0
+			}
+			modifier = {
+				num_of_cities = HUN
+				factor = 0
+			}
+			modifier = {
+				HUN = { is_emperor = no }
+				factor = 0
+			}
+			modifier = {
+				HUN = { is_emperor = yes }
+				factor = 3
+			}
+			modifier = {
+				HUN = { has_country_flag = previous_bohemian_king }
+				factor = 1.5
+			}
+			modifier = {
+				NOT = { religion = catholic }
+				HUN = {
+					has_country_modifier = counter_reformation
+					NOT = { has_country_flag = forcibly_reclaimed_bohemia }
+				}
+				factor = 0
+			}
+		}
+		name = "vef_bohcrown.2.optf"
+		HUN = { create_subject = { who = BOH subject_type = bohemian_union }}
+		if = {
+			limit = { has_reform = elective_monarchy }
+			add_government_reform = bohemian_monarchy
+		}
+		hidden_effect = {
+			every_known_country = { clr_country_flag = previous_bohemian_king }
+			HUN = { change_variable = { which = bohemian_elections value = 1 } }
+			every_country = {
+				limit = {
+					NOT = { tag = HUN }
+					check_variable = { which = bohemian_elections value = 1 }
+				}
+				change_variable = { which = bohemian_elections value = -1 }
+			}
+		}
+		BOH = { clr_country_flag = bohemian_interregnum }
+	}
+	
+	option = {	# Local Noble (Independence )
+		trigger = {
+			OR = {
+				ai = no
+				num_of_cities = 10
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				num_of_cities = 12
+				factor = 10
+			}
+		}
+		name = "vef_bohcrown.2.optd"
+		if = {
+			limit = { has_reform = bohemian_monarchy }
+			add_government_reform = elective_monarchy
+		}
+		define_ruler = {}
+		hidden_effect = {
+			every_known_country = { clr_country_flag = previous_bohemian_king }
+			every_country = {
+				limit = { check_variable = { which = bohemian_elections value = 1 }}
+				change_variable = { which = bohemian_elections value = -1 }
+			}
+		}
+		BOH = { clr_country_flag = bohemian_interregnum }
+	}
+}
+
+# Force Bohemian election
+country_event = {
+   id = vef_bohcrown.3
+   title = "vef_bohcrown.3.t"
+   desc = "vef_bohcrown.3.d"
+   picture = VEF_ELECTION_REPUBLICAN_eventPicture
+ 
+	trigger = {
+		tag = BOH
+		is_subject = no
+		has_reform = bohemian_monarchy
+		NOT = { has_country_flag = bohemian_interregnum }
+	}
+
+	option = {	# Emperor
+		trigger = {
+			HAB = { is_emperor = no }
+			BRA = { is_emperor = no }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				num_of_cities = 12
+				factor = 0
+			}
+			modifier = {
+				LUX = { is_emperor = yes }
+				factor = 8
+			}
+			modifier = {
+				emperor = { has_country_flag = previous_bohemian_king }
+				factor = 1.5
+			}
+			modifier = {
+				NOT = { religion = catholic }
+				emperor = {
+					has_country_modifier = counter_reformation
+					NOT = { has_country_flag = forcibly_reclaimed_bohemia }
+				}
+				factor = 0
+			}
+		}
+		name = "vef_bohcrown.3.opta"
+		emperor = { create_subject = { who = BOH subject_type = bohemian_union }}
+		hidden_effect = {
+			every_known_country = { clr_country_flag = previous_bohemian_king }
+			emperor = { change_variable = { which = bohemian_elections value = 1 } }
+			every_country = {
+				limit = {
+					is_emperor = no
+					check_variable = { which = bohemian_elections value = 1 }
+				}
+				change_variable = { which = bohemian_elections value = -1 }
+			}
+		}
+	}
+	
+	option = {	# Habsburg
+		trigger = {
+			exists = HAB
+			HAB = { is_subject = no }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				num_of_cities = 12
+				factor = 0
+			}
+			modifier = {
+				num_of_cities = HAB
+				factor = 0
+			}
+			modifier = {
+				HAB = { is_emperor = yes }
+				factor = 3
+			}
+			modifier = {
+				HAB = { has_country_flag = previous_bohemian_king }
+				factor = 1.5
+			}
+			modifier = {
+				NOT = { religion = catholic }
+				HAB = {
+					has_country_modifier = counter_reformation
+					NOT = { has_country_flag = forcibly_reclaimed_bohemia }
+				}
+				factor = 0
+			}
+		}
+		name = "vef_bohcrown.3.optb"
+		HAB = { create_subject = { who = BOH subject_type = bohemian_union }}
+		hidden_effect = {
+			every_known_country = { clr_country_flag = previous_bohemian_king }
+			HAB = { change_variable = { which = bohemian_elections value = 1 } }
+			every_country = {
+				limit = {
+					NOT = { tag = HAB }
+					check_variable = { which = bohemian_elections value = 1 }
+				}
+				change_variable = { which = bohemian_elections value = -1 }
+			}
+		}
+	}
+	
+	option = {	# Brandenburg
+		trigger = {
+			exists = BRA
+			BRA = { is_subject = no }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				num_of_cities = 12
+				factor = 0
+			}
+			modifier = {
+				num_of_cities = BRA
+				factor = 0
+			}
+			modifier = {
+				BRA = { is_emperor = yes }
+				factor = 3
+			}
+			modifier = {
+				BRA = { has_country_flag = previous_bohemian_king }
+				factor = 1.5
+			}
+			modifier = {
+				NOT = { religion = catholic }
+				BRA = {
+					has_country_modifier = counter_reformation
+					NOT = { has_country_flag = forcibly_reclaimed_bohemia }
+				}
+				factor = 0
+			}
+		}
+		name = "vef_bohcrown.3.optc"
+		BRA = { create_subject = { who = BOH subject_type = bohemian_union }}
+		hidden_effect = {
+			every_known_country = { clr_country_flag = previous_bohemian_king }
+			BRA = { change_variable = { which = bohemian_elections value = 1 } }
+			every_country = {
+				limit = {
+					NOT = { tag = BRA }
+					check_variable = { which = bohemian_elections value = 1 }
+				}
+				change_variable = { which = bohemian_elections value = -1 }
+			}
+		}
+	}
+	
+	option = {	# Bavaria
+		trigger = {
+			exists = BAV
+			BAV = { is_subject = no }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				num_of_cities = 12
+				factor = 0
+			}
+			modifier = {
+				num_of_cities = BAV
+				factor = 0
+			}
+			modifier = {
+				BAV = { is_emperor = yes }
+				factor = 3
+			}
+			modifier = {
+				BAV = { has_country_flag = previous_bohemian_king }
+				factor = 1.5
+			}
+			modifier = {
+				NOT = { religion = catholic }
+				BAV = {
+					has_country_modifier = counter_reformation
+					NOT = { has_country_flag = forcibly_reclaimed_bohemia }
+				}
+				factor = 0
+			}
+		}
+		name = "vef_bohcrown.3.opte"
+		BAV = { create_subject = { who = BOH subject_type = bohemian_union }}
+		hidden_effect = {
+			every_known_country = { clr_country_flag = previous_bohemian_king }
+			BAV = { change_variable = { which = bohemian_elections value = 1 } }
+			every_country = {
+				limit = {
+					NOT = { tag = BAV }
+					check_variable = { which = bohemian_elections value = 1 }
+				}
+				change_variable = { which = bohemian_elections value = -1 }
+			}
+		}
+	}
+	
+	option = {	# Local Noble (Independence )
+		ai_chance = {
+			factor = 5
+			modifier = {
+				num_of_cities = 12
+				factor = 20
+			}
+		}
+		name = "vef_bohcrown.3.optd"
+		add_government_reform = elective_monarchy
+		define_ruler = {}
+		hidden_effect = {
+			every_known_country = { clr_country_flag = previous_bohemian_king }
+			every_country = {
+				limit = { check_variable = { which = bohemian_elections value = 1 }}
+				change_variable = { which = bohemian_elections value = -1 }
+			}
+		}
+	}
+}
+
+# Bohemians break free
+country_event = {
+   id = vef_bohcrown.4
+   title = "vef_bohcrown.4.t"
+   desc = "vef_bohcrown.4.d"
+   picture = VEF_ELECTION_REPUBLICAN_eventPicture
+   
+	trigger = {
+		tag = BOH
+		is_lesser_in_union = yes
+		OR = {
+			religion = hussite
+			religion = protestant
+			religion = reformed
+			religion = anabaptist
+		}
+		overlord = { has_country_modifier = counter_reformation }
+	}
+	
+	mean_time_to_happen = { months = 24 }
+	
+	option = {
+		trigger = {
+			any_known_country = {
+				is_emperor = yes
+				NOT = { religion = catholic }
+			}
+		}
+		ai_chance = { factor = 60 }
+		name = "vef_bohcrown.4.opta"
+		if = {
+			limit = { overlord = { check_variable = { which = bohemian_elections value = 3 }}}
+			every_known_country = {
+				limit = {
+					is_emperor = yes
+				}
+				country_event = { id = vef_bohcrown.5 days = 1 }
+			}
+		}
+		if = {
+			limit = { overlord = { NOT = { check_variable = { which = bohemian_elections value = 3 }}}}
+			every_known_country = {
+				limit = {
+					is_emperor = yes
+				}
+				country_event = { id = vef_bohcrown.6 days = 1 }
+			}
+		}
+		overlord = {
+			break_union = BOH
+			set_country_flag = bohemia_left_us
+		}
+		every_country = {
+			limit = { war_with = BOH }
+			white_peace = BOH
+		}
+		emperor = { create_subject = { who = BOH subject_type = bohemian_union }}
+	}
+	
+	option = {
+		trigger = {
+			exists = PAL
+			PAL = {
+				is_elector = yes
+				is_subject = no
+				OR = {
+					religion = hussite
+					religion = protestant
+					religion = reformed
+					religion = anabaptist
+				}
+			}
+		}
+		ai_chance = { factor = 20 }
+		name = "vef_bohcrown.4.optb"
+		if = {
+			limit = { overlord = { check_variable = { which = bohemian_elections value = 3 }}}
+			PAL = { country_event = { id = vef_bohcrown.5 days = 1 }}
+		}
+		if = {
+			limit = { overlord = { NOT = { check_variable = { which = bohemian_elections value = 3 }}}}
+			PAL = { country_event = { id = vef_bohcrown.6 days = 1 }}
+		}
+		overlord = {
+			break_union = BOH
+			set_country_flag = bohemia_left_us
+		}
+		every_country = {
+			limit = { war_with = BOH }
+			white_peace = BOH
+		}
+		PAL = { create_subject = { who = BOH subject_type = bohemian_union }}
+	}
+	
+	option = {
+		trigger = {
+			exists = SAX
+			SAX = {
+				is_elector = yes
+				is_subject = no
+				OR = {
+					religion = hussite
+					religion = protestant
+					religion = reformed
+					religion = anabaptist
+				}
+			}
+		}
+		ai_chance = { factor = 10 }
+		name = "vef_bohcrown.4.optc"
+		if = {
+			limit = { overlord = { check_variable = { which = bohemian_elections value = 3 }}}
+			SAX = { country_event = { id = vef_bohcrown.5 days = 1 }}
+		}
+		if = {
+			limit = { overlord = { NOT = { check_variable = { which = bohemian_elections value = 3 }}}}
+			SAX = { country_event = { id = vef_bohcrown.6 days = 1 }}
+		}
+		overlord = {
+			break_union = BOH
+			set_country_flag = bohemia_left_us
+		}
+		every_country = {
+			limit = { war_with = BOH }
+			white_peace = BOH
+		}
+		SAX = { create_subject = { who = BOH subject_type = bohemian_union }}
+	} 
+	
+	option = {
+		trigger = {
+			exists = PRU
+			PRU = {
+				is_subject = no
+				OR = {
+					religion = hussite
+					religion = protestant
+					religion = reformed
+					religion = anabaptist
+				}
+			}
+		}
+		ai_chance = { factor = 10 }
+		name = "vef_bohcrown.4.optd"
+		if = {
+			limit = { overlord = { check_variable = { which = bohemian_elections value = 3 }}}
+			PRU = { country_event = { id = vef_bohcrown.5 days = 1 }}
+		}
+		if = {
+			limit = { overlord = { NOT = { check_variable = { which = bohemian_elections value = 3 }}}}
+			PRU = { country_event = { id = vef_bohcrown.6 days = 1 }}
+		}
+		overlord = {
+			break_union = BOH
+			set_country_flag = bohemia_left_us
+		}
+		every_country = {
+			limit = { war_with = BOH }
+			white_peace = BOH
+		}
+		PRU = { create_subject = { who = BOH subject_type = bohemian_union }}
+	}
+	
+	option = {
+		trigger = {
+			exists = BRA
+			BRA = {
+				is_elector = yes
+				is_subject = no
+				OR = {
+					religion = hussite
+					religion = protestant
+					religion = reformed
+					religion = anabaptist
+				}
+			}
+		}
+		ai_chance = { factor = 10 }
+		name = "vef_bohcrown.4.opte"
+		if = {
+			limit = { overlord = { check_variable = { which = bohemian_elections value = 3 }}}
+			BRA = { country_event = { id = vef_bohcrown.5 days = 1 }}
+		}
+		if = {
+			limit = { overlord = { NOT = { check_variable = { which = bohemian_elections value = 3 }}}}
+			BRA = { country_event = { id = vef_bohcrown.6 days = 1 }}
+		}
+		overlord = {
+			break_union = BOH
+			set_country_flag = bohemia_left_us
+		}
+		every_country = {
+			limit = { war_with = BOH }
+			white_peace = BOH
+		}
+		BRA = { create_subject = { who = BOH subject_type = bohemian_union }}
+	} 
+	
+	option = {
+		ai_chance = { factor = 1 }
+		name = "vef_bohcrown.4.optf"
+		if = {
+			limit = { overlord = { check_variable = { which = bohemian_elections value = 3 }}}
+			overlord = { country_event = { id = vef_bohcrown.9 days = 1 }}
+		}
+		if = {
+			limit = { overlord = { NOT = { check_variable = { which = bohemian_elections value = 3 }}}}
+			overlord = { country_event = { id = vef_bohcrown.10 days = 1 }}
+		}
+		overlord = { break_union = BOH }
+		every_country = {
+			limit = { war_with = BOH }
+			white_peace = BOH
+		}
+		add_government_reform = elective_monarchy
+	}
+}
+
+# Bohemians break free - Overlord has claim; new overlord accepts?
+country_event = {
+   id = vef_bohcrown.5
+   title = "vef_bohcrown.5.t"
+   desc = "vef_bohcrown.5.d"
+   picture = VEF_ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_bohcrown.5.opta"
+		every_country = {
+			limit = { has_country_flag = bohemia_left_us }
+			country_event = { id = vef_bohcrown.7 days = 1 }
+		}
+	}
+	
+	option = {
+		ai_chance = { factor = 0 }
+		name = "vef_bohcrown.5.optb"
+		every_country = {
+			limit = { has_country_flag = bohemia_left_us }
+			country_event = { id = vef_bohcrown.9 days = 1 }
+		}
+		break_union = BOH
+		BOH = { add_government_reform = elective_monarchy }
+	}
+}
+
+# Bohemians break free - Overlord without claim; new overlord accepts?
+country_event = {
+   id = vef_bohcrown.6
+   title = "vef_bohcrown.6.t"
+   desc = "vef_bohcrown.6.d"
+   picture = VEF_ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_bohcrown.6.opta"
+		every_country = {
+			limit = { has_country_flag = bohemia_left_us }
+			country_event = { id = vef_bohcrown.8 days = 1 }
+		}
+	}
+	
+	option = {
+		ai_chance = { factor = 0 }
+		name = "vef_bohcrown.6.optb"
+		every_country = {
+			limit = { has_country_flag = bohemia_left_us }
+			country_event = { id = vef_bohcrown.10 days = 1 }
+		}
+		break_union = BOH
+		BOH = { add_government_reform = elective_monarchy }
+	}
+}
+
+# Bohemians break free - new overlord; old overlord declares war?
+country_event = {
+   id = vef_bohcrown.7
+   title = "vef_bohcrown.7.t"
+   desc = "vef_bohcrown.7.d"
+   picture = VEF_ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = { clr_country_flag = bohemia_left_us }
+
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_bohcrown.7.opta"
+		declare_war_with_cb = {
+			who = BOH
+			casus_belli = cb_restore_personal_union
+		}
+		set_country_flag = reconquering_bohemia
+	}
+	
+	option = {
+		ai_chance = { factor = 0 }
+		name = "vef_bohcrown.7.optb"
+		add_prestige = -5
+	}
+}
+
+# Bohemians break free - new overlord; old overlord notified
+country_event = {
+   id = vef_bohcrown.8
+   title = "vef_bohcrown.8.t"
+   desc = "vef_bohcrown.8.d"
+   picture = VEF_ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_bohcrown.8.opta"
+		add_prestige = -5
+	}
+}
+
+# Bohemians break free - old overlord declares war?
+country_event = {
+   id = vef_bohcrown.9
+   title = "vef_bohcrown.9.t"
+   desc = "vef_bohcrown.9.d"
+   picture = VEF_ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = { clr_country_flag = bohemia_left_us }
+
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_bohcrown.9.opta"
+		declare_war_with_cb = {
+			who = BOH
+			casus_belli = cb_restore_personal_union
+		}
+	}
+	
+	option = {
+		ai_chance = { factor = 0 }
+		name = "vef_bohcrown.9.optb"
+		add_prestige = -5
+	}
+}
+
+# Bohemians break free - old overlord notified
+country_event = {
+   id = vef_bohcrown.10
+   title = "vef_bohcrown.10.t"
+   desc = "vef_bohcrown.10.d"
+   picture = VEF_ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_bohcrown.10.opta"
+		add_prestige = -5
+	}
+}
+
+# Bohemians break free - old overlord succeeds
+country_event = {
+   id = vef_bohcrown.11
+   title = "vef_bohcrown.11.t"
+   desc = "vef_bohcrown.11.d"
+   picture = VEF_ELECTION_REPUBLICAN_eventPicture
+
+	trigger = {
+		has_country_flag = reconquering_bohemia
+		266 = { controlled_by = ROOT }
+		war_score = 50
+	}
+
+	option = {
+		ai_chance = { factor = 100 }
+		name = "vef_bohcrown.11.opta"
+		add_prestige = 10
+		white_peace = BOH
+		create_subject = { who = BOH subject_type = bohemian_union }
+		set_country_flag = forcibly_reclaimed_bohemia
+	}
+}
+
+# Poland - Treaty of Trentschin
+country_event = {
+   id = vef_bohcrown.101
+   title = "vef_bohcrown.101.t"
+   desc = "vef_bohcrown.101.d"
+   picture = VEF_ELECTION_REPUBLICAN_eventPicture
+   
+   fire_only_once = yes
+ 
+ 	trigger = {
+ 		tag = POL
+ 		is_year = 1335
+ 		NOT = { has_global_flag = treaty_trentschin }
+ 	}
+ 	
+ 	option = {
+ 		ai_chance = {
+ 			factor = 99
+ 			modifier = {
+ 				OR = {
+ 					478 = { owned_by = ROOT }
+ 					479 = { owned_by = ROOT }
+ 					480 = { owned_by = ROOT }
+ 					481 = { owned_by = ROOT }
+ 				}
+ 				factor = 0
+ 			}
+ 		}
+ 		name = "vef_bohcrown.101.opta"
+ 		set_global_flag = treaty_trentschin
+ 		478 = { remove_core = POL }
+ 		479 = { remove_core = POL }
+ 		480 = { remove_core = POL }
+ 		481 = { remove_core = POL }
+ 		add_prestige = -5
+ 		add_national_stability_or_adm_power = yes
+ 		BOH = { country_event = { id = vef_bohcrown.102 days = 3 }}
+ 	}
+ 	
+ 	option = {
+ 		ai_chance = { factor = 1 }
+ 		name = "vef_bohcrown.101.optb"
+ 		add_prestige = 5
+ 	}
+}
+
+# Inform Bohemians
+country_event = {
+   id = vef_bohcrown.102
+   title = "vef_bohcrown.102.t"
+   desc = "vef_bohcrown.102.d"
+   picture = VEF_ELECTION_REPUBLICAN_eventPicture
+   
+   is_triggered_only = yes
+   
+   option = {
+		name = "vef_bohcrown.102.opta"
+		add_prestige = 5
+   }
+}
+
+# Create Silesia
+country_event = {
+	id = vef_bohcrown.103
+	title = "vef_bohcrown.103.t"
+	desc = "vef_bohcrown.103.d"
+	picture = VEF_ELECTION_REPUBLICAN_eventPicture
+   
+	fire_only_once = yes
+   
+	trigger = {
+		BOH = {
+			is_subject_of = ROOT
+			ai = yes
+   			OR = {
+   				owns = 478
+   				owns = 479
+   				owns = 480
+   				owns = 481
+   			}
+   		}
+  	 	NOT = { exists = SIL }
+  	}
+   
+   option = {	# Set up Silesia as a Bohemian vassal
+   	ai_chance = { factor = 100 }
+		name = "vef_bohcrown.103.opta"
+		478 = { add_core = SIL }
+		479 = { add_core = SIL }
+		480 = { add_core = SIL }
+		481 = { add_core = SIL }
+		BOH = { create_vassal = SIL }
+		SIL = { every_owned_province = { remove_core = BOH }}
+		SIL = { remove_opinion = { who = BOH modifier = released_vassal }}
+   }
+   
+	option = {	# Not in our interests
+		ai_chance = { factor = 0 }
+		name = "vef_bohcrown.103.optb"
+	}
+}
+
+# Expand Silesia
+country_event = {
+   id = vef_bohcrown.104
+   title = "vef_bohcrown.104.t"
+   desc = "vef_bohcrown.104.d"
+   picture = VEF_ELECTION_REPUBLICAN_eventPicture
+   
+	trigger = {
+		BOH = {
+   			is_subject_of = ROOT
+   			OR = {
+   				owns = 478
+   				owns = 479
+   				owns = 480
+   				owns = 481
+			}
+		}
+	   exists = SIL
+	   OR = {
+	   		SIL = { is_subject_of = BOH }
+	   		SIL = { is_subject_of = ROOT }
+	   	}
+	}
+   
+	option = {	# Add Territory to Silesia
+   		ai_chance = { factor = 100 }
+		name = "vef_bohcrown.104.opta"
+		BOH = {
+			every_owned_province = { 
+				limit = { is_core = SIL }
+				cede_province = SIL
+				remove_core = BOH
+			}
+		}
+	}
+}
+
+# Take Silesia
+country_event = {
+   id = vef_bohcrown.105
+   title = "vef_bohcrown.105.t"
+   desc = "vef_bohcrown.105.d"
+   picture = VEF_ELECTION_REPUBLICAN_eventPicture
+   
+   fire_only_once = yes
+ 
+ 	trigger = {
+ 		BOH = { is_subject_of = ROOT }
+ 		SIL = {
+ 			is_subject_of = BOH
+			is_subject_of_type = dominion
+ 		}
+ 	}
+   
+   option = {
+		name = "vef_bohcrown.105.opta"
+		BOH = { free_vassal = SIL }
+		vassalize = SIL
+   }
+   
+   option = {
+		name = "vef_bohcrown.105.optb"
+   }
+}
+
+# Keep POL and BOH from fighting if both subject to same overlord
+country_event = {
+   id = vef_bohcrown.106
+   title = "vef_bohcrown.106.t"
+   desc = "vef_bohcrown.106.d"
+   picture = VEF_ELECTION_REPUBLICAN_eventPicture
+   
+   fire_only_once = yes
+   
+	trigger = {
+		BOH = { is_subject_of = ROOT }
+		POL = { is_subject_of = ROOT }
+		NOT = { has_global_flag = treaty_trentschin }
+	}
+	
+	immediate = { set_global_flag = treaty_trentschin }
+	
+	option = {	# Silesia to Bohemia
+		name = "vef_bohcrown.106.opta"
+		478 = { remove_core = POL }
+		479 = { remove_core = POL }
+		480 = { remove_core = POL }
+		481 = { remove_core = POL }
+	}
+	
+	option = {	# Silesia to Poland
+		name = "vef_bohcrown.106.optb"
+		478 = { remove_core = BOH }
+		479 = { remove_core = BOH }
+		480 = { remove_core = BOH }
+		481 = { remove_core = BOH }
+	}
+}

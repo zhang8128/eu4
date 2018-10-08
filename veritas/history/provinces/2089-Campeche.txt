@@ -1,0 +1,29 @@
+# Campeche
+
+capital = "Campeche"
+owner = XIU
+controller = XIU
+add_core = XIU
+culture = yucatec 
+religion = popol  
+trade_goods = sugar 
+base_tax = 3
+base_production = 3
+base_manpower = 4
+is_city = yes
+hre = no
+
+discovered_by = mesoamerican
+
+1450.1.1  = { citysize = 3900 }
+1500.1.1  = { citysize = 4560 }
+1519.1.1  = { discovered_by = SPA } # Hernán Cortés 
+1542.1.23  = { owner = SPA controller = SPA citysize = 5250 culture = castillian religion = catholic } # the lord of Mani submits peacefully to the Spanish and converts
+1567.1.1  = { add_core = SPA }
+1600.1.1  = { citysize = 7570 } 
+1650.1.1  = { citysize = 8132 } 
+1686.1.1  = { is_city = yes } # The city is fortified against buccaneers & pirates 
+1700.1.1  = { citysize = 8620 } 
+1750.1.1  = { citysize = 10800 }
+1800.1.1  = { citysize = 9708 }
+1810.9.16 = { owner = MEX add_core = MEX controller = SPA } # Mexican War of Independence

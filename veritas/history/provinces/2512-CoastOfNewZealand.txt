@@ -1,0 +1,4 @@
+# Coast Of New Zealand
+#Province IDs changed
+discovered_by = pacific_islander
+1642.1.1 = { discovered_by = NED } # Abel Tasman
